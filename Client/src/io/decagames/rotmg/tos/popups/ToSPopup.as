@@ -1,0 +1,26 @@
+﻿// Decompiled by AS3 Sorcerer 1.40
+// http://www.as3sorcerer.com/
+
+//io.decagames.rotmg.tos.popups.ToSPopup
+
+package io.decagames.rotmg.tos.popups{
+    import io.decagames.rotmg.ui.popups.modal.TextModal;
+    import io.decagames.rotmg.ui.buttons.BaseButton;
+    import io.decagames.rotmg.tos.popups.buttons.RefuseButton;
+    import io.decagames.rotmg.tos.popups.buttons.AcceptButton;
+    import com.company.assembleegameclient.parameters.Parameters;
+
+    public class ToSPopup extends TextModal {
+
+        public function ToSPopup(){
+            var _local1:Vector.<BaseButton> = new Vector.<BaseButton>();
+            _local1.push(new RefuseButton());
+            _local1.push(new AcceptButton());
+            var _local2 = (('<font color="#7777EE"><a href="' + Parameters.TERMS_OF_USE_URL) + '" target="_blank">Terms of Service</a></font>');
+            var _local3 = (('<font color="#7777EE"><a href="' + Parameters.PRIVACY_POLICY_URL) + '" target="_blank">Privacy Policy</a></font>');
+            super(400, "Update to Terms of Service and Privacy", (((((((("We have updated our " + _local2) + " and ") + _local3) + " to be compliant with the new European regulations regarding data privacy and make them clearer for you to understand.") + "\n\n") + "You need to review and accept our Terms of Service and Privacy Policy in order to be able to continue playing Realm of the Mad God.") + "\n\n") + "By clicking accept you hereby confirm that you are at least 16 years old."), _local1, true);
+        }
+
+    }
+}//package io.decagames.rotmg.tos.popups
+
