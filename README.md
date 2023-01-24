@@ -18,6 +18,7 @@ This repository is a fresh base for people to start with, i have only made a few
 - [ ] Change the message datatypes to be simpler to understand for newbies
 - [ ] Fix any remaining bugs
 - [ ] Create a simplistic base Server Side API and GameServer
+- [ ] Try unobfuscate local variables where i can
 
 # Requirements
 - Visual Studio 2021
