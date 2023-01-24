@@ -11,6 +11,7 @@ This repository is a fresh base for people to start with, i have only made a few
 - [ ] Remove age verification completely
 - [ ] Remove verified verification checks completely
 - [ ] Remove Steam, Kongregate and Kabam account support
+- [ ] Remove DECA Migration
 - [ ] Remove Google Analytics
 - [ ] Cleanup the code
 - [ ] Remove Redundant Obsolite Features
