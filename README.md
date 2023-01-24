@@ -5,7 +5,7 @@ This repository is a fresh base for people to start with, i have only made a few
 - Changed the assets to include xml, images and model folders
 - Changed the way embedding assets works, no longer using many .as files and embedding in EmbeddedData.as and AssetLoader.as
 
-# TODO
+# Client TODO
 - [ ] Fix graphics data
 - [ ] Fix missing assets
 - [ ] Remove age verification completely
@@ -17,8 +17,16 @@ This repository is a fresh base for people to start with, i have only made a few
 - [ ] Remove Redundant Obsolite Features
 - [ ] Change the message datatypes to be simpler to understand for newbies
 - [ ] Fix any remaining bugs
-- [ ] Create a simplistic base Server Side API and GameServer
 - [ ] Try unobfuscate local variables where i can
+- [ ] Remove redundant elements for endpoint /char/list
+
+# Backend TODO
+
+## API
+- [ ] Create a bare minimum Server Side API using ASP.NET
+
+## GameServer
+- [ ] Create a bare minimum GameServer
 
 # Requirements
 - Visual Studio 2021
