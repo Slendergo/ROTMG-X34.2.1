@@ -9,11 +9,11 @@ This repository is a fresh base for people to start with, i have only made a few
 - [ ] Fix graphics data
 - [ ] Fix missing assets
 - [ ] Remove Google Analytics
-- [ ] Fix Remaining Bugs
 - [ ] Cleanup the Code
 - [ ] Remove Redundant Obsolite Features
 - [ ] Change the message datatypes to be simpler to understand for newbies
-- [ ] Create a base Server Side API and GameServer
+- [ ] Fix Remaining Bugs
+- [ ] Create a simplistic base Server Side API and GameServer
 
 # Requirements
 - Visual Studio 2021
