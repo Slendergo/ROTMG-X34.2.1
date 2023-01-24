@@ -9,10 +9,10 @@ This repository is a fresh base for people to start with, i have only made a few
 - [ ] Fix graphics data
 - [ ] Fix missing assets
 - [ ] Remove Google Analytics
-- [ ] Cleanup the Code
+- [ ] Cleanup the code
 - [ ] Remove Redundant Obsolite Features
 - [ ] Change the message datatypes to be simpler to understand for newbies
-- [ ] Fix Remaining Bugs
+- [ ] Fix any remaining bugs
 - [ ] Create a simplistic base Server Side API and GameServer
 
 # Requirements
