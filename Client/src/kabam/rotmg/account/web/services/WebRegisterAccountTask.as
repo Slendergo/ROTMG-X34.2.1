@@ -50,7 +50,8 @@ package kabam.rotmg.account.web.services{
             if (this.data.name){
                 this.model.setName(this.data.name);
                 this.model.isNameChosen = true;
-            };
+            }
+
             var _local2:XML = new XML(_arg1);
             if (_local2.hasOwnProperty("token")){
                 this.data.token = _local2.token;
@@ -58,7 +59,7 @@ package kabam.rotmg.account.web.services{
             }
             else {
                 this.account.updateUser(this.data.username, this.data.password, "");
-            };
+            }
         }
 
 

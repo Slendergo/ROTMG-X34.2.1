@@ -108,6 +108,7 @@ package com.company.assembleegameclient.appengine{
             Player.isAdmin = this.isAdmin_;
             Player.isMod = _arg1.hasOwnProperty("Mod");
             this.canMapEdit_ = _arg1.hasOwnProperty("MapEditor");
+
             this.totalFame_ = int(_arg1.Stats.TotalFame);
             this.bestCharFame_ = int(_arg1.Stats.BestCharFame);
             this.fame_ = int(_arg1.Stats.Fame);
@@ -152,7 +153,7 @@ package com.company.assembleegameclient.appengine{
             for each (_local1 in this.charsXML_.Char) {
                 this.savedChars_.push(new SavedCharacter(_local1, this.name_));
                 this.numChars_++;
-            };
+            }
             this.savedChars_.sort(SavedCharacter.compare);
         }
 
@@ -166,7 +167,7 @@ package com.company.assembleegameclient.appengine{
                 _local4 = new CharacterStats(_local2);
                 this.numStars_ = (this.numStars_ + _local4.numStars());
                 this.charStats_[_local3] = _local4;
-            };
+            }
         }
 
         private function parseNewsData():void{

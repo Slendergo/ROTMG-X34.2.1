@@ -18,8 +18,7 @@ package com.company.assembleegameclient.ui{
 
     public class Scrollbar extends Sprite {
 
-        private const graphicsData_:Vector.<IGraphicsData> = new <flash.display.IGraphicsData>[backgroundFill_, path_, com.company.util.GraphicsUtil.END_FILL];
-
+        private var graphicsData_:Vector.<IGraphicsData>;
         private var width_:int;
         private var height_:int;
         private var speed_:Number;
@@ -38,6 +37,7 @@ package com.company.assembleegameclient.ui{
         public function Scrollbar(_arg1:int, _arg2:int, _arg3:Number=1, _arg4:Sprite=null){
             this.backgroundFill_ = new GraphicsSolidFill(0xFFFFFF, 1);
             this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
+            this.graphicsData_ = new <flash.display.IGraphicsData>[backgroundFill_, path_, com.company.util.GraphicsUtil.END_FILL];
             super();
             this.target_ = _arg4;
             this.background_ = new Sprite();

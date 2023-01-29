@@ -29,8 +29,7 @@ package com.company.assembleegameclient.map.mapoverlay{
 
     public class SpeechBalloon extends Sprite implements IMapOverlayElement {
 
-        private const graphicsData_:Vector.<IGraphicsData> = new <flash.display.IGraphicsData>[lineStyle_, backgroundFill_, path_, com.company.util.GraphicsUtil.END_FILL, com.company.util.GraphicsUtil.END_STROKE];
-
+        private var graphicsData_:Vector.<IGraphicsData>;
         public var go_:GameObject;
         public var lifetime_:int;
         public var hideable_:Boolean;
@@ -51,6 +50,7 @@ package com.company.assembleegameclient.map.mapoverlay{
             this.outlineFill_ = new GraphicsSolidFill(0xFFFFFF, 1);
             this.lineStyle_ = new GraphicsStroke(2, false, LineScaleMode.NORMAL, CapsStyle.NONE, JointStyle.ROUND, 3, this.outlineFill_);
             this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
+            this.graphicsData_ = new <flash.display.IGraphicsData>[lineStyle_, backgroundFill_, path_, com.company.util.GraphicsUtil.END_FILL, com.company.util.GraphicsUtil.END_STROKE];
             super();
             this.go_ = _arg1;
             this.senderName = _arg3;

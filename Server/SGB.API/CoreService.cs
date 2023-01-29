@@ -11,6 +11,8 @@ namespace SGB.API
     {
         private readonly IWebHostEnvironment WebHostingEnvronment;
 
+        public string ResourcePath { get; private set; }
+
         public CoreService(IConfiguration configuration, IWebHostEnvironment webHostingEnvronment)
         {
             WebHostingEnvronment = webHostingEnvronment;
@@ -35,10 +37,9 @@ namespace SGB.API
             
             RedisService.Configure(configurationString, databaseIndex);
 
-            var resourcePath = configuration.GetConnectionString("resourcesPath");
+            ResourcePath = $"{Environment.CurrentDirectory}/{configuration.GetConnectionString("resourcesPath")}";
 
             // resources might not be needed to do stuff?
-
             //Resources.Configure(resourcePath);
         }
 

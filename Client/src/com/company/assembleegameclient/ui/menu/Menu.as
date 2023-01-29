@@ -23,8 +23,7 @@ package com.company.assembleegameclient.ui.menu{
 
     public class Menu extends Sprite implements UnFocusAble {
 
-        private const graphicsData_:Vector.<IGraphicsData> = new <flash.display.IGraphicsData>[lineStyle_, backgroundFill_, path_, com.company.util.GraphicsUtil.END_FILL, com.company.util.GraphicsUtil.END_STROKE];
-
+        private var graphicsData_:Vector.<IGraphicsData>;
         private var backgroundFill_:GraphicsSolidFill;
         private var outlineFill_:GraphicsSolidFill;
         private var lineStyle_:GraphicsStroke;
@@ -38,6 +37,7 @@ package com.company.assembleegameclient.ui.menu{
             this.outlineFill_ = new GraphicsSolidFill(0, 1);
             this.lineStyle_ = new GraphicsStroke(1, false, LineScaleMode.NORMAL, CapsStyle.NONE, JointStyle.ROUND, 3, this.outlineFill_);
             this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
+            this.graphicsData_ = new <flash.display.IGraphicsData>[lineStyle_, backgroundFill_, path_, com.company.util.GraphicsUtil.END_FILL, com.company.util.GraphicsUtil.END_STROKE];
             super();
             this.background_ = _arg1;
             this.outline_ = _arg2;

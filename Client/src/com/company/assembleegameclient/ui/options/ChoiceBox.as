@@ -26,8 +26,7 @@ package com.company.assembleegameclient.ui.options{
         public static const WIDTH:int = 80;
         public static const HEIGHT:int = 32;
 
-        private const graphicsData_:Vector.<IGraphicsData> = new <flash.display.IGraphicsData>[internalFill_, lineStyle_, path_, com.company.util.GraphicsUtil.END_STROKE, com.company.util.GraphicsUtil.END_FILL];
-
+        private var graphicsData_:Vector.<IGraphicsData>;
         public var labels_:Vector.<StringBuilder>;
         public var values_:Array;
         public var selectedIndex_:int = -1;
@@ -46,6 +45,7 @@ package com.company.assembleegameclient.ui.options{
             this.normalLineFill_ = new GraphicsSolidFill(0x444444, 1);
             this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
             this.lineStyle_ = new GraphicsStroke(2, false, LineScaleMode.NORMAL, CapsStyle.NONE, JointStyle.ROUND, 3, this.normalLineFill_);
+            this.graphicsData_ = new <flash.display.IGraphicsData>[internalFill_, lineStyle_, path_, com.company.util.GraphicsUtil.END_STROKE, com.company.util.GraphicsUtil.END_FILL];
             super();
             this.color = _arg4;
             this.labels_ = _arg1;

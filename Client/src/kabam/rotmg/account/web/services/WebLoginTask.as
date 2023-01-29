@@ -31,7 +31,7 @@ package kabam.rotmg.account.web.services{
         private function onComplete(_arg1:Boolean, _arg2):void{
             if (_arg1){
                 this.updateUser(_arg2);
-            };
+            }
             completeTask(_arg1, _arg2);
         }
 

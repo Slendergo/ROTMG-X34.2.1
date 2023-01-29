@@ -97,7 +97,7 @@ package com.company.assembleegameclient.screens{
         public function unlock():void{
             var _local1:Sprite;
             var _local2:GTween;
-            if (this.available_ == false){
+            if (!this.available_){
                 this.available_ = true;
                 this.graphicContainer_.removeChild(this.graphic_);
                 this.graphic_ = new FullCharBoxGraphic();
@@ -136,13 +136,14 @@ package com.company.assembleegameclient.screens{
         public function setOver(_arg1:Boolean):void{
             if (!this.available_){
                 return;
-            };
+            }
+
             if (_arg1){
                 transform.colorTransform = new ColorTransform(1.2, 1.2, 1.2);
             }
             else {
                 transform.colorTransform = new ColorTransform(1, 1, 1);
-            };
+            }
         }
 
         private function removeUnlockText(_arg1:GTween):void{

@@ -1,0 +1,23 @@
+﻿<AppSettings>
+  <UseExternalPayments>1</UseExternalPayments>
+  <MaxStackablePotions>6</MaxStackablePotions>
+  <PotionPurchaseCooldown>400</PotionPurchaseCooldown>
+  <PotionPurchaseCostCooldown>8000</PotionPurchaseCostCooldown>
+  <PotionPurchaseCosts>
+    <cost>5</cost>
+    <cost>10</cost>
+    <cost>20</cost>
+    <cost>40</cost>
+    <cost>80</cost>
+    <cost>120</cost>
+    <cost>200</cost>
+    <cost>300</cost>
+    <cost>450</cost>
+    <cost>600</cost>
+  </PotionPurchaseCosts>
+  <FilterList>
+  </FilterList>
+  <MysteryBoxRefresh>180</MysteryBoxRefresh>
+  <SalesforceMobile>0</SalesforceMobile>
+  <UGDOpenSubmission>0</UGDOpenSubmission>
+</AppSettings>

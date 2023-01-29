@@ -25,8 +25,7 @@ package com.company.assembleegameclient.tutorial{
 
         public static const BORDER:int = 8;
 
-        private const graphicsData_:Vector.<IGraphicsData> = new <flash.display.IGraphicsData>[lineStyle_, fill_, path_, com.company.util.GraphicsUtil.END_FILL, com.company.util.GraphicsUtil.END_STROKE];
-
+        private var graphicsData_:Vector.<IGraphicsData>;
         private var tutorial_:Tutorial;
         private var rect_:Rectangle;
         private var messageText_:TextFieldDisplayConcrete;
@@ -40,6 +39,7 @@ package com.company.assembleegameclient.tutorial{
             this.fill_ = new GraphicsSolidFill(0x363636, 1);
             this.lineStyle_ = new GraphicsStroke(1, false, LineScaleMode.NORMAL, CapsStyle.NONE, JointStyle.ROUND, 3, new GraphicsSolidFill(0xFFFFFF));
             this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
+            this.graphicsData_ = new <flash.display.IGraphicsData>[lineStyle_, fill_, path_, com.company.util.GraphicsUtil.END_FILL, com.company.util.GraphicsUtil.END_STROKE];
             super();
             this.tutorial_ = _arg1;
             this.rect_ = _arg4.clone();

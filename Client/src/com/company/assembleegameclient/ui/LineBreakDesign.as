@@ -13,14 +13,14 @@ package com.company.assembleegameclient.ui{
 
     public class LineBreakDesign extends Shape {
 
-        private const designGraphicsData_:Vector.<IGraphicsData> = new <flash.display.IGraphicsData>[designFill_, designPath_, com.company.util.GraphicsUtil.END_FILL];
-
+        private var designGraphicsData_:Vector.<IGraphicsData>;
         private var designFill_:GraphicsSolidFill;
         private var designPath_:GraphicsPath;
 
         public function LineBreakDesign(_arg1:int, _arg2:uint){
             this.designFill_ = new GraphicsSolidFill(0xFFFFFF, 1);
             this.designPath_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>(), GraphicsPathWinding.NON_ZERO);
+            this.designGraphicsData_ = new <flash.display.IGraphicsData>[designFill_, designPath_, com.company.util.GraphicsUtil.END_FILL];
             super();
             this.setWidthColor(_arg1, _arg2);
         }

@@ -1,0 +1,156 @@
+﻿[
+  {
+    "slot": 7,
+    "linkType": 4,
+    "platform": "1,36,48,49",
+    "startTime": 1443571200000,
+    "title": "Support",
+    "image": "",
+    "endTime": 1446249600000,
+    "linkDetail": "<font size='+3'><p align='center'>Having some troubles in game or out? Have some ideas or feedback for the Game? Our door is always open, give Support a ring.</p>\r\n\r\n<p align='center'><a href=\"http://kabam.force.com/PKB/KbHome?gameid=a0Za000000jIBFUEA4\" target=\"_blank\">Realm of the Mad God Support</a></p></font>",
+    "priority": 936
+  },
+  {
+    "slot": 6,
+    "linkType": 4,
+    "platform": "1,36,48,49",
+    "startTime": 1443571200000,
+    "title": "Forums",
+    "image": "",
+    "endTime": 1446249600000,
+    "linkDetail": "<font size='+3'><p align='center'>Want to discuss the Game with fellow Players and keep up to date with any updates and events in the community?</p>\r\n\r\n<p align='center'><a href=\"http://community.kabam.com/forums/forumdisplay.php?1089-Realm-of-the-Mad-God\" target=\"_blank\">Check out the Forums for all of that Realmy goodness, here!</a></p></font>",
+    "priority": 938
+  },
+  {
+    "slot": 5,
+    "linkType": 4,
+    "platform": "1,36,48,49",
+    "startTime": 1443571200000,
+    "title": "RealmEye",
+    "image": "",
+    "endTime": 1446163200000,
+    "linkDetail": "<font size='+3'><p align='center'>Have you checked out RealmEye yet? Read up on the best Pets and Players, and check out the Wiki section to find tips and information about the Game!</p>\r\n\r\n<p align='center'><a href=\"http://www.realmeye.com/\" target=\"_blank\">http://www.realmeye.com/</a></p></font>",
+    "priority": 939
+  },
+  {
+    "slot": 4,
+    "linkType": 4,
+    "platform": "1,36,48,49",
+    "startTime": 1477526400000,
+    "title": "Hello",
+    "image": "",
+    "endTime": 1477569600000,
+    "linkDetail": "test",
+    "priority": 1043
+  },
+  {
+    "slot": 3,
+    "linkType": 4,
+    "platform": "rotmg,steam,kongregate",
+    "startTime": 1585900800000,
+    "title": "Caretaker's Stash",
+    "image": "https://storage.googleapis.com/rotmg_images_public/News/caretakersstashsallnews.png",
+    "endTime": 1586160000000,
+    "linkDetail": "Preview Html",
+    "priority": 2407
+  },
+  {
+    "slot": 2,
+    "linkType": 2,
+    "platform": "rotmg,steam,kongregate",
+    "startTime": 1585209600000,
+    "title": "Tamed Beasts Box/Pack",
+    "image": "https://storage.googleapis.com/rotmg_images_public/News/tamedbeastsboxsmallnews.png",
+    "endTime": 1585555200000,
+    "linkDetail": "23116",
+    "priority": 2445
+  },
+  {
+    "slot": 2,
+    "linkType": 2,
+    "platform": "rotmg,steam,kongregate",
+    "startTime": 1584604800000,
+    "title": "Holy Swordwielder Box/Pack",
+    "image": "https://storage.googleapis.com/rotmg_images_public/News/holyswordwielderboxsmallnews.png",
+    "endTime": 1584950400000,
+    "linkDetail": "23115",
+    "priority": 2446
+  },
+  {
+    "slot": 2,
+    "linkType": 2,
+    "platform": "rotmg,steam,kongregate",
+    "startTime": 1584921600000,
+    "title": "March Weekly Pack #4",
+    "image": "https://storage.googleapis.com/rotmg_images_public/Packages/march20weeklypack4smallnews.png",
+    "endTime": 1585526399000,
+    "linkDetail": "23112",
+    "priority": 2447
+  },
+  {
+    "slot": 1,
+    "linkType": 1,
+    "platform": "rotmg,steam,kongregate",
+    "startTime": 1584489600000,
+    "title": "Realm Exalt - Supporter Beta is live!",
+    "image": "https://storage.googleapis.com/rotmg_images_public/News/suppbetaGlobal_news.png",
+    "endTime": 1586347200000,
+    "linkDetail": "http://bit.ly/RealmExalt",
+    "priority": 2448
+  },
+  {
+    "slot": 1,
+    "linkType": 2,
+    "platform": "rotmg,steam,kongregate",
+    "startTime": 1583049601000,
+    "title": "Ambrosia Pentapack",
+    "image": "https://storage.googleapis.com/rotmg_images_public/Packages/ambrosiapentapack2bignewsv2.png",
+    "endTime": 1585728000000,
+    "linkDetail": "23105",
+    "priority": 2449
+  },
+  {
+    "slot": 1,
+    "linkType": 2,
+    "platform": "rotmg,steam,kongregate",
+    "startTime": 1583049601000,
+    "title": "March Monthly Pack",
+    "image": "https://storage.googleapis.com/rotmg_images_public/Packages/march20monthlypackbignews.png",
+    "endTime": 1585728000000,
+    "linkDetail": "23106",
+    "priority": 2450
+  },
+  {
+    "slot": 3,
+    "linkType": 1,
+    "platform": "rotmg,steam,kongregate",
+    "startTime": 1585180800000,
+    "title": "Event Whites x2 event",
+    "image": "https://storage.googleapis.com/rotmg_images_public/News/26marcheventssmallnews.png",
+    "endTime": 1585656000000,
+    "linkDetail": "https://bit.ly/doubleeventwhite",
+    "priority": 2451
+  },
+  {
+    "slot": 3,
+    "linkType": 2,
+    "platform": "rotmg,steam,kongregate",
+    "startTime": 1583049601000,
+    "title": "Vault Bundle Pack",
+    "image": "https://storage.googleapis.com/rotmg_images_public/Packages/vaultbundleIInews.png",
+    "endTime": 1585728000000,
+    "linkDetail": "23107",
+    "priority": 2452
+  },
+  {
+    "slot": 3,
+    "linkType": 4,
+    "platform": "rotmg,steam,kongregate",
+    "startTime": 1585296000000,
+    "title": "War STory Box II",
+    "image": "https://storage.googleapis.com/rotmg_images_public/News/warstory2boxsmallnews.png",
+    "endTime": 1585555200000,
+    "linkDetail": "",
+    "priority": 2453
+  }
+]

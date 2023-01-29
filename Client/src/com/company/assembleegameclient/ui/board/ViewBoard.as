@@ -30,8 +30,7 @@ package com.company.assembleegameclient.ui.board{
         public static const TEXT_HEIGHT:int = 400;
         private static const URL_REGEX:RegExp = /((https?|ftp):((\/\/)|(\\\\))+[\w\d:#@%\/;$()~_?\+-=\\\.&]*)/g;
 
-        private const graphicsData_:Vector.<IGraphicsData> = new <flash.display.IGraphicsData>[lineStyle_, backgroundFill_, path_, com.company.util.GraphicsUtil.END_FILL, com.company.util.GraphicsUtil.END_STROKE];
-
+        private var graphicsData_:Vector.<IGraphicsData>;
         private var text_:String;
         public var w_:int;
         public var h_:int;
@@ -50,6 +49,7 @@ package com.company.assembleegameclient.ui.board{
             this.outlineFill_ = new GraphicsSolidFill(0xFFFFFF, 1);
             this.lineStyle_ = new GraphicsStroke(2, false, LineScaleMode.NORMAL, CapsStyle.NONE, JointStyle.ROUND, 3, this.outlineFill_);
             this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
+            this.graphicsData_ = new <flash.display.IGraphicsData>[lineStyle_, backgroundFill_, path_, com.company.util.GraphicsUtil.END_FILL, com.company.util.GraphicsUtil.END_STROKE];
             super();
             this.text_ = _arg1;
             this.mainSprite_ = new Sprite();

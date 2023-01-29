@@ -30,8 +30,7 @@ package com.company.assembleegameclient.mapeditor{
         public static const HEIGHT:int = 430;
         public static const SCROLLBAR_WIDTH:int = 20;
 
-        private const graphicsData_:Vector.<IGraphicsData> = new <flash.display.IGraphicsData>[lineStyle_, backgroundFill_, path_, com.company.util.GraphicsUtil.END_FILL, com.company.util.GraphicsUtil.END_STROKE];
-
+        private var graphicsData_:Vector.<IGraphicsData>;
         public var layer_:int;
         public var selected_:Element;
         protected var elementContainer_:Sprite;
@@ -49,6 +48,7 @@ package com.company.assembleegameclient.mapeditor{
             this.lineStyle_ = new GraphicsStroke(1, false, LineScaleMode.NORMAL, CapsStyle.NONE, JointStyle.ROUND, 3, this.outlineFill_);
             this.backgroundFill_ = new GraphicsSolidFill(0x363636, 1);
             this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
+            this.graphicsData_ = new <flash.display.IGraphicsData>[lineStyle_, backgroundFill_, path_, com.company.util.GraphicsUtil.END_FILL, com.company.util.GraphicsUtil.END_STROKE];
             super();
             this.layer_ = _arg1;
             this.init();

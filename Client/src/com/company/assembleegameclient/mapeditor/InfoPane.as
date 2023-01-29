@@ -27,8 +27,7 @@ package com.company.assembleegameclient.mapeditor{
         public static const HEIGHT:int = 120;
         private static const CSS_TEXT:String = ".in { margin-left:10px; text-indent: -10px; }";
 
-        private const graphicsData_:Vector.<IGraphicsData> = new <flash.display.IGraphicsData>[lineStyle_, backgroundFill_, path_, com.company.util.GraphicsUtil.END_FILL, com.company.util.GraphicsUtil.END_STROKE];
-
+        private var graphicsData_:Vector.<IGraphicsData>;
         private var meMap_:MEMap;
         private var rectText_:BaseSimpleText;
         private var typeText_:BaseSimpleText;
@@ -42,6 +41,7 @@ package com.company.assembleegameclient.mapeditor{
             this.lineStyle_ = new GraphicsStroke(1, false, LineScaleMode.NORMAL, CapsStyle.NONE, JointStyle.ROUND, 3, this.outlineFill_);
             this.backgroundFill_ = new GraphicsSolidFill(0x363636, 1);
             this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
+            this.graphicsData_ = new <flash.display.IGraphicsData>[lineStyle_, backgroundFill_, path_, com.company.util.GraphicsUtil.END_FILL, com.company.util.GraphicsUtil.END_STROKE];
             super();
             this.meMap_ = _arg1;
             this.drawBackground();

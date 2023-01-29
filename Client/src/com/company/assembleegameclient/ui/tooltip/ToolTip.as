@@ -21,7 +21,7 @@ package com.company.assembleegameclient.ui.tooltip{
 
     public class ToolTip extends Sprite {
 
-        private const graphicsData_:Vector.<IGraphicsData> = new <flash.display.IGraphicsData>[lineStyle_, backgroundFill_, path_, com.company.util.GraphicsUtil.END_FILL, com.company.util.GraphicsUtil.END_STROKE];
+        private var graphicsData_:Vector.<IGraphicsData>;
         protected const waiter:SignalWaiter = new SignalWaiter();
 
         private var background_:uint;
@@ -44,6 +44,7 @@ package com.company.assembleegameclient.ui.tooltip{
             this.outlineFill_ = new GraphicsSolidFill(0xFFFFFF, 1);
             this.lineStyle_ = new GraphicsStroke(1, false, LineScaleMode.NORMAL, CapsStyle.NONE, JointStyle.ROUND, 3, this.outlineFill_);
             this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
+            this.graphicsData_ = new <flash.display.IGraphicsData>[lineStyle_, backgroundFill_, path_, com.company.util.GraphicsUtil.END_FILL, com.company.util.GraphicsUtil.END_STROKE];
             super();
             this.background_ = _arg1;
             this.backgroundAlpha_ = _arg2;

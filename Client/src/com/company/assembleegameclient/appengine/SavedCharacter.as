@@ -44,7 +44,7 @@ package com.company.assembleegameclient.appengine{
                 _local5 = StaticInjectorContext.getInjector().getInstance(PetsModel).getPetVO(_local4);
                 _local5.apply(_local3);
                 this.setPetVO(_local5);
-            };
+            }
         }
 
         public static function getImage(_arg1:SavedCharacter, _arg2:XML, _arg3:int, _arg4:int, _arg5:Number, _arg6:Boolean, _arg7:Boolean):BitmapData{
@@ -192,8 +192,6 @@ package com.company.assembleegameclient.appengine{
         public function setPetVO(_arg1:PetVO):void{
             this.pet = _arg1;
         }
-
-
     }
 }//package com.company.assembleegameclient.appengine
 

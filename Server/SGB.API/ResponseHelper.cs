@@ -37,7 +37,7 @@ namespace SGB.API
             await httpResponse.Body.WriteAsync(Encoding.UTF8.GetBytes(text));
         }
 
-        public static async void CreateXml(this HttpResponse httpResponse, string xml)
+        public static async void CreateXML(this HttpResponse httpResponse, string xml)
         {
             httpResponse.ContentType = "application/xml";
             await httpResponse.Body.WriteAsync(Encoding.UTF8.GetBytes(xml));

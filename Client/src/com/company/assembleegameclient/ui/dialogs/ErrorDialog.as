@@ -34,8 +34,7 @@ package com.company.assembleegameclient.ui.dialogs{
         public static const GREY:int = 0xB3B3B3;
         protected static const WIDTH:int = 300;
 
-        protected const graphicsData_:Vector.<IGraphicsData> = new <flash.display.IGraphicsData>[lineStyle_, backgroundFill_, path_, com.company.util.GraphicsUtil.END_FILL, com.company.util.GraphicsUtil.END_STROKE];
-
+        protected var graphicsData_:Vector.<IGraphicsData>;
         public var ok:Signal;
         public var box_:Sprite;
         public var rect_:Shape;
@@ -60,6 +59,7 @@ package com.company.assembleegameclient.ui.dialogs{
             this.lineStyle_ = new GraphicsStroke(1, false, LineScaleMode.NORMAL, CapsStyle.NONE, JointStyle.ROUND, 3, this.outlineFill_);
             this.backgroundFill_ = new GraphicsSolidFill(0x363636, 1);
             this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
+            this.graphicsData_ = new <flash.display.IGraphicsData>[lineStyle_, backgroundFill_, path_, com.company.util.GraphicsUtil.END_FILL, com.company.util.GraphicsUtil.END_STROKE];
             this.uiWaiter = new SignalWaiter();
             super();
             var _local2:String = ["An error has occured:", _arg1].join("\n");

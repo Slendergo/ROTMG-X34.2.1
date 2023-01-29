@@ -47,17 +47,17 @@ namespace SGB.API
                 app.UseSwaggerUI();
             }
 
-            //app.UseStaticFiles(new StaticFileOptions()
-            //{
-            //    FileProvider = new PhysicalFileProvider($"{resourcePath}/web/sfx"),
-            //    RequestPath = "/sfx"
-            //});
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider($"{core.ResourcePath}/sfx"),
+                RequestPath = "/sfx"
+            });
 
-            //app.UseStaticFiles(new StaticFileOptions()
-            //{
-            //    FileProvider = new PhysicalFileProvider($"{resourcePath}/web/music"),
-            //    RequestPath = "/music"
-            //});
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider($"{core.ResourcePath}/music"),
+                RequestPath = "/music"
+            });
 
             // we dont use https :( pservers bad
 

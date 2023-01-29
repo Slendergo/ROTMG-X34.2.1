@@ -55,13 +55,11 @@ package kabam.rotmg.language.service{
         }
 
         private function onLanguageError():void{
-            this.strings.setValue("ok", "ok", this.model.getLanguageFamily());
+            this.strings.setValue("ErrorWindow.buttonOK", "OK", this.model.getLanguageFamily());
             var _local1:ErrorDialog = new ErrorDialog((("Unable to load language [" + this.language) + "]"));
             this.openDialog.dispatch(_local1);
             completeTask(false);
         }
-
-
     }
 }//package kabam.rotmg.language.service
 

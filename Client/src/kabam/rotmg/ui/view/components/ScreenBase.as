@@ -7,9 +7,11 @@ package kabam.rotmg.ui.view.components{
     import flash.display.Sprite;
     import com.company.assembleegameclient.ui.SoundIcon;
 
-    public class ScreenBase extends Sprite {
+import kabam.rotmg.ui.view.TitleView_TitleScreenBackground;
 
-        static var TitleScreenBackground:Class = ScreenBase_TitleScreenBackground;
+public class ScreenBase extends Sprite {
+
+        static var TitleScreenBackground:Class = TitleView_TitleScreenBackground; // ScreenBase_TitleScreenBackground
 
         public function ScreenBase(){
             addChild(new TitleScreenBackground());

@@ -70,15 +70,18 @@ package com.company.assembleegameclient.ui.tooltip{
             this._playerModel = _arg2;
             this._charStats = _arg3;
             this.showUnlockRequirements = this.shouldShowUnlockRequirements(this._playerModel, this._playerXML);
-            if (this.showUnlockRequirements){
-                this._backgroundColor = 0x1C1C1C;
-                this._lineColor = (this._borderColor = 0x363636);
-            }
-            else {
-                this._backgroundColor = 0x363636;
-                this._borderColor = 0xFFFFFF;
-                this._lineColor = 0x1C1C1C;
-            };
+            this._backgroundColor = 0x363636;
+            this._borderColor = 0xFFFFFF;
+            this._lineColor = 0x1C1C1C;
+//            if (this.showUnlockRequirements){
+//                this._backgroundColor = 0x1C1C1C;
+//                this._lineColor = (this._borderColor = 0x363636);
+//            }
+//            else {
+//                this._backgroundColor = 0x363636;
+//                this._borderColor = 0xFFFFFF;
+//                this._lineColor = 0x1C1C1C;
+//            };
             super(this._backgroundColor, 1, this._borderColor, 1);
             this.init();
         }
@@ -155,8 +158,8 @@ package com.company.assembleegameclient.ui.tooltip{
                         _local7.x = (12 + (_local3 * 22));
                         _local7.filters = FilterUtil.getDarkGreyColorFilter();
                         this._equipmentContainer.addChild(_local7);
-                    };
-                };
+                    }
+                }
                 _local3++;
             };
         }

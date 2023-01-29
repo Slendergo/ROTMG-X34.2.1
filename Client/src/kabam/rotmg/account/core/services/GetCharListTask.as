@@ -168,7 +168,8 @@ package kabam.rotmg.account.core.services{
             }
             else {
                 this.setLoadingMessage.dispatch("error.loadError");
-            };
+            }
+
             if (_arg1 == "Account credentials not valid"){
                 if (this.fromMigration){
                     _local2 = new WebLoginDialog();
@@ -246,7 +247,7 @@ package kabam.rotmg.account.core.services{
             else {
                 this.clearAccountAndReloadCharacters();
                 this.setLoadingMessage.dispatch("LoginError.tooManyFails");
-            };
+            }
         }
 
 

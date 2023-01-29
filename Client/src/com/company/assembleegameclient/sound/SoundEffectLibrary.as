@@ -44,7 +44,7 @@ package com.company.assembleegameclient.sound{
             }
             catch(error:Error) {
                 base = "localhost";
-            };
+            }
             return (base);
         }
 
