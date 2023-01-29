@@ -6,15 +6,13 @@ This repository is a fresh base for people to start with, i have only made a few
 - Changed the way embedding assets works, no longer using many .as files and embedding in EmbeddedData.as and AssetLoader.as
 
 # Client TODO
-- [ ] Fix graphics data
+- [x] Fix graphics data
 - [ ] Fix missing assets
-- [ ] Remove age verification completely
-- [ ] Remove verified verification checks completely
 - [ ] Remove Steam, Kongregate and Kabam account support
 - [ ] Remove DECA Migration
 - [ ] Remove Google Analytics
 - [ ] Cleanup the code
-- [ ] Remove Redundant Obsolite Features
+- [ ] Remove Redundant Obsolete Features
 - [ ] Change the message datatypes to be simpler to understand for newbies
 - [ ] Fix any remaining bugs
 - [ ] Try unobfuscate local variables where i can
