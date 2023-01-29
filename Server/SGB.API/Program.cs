@@ -6,6 +6,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Net;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace SGB.API
 {
