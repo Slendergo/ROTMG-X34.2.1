@@ -10,7 +10,6 @@ package kabam.rotmg.account.core{
     import kabam.rotmg.dialogs.control.OpenDialogSignal;
     import kabam.rotmg.dialogs.control.CloseDialogsSignal;
     import kabam.rotmg.core.model.PlayerModel;
-    import kabam.rotmg.core.signals.TrackEventSignal;
     import kabam.rotmg.ui.view.CharacterSlotNeedGoldDialog;
     import kabam.rotmg.account.core.view.PurchaseConfirmationDialog;
     import kabam.rotmg.account.core.view.BuyingDialog;
@@ -19,7 +18,6 @@ package kabam.rotmg.account.core{
     import kabam.lib.tasks.DispatchSignalTask;
     import com.company.assembleegameclient.screens.CharacterSelectionAndNewsScreen;
     import kabam.lib.tasks.Task;
-    import kabam.rotmg.core.service.TrackingData;
     import com.company.assembleegameclient.ui.dialogs.ErrorDialog;
 
     public class BuyCharacterSlotCommand {
@@ -40,9 +38,6 @@ package kabam.rotmg.account.core{
         public var model:PlayerModel;
         [Inject]
         public var account:Account;
-        [Inject]
-        public var track:TrackEventSignal;
-
 
         public function execute():void{
             if (this.isSlotUnaffordable()){
@@ -50,7 +45,7 @@ package kabam.rotmg.account.core{
             }
             else {
                 this.purchaseSlot();
-            };
+            }
         }
 
         private function isSlotUnaffordable():Boolean{
@@ -77,15 +72,6 @@ package kabam.rotmg.account.core{
         private function makeSuccessTask():Task{
             var _local1:TaskSequence = new TaskSequence();
             _local1.add(new DispatchSignalTask(this.setScreen, new CharacterSelectionAndNewsScreen()));
-            return (_local1);
-        }
-
-        private function makeTrackingData():TrackingData{
-            var _local1:TrackingData = new TrackingData();
-            _local1.category = "credits";
-            _local1.action = "buyConverted";
-            _local1.label = "Character Slot";
-            _local1.value = this.price;
             return (_local1);
         }
 

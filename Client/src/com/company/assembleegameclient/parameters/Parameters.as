@@ -181,7 +181,6 @@ package com.company.assembleegameclient.parameters{
             setDefault("showProtips", true);
             setDefault("protipIndex", 0);
             setDefault("joinDate", MoreDateUtil.getDayStringInPT());
-            setDefault("lastDailyAnalytics", null);
             setDefault("allowRotation", true);
             setDefault("allowMiniMapRotation", false);
             setDefault("charIdUseMap", {});

@@ -16,7 +16,6 @@ package io.decagames.rotmg.characterMetrics.tracker{
         private var charactersStats:Dictionary;
         private var _lastUpdate:Date;
 
-
         public function setBinaryStringData(_arg1:int, _arg2:String):void{
             var _local3:RegExp = /-/g;
             var _local4:RegExp = /_/g;
@@ -33,15 +32,15 @@ package io.decagames.rotmg.characterMetrics.tracker{
             var _local4:int;
             if (!this.charactersStats){
                 this.charactersStats = new Dictionary();
-            };
+            }
             if (!this.charactersStats[_arg1]){
                 this.charactersStats[_arg1] = new CharacterMetricsData();
-            };
+            }
             while (_arg2.bytesAvailable >= STATS_SIZE) {
                 _local3 = _arg2.readByte();
                 _local4 = _arg2.readInt();
                 this.charactersStats[_arg1].setStat(_local3, _local4);
-            };
+            }
             this._lastUpdate = new Date();
         }
 
@@ -52,10 +51,10 @@ package io.decagames.rotmg.characterMetrics.tracker{
         public function getCharacterStat(_arg1:int, _arg2:int):int{
             if (!this.charactersStats){
                 this.charactersStats = new Dictionary();
-            };
+            }
             if (!this.charactersStats[_arg1]){
                 return (0);
-            };
+            }
             return (this.charactersStats[_arg1].getStat(_arg2));
         }
 
@@ -63,10 +62,8 @@ package io.decagames.rotmg.characterMetrics.tracker{
             var _local2:XML;
             for each (_local2 in _arg1.Char) {
                 this.setBinaryStringData(int(_local2.@id), _local2.PCStats);
-            };
+            }
         }
-
-
     }
 }//package io.decagames.rotmg.characterMetrics.tracker
 

@@ -82,8 +82,6 @@ package kabam.rotmg.game.view{
         [Inject]
         public var hudModelInitialized:HUDModelInitialized;
         [Inject]
-        public var tracking:TrackPageViewSignal;
-        [Inject]
         public var beginnersPackageAvailable:BeginnersPackageAvailableSignal;
         [Inject]
         public var packageAvailable:PackageAvailableSignal;
@@ -151,7 +149,6 @@ package kabam.rotmg.game.view{
             this.view.flushQueueSignal = this.flushQueueSignal;
             this.view.showHideKeyUISignal = this.showHideKeyUISignal;
             this.view.connect();
-            this.tracking.dispatch("/gameStarted");
             this.view.showBeginnersPackage = this.showBeginnersPackage;
             this.view.openDailyCalendarPopupSignal = this.showDailyCalendarSignal;
             this.view.showPackage.add(this.onShowPackage);

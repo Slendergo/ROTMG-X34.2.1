@@ -24,7 +24,6 @@ package kabam.rotmg.account.web.commands{
     import com.company.assembleegameclient.screens.CharacterTypeSelectionScreen;
     import com.company.assembleegameclient.screens.CharacterSelectionAndNewsScreen;
     import flash.display.Sprite;
-    import kabam.rotmg.core.service.TrackingData;
 
     public class WebLoginCommand {
 
@@ -40,8 +39,6 @@ package kabam.rotmg.account.web.commands{
         public var loginError:TaskErrorSignal;
         [Inject]
         public var updateLogin:UpdateAccountInfoSignal;
-        [Inject]
-        public var track:TrackEventSignal;
         [Inject]
         public var invalidate:InvalidateDataSignal;
         [Inject]
@@ -88,15 +85,6 @@ package kabam.rotmg.account.web.commands{
             };
             return (new (_local1)());
         }
-
-        private function getTrackingData():TrackingData{
-            var _local1:TrackingData = new TrackingData();
-            _local1.category = "account";
-            _local1.action = "signedIn";
-            return (_local1);
-        }
-
-
     }
 }//package kabam.rotmg.account.web.commands
 

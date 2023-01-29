@@ -237,7 +237,6 @@ package kabam.rotmg.messaging.impl{
     import kabam.rotmg.ui.view.TitleView;
     import kabam.rotmg.maploading.signals.HideMapLoadingSignal;
     import kabam.rotmg.messaging.impl.data.SlotObjectData;
-    import kabam.rotmg.core.service.GoogleAnalytics;
     import flash.events.TimerEvent;
     import com.company.assembleegameclient.ui.dialogs.Dialog;
     import flash.events.Event;
@@ -2261,14 +2260,11 @@ package kabam.rotmg.messaging.impl{
         }
 
         private function onClosed():void{
-            var _local1:GoogleAnalytics;
             var _local2:HideMapLoadingSignal;
             var _local3:Server;
             var _local4:ReconnectEvent;
             if (!this.isNexusing){
                 if (this.playerId_ != -1){
-                    _local1 = StaticInjectorContext.getInjector().getInstance(GoogleAnalytics);
-                    _local1.trackEvent("error", "disconnect", gs_.map.name_);
                     gs_.closed.dispatch();
                 }
                 else {
@@ -2398,18 +2394,11 @@ package kabam.rotmg.messaging.impl{
         }
 
         private function handleDefaultFailure(_arg1:Failure):void{
-            var _local3:GoogleAnalytics;
             var _local2:String = LineBuilder.getLocalizedStringFromJSON(_arg1.errorDescription_);
             if (_local2 == ""){
                 _local2 = _arg1.errorDescription_;
             };
             this.addTextLine.dispatch(ChatMessage.make(Parameters.ERROR_CHAT_NAME, _local2));
-            if (_arg1.errorDescription_ != ""){
-                _local3 = StaticInjectorContext.getInjector().getInstance(GoogleAnalytics);
-                if (_local3){
-                    _local3.trackEvent("disconnect", _arg1.errorDescription_, _arg1.errorConnectionId_);
-                };
-            };
         }
 
         private function onDoClientUpdate(_arg1:Event):void{

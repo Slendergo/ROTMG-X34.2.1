@@ -15,7 +15,6 @@ package kabam.rotmg.ui.view{
         private static const TITLE:String = "Not Registered";
         private static const CANCEL:String = "Cancel";
         private static const REGISTER:String = "Register";
-        private static const ANALYTICS_PAGE:String = "/charSlotNeedRegister";
 
         public var cancel:Signal;
         public var register:Signal;
@@ -27,7 +26,7 @@ package kabam.rotmg.ui.view{
         }
 
         private function makeDialog():void{
-            this.dialog = new Dialog(TITLE, TEXT, CANCEL, REGISTER, ANALYTICS_PAGE);
+            this.dialog = new Dialog(TITLE, TEXT, CANCEL, REGISTER);
             addChild(this.dialog);
         }
 

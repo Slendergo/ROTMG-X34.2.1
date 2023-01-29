@@ -11,7 +11,6 @@ package kabam.rotmg.account.web.view{
     import kabam.rotmg.dialogs.control.OpenDialogSignal;
     import kabam.rotmg.dialogs.control.CloseDialogsSignal;
     import kabam.rotmg.account.core.signals.UpdateAccountInfoSignal;
-    import kabam.rotmg.core.service.TrackingData;
     import kabam.rotmg.core.StaticInjectorContext;
     import kabam.rotmg.appengine.api.AppEngineClient;
 
@@ -21,8 +20,6 @@ package kabam.rotmg.account.web.view{
         public var view:WebAccountDetailDialog;
         [Inject]
         public var account:Account;
-        [Inject]
-        public var track:TrackEventSignal;
         [Inject]
         public var verify:SendConfirmEmailSignal;
         [Inject]
@@ -53,16 +50,9 @@ package kabam.rotmg.account.web.view{
         }
 
         private function onLogout():void{
-            this.trackLoggedOut();
             this.account.clear();
             this.updateAccount.dispatch();
             this.openDialog.dispatch(new WebLoginDialog());
-        }
-
-        private function trackLoggedOut():void{
-            var _local1:TrackingData = new TrackingData();
-            _local1.category = "account";
-            _local1.action = "loggedOut";
         }
 
         private function onDone():void{
@@ -85,12 +75,6 @@ package kabam.rotmg.account.web.view{
         }
 
         private function onSent():void{
-        }
-
-        private function trackEmailSent():void{
-            var _local1:TrackingData = new TrackingData();
-            _local1.category = "account";
-            _local1.action = "verifyEmailSent";
         }
 
         private function onError(_arg1:String):void{

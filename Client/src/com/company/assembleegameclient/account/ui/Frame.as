@@ -9,7 +9,6 @@ package com.company.assembleegameclient.account.ui{
     import com.company.util.GraphicsUtil;
     import kabam.rotmg.text.view.TextFieldDisplayConcrete;
     import com.company.assembleegameclient.ui.DeprecatedClickableText;
-    import kabam.rotmg.core.service.GoogleAnalytics;
     import flash.display.GraphicsSolidFill;
     import flash.display.GraphicsStroke;
     import flash.display.GraphicsPath;
@@ -31,12 +30,10 @@ package com.company.assembleegameclient.account.ui{
         public var titleText_:TextFieldDisplayConcrete;
         public var leftButton_:DeprecatedClickableText;
         public var rightButton_:DeprecatedClickableText;
-        public var analyticsPageName_:String;
         public var textInputFields_:Vector.<TextInputField>;
         public var navigationLinks_:Vector.<DeprecatedClickableText>;
         public var w_:int = 288;
         public var h_:int = 100;
-        private var googleAnalytics:GoogleAnalytics;
         private var titleFill_:GraphicsSolidFill;
         private var backgroundFill_:GraphicsSolidFill;
         private var outlineFill_:GraphicsSolidFill;
@@ -45,7 +42,7 @@ package com.company.assembleegameclient.account.ui{
         private var path2_:GraphicsPath;
         private var graphicsData_:Vector.<IGraphicsData>;
 
-        public function Frame(_arg1:String, _arg2:String, _arg3:String, _arg4:String="", _arg5:int=288){
+        public function Frame(_arg1:String, _arg2:String, _arg3:String, _arg5:int=288){
             this.textInputFields_ = new Vector.<TextInputField>();
             this.navigationLinks_ = new Vector.<DeprecatedClickableText>();
             this.titleFill_ = new GraphicsSolidFill(0x4D4D4D, 1);
@@ -54,10 +51,9 @@ package com.company.assembleegameclient.account.ui{
             this.lineStyle_ = new GraphicsStroke(1, false, LineScaleMode.NORMAL, CapsStyle.NONE, JointStyle.ROUND, 3, this.outlineFill_);
             this.path1_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
             this.path2_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
-            this.graphicsData_ = new <flash.display.IGraphicsData>[backgroundFill_, path2_, com.company.util.GraphicsUtil.END_FILL, titleFill_, path1_, com.company.util.GraphicsUtil.END_FILL, lineStyle_, path2_, com.company.util.GraphicsUtil.END_STROKE];
+            this.graphicsData_ = new <IGraphicsData>[backgroundFill_, path2_, GraphicsUtil.END_FILL, titleFill_, path1_, com.company.util.GraphicsUtil.END_FILL, lineStyle_, path2_, com.company.util.GraphicsUtil.END_STROKE];
             super();
             this.w_ = _arg5;
-            this.googleAnalytics = StaticInjectorContext.getInjector().getInstance(GoogleAnalytics);
             this.titleText_ = new TextFieldDisplayConcrete().setSize(13).setColor(0xB3B3B3);
             this.titleText_.setStringBuilder(new LineBuilder().setParams(_arg1));
             this.titleText_.filters = [new DropShadowFilter(0, 0, 0)];
@@ -67,7 +63,6 @@ package com.company.assembleegameclient.account.ui{
             addChild(this.titleText_);
             this.makeAndAddLeftButton(_arg2);
             this.makeAndAddRightButton(_arg3);
-            this.analyticsPageName_ = _arg4;
             filters = [new DropShadowFilter(0, 0, 0, 0.5, 12, 12)];
             addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
         }
@@ -198,9 +193,6 @@ package com.company.assembleegameclient.account.ui{
             y = ((stage.stageHeight / 2) - (height / 2));
             if (this.textInputFields_.length > 0){
                 stage.focus = this.textInputFields_[0].inputText_;
-            };
-            if (((this.analyticsPageName_) && (this.googleAnalytics))){
-                this.googleAnalytics.trackPageView(this.analyticsPageName_);
             };
         }
 

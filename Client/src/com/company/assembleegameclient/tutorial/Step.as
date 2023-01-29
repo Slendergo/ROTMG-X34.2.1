@@ -13,7 +13,6 @@ package com.company.assembleegameclient.tutorial{
         public var uiDrawArrows_:Vector.<UIDrawArrow>;
         public var reqs_:Vector.<Requirement>;
         public var satisfiedSince_:int = 0;
-        public var trackingSent:Boolean;
 
         public function Step(_arg1:XML){
             var _local2:XML;

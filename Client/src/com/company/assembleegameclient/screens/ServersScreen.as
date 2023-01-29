@@ -14,7 +14,6 @@ package com.company.assembleegameclient.screens{
     import kabam.rotmg.ui.view.components.ScreenBase;
     import flash.events.Event;
     import kabam.rotmg.core.StaticInjectorContext;
-    import kabam.rotmg.core.service.GoogleAnalytics;
     import kabam.rotmg.ui.view.components.MenuOptionsBar;
     import flash.display.Graphics;
     import kabam.rotmg.text.view.stringBuilder.LineBuilder;
@@ -54,10 +53,6 @@ package com.company.assembleegameclient.screens{
             this.makeServerBoxes();
             (((this.serverBoxes_.height > 400)) && (this.makeScrollbar()));
             this.makeMenuBar();
-            var _local2:GoogleAnalytics = StaticInjectorContext.getInjector().getInstance(GoogleAnalytics);
-            if (_local2){
-                _local2.trackPageView("/serversScreen");
-            };
         }
 
         private function makeMenuBar():void{

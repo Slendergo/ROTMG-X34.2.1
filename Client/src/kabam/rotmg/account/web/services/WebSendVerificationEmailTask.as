@@ -8,15 +8,12 @@ package kabam.rotmg.account.web.services{
     import kabam.rotmg.account.core.Account;
     import kabam.rotmg.core.signals.TrackEventSignal;
     import kabam.rotmg.appengine.api.AppEngineClient;
-    import kabam.rotmg.core.service.TrackingData;
     import kabam.rotmg.account.core.services.*;
 
     public class WebSendVerificationEmailTask extends BaseTask implements SendConfirmEmailAddressTask {
 
         [Inject]
         public var account:Account;
-        [Inject]
-        public var track:TrackEventSignal;
         [Inject]
         public var client:AppEngineClient;
 
@@ -36,14 +33,7 @@ package kabam.rotmg.account.web.services{
         }
 
         private function onSent():void{
-            this.trackEmailSent();
             completeTask(true);
-        }
-
-        private function trackEmailSent():void{
-            var _local1:TrackingData = new TrackingData();
-            _local1.category = "account";
-            _local1.action = "verifyEmailSent";
         }
 
         private function onError(_arg1:String):void{

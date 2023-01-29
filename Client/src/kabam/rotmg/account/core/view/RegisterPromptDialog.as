@@ -15,7 +15,7 @@ package kabam.rotmg.account.core.view{
         public var register:Signal;
 
         public function RegisterPromptDialog(_arg1:String, _arg2:Object=null){
-            super(TextKey.REGISTER_PROMPT_NOT_REGISTERED, _arg1, TextKey.REGISTER_PROMPT_CANCEL, TextKey.REGISTER_PROMPT_REGISTER, "/needRegister", _arg2);
+            super(TextKey.REGISTER_PROMPT_NOT_REGISTERED, _arg1, TextKey.REGISTER_PROMPT_CANCEL, TextKey.REGISTER_PROMPT_REGISTER, _arg2);
             this.cancel = new NativeMappedSignal(this, LEFT_BUTTON);
             this.register = new NativeMappedSignal(this, RIGHT_BUTTON);
         }

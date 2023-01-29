@@ -37,8 +37,6 @@ package kabam.rotmg.fame.view{
         [Inject]
         public var gotoPrevious:GotoPreviousScreenSignal;
         [Inject]
-        public var track:TrackPageViewSignal;
-        [Inject]
         public var task:RequestCharacterFameTask;
         [Inject]
         public var factory:CharacterFactory;
@@ -48,7 +46,6 @@ package kabam.rotmg.fame.view{
 
         override public function initialize():void{
             this.view.closed.add(this.onClosed);
-            this.track.dispatch("/fame");
             this.setViewDataFromDeath();
             this.requestFameData();
         }

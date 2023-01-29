@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SGB.API", "SGB.API\SGB.API.csproj", "{0336ECCC-4BF6-432B-987A-EDB7CC7D710A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGB.Shared", "SGB.Resources\SGB.Shared.csproj", "{39C8F8CA-BA43-4698-B7D0-0D5284CBD18E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGB.Shared", "SGB.Shared\SGB.Shared.csproj", "{39C8F8CA-BA43-4698-B7D0-0D5284CBD18E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

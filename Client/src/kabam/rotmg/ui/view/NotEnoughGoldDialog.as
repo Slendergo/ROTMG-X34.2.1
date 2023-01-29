@@ -19,7 +19,6 @@ package kabam.rotmg.ui.view{
         public static const BUTTON_WIDTH:int = 120;
         public static const WIDTH:int = 300;
         public static const HEIGHT:int = 100;
-        public static const TRACKING_TAG:String = "/notEnoughGold";
 
         private var _textText_:TextFieldDisplayConcrete;
         private var _notEnoughText:UILabel;

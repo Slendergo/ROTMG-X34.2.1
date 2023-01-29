@@ -7,7 +7,6 @@ package com.company.assembleegameclient.tutorial{
     import flash.display.Sprite;
     import com.company.assembleegameclient.game.GameSprite;
     import flash.display.Shape;
-    import kabam.rotmg.core.service.GoogleAnalytics;
     import flash.display.Graphics;
     import flash.utils.getTimer;
     import kabam.rotmg.assets.EmbeddedData;
@@ -45,10 +44,6 @@ package com.company.assembleegameclient.tutorial{
         private var darkBox_:Sprite;
         private var boxesBack_:Shape;
         private var boxes_:Shape;
-        private var tutorialMessage_:TutorialMessage = null;
-        private var tracker:GoogleAnalytics;
-        private var trackingStep:int = -1;
-        private var lastTrackingStepTimestamp:uint;
 
         public function Tutorial(_arg1:GameSprite){
             var _local2:XML;
@@ -59,12 +54,9 @@ package com.company.assembleegameclient.tutorial{
             this.boxes_ = new Shape();
             super();
             this.gs_ = _arg1;
-            this.lastTrackingStepTimestamp = getTimer();
             for each (_local2 in EmbeddedData.tutorialXML.Step) {
                 this.steps_.push(new Step(_local2));
-            };
-            this.tracker = StaticInjectorContext.getInjector().getInstance(GoogleAnalytics);
-            this.tracker.trackEvent("tutorial", "started");
+            }
             addChild(this.boxesBack_);
             addChild(this.boxes_);
             _local3 = this.darkBox_.graphics;
@@ -132,26 +124,19 @@ package com.company.assembleegameclient.tutorial{
                 else {
                     if (_local4.satisfiedSince_ == 0){
                         _local4.satisfiedSince_ = getTimer();
-                        if (this.trackingStep != _local3){
-                            if (!_local4.trackingSent){
-                                this.tracker.trackEvent("tutorial", "step", _local3.toString(), (_local4.satisfiedSince_ - this.lastTrackingStepTimestamp));
-                                this.lastTrackingStepTimestamp = getTimer();
-                            };
-                            this.trackingStep = _local3;
-                        };
-                    };
+                    }
                     _local7 = (getTimer() - _local4.satisfiedSince_);
                     for each (_local8 in _local4.uiDrawBoxes_) {
                         _local8.draw((5 * _local2), this.boxes_.graphics, _local7);
                         _local8.draw((6 * _local2), this.boxesBack_.graphics, _local7);
-                    };
+                    }
                     for each (_local9 in _local4.uiDrawArrows_) {
                         _local9.draw((5 * _local2), this.boxes_.graphics, _local7);
                         _local9.draw((6 * _local2), this.boxesBack_.graphics, _local7);
-                    };
-                };
+                    }
+                }
                 _local3++;
-            };
+            }
         }
 
         function doneAction(_arg1:String):void{
@@ -162,11 +147,11 @@ package com.company.assembleegameclient.tutorial{
             var _local7:Number;
             if (this.currStepId_ >= this.steps_.length){
                 return;
-            };
+            }
             var _local2:Step = this.steps_[this.currStepId_];
             if (_arg1 != _local2.action_){
                 return;
-            };
+            }
             for each (_local3 in _local2.reqs_) {
                 _local4 = this.gs_.map.player_;
                 switch (_local3.type_){
@@ -178,12 +163,12 @@ package com.company.assembleegameclient.tutorial{
                                 if (_local7 <= _local3.radius_){
                                     _local5 = true;
                                     break;
-                                };
-                            };
-                        };
+                                }
+                            }
+                        }
                         if (!_local5){
                             return;
-                        };
+                        }
                         break;
                     case EQUIP_REQUIREMENT:
                         if (_local4.equipment_[_local3.slot_] != _local3.objectType_){

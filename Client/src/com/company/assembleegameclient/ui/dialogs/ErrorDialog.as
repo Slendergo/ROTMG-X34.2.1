@@ -24,7 +24,6 @@ package com.company.assembleegameclient.ui.dialogs{
     import kabam.rotmg.text.view.stringBuilder.StaticStringBuilder;
     import flash.filters.DropShadowFilter;
     import flash.events.MouseEvent;
-    import kabam.rotmg.core.service.GoogleAnalytics;
     import kabam.rotmg.core.StaticInjectorContext;
     import flash.display.Graphics;
     import flash.events.Event;
@@ -42,7 +41,6 @@ package com.company.assembleegameclient.ui.dialogs{
         public var titleText_:TextFieldDisplayConcrete = null;
         public var button1_:DeprecatedTextButton = null;
         public var button2_:DeprecatedTextButton = null;
-        public var analyticsPageName_:String = null;
         public var offsetX:Number = 0;
         public var offsetY:Number = 0;
         public var stageProxy:StageProxy;
@@ -64,7 +62,6 @@ package com.company.assembleegameclient.ui.dialogs{
             super();
             var _local2:String = ["An error has occured:", _arg1].join("\n");
             this.stageProxy = new StageProxy(this);
-            this.analyticsPageName_ = "/error";
             this._makeUIAndAdd(_local2, "D'oh, this isn't good", "ErrorWindow.buttonOK", null);
             this.makeUIAndAdd();
             this.uiWaiter.complete.addOnce(this.onComplete);
@@ -122,27 +119,12 @@ package com.company.assembleegameclient.ui.dialogs{
 
         private function onComplete():void{
             this.draw();
-            this.positionDialogAndTryAnalytics();
+            this.positionDialog();
         }
 
-        private function positionDialogAndTryAnalytics():void{
+        private function positionDialog():void{
             this.box_.x = ((this.offsetX + (this.stageProxy.getStageWidth() / 2)) - (this.box_.width / 2));
             this.box_.y = ((this.offsetY + (this.stageProxy.getStageHeight() / 2)) - (this.getBoxHeight() / 2));
-            if (this.analyticsPageName_ != null){
-                this.tryAnalytics();
-            };
-        }
-
-        private function tryAnalytics():void{
-            var _local1:GoogleAnalytics;
-            try {
-                _local1 = StaticInjectorContext.getInjector().getInstance(GoogleAnalytics);
-                if (_local1){
-                    _local1.trackPageView(this.analyticsPageName_);
-                };
-            }
-            catch(error:Error) {
-            };
         }
 
         private function draw():void{

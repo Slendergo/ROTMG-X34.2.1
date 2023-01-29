@@ -20,7 +20,6 @@ package kabam.rotmg.ui.view{
     import kabam.rotmg.friends.view.FriendListView;
     import flash.events.MouseEvent;
     import kabam.rotmg.core.StaticInjectorContext;
-    import kabam.rotmg.core.service.GoogleAnalytics;
     import com.company.assembleegameclient.ui.options.Options;
     import com.company.assembleegameclient.objects.Player;
 
@@ -109,18 +108,12 @@ package kabam.rotmg.ui.view{
         private function onGotoNexus():void{
             this.tellModel.clearRecipients();
             this.hudModel.gameSprite.gsc_.escape();
-            var _local1:GoogleAnalytics = StaticInjectorContext.getInjector().getInstance(GoogleAnalytics);
-            if (_local1){
-            };
             Parameters.data_.needsRandomRealm = false;
             Parameters.save();
         }
 
         private function onGotoOptions():void{
             this.hudModel.gameSprite.mui_.clearInput();
-            var _local1:GoogleAnalytics = StaticInjectorContext.getInjector().getInstance(GoogleAnalytics);
-            if (_local1){
-            };
             this.hudModel.gameSprite.addChild(new Options(this.hudModel.gameSprite));
         }
 

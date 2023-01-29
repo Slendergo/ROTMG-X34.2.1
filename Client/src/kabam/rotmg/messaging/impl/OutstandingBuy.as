@@ -5,7 +5,6 @@
 
 package kabam.rotmg.messaging.impl{
     import kabam.rotmg.core.StaticInjectorContext;
-    import kabam.rotmg.core.service.GoogleAnalytics;
 
     class OutstandingBuy {
 
@@ -22,12 +21,7 @@ package kabam.rotmg.messaging.impl{
         }
 
         public function record():void{
-            var _local1:GoogleAnalytics = StaticInjectorContext.getInjector().getInstance(GoogleAnalytics);
-            if (_local1){
-            };
         }
-
-
     }
 }//package kabam.rotmg.messaging.impl
 

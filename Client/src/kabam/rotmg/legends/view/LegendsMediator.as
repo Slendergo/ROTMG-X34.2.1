@@ -31,12 +31,8 @@ package kabam.rotmg.legends.view{
         public var update:FameListUpdateSignal;
         [Inject]
         public var exit:ExitLegendsSignal;
-        [Inject]
-        public var track:TrackPageViewSignal;
-
 
         override public function initialize():void{
-            this.track.dispatch("/legendsScreen");
             this.view.close.add(this.onClose);
             this.view.timespanChanged.add(this.onTimespanChanged);
             this.view.showDetail.add(this.onShowCharacter);

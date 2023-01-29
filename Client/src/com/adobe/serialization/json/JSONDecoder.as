@@ -85,7 +85,8 @@ package com.adobe.serialization.json{
         private function parseValue():Object{
             if (this.token == null){
                 this.tokenizer.parseError("Unexpected end of input");
-            };
+            }
+            
             switch (this.token.type){
                 case JSONTokenType.LEFT_BRACE:
                     return (this.parseObject());

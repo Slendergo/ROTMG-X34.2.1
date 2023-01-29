@@ -35,7 +35,6 @@ package com.company.assembleegameclient.game{
     import com.company.assembleegameclient.ui.menu.PlayerMenu;
     import com.company.assembleegameclient.objects.GameObject;
     import flash.display.DisplayObject;
-    import kabam.rotmg.core.service.GoogleAnalytics;
     import kabam.rotmg.promotions.view.SpecialOfferButton;
     import kabam.rotmg.game.model.QuestModel;
     import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
@@ -119,7 +118,6 @@ package com.company.assembleegameclient.game{
         private var displaysPosY:uint = 4;
         private var currentPackage:DisplayObject;
         private var packageY:Number;
-        private var googleAnalytics:GoogleAnalytics;
         private var specialOfferButton:SpecialOfferButton;
         private var questModel:QuestModel;
         private var seasonalEventModel:SeasonalEventModel;
@@ -224,7 +222,6 @@ package com.company.assembleegameclient.game{
                 this.showWaveCounter();
             };
             var _local1:Account = StaticInjectorContext.getInjector().getInstance(Account);
-            this.googleAnalytics = StaticInjectorContext.getInjector().getInstance(GoogleAnalytics);
             this.isNexus_ = (this.mapName == Map.NEXUS);
             if (this.isNexus_){
                 if (!this.seasonalEventModel.isChallenger){
@@ -265,7 +262,6 @@ package com.company.assembleegameclient.game{
             MoreObjectUtil.addToObject(_local3, _local1.getCredentials());
             if (((((((!((this.mapName == "Kitchen"))) && (!((this.mapName == "Tutorial"))))) && (!((this.mapName == "Nexus Explanation"))))) && ((Parameters.data_.watchForTutorialExit == true)))){
                 Parameters.data_.watchForTutorialExit = false;
-                this.callTracking('rotmg.Marketing.track("tutorialComplete")');
                 _local3["fteStepCompleted"] = 9900;
                 _local2.sendRequest("/log/logFteStep", _local3);
             };
@@ -276,7 +272,6 @@ package com.company.assembleegameclient.game{
             if (this.mapName == "Tutorial"){
                 if (Parameters.data_.needsTutorial == true){
                     Parameters.data_.watchForTutorialExit = true;
-                    this.callTracking('rotmg.Marketing.track("install")');
                     _local3["fteStepCompleted"] = 100;
                     _local2.sendRequest("/log/logFteStep", _local3);
                 };
@@ -478,17 +473,6 @@ package com.company.assembleegameclient.game{
             this.rankText_.x = 8;
             this.rankText_.y = 2;
             addChild(this.rankText_);
-        }
-
-        private function callTracking(_arg1:String):void{
-            if (ExternalInterface.available == false){
-                return;
-            };
-            try {
-                ExternalInterface.call(_arg1);
-            }
-            catch(err:Error) {
-            };
         }
 
         private function startTutorial():void{

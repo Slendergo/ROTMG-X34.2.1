@@ -8,7 +8,6 @@ package kabam.rotmg.application.api{
 
         function getBuildLabel():String;
         function getAppEngineUrl(_arg1:Boolean=false):String;
-        function getAnalyticsCode():String;
         function useLocalTextures():Boolean;
         function isToolingEnabled():Boolean;
         function areDeveloperHotkeysEnabled():Boolean;

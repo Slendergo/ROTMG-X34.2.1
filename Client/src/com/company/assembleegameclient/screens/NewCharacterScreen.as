@@ -15,7 +15,6 @@ package com.company.assembleegameclient.screens{
     import com.company.assembleegameclient.objects.ObjectLibrary;
     import com.company.assembleegameclient.appengine.SavedCharactersList;
     import kabam.rotmg.core.StaticInjectorContext;
-    import kabam.rotmg.core.service.GoogleAnalytics;
     import kabam.rotmg.core.model.PlayerModel;
     import flash.events.Event;
 
@@ -82,10 +81,6 @@ package com.company.assembleegameclient.screens{
             this.backButton_.y = 550;
             this.creditDisplay_.x = stage.stageWidth;
             this.creditDisplay_.y = 20;
-            var _local3:GoogleAnalytics = StaticInjectorContext.getInjector().getInstance(GoogleAnalytics);
-            if (_local3){
-                _local3.trackPageView("/newCharScreen");
-            };
         }
 
         private function onBackClick(_arg1:Event):void{
@@ -111,10 +106,6 @@ package com.company.assembleegameclient.screens{
                 return;
             };
             var _local3:int = _local2.objectType();
-            var _local4:String = ObjectLibrary.typeToDisplayId_[_local3];
-            var _local5:GoogleAnalytics = StaticInjectorContext.getInjector().getInstance(GoogleAnalytics);
-            if (_local5){
-            };
             this.selected.dispatch(_local3);
         }
 

@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SGB.Resources\SGB.Shared.csproj" />
+    <ProjectReference Include="..\SGB.Shared\SGB.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

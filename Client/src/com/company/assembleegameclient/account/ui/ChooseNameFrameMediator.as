@@ -6,12 +6,9 @@
 package com.company.assembleegameclient.account.ui{
     import robotlegs.bender.bundles.mvcs.Mediator;
     import kabam.rotmg.dialogs.control.CloseDialogsSignal;
-    import kabam.rotmg.core.signals.TrackEventSignal;
     import kabam.rotmg.ui.signals.NameChangedSignal;
     import com.company.assembleegameclient.game.AGameSprite;
     import com.company.assembleegameclient.game.events.NameResultEvent;
-    import kabam.rotmg.core.service.TrackingData;
-    import com.company.assembleegameclient.parameters.Parameters;
 
     public class ChooseNameFrameMediator extends Mediator {
 
@@ -20,12 +17,9 @@ package com.company.assembleegameclient.account.ui{
         [Inject]
         public var closeDialogs:CloseDialogsSignal;
         [Inject]
-        public var trackEvent:TrackEventSignal;
-        [Inject]
         public var nameChanged:NameChangedSignal;
         private var gameSprite:AGameSprite;
         private var name:String;
-
 
         override public function initialize():void{
             this.gameSprite = this.view.gameSprite;
@@ -57,21 +51,10 @@ package com.company.assembleegameclient.account.ui{
         }
 
         private function handleSuccessfulNameChange():void{
-            if (this.view.isPurchase){
-                this.trackPurchase();
-            };
             this.gameSprite.model.setName(this.name);
             this.gameSprite.map.player_.name_ = this.name;
             this.closeDialogs.dispatch();
             this.nameChanged.dispatch(this.name);
-        }
-
-        private function trackPurchase():void{
-            var _local1:TrackingData = new TrackingData();
-            _local1.category = "credits";
-            _local1.action = ((this.gameSprite.model.getConverted()) ? "buyConverted" : "buy");
-            _local1.label = "Name Change";
-            _local1.value = Parameters.NAME_CHANGE_PRICE;
         }
 
         private function handleFailedNameChange(_arg1:String):void{

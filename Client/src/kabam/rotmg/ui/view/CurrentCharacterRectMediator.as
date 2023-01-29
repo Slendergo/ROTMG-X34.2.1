@@ -6,7 +6,6 @@
 package kabam.rotmg.ui.view{
     import robotlegs.bender.bundles.mvcs.Mediator;
     import com.company.assembleegameclient.screens.charrects.CurrentCharacterRect;
-    import kabam.rotmg.core.signals.TrackEventSignal;
     import kabam.rotmg.game.signals.PlayGameSignal;
     import kabam.rotmg.characters.model.CharacterModel;
     import kabam.rotmg.classes.model.ClassesModel;
@@ -16,7 +15,6 @@ package kabam.rotmg.ui.view{
     import flash.display.Sprite;
     import kabam.rotmg.classes.model.CharacterClass;
     import com.company.assembleegameclient.appengine.SavedCharacter;
-    import kabam.rotmg.core.service.TrackingData;
     import kabam.rotmg.game.model.GameInitData;
     import kabam.rotmg.characters.deletion.view.ConfirmDeleteCharacterDialog;
 
@@ -24,8 +22,6 @@ package kabam.rotmg.ui.view{
 
         [Inject]
         public var view:CurrentCharacterRect;
-        [Inject]
-        public var track:TrackEventSignal;
         [Inject]
         public var playGame:PlayGameSignal;
         [Inject]
@@ -71,16 +67,6 @@ package kabam.rotmg.ui.view{
             _local2.setIsSelected(true);
             _local2.skins.getSkin(_arg1.skinType()).setIsSelected(true);
             this.launchGame(_arg1);
-        }
-
-        private function trackCharacterSelection(_arg1:SavedCharacter):void{
-            var _local2:TrackingData;
-            _local2 = new TrackingData();
-            _local2.category = "character";
-            _local2.action = "select";
-            _local2.label = _arg1.displayId();
-            _local2.value = _arg1.level();
-            this.track.dispatch(_local2);
         }
 
         private function launchGame(_arg1:SavedCharacter):void{

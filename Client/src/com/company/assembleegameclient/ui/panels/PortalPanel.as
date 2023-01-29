@@ -7,7 +7,6 @@ package com.company.assembleegameclient.ui.panels{
     import org.osflash.signals.Signal;
     import kabam.rotmg.ui.view.SignalWaiter;
     import com.company.assembleegameclient.objects.Portal;
-    import kabam.rotmg.core.service.GoogleAnalytics;
     import kabam.rotmg.text.view.TextFieldDisplayConcrete;
     import com.company.assembleegameclient.ui.DeprecatedTextButton;
     import flash.text.TextFormatAlign;
@@ -34,7 +33,6 @@ package com.company.assembleegameclient.ui.panels{
         private const waiter:SignalWaiter = new SignalWaiter();
 
         public var owner_:Portal;
-        public var googleAnalytics:GoogleAnalytics;
         private var nameText_:TextFieldDisplayConcrete;
         private var _enterButton_:DeprecatedTextButton;
         private var fullText_:TextFieldDisplayConcrete;
@@ -87,10 +85,6 @@ package com.company.assembleegameclient.ui.panels{
         }
 
         private function enterPortal():void{
-            var _local1:String = ObjectLibrary.typeToDisplayId_[this.owner_.objectType_];
-            if (((this.googleAnalytics) && ((((((((_local1 == "Kitchen Portal")) || ((_local1 == "Vault Explanation")))) || ((_local1 == "Guild Explanation")))) || ((_local1 == "Nexus Explanation")))))){
-                this.googleAnalytics.trackEvent("enterPortal", _local1);
-            };
             doneAction(gs_, Tutorial.ENTER_PORTAL_ACTION);
             gs_.gsc_.usePortal(this.owner_.objectId_);
             this.exitGameSignal.dispatch();

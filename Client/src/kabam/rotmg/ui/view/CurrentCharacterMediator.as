@@ -29,7 +29,6 @@ package kabam.rotmg.ui.view{
     import com.company.assembleegameclient.parameters.Parameters;
     import io.decagames.rotmg.seasonalEvent.popups.SeasonalEventComingPopup;
     import com.company.assembleegameclient.screens.ServersScreen;
-    import kabam.rotmg.core.service.TrackingData;
     import com.company.util.MoreDateUtil;
     import com.company.assembleegameclient.screens.NewCharacterScreen;
     import flash.events.MouseEvent;
@@ -49,8 +48,6 @@ package kabam.rotmg.ui.view{
         [Inject]
         public var classesModel:ClassesModel;
         [Inject]
-        public var track:TrackEventSignal;
-        [Inject]
         public var setScreen:SetScreenSignal;
         [Inject]
         public var setScreenWithValidData:SetScreenWithValidDataSignal;
@@ -58,8 +55,6 @@ package kabam.rotmg.ui.view{
         public var playGame:PlayGameSignal;
         [Inject]
         public var nameChanged:NameChangedSignal;
-        [Inject]
-        public var trackPage:TrackPageViewSignal;
         [Inject]
         public var initPackages:InitPackagesSignal;
         [Inject]
@@ -84,14 +79,12 @@ package kabam.rotmg.ui.view{
         override public function initialize():void{
             var _local1:Number;
             var _local2:Number;
-            this.trackSomething();
             this.view.initialize(this.playerModel);
             this.view.close.add(this.onClose);
             this.view.newCharacter.add(this.onNewCharacter);
             this.view.showClasses.add(this.onNewCharacter);
             this.view.playGame.add(this.onPlayGame);
             this.view.serversClicked.add(this.showServersScreen);
-            this.trackPage.dispatch("/currentCharScreen");
             this.nameChanged.add(this.onNameChanged);
             this.initPackages.dispatch();
             if (this.securityQuestionsModel.showSecurityQuestionsOnStartup){
@@ -133,18 +126,6 @@ package kabam.rotmg.ui.view{
             this.setScreen.dispatch(new ServersScreen(Boolean(this.seasonalEventModel.isChallenger)));
         }
 
-        private function trackSomething():void{
-            var _local2:TrackingData;
-            var _local1:String = MoreDateUtil.getDayStringInPT();
-            if (Parameters.data_.lastDailyAnalytics != _local1){
-                _local2 = new TrackingData();
-                _local2.category = "joinDate";
-                _local2.action = Parameters.data_.joinDate;
-                Parameters.data_.lastDailyAnalytics = _local1;
-                Parameters.save();
-            };
-        }
-
         private function onNewCharacter():void{
             if (((this.seasonalEventModel.isChallenger) && ((this.seasonalEventModel.remainingCharacters == 0)))){
                 this.showSeasonalErrorPopUp("You cannot create more characters");
@@ -178,11 +159,6 @@ package kabam.rotmg.ui.view{
             var _local2:CharacterClass = this.classesModel.getCharacterClass(_local1.objectType());
             _local2.setIsSelected(true);
             _local2.skins.getSkin(_local1.skinType()).setIsSelected(true);
-            var _local3:TrackingData = new TrackingData();
-            _local3.category = "character";
-            _local3.action = "select";
-            _local3.label = _local1.displayId();
-            _local3.value = _local1.level();
             var _local4:GameInitData = new GameInitData();
             _local4.createCharacter = false;
             _local4.charId = _local1.charId();

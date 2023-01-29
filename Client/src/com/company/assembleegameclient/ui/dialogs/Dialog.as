@@ -23,8 +23,6 @@ package com.company.assembleegameclient.ui.dialogs{
     import flash.text.TextFieldAutoSize;
     import flash.filters.DropShadowFilter;
     import flash.events.MouseEvent;
-    import kabam.rotmg.core.service.GoogleAnalytics;
-    import kabam.rotmg.core.StaticInjectorContext;
     import flash.display.Graphics;
     import flash.events.Event;
 
@@ -39,7 +37,6 @@ package com.company.assembleegameclient.ui.dialogs{
         public var rect_:Shape;
         public var textText_:TextFieldDisplayConcrete;
         public var titleText_:TextFieldDisplayConcrete = null;
-        public var analyticsPageName_:String = null;
         public var offsetX:Number = 0;
         public var offsetY:Number = 0;
         public var stageProxy:StageProxy;
@@ -60,7 +57,7 @@ package com.company.assembleegameclient.ui.dialogs{
         private var replaceTokens:Object;
         protected var graphicsData_:Vector.<IGraphicsData>;
 
-        public function Dialog(_arg1:String, _arg2:String, _arg3:String, _arg4:String, _arg5:String, _arg6:Object=null){
+        public function Dialog(_arg1:String, _arg2:String, _arg3:String, _arg4:String, _arg6:Object=null){
             this.box_ = new Sprite();
             this.rect_ = new Shape();
             this.dialogWidth = this.setDialogWidth();
@@ -68,26 +65,17 @@ package com.company.assembleegameclient.ui.dialogs{
             this.lineStyle_ = new GraphicsStroke(1, false, LineScaleMode.NORMAL, CapsStyle.NONE, JointStyle.ROUND, 3, this.outlineFill_);
             this.backgroundFill_ = new GraphicsSolidFill(0x363636, 1);
             this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
-            this.graphicsData_ = new <flash.display.IGraphicsData>[lineStyle_, backgroundFill_, path_, com.company.util.GraphicsUtil.END_FILL, com.company.util.GraphicsUtil.END_STROKE];
+            this.graphicsData_ = new <IGraphicsData>[lineStyle_, backgroundFill_, path_, GraphicsUtil.END_FILL, GraphicsUtil.END_STROKE];
             this.uiWaiter = new SignalWaiter();
             this.replaceTokens = _arg6;
             this.leftButtonKey = _arg3;
             this.rightButtonKey = _arg4;
             super();
             this.stageProxy = new StageProxy(this);
-            this.analyticsPageName_ = _arg5;
             this._makeUIAndAdd(_arg2, _arg1);
             this.makeUIAndAdd();
             this.uiWaiter.complete.addOnce(this.onComplete);
             addChild(this.box_);
-        }
-
-        public function getLeftButtonKey():String{
-            return (this.leftButtonKey);
-        }
-
-        public function getRightButtonKey():String{
-            return (this.rightButtonKey);
         }
 
         public function setTextParams(_arg1:String, _arg2:Object):void{
@@ -121,7 +109,7 @@ package com.company.assembleegameclient.ui.dialogs{
             var _local2:LineBuilder = new LineBuilder().setParams(_arg1).setPrefix('<p align="center">').setPostfix("</p>");
             if (this.replaceTokens){
                 _local2.setParams(_arg1, this.replaceTokens);
-            };
+            }
             this.textText_.setStringBuilder(_local2);
             this.textText_.mouseEnabled = true;
             this.textText_.filters = [new DropShadowFilter(0, 0, 0, 1, 6, 6, 1)];
@@ -140,43 +128,28 @@ package com.company.assembleegameclient.ui.dialogs{
                 this.titleText_.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8, 1)];
                 this.titleText_.setStringBuilder(new LineBuilder().setParams(_arg1));
                 this.addTextFieldDisplay(this.titleText_);
-            };
+            }
         }
 
         private function makeNonNullButtons():void{
             if (this.leftButtonKey != null){
                 this.leftButton = new DeprecatedTextButton(16, this.leftButtonKey, 120);
                 this.leftButton.addEventListener(MouseEvent.CLICK, this.onLeftButtonClick);
-            };
+            }
             if (this.rightButtonKey != null){
                 this.rightButton = new DeprecatedTextButton(16, this.rightButtonKey, 120);
                 this.rightButton.addEventListener(MouseEvent.CLICK, this.onRightButtonClick);
-            };
+            }
         }
 
         private function onComplete():void{
             this.draw();
-            this.positionDialogAndTryAnalytics();
+            this.positionDialog();
         }
 
-        private function positionDialogAndTryAnalytics():void{
+        private function positionDialog():void{
             this.box_.x = ((this.offsetX + (this.stageProxy.getStageWidth() / 2)) - (this.box_.width / 2));
             this.box_.y = ((this.offsetY + (this.stageProxy.getStageHeight() / 2)) - (this.getBoxHeight() / 2));
-            if (this.analyticsPageName_ != null){
-                this.tryAnalytics();
-            };
-        }
-
-        private function tryAnalytics():void{
-            var _local1:GoogleAnalytics;
-            try {
-                _local1 = StaticInjectorContext.getInjector().getInstance(GoogleAnalytics);
-                if (_local1){
-                    _local1.trackPageView(this.analyticsPageName_);
-                };
-            }
-            catch(error:Error) {
-            };
         }
 
         private function draw():void{
@@ -191,7 +164,7 @@ package com.company.assembleegameclient.ui.dialogs{
         protected function drawButtonsAndBackground():void{
             if (this.box_.contains(this.rect_)){
                 this.box_.removeChild(this.rect_);
-            };
+            }
             this.removeButtonsIfAlreadyAdded();
             this.addButtonsAndLayout();
             this.drawBackground();
@@ -229,8 +202,8 @@ package com.company.assembleegameclient.ui.dialogs{
                     this.box_.addChild(this.rightButton);
                     this.rightButton.x = (((3 * this.dialogWidth) / 4) - (this.rightButton.width / 2));
                     this.rightButton.y = _local1;
-                };
-            };
+                }
+            }
         }
 
         private function drawTitleAndText():void{
@@ -241,16 +214,16 @@ package com.company.assembleegameclient.ui.dialogs{
             }
             else {
                 this.textText_.y = 4;
-            };
+            }
         }
 
         private function removeButtonsIfAlreadyAdded():void{
             if (((this.leftButton) && (this.box_.contains(this.leftButton)))){
                 this.box_.removeChild(this.leftButton);
-            };
+            }
             if (((this.rightButton) && (this.box_.contains(this.rightButton)))){
                 this.box_.removeChild(this.rightButton);
-            };
+            }
         }
 
         protected function onLeftButtonClick(_arg1:MouseEvent):void{

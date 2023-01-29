@@ -6,6 +6,8 @@
 package io.decagames.rotmg.fame{
 import com.company.util.DateFormatterReplacement;
 
+import io.decagames.rotmg.characterMetrics.tracker.CharactersMetricsTracker;
+
 import robotlegs.bender.bundles.mvcs.Mediator;
     import io.decagames.rotmg.ui.popups.signals.ClosePopupSignal;
     import io.decagames.rotmg.ui.buttons.SliceScalingButton;
@@ -13,7 +15,6 @@ import robotlegs.bender.bundles.mvcs.Mediator;
     import kabam.rotmg.core.signals.HideTooltipsSignal;
     import io.decagames.rotmg.fame.data.FameTracker;
     import kabam.rotmg.core.model.PlayerModel;
-    import io.decagames.rotmg.characterMetrics.tracker.CharactersMetricsTracker;
     import kabam.rotmg.ui.model.HUDModel;
     import com.company.assembleegameclient.ui.tooltip.TextToolTip;
     import kabam.rotmg.tooltips.HoverTooltipDelegate;
@@ -72,7 +73,7 @@ import robotlegs.bender.bundles.mvcs.Mediator;
             this.totalFame = this.fameTracker.getCurrentTotalFame(this.characterID);
             this.bonuses = this.totalFame.bonuses;
             this.bonusesList = new Vector.<FameBonus>();
-            var _local1 = "";
+            var _local1:String = "";
             if (!this.player.getCharacterById(this.characterID)){
                 _local2 = new DateFormatterReplacement();
                 _local2.formatString = "MMMM DD, YYYY";
@@ -105,7 +106,7 @@ import robotlegs.bender.bundles.mvcs.Mediator;
             var _local2:StringBuilder = _arg1.titleText_.getStringBuilder();
             if (((((this.fameTracker.metrics.lastUpdate) && ((_local2 is LineBuilder)))) && ((LineBuilder(_local2).key == "Fame calculation")))){
                 _arg1.setTitle(new StaticStringBuilder((("Updated " + TimeSpan.distanceOfTimeInWords(this.fameTracker.metrics.lastUpdate, new Date(), true)) + ".")));
-            };
+            }
         }
 
         override public function destroy():void{

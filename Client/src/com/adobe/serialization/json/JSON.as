@@ -16,8 +16,6 @@ package com.adobe.serialization.json{
             var _local2:JSONDecoder = new JSONDecoder(_arg1);
             return (_local2.getValue());
         }
-
-
     }
 }//package com.adobe.serialization.json
 
