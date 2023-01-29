@@ -39,6 +39,7 @@ package kabam.rotmg.ui.view{
         public var accountClicked:Signal;
         public var legendsClicked:Signal;
         public var supportClicked:Signal;
+        public var languagesClicked:Signal;
         public var editorClicked:Signal;
         public var quitClicked:Signal;
         public var optionalButtonsAdded:Signal;
@@ -67,16 +68,19 @@ package kabam.rotmg.ui.view{
             var _local2:TitleMenuOption = this._buttonFactory.getAccountButton();
             var _local3:TitleMenuOption = this._buttonFactory.getLegendsButton();
             var _local4:TitleMenuOption = this._buttonFactory.getSupportButton();
+            var _local5:TitleMenuOption = this._buttonFactory.getLanguagesButton();
             this.playClicked = _local1.clicked;
             this.accountClicked = _local2.clicked;
             this.legendsClicked = _local3.clicked;
             this.supportClicked = _local4.clicked;
-            var _local5:MenuOptionsBar = new MenuOptionsBar();
-            _local5.addButton(_local1, MenuOptionsBar.CENTER);
-            _local5.addButton(_local4, MenuOptionsBar.LEFT);
-            _local5.addButton(_local2, MenuOptionsBar.LEFT);
-            _local5.addButton(_local3, MenuOptionsBar.RIGHT);
-            return (_local5);
+            this.languagesClicked = _local5.clicked;
+            var _local6:MenuOptionsBar = new MenuOptionsBar();
+            _local6.addButton(_local1, MenuOptionsBar.CENTER);
+            _local6.addButton(_local4, MenuOptionsBar.LEFT);
+            _local6.addButton(_local2, MenuOptionsBar.LEFT);
+            _local6.addButton(_local3, MenuOptionsBar.RIGHT);
+            _local6.addButton(_local5, MenuOptionsBar.RIGHT);
+            return _local6;
         }
 
         private function makeChildren():void{

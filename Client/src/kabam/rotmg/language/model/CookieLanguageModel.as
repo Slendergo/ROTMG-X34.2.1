@@ -22,7 +22,7 @@ package kabam.rotmg.language.model{
                 this.cookie = SharedObject.getLocal("RotMG", "/");
             }
             catch(error:Error) {
-            };
+            }
         }
 
         public function getLanguage():String{
@@ -74,12 +74,7 @@ package kabam.rotmg.language.model{
         private function makeAvailableLanguages():Dictionary{
             var _local1:Dictionary = new Dictionary();
             _local1["Languages.English"] = "en";
-            _local1["Languages.French"] = "fr";
-            _local1["Languages.Spanish"] = "es";
-            _local1["Languages.Italian"] = "it";
-            _local1["Languages.German"] = "de";
-            _local1["Languages.Turkish"] = "tr";
-            _local1["Languages.Russian"] = "ru";
+            _local1["Languages.Polish"] = "pl";
             return (_local1);
         }
 

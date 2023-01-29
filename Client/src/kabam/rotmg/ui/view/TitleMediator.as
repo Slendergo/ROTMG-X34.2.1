@@ -4,7 +4,9 @@
 //kabam.rotmg.ui.view.TitleMediator
 
 package kabam.rotmg.ui.view{
-    import robotlegs.bender.bundles.mvcs.Mediator;
+import com.company.assembleegameclient.ui.language.LanguageOptionOverlay;
+
+import robotlegs.bender.bundles.mvcs.Mediator;
     import kabam.rotmg.account.core.Account;
     import kabam.rotmg.core.model.PlayerModel;
     import kabam.rotmg.core.signals.SetScreenSignal;
@@ -75,6 +77,7 @@ package kabam.rotmg.ui.view{
             this.view.accountClicked.add(this.handleIntentionToReviewAccount);
             this.view.legendsClicked.add(this.showLegendsScreen);
             this.view.supportClicked.add(this.openSupportPage);
+            this.view.languagesClicked.add(this.openLanguages);
             if (this.playerModel.isNewToEditing()){
                 this.view.putNoticeTagToOption(this.view.buttonFactory.getEditorButton(), "new");
             };
@@ -93,6 +96,10 @@ package kabam.rotmg.ui.view{
             var _local1:URLRequest = new URLRequest();
             _local1.url = "https://support.decagames.com";
             navigateToURL(_local1, "_blank");
+        }
+
+        private function openLanguages():void {
+            this.setScreen.dispatch(new LanguageOptionOverlay());
         }
 
         private function onSupportVerifyComplete(_arg1:Boolean, _arg2):void{
@@ -159,6 +166,7 @@ package kabam.rotmg.ui.view{
             this.view.accountClicked.remove(this.handleIntentionToReviewAccount);
             this.view.legendsClicked.remove(this.showLegendsScreen);
             this.view.supportClicked.remove(this.openSupportPage);
+            this.view.languagesClicked.remove(this.openLanguages)
             this.view.optionalButtonsAdded.remove(this.onOptionalButtonsAdded);
             ((this.view.editorClicked) && (this.view.editorClicked.remove(this.showMapEditor)));
             ((this.view.quitClicked) && (this.view.quitClicked.remove(this.attemptToCloseClient)));

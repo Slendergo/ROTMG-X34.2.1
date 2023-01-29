@@ -1687,7 +1687,7 @@
   [ "Options.ToggleNewMiniMapColorsTextDesc", "Experimental: slightly different colors to indicate locked, unlocked and unnamed players.", "en" ],
   [ "Options.ToggleParticleEffect", "Particle Effect", "en" ],
   [ "Options.ToggleParticleEffectDesc", "Reduce particle to help performance", "en" ],
-  [ "TitleView.Copyright", "© 2022 Slendergo", "en" ],
+  [ "TitleView.Copyright", "© 2023 Slendergo", "en" ],
   [ "CharacterDetailsView.Nexus", "Nexus", "en" ],
   [ "CharacterDetailsView.Options", "Options", "en" ],
   [ "IconButton.hotKey", "Hotkey: {hotkey}", "en" ],
