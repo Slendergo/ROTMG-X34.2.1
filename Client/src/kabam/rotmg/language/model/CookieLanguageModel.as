@@ -7,7 +7,9 @@ package kabam.rotmg.language.model{
     import flash.net.SharedObject;
     import flash.utils.Dictionary;
 
-    public class CookieLanguageModel implements LanguageModel {
+import kabam.rotmg.text.model.FontModel;
+
+public class CookieLanguageModel implements LanguageModel {
 
         public static const DEFAULT_LOCALE:String = "en";
 
@@ -26,7 +28,9 @@ package kabam.rotmg.language.model{
         }
 
         public function getLanguage():String{
-            return ((this.language = ((this.language) || (this.readLanguageFromCookie()))));
+            var language:String = ((this.language = ((this.language) || (this.readLanguageFromCookie()))));
+            updateFontModelLanguageType(language);
+            return language;
         }
 
         private function readLanguageFromCookie():String{
@@ -34,13 +38,15 @@ package kabam.rotmg.language.model{
         }
 
         public function setLanguage(_arg1:String):void{
-            this.language = _arg1;
-            try {
+            language = _arg1;
+            updateFontModelLanguageType(language);
+            try
+            {
                 this.cookie.data.locale = _arg1;
                 this.cookie.flush();
             }
             catch(error:Error) {
-            };
+            }
         }
 
         public function getLanguageFamily():String{
@@ -52,8 +58,8 @@ package kabam.rotmg.language.model{
             var _local1:Vector.<String> = new Vector.<String>();
             for (_local2 in this.availableLanguages) {
                 _local1.push(_local2);
-            };
-            return (_local1);
+            }
+            return _local1
         }
 
         public function getLanguageCodeForName(_arg1:String):String{
@@ -75,10 +81,13 @@ package kabam.rotmg.language.model{
             var _local1:Dictionary = new Dictionary();
             _local1["Languages.English"] = "en";
             _local1["Languages.Polish"] = "pl";
+            _local1["Languages.Japanese"] = "jp";
             return (_local1);
         }
 
-
+        private function updateFontModelLanguageType(_arg1:String):void{
+            FontModel.USE_ALT_FONT = language == "jp";
+        }
     }
 }//package kabam.rotmg.language.model
 

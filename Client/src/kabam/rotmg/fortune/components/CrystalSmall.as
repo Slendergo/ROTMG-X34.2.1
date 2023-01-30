@@ -17,7 +17,9 @@ package kabam.rotmg.fortune.components{
     import flash.events.MouseEvent;
     import flash.text.TextFormat;
     import flash.text.TextFormatAlign;
-    import kabam.rotmg.text.view.stringBuilder.LineBuilder;
+
+import kabam.rotmg.text.model.FontModel;
+import kabam.rotmg.text.view.stringBuilder.LineBuilder;
     import com.company.assembleegameclient.objects.ObjectLibrary;
     import flash.text.TextFieldAutoSize;
     import com.gskinner.motion.GTween;
@@ -212,7 +214,7 @@ package kabam.rotmg.fortune.components{
             this.removeItemReveal();
             var _local2:TextFormat = new TextFormat();
             _local2.size = 18;
-            _local2.font = "Myriad Pro";
+            _local2.font = FontModel.DEFAULT_FONT_NAME;
             _local2.bold = false;
             _local2.align = TextFormatAlign.LEFT;
             _local2.leftMargin = 0;

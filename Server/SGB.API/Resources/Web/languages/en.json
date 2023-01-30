@@ -1975,6 +1975,7 @@
   [ "LanguagesScreen.option", "Choose Language", "en" ],
   [ "Languages.English", "English", "en" ],
   [ "Languages.Polish", "Polish", "en" ],
+  [ "Languages.Japanese", "Japanese", "en" ],
   [ "Vault.chest", "Vault Chest", "en" ],
   [ "Vault.chestDescription", "A chest that will safely store 8 items and is accessible by all of your characters.", "en" ],
   [ "Player.teleportCoolDown", "You can not teleport for another {seconds} seconds.", "en" ],

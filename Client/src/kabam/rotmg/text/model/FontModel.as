@@ -13,21 +13,31 @@ package kabam.rotmg.text.model{
         [Embed(source="FontModel_MyriadPro.swf", symbol="kabam.rotmg.text.model.FontModel_MyriadPro")] public static const MyriadPro:Class;
         [Embed(source="FontModel_MyriadPro_Bold.swf", symbol="kabam.rotmg.text.model.FontModel_MyriadPro_Bold")] public static const MyriadPro_Bold:Class;
 
+        [Embed(source="Meiryo.ttc", fontName="meiryo", embedAsCFF= "false")]
+        public static const MEIRYO:Class;
+
         public static var DEFAULT_FONT_NAME:String = "";
+        public static var USE_ALT_FONT = false;
 
         private var fontInfo:FontInfo;
+        private var fontInfoAlt:FontInfo;
 
         public function FontModel(){
             Font.registerFont(MyriadPro);
             Font.registerFont(MyriadPro_Bold);
+            Font.registerFont(MEIRYO);
             var _local1:Font = new MyriadPro();
             DEFAULT_FONT_NAME = _local1.fontName;
             this.fontInfo = new FontInfo();
             this.fontInfo.setName(_local1.fontName);
+
+            _local1 = new MEIRYO();
+            this.fontInfoAlt = new FontInfo();
+            this.fontInfoAlt.setName(_local1.fontName);
         }
 
         public function getFont():FontInfo{
-            return (this.fontInfo);
+            return USE_ALT_FONT ? fontInfoAlt : fontInfo;
         }
 
         public function apply(_arg1:TextField, _arg2:int, _arg3:uint, _arg4:Boolean, _arg5:Boolean=false):TextFormat{

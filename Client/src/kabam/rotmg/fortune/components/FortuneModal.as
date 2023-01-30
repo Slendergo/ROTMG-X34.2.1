@@ -5,7 +5,9 @@
 
 package kabam.rotmg.fortune.components{
     import kabam.rotmg.account.core.view.EmptyFrame;
-    import org.osflash.signals.Signal;
+import kabam.rotmg.text.model.FontModel;
+
+import org.osflash.signals.Signal;
     import flash.text.TextField;
     import kabam.rotmg.util.components.SimpleButton;
     import kabam.rotmg.pets.view.components.DialogCloseButton;
@@ -237,7 +239,7 @@ package kabam.rotmg.fortune.components{
             var _local1:Vector.<String> = Vector.<String>(["HOW WILL YOU PLAY?", "THE FIVE MASTERS OF GOZOR WILL DETERMINE YOUR PRIZE!", "HERE'S WHAT YOU CAN WIN!", "Shuffling!", "PICK ONE TO WIN A PRIZE!", "YOU WON! ITEMS WILL BE PLACED IN YOUR GIFT CHEST", "TWO ITEMS LEFT! TAKE ANOTHER SHOT!", "PICK A SECOND PRIZE!", "PLAY AGAIN?", "Choose now or I will choose for you!", "Determining Prizes!", "Sorting Loot!", "What can you win?", "Big Prizes! Big Orbs! I love it!", "Wooah! Awesome lewt!", "Processing hadoop data..."]);
             var _local2:TextFormat = new TextFormat();
             _local2.size = 24;
-            _local2.font = "Myriad Pro";
+            _local2.font = FontModel.DEFAULT_FONT_NAME;
             _local2.bold = false;
             _local2.align = TextFormatAlign.LEFT;
             _local2.leftMargin = 0;

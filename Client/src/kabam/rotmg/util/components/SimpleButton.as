@@ -4,7 +4,8 @@
 //kabam.rotmg.util.components.SimpleButton
 
 package kabam.rotmg.util.components{
-    import kabam.rotmg.util.components.api.BuyButton;
+import kabam.rotmg.text.model.FontModel;
+import kabam.rotmg.util.components.api.BuyButton;
     import flash.display.BitmapData;
     import kabam.rotmg.assets.services.IconFactory;
     import flash.filters.ColorMatrixFilter;
@@ -62,7 +63,7 @@ package kabam.rotmg.util.components{
             this.text = new TextField();
             var _local5:TextFormat = new TextFormat();
             _local5.size = 16;
-            _local5.font = "Myriad Pro";
+            _local5.font = FontModel.DEFAULT_FONT_NAME;
             _local5.bold = true;
             _local5.align = TextFormatAlign.LEFT;
             _local5.leftMargin = 0;

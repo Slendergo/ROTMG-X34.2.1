@@ -22,10 +22,7 @@ namespace SGB.API.Controllers
         {
             var path = $"{_core.ResourcePath}/languages/{languageType}.json";
             if(!System.IO.File.Exists(path))
-            {
-                Response.CreateError("Invalid language type.");
-                return;
-            }
+                path = $"{_core.ResourcePath}/languages/en.json";
             
             if (!FileContentsCache.TryGetValue(languageType, out var data))
                 data = System.IO.File.ReadAllBytes(path);

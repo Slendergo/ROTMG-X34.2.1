@@ -21,7 +21,9 @@ package com.company.assembleegameclient.map.mapoverlay{
     import flash.display.GraphicsPathCommand;
     import flash.filters.DropShadowFilter;
     import flash.events.MouseEvent;
-    import kabam.rotmg.ui.model.HUDModel;
+
+import kabam.rotmg.text.model.FontModel;
+import kabam.rotmg.ui.model.HUDModel;
     import com.company.assembleegameclient.objects.Player;
     import kabam.rotmg.core.StaticInjectorContext;
     import com.company.assembleegameclient.parameters.Parameters;
@@ -63,7 +65,7 @@ package com.company.assembleegameclient.map.mapoverlay{
             this.text_.embedFonts = true;
             this.text_.width = 150;
             var _local14:TextFormat = new TextFormat();
-            _local14.font = "Myriad Pro";
+            _local14.font = FontModel.DEFAULT_FONT_NAME;
             _local14.size = 14;
             _local14.bold = _arg12;
             _local14.color = _arg10;

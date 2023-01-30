@@ -50,7 +50,7 @@ package kabam.rotmg.language.service{
             var _local2:Object = JSON.parse(_arg1);
             for each (_local3 in _local2) {
                 this.strings.setValue(_local3[0], _local3[1], _local3[2]);
-            };
+            }
             PetRarityEnum.parseNames();
         }
 

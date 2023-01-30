@@ -9,7 +9,9 @@ package kabam.rotmg.ui.view.components{
     import com.company.assembleegameclient.screens.TitleMenuOption;
     import flash.geom.Rectangle;
 
-    public class MenuOptionsBar extends Sprite {
+import kabam.rotmg.text.model.FontModel;
+
+public class MenuOptionsBar extends Sprite {
 
         private static const Y_POSITION:Number = 550;
         private static const SPACING:int = 20;
@@ -37,7 +39,7 @@ package kabam.rotmg.ui.view.components{
                 case CENTER:
                     this.leftObjects[0] = (this.rightObjects[0] = _arg1);
                     _arg1.x = (this.screenGraphic.width / 2);
-                    _arg1.y = Y_POSITION;
+                    _arg1.y = FontModel.USE_ALT_FONT ? Y_POSITION + 8 : Y_POSITION;
                     return;
                 case LEFT:
                     this.layoutToLeftOf(this.leftObjects[(this.leftObjects.length - 1)], _arg1);
@@ -64,7 +66,7 @@ package kabam.rotmg.ui.view.components{
             var _local3:Rectangle = _arg1.getBounds(_arg1);
             var _local4:Rectangle = _arg2.getBounds(_arg2);
             _arg2.x = (((_arg1.x + _local3.left) - _local4.right) - SPACING);
-            _arg2.y = Y_POSITION;
+            _arg2.y = FontModel.USE_ALT_FONT ? Y_POSITION + 8 : Y_POSITION;
         }
 
         private function layoutRightButtons():void{
@@ -79,7 +81,7 @@ package kabam.rotmg.ui.view.components{
             var _local3:Rectangle = _arg1.getBounds(_arg1);
             var _local4:Rectangle = _arg2.getBounds(_arg2);
             _arg2.x = (((_arg1.x + _local3.right) - _local4.left) + SPACING);
-            _arg2.y = Y_POSITION;
+            _arg2.y = FontModel.USE_ALT_FONT ? Y_POSITION + 8 : Y_POSITION;
         }
 
 
