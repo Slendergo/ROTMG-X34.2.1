@@ -1,3 +1,7 @@
+## NOTES ##
+
+This repo is in very early stages and is being worked on over time, dont expect it to all be running and working first time until i get things rolling.
+
 # ROTMG-X34.2.1
 This repository is a fresh base for people to start with, i have only made a few changes from its original format.
 
