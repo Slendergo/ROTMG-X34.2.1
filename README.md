@@ -36,8 +36,7 @@ This repository is a fresh base for people to start with, i have only made a few
 - .NET 6.0 installed
 
 # Tutorials
-- ROTMG Tutorial #0 - Client Prerequisites: TODO
-- ROTMG Tutorial #1 - How to compile the X34.2.1 Client: https://www.youtube.com/watch?v=c7DmeY-uKNE&feature=youtu.be
+- ROTMG Tutorial #1 - Setting up Prerequisites & Compiling Client: https://www.youtube.com/watch?v=5ZfyRFYW80Q&feature=youtu.be
 
 # Contact Me
 If you have any ideas for my todo, tutorials suggestions or need some assistance my discord is: **Slendergo#3497** i will reply when i have time away from work.
