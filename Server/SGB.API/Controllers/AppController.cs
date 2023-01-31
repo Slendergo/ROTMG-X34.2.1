@@ -20,9 +20,9 @@ namespace SGB.API.Controllers
         [HttpPost("getLanguageStrings")]
         public void LanguageStrings([FromForm] string languageType)
         {
-            var path = $"{_core.ResourcePath}/languages/{languageType}.json";
+            var path = $"{_core.ResourcePath}/languages/{languageType}.rlf";
             if(!System.IO.File.Exists(path))
-                path = $"{_core.ResourcePath}/languages/en.json";
+                path = $"{_core.ResourcePath}/languages/en.rlf";
             
             if (!FileContentsCache.TryGetValue(languageType, out var data))
                 data = System.IO.File.ReadAllBytes(path);

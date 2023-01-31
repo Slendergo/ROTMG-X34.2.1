@@ -5,7 +5,11 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SGB.API", "SGB.API\SGB.API.csproj", "{0336ECCC-4BF6-432B-987A-EDB7CC7D710A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGB.Shared", "SGB.Shared\SGB.Shared.csproj", "{39C8F8CA-BA43-4698-B7D0-0D5284CBD18E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SGB.Shared", "SGB.Shared\SGB.Shared.csproj", "{39C8F8CA-BA43-4698-B7D0-0D5284CBD18E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{882936A8-9ACF-4761-B6D0-F039CD3E614F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SGB.LocaleManager", "SGB.LocaleManager\SGB.LocaleManager.csproj", "{0FBDB5AE-BEF3-49FC-A7A1-2B0DDDE6049F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +25,16 @@ Global
 		{39C8F8CA-BA43-4698-B7D0-0D5284CBD18E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39C8F8CA-BA43-4698-B7D0-0D5284CBD18E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39C8F8CA-BA43-4698-B7D0-0D5284CBD18E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FBDB5AE-BEF3-49FC-A7A1-2B0DDDE6049F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FBDB5AE-BEF3-49FC-A7A1-2B0DDDE6049F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FBDB5AE-BEF3-49FC-A7A1-2B0DDDE6049F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FBDB5AE-BEF3-49FC-A7A1-2B0DDDE6049F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0FBDB5AE-BEF3-49FC-A7A1-2B0DDDE6049F} = {882936A8-9ACF-4761-B6D0-F039CD3E614F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5E87A6E6-EDBE-4283-8F0A-89903B2C06FD}
