@@ -21,8 +21,16 @@ This repository is a fresh base for people to start with, i have only made a few
 - [ ] Fix any remaining bugs
 - [ ] Try unobfuscate local variables where i can
 - [ ] Remove redundant elements for endpoint /char/list
+- [x] Basic multiple language support
 
 # Backend TODO
+
+## Tools
+- [ ] Language management tool
+- [ ] MysteryBox management tool
+- [ ] News management tool
+- [ ] XML management tool???
+- [ ] XML Behavior management tool???
 
 ## API
 - [ ] Create a bare minimum Server Side API using ASP.NET
@@ -36,7 +44,7 @@ This repository is a fresh base for people to start with, i have only made a few
 - Basic coding knowledge
 - Basic markup knowledge
 - Basic API knowledge
-- Adobe Air SDK 33.1
+- Adobe Air SDK 33.1 or higher
 - .NET 6.0 installed
 
 # Tutorials
