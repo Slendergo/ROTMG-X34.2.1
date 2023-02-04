@@ -21,9 +21,6 @@ package com.company.assembleegameclient.util{
         private static const GREY_COLOR_FILTER:Array = [new ColorMatrixFilter(MoreColorUtil.singleColorFilterMatrix(0x363636))];
         private static const DARK_GREY_COLOR_FILTER:Array = [new ColorMatrixFilter(MoreColorUtil.singleColorFilterMatrix(0x1C1C1C))];
 
-        private static var _CHALLENGER_LEADER_BOARD_DROP_SHADOW:Array = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];
-
-
         public static function getUILabelDropShadowFilter01():Array{
             return (UILABEL_DROP_SHADOW_FILTER_01);
         }
@@ -55,11 +52,6 @@ package com.company.assembleegameclient.util{
         public static function getLargeGlowFilter():Array{
             return (LARGE_GLOW_FILTER);
         }
-
-        public static function get CHALLENGER_LEADER_BOARD_DROP_SHADOW():Array{
-            return (_CHALLENGER_LEADER_BOARD_DROP_SHADOW);
-        }
-
 
     }
 }//package com.company.assembleegameclient.util

@@ -34,7 +34,6 @@ package kabam.rotmg.ui{
     import kabam.rotmg.ui.signals.ToggleRealmQuestsDisplaySignal;
     import kabam.rotmg.ui.signals.UpdateQuestSignal;
     import kabam.rotmg.ui.signals.PollVerifyEmailSignal;
-    import io.decagames.rotmg.seasonalEvent.signals.ShowSeasonComingPopupSignal;
     import io.decagames.rotmg.characterMetrics.tracker.CharactersMetricsTracker;
     import io.decagames.rotmg.fame.data.FameTracker;
     import kabam.rotmg.ui.signals.ShowLoadingUISignal;
@@ -44,8 +43,6 @@ package kabam.rotmg.ui{
     import kabam.rotmg.ui.signals.EnterGameSignal;
     import kabam.rotmg.ui.commands.EnterGameCommand;
     import kabam.rotmg.ui.commands.PollVerifyEmailCommand;
-    import io.decagames.rotmg.seasonalEvent.signals.RequestLegacySeasonSignal;
-    import io.decagames.rotmg.seasonalEvent.commands.RequestLegacyChallengerListCommand;
     import com.company.assembleegameclient.screens.LoadingScreen;
     import kabam.rotmg.ui.view.LoadingMediator;
     import com.company.assembleegameclient.screens.ServersScreen;
@@ -54,12 +51,6 @@ package kabam.rotmg.ui{
     import kabam.rotmg.ui.view.CreditsMediator;
     import com.company.assembleegameclient.screens.CharacterSelectionAndNewsScreen;
     import kabam.rotmg.ui.view.CurrentCharacterMediator;
-    import io.decagames.rotmg.seasonalEvent.popups.SeasonalEventComingPopup;
-    import io.decagames.rotmg.seasonalEvent.popups.SeasonalEventComingPopupMediator;
-    import com.company.assembleegameclient.screens.CharacterTypeSelectionScreen;
-    import com.company.assembleegameclient.screens.CharacterTypeSelectionMediator;
-    import com.company.assembleegameclient.screens.LeagueItem;
-    import com.company.assembleegameclient.screens.LeagueItemMediator;
     import kabam.rotmg.account.core.view.AccountInfoView;
     import kabam.rotmg.account.core.view.AccountInfoMediator;
     import com.company.assembleegameclient.screens.AccountScreen;
@@ -149,10 +140,6 @@ package kabam.rotmg.ui{
     import io.decagames.rotmg.fame.FameStatsLineMediator;
     import io.decagames.rotmg.ui.tabs.UITab;
     import io.decagames.rotmg.ui.tabs.UITabMediator;
-    import io.decagames.rotmg.seasonalEvent.SeasonalLeaderBoard.SeasonalLeaderBoardButton;
-    import io.decagames.rotmg.seasonalEvent.SeasonalLeaderBoard.SeasonalLeaderBoardButtonMediator;
-    import io.decagames.rotmg.seasonalEvent.SeasonalLeaderBoard.SeasonalLegacyLeaderBoard;
-    import io.decagames.rotmg.seasonalEvent.SeasonalLeaderBoard.SeasonalLegacyLeaderBoardMediator;
     import io.decagames.rotmg.ui.popups.PopupView;
     import io.decagames.rotmg.ui.popups.PopupMediator;
     import io.decagames.rotmg.ui.popups.modal.ModalPopup;
@@ -174,10 +161,8 @@ package kabam.rotmg.ui{
     import kabam.rotmg.account.core.services.GetCharListTask;
     import kabam.rotmg.dailyLogin.tasks.FetchPlayerCalendarTask;
     import io.decagames.rotmg.pets.tasks.GetOwnedPetSkinsTask;
-    import io.decagames.rotmg.seasonalEvent.tasks.GetSeasonalEventTask;
     import kabam.rotmg.news.services.GetInGameNewsTask;
     import io.decagames.rotmg.supportCampaign.tasks.GetCampaignStatusTask;
-    import io.decagames.rotmg.seasonalEvent.tasks.GetLegacySeasonsTask;
     import kabam.rotmg.ui.signals.ShowKeySignal;
     import kabam.rotmg.ui.signals.HideKeySignal;
     import kabam.rotmg.ui.commands.ShowHideKeyUICommand;
@@ -235,21 +220,16 @@ package kabam.rotmg.ui{
             this.injector.map(RealmServerNameSignal).asSingleton();
             this.injector.map(ToggleRealmQuestsDisplaySignal).asSingleton();
             this.injector.map(UpdateQuestSignal).asSingleton();
-            this.injector.map(ShowSeasonComingPopupSignal).asSingleton();
             this.injector.map(CharactersMetricsTracker).asSingleton();
             this.injector.map(FameTracker).asSingleton();
             this.commandMap.map(ShowLoadingUISignal).toCommand(ShowLoadingUICommand);
             this.commandMap.map(ShowTitleUISignal).toCommand(ShowTitleUICommand);
             this.commandMap.map(EnterGameSignal).toCommand(EnterGameCommand);
             this.commandMap.map(PollVerifyEmailSignal).toCommand(PollVerifyEmailCommand);
-            this.commandMap.map(RequestLegacySeasonSignal).toCommand(RequestLegacyChallengerListCommand);
             this.mediatorMap.map(LoadingScreen).toMediator(LoadingMediator);
             this.mediatorMap.map(ServersScreen).toMediator(ServersMediator);
             this.mediatorMap.map(CreditsScreen).toMediator(CreditsMediator);
             this.mediatorMap.map(CharacterSelectionAndNewsScreen).toMediator(CurrentCharacterMediator);
-            this.mediatorMap.map(SeasonalEventComingPopup).toMediator(SeasonalEventComingPopupMediator);
-            this.mediatorMap.map(CharacterTypeSelectionScreen).toMediator(CharacterTypeSelectionMediator);
-            this.mediatorMap.map(LeagueItem).toMediator(LeagueItemMediator);
             this.mediatorMap.map(AccountInfoView).toMediator(AccountInfoMediator);
             this.mediatorMap.map(AccountScreen).toMediator(AccountScreenMediator);
             this.mediatorMap.map(TitleView).toMediator(TitleMediator);
@@ -295,8 +275,6 @@ package kabam.rotmg.ui{
             this.mediatorMap.map(UIItemContainer).toMediator(UIItemContainerMediator);
             this.mediatorMap.map(StatsLine).toMediator(FameStatsLineMediator);
             this.mediatorMap.map(UITab).toMediator(UITabMediator);
-            this.mediatorMap.map(SeasonalLeaderBoardButton).toMediator(SeasonalLeaderBoardButtonMediator);
-            this.mediatorMap.map(SeasonalLegacyLeaderBoard).toMediator(SeasonalLegacyLeaderBoardMediator);
             this.mediatorMap.map(PopupView).toMediator(PopupMediator);
             this.mediatorMap.map(ModalPopup).toMediator(ModalPopupMediator);
             this.mediatorMap.map(BuyGoldButton).toMediator(BuyGoldButtonMediator);
@@ -314,10 +292,8 @@ package kabam.rotmg.ui{
             this.startup.addTask(GetCharListTask, 3);
             this.startup.addTask(FetchPlayerCalendarTask, 4);
             this.startup.addTask(GetOwnedPetSkinsTask, 5);
-            this.startup.addTask(GetSeasonalEventTask, 6);
             this.startup.addTask(GetInGameNewsTask, 7);
             this.startup.addTask(GetCampaignStatusTask, 8);
-            this.startup.addTask(GetLegacySeasonsTask, 9);
             this.startup.addSignal(ShowTitleUISignal, StartupSequence.LAST);
         }
 

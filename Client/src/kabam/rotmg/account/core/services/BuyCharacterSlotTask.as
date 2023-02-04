@@ -9,7 +9,6 @@ package kabam.rotmg.account.core.services{
     import kabam.rotmg.appengine.api.AppEngineClient;
     import kabam.rotmg.dialogs.control.OpenDialogSignal;
     import kabam.rotmg.core.model.PlayerModel;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
 
     public class BuyCharacterSlotTask extends BaseTask {
 
@@ -23,13 +22,9 @@ package kabam.rotmg.account.core.services{
         public var openDialog:OpenDialogSignal;
         [Inject]
         public var model:PlayerModel;
-        [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
-
 
         override protected function startTask():void{
             var _local1:Object = this.account.getCredentials();
-            _local1.isChallenger = this.seasonalEventModel.isChallenger;
             this.client.setMaxRetries(2);
             this.client.complete.addOnce(this.onComplete);
             this.client.sendRequest("/account/purchaseCharSlot", _local1);

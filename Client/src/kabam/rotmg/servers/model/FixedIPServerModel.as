@@ -36,7 +36,7 @@ package kabam.rotmg.servers.model{
         public function setServers(_arg1:Vector.<Server>):void{
         }
 
-        public function setAvailableServers(_arg1:int):void{
+        public function setAvailableServers():void{
         }
 
         public function getAvailableServers():Vector.<Server>{

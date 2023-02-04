@@ -11,7 +11,7 @@ package kabam.rotmg.servers.api{
         function getServer():Server;
         function isServerAvailable():Boolean;
         function getServers():Vector.<Server>;
-        function setAvailableServers(_arg1:int):void;
+        function setAvailableServers():void;
         function getAvailableServers():Vector.<Server>;
 
     }

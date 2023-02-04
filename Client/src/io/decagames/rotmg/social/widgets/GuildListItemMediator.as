@@ -104,17 +104,8 @@ package io.decagames.rotmg.social.widgets{
         }
 
         private function onTeleportClick(_arg1:MouseEvent):void{
-            var _local2:Boolean;
             var _local3:SavedCharacter = this.playerModel.getCharacterById(this.playerModel.currentCharId);
-            if (_local3){
-                _local2 = Boolean(int(_local3.charXML_.IsChallenger));
-            };
-            if (_local2){
-                Parameters.data_.preferredChallengerServer = this.view.guildMemberVO.serverName;
-            }
-            else {
-                Parameters.data_.preferredServer = this.view.guildMemberVO.serverName;
-            };
+            Parameters.data_.preferredServer = this.view.guildMemberVO.serverName;
             Parameters.save();
             this.enterGame.dispatch();
             var _local4:GameInitData = new GameInitData();

@@ -6,7 +6,6 @@
 package kabam.rotmg.ui.commands{
     import kabam.rotmg.account.core.Account;
     import kabam.rotmg.core.model.PlayerModel;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import kabam.rotmg.core.signals.SetScreenWithValidDataSignal;
     import kabam.rotmg.game.signals.PlayGameSignal;
     import kabam.rotmg.dialogs.control.OpenDialogSignal;
@@ -25,8 +24,6 @@ package kabam.rotmg.ui.commands{
         public var account:Account;
         [Inject]
         public var playerModel:PlayerModel;
-        [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
         [Inject]
         public var setScreenWithValidData:SetScreenWithValidDataSignal;
         [Inject]
@@ -52,19 +49,10 @@ package kabam.rotmg.ui.commands{
                         this.showAgeVerificationDialog();
                     }
                     else {
-                        if (this.seasonalEventModel.isSeasonalMode){
-                            this.showCharacterTypeSelectionScreen();
-                        }
-                        else {
-                            this.showCurrentCharacterScreen();
-                        };
+                        this.showCurrentCharacterScreen();
                     };
                 };
             };
-        }
-
-        private function showCharacterTypeSelectionScreen():void{
-            this.setScreenWithValidData.dispatch(new CharacterTypeSelectionScreen());
         }
 
         private function showCurrentCharacterScreen():void{

@@ -31,8 +31,6 @@ package kabam.rotmg.classes.model{
         public var unlockCost:int;
         private var maxLevelAchieved:int;
         private var isSelected:Boolean;
-        private var _isChallenger:Boolean;
-
 
         public function resetSkin():void{
             this.skins.resetSkin();
@@ -57,16 +55,6 @@ package kabam.rotmg.classes.model{
             this.maxLevelAchieved = _arg1;
             this.skins.updateSkins(this.maxLevelAchieved);
         }
-
-        public function get isChallenger():Boolean{
-            return (this._isChallenger);
-        }
-
-        public function set isChallenger(_arg1:Boolean):void{
-            this._isChallenger = _arg1;
-        }
-
-
     }
 }//package kabam.rotmg.classes.model
 

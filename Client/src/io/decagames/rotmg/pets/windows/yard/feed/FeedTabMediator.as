@@ -16,7 +16,6 @@ package io.decagames.rotmg.pets.windows.yard.feed{
     import io.decagames.rotmg.ui.popups.signals.ShowLockFade;
     import io.decagames.rotmg.ui.popups.signals.RemoveLockFade;
     import io.decagames.rotmg.pets.signals.SimulateFeedSignal;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import io.decagames.rotmg.pets.data.vo.PetVO;
     import io.decagames.rotmg.pets.windows.yard.feed.items.FeedItem;
     import com.company.assembleegameclient.ui.panels.itemgrids.itemtiles.InventoryTile;
@@ -59,11 +58,8 @@ package io.decagames.rotmg.pets.windows.yard.feed{
         public var removeFade:RemoveLockFade;
         [Inject]
         public var simulateFeed:SimulateFeedSignal;
-        [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
         private var currentPet:PetVO;
         private var items:Vector.<FeedItem>;
-
 
         override public function initialize():void{
             this.currentPet = ((this.model.activeUIVO) ? this.model.activeUIVO : this.model.getActivePet());
@@ -125,18 +121,19 @@ package io.decagames.rotmg.pets.windows.yard.feed{
                 if (_local3.selected){
                     _local1 = (_local1 + _local3.feedPower);
                     _local2++;
-                };
-            };
+                }
+            }
+
             if (this.currentPet){
-                this.view.feedGoldButton.price = ((Boolean(this.seasonalEventModel.isChallenger)) ? 0 : (FeedFuseCostModel.getFeedGoldCost(this.currentPet.rarity) * _local2));
-                this.view.feedFameButton.price = ((Boolean(this.seasonalEventModel.isChallenger)) ? 0 : (FeedFuseCostModel.getFeedFameCost(this.currentPet.rarity) * _local2));
+                this.view.feedGoldButton.price = FeedFuseCostModel.getFeedGoldCost(this.currentPet.rarity) * _local2;
+                this.view.feedFameButton.price = FeedFuseCostModel.getFeedFameCost(this.currentPet.rarity) * _local2;
                 this.view.updateFeedPower(_local1, this.currentPet.maxedAvailableAbilities());
             }
             else {
                 this.view.feedGoldButton.price = 0;
                 this.view.feedFameButton.price = 0;
                 this.view.updateFeedPower(0, false);
-            };
+            }
             this.simulateFeed.dispatch(_local1);
         }
 

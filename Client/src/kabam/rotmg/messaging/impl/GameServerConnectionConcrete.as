@@ -35,7 +35,6 @@ package kabam.rotmg.messaging.impl{
     import kabam.rotmg.ui.signals.RealmQuestLevelSignal;
     import kabam.rotmg.arena.model.CurrentArenaRunModel;
     import kabam.rotmg.classes.model.ClassesModel;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import org.swiftsuspenders.Injector;
     import kabam.rotmg.game.model.GameModel;
     import kabam.rotmg.ui.model.HUDModel;
@@ -290,7 +289,6 @@ package kabam.rotmg.messaging.impl{
         private var realmQuestLevelSignal:RealmQuestLevelSignal;
         private var currentArenaRun:CurrentArenaRunModel;
         private var classesModel:ClassesModel;
-        private var seasonalEventModel:SeasonalEventModel;
         private var injector:Injector;
         private var model:GameModel;
         private var hudModel:HUDModel;
@@ -333,7 +331,6 @@ package kabam.rotmg.messaging.impl{
             this.zombify = this.injector.getInstance(ZombifySignal);
             this.setGameFocus = this.injector.getInstance(SetGameFocusSignal);
             this.classesModel = this.injector.getInstance(ClassesModel);
-            this.seasonalEventModel = this.injector.getInstance(SeasonalEventModel);
             serverConnection = this.injector.getInstance(SocketServer);
             this.messages = this.injector.getInstance(MessageProvider);
             this.model = this.injector.getInstance(GameModel);
@@ -645,7 +642,6 @@ package kabam.rotmg.messaging.impl{
             var _local2:Create = (this.messages.require(CREATE) as Create);
             _local2.classType = _local1.id;
             _local2.skinType = _local1.skins.getSelectedSkin().id;
-            _local2.isChallenger = Boolean(this.seasonalEventModel.isChallenger);
             serverConnection.sendMessage(_local2);
         }
 
@@ -653,7 +649,6 @@ package kabam.rotmg.messaging.impl{
             var _local1:Load = (this.messages.require(LOAD) as Load);
             _local1.charId_ = charId_;
             _local1.isFromArena_ = isFromArena_;
-            _local1.isChallenger_ = Boolean(this.seasonalEventModel.isChallenger);
             serverConnection.sendMessage(_local1);
             if (isFromArena_){
                 this.openDialog.dispatch(new BattleSummaryDialog());
@@ -1677,9 +1672,6 @@ package kabam.rotmg.messaging.impl{
                         break;
                     case StatData.NUM_STARS_STAT:
                         _local4.numStars_ = _local8;
-                        break;
-                    case StatData.CHALLENGER_STARBG_STAT:
-                        _local4.starsBg_ = (((_local8 >= 0)) ? _local8 : 0);
                         break;
                     case StatData.NAME_STAT:
                         if (_arg1.name_ != _local7.strStatValue_){

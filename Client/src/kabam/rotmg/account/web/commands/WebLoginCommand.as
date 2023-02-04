@@ -10,20 +10,15 @@ package kabam.rotmg.account.web.commands{
     import kabam.rotmg.dialogs.control.CloseDialogsSignal;
     import kabam.rotmg.core.signals.TaskErrorSignal;
     import kabam.rotmg.account.core.signals.UpdateAccountInfoSignal;
-    import kabam.rotmg.core.signals.TrackEventSignal;
     import kabam.rotmg.core.signals.InvalidateDataSignal;
     import kabam.rotmg.core.signals.SetScreenWithValidDataSignal;
     import kabam.rotmg.core.model.ScreenModel;
     import kabam.rotmg.packages.services.GetPackagesTask;
     import kabam.rotmg.mysterybox.services.GetMysteryBoxesTask;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import kabam.lib.tasks.DispatchSignalTask;
     import kabam.lib.tasks.BranchingTask;
     import kabam.lib.tasks.TaskSequence;
-    import com.company.assembleegameclient.game.GameSprite;
-    import com.company.assembleegameclient.screens.CharacterTypeSelectionScreen;
     import com.company.assembleegameclient.screens.CharacterSelectionAndNewsScreen;
-    import flash.display.Sprite;
 
     public class WebLoginCommand {
 
@@ -49,8 +44,6 @@ package kabam.rotmg.account.web.commands{
         public var getPackageTask:GetPackagesTask;
         [Inject]
         public var mysteryBoxTask:GetMysteryBoxesTask;
-        [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
         private var setScreenTask:DispatchSignalTask;
 
 
@@ -61,7 +54,7 @@ package kabam.rotmg.account.web.commands{
         }
 
         private function makeSuccessTask():TaskSequence{
-            this.setScreenTask = new DispatchSignalTask(this.setScreenWithValidData, this.getTargetScreen());
+            this.setScreenTask = new DispatchSignalTask(this.setScreenWithValidData, new CharacterSelectionAndNewsScreen());
             var _local1:TaskSequence = new TaskSequence();
             _local1.add(new DispatchSignalTask(this.closeDialogs));
             _local1.add(new DispatchSignalTask(this.updateLogin));
@@ -76,14 +69,6 @@ package kabam.rotmg.account.web.commands{
             var _local1:TaskSequence = new TaskSequence();
             _local1.add(new DispatchSignalTask(this.loginError, this.loginTask));
             return (_local1);
-        }
-
-        private function getTargetScreen():Sprite{
-            var _local1:Class = this.screenModel.getCurrentScreenType();
-            if ((((_local1 == null)) || ((_local1 == GameSprite)))){
-                _local1 = ((Boolean(this.seasonalEventModel.isSeasonalMode)) ? CharacterTypeSelectionScreen : CharacterSelectionAndNewsScreen);
-            };
-            return (new (_local1)());
         }
     }
 }//package kabam.rotmg.account.web.commands

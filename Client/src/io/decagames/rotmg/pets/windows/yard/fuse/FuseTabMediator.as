@@ -17,7 +17,6 @@ package io.decagames.rotmg.pets.windows.yard.fuse{
     import io.decagames.rotmg.ui.popups.signals.ShowPopupSignal;
     import kabam.rotmg.game.model.GameModel;
     import kabam.rotmg.core.model.PlayerModel;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import io.decagames.rotmg.pets.components.petItem.PetItem;
     import io.decagames.rotmg.pets.data.vo.PetVO;
     import io.decagames.rotmg.pets.data.rarity.PetRarityEnum;
@@ -62,8 +61,6 @@ package io.decagames.rotmg.pets.windows.yard.fuse{
         public var gameModel:GameModel;
         [Inject]
         public var playerModel:PlayerModel;
-        [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
         private var petsList:Vector.<PetItem>;
         private var currentSelectedPet:PetVO;
         private var fusePet:PetVO;
@@ -212,8 +209,8 @@ package io.decagames.rotmg.pets.windows.yard.fuse{
             this.selectPet(_local2);
             this.fusePet = _local2.getPetVO();
             this.toggleButtons(true);
-            this.view.fuseFameButton.price = ((Boolean(this.seasonalEventModel.isChallenger)) ? 0 : FeedFuseCostModel.getFuseFameCost(this.currentSelectedPet.rarity));
-            this.view.fuseGoldButton.price = ((Boolean(this.seasonalEventModel.isChallenger)) ? 0 : FeedFuseCostModel.getFuseGoldCost(this.currentSelectedPet.rarity));
+            this.view.fuseFameButton.price = FeedFuseCostModel.getFuseFameCost(this.currentSelectedPet.rarity);
+            this.view.fuseGoldButton.price = FeedFuseCostModel.getFuseGoldCost(this.currentSelectedPet.rarity);
             this.view.setStrengthPercentage(FusionCalculator.getStrengthPercentage(this.currentSelectedPet, _local2.getPetVO()), ((this.currentSelectedPet) && ((this.currentSelectedPet.rarity.ordinal == PetRarityEnum.DIVINE.ordinal))));
         }
 

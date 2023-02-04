@@ -9,7 +9,6 @@ package kabam.rotmg.characters.deletion.service{
     import kabam.rotmg.appengine.api.AppEngineClient;
     import kabam.rotmg.account.core.Account;
     import kabam.rotmg.characters.model.CharacterModel;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
 
     public class DeleteCharacterTask extends BaseTask {
 
@@ -21,8 +20,6 @@ package kabam.rotmg.characters.deletion.service{
         public var account:Account;
         [Inject]
         public var model:CharacterModel;
-        [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
 
 
         override protected function startTask():void{
@@ -35,7 +32,6 @@ package kabam.rotmg.characters.deletion.service{
             var _local1:Object = this.account.getCredentials();
             _local1.charId = this.character.charId();
             _local1.reason = 1;
-            _local1.isChallenger = this.seasonalEventModel.isChallenger;
             return (_local1);
         }
 

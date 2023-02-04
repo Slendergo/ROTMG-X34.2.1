@@ -8,19 +8,16 @@ package kabam.rotmg.account.core.services{
     import kabam.rotmg.account.core.Account;
     import kabam.rotmg.appengine.api.AppEngineClient;
     import kabam.rotmg.core.model.PlayerModel;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import kabam.rotmg.core.signals.SetLoadingMessageSignal;
     import kabam.rotmg.account.core.signals.CharListDataSignal;
     import kabam.rotmg.core.signals.CharListLoadedSignal;
     import robotlegs.bender.framework.api.ILogger;
     import kabam.rotmg.dialogs.control.OpenDialogSignal;
     import kabam.rotmg.dialogs.control.CloseDialogsSignal;
-    import kabam.rotmg.account.securityQuestions.data.SecurityQuestionsModel;
     import kabam.rotmg.core.signals.SetScreenWithValidDataSignal;
     import io.decagames.rotmg.ui.popups.signals.ClosePopupSignal;
     import io.decagames.rotmg.ui.popups.signals.ShowPopupSignal;
     import flash.utils.Timer;
-    import io.decagames.rotmg.seasonalEvent.popups.SeasonalEventErrorPopup;
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.util.MoreObjectUtil;
     import kabam.rotmg.account.web.view.MigrationDialog;
@@ -48,8 +45,6 @@ package kabam.rotmg.account.core.services{
         [Inject]
         public var model:PlayerModel;
         [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
-        [Inject]
         public var setLoadingMessage:SetLoadingMessageSignal;
         [Inject]
         public var charListData:CharListDataSignal;
@@ -71,8 +66,6 @@ package kabam.rotmg.account.core.services{
         private var retryTimer:Timer;
         private var numRetries:int = 0;
         private var fromMigration:Boolean = false;
-        private var seasonalEventErrorPopUp:SeasonalEventErrorPopup;
-
 
         override protected function startTask():void{
             this.logger.info("GetUserDataTask start");
@@ -98,7 +91,6 @@ package kabam.rotmg.account.core.services{
         public function makeRequestData():Object{
             var _local1:Object = {};
             _local1.do_login = Parameters.sendLogin_;
-            _local1.challenger = Boolean(this.seasonalEventModel.isChallenger);
             MoreObjectUtil.addToObject(_local1, this.account.getCredentials());
             return (_local1);
         }
@@ -112,7 +104,7 @@ package kabam.rotmg.account.core.services{
                 _local3 = _local2.MigrateStatus;
                 if (_local3 == 5){
                     this.sendRequest();
-                };
+                }
                 _local4 = new MigrationDialog(this.account, _local3);
                 this.fromMigration = true;
                 _local4.done.addOnce(this.sendRequest);
@@ -125,9 +117,6 @@ package kabam.rotmg.account.core.services{
                         WebAccount(this.account).userDisplayName = _local2.Account[0].Name;
                     }
                     this.account.creationDate = new Date((_local2.Account[0].CreationTimestamp * 1000));
-                }
-                if (((((_local2) && (Boolean(this.seasonalEventModel.isChallenger)))) && (_local2.Account[0].hasOwnProperty("RemainingLives")))){
-                    this.seasonalEventModel.remainingCharacters = _local2.Account[0].RemainingLives;
                 }
                 this.charListData.dispatch(_local2);
                 if (!this.model.isLogOutLogIn){
@@ -169,36 +158,9 @@ package kabam.rotmg.account.core.services{
                     new TimerCallback(5, this.clearAccountAndReloadCharacters);
                 }
                 else {
-                    if (_arg1 == "Account has fame lower than minimal for the season"){
-                        this.showSeasonalErrorPopUp(_arg1);
-                    }
-                    else {
-                        if (_arg1 == "No more live left for the current season."){
-                            this.showSeasonalErrorPopUp(_arg1);
-                        }
-                        else {
-                            this.waitForASecondThenRetryRequest();
-                        };
-                    };
-                };
-            };
-        }
-
-        private function showSeasonalErrorPopUp(_arg1:String):void{
-            this.seasonalEventErrorPopUp = new SeasonalEventErrorPopup(_arg1);
-            this.seasonalEventErrorPopUp.okButton.addEventListener(MouseEvent.CLICK, this.onSeasonalErrorPopUpClose);
-            this.showPopupSignal.dispatch(this.seasonalEventErrorPopUp);
-        }
-
-        private function onSeasonalErrorPopUpClose(_arg1:MouseEvent):void{
-            this.seasonalEventErrorPopUp.okButton.removeEventListener(MouseEvent.CLICK, this.onSeasonalErrorPopUpClose);
-            var _local2:String = this.seasonalEventErrorPopUp.message;
-            this.closePopupSignal.dispatch(this.seasonalEventErrorPopUp);
-            this.seasonalEventModel.isChallenger = 0;
-            ObjectLibrary.usePatchedData = false;
-            if ((((_local2 == "Account has fame lower than minimal for the season")) || ((_local2 == "No more live left for the current season.")))){
-                this.setScreenWithValidData.dispatch(new CharacterSelectionAndNewsScreen());
-            };
+                    this.waitForASecondThenRetryRequest();
+                }
+            }
         }
 
         private function clearAccountAndReloadCharacters():void{

@@ -15,7 +15,6 @@ package kabam.rotmg.chat.control{
     import io.decagames.rotmg.social.model.SocialModel;
     import kabam.rotmg.application.api.ApplicationSetup;
     import kabam.rotmg.ui.signals.RealmServerNameSignal;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import com.company.assembleegameclient.parameters.Parameters;
     import kabam.rotmg.chat.model.ChatMessage;
     import com.company.assembleegameclient.objects.TextureDataConcrete;
@@ -61,8 +60,6 @@ package kabam.rotmg.chat.control{
         public var setup:ApplicationSetup;
         [Inject]
         public var realmServerNameSignal:RealmServerNameSignal;
-        [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
 
 
         public function execute(_arg1:Text):void{
@@ -71,7 +68,7 @@ package kabam.rotmg.chat.control{
             var _local7:String;
             var _local2 = (_arg1.numStars_ == -1);
             var _local3:Boolean = ((((!((_arg1.name_ == this.model.player.name_))) && (!(_local2)))) && (!(this.isSpecialRecipientChat(_arg1.recipient_))));
-            var _local4:Boolean = Boolean(this.seasonalEventModel.isChallenger);
+            var _local4:Boolean = false;
             if (((((!(_local4)) && ((_arg1.numStars_ < Parameters.data_.chatStarRequirement)))) && (_local3))){
                 return;
             };
@@ -172,7 +169,6 @@ package kabam.rotmg.chat.control{
             _local2.isWhisper = ((_arg1.recipient_) && (!(this.isSpecialRecipientChat(_arg1.recipient_))));
             _local2.isToMe = (_arg1.recipient_ == this.model.player.name_);
             _local2.isFromSupporter = _arg1.isSupporter;
-            _local2.starBg = _arg1.starBg;
             this.addMessageText(_arg1, _local2);
             this.addTextLine.dispatch(_local2);
         }

@@ -9,7 +9,6 @@ package kabam.rotmg.game.commands{
     import kabam.rotmg.core.model.PlayerModel;
     import io.decagames.rotmg.pets.data.PetsModel;
     import kabam.rotmg.servers.api.ServerModel;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import kabam.lib.tasks.TaskMonitor;
     import kabam.lib.net.impl.SocketServerModel;
     import com.company.assembleegameclient.appengine.SavedCharacter;
@@ -32,8 +31,6 @@ package kabam.rotmg.game.commands{
         public var petsModel:PetsModel;
         [Inject]
         public var serverModel:ServerModel;
-        [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
         [Inject]
         public var monitor:TaskMonitor;
         [Inject]
@@ -68,16 +65,7 @@ package kabam.rotmg.game.commands{
         }
 
         private function makeGameView():void{
-            var _local1:Boolean;
-            var _local2:SavedCharacter = this.model.getCharacterById(this.data.charId);
-            if (_local2){
-                _local1 = Boolean(int(_local2.charXML_.IsChallenger));
-            }
-            else {
-                _local1 = Boolean(this.seasonalEventModel.isChallenger);
-            };
-            var _local3:int = ((_local1) ? Server.CHALLENGER_SERVER : Server.NORMAL_SERVER);
-            this.serverModel.setAvailableServers(_local3);
+            this.serverModel.setAvailableServers();
             var _local4:Server = ((this.data.server) || (this.serverModel.getServer()));
             var _local5:int = ((this.data.isNewGame) ? this.getInitialGameId() : this.data.gameId);
             var _local6:Boolean = this.data.createCharacter;
@@ -99,12 +87,10 @@ package kabam.rotmg.game.commands{
                 }
                 else {
                     _local1 = Parameters.NEXUS_GAMEID;
-                };
-            };
+                }
+            }
             return (_local1);
         }
-
-
     }
 }//package kabam.rotmg.game.commands
 

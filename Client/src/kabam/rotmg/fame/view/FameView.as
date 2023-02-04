@@ -43,7 +43,6 @@ package kabam.rotmg.fame.view{
         private var scoringBox:ScoringBox;
         private var finalLine:ScoreTextLine;
         private var continueBtn:TitleMenuOption;
-        private var _remainingChallengerCharacters:UILabel;
         private var isAnimation:Boolean;
         private var isFadeComplete:Boolean;
         private var isDataPopulated:Boolean;
@@ -215,16 +214,6 @@ package kabam.rotmg.fame.view{
             };
         }
 
-        public function addRemainingChallengerCharacters(_arg1:int):void{
-            this._remainingChallengerCharacters = new UILabel();
-            DefaultLabelFormat.createLabelFormat(this._remainingChallengerCharacters, 18, 0xFF0000, TextFormatAlign.LEFT, true);
-            this._remainingChallengerCharacters.autoSize = TextFieldAutoSize.LEFT;
-            this._remainingChallengerCharacters.text = (("You can create " + _arg1) + " more characters");
-            this._remainingChallengerCharacters.x = ((this.width - this._remainingChallengerCharacters.width) / 2);
-            this._remainingChallengerCharacters.y = ((this.finalLine.y + this.finalLine.height) - 10);
-            this.infoContainer.addChild(this._remainingChallengerCharacters);
-        }
-
         private function makeContinueButton():void{
             this.infoContainer.addChild(new ScreenGraphic());
             this.continueBtn.x = (stage.stageWidth / 2);
@@ -237,16 +226,6 @@ package kabam.rotmg.fame.view{
                 this.scoringBox.showScore();
             };
         }
-
-        public function get remainingChallengerCharacters():UILabel{
-            return (this._remainingChallengerCharacters);
-        }
-
-        public function set remainingChallengerCharacters(_arg1:UILabel):void{
-            this._remainingChallengerCharacters = _arg1;
-        }
-
-
     }
 }//package kabam.rotmg.fame.view
 

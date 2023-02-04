@@ -10,11 +10,7 @@ package kabam.rotmg.game.view{
     import kabam.rotmg.core.model.PlayerModel;
     import kabam.rotmg.core.signals.ShowTooltipSignal;
     import kabam.rotmg.core.signals.HideTooltipsSignal;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
-    import kabam.rotmg.tooltips.HoverTooltipDelegate;
     import flash.events.MouseEvent;
-    import flash.display.DisplayObject;
-    import com.company.assembleegameclient.ui.tooltip.IconToolTip;
 
     public class PortalPanelMediator extends Mediator {
 
@@ -28,10 +24,6 @@ package kabam.rotmg.game.view{
         public var showTooltipSignal:ShowTooltipSignal;
         [Inject]
         public var hideTooltipsSignal:HideTooltipsSignal;
-        [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
-        private var challengerTooltipDelegate:HoverTooltipDelegate;
-
 
         override public function initialize():void{
             this.view.exitGameSignal.add(this.onExitGame);
@@ -44,19 +36,7 @@ package kabam.rotmg.game.view{
 
         override public function destroy():void{
             this.view.exitGameSignal.remove(this.onExitGame);
-            ((this.challengerTooltipDelegate) && (this.challengerTooltipDelegate.removeDisplayObject()));
-            this.challengerTooltipDelegate = null;
         }
-
-        private function createChallengerTooltipDelegate(_arg1:IconToolTip):void{
-            this.challengerTooltipDelegate = new HoverTooltipDelegate();
-            this.challengerTooltipDelegate.setHideToolTipsSignal(this.hideTooltipsSignal);
-            this.challengerTooltipDelegate.setShowToolTipSignal(this.showTooltipSignal);
-            this.challengerTooltipDelegate.setDisplayObject((this.view.enterButton_ as DisplayObject));
-            this.challengerTooltipDelegate.tooltip = _arg1;
-        }
-
-
     }
 }//package kabam.rotmg.game.view
 

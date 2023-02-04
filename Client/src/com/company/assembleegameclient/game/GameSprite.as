@@ -13,8 +13,6 @@ package com.company.assembleegameclient.game{
     import com.company.assembleegameclient.ui.RankText;
     import com.company.assembleegameclient.ui.GuildText;
     import kabam.rotmg.game.view.ShopDisplay;
-    import io.decagames.rotmg.seasonalEvent.SeasonalLeaderBoard.SeasonalLeaderBoardButton;
-    import io.decagames.rotmg.seasonalEvent.buttons.SeasonalInfoButton;
     import kabam.rotmg.game.view.CreditDisplay;
     import kabam.rotmg.game.view.RealmQuestsDisplay;
     import kabam.rotmg.game.view.GiftStatusDisplay;
@@ -37,7 +35,6 @@ package com.company.assembleegameclient.game{
     import flash.display.DisplayObject;
     import kabam.rotmg.promotions.view.SpecialOfferButton;
     import kabam.rotmg.game.model.QuestModel;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import flash.display.Sprite;
     import kabam.rotmg.messaging.impl.GameServerConnectionConcrete;
     import flash.events.MouseEvent;
@@ -90,8 +87,6 @@ package com.company.assembleegameclient.game{
         public var rankText_:RankText;
         public var guildText_:GuildText;
         public var shopDisplay:ShopDisplay;
-        public var challengerLeaderBoard:SeasonalLeaderBoardButton;
-        public var challengerInfoButton:SeasonalInfoButton;
         public var creditDisplay_:CreditDisplay;
         public var realmQuestsDisplay:RealmQuestsDisplay;
         public var giftStatusDisplay:GiftStatusDisplay;
@@ -120,7 +115,6 @@ package com.company.assembleegameclient.game{
         private var packageY:Number;
         private var specialOfferButton:SpecialOfferButton;
         private var questModel:QuestModel;
-        private var seasonalEventModel:SeasonalEventModel;
         private var mapName:String;
 
         public function GameSprite(_arg1:Server, _arg2:int, _arg3:Boolean, _arg4:int, _arg5:int, _arg6:ByteArray, _arg7:PlayerModel, _arg8:String, _arg9:Boolean){
@@ -209,7 +203,6 @@ package com.company.assembleegameclient.game{
         override public function initialize():void{
             var _local4:ShowProTipSignal;
             this.questModel = StaticInjectorContext.getInjector().getInstance(QuestModel);
-            this.seasonalEventModel = StaticInjectorContext.getInjector().getInstance(SeasonalEventModel);
             map.initialize();
             this.modelInitialized.dispatch();
             this.mapName = map.name_;
@@ -224,17 +217,15 @@ package com.company.assembleegameclient.game{
             var _local1:Account = StaticInjectorContext.getInjector().getInstance(Account);
             this.isNexus_ = (this.mapName == Map.NEXUS);
             if (this.isNexus_){
-                if (!this.seasonalEventModel.isChallenger){
-                    this.addToQueueSignal.dispatch(PopupNamesConfig.DAILY_LOGIN_POPUP, this.openDailyCalendarPopupSignal, -1, null);
-                    if (this.beginnersPackageModel.status == BeginnersPackageModel.STATUS_CAN_BUY_SHOW_POP_UP){
-                        this.addToQueueSignal.dispatch(PopupNamesConfig.BEGINNERS_OFFER_POPUP, this.showBeginnersPackage, 1, null);
-                    }
-                    else {
-                        this.addToQueueSignal.dispatch(PopupNamesConfig.PACKAGES_OFFER_POPUP, this.showPackage, 1, null);
-                    };
-                    this.flushQueueSignal.dispatch();
-                };
-            };
+                this.addToQueueSignal.dispatch(PopupNamesConfig.DAILY_LOGIN_POPUP, this.openDailyCalendarPopupSignal, -1, null);
+                if (this.beginnersPackageModel.status == BeginnersPackageModel.STATUS_CAN_BUY_SHOW_POP_UP){
+                    this.addToQueueSignal.dispatch(PopupNamesConfig.BEGINNERS_OFFER_POPUP, this.showBeginnersPackage, 1, null);
+                }
+                else {
+                    this.addToQueueSignal.dispatch(PopupNamesConfig.PACKAGES_OFFER_POPUP, this.showPackage, 1, null);
+                }
+                this.flushQueueSignal.dispatch();
+            }
             if (((this.isNexus_) || ((this.mapName == Map.DAILY_QUEST_ROOM)))){
                 this.creditDisplay_ = new CreditDisplay(this, true, true);
             }
@@ -312,13 +303,7 @@ package com.company.assembleegameclient.game{
         private function showSafeAreaDisplays():void{
             this.showRankText();
             this.showGuildText();
-            if (this.seasonalEventModel.isChallenger){
-                this.showChallengerInfoButton();
-            }
-            else {
-                this.showShopDisplay();
-            };
-            this.showChallengerLeaderBoardButton();
+            this.showShopDisplay();
             this.showGiftStatusDisplay();
             this.showNewsUpdate();
             this.showNewsTicker();
@@ -385,20 +370,6 @@ package com.company.assembleegameclient.game{
             this.shopDisplay.x = 6;
             this.shopDisplay.y = 40;
             addChild(this.shopDisplay);
-        }
-
-        private function showChallengerLeaderBoardButton():void{
-            this.challengerLeaderBoard = new SeasonalLeaderBoardButton();
-            this.challengerLeaderBoard.x = (594 - this.challengerLeaderBoard.width);
-            this.challengerLeaderBoard.y = 40;
-            addChild(this.challengerLeaderBoard);
-        }
-
-        private function showChallengerInfoButton():void{
-            this.challengerInfoButton = new SeasonalInfoButton();
-            this.challengerInfoButton.x = (594 - this.challengerInfoButton.width);
-            this.challengerInfoButton.y = 80;
-            addChild(this.challengerInfoButton);
         }
 
         private function showNewsUpdate(_arg1:Boolean=true):void{
@@ -571,7 +542,7 @@ package com.company.assembleegameclient.game{
                 this.creditDisplay_.draw(_local5.credits_, _local5.fame_, _local5.tokens_);
                 this.drawCharacterWindow.dispatch(_local5);
                 if (this.evalIsNotInCombatMapArea()){
-                    this.rankText_.draw(_local5.numStars_, _local5.starsBg_);
+                    this.rankText_.draw(_local5.numStars_);
                     this.guildText_.draw(_local5.guildName_, _local5.guildRank_);
                 };
                 if (_local5.isPaused()){

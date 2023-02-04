@@ -17,11 +17,9 @@ package io.decagames.rotmg.pets.windows.yard.list{
     import kabam.rotmg.account.core.Account;
     import io.decagames.rotmg.pets.signals.ReleasePetSignal;
     import io.decagames.rotmg.ui.popups.signals.ClosePopupSignal;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import com.company.assembleegameclient.ui.tooltip.TextToolTip;
     import kabam.rotmg.tooltips.HoverTooltipDelegate;
     import io.decagames.rotmg.pets.components.petItem.PetItem;
-    import io.decagames.rotmg.seasonalEvent.popups.SeasonalEventErrorPopup;
     import io.decagames.rotmg.pets.data.rarity.PetRarityEnum;
     import io.decagames.rotmg.pets.popup.upgradeYard.PetYardUpgradeDialog;
     import io.decagames.rotmg.ui.buttons.BaseButton;
@@ -59,13 +57,9 @@ package io.decagames.rotmg.pets.windows.yard.list{
         public var showPopupSignal:ShowPopupSignal;
         [Inject]
         public var closePopupSignal:ClosePopupSignal;
-        [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
         private var toolTip:TextToolTip = null;
         private var hoverTooltipDelegate:HoverTooltipDelegate;
         private var petsList:Vector.<PetItem>;
-        private var seasonalEventErrorPopUp:SeasonalEventErrorPopup;
-
 
         override public function initialize():void{
             this.model.activeUIVO = null;
@@ -99,23 +93,7 @@ package io.decagames.rotmg.pets.windows.yard.list{
         }
 
         private function upgradeYard(_arg1:BaseButton):void{
-            if (((this.seasonalEventModel.isChallenger) && ((this.model.getPetYardType() == this.seasonalEventModel.maxPetYardLevel)))){
-                this.showSeasonalErrorPopUp("You cannot upgrade your pet yard any higher this season");
-            }
-            else {
-                this.showDialog.dispatch(new PetYardUpgradeDialog(PetRarityEnum.selectByOrdinal(this.model.getPetYardType()), this.model.getPetYardUpgradeGoldPrice(), this.model.getPetYardUpgradeFamePrice()));
-            };
-        }
-
-        private function showSeasonalErrorPopUp(_arg1:String):void{
-            this.seasonalEventErrorPopUp = new SeasonalEventErrorPopup(_arg1);
-            this.seasonalEventErrorPopUp.okButton.addEventListener(MouseEvent.CLICK, this.onSeasonalErrorPopUpClose);
-            this.showPopupSignal.dispatch(this.seasonalEventErrorPopUp);
-        }
-
-        private function onSeasonalErrorPopUpClose(_arg1:MouseEvent):void{
-            this.seasonalEventErrorPopUp.okButton.removeEventListener(MouseEvent.CLICK, this.onSeasonalErrorPopUpClose);
-            this.closePopupSignal.dispatch(this.seasonalEventErrorPopUp);
+            this.showDialog.dispatch(new PetYardUpgradeDialog(PetRarityEnum.selectByOrdinal(this.model.getPetYardType()), this.model.getPetYardUpgradeGoldPrice(), this.model.getPetYardUpgradeFamePrice()));
         }
 
         private function selectPetVO(_arg1:PetVO):void{
@@ -123,7 +101,7 @@ package io.decagames.rotmg.pets.windows.yard.list{
             this.model.activeUIVO = _arg1;
             for each (_local2 in this.petsList) {
                 _local2.selected = (_local2.getPetVO() == _arg1);
-            };
+            }
         }
 
         private function onPetSelected(_arg1:MouseEvent):void{

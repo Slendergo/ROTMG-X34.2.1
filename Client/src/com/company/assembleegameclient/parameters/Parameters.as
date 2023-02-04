@@ -170,8 +170,6 @@ package com.company.assembleegameclient.parameters{
             setDefault("centerOnPlayer", true);
             setDefault("preferredServer", null);
             setDefault("bestServer", null);
-            setDefault("preferredChallengerServer", null);
-            setDefault("bestChallengerServer", null);
             setDefault("needsTutorial", true);
             setDefault("needsRandomRealm", true);
             setDefault("cameraAngle", 0);
@@ -251,7 +249,6 @@ package com.company.assembleegameclient.parameters{
             setDefault("gravestones", 0);
             setDefault("chatNameColor", 0);
             setDefault("expandRealmQuestsDisplay", true);
-            setDefault("showChallengerInfo", true);
             if (!data_.hasOwnProperty("needsSurvey")){
                 data_.needsSurvey = data_.needsTutorial;
                 switch (int((Math.random() * 5))){

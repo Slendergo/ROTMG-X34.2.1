@@ -25,8 +25,7 @@ package kabam.rotmg.ui.view{
 
         override public function initialize():void{
             this.view.gotoTitle.add(this.onGotoTitle);
-            var _local1:int = ((this.view.isChallenger) ? Server.CHALLENGER_SERVER : Server.NORMAL_SERVER);
-            this.servers.setAvailableServers(_local1);
+            this.servers.setAvailableServers();
             this.view.initialize(this.servers.getAvailableServers());
         }
 

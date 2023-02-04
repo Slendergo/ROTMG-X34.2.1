@@ -75,7 +75,7 @@ package com.company.assembleegameclient.ui.tooltip{
             this.hpBar_.draw(this.player_.hp_, this.player_.maxHP_, this.player_.maxHPBoost_, this.player_.maxHPMax_);
             this.mpBar_.draw(this.player_.mp_, this.player_.maxMP_, this.player_.maxMPBoost_, this.player_.maxMPMax_);
             this.eGrid.setItems(this.player_.equipment_);
-            this.rankText_.draw(this.player_.numStars_, this.player_.starsBg_);
+            this.rankText_.draw(this.player_.numStars_);
             super.draw();
         }
 

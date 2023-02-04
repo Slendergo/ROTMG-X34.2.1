@@ -11,7 +11,6 @@ package kabam.rotmg.account.web.view{
     import kabam.rotmg.dialogs.control.OpenDialogSignal;
     import kabam.rotmg.appengine.api.AppEngineClient;
     import kabam.rotmg.account.core.signals.LoginSignal;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import kabam.rotmg.account.web.model.AccountData;
     import com.company.assembleegameclient.ui.dialogs.ConfirmDialog;
 
@@ -31,8 +30,6 @@ package kabam.rotmg.account.web.view{
         public var client:AppEngineClient;
         [Inject]
         public var login:LoginSignal;
-        [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
         private var email:String;
         private var pass:String;
 
@@ -65,7 +62,6 @@ package kabam.rotmg.account.web.view{
         private function onLogOut():void{
             this.logout.dispatch();
             this.view.setInfo("", false);
-            this.seasonalEventModel.isChallenger = 0;
         }
 
         private function onResetComplete(_arg1:Boolean, _arg2):void{

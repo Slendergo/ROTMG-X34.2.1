@@ -61,8 +61,6 @@ package com.company.assembleegameclient.screens.charrects{
             this.charStats = _arg4;
             var _local5:String = _arg2.name;
             var _local6:int = _arg3.charXML_.Level;
-            var _local7:int = int(_arg3.charXML_.IsChallenger);
-            var _local8:Number = (((_local7 == 1)) ? 0xEE00FF : 0xFFFFFF);
             super.className = new LineBuilder().setParams(TextKey.CURRENT_CHARACTER_DESCRIPTION, {
                 className:_local5,
                 level:_local6
@@ -70,8 +68,7 @@ package com.company.assembleegameclient.screens.charrects{
             super.color = 0x5C5C5C;
             super.overColor = 0x7F7F7F;
             super.init();
-            super.classNameText.setColor(_local8);
-            setSeasonalOverlay((_local7 == 1));
+            super.classNameText.setColor(0xFFFFFF);
             this.makeTagline();
             this.makeDeleteButton();
             this.makePetIcon();

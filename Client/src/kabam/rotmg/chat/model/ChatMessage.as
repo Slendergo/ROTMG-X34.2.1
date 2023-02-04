@@ -15,10 +15,9 @@ package kabam.rotmg.chat.model{
         public var isWhisper:Boolean;
         public var isFromSupporter:Boolean;
         public var tokens:Object;
-        public var starBg:int;
 
 
-        public static function make(_arg1:String, _arg2:String, _arg3:int=-1, _arg4:int=-1, _arg5:String="", _arg6:Boolean=false, _arg7:Object=null, _arg8:Boolean=false, _arg9:Boolean=false, _arg10:int=0):ChatMessage{
+        public static function make(_arg1:String, _arg2:String, _arg3:int=-1, _arg4:int=-1, _arg5:String="", _arg6:Boolean=false, _arg7:Object=null, _arg8:Boolean=false, _arg9:Boolean=false):ChatMessage{
             var _local11:ChatMessage = new (ChatMessage)();
             _local11.name = _arg1;
             _local11.text = _arg2;
@@ -29,7 +28,6 @@ package kabam.rotmg.chat.model{
             _local11.isWhisper = _arg8;
             _local11.isFromSupporter = _arg9;
             _local11.tokens = (((_arg7 == null)) ? {} : _arg7);
-            _local11.starBg = _arg10;
             return (_local11);
         }
 

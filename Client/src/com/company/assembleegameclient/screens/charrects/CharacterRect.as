@@ -21,7 +21,6 @@ package com.company.assembleegameclient.screens.charrects{
         public var color:uint;
         public var overColor:uint;
         private var box:Shape;
-        private var seasonalOverlay:Shape;
         protected var taglineIcon:Sprite;
         protected var taglineText:TextFieldDisplayConcrete;
         protected var classNameText:TextFieldDisplayConcrete;
@@ -30,7 +29,6 @@ package com.company.assembleegameclient.screens.charrects{
 
         public function CharacterRect(){
             this.box = new Shape();
-            this.seasonalOverlay = new Shape();
             super();
         }
 
@@ -42,22 +40,9 @@ package com.company.assembleegameclient.screens.charrects{
         public function init():void{
             tabChildren = false;
             this.makeBox();
-            this.makeSeasonalOverlay();
             this.makeContainer();
             this.makeClassNameText();
             this.addEventListeners();
-        }
-
-        public function setSeasonalOverlay(_arg1:Boolean):void{
-            this.seasonalOverlay.visible = _arg1;
-        }
-
-        private function makeSeasonalOverlay():void{
-            this.seasonalOverlay.graphics.beginFill(6423144, 0.6);
-            this.seasonalOverlay.graphics.drawRect(0, 0, WIDTH, HEIGHT);
-            this.seasonalOverlay.graphics.endFill();
-            this.seasonalOverlay.visible = false;
-            addChild(this.seasonalOverlay);
         }
 
         private function addEventListeners():void{

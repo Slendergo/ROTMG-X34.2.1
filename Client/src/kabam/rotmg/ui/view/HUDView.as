@@ -13,8 +13,6 @@ package kabam.rotmg.ui.view{
     import kabam.rotmg.game.view.components.TabStripView;
     import com.company.assembleegameclient.ui.panels.InteractPanel;
     import com.company.assembleegameclient.ui.TradePanel;
-    import kabam.rotmg.core.StaticInjectorContext;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import com.company.assembleegameclient.game.GameSprite;
     import flash.display.GraphicsSolidFill;
     import flash.display.GraphicsPath;
@@ -58,9 +56,7 @@ package kabam.rotmg.ui.view{
         private function createAssets():void{
             this.background = new CharacterWindowBackground();
             this.miniMap = new MiniMapImp(192, 192);
-            if (!Boolean(StaticInjectorContext.injector.getInstance(SeasonalEventModel).isChallenger)){
-                this.newClassUnlockNotification = new NewClassUnlockNotification();
-            };
+            this.newClassUnlockNotification = new NewClassUnlockNotification();
             this.tabStrip = new TabStripView();
             this.characterDetails = new CharacterDetailsView();
             this.statMeters = new StatMetersView();

@@ -9,7 +9,6 @@ package io.decagames.rotmg.pets.tasks{
     import kabam.rotmg.appengine.api.AppEngineClient;
     import robotlegs.bender.framework.api.ILogger;
     import io.decagames.rotmg.pets.data.PetsModel;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import com.company.util.MoreObjectUtil;
 
     public class GetOwnedPetSkinsTask extends BaseTask {
@@ -22,9 +21,6 @@ package io.decagames.rotmg.pets.tasks{
         public var logger:ILogger;
         [Inject]
         public var petModel:PetsModel;
-        [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
-
 
         override protected function startTask():void{
             this.logger.info("GetOwnedPetSkinsTask start");
@@ -41,7 +37,6 @@ package io.decagames.rotmg.pets.tasks{
         private function makeDataPacket():Object{
             var _local1:Object = {};
             MoreObjectUtil.addToObject(_local1, this.account.getCredentials());
-            _local1.isChallenger = this.seasonalEventModel.isChallenger;
             return (_local1);
         }
 
@@ -55,13 +50,11 @@ package io.decagames.rotmg.pets.tasks{
                 }
                 catch(e:Error) {
                     logger.error(((e.message + " ") + e.getStackTrace()));
-                };
+                }
                 this.petModel.parsePetsData();
-            };
+            }
             completeTask(isOK, data);
         }
-
-
     }
 }//package io.decagames.rotmg.pets.tasks
 

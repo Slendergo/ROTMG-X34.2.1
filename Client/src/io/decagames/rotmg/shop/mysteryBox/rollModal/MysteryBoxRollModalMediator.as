@@ -13,7 +13,6 @@ package io.decagames.rotmg.shop.mysteryBox.rollModal{
     import io.decagames.rotmg.ui.popups.signals.ShowPopupSignal;
     import kabam.rotmg.mysterybox.services.GetMysteryBoxesTask;
     import io.decagames.rotmg.supportCampaign.data.SupporterCampaignModel;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import flash.utils.Timer;
     import io.decagames.rotmg.ui.buttons.SliceScalingButton;
     import flash.events.TimerEvent;
@@ -49,8 +48,6 @@ package io.decagames.rotmg.shop.mysteryBox.rollModal{
         public var getMysteryBoxesTask:GetMysteryBoxesTask;
         [Inject]
         public var supportCampaignModel:SupporterCampaignModel;
-        [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
         private var boxConfig:Array;
         private var swapImageTimer:Timer;
         private var totalRollDelay:int = 2000;
@@ -100,7 +97,6 @@ package io.decagames.rotmg.shop.mysteryBox.rollModal{
             this.requestComplete = false;
             this.timerComplete = false;
             var _local1:Object = this.account.getCredentials();
-            _local1.isChallenger = this.seasonalEventModel.isChallenger;
             _local1.boxId = this.view.info.id;
             if (this.view.info.isOnSale()){
                 _local1.quantity = this.quantity;

@@ -13,7 +13,6 @@ package io.decagames.rotmg.shop.packages{
     import kabam.rotmg.account.core.Account;
     import io.decagames.rotmg.ui.popups.signals.ClosePopupSignal;
     import io.decagames.rotmg.supportCampaign.data.SupporterCampaignModel;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import io.decagames.rotmg.shop.PurchaseInProgressModal;
     import flash.events.MouseEvent;
     import io.decagames.rotmg.shop.genericBox.BoxUtils;
@@ -44,8 +43,6 @@ package io.decagames.rotmg.shop.packages{
         public var closePopupSignal:ClosePopupSignal;
         [Inject]
         public var supportCampaignModel:SupporterCampaignModel;
-        [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
         private var inProgressModal:PurchaseInProgressModal;
 
 
@@ -84,7 +81,6 @@ package io.decagames.rotmg.shop.packages{
 
         private function sendPurchaseRequest():void{
             var _local1:Object = this.account.getCredentials();
-            _local1.isChallenger = this.seasonalEventModel.isChallenger;
             _local1.boxId = this.view.boxInfo.id;
             if (this.view.boxInfo.isOnSale()){
                 _local1.quantity = this.view.spinner.value;

@@ -20,11 +20,6 @@ package kabam.rotmg.classes.view{
     import com.company.assembleegameclient.constants.ScreenTypes;
     import flash.text.TextFieldAutoSize;
     import kabam.rotmg.text.view.TextFieldDisplayConcrete;
-    import io.decagames.rotmg.ui.labels.UILabel;
-    import org.swiftsuspenders.Injector;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
-    import io.decagames.rotmg.ui.defaults.DefaultLabelFormat;
-    import flash.text.TextFormatAlign;
 
     public class CharacterSkinView extends Sprite {
 
@@ -111,27 +106,11 @@ package kabam.rotmg.classes.view{
         }
 
         private function makeListView():void{
-            var _local3:UILabel;
             var _local4:CharacterSkinListView;
-            var _local1:Injector = StaticInjectorContext.getInjector();
-            var _local2:SeasonalEventModel = _local1.getInstance(SeasonalEventModel);
-            if (_local2.isChallenger){
-                _local3 = new UILabel();
-                DefaultLabelFormat.createLabelFormat(_local3, 18, 0xFF0000, TextFormatAlign.CENTER, true);
-                _local3.width = 200;
-                _local3.multiline = true;
-                _local3.wordWrap = true;
-                _local3.text = "Skins are not available in Rifts Mode";
-                _local3.x = (600 - (_local3.width / 2));
-                _local3.y = ((600 - _local3.height) / 2);
-                addChild(_local3);
-            }
-            else {
-                _local4 = new CharacterSkinListView();
-                _local4.x = 351;
-                _local4.y = 110;
-                addChild(_local4);
-            };
+            _local4 = new CharacterSkinListView();
+            _local4.x = 351;
+            _local4.y = 110;
+            addChild(_local4);
         }
 
         private function makeClassDetailView():void{

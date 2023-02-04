@@ -22,7 +22,6 @@ package com.company.assembleegameclient.screens{
         private var guildName:String;
         private var guildRank:int;
         private var stars:int;
-        private var starBg:int;
         private var rankText:RankText;
         private var guildText:GuildText;
         private var accountInfo:AccountInfoView;
@@ -54,14 +53,13 @@ package com.company.assembleegameclient.screens{
             this.guildLayer.addChild(this.guildText);
         }
 
-        public function setRank(_arg1:int, _arg2:int=0):void{
+        public function setRank(_arg1:int):void{
             this.stars = _arg1;
-            this.starBg = _arg2;
             this.makeRankText();
         }
 
         private function makeRankText():void{
-            this.rankText = new RankText(this.stars, true, false, this.starBg);
+            this.rankText = new RankText(this.stars, true, false);
             this.rankText.x = 36;
             this.rankText.y = 4;
             this.rankText.mouseEnabled = true;

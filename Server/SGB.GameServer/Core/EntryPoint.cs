@@ -118,7 +118,6 @@ namespace SGB.GameServer.Core
         {
             var characterId = payload.ReadInt32();
             var isFromArena = payload.ReadBoolean();
-            var isChallenger = payload.ReadBoolean();
 
             var outgoingPayload = new OutgoingPayload(CREATE_SUCCESS);
             outgoingPayload.WriteInt32(characterId);
@@ -130,7 +129,6 @@ namespace SGB.GameServer.Core
         {
             var classType = payload.ReadInt16();
             var skinType = payload.ReadInt16();
-            var isChallenger = payload.ReadBoolean();
 
             var outgoingPayload = new OutgoingPayload(CREATE_SUCCESS);
             outgoingPayload.WriteInt32(0);

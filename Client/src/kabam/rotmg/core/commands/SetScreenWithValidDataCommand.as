@@ -12,9 +12,6 @@ package kabam.rotmg.core.commands{
     import kabam.rotmg.dailyLogin.tasks.FetchPlayerCalendarTask;
     import io.decagames.rotmg.supportCampaign.tasks.GetCampaignStatusTask;
     import io.decagames.rotmg.pets.tasks.GetOwnedPetSkinsTask;
-    import io.decagames.rotmg.seasonalEvent.tasks.GetSeasonalEventTask;
-    import io.decagames.rotmg.seasonalEvent.tasks.GetLegacySeasonsTask;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import com.company.assembleegameclient.screens.LoadingScreen;
     import kabam.lib.tasks.TaskSequence;
     import kabam.lib.tasks.DispatchSignalTask;
@@ -37,13 +34,6 @@ package kabam.rotmg.core.commands{
         public var campaignStatusTask:GetCampaignStatusTask;
         [Inject]
         public var petSkinsTask:GetOwnedPetSkinsTask;
-        [Inject]
-        public var getSeasonalEventTask:GetSeasonalEventTask;
-        [Inject]
-        public var getLegacySeasonsTask:GetLegacySeasonsTask;
-        [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
-
 
         public function execute():void{
             if (this.model.isInvalidated){
@@ -61,9 +51,6 @@ package kabam.rotmg.core.commands{
             _local1.add(this.calendarTask);
             _local1.add(this.petSkinsTask);
             _local1.add(this.campaignStatusTask);
-            if (!this.seasonalEventModel.isChallenger){
-                _local1.add(this.getSeasonalEventTask);
-            };
             _local1.add(new DispatchSignalTask(this.setScreen, this.view));
             this.monitor.add(_local1);
             _local1.start();

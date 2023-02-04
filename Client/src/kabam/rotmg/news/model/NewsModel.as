@@ -7,7 +7,6 @@ package kabam.rotmg.news.model{
     import kabam.rotmg.news.controller.NewsDataUpdatedSignal;
     import kabam.rotmg.news.controller.NewsButtonRefreshSignal;
     import kabam.rotmg.account.core.Account;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import kabam.rotmg.constants.GeneralConstants;
     import com.company.assembleegameclient.parameters.Parameters;
     import kabam.rotmg.news.view.NewsModalPage;
@@ -23,8 +22,6 @@ package kabam.rotmg.news.model{
         public var updateNoParams:NewsButtonRefreshSignal;
         [Inject]
         public var account:Account;
-        [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
         public var news:Vector.<NewsCellVO>;
         public var modalPageData:Vector.<NewsCellVO>;
         private var inGameNews:Vector.<InGameNews>;
@@ -48,7 +45,7 @@ package kabam.rotmg.news.model{
 
         public function isInModeToBeShown(_arg1:int):Boolean{
             var _local2:Boolean;
-            var _local3:Boolean = Boolean(seasonalEventModel.isChallenger);
+            var _local3:Boolean = false;
             switch (_arg1){
                 case GeneralConstants.MODE_ALL:
                     _local2 = true;

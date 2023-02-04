@@ -8,12 +8,9 @@ package kabam.rotmg.ui.view{
     import com.company.assembleegameclient.screens.charrects.CharacterRectList;
     import kabam.rotmg.core.signals.SetScreenWithValidDataSignal;
     import kabam.rotmg.ui.signals.BuyCharacterSlotSignal;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import io.decagames.rotmg.ui.popups.signals.ClosePopupSignal;
     import io.decagames.rotmg.ui.popups.signals.ShowPopupSignal;
-    import io.decagames.rotmg.seasonalEvent.popups.SeasonalEventErrorPopup;
     import com.company.assembleegameclient.screens.NewCharacterScreen;
-    import flash.events.MouseEvent;
 
     public class CharacterRectListMediator extends Mediator {
 
@@ -24,13 +21,9 @@ package kabam.rotmg.ui.view{
         [Inject]
         public var buyCharacterSlotSignal:BuyCharacterSlotSignal;
         [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
-        [Inject]
         public var closePopupSignal:ClosePopupSignal;
         [Inject]
         public var showPopupSignal:ShowPopupSignal;
-        private var seasonalEventErrorPopUp:SeasonalEventErrorPopup;
-
 
         override public function initialize():void{
             this.view.newCharacter.add(this.onNewCharacter);
@@ -43,30 +36,12 @@ package kabam.rotmg.ui.view{
         }
 
         private function onNewCharacter():void{
-            if (((this.seasonalEventModel.isChallenger) && ((this.seasonalEventModel.remainingCharacters == 0)))){
-                this.showSeasonalErrorPopUp("You cannot create more characters");
-            }
-            else {
-                this.setScreenWithValidData.dispatch(new NewCharacterScreen());
-            };
-        }
-
-        private function showSeasonalErrorPopUp(_arg1:String):void{
-            this.seasonalEventErrorPopUp = new SeasonalEventErrorPopup(_arg1);
-            this.seasonalEventErrorPopUp.okButton.addEventListener(MouseEvent.CLICK, this.onSeasonalErrorPopUpClose);
-            this.showPopupSignal.dispatch(this.seasonalEventErrorPopUp);
-        }
-
-        private function onSeasonalErrorPopUpClose(_arg1:MouseEvent):void{
-            this.seasonalEventErrorPopUp.okButton.removeEventListener(MouseEvent.CLICK, this.onSeasonalErrorPopUpClose);
-            this.closePopupSignal.dispatch(this.seasonalEventErrorPopUp);
+            this.setScreenWithValidData.dispatch(new NewCharacterScreen());
         }
 
         private function onBuyCharacterSlot(_arg1:int):void{
             this.buyCharacterSlotSignal.dispatch(_arg1);
         }
-
-
     }
 }//package kabam.rotmg.ui.view
 

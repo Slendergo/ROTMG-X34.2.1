@@ -66,30 +66,15 @@ package com.company.assembleegameclient.util{
             return (_local4);
         }
 
-        public static function numStarsToBigImage(_arg1:int, _arg2:int=0):Sprite{
-            var _local3:Sprite = numStarsToImage(_arg1, _arg2);
+        public static function numStarsToBigImage(_arg1:int):Sprite{
+            var _local3:Sprite = numStarsToImage(_arg1)
             _local3.filters = [new DropShadowFilter(0, 0, 0, 1, 4, 4, 2)];
             _local3.scaleX = 1.4;
             _local3.scaleY = 1.4;
             return (_local3);
         }
 
-        public static function numStarsToImage(_arg1:int, _arg2:int=0):Sprite{
-            var _local3:Sprite;
-            var _local4:Sprite;
-            if ((((_arg2 >= 0)) && ((_arg2 <= 4)))){
-                _local3 = new Sprite();
-                _local3.addChild(challengerStarBackground(_arg2));
-                _local4 = getStar(_arg1);
-                _local4.x = ((_local3.width - _local4.width) / 2);
-                _local4.y = ((_local3.height - _local4.height) / 2);
-                _local3.addChild(_local4);
-                return (_local3);
-            };
-            return (getStar(_arg1));
-        }
-
-        private static function getStar(_arg1:int):Sprite{
+        public static function numStarsToImage(_arg1:int):Sprite{
             var _local2:Sprite = new StarGraphic();
             if (_arg1 < ObjectLibrary.playerChars_.length){
                 _local2.transform.colorTransform = lightBlueCT;
@@ -117,31 +102,8 @@ package com.company.assembleegameclient.util{
             return (_local2);
         }
 
-        public static function challengerStarBackground(_arg1:int):SliceScalingBitmap{
-            var _local2:String;
-            switch (_arg1){
-                case 0:
-                    _local2 = "original_allStar";
-                    break;
-                case 1:
-                    _local2 = "challenger_firstPlace";
-                    break;
-                case 2:
-                    _local2 = "challenger_secondPlace";
-                    break;
-                case 3:
-                    _local2 = "challenger_thirdPlace";
-                    break;
-                case 4:
-                    _local2 = "challenger_topPlace";
-                    break;
-            };
-            var _local3:SliceScalingBitmap = TextureParser.instance.getSliceScalingBitmap("UI", _local2);
-            return (_local3);
-        }
-
-        public static function numStarsToIcon(_arg1:int, _arg2:int=0):Sprite{
-            var _local3:Sprite = numStarsToImage(_arg1, _arg2);
+        public static function numStarsToIcon(_arg1:int):Sprite{
+            var _local3:Sprite = numStarsToImage(_arg1);
             var _local4:Sprite = new Sprite();
             _local4.addChild(_local3);
             _local4.filters = [new DropShadowFilter(0, 0, 0, 0.5, 6, 6, 1)];

@@ -28,13 +28,11 @@ package com.company.assembleegameclient.screens{
         private var serverBoxes_:ServerBoxes;
         private var scrollBar_:Scrollbar;
         private var servers:Vector.<Server>;
-        private var _isChallenger:Boolean;
         private var _buttonFactory:ButtonFactory;
         public var gotoTitle:Signal;
 
-        public function ServersScreen(_arg1:Boolean=false){
+        public function ServersScreen(){
             this._buttonFactory = new ButtonFactory();
-            this._isChallenger = _arg1;
             addChild(new ScreenBase());
             this.gotoTitle = new Signal();
             addChild(new ScreenBase());
@@ -73,7 +71,7 @@ package com.company.assembleegameclient.screens{
         }
 
         private function makeServerBoxes():void{
-            this.serverBoxes_ = new ServerBoxes(this.servers, this._isChallenger);
+            this.serverBoxes_ = new ServerBoxes(this.servers);
             this.serverBoxes_.y = 8;
             this.serverBoxes_.addEventListener(Event.COMPLETE, this.onDone);
             this.content_.addChild(this.serverBoxes_);
@@ -115,12 +113,6 @@ package com.company.assembleegameclient.screens{
         private function onDone():void{
             this.gotoTitle.dispatch();
         }
-
-        public function get isChallenger():Boolean{
-            return (this._isChallenger);
-        }
-
-
     }
 }//package com.company.assembleegameclient.screens
 

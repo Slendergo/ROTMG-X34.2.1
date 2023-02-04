@@ -5,7 +5,6 @@
 
 package io.decagames.rotmg.pets.data{
     import io.decagames.rotmg.pets.signals.NotifyActivePetUpdated;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import kabam.rotmg.core.model.PlayerModel;
     import io.decagames.rotmg.pets.data.vo.PetVO;
     import flash.utils.Dictionary;
@@ -23,8 +22,6 @@ package io.decagames.rotmg.pets.data{
         private var petsData:XMLList;
         [Inject]
         public var notifyActivePetUpdated:NotifyActivePetUpdated;
-        [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
         [Inject]
         public var playerModel:PlayerModel;
         private var hash:Object;
@@ -69,11 +66,11 @@ package io.decagames.rotmg.pets.data{
         }
 
         public function getPetYardUpgradeFamePrice():int{
-            return (((Boolean(this.seasonalEventModel.isChallenger)) ? 0 : int(this.yardXmlData.Fame)));
+            return int(this.yardXmlData.Fame);
         }
 
         public function getPetYardUpgradeGoldPrice():int{
-            return (((Boolean(this.seasonalEventModel.isChallenger)) ? 0 : int(this.yardXmlData.Price)));
+            return int(this.yardXmlData.Price);
         }
 
         public function getPetYardObjectID():int{

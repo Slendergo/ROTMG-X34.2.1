@@ -182,17 +182,8 @@ package kabam.rotmg.friends.view{
         }
 
         private function jumpCallback(_arg1:String):void{
-            var _local2:Boolean;
             var _local3:SavedCharacter = this.playerModel.getCharacterById(this.playerModel.currentCharId);
-            if (_local3){
-                _local2 = Boolean(int(_local3.charXML_.IsChallenger));
-            };
-            if (_local2){
-                Parameters.data_.preferredChallengerServer = _arg1;
-            }
-            else {
-                Parameters.data_.preferredServer = _arg1;
-            };
+            Parameters.data_.preferredServer = _arg1;
             Parameters.save();
             this.enterGame.dispatch();
             var _local4:GameInitData = new GameInitData();

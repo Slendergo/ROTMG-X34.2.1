@@ -24,21 +24,10 @@ package kabam.rotmg.classes.control{
 
 
         public function execute():void{
-            this.parseChallengers();
             this.parseMaxLevelsAchieved();
             this.parseItemCosts();
             this.parseOwnership();
             this.statsTracker.parseCharListData(this.data);
-        }
-
-        private function parseChallengers():void{
-            var _local2:XML;
-            var _local3:CharacterClass;
-            var _local1:XMLList = this.data.Char;
-            for each (_local2 in _local1) {
-                _local3 = this.model.getCharacterClass(_local2.ObjectType);
-                _local3.isChallenger = (int(_local2.IsChanllenger) == 1);
-            };
         }
 
         private function parseMaxLevelsAchieved():void{

@@ -16,7 +16,6 @@ package kabam.rotmg.messaging.impl.incoming{
         public var text_:String;
         public var cleanText_:String;
         public var isSupporter:Boolean = false;
-        public var starBg:int;
 
         public function Text(_arg1:uint, _arg2:Function){
             this.name_ = new String();
@@ -34,11 +33,10 @@ package kabam.rotmg.messaging.impl.incoming{
             this.text_ = _arg1.readUTF();
             this.cleanText_ = _arg1.readUTF();
             this.isSupporter = _arg1.readBoolean();
-            this.starBg = _arg1.readInt();
         }
 
         override public function toString():String{
-            return (formatToString("TEXT", "name_", "objectId_", "numStars_", "bubbleTime_", "recipient_", "text_", "cleanText_", "isSupporter", "starBg"));
+            return (formatToString("TEXT", "name_", "objectId_", "numStars_", "bubbleTime_", "recipient_", "text_", "cleanText_", "isSupporter"));
         }
 
 

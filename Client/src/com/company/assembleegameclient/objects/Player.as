@@ -94,7 +94,6 @@ package com.company.assembleegameclient.objects{
         public var credits_:int = 0;
         public var tokens_:int = 0;
         public var numStars_:int = 0;
-        public var starsBg_:int = 0;
         public var fame_:int = 0;
         public var nameChosen_:Boolean = false;
         public var currFame_:int = -1;
@@ -765,7 +764,7 @@ package com.company.assembleegameclient.objects{
             var _local1:StringBuilder = new StaticStringBuilder(name_);
             var _local2:BitmapTextFactory = StaticInjectorContext.getInjector().getInstance(BitmapTextFactory);
             var _local3:BitmapData = _local2.make(_local1, 16, this.getNameColor(), true, NAME_OFFSET_MATRIX, true);
-            _local3.draw(FameUtil.numStarsToIcon(this.numStars_, this.starsBg_), RANK_STAR_BG_OFFSET_MATRIX);
+            _local3.draw(FameUtil.numStarsToIcon(this.numStars_), RANK_STAR_BG_OFFSET_MATRIX);
             return (_local3);
         }
 

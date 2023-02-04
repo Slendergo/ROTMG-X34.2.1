@@ -11,8 +11,6 @@ package com.company.assembleegameclient.ui.tooltip{
     import kabam.rotmg.core.model.PlayerModel;
     import com.company.assembleegameclient.appengine.CharacterStats;
     import flash.display.Sprite;
-    import kabam.rotmg.core.StaticInjectorContext;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import com.company.assembleegameclient.util.AnimatedChars;
     import com.company.assembleegameclient.util.AnimatedChar;
     import com.company.assembleegameclient.util.MaskedImage;
@@ -92,14 +90,13 @@ package com.company.assembleegameclient.ui.tooltip{
 
 
         private function init():void{
-            var _local1:Boolean = Boolean(StaticInjectorContext.injector.getInstance(SeasonalEventModel).isChallenger);
             this._numberOfStars = (((this._charStats == null)) ? 0 : this._charStats.numStars());
             this.createCharacter();
             this.createEquipmentTypes();
             this.createCharacterName();
             this.lineBreakOne = new LineBreakDesign((CLASS_TOOL_TIP_WIDTH - 6), this._lineColor);
             addChild(this.lineBreakOne);
-            if (((this.showUnlockRequirements) && (!(_local1)))){
+            if (this.showUnlockRequirements){
                 this.createUnlockRequirements();
             }
             else {
@@ -107,15 +104,13 @@ package com.company.assembleegameclient.ui.tooltip{
                 this.createQuestText();
                 this.createStarProgress();
                 this.createBestLevelAndFame();
-                if (!_local1){
-                    this.createClassUnlockTitle();
-                    this.createClassUnlocks();
-                    if (this._classUnlockContainer.numChildren > 0){
-                        this.lineBreakTwo = new LineBreakDesign((CLASS_TOOL_TIP_WIDTH - 6), this._lineColor);
-                        addChild(this.lineBreakTwo);
-                    };
-                };
-            };
+                this.createClassUnlockTitle();
+                this.createClassUnlocks();
+                if (this._classUnlockContainer.numChildren > 0){
+                    this.lineBreakTwo = new LineBreakDesign((CLASS_TOOL_TIP_WIDTH - 6), this._lineColor);
+                    addChild(this.lineBreakTwo);
+                }
+            }
         }
 
         private function createCharacter():void{

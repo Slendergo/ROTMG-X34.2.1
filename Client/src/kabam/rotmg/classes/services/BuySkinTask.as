@@ -9,7 +9,6 @@ package kabam.rotmg.classes.services{
     import kabam.rotmg.appengine.api.AppEngineClient;
     import kabam.rotmg.account.core.Account;
     import kabam.rotmg.core.model.PlayerModel;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import kabam.rotmg.dialogs.control.OpenDialogSignal;
     import kabam.rotmg.classes.model.CharacterSkinState;
     import com.company.assembleegameclient.ui.dialogs.ErrorDialog;
@@ -25,8 +24,6 @@ package kabam.rotmg.classes.services{
         [Inject]
         public var player:PlayerModel;
         [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
-        [Inject]
         public var openDialog:OpenDialogSignal;
 
 
@@ -40,7 +37,6 @@ package kabam.rotmg.classes.services{
         private function makeCredentials():Object{
             var _local1:Object = this.account.getCredentials();
             _local1.skinType = this.skin.id;
-            _local1.isChallenger = this.seasonalEventModel.isChallenger;
             return (_local1);
         }
 

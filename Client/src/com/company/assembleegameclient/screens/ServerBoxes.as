@@ -12,15 +12,12 @@ package com.company.assembleegameclient.screens{
     public class ServerBoxes extends Sprite {
 
         private var boxes_:Vector.<ServerBox>;
-        private var _isChallenger:Boolean;
 
-        public function ServerBoxes(_arg1:Vector.<Server>, _arg2:Boolean=false){
+        public function ServerBoxes(_arg1:Vector.<Server>){
             var _local3:ServerBox;
             var _local5:Server;
-            var _local6:String;
             this.boxes_ = new Vector.<ServerBox>();
             super();
-            this._isChallenger = _arg2;
             _local3 = new ServerBox(null);
             _local3.setSelected(true);
             _local3.x = ((ServerBox.WIDTH / 2) + 2);
@@ -30,10 +27,9 @@ package com.company.assembleegameclient.screens{
             var _local4:int = 2;
             for each (_local5 in _arg1) {
                 _local3 = new ServerBox(_local5);
-                _local6 = ((this._isChallenger) ? Parameters.data_.preferredChallengerServer : Parameters.data_.preferredServer);
-                if (_local5.name == _local6){
+                if (_local5.name == Parameters.data_.preferredServer){
                     this.setSelected(_local3);
-                };
+                }
                 _local3.x = ((_local4 % 2) * (ServerBox.WIDTH + 4));
                 _local3.y = (int((_local4 / 2)) * (ServerBox.HEIGHT + 4));
                 _local3.addEventListener(MouseEvent.MOUSE_DOWN, this.onMouseDown);
@@ -50,12 +46,7 @@ package com.company.assembleegameclient.screens{
             };
             this.setSelected(_local2);
             var _local3:String = _local2.value_;
-            if (this._isChallenger){
-                Parameters.data_.preferredChallengerServer = _local3;
-            }
-            else {
-                Parameters.data_.preferredServer = _local3;
-            };
+            Parameters.data_.preferredServer = _local3;
             Parameters.save();
         }
 
@@ -63,11 +54,9 @@ package com.company.assembleegameclient.screens{
             var _local2:ServerBox;
             for each (_local2 in this.boxes_) {
                 _local2.setSelected(false);
-            };
+            }
             _arg1.setSelected(true);
         }
-
-
     }
 }//package com.company.assembleegameclient.screens
 

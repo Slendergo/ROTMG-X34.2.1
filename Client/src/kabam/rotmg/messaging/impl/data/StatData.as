@@ -107,7 +107,6 @@ package kabam.rotmg.messaging.impl.data{
         public static const FORTUNE_TOKEN_STAT:int = 97;
         public static const SUPPORTER_POINTS_STAT:int = 98;
         public static const SUPPORTER_STAT:int = 99;
-        public static const CHALLENGER_STARBG_STAT:int = 100;
         public static const PROJECTILE_SPEED_MULT:int = 102;
         public static const PROJECTILE_LIFE_MULT:int = 103;
 

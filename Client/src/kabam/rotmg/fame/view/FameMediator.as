@@ -7,10 +7,8 @@ package kabam.rotmg.fame.view{
     import robotlegs.bender.bundles.mvcs.Mediator;
     import kabam.rotmg.fame.model.FameModel;
     import kabam.rotmg.death.model.DeathModel;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import kabam.rotmg.core.signals.SetScreenSignal;
     import kabam.rotmg.core.signals.GotoPreviousScreenSignal;
-    import kabam.rotmg.core.signals.TrackPageViewSignal;
     import kabam.rotmg.fame.service.RequestCharacterFameTask;
     import kabam.rotmg.assets.services.CharacterFactory;
     import kabam.rotmg.messaging.impl.incoming.Death;
@@ -30,8 +28,6 @@ package kabam.rotmg.fame.view{
         public var fameModel:FameModel;
         [Inject]
         public var deathModel:DeathModel;
-        [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
         [Inject]
         public var setScreen:SetScreenSignal;
         [Inject]
@@ -55,10 +51,6 @@ package kabam.rotmg.fame.view{
             this.view.clearBackground();
             ((this.death) && (this.death.disposeBackground()));
             this.task.finished.removeAll();
-            if (this.view.remainingChallengerCharacters){
-                this.view.remainingChallengerCharacters.text = "";
-                this.view.remainingChallengerCharacters = null;
-            };
         }
 
         private function setViewDataFromDeath():void{
@@ -83,13 +75,6 @@ package kabam.rotmg.fame.view{
             this.view.setDeathInfo(_arg1.deathDate, _arg1.killer);
             this.view.setIcon(_local4);
             this.view.setScore(_arg1.totalFame, _arg1.xml);
-            if (((this.isFreshDeath) && (this.seasonalEventModel.isChallenger))){
-                this.seasonalEventModel.remainingCharacters = (this.seasonalEventModel.remainingCharacters - 1);
-                if (this.seasonalEventModel.remainingCharacters < 0){
-                    this.seasonalEventModel.remainingCharacters = 0;
-                };
-                this.view.addRemainingChallengerCharacters(this.seasonalEventModel.remainingCharacters);
-            };
         }
 
         private function makeIcon():BitmapData{

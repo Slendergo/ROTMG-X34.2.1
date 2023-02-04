@@ -39,7 +39,6 @@ package kabam.rotmg.game.view{
     import io.decagames.rotmg.ui.popups.signals.CloseAllPopupsSignal;
     import io.decagames.rotmg.ui.popups.signals.ShowPopupSignal;
     import com.company.assembleegameclient.game.events.DisplayAreaChangedSignal;
-    import io.decagames.rotmg.seasonalEvent.data.SeasonalEventModel;
     import flash.utils.getTimer;
     import com.company.assembleegameclient.game.events.ReconnectEvent;
     import kabam.rotmg.packages.model.PackageInfo;
@@ -117,9 +116,6 @@ package kabam.rotmg.game.view{
         public var showPopupSignal:ShowPopupSignal;
         [Inject]
         public var displayAreaChangedSignal:DisplayAreaChangedSignal;
-        [Inject]
-        public var seasonalEventModel:SeasonalEventModel;
-
 
         public static function sleepForMs(_arg1:int):void{
             var _local2:int = getTimer();
@@ -229,9 +225,7 @@ package kabam.rotmg.game.view{
 
         private function onGameSpriteModelInitialized():void{
             this.hudSetupStarted.dispatch(this.view);
-            if (!this.seasonalEventModel.isChallenger){
-                this.beginnersPackageAvailable.add(this.onBeginner);
-            };
+            this.beginnersPackageAvailable.add(this.onBeginner);
             this.packageAvailable.add(this.onPackage);
             this.initPackages.dispatch();
         }

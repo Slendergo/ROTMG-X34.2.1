@@ -63,20 +63,18 @@ package com.company.assembleegameclient.screens{
                 _local5 = int(_local4.@type);
                 _local6 = _local4.@id;
                 if (!_arg1.isClassAvailability(_local6, SavedCharactersList.UNAVAILABLE)){
-                    if (_local6 != "Bard"){
-                        _local7 = _arg1.isClassAvailability(_local6, SavedCharactersList.UNRESTRICTED);
-                        _local8 = new CharacterBox(_local4, _arg1.getCharStats()[_local5], _arg1, _local7);
-                        _local8.x = (((50 + (140 * int((_local2 % 5)))) + 70) - (_local8.width / 2));
-                        _local8.y = (88 + (140 * int((_local2 / 5))));
-                        this.boxes_[_local5] = _local8;
-                        _local8.addEventListener(MouseEvent.ROLL_OVER, this.onCharBoxOver);
-                        _local8.addEventListener(MouseEvent.ROLL_OUT, this.onCharBoxOut);
-                        _local8.characterSelectClicked_.add(this.onCharBoxClick);
-                        addChild(_local8);
-                    };
-                };
+                    _local7 = _arg1.isClassAvailability(_local6, SavedCharactersList.UNRESTRICTED);
+                    _local8 = new CharacterBox(_local4, _arg1.getCharStats()[_local5], _arg1, _local7);
+                    _local8.x = (((50 + (110 * int((_local2 % 7)))) + 70) - _local8.width);
+                    _local8.y = (60 + (110 * int((_local2 / 7))));
+                    this.boxes_[_local5] = _local8;
+                    _local8.addEventListener(MouseEvent.ROLL_OVER, this.onCharBoxOver);
+                    _local8.addEventListener(MouseEvent.ROLL_OUT, this.onCharBoxOut);
+                    _local8.characterSelectClicked_.add(this.onCharBoxClick);
+                    addChild(_local8);
+                }
                 _local2++;
-            };
+            }
             this.backButton_.x = ((stage.stageWidth / 2) - (this.backButton_.width / 2));
             this.backButton_.y = 550;
             this.creditDisplay_.x = stage.stageWidth;
