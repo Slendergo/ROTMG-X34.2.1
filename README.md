@@ -22,11 +22,12 @@ This repository is a fresh base for people to start with, i have only made a few
 - [ ] Try unobfuscate local variables where i can
 - [ ] Remove redundant elements for endpoint /char/list
 - [x] Basic multiple language support
+- [x] Remove Seasons
 
 # Backend TODO
 
 ## Tools
-- [ ] Language management tool
+- [x] Language management tool
 - [ ] MysteryBox management tool
 - [ ] News management tool
 - [ ] XML management tool???
