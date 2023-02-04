@@ -73,6 +73,15 @@ namespace SGB.GameServer.Core
                 case HELLO:
                     HandleHello(session, payload);
                     break;
+
+                case LOAD:
+                    HandleLoad(session, payload);
+                    break;
+
+                case CREATE:
+                    HandleCreate(session, payload);
+                    break;
+
                 default:
                     DebugUtils.Log($"Unknown Payload Id: {payload.Id}");
                     break;
@@ -102,6 +111,30 @@ namespace SGB.GameServer.Core
             outgoingPayload.WriteInt32(0);
             outgoingPayload.WriteInt16(0);
             outgoingPayload.WriteInt16(0);
+            session.Send(outgoingPayload.GetBuffer());
+        }
+
+        private void HandleLoad(Session session, IncomingPayload payload)
+        {
+            var characterId = payload.ReadInt32();
+            var isFromArena = payload.ReadBoolean();
+            var isChallenger = payload.ReadBoolean();
+
+            var outgoingPayload = new OutgoingPayload(CREATE_SUCCESS);
+            outgoingPayload.WriteInt32(characterId);
+            outgoingPayload.WriteInt32(0);
+            session.Send(outgoingPayload.GetBuffer());
+        }
+
+        private void HandleCreate(Session session, IncomingPayload payload)
+        {
+            var classType = payload.ReadInt16();
+            var skinType = payload.ReadInt16();
+            var isChallenger = payload.ReadBoolean();
+
+            var outgoingPayload = new OutgoingPayload(CREATE_SUCCESS);
+            outgoingPayload.WriteInt32(0);
+            outgoingPayload.WriteInt32(0);
             session.Send(outgoingPayload.GetBuffer());
         }
 

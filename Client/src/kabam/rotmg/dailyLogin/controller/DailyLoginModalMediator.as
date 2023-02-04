@@ -49,7 +49,7 @@ package kabam.rotmg.dailyLogin.controller{
             if (this.hudModel.gameSprite.map.name_ != Map.DAILY_QUEST_ROOM){
                 this.view.claimButton.addEventListener(MouseEvent.CLICK, this.onClaimClickHandler);
                 this.view.addEventListener(MouseEvent.CLICK, this.onPopupClickHandler);
-            };
+            }
             Parameters.data_.calendarShowOnDay = this.dailyLoginModel.getTimestampDay();
             Parameters.save();
             this.dailyLoginModel.shouldDisplayCalendarAtStartup = false;

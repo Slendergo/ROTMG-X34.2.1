@@ -5,14 +5,14 @@
 
 package kabam.rotmg.pets.view.components{
     import flash.display.Sprite;
-    import org.osflash.signals.Signal;
+
+import kabam.rotmg.assets.EmbeddedAssets;
+
+import org.osflash.signals.Signal;
     import flash.display.DisplayObject;
     import flash.events.MouseEvent;
 
     public class DialogCloseButton extends Sprite {
-
-        public static var CloseButtonAsset:Class = DialogCloseButton_CloseButtonAsset;
-        public static var CloseButtonLargeAsset:Class = DialogCloseButton_CloseButtonLargeAsset;
 
         public const clicked:Signal = new Signal();
         public const closeClicked:Signal = new Signal();
@@ -23,11 +23,11 @@ package kabam.rotmg.pets.view.components{
             var _local2:DisplayObject;
             super();
             if (_arg1 < 0){
-                addChild(new CloseButtonAsset());
+                addChild(new EmbeddedAssets.CloseButtonAsset());
             }
             else {
-                _local2 = new CloseButtonLargeAsset();
-                addChild(new CloseButtonLargeAsset());
+                _local2 = new EmbeddedAssets.CloseButtonLargeAsset();
+                addChild(new EmbeddedAssets.CloseButtonLargeAsset());
                 scaleX = (scaleX * _arg1);
                 scaleY = (scaleY * _arg1);
             };

@@ -7,6 +7,9 @@ package kabam.rotmg.assets {
 
 public class EmbeddedAssets {
 
+        [Embed(source="images/DialogCloseButton_CloseButtonLargeAsset.png")] public static var CloseButtonAsset:Class;
+        [Embed(source="images/DialogCloseButton_CloseButtonAsset.png")] public static var CloseButtonLargeAsset:Class;
+
         [Embed(source="images/NewsCell_DefaultGraphicLarge.jpg")] public static var DefaultGraphicLarge:Class;
         [Embed(source="images/NewsCell_DefaultGraphicSmall.jpg")] public static var DefaultGraphicSmall:Class;
         [Embed(source="images/NewsModal_backgroundImageEmbed.png")] public static var NewsModal_backgroundImageEmbed:Class;
