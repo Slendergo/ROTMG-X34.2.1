@@ -70,15 +70,15 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles{
 
         public function setItem(_arg1:int):Boolean{
             if (_arg1 == this.itemSprite.itemId){
-                return (false);
+                return false;
             };
             if (this.blockingItemUpdates){
-                return (true);
+                return true;
             };
             this.itemSprite.setType(_arg1);
             this.setTierTag();
             this.updateUseability(this.ownerGrid.curPlayer);
-            return (true);
+            return true;
         }
 
         public function setItemSprite(_arg1:ItemTileSprite):void{
@@ -103,7 +103,7 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles{
         }
 
         public function canHoldItem(_arg1:int):Boolean{
-            return (true);
+            return true;
         }
 
         public function resetItemPosition():void{

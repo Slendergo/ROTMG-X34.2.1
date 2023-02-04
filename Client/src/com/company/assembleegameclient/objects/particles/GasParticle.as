@@ -17,17 +17,17 @@ package com.company.assembleegameclient.objects.particles{
             var _local4:Number;
             timeLeft_ = (timeLeft_ - _arg2);
             if (timeLeft_ <= 0){
-                return (false);
+                return false;
             };
             if (((square_.obj_) && (square_.obj_.props_.static_))){
-                return (false);
+                return false;
             };
             var _local3:Number = (Math.random() * this.noise);
             _local4 = (Math.random() * this.noise);
             x_ = (x_ + (((dx_ * _local3) * _arg2) / 1000));
             y_ = (y_ + (((dy_ * _local4) * _arg2) / 1000));
             setSize(((timeLeft_ / lifetime_) * initialSize_));
-            return (true);
+            return true;
         }
 
 

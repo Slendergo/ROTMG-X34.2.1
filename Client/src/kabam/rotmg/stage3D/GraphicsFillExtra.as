@@ -147,7 +147,7 @@ package kabam.rotmg.stage3D{
             if (((!((softwareDraw[_arg1] == null))) && ((softwareDraw[_arg1] is Boolean)))){
                 return (softwareDraw[_arg1]);
             };
-            return (false);
+            return false;
         }
 
         public static function setSoftwareDrawSolid(_arg1:GraphicsSolidFill, _arg2:Boolean):void{
@@ -164,7 +164,7 @@ package kabam.rotmg.stage3D{
             if (((!((softwareDrawSolid[_arg1] == null))) && ((softwareDrawSolid[_arg1] is Boolean)))){
                 return (softwareDrawSolid[_arg1]);
             };
-            return (false);
+            return false;
         }
 
         public static function dispose():void{

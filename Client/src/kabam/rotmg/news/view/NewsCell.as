@@ -6,7 +6,9 @@
 package kabam.rotmg.news.view{
     import flash.display.Sprite;
     import flash.display.Shape;
-    import kabam.rotmg.text.view.TextFieldDisplayConcrete;
+
+import kabam.rotmg.assets.EmbeddedAssets;
+import kabam.rotmg.text.view.TextFieldDisplayConcrete;
     import kabam.rotmg.news.model.NewsCellVO;
     import flash.display.Loader;
     import org.osflash.signals.Signal;
@@ -26,9 +28,6 @@ package kabam.rotmg.news.view{
         private static const BOX_HEIGHT:uint = 30;
         private static const LARGE:String = "LARGE";
         private static const SMALL:String = "SMALL";
-
-        static var DefaultGraphicLarge:Class = NewsCell_DefaultGraphicLarge;
-        static var DefaultGraphicSmall:Class = NewsCell_DefaultGraphicSmall;
 
         private var imageContainer:Sprite;
         private var maskShape:Shape;
@@ -131,12 +130,12 @@ package kabam.rotmg.news.view{
         private function onIOError(_arg1:IOErrorEvent):void{
             switch (this.size){
                 case LARGE:
-                    this.imageContainer.addChild(new DefaultGraphicLarge());
+                    this.imageContainer.addChild(new EmbeddedAssets.DefaultGraphicLarge());
                     return;
                 case SMALL:
-                    this.imageContainer.addChild(new DefaultGraphicSmall());
+                    this.imageContainer.addChild(new EmbeddedAssets.DefaultGraphicSmall());
                     return;
-            };
+            }
         }
 
         private function onMouseDown(_arg1:MouseEvent):void{

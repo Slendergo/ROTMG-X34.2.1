@@ -714,7 +714,7 @@ package com.greensock.plugins{
                 };
             };
             _startRatio = ((_arg_3.vars.runBackwards) ? 1 : 0);
-            return (true);
+            return true;
         }
 
         override public function _roundProps(_arg_1:Object, _arg_2:Boolean=true):void{

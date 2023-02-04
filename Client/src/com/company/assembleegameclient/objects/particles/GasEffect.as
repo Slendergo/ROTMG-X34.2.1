@@ -30,7 +30,7 @@ package com.company.assembleegameclient.objects.particles{
             var _local9:Number;
             var _local10:GasParticle;
             if (this.go_.map_ == null){
-                return (false);
+                return false;
             };
             x_ = this.go_.x_;
             y_ = this.go_.y_;
@@ -46,7 +46,7 @@ package com.company.assembleegameclient.objects.particles{
                 map_.addObj(_local10, x_, y_);
                 _local4++;
             };
-            return (true);
+            return true;
         }
 
 

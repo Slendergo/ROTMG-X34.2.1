@@ -82,7 +82,7 @@ package com.company.assembleegameclient.mapeditor{
                 case ObjectLibrary.TILE_FILTER_LIST[4]:
                     return (((!(_arg1.hasOwnProperty("Speed"))) || ((Number(_arg1.elements("Speed")) >= 1))));
             };
-            return (true);
+            return true;
         }
 
 

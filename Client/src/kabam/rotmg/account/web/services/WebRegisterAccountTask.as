@@ -34,7 +34,6 @@ package kabam.rotmg.account.web.services{
             _local1.newGUID = this.data.username;
             _local1.newPassword = this.data.password;
             _local1.name = this.data.name;
-            _local1.entrytag = this.account.getEntryTag();
             _local1.signedUpKabamEmail = this.data.signedUpKabamEmail;
             _local1.isAgeVerified = 1;
             return (_local1);

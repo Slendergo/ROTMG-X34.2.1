@@ -50,9 +50,6 @@ package kabam.rotmg.account.core.services{
         private function makeRequestDataPacket():Object{
             var _local1:Object = this.account.getCredentials();
             _local1.time = this.model.lastOfferRequestTime;
-            _local1.game_net_user_id = this.account.gameNetworkUserId();
-            _local1.game_net = this.account.gameNetwork();
-            _local1.play_platform = this.account.playPlatform();
             return (_local1);
         }
 

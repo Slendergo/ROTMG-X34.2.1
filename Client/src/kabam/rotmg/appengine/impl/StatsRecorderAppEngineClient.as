@@ -47,7 +47,7 @@ package kabam.rotmg.appengine.impl{
         }
 
         public function requestInProgress():Boolean{
-            return (false);
+            return false;
         }
 
 

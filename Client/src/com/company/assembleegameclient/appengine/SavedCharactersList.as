@@ -242,10 +242,10 @@ package com.company.assembleegameclient.appengine{
             for each (_local3 in _local2.UnlockLevel) {
                 _local4 = ObjectLibrary.idToType_[_local3.toString()];
                 if (this.bestLevel(_local4) < int(_local3.@level)){
-                    return (false);
+                    return false;
                 };
             };
-            return (true);
+            return true;
         }
 
         public function availableCharSlots():int{

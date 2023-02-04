@@ -316,7 +316,7 @@ package com.greensock{
                 {
                     if (_containsChildOf(_arg_1, _arg_2[_local_3]))
                     {
-                        return (true);
+                        return true;
                     };
                 };
             }
@@ -329,13 +329,13 @@ package com.greensock{
                     {
                         if (_local_4 == _arg_1)
                         {
-                            return (true);
+                            return true;
                         };
                         _local_4 = _local_4.parent;
                     };
                 };
             };
-            return (false);
+            return false;
         }
 
         public static function staggerFrom(_arg_1:Array, _arg_2:Number, _arg_3:Object, _arg_4:Number=0, _arg_5:Function=null, _arg_6:Array=null):Array{

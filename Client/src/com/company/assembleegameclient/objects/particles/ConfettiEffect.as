@@ -44,7 +44,7 @@ package com.company.assembleegameclient.objects.particles{
                 map_.addObj(_local8, x_, y_);
                 _local6++;
             };
-            return (false);
+            return false;
         }
 
 
@@ -90,13 +90,13 @@ class ConfettiParticle extends Particle {
     override public function update(_arg1:int, _arg2:int):Boolean{
         this.timeLeft_ = (this.timeLeft_ - _arg2);
         if (this.timeLeft_ <= 0){
-            return (false);
+            return false;
         };
         this.pathX_ = (this.pathX_ + (this.dx_ * _arg2));
         this.pathY_ = (this.pathY_ + (this.dy_ * _arg2));
         var _local3:Number = Math.sin(((this.timeLeft_ / 1000) / this.period_));
         moveToInModal((this.pathX_ + (this.xDeflect_ * _local3)), (this.pathY_ + (this.yDeflect_ * _local3)));
-        return (true);
+        return true;
     }
 
 

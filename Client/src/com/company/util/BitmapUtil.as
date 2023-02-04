@@ -166,12 +166,12 @@ package com.company.util{
                 if ((((((_local15 > 0)) && ((_local17 >= _local5)))) || ((((_local15 < 0)) && ((_local17 < 0)))))) break;
                 if (_local10){
                     if ((((((_local17 >= 0)) && ((_local17 < _local5)))) && ((_arg1.getPixel(_local17, _local18) == 0)))){
-                        return (false);
+                        return false;
                     };
                 }
                 else {
                     if ((((((_local17 >= 0)) && ((_local17 < _local5)))) && ((_arg1.getPixel(_local18, _local17) == 0)))){
-                        return (false);
+                        return false;
                     };
                 };
                 _local14 = (_local14 + _local13);
@@ -181,7 +181,7 @@ package com.company.util{
                 };
                 _local18++;
             };
-            return (true);
+            return true;
         }
 
 

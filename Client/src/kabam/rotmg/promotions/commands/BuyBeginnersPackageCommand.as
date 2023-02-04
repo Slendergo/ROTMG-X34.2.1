@@ -44,12 +44,12 @@ package kabam.rotmg.promotions.commands{
         }
 
         private function openAccountSpecificPaymentScreen():void{
-            if ((((this.account is WebAccount)) || ((this.account is KabamAccount)))){
+            if (this.account is WebAccount){
                 this.openMoneyWindow.dispatch();
             }
             else {
                 this.makePaymentImmediately();
-            };
+            }
         }
 
         private function makePaymentImmediately():void{

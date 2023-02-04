@@ -97,7 +97,7 @@ package kabam.rotmg.account.web.view{
         }
 
         public function isRememberMeSelected():Boolean{
-            return (true);
+            return true;
         }
 
         public function setError(_arg1:String):void{

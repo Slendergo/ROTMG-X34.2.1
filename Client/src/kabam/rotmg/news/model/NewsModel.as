@@ -30,26 +30,25 @@ package kabam.rotmg.news.model{
         private var inGameNews:Vector.<InGameNews>;
 
         public function NewsModel(){
-            this.inGameNews = new Vector.<InGameNews>();
-            super();
+            inGameNews = new Vector.<InGameNews>();
         }
 
         public function addInGameNews(_arg1:InGameNews):void{
-            if (((this.isInModeToBeShown(_arg1.showInModes)) && (this.isValidForPlatform(_arg1)))){
-                this.inGameNews.push(_arg1);
-            };
-            this.sortNews();
+            if (isInModeToBeShown(_arg1.showInModes)) {
+                inGameNews.push(_arg1);
+            }
+            sortNews();
         }
 
         public function clearNews():void{
-            if (this.inGameNews){
-                this.inGameNews.length = 0;
-            };
+            if (inGameNews){
+                inGameNews.length = 0;
+            }
         }
 
         public function isInModeToBeShown(_arg1:int):Boolean{
             var _local2:Boolean;
-            var _local3:Boolean = Boolean(this.seasonalEventModel.isChallenger);
+            var _local3:Boolean = Boolean(seasonalEventModel.isChallenger);
             switch (_arg1){
                 case GeneralConstants.MODE_ALL:
                     _local2 = true;
@@ -67,7 +66,7 @@ package kabam.rotmg.news.model{
         }
 
         private function sortNews():void{
-            this.inGameNews.sort(function (_arg1:InGameNews, _arg2:InGameNews):int{
+            inGameNews.sort(function (_arg1:InGameNews, _arg2:InGameNews):int{
                 if (_arg1.weight > _arg2.weight){
                     return (-1);
                 };
@@ -79,7 +78,7 @@ package kabam.rotmg.news.model{
         }
 
         public function markAsRead():void{
-            var _local1:InGameNews = this.getFirstNews();
+            var _local1:InGameNews = getFirstNews();
             if (_local1 != null){
                 Parameters.data_["lastNewsKey"] = _local1.newsKey;
                 Parameters.save();
@@ -87,36 +86,37 @@ package kabam.rotmg.news.model{
         }
 
         public function hasUpdates():Boolean{
-            var _local1:InGameNews = this.getFirstNews();
+            var _local1:InGameNews = getFirstNews();
             if ((((_local1 == null)) || ((Parameters.data_["lastNewsKey"] == _local1.newsKey)))){
-                return (false);
-            };
-            return (true);
+                return false;
+            }
+            return true;
         }
 
         public function getFirstNews():InGameNews{
-            if (((this.inGameNews) && ((this.inGameNews.length > 0)))){
-                return (this.inGameNews[0]);
-            };
-            return (null);
+            if (inGameNews && inGameNews.length > 0) {
+                return inGameNews[0];
+            }
+            return null;
         }
 
         public function initNews():void{
-            this.news = new Vector.<NewsCellVO>(COUNT, true);
-            var _local1:int;
+            news = new Vector.<NewsCellVO>(COUNT, true);
+
+            var _local1:int = 0;
             while (_local1 < COUNT) {
-                this.news[_local1] = new DefaultNewsCellVO(_local1);
+                news[_local1] = new DefaultNewsCellVO(_local1);
                 _local1++;
-            };
+            }
         }
 
         public function updateNews(_arg1:Vector.<NewsCellVO>):void{
             var _local3:NewsCellVO;
             var _local4:int;
             var _local5:int;
-            this.initNews();
+            initNews();
             var _local2:Vector.<NewsCellVO> = new Vector.<NewsCellVO>();
-            this.modalPageData = new Vector.<NewsCellVO>(4, true);
+            modalPageData = new Vector.<NewsCellVO>(4, true);
             for each (_local3 in _arg1) {
                 if (_local3.slot <= 3){
                     _local2.push(_local3);
@@ -124,37 +124,37 @@ package kabam.rotmg.news.model{
                 else {
                     _local4 = (_local3.slot - 4);
                     _local5 = (_local4 + 1);
-                    this.modalPageData[_local4] = _local3;
+                    modalPageData[_local4] = _local3;
                     if (Parameters.data_[("newsTimestamp" + _local5)] != _local3.endDate){
                         Parameters.data_[("newsTimestamp" + _local5)] = _local3.endDate;
                         Parameters.data_[("hasNewsUpdate" + _local5)] = true;
-                    };
-                };
-            };
-            this.sortByPriority(_local2);
-            this.update.dispatch(this.news);
-            this.updateNoParams.dispatch();
+                    }
+                }
+            }
+            sortByPriority(_local2);
+            update.dispatch(news);
+            updateNoParams.dispatch();
         }
 
         private function sortByPriority(_arg1:Vector.<NewsCellVO>):void{
             var _local2:NewsCellVO;
             for each (_local2 in _arg1) {
-                if (((this.isNewsTimely(_local2)) && (this.isValidForPlatformGlobal(_local2)))){
-                    this.prioritize(_local2);
-                };
-            };
+                if(isNewsTimely(_local2)){
+                    prioritize(_local2);
+                }
+            }
         }
 
         private function prioritize(_arg1:NewsCellVO):void{
             var _local2:uint = (_arg1.slot - 1);
-            if (this.news[_local2]){
-                _arg1 = this.comparePriority(this.news[_local2], _arg1);
+            if (news[_local2]){
+                _arg1 = comparePriority(news[_local2], _arg1);
             };
-            this.news[_local2] = _arg1;
+            news[_local2] = _arg1;
         }
 
         private function comparePriority(_arg1:NewsCellVO, _arg2:NewsCellVO):NewsCellVO{
-            return ((((_arg1.priority)<_arg2.priority) ? _arg1 : _arg2));
+            return ((((_arg1.priority) < _arg2.priority) ? _arg1 : _arg2));
         }
 
         private function isNewsTimely(_arg1:NewsCellVO):Boolean{
@@ -163,37 +163,25 @@ package kabam.rotmg.news.model{
         }
 
         public function hasValidNews():Boolean{
-            return (((((!((this.news[0] == null))) && (!((this.news[1] == null))))) && (!((this.news[2] == null)))));
+            return (((((!((news[0] == null))) && (!((news[1] == null))))) && (!((news[2] == null)))));
         }
 
         public function hasValidModalNews():Boolean{
-            return ((this.inGameNews.length > 0));
+            return ((inGameNews.length > 0));
         }
 
         public function get numberOfNews():int{
-            return (this.inGameNews.length);
+            return (inGameNews.length);
         }
 
         public function getModalPage(_arg1:int):NewsModalPage{
             var _local2:InGameNews;
-            if (this.hasValidModalNews()){
-                _local2 = this.inGameNews[(_arg1 - 1)];
+            if (hasValidModalNews()){
+                _local2 = inGameNews[(_arg1 - 1)];
                 return (new NewsModalPage(_local2.title, _local2.text));
             };
             return (new NewsModalPage("No new information", "Please check back later."));
         }
-
-        private function isValidForPlatformGlobal(_arg1:NewsCellVO):Boolean{
-            var _local2:String = this.account.playPlatform();
-            return (!((_arg1.networks.indexOf(_local2) == -1)));
-        }
-
-        private function isValidForPlatform(_arg1:InGameNews):Boolean{
-            var _local2:String = this.account.gameNetwork();
-            return (!((_arg1.platform.indexOf(_local2) == -1)));
-        }
-
-
     }
 }//package kabam.rotmg.news.model
 

@@ -62,8 +62,6 @@ import robotlegs.bender.bundles.mvcs.Mediator;
         [Inject]
         public var layers:Layers;
         [Inject]
-        public var securityQuestionsModel:SecurityQuestionsModel;
-        [Inject]
         public var logger:ILogger;
         [Inject]
         public var client:AppEngineClient;
@@ -80,16 +78,15 @@ import robotlegs.bender.bundles.mvcs.Mediator;
             this.view.languagesClicked.add(this.openLanguages);
             if (this.playerModel.isNewToEditing()){
                 this.view.putNoticeTagToOption(this.view.buttonFactory.getEditorButton(), "new");
-            };
-            if (this.securityQuestionsModel.showSecurityQuestionsOnStartup){
-                this.openDialog.dispatch(new SecurityQuestionsInfoDialog());
-            };
+            }
+
             if (!Parameters.sessionStarted){
                 Parameters.sessionStarted = true;
-            };
+            }
+
             if (((this.account.isRegistered()) && (!(this.account.isVerified())))){
                 this.openVerifyEmailSignal.dispatch(false);
-            };
+            }
         }
 
         private function openSupportPage():void{

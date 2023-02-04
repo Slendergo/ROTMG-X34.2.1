@@ -2,7 +2,6 @@
   {
     "slot": 7,
     "linkType": 4,
-    "platform": "1,36,48,49",
     "startTime": 1443571200000,
     "title": "Support",
     "image": "",
@@ -13,7 +12,6 @@
   {
     "slot": 6,
     "linkType": 4,
-    "platform": "1,36,48,49",
     "startTime": 1443571200000,
     "title": "Forums",
     "image": "",
@@ -24,7 +22,6 @@
   {
     "slot": 5,
     "linkType": 4,
-    "platform": "1,36,48,49",
     "startTime": 1443571200000,
     "title": "RealmEye",
     "image": "",
@@ -33,20 +30,8 @@
     "priority": 939
   },
   {
-    "slot": 4,
-    "linkType": 4,
-    "platform": "1,36,48,49",
-    "startTime": 1477526400000,
-    "title": "Hello",
-    "image": "",
-    "endTime": 1477569600000,
-    "linkDetail": "test",
-    "priority": 1043
-  },
-  {
     "slot": 3,
     "linkType": 4,
-    "platform": "rotmg,steam,kongregate",
     "startTime": 1585900800000,
     "title": "Caretaker's Stash",
     "image": "https://storage.googleapis.com/rotmg_images_public/News/caretakersstashsallnews.png",
@@ -57,7 +42,6 @@
   {
     "slot": 2,
     "linkType": 2,
-    "platform": "rotmg,steam,kongregate",
     "startTime": 1585209600000,
     "title": "Tamed Beasts Box/Pack",
     "image": "https://storage.googleapis.com/rotmg_images_public/News/tamedbeastsboxsmallnews.png",
@@ -68,7 +52,6 @@
   {
     "slot": 2,
     "linkType": 2,
-    "platform": "rotmg,steam,kongregate",
     "startTime": 1584604800000,
     "title": "Holy Swordwielder Box/Pack",
     "image": "https://storage.googleapis.com/rotmg_images_public/News/holyswordwielderboxsmallnews.png",
@@ -79,7 +62,6 @@
   {
     "slot": 2,
     "linkType": 2,
-    "platform": "rotmg,steam,kongregate",
     "startTime": 1584921600000,
     "title": "March Weekly Pack #4",
     "image": "https://storage.googleapis.com/rotmg_images_public/Packages/march20weeklypack4smallnews.png",
@@ -90,7 +72,6 @@
   {
     "slot": 1,
     "linkType": 1,
-    "platform": "rotmg,steam,kongregate",
     "startTime": 1584489600000,
     "title": "Realm Exalt - Supporter Beta is live!",
     "image": "https://storage.googleapis.com/rotmg_images_public/News/suppbetaGlobal_news.png",
@@ -101,7 +82,6 @@
   {
     "slot": 1,
     "linkType": 2,
-    "platform": "rotmg,steam,kongregate",
     "startTime": 1583049601000,
     "title": "Ambrosia Pentapack",
     "image": "https://storage.googleapis.com/rotmg_images_public/Packages/ambrosiapentapack2bignewsv2.png",
@@ -112,7 +92,6 @@
   {
     "slot": 1,
     "linkType": 2,
-    "platform": "rotmg,steam,kongregate",
     "startTime": 1583049601000,
     "title": "March Monthly Pack",
     "image": "https://storage.googleapis.com/rotmg_images_public/Packages/march20monthlypackbignews.png",
@@ -123,7 +102,6 @@
   {
     "slot": 3,
     "linkType": 1,
-    "platform": "rotmg,steam,kongregate",
     "startTime": 1585180800000,
     "title": "Event Whites x2 event",
     "image": "https://storage.googleapis.com/rotmg_images_public/News/26marcheventssmallnews.png",
@@ -134,7 +112,6 @@
   {
     "slot": 3,
     "linkType": 2,
-    "platform": "rotmg,steam,kongregate",
     "startTime": 1583049601000,
     "title": "Vault Bundle Pack",
     "image": "https://storage.googleapis.com/rotmg_images_public/Packages/vaultbundleIInews.png",
@@ -145,7 +122,6 @@
   {
     "slot": 3,
     "linkType": 4,
-    "platform": "rotmg,steam,kongregate",
     "startTime": 1585296000000,
     "title": "War STory Box II",
     "image": "https://storage.googleapis.com/rotmg_images_public/News/warstory2boxsmallnews.png",

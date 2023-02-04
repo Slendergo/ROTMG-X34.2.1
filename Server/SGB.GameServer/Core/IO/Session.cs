@@ -1,67 +1,15 @@
 ﻿using SGB.GameServer.Utils;
-using System.Drawing;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 
 namespace SGB.GameServer.Core.IO
 {
-    public sealed class Payload
-    {
-        public readonly byte Id;
-        private byte[] PayloadBuffer;
-        private int Position;
-
-        public Payload(byte[] buffer, int offset, int length)
-        {
-            PayloadBuffer = new byte[length];
-            Buffer.BlockCopy(buffer, offset, PayloadBuffer, 0, length);
-            Id = ReadByte();
-        }
-
-        public byte ReadByte() => PayloadBuffer[Position++];
-
-        public short ReadInt16()
-        {
-            var value = IPAddress.NetworkToHostOrder(BitConverter.ToInt16(PayloadBuffer, Position));
-            Position += sizeof(short);
-            return value;
-        }
-
-        public int ReadInt32()
-        {
-            var value = IPAddress.NetworkToHostOrder(BitConverter.ToInt32(PayloadBuffer, Position));
-            Position += sizeof(int);
-            return value;
-        }
-
-        public string ReadUTF16()
-        {
-            var size = ReadInt16();
-            if (size == 0)
-                return "";
-            var value = Encoding.UTF8.GetString(PayloadBuffer, Position, size);
-            Position += size;
-            return value;
-        }
-
-        public string ReadUTF32()
-        {
-            var size = ReadInt32();
-            if (size == 0)
-                return "";
-            var value = Encoding.UTF8.GetString(PayloadBuffer, Position, size);
-            Position += size;
-            return value;
-        }
-    }
-
     public sealed class Session
     {
         public Guid Id { get; private set; }
         public Socket Socket { get; private set; }
         public bool Disconnected { get; private set; }
-        public Queue<Payload> Payloads = new Queue<Payload>();
+        public Queue<IncomingPayload> Payloads = new Queue<IncomingPayload>();
 
         public Session(Socket socket)
         {
@@ -119,9 +67,7 @@ namespace SGB.GameServer.Core.IO
 
                 lock (Payloads)
                 {
-                    var payload = new Payload(receiveBuffer, 4, receivedBytes);
-                    DebugUtils.Log(payload.Id);
-                    Payloads.Enqueue(payload);
+                    Payloads.Enqueue(new IncomingPayload(receiveBuffer, 4, receivedBytes));
                 }
 
                 // reset receive buffer to prevent leakage
@@ -138,10 +84,7 @@ namespace SGB.GameServer.Core.IO
             }
         }
 
-        public void Send(byte[] buffer)
-        {
-            Socket.BeginSend(buffer, 0, buffer.Length, SocketFlags.None, OnSend, buffer.Length);
-        }
+        public void Send(byte[] buffer) => Socket.BeginSend(buffer, 0, buffer.Length, SocketFlags.None, OnSend, buffer.Length);
 
         private void OnSend(IAsyncResult asyncResult)
         {

@@ -27,7 +27,7 @@ package com.company.assembleegameclient.objects.thrown{
             var _local3 = 10000;
             var _local4:ThrownProjectile = new ThrownProjectile(this.id_, this.duration_, this.start_, this.end_);
             map_.addObj(_local4, x_, y_);
-            return (false);
+            return false;
         }
 
 

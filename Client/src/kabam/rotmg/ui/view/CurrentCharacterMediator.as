@@ -60,8 +60,6 @@ package kabam.rotmg.ui.view{
         [Inject]
         public var openDialog:OpenDialogSignal;
         [Inject]
-        public var securityQuestionsModel:SecurityQuestionsModel;
-        [Inject]
         public var seasonalEventModel:SeasonalEventModel;
         [Inject]
         public var showPopupSignal:ShowPopupSignal;
@@ -87,9 +85,6 @@ package kabam.rotmg.ui.view{
             this.view.serversClicked.add(this.showServersScreen);
             this.nameChanged.add(this.onNameChanged);
             this.initPackages.dispatch();
-            if (this.securityQuestionsModel.showSecurityQuestionsOnStartup){
-                this.openDialog.dispatch(new SecurityQuestionsInfoDialog());
-            };
             if (this.seasonalEventModel.scheduledSeasonalEvent){
                 if (Parameters.data_[PopupNamesConfig.CHALLENGER_INFO_POPUP]){
                     _local1 = Parameters.data_[PopupNamesConfig.CHALLENGER_INFO_POPUP];
@@ -97,13 +92,13 @@ package kabam.rotmg.ui.view{
                     if ((_local2 - (_local1 + this.DAY_IN_MILLISECONDS)) > 0){
                         this.showSeasonsComingPopup();
                         Parameters.data_[PopupNamesConfig.CHALLENGER_INFO_POPUP] = _local2;
-                    };
+                    }
                 }
                 else {
                     this.showSeasonsComingPopup();
                     Parameters.data_[PopupNamesConfig.CHALLENGER_INFO_POPUP] = new Date().time;
-                };
-            };
+                }
+            }
         }
 
         override public function destroy():void{

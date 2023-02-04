@@ -60,7 +60,7 @@ package com.greensock.plugins{
             {
                 _initColor(_arg_1, _local_4, uint(_arg_2[_local_4]));
             };
-            return (true);
+            return true;
         }
 
         override public function _kill(_arg_1:Object):Boolean{

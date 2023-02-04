@@ -18,7 +18,7 @@ package com.greensock.plugins{
         override public function _onInitTween(_arg_1:Object, _arg_2:*, _arg_3:TweenLite):Boolean{
             if (((!(_arg_3.target)) is MovieClip))
             {
-                return (false);
+                return false;
             };
             _target = (_arg_1 as MovieClip);
             this.frame = _target.currentFrame;
@@ -38,7 +38,7 @@ package com.greensock.plugins{
             {
                 _addTween(this, "frame", this.frame, _local_6, "frame", true);
             };
-            return (true);
+            return true;
         }
 
 

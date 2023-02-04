@@ -46,7 +46,7 @@ package com.company.assembleegameclient.game{
         }
 
         public function evalIsNotInCombatMapArea():Boolean{
-            return (false);
+            return false;
         }
 
 

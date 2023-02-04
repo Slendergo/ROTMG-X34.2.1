@@ -181,7 +181,7 @@ package io.decagames.rotmg.shop.genericBox.data{
         public function isNew():Boolean{
             var _local1:Date = new Date();
             if (this._startTime.time > _local1.time){
-                return (false);
+                return false;
             };
             return ((Math.ceil(TimeUtil.secondsToDays(((_local1.time - this._startTime.time) / 1000))) <= 1));
         }

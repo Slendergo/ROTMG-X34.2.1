@@ -62,10 +62,10 @@ package com.company.assembleegameclient.util{
         private static function isCached(_arg1:BitmapData, _arg2:String):Boolean{
             if ((_arg1 in redrawCaches)){
                 if ((_arg2 in redrawCaches[_arg1])){
-                    return (true);
+                    return true;
                 };
             };
-            return (false);
+            return false;
         }
 
         public static function resize(_arg1:BitmapData, _arg2:BitmapData, _arg3:int, _arg4:Boolean, _arg5:int, _arg6:int, _arg7:Number=5):BitmapData{

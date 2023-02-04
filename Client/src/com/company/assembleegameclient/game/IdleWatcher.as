@@ -37,21 +37,21 @@ package com.company.assembleegameclient.game{
             var _local2:int = this.idleTime_;
             this.idleTime_ = (this.idleTime_ + _arg1);
             if (this.idleTime_ < (FIRST_WARNING_MINUTES * MINUTE_IN_MS)){
-                return (false);
+                return false;
             };
             if ((((this.idleTime_ >= (FIRST_WARNING_MINUTES * MINUTE_IN_MS))) && ((_local2 < (FIRST_WARNING_MINUTES * MINUTE_IN_MS))))){
                 this.addTextLine.dispatch(this.makeFirstWarning());
-                return (false);
+                return false;
             };
             if ((((this.idleTime_ >= (SECOND_WARNING_MINUTES * MINUTE_IN_MS))) && ((_local2 < (SECOND_WARNING_MINUTES * MINUTE_IN_MS))))){
                 this.addTextLine.dispatch(this.makeSecondWarning());
-                return (false);
+                return false;
             };
             if ((((this.idleTime_ >= (KICK_MINUTES * MINUTE_IN_MS))) && ((_local2 < (KICK_MINUTES * MINUTE_IN_MS))))){
                 this.addTextLine.dispatch(this.makeThirdWarning());
-                return (true);
+                return true;
             };
-            return (false);
+            return false;
         }
 
         private function makeFirstWarning():ChatMessage{

@@ -536,11 +536,11 @@ package com.company.assembleegameclient.objects{
                     _local3 = (((x_ > _local2.x_)) ? (x_ - _local2.x_) : (_local2.x_ - x_));
                     _local4 = (((y_ > _local2.y_)) ? (y_ - _local2.y_) : (_local2.y_ - y_));
                     if ((((_local3 < _arg1)) && ((_local4 < _arg1)))){
-                        return (false);
+                        return false;
                     };
                 };
             };
-            return (true);
+            return true;
         }
 
         public function getName():String{
@@ -592,12 +592,12 @@ package com.company.assembleegameclient.objects{
             this.posAtTick_.y = (this.tickPosition_.y = _arg3);
             if (!this.moveTo(_arg2, _arg3)){
                 map_ = null;
-                return (false);
+                return false;
             };
             if (this.effect_ != null){
                 map_.addObj(this.effect_, _arg2, _arg3);
             };
-            return (true);
+            return true;
         }
 
         override public function removeFromMap():void{
@@ -617,7 +617,7 @@ package com.company.assembleegameclient.objects{
         public function moveTo(_arg1:Number, _arg2:Number):Boolean{
             var _local3:Square = map_.getSquare(_arg1, _arg2);
             if (_local3 == null){
-                return (false);
+                return false;
             };
             x_ = _arg1;
             y_ = _arg2;
@@ -634,7 +634,7 @@ package com.company.assembleegameclient.objects{
             if (this.object3d_ != null){
                 this.object3d_.setPosition(x_, y_, 0, this.props_.rotation_);
             };
-            return (true);
+            return true;
         }
 
         override public function update(_arg1:int, _arg2:int):Boolean{
@@ -666,7 +666,7 @@ package com.company.assembleegameclient.objects{
                     this.flying_ = this.props_.whileMoving_.flying_;
                 };
             };
-            return (true);
+            return true;
         }
 
         public function onGoto(_arg1:Number, _arg2:Number, _arg3:int):void{

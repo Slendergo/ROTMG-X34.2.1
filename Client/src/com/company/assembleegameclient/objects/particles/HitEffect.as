@@ -24,7 +24,7 @@ package com.company.assembleegameclient.objects.particles{
             var _local6:uint;
             var _local7:Particle;
             if (this.colors_.length == 0){
-                return (false);
+                return false;
             };
             var _local3:Number = ((this.speed_ / 600) * Math.cos((this.angle_ + Math.PI)));
             var _local4:Number = ((this.speed_ / 600) * Math.sin((this.angle_ + Math.PI)));
@@ -35,14 +35,14 @@ package com.company.assembleegameclient.objects.particles{
                 map_.addObj(_local7, x_, y_);
                 _local5++;
             };
-            return (false);
+            return false;
         }
 
         override public function runEasyRendering(_arg1:int, _arg2:int):Boolean{
             var _local6:uint;
             var _local7:Particle;
             if (this.colors_.length == 0){
-                return (false);
+                return false;
             };
             var _local3:Number = ((this.speed_ / 600) * Math.cos((this.angle_ + Math.PI)));
             var _local4:Number = ((this.speed_ / 600) * Math.sin((this.angle_ + Math.PI)));
@@ -54,7 +54,7 @@ package com.company.assembleegameclient.objects.particles{
                 map_.addObj(_local7, x_, y_);
                 _local5++;
             };
-            return (false);
+            return false;
         }
 
 
@@ -82,12 +82,12 @@ class HitParticle extends Particle {
     override public function update(_arg1:int, _arg2:int):Boolean{
         this.timeLeft_ = (this.timeLeft_ - _arg2);
         if (this.timeLeft_ <= 0){
-            return (false);
+            return false;
         };
         x_ = (x_ + ((this.moveVec_.x * _arg2) * 0.008));
         y_ = (y_ + ((this.moveVec_.y * _arg2) * 0.008));
         z_ = (z_ + ((this.moveVec_.z * _arg2) * 0.008));
-        return (true);
+        return true;
     }
 
 

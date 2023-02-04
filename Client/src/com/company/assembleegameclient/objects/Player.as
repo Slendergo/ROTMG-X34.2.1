@@ -375,13 +375,13 @@ package com.company.assembleegameclient.objects{
         public function teleportTo(_arg1:Player):Boolean{
             if (isPaused()){
                 this.addTextLine.dispatch(this.makeErrorMessage(TextKey.PLAYER_NOTELEPORTWHILEPAUSED));
-                return (false);
+                return false;
             };
             var _local2:int = this.msUtilTeleport();
             if (_local2 > 0){
                 if (!(((_local2 > MS_BETWEEN_TELEPORT)) && (_arg1.isFellowGuild_))){
                     this.addTextLine.dispatch(this.makeErrorMessage(TextKey.PLAYER_TELEPORT_COOLDOWN, {seconds:int(((_local2 / 1000) + 1))}));
-                    return (false);
+                    return false;
                 };
             };
             if (!this.isTeleportEligible(_arg1)){
@@ -391,11 +391,11 @@ package com.company.assembleegameclient.objects{
                 else {
                     this.addTextLine.dispatch(this.makeErrorMessage(TextKey.PLAYER_TELEPORT_TO_PLAYER, {player:_arg1.name_}));
                 };
-                return (false);
+                return false;
             };
             map_.gs_.gsc_.teleport(_arg1.objectId_);
             this.nextTeleportAt_ = (getTimer() + MS_BETWEEN_TELEPORT);
-            return (true);
+            return true;
         }
 
         private function makeErrorMessage(_arg1:String, _arg2:Object=null):ChatMessage{
@@ -582,23 +582,23 @@ package com.company.assembleegameclient.objects{
         public function isValidPosition(_arg1:Number, _arg2:Number):Boolean{
             var _local3:Square = map_.getSquare(_arg1, _arg2);
             if (((!((square_ == _local3))) && ((((_local3 == null)) || (!(_local3.isWalkable())))))){
-                return (false);
+                return false;
             };
             var _local4:Number = (_arg1 - int(_arg1));
             var _local5:Number = (_arg2 - int(_arg2));
             if (_local4 < 0.5){
                 if (this.isFullOccupy((_arg1 - 1), _arg2)){
-                    return (false);
+                    return false;
                 };
                 if (_local5 < 0.5){
                     if (((this.isFullOccupy(_arg1, (_arg2 - 1))) || (this.isFullOccupy((_arg1 - 1), (_arg2 - 1))))){
-                        return (false);
+                        return false;
                     };
                 }
                 else {
                     if (_local5 > 0.5){
                         if (((this.isFullOccupy(_arg1, (_arg2 + 1))) || (this.isFullOccupy((_arg1 - 1), (_arg2 + 1))))){
-                            return (false);
+                            return false;
                         };
                     };
                 };
@@ -606,17 +606,17 @@ package com.company.assembleegameclient.objects{
             else {
                 if (_local4 > 0.5){
                     if (this.isFullOccupy((_arg1 + 1), _arg2)){
-                        return (false);
+                        return false;
                     };
                     if (_local5 < 0.5){
                         if (((this.isFullOccupy(_arg1, (_arg2 - 1))) || (this.isFullOccupy((_arg1 + 1), (_arg2 - 1))))){
-                            return (false);
+                            return false;
                         };
                     }
                     else {
                         if (_local5 > 0.5){
                             if (((this.isFullOccupy(_arg1, (_arg2 + 1))) || (this.isFullOccupy((_arg1 + 1), (_arg2 + 1))))){
-                                return (false);
+                                return false;
                             };
                         };
                     };
@@ -624,19 +624,19 @@ package com.company.assembleegameclient.objects{
                 else {
                     if (_local5 < 0.5){
                         if (this.isFullOccupy(_arg1, (_arg2 - 1))){
-                            return (false);
+                            return false;
                         };
                     }
                     else {
                         if (_local5 > 0.5){
                             if (this.isFullOccupy(_arg1, (_arg2 + 1))){
-                                return (false);
+                                return false;
                             };
                         };
                     };
                 };
             };
-            return (true);
+            return true;
         }
 
         public function isFullOccupy(_arg1:Number, _arg2:Number):Boolean{
@@ -687,7 +687,7 @@ package com.company.assembleegameclient.objects{
                 };
             };
             if ((((map_.player_ == this)) && (isPaused()))){
-                return (true);
+                return true;
             };
             if (this.relMoveVec_ != null){
                 _local3 = Parameters.data_.cameraAngle;
@@ -732,7 +732,7 @@ package com.company.assembleegameclient.objects{
             }
             else {
                 if (!super.update(_arg1, _arg2)){
-                    return (false);
+                    return false;
                 };
             };
             if ((((((((((map_.player_ == this)) && ((square_.props_.maxDamage_ > 0)))) && (((square_.lastDamage_ + 500) < _arg1)))) && (!(isInvincible())))) && ((((square_.obj_ == null)) || (!(square_.obj_.props_.protectFromGroundDamage_)))))){
@@ -743,7 +743,7 @@ package com.company.assembleegameclient.objects{
                 map_.gs_.gsc_.groundDamage(_arg1, x_, y_);
                 square_.lastDamage_ = _arg1;
             };
-            return (true);
+            return true;
         }
 
         public function onMove():void{
@@ -1012,19 +1012,19 @@ package com.company.assembleegameclient.objects{
             var _local24:Number;
             var _local25:int;
             if ((((map_ == null)) || (isPaused()))){
-                return (false);
+                return false;
             };
             var _local4:int = equipment_[1];
             if (_local4 == -1){
-                return (false);
+                return false;
             };
             var _local5:XML = ObjectLibrary.xmlLibrary_[_local4];
             if ((((_local5 == null)) || (!(_local5.hasOwnProperty("Usable"))))){
-                return (false);
+                return false;
             };
             if (isSilenced()){
                 SoundEffectLibrary.play("error");
-                return (false);
+                return false;
             };
             var _local6:Number = (Parameters.data_.cameraAngle + Math.atan2(_arg2, _arg1));
             var _local8:Boolean;
@@ -1038,7 +1038,7 @@ package com.company.assembleegameclient.objects{
                         _local16 = new Point((x_ + (_local15 * Math.cos(_local6))), (y_ + (_local15 * Math.sin(_local6))));
                         if (!this.isValidPosition(_local16.x, _local16.y)){
                             SoundEffectLibrary.play("error");
-                            return (false);
+                            return false;
                         };
                     };
                     if ((((_local14 == ActivationType.TELEPORT)) || ((_local14 == ActivationType.OBJECT_TOSS)))){
@@ -1061,7 +1061,7 @@ package com.company.assembleegameclient.objects{
                         _local23 = new Point((_local19.x + (_local21 * Math.cos((_local22 + Math.PI)))), (_local19.y + (_local21 * Math.sin((_local22 + Math.PI)))));
                         if (this.isFullOccupy((_local23.x + 0.5), (_local23.y + 0.5))){
                             SoundEffectLibrary.play("error");
-                            return (false);
+                            return false;
                         };
                     };
                 };
@@ -1070,7 +1070,7 @@ package com.company.assembleegameclient.objects{
                 _local7 = map_.pSTopW(_arg1, _arg2);
                 if ((((_local7 == null)) || (((_local10) && (!(this.isValidPosition(_local7.x, _local7.y))))))){
                     SoundEffectLibrary.play("error");
-                    return (false);
+                    return false;
                 };
             }
             else {
@@ -1081,12 +1081,12 @@ package com.company.assembleegameclient.objects{
             if (_arg3 == UseType.START_USE){
                 if (_local11 < this.nextAltAttack_){
                     SoundEffectLibrary.play("error");
-                    return (false);
+                    return false;
                 };
                 _local12 = int(_local5.MpCost);
                 if (_local12 > this.mp_){
                     SoundEffectLibrary.play("no_mana");
-                    return (false);
+                    return false;
                 };
                 _local25 = 500;
                 if (_local5.hasOwnProperty("Cooldown")){
@@ -1108,7 +1108,7 @@ package com.company.assembleegameclient.objects{
                     };
                 };
             };
-            return (true);
+            return true;
         }
 
         public function getAttribute(_arg1:XML, _arg2:String, _arg3:Number=0):Number{
@@ -1199,17 +1199,17 @@ package com.company.assembleegameclient.objects{
 
         public function isInventoryFull():Boolean{
             if (equipment_ == null){
-                return (false);
+                return false;
             };
             var _local1:int = equipment_.length;
             var _local2:uint = 4;
             while (_local2 < _local1) {
                 if (equipment_[_local2] <= 0){
-                    return (false);
+                    return false;
                 };
                 _local2++;
             };
-            return (true);
+            return true;
         }
 
         public function nextAvailableInventorySlot():int{

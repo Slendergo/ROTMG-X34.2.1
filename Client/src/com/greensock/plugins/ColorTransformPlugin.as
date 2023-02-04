@@ -34,7 +34,7 @@ package com.greensock.plugins{
                 }
                 else
                 {
-                    return (false);
+                    return false;
                 };
             };
             if ((_arg_2 is ColorTransform))
@@ -90,7 +90,7 @@ package com.greensock.plugins{
                 };
             };
             _init(_local_4, _local_5);
-            return (true);
+            return true;
         }
 
 

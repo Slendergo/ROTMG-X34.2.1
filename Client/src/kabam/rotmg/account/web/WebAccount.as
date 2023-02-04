@@ -12,20 +12,13 @@ package kabam.rotmg.account.web{
 
     public class WebAccount implements Account {
 
-        public static const NETWORK_NAME:String = "rotmg";
-        private static const WEB_USER_ID:String = "";
-        private static const WEB_PLAY_PLATFORM_NAME:String = "rotmg";
-
         private var userId:String = "";
         private var password:String;
         private var token:String = "";
         private var entryTag:String = "";
         private var isVerifiedEmail:Boolean;
-        private var platformToken:String;
         private var _userDisplayName:String = "";
         private var _rememberMe:Boolean = true;
-        private var _paymentProvider:String = "";
-        private var _paymentData:String = "";
         private var _creationDate:Date;
         public var signedRequest:String;
         public var kabamId:String;
@@ -98,18 +91,6 @@ package kabam.rotmg.account.web{
             return ("/credits");
         }
 
-        public function gameNetworkUserId():String{
-            return (WEB_USER_ID);
-        }
-
-        public function gameNetwork():String{
-            return (NETWORK_NAME);
-        }
-
-        public function playPlatform():String{
-            return (WEB_PLAY_PLATFORM_NAME);
-        }
-
         public function getEntryTag():String{
             return (((this.entryTag) || ("")));
         }
@@ -124,14 +105,6 @@ package kabam.rotmg.account.web{
 
         public function isVerified():Boolean{
             return (this.isVerifiedEmail);
-        }
-
-        public function getPlatformToken():String{
-            return (((this.platformToken) || ("")));
-        }
-
-        public function setPlatformToken(_arg1:String):void{
-            this.platformToken = _arg1;
         }
 
         public function getMoneyAccessToken():String{
@@ -158,22 +131,6 @@ package kabam.rotmg.account.web{
             return (this._rememberMe);
         }
 
-        public function set paymentProvider(_arg1:String):void{
-            this._paymentProvider = _arg1;
-        }
-
-        public function get paymentProvider():String{
-            return (this._paymentProvider);
-        }
-
-        public function set paymentData(_arg1:String):void{
-            this._paymentData = _arg1;
-        }
-
-        public function get paymentData():String{
-            return (this._paymentData);
-        }
-
         public function get creationDate():Date{
             return (this._creationDate);
         }
@@ -181,8 +138,6 @@ package kabam.rotmg.account.web{
         public function set creationDate(_arg1:Date):void{
             this._creationDate = _arg1;
         }
-
-
     }
 }//package kabam.rotmg.account.web
 

@@ -45,7 +45,7 @@ package com.company.assembleegameclient.objects.particles{
         override public function update(_arg1:int, _arg2:int):Boolean{
             this.numFramesRemaining--;
             if (this.numFramesRemaining <= 0){
-                return (false);
+                return false;
             };
             this.frameUpdateModulator++;
             if ((this.frameUpdateModulator % 2)){
@@ -59,7 +59,7 @@ package com.company.assembleegameclient.objects.particles{
                 _rotation = (-(this.radians) - this.cameraAngle);
             };
             moveTo(((this.go.x_ + this.originX) + this.plusX), ((this.go.y_ + this.originY) + this.plusY));
-            return (true);
+            return true;
         }
 
 

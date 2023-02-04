@@ -165,9 +165,9 @@ package io.decagames.rotmg.pets.windows.yard.fuse{
         private function checkYardType():Boolean{
             if ((this.currentSelectedPet.rarity.ordinal + 1) >= this.model.getPetYardType()){
                 this.showPopup.dispatch(new ErrorModal(350, "Fuse Pets", LineBuilder.getLocalizedStringFromKey("server.upgrade_petyard_first")));
-                return (false);
+                return false;
             };
-            return (true);
+            return true;
         }
 
         private function onPetSelected(_arg1:PetVO):void{

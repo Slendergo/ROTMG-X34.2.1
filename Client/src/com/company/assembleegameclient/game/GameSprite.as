@@ -254,11 +254,7 @@ package com.company.assembleegameclient.game{
                 this.questModel.previousRealm = "";
             };
             var _local2:AppEngineClient = StaticInjectorContext.getInjector().getInstance(AppEngineClient);
-            var _local3:Object = {
-                game_net_user_id:_local1.gameNetworkUserId(),
-                game_net:_local1.gameNetwork(),
-                play_platform:_local1.playPlatform()
-            };
+            var _local3:Object = {};
             MoreObjectUtil.addToObject(_local3, _local1.getCredentials());
             if (((((((!((this.mapName == "Kitchen"))) && (!((this.mapName == "Tutorial"))))) && (!((this.mapName == "Nexus Explanation"))))) && ((Parameters.data_.watchForTutorialExit == true)))){
                 Parameters.data_.watchForTutorialExit = false;

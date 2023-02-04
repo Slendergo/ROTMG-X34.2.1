@@ -31,7 +31,7 @@ package com.greensock.plugins{
             var _local_6:String;
             if (typeof(_arg_2) == "number")
             {
-                return (false);
+                return false;
             };
             var _local_4:Boolean = Boolean((_arg_2.useRadians == true));
             for (_local_6 in _arg_2)
@@ -42,7 +42,7 @@ package com.greensock.plugins{
                     _initRotation(_arg_1, _local_6, _local_5, ((typeof(_arg_2[_local_6]) == "number") ? Number(_arg_2[_local_6]) : (_local_5 + Number(_arg_2[_local_6].split("=").join("")))), _local_4);
                 };
             };
-            return (true);
+            return true;
         }
 
 

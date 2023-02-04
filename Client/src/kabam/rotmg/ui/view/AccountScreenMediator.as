@@ -13,12 +13,6 @@ package kabam.rotmg.ui.view{
     import kabam.rotmg.account.core.view.AccountInfoView;
     import kabam.rotmg.account.web.view.WebAccountInfoView;
     import kabam.rotmg.account.web.WebAccount;
-    import kabam.rotmg.account.kabam.view.KabamAccountInfoView;
-    import kabam.rotmg.account.kabam.KabamAccount;
-    import kabam.rotmg.account.kongregate.view.KongregateAccountInfoView;
-    import kabam.rotmg.account.kongregate.KongregateAccount;
-    import kabam.rotmg.account.steam.view.SteamAccountInfoView;
-    import kabam.rotmg.account.steam.SteamAccount;
     import com.company.assembleegameclient.ui.tooltip.ToolTip;
 
     public class AccountScreenMediator extends Mediator {
@@ -34,31 +28,11 @@ package kabam.rotmg.ui.view{
         [Inject]
         public var hideTooltips:HideTooltipsSignal;
 
-
         override public function initialize():void{
             this.view.tooltip.add(this.onTooltip);
             this.view.setRank(this.playerModel.getNumStars());
             this.view.setGuild(this.playerModel.getGuildName(), this.playerModel.getGuildRank());
-            this.view.setAccountInfo(this.getInfoView());
-        }
-
-        private function getInfoView():AccountInfoView{
-            var _local1:AccountInfoView;
-            switch (this.account.gameNetwork()){
-                case WebAccount.NETWORK_NAME:
-                    _local1 = new WebAccountInfoView();
-                    break;
-                case KabamAccount.NETWORK_NAME:
-                    _local1 = new KabamAccountInfoView();
-                    break;
-                case KongregateAccount.NETWORK_NAME:
-                    _local1 = new KongregateAccountInfoView();
-                    break;
-                case SteamAccount.NETWORK_NAME:
-                    _local1 = new SteamAccountInfoView();
-                    break;
-            };
-            return (_local1);
+            this.view.setAccountInfo(new WebAccountInfoView());
         }
 
         override public function destroy():void{
@@ -69,8 +43,6 @@ package kabam.rotmg.ui.view{
         private function onTooltip(_arg1:ToolTip):void{
             this.showTooltip.dispatch(_arg1);
         }
-
-
     }
 }//package kabam.rotmg.ui.view
 

@@ -136,7 +136,7 @@ package com.greensock.plugins{
             if (_filter == null)
             {
                 trace("FILTER NULL! ");
-                return (true);
+                return true;
             };
             _matrix = ColorMatrixFilter(_filter).matrix;
             var _local_5:Array = [];
@@ -166,7 +166,7 @@ package com.greensock.plugins{
             };
             _matrixTween = new EndArrayPlugin();
             _matrixTween._init(_matrix, _local_5);
-            return (true);
+            return true;
         }
 
 

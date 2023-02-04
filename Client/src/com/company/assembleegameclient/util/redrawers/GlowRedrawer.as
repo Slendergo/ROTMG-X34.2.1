@@ -103,10 +103,10 @@ package com.company.assembleegameclient.util.redrawers{
             if ((_arg1 in glowHashes)){
                 _local3 = glowHashes[_arg1];
                 if ((_arg2 in _local3)){
-                    return (true);
+                    return true;
                 };
             };
-            return (false);
+            return false;
         }
 
         private static function getHash(_arg1:uint, _arg2:Number, _arg3:int):String{

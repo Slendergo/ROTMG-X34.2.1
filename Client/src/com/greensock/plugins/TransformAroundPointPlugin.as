@@ -154,7 +154,7 @@ package com.greensock.plugins{
             var endY:Number;
             if (!(value.point is Point))
             {
-                return (false);
+                return false;
             };
             _target = (target as DisplayObject);
             var m:Matrix = _target.transform.matrix;
@@ -298,7 +298,7 @@ package com.greensock.plugins{
                     this.setRatio(0);
                 };
             };
-            return (true);
+            return true;
         }
 
 

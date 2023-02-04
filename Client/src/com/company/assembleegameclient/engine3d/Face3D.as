@@ -110,7 +110,7 @@ package com.company.assembleegameclient.engine3d{
                 _local13 = (_local10[4] - _local10[0]);
                 _local14 = (_local10[5] - _local10[1]);
                 if (((_local11 * _local14) - (_local12 * _local13)) > 0){
-                    return (false);
+                    return false;
                 };
             };
             var _local3:Number = (_arg2.clipRect_.x - 10);
@@ -129,13 +129,13 @@ package com.company.assembleegameclient.engine3d{
                 _local9 = (_local9 + 2);
             };
             if (_local7){
-                return (false);
+                return false;
             };
             if (this.blackOut_){
                 _arg1.push(blackOutFill_);
                 _arg1.push(this.path_);
                 _arg1.push(GraphicsUtil.END_FILL);
-                return (true);
+                return true;
             };
             if (this.needGen_){
                 this.generateTextureMatrix();
@@ -146,17 +146,17 @@ package com.company.assembleegameclient.engine3d{
             _arg1.push(this.bitmapFill_);
             _arg1.push(this.path_);
             _arg1.push(GraphicsUtil.END_FILL);
-            return (true);
+            return true;
         }
 
         public function contains(_arg1:Number, _arg2:Number):Boolean{
             if (Triangle.containsXY(this.vout_[0], this.vout_[1], this.vout_[2], this.vout_[3], this.vout_[4], this.vout_[5], _arg1, _arg2)){
-                return (true);
+                return true;
             };
             if ((((this.vout_.length == 8)) && (Triangle.containsXY(this.vout_[0], this.vout_[1], this.vout_[4], this.vout_[5], this.vout_[6], this.vout_[7], _arg1, _arg2)))){
-                return (true);
+                return true;
             };
-            return (false);
+            return false;
         }
 
         private function generateTextureMatrix():void{

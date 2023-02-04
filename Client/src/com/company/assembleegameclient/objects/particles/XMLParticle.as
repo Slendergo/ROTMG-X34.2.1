@@ -55,12 +55,12 @@ package com.company.assembleegameclient.objects.particles{
             var _local3:Square;
             _local3 = map_.getSquare(_arg1, _arg2);
             if (_local3 == null){
-                return (false);
+                return false;
             };
             x_ = _arg1;
             y_ = _arg2;
             square_ = _local3;
-            return (true);
+            return true;
         }
 
         override public function update(_arg1:int, _arg2:int):Boolean{
@@ -68,11 +68,11 @@ package com.company.assembleegameclient.objects.particles{
             _local3 = (_arg2 / 1000);
             this.durationLeft_ = (this.durationLeft_ - _local3);
             if (this.durationLeft_ <= 0){
-                return (false);
+                return false;
             };
             x_ = (x_ + (this.moveVec_.x * _local3));
             y_ = (y_ + (this.moveVec_.y * _local3));
-            return (true);
+            return true;
         }
 
         override public function draw(_arg1:Vector.<IGraphicsData>, _arg2:Camera, _arg3:int):void{

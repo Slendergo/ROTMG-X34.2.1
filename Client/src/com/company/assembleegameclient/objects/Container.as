@@ -36,16 +36,16 @@ package com.company.assembleegameclient.objects{
 
         override public function addTo(_arg1:Map, _arg2:Number, _arg3:Number):Boolean{
             if (!super.addTo(_arg1, _arg2, _arg3)){
-                return (false);
+                return false;
             };
             if (map_.player_ == null){
-                return (true);
+                return true;
             };
             var _local4:Number = PointUtil.distanceXY(map_.player_.x_, map_.player_.y_, _arg2, _arg3);
             if (((this.isLoot_) && ((_local4 < 10)))){
                 SoundEffectLibrary.play("loot_appears");
             };
-            return (true);
+            return true;
         }
 
         public function getPanel(_arg1:GameSprite):Panel{

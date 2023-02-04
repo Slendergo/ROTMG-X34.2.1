@@ -8,7 +8,6 @@ package kabam.rotmg.messaging.impl.data{
 
     public class CompressedInt {
 
-
         public static function Read(_arg1:IDataInput):int{
             var _local2:int;
             var _local3:int = _arg1.readUnsignedByte();
@@ -19,10 +18,10 @@ package kabam.rotmg.messaging.impl.data{
                 _local3 = _arg1.readUnsignedByte();
                 _local2 = (_local2 | ((_local3 & 127) << _local5));
                 _local5 = (_local5 + 7);
-            };
+            }
             if (_local4){
                 _local2 = -(_local2);
-            };
+            }
             return (_local2);
         }
 

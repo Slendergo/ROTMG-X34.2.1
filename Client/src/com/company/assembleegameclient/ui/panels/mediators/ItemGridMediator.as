@@ -149,18 +149,18 @@ package com.company.assembleegameclient.ui.panels.mediators{
 
         private function canSwapItems(_arg1:InteractiveItemTile, _arg2:InteractiveItemTile):Boolean{
             if (!_arg1.canHoldItem(_arg2.getItemId())){
-                return (false);
+                return false;
             };
             if (!_arg2.canHoldItem(_arg1.getItemId())){
-                return (false);
+                return false;
             };
             if ((ItemGrid(_arg2.parent).owner is OneWayContainer)){
-                return (false);
+                return false;
             };
             if (((_arg1.blockingItemUpdates) || (_arg2.blockingItemUpdates))){
-                return (false);
+                return false;
             };
-            return (true);
+            return true;
         }
 
         private function dropItem(_arg1:InteractiveItemTile):void{
@@ -202,7 +202,7 @@ package com.company.assembleegameclient.ui.panels.mediators{
 
         private function swapItemTiles(_arg1:ItemTile, _arg2:ItemTile):Boolean{
             if (((((((!(GameServerConnection.instance)) || (!(this.view.interactive)))) || (!(_arg1)))) || (!(_arg2)))){
-                return (false);
+                return false;
             };
             GameServerConnection.instance.invSwap(this.view.curPlayer, this.view.owner, _arg1.tileId, _arg1.itemSprite.itemId, _arg2.ownerGrid.owner, _arg2.tileId, _arg2.itemSprite.itemId);
             var _local3:int = _arg1.getItemId();
@@ -210,7 +210,7 @@ package com.company.assembleegameclient.ui.panels.mediators{
             _arg2.setItem(_local3);
             _arg1.updateUseability(this.view.curPlayer);
             _arg2.updateUseability(this.view.curPlayer);
-            return (true);
+            return true;
         }
 
         private function dropWithoutDestTile(_arg1:ItemTile, _arg2:Container, _arg3:int):void{
@@ -305,10 +305,10 @@ package com.company.assembleegameclient.ui.panels.mediators{
             var _local1:int = getTimer();
             if ((this.view.curPlayer.lastSwap_ + 600) > _local1){
                 SoundEffectLibrary.play("error");
-                return (true);
+                return true;
             };
             this.view.curPlayer.lastSwap_ = _local1;
-            return (false);
+            return false;
         }
 
 

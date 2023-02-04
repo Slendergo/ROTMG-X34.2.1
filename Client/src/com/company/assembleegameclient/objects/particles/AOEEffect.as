@@ -23,7 +23,7 @@ package com.company.assembleegameclient.objects.particles{
             var _local8:Point;
             var _local9:Particle;
             if (this.color_ == -1){
-                return (false);
+                return false;
             };
             x_ = this.start_.x;
             y_ = this.start_.y;
@@ -38,7 +38,7 @@ package com.company.assembleegameclient.objects.particles{
                 map_.addObj(_local9, x_, y_);
                 _local6++;
             };
-            return (false);
+            return false;
         }
 
         override public function runEasyRendering(_arg1:int, _arg2:int):Boolean{
@@ -46,7 +46,7 @@ package com.company.assembleegameclient.objects.particles{
             var _local8:Point;
             var _local9:Particle;
             if (this.color_ == -1){
-                return (false);
+                return false;
             };
             x_ = this.start_.x;
             y_ = this.start_.y;
@@ -61,7 +61,7 @@ package com.company.assembleegameclient.objects.particles{
                 map_.addObj(_local9, x_, y_);
                 _local6++;
             };
-            return (false);
+            return false;
         }
 
 

@@ -229,7 +229,6 @@ package kabam.rotmg.ui{
             this.injector.map(ShowLockFade).asSingleton();
             this.injector.map(RemoveLockFade).asSingleton();
             this.injector.map(ToggleShowTierTagSignal).asSingleton();
-            this.injector.map(ShowHideKeyUISignal).asSingleton();
             this.injector.map(RealmHeroesSignal).asSingleton();
             this.injector.map(RealmQuestLevelSignal).asSingleton();
             this.injector.map(RealmOryxSignal).asSingleton();
@@ -238,7 +237,6 @@ package kabam.rotmg.ui{
             this.injector.map(UpdateQuestSignal).asSingleton();
             this.injector.map(ShowSeasonComingPopupSignal).asSingleton();
             this.injector.map(CharactersMetricsTracker).asSingleton();
-            this.injector.map(FameTracker).asSingleton();
             this.injector.map(FameTracker).asSingleton();
             this.commandMap.map(ShowLoadingUISignal).toCommand(ShowLoadingUICommand);
             this.commandMap.map(ShowTitleUISignal).toCommand(ShowTitleUICommand);

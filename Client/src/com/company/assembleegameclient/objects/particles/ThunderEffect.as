@@ -81,7 +81,7 @@ package com.company.assembleegameclient.objects.particles{
             x_ = this.go_.x_;
             y_ = this.go_.y_;
             this.runEffect();
-            return (false);
+            return false;
         }
 
         private function runEffect():void{

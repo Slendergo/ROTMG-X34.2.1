@@ -445,7 +445,7 @@ dynamic class TargetProxy extends Proxy {
 
     override flash_proxy function deleteProperty(_arg1):Boolean{
         this.tween.deleteValue(_arg1);
-        return (true);
+        return true;
     }
 
 

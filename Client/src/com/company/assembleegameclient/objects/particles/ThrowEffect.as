@@ -26,7 +26,7 @@ package com.company.assembleegameclient.objects.particles{
             var _local3 = 200;
             var _local4:ThrowParticle = new ThrowParticle(_local3, this.color_, this.duration_, this.start_, this.end_);
             map_.addObj(_local4, x_, y_);
-            return (false);
+            return false;
         }
 
         override public function runEasyRendering(_arg1:int, _arg2:int):Boolean{
@@ -35,7 +35,7 @@ package com.company.assembleegameclient.objects.particles{
             var _local3:int = 10;
             var _local4:ThrowParticle = new ThrowParticle(_local3, this.color_, this.duration_, this.start_, this.end_);
             map_.addObj(_local4, x_, y_);
-            return (false);
+            return false;
         }
 
 
@@ -75,7 +75,7 @@ class ThrowParticle extends Particle {
     override public function update(_arg1:int, _arg2:int):Boolean{
         this.timeLeft_ = (this.timeLeft_ - _arg2);
         if (this.timeLeft_ <= 0){
-            return (false);
+            return false;
         };
         z_ = (Math.sin(((this.timeLeft_ / this.lifetime_) * Math.PI)) * 2);
         setSize(0);
@@ -83,7 +83,7 @@ class ThrowParticle extends Particle {
         this.pathY_ = (this.pathY_ + (this.dy_ * _arg2));
         moveTo(this.pathX_, this.pathY_);
         map_.addObj(new SparkParticle((100 * (z_ + 1)), color_, 400, z_, RandomUtil.plusMinus(1), RandomUtil.plusMinus(1)), this.pathX_, this.pathY_);
-        return (true);
+        return true;
     }
 
 

@@ -33,7 +33,7 @@ package com.greensock.plugins{
                     TweenLite._plugins[new ((_arg_1[_local_2] as Class))()._propName] = _arg_1[_local_2];
                 };
             };
-            return (true);
+            return true;
         }
 
         private static function _onTweenEvent(_arg_1:String, _arg_2:TweenLite):Boolean{
@@ -167,7 +167,7 @@ package com.greensock.plugins{
                 };
                 _local_2 = _local_2._next;
             };
-            return (false);
+            return false;
         }
 
         protected function _addTween(_arg_1:Object, _arg_2:String, _arg_3:Number, _arg_4:*, _arg_5:String=null, _arg_6:Boolean=false):PropTween{
@@ -182,7 +182,7 @@ package com.greensock.plugins{
         }
 
         public function _onInitTween(_arg_1:Object, _arg_2:*, _arg_3:TweenLite):Boolean{
-            return (false);
+            return false;
         }
 
 

@@ -71,7 +71,6 @@ package kabam.rotmg.news.services{
                     _local5.startTime = _local4.startTime;
                     _local5.text = _local4.text;
                     _local5.title = _local4.title;
-                    _local5.platform = _local4.platform;
                     _local5.weight = _local4.weight;
                     this.model.addInGameNews(_local5);
                 };

@@ -156,9 +156,9 @@ package kabam.rotmg.messaging.impl.data{
                 case PET_NAME_STAT:
                 case ACCOUNT_ID_STAT:
                 case OWNER_ACCOUNT_ID_STAT:
-                    return (true);
+                    return true;
             };
-            return (false);
+            return false;
         }
 
         public function parseFromInput(_arg1:IDataInput):void{

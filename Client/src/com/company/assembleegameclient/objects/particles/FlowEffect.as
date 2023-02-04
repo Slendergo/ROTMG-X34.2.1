@@ -24,7 +24,7 @@ package com.company.assembleegameclient.objects.particles{
             var _local5:int;
             var _local6:Particle;
             if (FlowParticle.total_ > 200){
-                return (false);
+                return false;
             };
             x_ = this.start_.x;
             y_ = this.start_.y;
@@ -36,14 +36,14 @@ package com.company.assembleegameclient.objects.particles{
                 map_.addObj(_local6, x_, y_);
                 _local4++;
             };
-            return (false);
+            return false;
         }
 
         override public function runEasyRendering(_arg1:int, _arg2:int):Boolean{
             var _local5:int;
             var _local6:Particle;
             if (FlowParticle.total_ > 200){
-                return (false);
+                return false;
             };
             x_ = this.start_.x;
             y_ = this.start_.y;
@@ -55,7 +55,7 @@ package com.company.assembleegameclient.objects.particles{
                 map_.addObj(_local6, x_, y_);
                 _local4++;
             };
-            return (false);
+            return false;
         }
 
 
@@ -93,7 +93,7 @@ class FlowParticle extends Particle {
         var _local6:Number = Point.distance(_local4, _local5);
         if (_local6 < 0.5){
             total_--;
-            return (false);
+            return false;
         };
         this.flowSpeed_ = (this.flowSpeed_ + ((_local3 * _arg2) / 1000));
         this.maxDist_ = (this.maxDist_ - ((this.flowSpeed_ * _arg2) / 1000));
@@ -106,7 +106,7 @@ class FlowParticle extends Particle {
         _local8 = (_local8 * (_local7 / _local6));
         _local9 = (_local9 * (_local7 / _local6));
         moveTo((this.go_.x_ - _local8), (this.go_.y_ - _local9));
-        return (true);
+        return true;
     }
 
 
@@ -133,7 +133,7 @@ class FlowParticle2 extends Particle {
         var _local4:Point = new Point(this.go_.x_, this.go_.y_);
         var _local5:Number = Point.distance(_local3, _local4);
         if (_local5 < 0.5){
-            return (false);
+            return false;
         };
         var _local6:Number = Math.atan2((this.go_.y_ - y_), (this.go_.x_ - x_));
         this.dx_ = (this.dx_ + (((this.accel_ * Math.cos(_local6)) * _arg2) / 1000));
@@ -141,7 +141,7 @@ class FlowParticle2 extends Particle {
         var _local7:Number = (x_ + ((this.dx_ * _arg2) / 1000));
         var _local8:Number = (y_ + ((this.dy_ * _arg2) / 1000));
         moveTo(_local7, _local8);
-        return (true);
+        return true;
     }
 
 

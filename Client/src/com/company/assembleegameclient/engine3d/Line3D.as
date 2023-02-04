@@ -69,27 +69,27 @@ class UnitTest {
         var _local1:Line3D = new Line3D(new Vector3D(0, 0, 0), new Vector3D(0, 100, 0));
         var _local2:Line3D = new Line3D(new Vector3D(10, 0, 10), new Vector3D(-10, 100, -100));
         if (_local1.crossZ(_local2) != Order.IN_FRONT){
-            return (false);
+            return false;
         };
         if (_local2.crossZ(_local1) != Order.BEHIND){
-            return (false);
+            return false;
         };
         _local1 = new Line3D(new Vector3D(1, 1, 200), new Vector3D(6, 6, 200));
         _local2 = new Line3D(new Vector3D(3, 1, -100), new Vector3D(1, 3, -100));
         if (_local1.crossZ(_local2) != Order.IN_FRONT){
-            return (false);
+            return false;
         };
         if (_local2.crossZ(_local1) != Order.BEHIND){
-            return (false);
+            return false;
         };
-        return (true);
+        return true;
     }
 
     public static function run():Boolean{
         if (!testCrossZ()){
-            return (false);
+            return false;
         };
-        return (true);
+        return true;
     }
 
 

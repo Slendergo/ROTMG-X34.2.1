@@ -105,7 +105,6 @@ package kabam.rotmg.game{
             this.injector.map(ChatFilter).asSingleton();
             this.injector.map(GiftStatusModel).asSingleton();
             this.injector.map(TabStripModel).asSingleton();
-            this.injector.map(ExitGameSignal).asSingleton();
             this.injector.map(QueueStatusTextSignal).asSingleton();
             this.injector.map(SocketServerModel).asSingleton();
             this.injector.map(QuestModel).asSingleton();

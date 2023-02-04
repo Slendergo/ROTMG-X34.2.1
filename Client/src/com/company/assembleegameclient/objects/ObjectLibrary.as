@@ -298,18 +298,18 @@ package com.company.assembleegameclient.objects{
 
         public static function isEquippableByPlayer(_arg1:int, _arg2:Player):Boolean{
             if (_arg1 == ItemConstants.NO_ITEM){
-                return (false);
+                return false;
             };
             var _local3:XML = xmlLibrary_[_arg1];
             var _local4:int = int(_local3.SlotType.toString());
             var _local5:uint;
             while (_local5 < GeneralConstants.NUM_EQUIPMENT_SLOTS) {
                 if (_arg2.slotTypes_[_local5] == _local4){
-                    return (true);
+                    return true;
                 };
                 _local5++;
             };
-            return (false);
+            return false;
         }
 
         public static function getMatchingSlotIndex(_arg1:int, _arg2:Player):int{
@@ -332,24 +332,24 @@ package com.company.assembleegameclient.objects{
 
         public static function isUsableByPlayer(_arg1:int, _arg2:Player):Boolean{
             if ((((_arg2 == null)) || ((_arg2.slotTypes_ == null)))){
-                return (true);
+                return true;
             };
             var _local3:XML = xmlLibrary_[_arg1];
             if ((((_local3 == null)) || (!(_local3.hasOwnProperty("SlotType"))))){
-                return (false);
+                return false;
             };
             var _local4:int = _local3.SlotType;
             if ((((_local4 == ItemConstants.POTION_TYPE)) || ((_local4 == ItemConstants.EGG_TYPE)))){
-                return (true);
+                return true;
             };
             var _local5:int;
             while (_local5 < _arg2.slotTypes_.length) {
                 if (_arg2.slotTypes_[_local5] == _local4){
-                    return (true);
+                    return true;
                 };
                 _local5++;
             };
-            return (false);
+            return false;
         }
 
         public static function isSoulbound(_arg1:int):Boolean{
@@ -392,15 +392,15 @@ package com.company.assembleegameclient.objects{
         public static function playerMeetsRequirements(_arg1:int, _arg2:Player):Boolean{
             var _local4:XML;
             if (_arg2 == null){
-                return (true);
+                return true;
             };
             var _local3:XML = xmlLibrary_[_arg1];
             for each (_local4 in _local3.EquipRequirement) {
                 if (!playerMeetsRequirement(_local4, _arg2)){
-                    return (false);
+                    return false;
                 };
             };
-            return (true);
+            return true;
         }
 
         public static function playerMeetsRequirement(_arg1:XML, _arg2:Player):Boolean{
@@ -428,7 +428,7 @@ package com.company.assembleegameclient.objects{
                         return ((_arg2.dexterity_ >= _local3));
                 };
             };
-            return (false);
+            return false;
         }
 
         public static function getPetDataXMLByType(_arg1:int):XML{

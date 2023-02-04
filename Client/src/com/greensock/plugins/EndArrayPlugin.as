@@ -64,10 +64,10 @@ package com.greensock.plugins{
         override public function _onInitTween(_arg_1:Object, _arg_2:*, _arg_3:TweenLite):Boolean{
             if (((!(_arg_1 is Array)) || (!(_arg_2 is Array))))
             {
-                return (false);
+                return false;
             };
             _init((_arg_1 as Array), _arg_2);
-            return (true);
+            return true;
         }
 
 

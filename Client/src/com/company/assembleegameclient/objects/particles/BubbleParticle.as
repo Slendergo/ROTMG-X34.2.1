@@ -62,13 +62,13 @@ package com.company.assembleegameclient.objects.particles{
             var _local3:Number = ((_arg1 - this.startTime) / 1000);
             this.timeLeft = (this.timeLeft - _arg2);
             if (this.timeLeft <= 0){
-                return (false);
+                return false;
             };
             z_ = (this.speed * _local3);
             if (this.spread > 0){
                 moveTo((x_ + ((this.frequencyX * _arg2) * this.SPREAD_DAMPER)), (y_ + ((this.frequencyY * _arg2) * this.SPREAD_DAMPER)));
             };
-            return (true);
+            return true;
         }
 
 

@@ -66,11 +66,11 @@ package com.company.assembleegameclient.objects.particles{
         }
 
         public function runNormalRendering(_arg1:int, _arg2:int):Boolean{
-            return (false);
+            return false;
         }
 
         public function runEasyRendering(_arg1:int, _arg2:int):Boolean{
-            return (false);
+            return false;
         }
 
         override public function draw(_arg1:Vector.<IGraphicsData>, _arg2:Camera, _arg3:int):void{

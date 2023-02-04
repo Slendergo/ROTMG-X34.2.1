@@ -26,7 +26,7 @@ package kabam.rotmg.core.service{
         override protected function startTask():void{
             this.client.setMaxRetries(2);
             this.client.complete.addOnce(this.onComplete);
-            this.client.sendRequest("/app/init", {game_net:this.account.gameNetwork()});
+            this.client.sendRequest("/app/init", {});
         }
 
         private function onComplete(_arg1:Boolean, _arg2):void{

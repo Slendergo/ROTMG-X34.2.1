@@ -152,11 +152,11 @@ package com.company.assembleegameclient.mapeditor{
         private function validated(_arg1:Object):Boolean{
             if ((((_arg1["name"].length < 6)) || ((_arg1["name"].length > 24)))){
                 this.mapName.setError("Map name length out of range (6-24 chars)");
-                return (false);
+                return false;
             };
             if ((((_arg1["description"].length < 10)) || ((_arg1["description"].length > 250)))){
                 this.descr.setError("Description length out of range (10-250 chars)");
-                return (false);
+                return false;
             };
             return (this.isValidMap());
         }
@@ -164,13 +164,13 @@ package com.company.assembleegameclient.mapeditor{
         private function isValidMap():Boolean{
             if (this.mapInfo.numExits < 1){
                 this.descr.setError("Must have at least one User Dungeon End region drawn in this dungeon. (tmp)");
-                return (false);
+                return false;
             };
             if (this.mapInfo.numEntries < 1){
                 this.descr.setError("Must have at least one Spawn Region drawn in this dungeon. (tmp)");
-                return (false);
+                return false;
             };
-            return (true);
+            return true;
         }
 
 

@@ -110,9 +110,9 @@ package kabam.rotmg.packages.services{
         public function hasPackages():Boolean{
             var _local1:Object;
             for each (_local1 in this.models) {
-                return (true);
+                return true;
             };
-            return (false);
+            return false;
         }
 
 

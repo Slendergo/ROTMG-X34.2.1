@@ -37,16 +37,17 @@ package kabam.rotmg.news.services{
             else {
                 completeTask(true);
                 reset();
-            };
+            }
+
             if (((((!(("production".toLowerCase() == "dev"))) && (!((this.updateCooldown == 0))))) && ((this.numUpdateAttempts >= 2)))){
                 this.updateCooldown = 0;
-            };
+            }
         }
 
         private function onComplete(_arg1:Boolean, _arg2):void{
             if (_arg1){
                 this.onNewsRequestDone(_arg2);
-            };
+            }
             completeTask(_arg1, _arg2);
             reset();
         }

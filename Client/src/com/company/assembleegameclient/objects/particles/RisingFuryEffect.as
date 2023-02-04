@@ -64,7 +64,7 @@ package com.company.assembleegameclient.objects.particles{
 
         override public function update(_arg1:int, _arg2:int):Boolean{
             map_.addObj(this.particleField, this.go.x_, this.go.y_);
-            return (false);
+            return false;
         }
 
 

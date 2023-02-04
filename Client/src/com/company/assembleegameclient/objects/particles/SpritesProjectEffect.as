@@ -56,14 +56,14 @@ package com.company.assembleegameclient.objects.particles{
 
         override public function update(_arg1:int, _arg2:int):Boolean{
             if (this.isDestroyed){
-                return (false);
+                return false;
             };
             if (!this.timer){
                 this.initialize();
             };
             x_ = this.go.x_;
             y_ = this.go.y_;
-            return (true);
+            return true;
         }
 
         private function initialize():void{

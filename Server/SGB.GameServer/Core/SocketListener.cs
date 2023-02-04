@@ -35,7 +35,7 @@ namespace SGB.GameServer.Core
         {
             var socket = Socket.EndAccept(ar);
 
-            DebugUtils.Log($"New Session started: {socket}");
+            DebugUtils.Log($"New Session started: {socket.RemoteEndPoint}");
 
             Application.SessionManager.New(socket);
 

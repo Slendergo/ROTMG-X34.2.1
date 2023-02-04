@@ -59,7 +59,7 @@ package com.company.assembleegameclient.objects.particles{
         override public function update(_arg1:int, _arg2:int):Boolean{
             var _local3:uint;
             if (this.doDestroy){
-                return (false);
+                return false;
             };
             var _local4:uint = this.squares.length;
             _local3 = 0;
@@ -71,7 +71,7 @@ package com.company.assembleegameclient.objects.particles{
             };
             _bitmapData = new BitmapData(this.width, this.height, true, 0);
             _bitmapData.draw(this.spriteSource);
-            return (true);
+            return true;
         }
 
         private function onTimer(_arg1:TimerEvent):void{

@@ -127,20 +127,20 @@ import kabam.rotmg.ui.model.HUDModel;
             };
             var _local3:int = (_arg2 - this.startTime_);
             if ((((_local3 > this.lifetime_)) || (((!((this.go_ == null))) && ((this.go_.map_ == null)))))){
-                return (false);
+                return false;
             };
             if ((((this.go_ == null)) || (!(this.go_.drawn_)))){
                 visible = false;
-                return (true);
+                return true;
             };
             if (((this.hideable_) && (!(Parameters.data_.textBubbles)))){
                 visible = false;
-                return (true);
+                return true;
             };
             visible = true;
             x = int((this.go_.posS_[0] + this.offset_.x));
             y = int((this.go_.posS_[1] + this.offset_.y));
-            return (true);
+            return true;
         }
 
         public function getGameObject():GameObject{

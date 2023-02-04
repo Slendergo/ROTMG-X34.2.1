@@ -44,10 +44,10 @@ package io.decagames.rotmg.seasonalEvent.SeasonalLeaderBoard{
             var _local2:SeasonalLeaderBoardItemData;
             for each (_local2 in this.seasonalLeaderBoardItemDatas) {
                 if ((((_local2.accountId == _arg1.@accountId)) && ((_local2.charId == _arg1.@charId)))){
-                    return (true);
+                    return true;
                 };
             };
-            return (false);
+            return false;
         }
 
         public function createSeasonalLeaderBoardItemData(_arg1:XML):SeasonalLeaderBoardItemData{

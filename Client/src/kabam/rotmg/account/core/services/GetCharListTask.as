@@ -62,8 +62,6 @@ package kabam.rotmg.account.core.services{
         [Inject]
         public var closeDialogs:CloseDialogsSignal;
         [Inject]
-        public var securityQuestionsModel:SecurityQuestionsModel;
-        [Inject]
         public var setScreenWithValidData:SetScreenWithValidDataSignal;
         [Inject]
         public var closePopupSignal:ClosePopupSignal;
@@ -99,9 +97,6 @@ package kabam.rotmg.account.core.services{
 
         public function makeRequestData():Object{
             var _local1:Object = {};
-            _local1.game_net_user_id = this.account.gameNetworkUserId();
-            _local1.game_net = this.account.gameNetwork();
-            _local1.play_platform = this.account.playPlatform();
             _local1.do_login = Parameters.sendLogin_;
             _local1.challenger = Boolean(this.seasonalEventModel.isChallenger);
             MoreObjectUtil.addToObject(_local1, this.account.getCredentials());
@@ -128,37 +123,26 @@ package kabam.rotmg.account.core.services{
                 if (_local2.hasOwnProperty("Account")){
                     if ((this.account is WebAccount)){
                         WebAccount(this.account).userDisplayName = _local2.Account[0].Name;
-                        WebAccount(this.account).paymentProvider = _local2.Account[0].PaymentProvider;
-                        if (_local2.Account[0].hasOwnProperty("PaymentData")){
-                            WebAccount(this.account).paymentData = _local2.Account[0].PaymentData;
-                        };
-                    };
+                    }
                     this.account.creationDate = new Date((_local2.Account[0].CreationTimestamp * 1000));
-                    if (_local2.Account[0].hasOwnProperty("SecurityQuestions")){
-                        this.securityQuestionsModel.showSecurityQuestionsOnStartup = (_local2.Account[0].SecurityQuestions[0].ShowSecurityQuestionsDialog[0] == "1");
-                        this.securityQuestionsModel.clearQuestionsList();
-                        for each (_local5 in _local2.Account[0].SecurityQuestions[0].SecurityQuestionsKeys[0].SecurityQuestionsKey) {
-                            this.securityQuestionsModel.addSecurityQuestion(_local5.toString());
-                        };
-                    };
-                };
+                }
                 if (((((_local2) && (Boolean(this.seasonalEventModel.isChallenger)))) && (_local2.Account[0].hasOwnProperty("RemainingLives")))){
                     this.seasonalEventModel.remainingCharacters = _local2.Account[0].RemainingLives;
-                };
+                }
                 this.charListData.dispatch(_local2);
                 if (!this.model.isLogOutLogIn){
                     this.charListLoadedSignal.dispatch();
-                };
+                }
                 this.model.isLogOutLogIn = false;
                 completeTask(true);
                 if (((((!(this.model.hasShownUnitySignUp)) && (Parameters.data_.unitySignUp))) && (_local2.hasOwnProperty("DecaSignupPopup")))){
                     this.model.hasShownUnitySignUp = true;
                     this.showPopupSignal.dispatch(new UnitySignUpPopup());
-                };
-            };
+                }
+            }
             if (this.retryTimer != null){
                 this.stopRetryTimer();
-            };
+            }
         }
 
         private function onTextError(_arg1:String):void{

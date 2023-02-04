@@ -43,9 +43,6 @@ package kabam.rotmg.ui.view{
         public var classesModel:ClassesModel;
         [Inject]
         public var openDialog:OpenDialogSignal;
-        [Inject]
-        public var securityQuestionsModel:SecurityQuestionsModel;
-
 
         override public function initialize():void{
             this.view.selected.add(this.onSelected);
@@ -54,9 +51,6 @@ package kabam.rotmg.ui.view{
             this.updateNewCharacterScreen.add(this.onUpdate);
             this.buyCharacterPending.add(this.onBuyCharacterPending);
             this.view.initialize(this.playerModel);
-            if (this.securityQuestionsModel.showSecurityQuestionsOnStartup){
-                this.openDialog.dispatch(new SecurityQuestionsInfoDialog());
-            };
         }
 
         private function onBuyCharacterPending(_arg1:int):void{

@@ -22,7 +22,7 @@ package com.company.assembleegameclient.objects.particles{
             var _local4:int;
             var _local5:FountainSnowyParticle;
             if (this.go_.map_ == null){
-                return (false);
+                return false;
             };
             if (this.lastUpdate_ < 0){
                 this.lastUpdate_ = Math.max(0, (_arg1 - 400));
@@ -39,7 +39,7 @@ package com.company.assembleegameclient.objects.particles{
                 _local3 = (_local3 + 2);
             };
             this.lastUpdate_ = _arg1;
-            return (true);
+            return true;
         }
 
 

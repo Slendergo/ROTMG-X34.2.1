@@ -414,7 +414,7 @@ package com.greensock{
             var _local_5:Object = this.vars;
             if (_arg_1 == null)
             {
-                return (false);
+                return false;
             };
             for (_local_6 in _local_5)
             {
@@ -505,7 +505,7 @@ package com.greensock{
                     return (_onPluginEvent(((_arg_1) ? "_onEnable" : "_onDisable"), this));
                 };
             };
-            return (false);
+            return false;
         }
 
         override public function render(_arg_1:Number, _arg_2:Boolean=false, _arg_3:Boolean=false):void{
@@ -954,7 +954,7 @@ package com.greensock{
                 {
                     if (_arg_2 !== this.target)
                     {
-                        return (false);
+                        return false;
                     };
                     _local_7 = _propLookup;
                     _local_4 = (_overwrittenProps = ((_arg_1) ? ((_overwrittenProps) || ({})) : "all"));

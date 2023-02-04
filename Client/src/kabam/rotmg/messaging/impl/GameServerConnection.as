@@ -157,7 +157,7 @@ package kabam.rotmg.messaging.impl{
         }
 
         public function useItem_new(_arg1:GameObject, _arg2:int):Boolean{
-            return (false);
+            return false;
         }
 
         public function enableJitterWatcher():void{
@@ -194,7 +194,7 @@ package kabam.rotmg.messaging.impl{
         }
 
         public function isConnected():Boolean{
-            return (false);
+            return false;
         }
 
         public function teleport(_arg1:int):void{
@@ -229,11 +229,11 @@ package kabam.rotmg.messaging.impl{
         }
 
         public function invSwap(_arg1:Player, _arg2:GameObject, _arg3:int, _arg4:int, _arg5:GameObject, _arg6:int, _arg7:int):Boolean{
-            return (false);
+            return false;
         }
 
         public function invSwapPotion(_arg1:Player, _arg2:GameObject, _arg3:int, _arg4:int, _arg5:GameObject, _arg6:int, _arg7:int):Boolean{
-            return (false);
+            return false;
         }
 
         public function invDrop(_arg1:GameObject, _arg2:int, _arg3:int):void{

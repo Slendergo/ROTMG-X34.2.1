@@ -46,7 +46,7 @@ package com.company.assembleegameclient.objects.particles{
             var _local3:Number = (_arg1 / 1000);
             _local4 = (_arg2 / 1000);
             if (this.targetGO.map_ == null){
-                return (false);
+                return false;
             };
             x_ = this.targetGO.x_;
             y_ = this.targetGO.y_;
@@ -86,7 +86,7 @@ package com.company.assembleegameclient.objects.particles{
                 };
                 _local8++;
             };
-            return (true);
+            return true;
         }
 
         override public function removeFromMap():void{

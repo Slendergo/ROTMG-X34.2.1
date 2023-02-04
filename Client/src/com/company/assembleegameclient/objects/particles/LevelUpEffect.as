@@ -34,7 +34,7 @@ package com.company.assembleegameclient.objects.particles{
         override public function update(_arg1:int, _arg2:int):Boolean{
             if (this.go_.map_ == null){
                 this.endEffect();
-                return (false);
+                return false;
             };
             x_ = this.go_.x_;
             y_ = this.go_.y_;
@@ -44,11 +44,11 @@ package com.company.assembleegameclient.objects.particles{
             var _local3:Number = ((_arg1 - this.startTime_) / LIFETIME);
             if (_local3 >= 1){
                 this.endEffect();
-                return (false);
+                return false;
             };
             this.updateSwirl(this.parts1_, 1, 0, _local3);
             this.updateSwirl(this.parts2_, 1, Math.PI, _local3);
-            return (true);
+            return true;
         }
 
         private function endEffect():void{

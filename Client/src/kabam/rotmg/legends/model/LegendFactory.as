@@ -48,10 +48,10 @@ package kabam.rotmg.legends.model{
             var _local2:Legend;
             for each (_local2 in this.legends) {
                 if ((((_local2.accountId == _arg1.@accountId)) && ((_local2.charId == _arg1.@charId)))){
-                    return (true);
+                    return true;
                 };
             };
-            return (false);
+            return false;
         }
 
         public function makeLegend(_arg1:XML):Legend{

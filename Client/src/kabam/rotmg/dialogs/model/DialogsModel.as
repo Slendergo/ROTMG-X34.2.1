@@ -49,7 +49,7 @@ package kabam.rotmg.dialogs.model{
             var _local2:int;
             var _local3:int;
             if (!Parameters.data_[_arg1]){
-                return (true);
+                return true;
             };
             _local2 = Math.floor((Number(Parameters.data_[_arg1]) / 86400000));
             _local3 = Math.floor((new Date().time / 86400000));

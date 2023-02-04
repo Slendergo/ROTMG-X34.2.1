@@ -41,12 +41,12 @@ package com.company.assembleegameclient.objects.thrown{
             var _local3:Square;
             _local3 = map_.getSquare(_arg1, _arg2);
             if (!_local3){
-                return (false);
+                return false;
             };
             x_ = _arg1;
             y_ = _arg2;
             square_ = _local3;
-            return (true);
+            return true;
         }
 
         public function setSize(_arg1:int):void{

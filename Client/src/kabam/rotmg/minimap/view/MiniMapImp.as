@@ -401,16 +401,16 @@ package kabam.rotmg.minimap.view{
         private function areSamePlayers(_arg1:Vector.<Player>, _arg2:Vector.<Player>):Boolean{
             var _local3:int = _arg1.length;
             if (_local3 != _arg2.length){
-                return (false);
+                return false;
             };
             var _local4:int;
             while (_local4 < _local3) {
                 if (_arg1[_local4] != _arg2[_local4]){
-                    return (false);
+                    return false;
                 };
                 _local4++;
             };
-            return (true);
+            return true;
         }
 
         override public function zoomIn():void{

@@ -34,7 +34,7 @@ package com.company.assembleegameclient.objects.particles{
                 map_.addObj(_local6, _local5.x, _local5.y);
                 _local4++;
             };
-            return (false);
+            return false;
         }
 
         override public function runEasyRendering(_arg1:int, _arg2:int):Boolean{
@@ -50,7 +50,7 @@ package com.company.assembleegameclient.objects.particles{
                 map_.addObj(_local6, _local5.x, _local5.y);
                 _local4++;
             };
-            return (false);
+            return false;
         }
 
 

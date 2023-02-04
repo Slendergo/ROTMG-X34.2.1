@@ -7,6 +7,11 @@ package kabam.rotmg.assets {
 
 public class EmbeddedAssets {
 
+        [Embed(source="images/NewsCell_DefaultGraphicLarge.jpg")] public static var DefaultGraphicLarge:Class;
+        [Embed(source="images/NewsCell_DefaultGraphicSmall.jpg")] public static var DefaultGraphicSmall:Class;
+        [Embed(source="images/NewsModal_backgroundImageEmbed.png")] public static var NewsModal_backgroundImageEmbed:Class;
+        [Embed(source="images/NewsModal_foregroundImageEmbed.png")] public static var NewsModal_foregroundImageEmbed:Class;
+
         [Embed(source="images/CharacterSkinLimitedBanner_LimitedBanner.png")] public static const CharacterSkinLimitedBanner_LimitedBanner:Class;
 
         [Embed(source="images/EmbeddedAssets_StarburstSpinner.png")] public static const StarburstSpinner:Class;

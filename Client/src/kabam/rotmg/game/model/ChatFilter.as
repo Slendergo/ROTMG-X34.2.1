@@ -12,7 +12,7 @@ package kabam.rotmg.game.model{
         public function guestChatFilter(_arg1:String):Boolean{
             var _local2:Boolean;
             if (_arg1 == null){
-                return (true);
+                return true;
             };
             if ((((((((_arg1 == Parameters.SERVER_CHAT_NAME)) || ((_arg1 == Parameters.HELP_CHAT_NAME)))) || ((_arg1 == Parameters.ERROR_CHAT_NAME)))) || ((_arg1 == Parameters.CLIENT_CHAT_NAME)))){
                 _local2 = true;

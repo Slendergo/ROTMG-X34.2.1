@@ -35,10 +35,10 @@ package com.company.assembleegameclient.objects.particles{
             var _local4:uint;
             var _local5:Particle;
             if (this.colors_.length == 0){
-                return (false);
+                return false;
             };
             if (ExplosionParticle.total_ > 400){
-                return (false);
+                return false;
             };
             var _local3:int;
             while (_local3 < this.numParts_) {
@@ -47,17 +47,17 @@ package com.company.assembleegameclient.objects.particles{
                 map_.addObj(_local5, x_, y_);
                 _local3++;
             };
-            return (false);
+            return false;
         }
 
         override public function runEasyRendering(_arg1:int, _arg2:int):Boolean{
             var _local4:uint;
             var _local5:Particle;
             if (this.colors_.length == 0){
-                return (false);
+                return false;
             };
             if (ExplosionParticle.total_ > 400){
-                return (false);
+                return false;
             };
             this.numParts_ = 2;
             var _local3:int;
@@ -67,7 +67,7 @@ package com.company.assembleegameclient.objects.particles{
                 map_.addObj(_local5, x_, y_);
                 _local3++;
             };
-            return (false);
+            return false;
         }
 
 
@@ -103,12 +103,12 @@ class ExplosionParticle extends Particle {
                 total_--;
                 this.deleted = true;
             };
-            return (false);
+            return false;
         };
         x_ = (x_ + ((this.moveVec_.x * _arg2) * 0.008));
         y_ = (y_ + ((this.moveVec_.y * _arg2) * 0.008));
         z_ = (z_ + ((this.moveVec_.z * _arg2) * 0.008));
-        return (true);
+        return true;
     }
 
 

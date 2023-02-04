@@ -50,7 +50,7 @@ package com.company.assembleegameclient.objects.particles{
                 map_.addObj(_local11, x_, y_);
                 _local4++;
             };
-            return (false);
+            return false;
         }
 
         override public function runNormalRendering(_arg1:int, _arg2:int):Boolean{
@@ -94,12 +94,12 @@ class ExplosionComplexParticle extends Particle {
                 total_--;
                 this.deleted = true;
             };
-            return (false);
+            return false;
         };
         x_ = (x_ + ((this.moveVec_.x * _arg2) * 0.008));
         y_ = (y_ + ((this.moveVec_.y * _arg2) * 0.008));
         z_ = (z_ + ((this.moveVec_.z * _arg2) * 0.008));
-        return (true);
+        return true;
     }
 
 

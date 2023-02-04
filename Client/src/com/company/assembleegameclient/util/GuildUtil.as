@@ -67,18 +67,18 @@ package com.company.assembleegameclient.util{
 
         public static function allowedChange(_arg1:int, _arg2:int, _arg3:int):Boolean{
             if (_arg2 == _arg3){
-                return (false);
+                return false;
             };
             if ((((((_arg1 == FOUNDER)) && ((_arg2 < FOUNDER)))) && ((_arg3 < FOUNDER)))){
-                return (true);
+                return true;
             };
             if ((((((_arg1 == LEADER)) && ((_arg2 < LEADER)))) && ((_arg3 <= LEADER)))){
-                return (true);
+                return true;
             };
             if ((((((_arg1 == OFFICER)) && ((_arg2 < OFFICER)))) && ((_arg3 < OFFICER)))){
-                return (true);
+                return true;
             };
-            return (false);
+            return false;
         }
 
         public static function promotedRank(_arg1:int):int{

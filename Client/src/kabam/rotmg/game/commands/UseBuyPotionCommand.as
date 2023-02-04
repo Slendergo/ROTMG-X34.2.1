@@ -75,7 +75,7 @@ package kabam.rotmg.game.commands{
             if (this.potionId == PotionInventoryModel.MAGIC_POTION_ID){
                 return ((this.player.mp_ >= this.player.maxMP_));
             };
-            return (false);
+            return false;
         }
 
         private function sendServerRequest():void{

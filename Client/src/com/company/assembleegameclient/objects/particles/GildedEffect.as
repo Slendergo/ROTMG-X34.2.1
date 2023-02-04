@@ -52,12 +52,12 @@ package com.company.assembleegameclient.objects.particles{
             if (this.healUpdate != 0){
                 if ((_arg1 - this.healUpdate) > this.healEffectDelay){
                     this.go_.map_.addObj(new HealEffect(this.go_, this.color3_, this.color1_), this.go_.x_, this.go_.y_);
-                    return (false);
+                    return false;
                 };
             };
             x_ = this.go_.x_;
             y_ = this.go_.y_;
-            return (true);
+            return true;
         }
 
         private function addParticles():void{

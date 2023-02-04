@@ -45,10 +45,10 @@ package com.company.util{
 
         public static function intersectTriAABB(_arg1:Number, _arg2:Number, _arg3:Number, _arg4:Number, _arg5:Number, _arg6:Number, _arg7:Number, _arg8:Number, _arg9:Number, _arg10:Number):Boolean{
             if ((((((((((((_arg7 > _arg1)) && ((_arg7 > _arg3)))) && ((_arg7 > _arg5)))) || ((((((_arg9 < _arg1)) && ((_arg9 < _arg3)))) && ((_arg9 < _arg5)))))) || ((((((_arg8 > _arg2)) && ((_arg8 > _arg4)))) && ((_arg8 > _arg6)))))) || ((((((_arg10 < _arg2)) && ((_arg10 < _arg4)))) && ((_arg10 < _arg6)))))){
-                return (false);
+                return false;
             };
             if ((((((((((((_arg7 < _arg1)) && ((_arg1 < _arg9)))) && ((_arg8 < _arg2)))) && ((_arg2 < _arg10)))) || ((((((((_arg7 < _arg3)) && ((_arg3 < _arg9)))) && ((_arg8 < _arg4)))) && ((_arg4 < _arg10)))))) || ((((((((_arg7 < _arg5)) && ((_arg5 < _arg9)))) && ((_arg8 < _arg6)))) && ((_arg6 < _arg10)))))){
-                return (true);
+                return true;
             };
             return (((((lineRectIntersect(_arg1, _arg2, _arg3, _arg4, _arg7, _arg8, _arg9, _arg10)) || (lineRectIntersect(_arg3, _arg4, _arg5, _arg6, _arg7, _arg8, _arg9, _arg10)))) || (lineRectIntersect(_arg5, _arg6, _arg1, _arg2, _arg7, _arg8, _arg9, _arg10))));
         }

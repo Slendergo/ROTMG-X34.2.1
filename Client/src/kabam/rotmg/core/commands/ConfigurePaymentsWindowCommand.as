@@ -31,10 +31,9 @@ package kabam.rotmg.core.commands{
         }
 
         private function useExternalPaymentsWindow():Boolean{
-            return ((((((((this.account is KabamAccount)) || ((this.account is WebAccount)))) && ((this.data["UseExternalPayments"] == null)))) || (Boolean(int(this.data["UseExternalPayments"])))));
+            return false;
+//            return ((((((((this.account is WebAccount)))) && ((this.data["UseExternalPayments"] == null)))) || (Boolean(int(this.data["UseExternalPayments"])))));
         }
-
-
     }
 }//package kabam.rotmg.core.commands
 

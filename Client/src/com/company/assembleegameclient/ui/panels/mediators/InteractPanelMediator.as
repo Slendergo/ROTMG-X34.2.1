@@ -46,12 +46,12 @@ package com.company.assembleegameclient.ui.panels.mediators{
 
         private function doShowPet():Boolean{
             if (((!(this.currentInteractive)) && (this.isMapNameYardName()))){
-                return (true);
+                return true;
             };
             if ((((((this.currentInteractive is Pet)) && (this.isMapNameYardName()))) && (!((Pet(this.mapModel.currentInteractiveTarget).vo.getID() == Pet(this.currentInteractive).vo.getID()))))){
-                return (true);
+                return true;
             };
-            return (false);
+            return false;
         }
 
         private function isMapNameYardName():Boolean{

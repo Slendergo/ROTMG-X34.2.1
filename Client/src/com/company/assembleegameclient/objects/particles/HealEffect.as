@@ -24,7 +24,7 @@ package com.company.assembleegameclient.objects.particles{
             var _local7:Number;
             var _local8:HealParticle;
             if (this.go_.map_ == null){
-                return (false);
+                return false;
             };
             x_ = this.go_.x_;
             y_ = this.go_.y_;
@@ -38,7 +38,7 @@ package com.company.assembleegameclient.objects.particles{
                 map_.addObj(_local8, (x_ + (_local7 * Math.cos(_local5))), (y_ + (_local7 * Math.sin(_local5))));
                 _local4++;
             };
-            return (false);
+            return false;
         }
 
 

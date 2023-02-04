@@ -49,7 +49,7 @@ package io.decagames.rotmg.pets.components.petIcon{
             if (this.enabled){
                 return (super.dispatchEvent(_arg1));
             };
-            return (false);
+            return false;
         }
 
         public function setBitmap(_arg1:Bitmap):void{

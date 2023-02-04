@@ -64,10 +64,10 @@ package com.company.util{
             var _local10:Number;
             var _local11:Number;
             if ((((((((((_arg1.left > _arg2)) && ((_arg1.left > _arg4)))) || ((((_arg1.right < _arg2)) && ((_arg1.right < _arg4)))))) || ((((_arg1.top > _arg3)) && ((_arg1.top > _arg5)))))) || ((((_arg1.bottom < _arg3)) && ((_arg1.bottom < _arg5)))))){
-                return (false);
+                return false;
             };
             if ((((((((((_arg1.left < _arg2)) && ((_arg2 < _arg1.right)))) && ((_arg1.top < _arg3)))) && ((_arg3 < _arg1.bottom)))) || ((((((((_arg1.left < _arg4)) && ((_arg4 < _arg1.right)))) && ((_arg1.top < _arg5)))) && ((_arg5 < _arg1.bottom)))))){
-                return (true);
+                return true;
             };
             var _local6:Number = ((_arg5 - _arg3) / (_arg4 - _arg2));
             var _local7:Number = (_arg3 - (_local6 * _arg2));
@@ -104,7 +104,7 @@ package com.company.util{
                 if ((((_local9 >= _arg1.y)) && ((_local9 <= (_arg1.y + _arg1.height))))){
                     _arg6.x = _arg1.x;
                     _arg6.y = _local9;
-                    return (true);
+                    return true;
                 };
             }
             else {
@@ -115,7 +115,7 @@ package com.company.util{
                     if ((((_local9 >= _arg1.y)) && ((_local9 <= (_arg1.y + _arg1.height))))){
                         _arg6.x = (_arg1.x + _arg1.width);
                         _arg6.y = _local9;
-                        return (true);
+                        return true;
                     };
                 };
             };
@@ -126,7 +126,7 @@ package com.company.util{
                 if ((((_local10 >= _arg1.x)) && ((_local10 <= (_arg1.x + _arg1.width))))){
                     _arg6.x = _local10;
                     _arg6.y = _arg1.y;
-                    return (true);
+                    return true;
                 };
             }
             else {
@@ -137,11 +137,11 @@ package com.company.util{
                     if ((((_local10 >= _arg1.x)) && ((_local10 <= (_arg1.x + _arg1.width))))){
                         _arg6.x = _local10;
                         _arg6.y = (_arg1.y + _arg1.height);
-                        return (true);
+                        return true;
                     };
                 };
             };
-            return (false);
+            return false;
         }
 
         public static function lineSegmentIntersect(_arg1:Rectangle, _arg2:IntPoint, _arg3:IntPoint):Point{

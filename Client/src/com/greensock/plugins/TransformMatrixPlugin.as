@@ -258,7 +258,7 @@ package com.greensock.plugins{
                 _cChange = (_local_4.c - _cStart);
                 _dChange = (_local_4.d - _dStart);
             };
-            return (true);
+            return true;
         }
 
 

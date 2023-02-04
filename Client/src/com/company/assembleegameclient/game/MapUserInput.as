@@ -621,10 +621,10 @@ package com.company.assembleegameclient.game{
             var _local1:int = getTimer();
             if ((this.gs_.map.player_.lastSwap_ + 600) > _local1){
                 SoundEffectLibrary.play("error");
-                return (true);
+                return true;
             };
             this.gs_.map.player_.lastSwap_ = _local1;
-            return (false);
+            return false;
         }
 
         private function togglePerformanceStats():void{

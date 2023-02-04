@@ -90,11 +90,11 @@ package com.company.assembleegameclient.ui{
             var _local2:int;
             while (_local2 < this.slots_.length) {
                 if (_arg1[_local2] != this.slots_[_local2].included_){
-                    return (false);
+                    return false;
                 };
                 _local2++;
             };
-            return (true);
+            return true;
         }
 
         public function numIncluded():int{

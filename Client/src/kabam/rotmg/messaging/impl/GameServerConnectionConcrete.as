@@ -753,7 +753,7 @@ package kabam.rotmg.messaging.impl{
             _arg2.equipment_[_arg3] = _arg5.equipment_[_arg6];
             _arg5.equipment_[_arg6] = _local9;
             SoundEffectLibrary.play("inventory_move_item");
-            return (true);
+            return true;;
         }
 
         override public function invSwapPotion(_arg1:Player, _arg2:GameObject, _arg3:int, _arg4:int, _arg5:GameObject, _arg6:int, _arg7:int):Boolean{
@@ -781,7 +781,7 @@ package kabam.rotmg.messaging.impl{
             };
             serverConnection.sendMessage(_local8);
             SoundEffectLibrary.play("inventory_move_item");
-            return (true);
+            return true;;
         }
 
         override public function invDrop(_arg1:GameObject, _arg2:int, _arg3:int):void{
@@ -821,7 +821,7 @@ package kabam.rotmg.messaging.impl{
                 };
                 this.applyUseItem(_arg1, _arg2, _local3, _local4);
                 SoundEffectLibrary.play("use_potion");
-                return (true);
+                return true;;
             };
             SoundEffectLibrary.play("error");
             return (false);
@@ -845,7 +845,7 @@ package kabam.rotmg.messaging.impl{
             catch(err:Error) {
                 logger.error(("PROBLEM IN STAT INC " + err.getStackTrace()));
             };
-            return (true);
+            return true;;
         }
 
         private function applyUseItem(_arg1:GameObject, _arg2:int, _arg3:int, _arg4:XML):void{
@@ -1074,11 +1074,6 @@ package kabam.rotmg.messaging.impl{
             _local2.key_.length = 0;
             ((!((key_ == null))) && (_local2.key_.writeBytes(key_)));
             _local2.mapJSON_ = (((mapJSON_ == null)) ? "" : mapJSON_);
-            _local2.entrytag_ = _local1.getEntryTag();
-            _local2.gameNet = _local1.gameNetwork();
-            _local2.gameNetUserId = _local1.gameNetworkUserId();
-            _local2.playPlatform = _local1.playPlatform();
-            _local2.platformToken = _local1.getPlatformToken();
             _local2.userToken = _local1.getToken();
             _local2.previousConnectionGuid = connectionGuid;
             serverConnection.sendMessage(_local2);
@@ -1369,13 +1364,13 @@ package kabam.rotmg.messaging.impl{
 
         private function canShowEffect(_arg1:GameObject):Boolean{
             if (_arg1 != null){
-                return (true);
+                return true;;
             };
             var _local2 = (_arg1.objectId_ == this.playerId_);
             if (((((!(_local2)) && (_arg1.props_.isPlayer_))) && (Parameters.data_.disableAllyShoot))){
                 return (false);
             };
-            return (true);
+            return true;;
         }
 
         private function onShowEffect(_arg1:ShowEffect):void{

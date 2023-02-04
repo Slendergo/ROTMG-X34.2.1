@@ -168,7 +168,7 @@ package io.decagames.rotmg.pets.windows.yard.feed{
             if (ObjectLibrary.usePatchedData){
                 _local3 = ObjectLibrary.xmlPatchLibrary_[_arg1];
                 if (((_local3) && (_local3.hasOwnProperty("feedPower")))){
-                    return (true);
+                    return true;
                 };
             };
             return (_local2.hasOwnProperty("feedPower"));
@@ -235,9 +235,9 @@ package io.decagames.rotmg.pets.windows.yard.feed{
         private function checkYardType():Boolean{
             if (this.currentPet.rarity.ordinal >= this.model.getPetYardType()){
                 this.showPopup.dispatch(new ErrorModal(350, "Feed Pets", LineBuilder.getLocalizedStringFromKey("server.upgrade_petyard_first")));
-                return (false);
+                return false;
             };
-            return (true);
+            return true;
         }
 
 

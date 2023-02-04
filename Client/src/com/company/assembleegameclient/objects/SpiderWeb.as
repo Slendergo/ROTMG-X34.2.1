@@ -29,24 +29,24 @@ package com.company.assembleegameclient.objects{
             var _local1:Square;
             _local1 = map_.lookupSquare((x_ - 1), y_);
             if (((!((_local1 == null))) && ((_local1.obj_ is Wall)))){
-                return (true);
+                return true;
             };
             _local1 = map_.lookupSquare(x_, (y_ - 1));
             if (((!((_local1 == null))) && ((_local1.obj_ is Wall)))){
                 obj3D_.setPosition(x_, y_, 0, 90);
-                return (true);
+                return true;
             };
             _local1 = map_.lookupSquare((x_ + 1), y_);
             if (((!((_local1 == null))) && ((_local1.obj_ is Wall)))){
                 obj3D_.setPosition(x_, y_, 0, 180);
-                return (true);
+                return true;
             };
             _local1 = map_.lookupSquare(x_, (y_ + 1));
             if (((!((_local1 == null))) && ((_local1.obj_ is Wall)))){
                 obj3D_.setPosition(x_, y_, 0, 270);
-                return (true);
+                return true;
             };
-            return (false);
+            return false;
         }
 
 

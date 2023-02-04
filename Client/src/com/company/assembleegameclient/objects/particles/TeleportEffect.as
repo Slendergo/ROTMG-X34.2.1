@@ -22,7 +22,7 @@ package com.company.assembleegameclient.objects.particles{
                 map_.addObj(_local8, (x_ + (_local6 * Math.cos(_local5))), (y_ + (_local6 * Math.sin(_local5))));
                 _local4++;
             };
-            return (false);
+            return false;
         }
 
         override public function runEasyRendering(_arg1:int, _arg2:int):Boolean{
@@ -40,7 +40,7 @@ package com.company.assembleegameclient.objects.particles{
                 map_.addObj(_local8, (x_ + (_local6 * Math.cos(_local5))), (y_ + (_local6 * Math.sin(_local5))));
                 _local4++;
             };
-            return (false);
+            return false;
         }
 
 
@@ -65,10 +65,10 @@ class TeleportParticle extends Particle {
     override public function update(_arg1:int, _arg2:int):Boolean{
         this.timeLeft_ = (this.timeLeft_ - _arg2);
         if (this.timeLeft_ <= 0){
-            return (false);
+            return false;
         };
         z_ = (z_ + ((this.moveVec_.z * _arg2) * 0.008));
-        return (true);
+        return true;
     }
 
 

@@ -90,7 +90,7 @@ package com.greensock.plugins{
                     };
                 };
             };
-            return (true);
+            return true;
         }
 
         override public function setRatio(_arg_1:Number):void{

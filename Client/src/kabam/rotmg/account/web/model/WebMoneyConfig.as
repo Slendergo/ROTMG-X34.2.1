@@ -14,11 +14,11 @@ package kabam.rotmg.account.web.model{
 
 
         public function showPaymentMethods():Boolean{
-            return (true);
+            return true;
         }
 
         public function showBonuses():Boolean{
-            return (true);
+            return true;
         }
 
         public function parseOfferPrice(_arg1:Offer):StringBuilder{

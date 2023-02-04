@@ -33,7 +33,7 @@ package com.greensock.plugins{
         override public function _onInitTween(_arg_1:Object, _arg_2:*, _arg_3:TweenLite):Boolean{
             _target = _arg_1;
             _addTween(_arg_1, "alpha", _arg_1.alpha, _arg_2, "alpha");
-            return (true);
+            return true;
         }
 
 

@@ -105,10 +105,10 @@ package io.decagames.rotmg.pets.components.tooltip{
             var _local1:AbilityVO;
             for each (_local1 in this.petVO.abilityList) {
                 if (((_local1.getUnlocked()) && ((_local1.level > 0)))){
-                    return (true);
+                    return true;
                 };
             };
-            return (false);
+            return false;
         }
 
         private function addAbilities():void{

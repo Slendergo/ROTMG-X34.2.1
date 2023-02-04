@@ -131,7 +131,7 @@ package com.company.assembleegameclient.objects{
             this.startX_ = _arg2;
             this.startY_ = _arg3;
             if (!super.addTo(_arg1, _arg2, _arg3)){
-                return (false);
+                return false;
             };
             if (((!(this.containerProps_.flying_)) && (square_.sink_))){
                 z_ = 0.1;
@@ -142,18 +142,18 @@ package com.company.assembleegameclient.objects{
                     z_ = (0.5 - (0.4 * (_local4.sinkLevel_ / Parameters.MAX_SINK_LEVEL)));
                 };
             };
-            return (true);
+            return true;
         }
 
         public function moveTo(_arg1:Number, _arg2:Number):Boolean{
             var _local3:Square = map_.getSquare(_arg1, _arg2);
             if (_local3 == null){
-                return (false);
+                return false;
             };
             x_ = _arg1;
             y_ = _arg2;
             square_ = _local3;
-            return (true);
+            return true;
         }
 
         override public function removeFromMap():void{
@@ -223,7 +223,7 @@ package com.company.assembleegameclient.objects{
             var _local12:Boolean;
             var _local3:int = (_arg1 - this.startTime_);
             if (_local3 > this.lifetime_){
-                return (false);
+                return false;
             };
             var _local4:Point = this.staticPoint_;
             this.positionAt(_local3, _local4);
@@ -239,7 +239,7 @@ package com.company.assembleegameclient.objects{
                         };
                     };
                 };
-                return (false);
+                return false;
             };
             if (((((!((square_.obj_ == null))) && (((!(square_.obj_.props_.isEnemy_)) || (!(this.damagesEnemies_)))))) && (((square_.obj_.props_.enemyOccupySquare_) || (((!(this.projProps_.passesCover_)) && (square_.obj_.props_.occupySquare_))))))){
                 if (this.damagesPlayers_){
@@ -251,7 +251,7 @@ package com.company.assembleegameclient.objects{
                         map_.addObj(new HitEffect(_local5, 100, 3, this.angle_, this.projProps_.speed_), _local4.x, _local4.y);
                     };
                 };
-                return (false);
+                return false;
             };
             var _local6:GameObject = this.getHit(_local4.x, _local4.y);
             if (_local6 != null){
@@ -288,10 +288,10 @@ package com.company.assembleegameclient.objects{
                     this.multiHitDict_[_local6] = true;
                 }
                 else {
-                    return (false);
+                    return false;
                 };
             };
-            return (true);
+            return true;
         }
 
         public function getHit(_arg1:Number, _arg2:Number):GameObject{

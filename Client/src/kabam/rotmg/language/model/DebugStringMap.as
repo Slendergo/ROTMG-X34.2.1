@@ -20,7 +20,7 @@ package kabam.rotmg.language.model{
         }
 
         public function hasKey(_arg1:String):Boolean{
-            return (true);
+            return true;
         }
 
         public function getValue(_arg1:String):String{

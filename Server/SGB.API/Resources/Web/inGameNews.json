@@ -1,6 +1,5 @@
 ﻿[
    {
-      "platform":"kongregate,steam,rotmg",
       "weight":405,
       "startTime":1585180800000,
       "title":"Event Whites x2 event",
@@ -10,7 +9,6 @@
       "newsKey":"ahVzfnJlYWxtb2Z0aGVtYWRnb2RocmRyFwsSCkluR2FtZU5ld3MYgIDolcjguwoM"
    },
    {
-      "platform":"kongregate,steam,rotmg",
       "weight":404,
       "startTime":1585094400000,
       "title":"Exalt Supporter Beta - Patch 1",
@@ -20,7 +18,6 @@
       "newsKey":"ahVzfnJlYWxtb2Z0aGVtYWRnb2RocmRyFwsSCkluR2FtZU5ld3MYgIDo5auwtwgM"
    },
    {
-      "platform":"kongregate,steam,rotmg",
       "weight":403,
       "startTime":1584489600000,
       "title":"RotMG Exalt - Supporter Beta is live!",

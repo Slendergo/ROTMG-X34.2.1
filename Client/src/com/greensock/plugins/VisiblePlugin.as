@@ -30,7 +30,7 @@ package com.greensock.plugins{
             _progress = ((_tween.vars.runBackwards) ? 0 : 1);
             _initVal = _target.visible;
             _visible = Boolean(_arg_2);
-            return (true);
+            return true;
         }
 
 

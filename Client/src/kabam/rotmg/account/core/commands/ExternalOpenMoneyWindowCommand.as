@@ -82,17 +82,17 @@ package kabam.rotmg.account.core.commands{
         }
 
         private function handleValidMoneyWindowRequest():void{
-            if ((((this.account is WebAccount)) && ((WebAccount(this.account).paymentProvider == "paymentwall")))){
-                this.requestPaymentToken();
-            }
-            else {
-                try {
-                    this.openKabamMoneyWindowFromBrowser();
-                }
-                catch(e:Error) {
-                    openKabamMoneyWindowFromStandalonePlayer();
-                };
-            };
+//            if ((((this.account is WebAccount)) && ((WebAccount(this.account).paymentProvider == "paymentwall")))){
+//                this.requestPaymentToken();
+//            }
+//            else {
+//                try {
+//                    this.openKabamMoneyWindowFromBrowser();
+//                }
+//                catch(e:Error) {
+//                    openKabamMoneyWindowFromStandalonePlayer();
+//                }
+//            }
         }
 
         private function openKabamMoneyWindowFromStandalonePlayer():void{

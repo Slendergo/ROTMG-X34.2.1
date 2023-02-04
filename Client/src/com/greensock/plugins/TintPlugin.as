@@ -38,7 +38,7 @@ package com.greensock.plugins{
         override public function _onInitTween(_arg_1:Object, _arg_2:*, _arg_3:TweenLite):Boolean{
             if (!(_arg_1 is DisplayObject))
             {
-                return (false);
+                return false;
             };
             var _local_4:ColorTransform = new ColorTransform();
             if (((!(_arg_2 == null)) && (!(_arg_3.vars.removeTint == true))))
@@ -50,7 +50,7 @@ package com.greensock.plugins{
             _local_4.alphaMultiplier = _local_5.alphaMultiplier;
             _local_4.alphaOffset = _local_5.alphaOffset;
             _init(_local_5, _local_4);
-            return (true);
+            return true;
         }
 
         public function _init(_arg_1:ColorTransform, _arg_2:ColorTransform):void{

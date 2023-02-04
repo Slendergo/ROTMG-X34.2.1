@@ -99,7 +99,7 @@ package kabam.rotmg.servers.model{
         }
 
         public function isServerAvailable():Boolean{
-            return (true);
+            return true;
         }
 
         public function setServers(_arg1:Vector.<Server>):void{

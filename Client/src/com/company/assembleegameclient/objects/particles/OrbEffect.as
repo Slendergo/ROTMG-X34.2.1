@@ -73,7 +73,7 @@ package com.company.assembleegameclient.objects.particles{
             x_ = this.target_.x;
             y_ = this.target_.y;
             map_.addObj(new SkullEffect(this.target_, images), this.target_.x, this.target_.y);
-            return (false);
+            return false;
         }
 
 

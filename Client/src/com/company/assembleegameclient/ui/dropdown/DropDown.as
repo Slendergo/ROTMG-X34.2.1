@@ -52,11 +52,11 @@ package com.company.assembleegameclient.ui.dropdown{
             while (_local2 < this.strings_.length) {
                 if (_arg1 == this.strings_[_local2]){
                     this.setIndex(_local2);
-                    return (true);
+                    return true;
                 };
                 _local2++;
             };
-            return (false);
+            return false;
         }
 
         public function setIndex(_arg1:int):void{

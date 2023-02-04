@@ -197,9 +197,9 @@ package io.decagames.rotmg.social.model{
                 this.removeFromList(_local2.list, _arg1);
                 this._friends[_arg1] = null;
                 delete this._friends[_arg1];
-                return (true);
+                return true;
             };
-            return (false);
+            return false;
         }
 
         public function removeInvitation(_arg1:String):Boolean{
@@ -210,9 +210,9 @@ package io.decagames.rotmg.social.model{
                 if (this._numberOfInvitation == 0){
                     this.noInvitationSignal.dispatch();
                 };
-                return (true);
+                return true;
             };
-            return (false);
+            return false;
         }
 
         public function removeGuildMember(_arg1:String):void{

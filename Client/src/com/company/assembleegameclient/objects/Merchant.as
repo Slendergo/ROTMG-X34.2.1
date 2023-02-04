@@ -69,10 +69,10 @@ package com.company.assembleegameclient.objects{
 
         override public function addTo(_arg1:Map, _arg2:Number, _arg3:Number):Boolean{
             if (!super.addTo(_arg1, _arg2, _arg3)){
-                return (false);
+                return false;
             };
             _arg1.merchLookup_[new IntPoint(x_, y_)] = this;
-            return (true);
+            return true;
         }
 
         override public function removeFromMap():void{
@@ -143,7 +143,7 @@ package com.company.assembleegameclient.objects{
             };
             this.untilNextMessage_ = (this.untilNextMessage_ - _arg2);
             if (this.untilNextMessage_ > 0){
-                return (true);
+                return true;
             };
             this.untilNextMessage_ = 5000;
             var _local3:Vector.<int> = new Vector.<int>();
@@ -162,12 +162,12 @@ package com.company.assembleegameclient.objects{
                 _local3.push(DISCOUNT_MESSAGE);
             };
             if (_local3.length == 0){
-                return (true);
+                return true;
             };
             this.messageIndex_ = (++this.messageIndex_ % _local3.length);
             var _local4:int = _local3[this.messageIndex_];
             this.addSpeechBalloon.dispatch(this.getSpeechBalloon(_local4));
-            return (true);
+            return true;
         }
 
         override public function soldObjectName():String{

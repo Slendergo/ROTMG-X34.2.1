@@ -48,7 +48,7 @@ package com.greensock{
             {
                 if (_arg_1._paused)
                 {
-                    return (true);
+                    return true;;
                 };
                 _arg_1 = _arg_1._timeline;
             };

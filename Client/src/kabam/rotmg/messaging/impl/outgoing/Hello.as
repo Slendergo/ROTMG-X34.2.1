@@ -17,11 +17,6 @@ package kabam.rotmg.messaging.impl.outgoing{
         public var keyTime_:int = 0;
         public var key_:ByteArray;
         public var mapJSON_:String;
-        public var entrytag_:String = "";
-        public var gameNet:String = "";
-        public var gameNetUserId:String = "";
-        public var playPlatform:String = "";
-        public var platformToken:String = "";
         public var userToken:String = "";
         public var previousConnectionGuid:String = "";
 
@@ -46,11 +41,6 @@ package kabam.rotmg.messaging.impl.outgoing{
             _arg1.writeBytes(this.key_);
             _arg1.writeInt(this.mapJSON_.length);
             _arg1.writeUTFBytes(this.mapJSON_);
-            _arg1.writeUTF(this.entrytag_);
-            _arg1.writeUTF(this.gameNet);
-            _arg1.writeUTF(this.gameNetUserId);
-            _arg1.writeUTF(this.playPlatform);
-            _arg1.writeUTF(this.platformToken);
             _arg1.writeUTF(this.userToken);
             _arg1.writeUTF("XTeP7hERdchV5jrBZEYNebAqDPU6tKU6");
             _arg1.writeUTF(this.previousConnectionGuid);

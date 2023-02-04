@@ -38,14 +38,14 @@ package com.company.assembleegameclient.objects.thrown{
         override public function update(_arg1:int, _arg2:int):Boolean{
             this.timeLeft_ = (this.timeLeft_ - _arg2);
             if (this.timeLeft_ <= 0){
-                return (false);
+                return false;
             };
             z_ = (Math.sin(((this.timeLeft_ / this.lifetime_) * Math.PI)) * 2);
             setSize(z_);
             this.pathX_ = (this.pathX_ + (this.dx_ * _arg2));
             this.pathY_ = (this.pathY_ + (this.dy_ * _arg2));
             moveTo(this.pathX_, this.pathY_);
-            return (true);
+            return true;
         }
 
 

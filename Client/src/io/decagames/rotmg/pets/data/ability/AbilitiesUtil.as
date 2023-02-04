@@ -13,7 +13,7 @@ package io.decagames.rotmg.pets.data.ability{
 
         public static function isActiveAbility(_arg1:PetRarityEnum, _arg2:int):Boolean{
             if (_arg1.ordinal >= PetRarityEnum.LEGENDARY.ordinal){
-                return (true);
+                return true;
             };
             if (_arg1.ordinal >= PetRarityEnum.UNCOMMON.ordinal){
                 return ((_arg2 <= 1));

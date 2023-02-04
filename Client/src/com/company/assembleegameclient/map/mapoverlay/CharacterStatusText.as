@@ -45,21 +45,21 @@ package com.company.assembleegameclient.map.mapoverlay{
             };
             if (_arg2 < this.startTime_){
                 visible = false;
-                return (true);
+                return true;
             };
             var _local3:int = (_arg2 - this.startTime_);
             if ((((_local3 > this.lifetime_)) || (((!((this.go_ == null))) && ((this.go_.map_ == null)))))){
-                return (false);
+                return false;
             };
             if ((((this.go_ == null)) || (!(this.go_.drawn_)))){
                 visible = false;
-                return (true);
+                return true;
             };
             visible = true;
             x = ((((this.go_)!=null) ? this.go_.posS_[0] : 0) + (((this.offset_)!=null) ? this.offset_.x : 0));
             var _local4:Number = ((_local3 / this.lifetime_) * this.MAX_DRIFT);
             y = (((((this.go_)!=null) ? this.go_.posS_[1] : 0) + (((this.offset_)!=null) ? this.offset_.y : 0)) - _local4);
-            return (true);
+            return true;
         }
 
         public function getGameObject():GameObject{

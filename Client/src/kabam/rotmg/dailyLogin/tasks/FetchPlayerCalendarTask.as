@@ -108,9 +108,6 @@ package kabam.rotmg.dailyLogin.tasks{
 
         public function makeRequestData():Object{
             var _local1:Object = {};
-            _local1.game_net_user_id = this.account.gameNetworkUserId();
-            _local1.game_net = this.account.gameNetwork();
-            _local1.play_platform = this.account.playPlatform();
             _local1.do_login = Parameters.sendLogin_;
             MoreObjectUtil.addToObject(_local1, this.account.getCredentials());
             return (_local1);

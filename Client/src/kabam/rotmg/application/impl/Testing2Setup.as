@@ -25,35 +25,35 @@ package kabam.rotmg.application.impl{
         }
 
         public function useLocalTextures():Boolean{
-            return (true);
+            return true;
         }
 
         public function isToolingEnabled():Boolean{
-            return (true);
+            return true;
         }
 
         public function isServerLocal():Boolean{
-            return (false);
+            return false;
         }
 
         public function isGameLoopMonitored():Boolean{
-            return (true);
+            return true;
         }
 
         public function areErrorsReported():Boolean{
-            return (false);
+            return false;
         }
 
         public function useProductionDialogs():Boolean{
-            return (true);
+            return true;
         }
 
         public function areDeveloperHotkeysEnabled():Boolean{
-            return (false);
+            return false;
         }
 
         public function isDebug():Boolean{
-            return (false);
+            return false;
         }
 
         public function getServerDomain():String{

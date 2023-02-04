@@ -25,7 +25,7 @@ package com.greensock.plugins{
 
         override public function _onInitTween(_arg_1:Object, _arg_2:*, _arg_3:TweenLite):Boolean{
             _tween = _arg_3;
-            return (true);
+            return true;
         }
 
         public function _onInitAllProps():Boolean{
@@ -79,7 +79,7 @@ package com.greensock.plugins{
                     _local_6 = _local_7;
                 };
             };
-            return (false);
+            return false;
         }
 
 

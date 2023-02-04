@@ -23,7 +23,7 @@ package com.company.assembleegameclient.objects.particles{
             var _local3:Timer = new Timer(50, 12);
             _local3.addEventListener(TimerEvent.TIMER, this.onTimer);
             _local3.start();
-            return (false);
+            return false;
         }
 
         private function onTimer(_arg1:TimerEvent):void{

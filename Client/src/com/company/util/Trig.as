@@ -172,11 +172,11 @@ package com.company.util{
                 _local5 = (((_local3.nextInt() % 2000) - 1000) + _local3.nextDouble());
                 _local6 = Math.abs((_arg1(_local5) - _arg2(_local5)));
                 if (_local6 > 0.1){
-                    return (false);
+                    return false;
                 };
                 _local4++;
             };
-            return (true);
+            return true;
         }
 
         public static function testFunc2(_arg1:Function, _arg2:Function):Boolean{
@@ -190,11 +190,11 @@ package com.company.util{
                 _local6 = (((_local3.nextInt() % 2000) - 1000) + _local3.nextDouble());
                 _local7 = Math.abs((_arg1(_local5, _local6) - _arg2(_local5, _local6)));
                 if (_local7 > 0.1){
-                    return (false);
+                    return false;
                 };
                 _local4++;
             };
-            return (true);
+            return true;
         }
 
 

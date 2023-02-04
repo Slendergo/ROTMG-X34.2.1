@@ -9,9 +9,7 @@ package kabam.rotmg.ui.view{
     import kabam.rotmg.servers.api.ServerModel;
     import kabam.rotmg.core.signals.SetScreenSignal;
     import kabam.rotmg.dialogs.control.OpenDialogSignal;
-    import kabam.rotmg.account.securityQuestions.data.SecurityQuestionsModel;
     import kabam.rotmg.servers.api.Server;
-    import kabam.rotmg.account.securityQuestions.view.SecurityQuestionsInfoDialog;
     import com.company.assembleegameclient.screens.CharacterSelectionAndNewsScreen;
 
     public class ServersMediator extends Mediator {
@@ -24,18 +22,12 @@ package kabam.rotmg.ui.view{
         public var setScreen:SetScreenSignal;
         [Inject]
         public var openDialog:OpenDialogSignal;
-        [Inject]
-        public var securityQuestionsModel:SecurityQuestionsModel;
-
 
         override public function initialize():void{
             this.view.gotoTitle.add(this.onGotoTitle);
             var _local1:int = ((this.view.isChallenger) ? Server.CHALLENGER_SERVER : Server.NORMAL_SERVER);
             this.servers.setAvailableServers(_local1);
             this.view.initialize(this.servers.getAvailableServers());
-            if (this.securityQuestionsModel.showSecurityQuestionsOnStartup){
-                this.openDialog.dispatch(new SecurityQuestionsInfoDialog());
-            };
         }
 
         override public function destroy():void{

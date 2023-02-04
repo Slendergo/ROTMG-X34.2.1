@@ -7,7 +7,6 @@ package kabam.rotmg.core.model{
     import org.osflash.signals.Signal;
     import com.company.assembleegameclient.appengine.SavedCharactersList;
     import kabam.rotmg.account.core.Account;
-    import kabam.rotmg.account.kongregate.KongregateAccount;
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.assembleegameclient.appengine.SavedCharacter;
     import com.company.assembleegameclient.appengine.SavedNewsItem;
@@ -51,8 +50,8 @@ package kabam.rotmg.core.model{
             this.charList.hasPlayerDied = _arg1;
         }
 
-        public function getIsAgeVerified():Boolean{
-            return (((((this.isAgeVerified) || ((this.account is KongregateAccount)))) || (this.charList.isAgeVerified)));
+        public function getIsAgeVerified():Boolean {
+            return this.isAgeVerified || this.charList.isAgeVerified;
         }
 
         public function setIsAgeVerified(_arg1:Boolean):void{

@@ -35,11 +35,11 @@ package com.company.assembleegameclient.objects.particles{
             var _local12:Number;
             var _local13:Number;
             if (this.go_.map_ == null){
-                return (false);
+                return false;
             };
             if (!this.lastUpdate_){
                 this.lastUpdate_ = _arg1;
-                return (true);
+                return true;
             };
             _local3 = int((this.lastUpdate_ / this.rate_));
             var _local4:int = int((_arg1 / this.rate_));
@@ -63,7 +63,7 @@ package com.company.assembleegameclient.objects.particles{
                 _local10++;
             };
             this.lastUpdate_ = _arg1;
-            return (true);
+            return true;
         }
 
         override public function removeFromMap():void{

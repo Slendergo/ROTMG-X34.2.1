@@ -26,7 +26,7 @@ package com.company.assembleegameclient.objects.particles{
             var _local8:Number;
             var _local9:Number;
             if (this.go_.map_ == null){
-                return (false);
+                return false;
             };
             if (this.lastUpdate_ < 0){
                 this.lastUpdate_ = Math.max(0, (_arg1 - 400));
@@ -46,7 +46,7 @@ package com.company.assembleegameclient.objects.particles{
                 _local3++;
             };
             this.lastUpdate_ = _arg1;
-            return (true);
+            return true;
         }
 
 

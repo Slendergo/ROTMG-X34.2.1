@@ -60,7 +60,7 @@ package com.company.assembleegameclient.objects{
         }
 
         public function update(_arg1:int, _arg2:int):Boolean{
-            return (true);
+            return true;
         }
 
         public function draw3d(_arg1:Vector.<Object3DStage3D>):void{
@@ -93,11 +93,11 @@ package com.company.assembleegameclient.objects{
             this.square_ = this.map_.getSquare(_arg2, _arg3);
             if (this.square_ == null){
                 this.map_ = null;
-                return (false);
+                return false;
             };
             this.x_ = _arg2;
             this.y_ = _arg3;
-            return (true);
+            return true;
         }
 
         public function removeFromMap():void{

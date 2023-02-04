@@ -9,7 +9,9 @@ package kabam.rotmg.news.view{
     import flash.filters.DropShadowFilter;
     import flash.filters.GlowFilter;
     import flash.text.TextField;
-    import kabam.rotmg.text.model.FontModel;
+
+import kabam.rotmg.assets.EmbeddedAssets;
+import kabam.rotmg.text.model.FontModel;
     import flash.display.Sprite;
     import kabam.rotmg.news.model.NewsModel;
     import kabam.rotmg.core.StaticInjectorContext;
@@ -42,8 +44,6 @@ package kabam.rotmg.news.view{
         private static const filterWithGlow:Array = [DROP_SHADOW_FILTER, GLOW_FILTER];
         private static const filterNoGlow:Array = [DROP_SHADOW_FILTER];
 
-        public static var backgroundImageEmbed:Class = NewsModal_backgroundImageEmbed;
-        public static var foregroundImageEmbed:Class = NewsModal_foregroundImageEmbed;
         public static var modalWidth:int = MODAL_WIDTH;//440
         public static var modalHeight:int = MODAL_HEIGHT;//400
 
@@ -179,12 +179,12 @@ package kabam.rotmg.news.view{
 
         override protected function makeModalBackground():Sprite{
             var _local1:Sprite = new Sprite();
-            var _local2:DisplayObject = new backgroundImageEmbed();
+            var _local2:DisplayObject = new EmbeddedAssets.NewsModal_backgroundImageEmbed();
             _local2.width = (modalWidth + 1);
             _local2.height = (modalHeight - 25);
             _local2.y = 27;
             _local2.alpha = 0.95;
-            var _local3:DisplayObject = new foregroundImageEmbed();
+            var _local3:DisplayObject = new EmbeddedAssets.NewsModal_foregroundImageEmbed();
             _local3.width = (modalWidth + 1);
             _local3.height = (modalHeight - 67);
             _local3.y = 27;

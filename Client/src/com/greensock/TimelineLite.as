@@ -154,7 +154,7 @@ package com.greensock{
             {
                 if (((_local_1._paused) || ((_local_1 is TimelineLite) && (TimelineLite(_local_1)._hasPausedChild()))))
                 {
-                    return (true);
+                    return true;;
                 };
                 _local_1 = _local_1._next;
             };
@@ -777,7 +777,7 @@ package com.greensock{
             {
                 if (_local_2 == this)
                 {
-                    return (true);
+                    return true;;
                 };
                 _local_2 = _local_2.timeline;
             };

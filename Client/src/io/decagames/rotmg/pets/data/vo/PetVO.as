@@ -65,10 +65,10 @@ package io.decagames.rotmg.pets.data.vo{
             var _local1:AbilityVO;
             for each (_local1 in this._abilityList) {
                 if (((_local1.getUnlocked()) && ((_local1.level < this.maxAbilityPower)))){
-                    return (false);
+                    return false;
                 };
             };
-            return (true);
+            return true;
         }
 
         public function totalAbilitiesLevel():int{
@@ -236,7 +236,7 @@ package io.decagames.rotmg.pets.data.vo{
         }
 
         public function get isOwned():Boolean{
-            return (false);
+            return false;
         }
 
         public function get abilityUpdated():Signal{
@@ -244,7 +244,7 @@ package io.decagames.rotmg.pets.data.vo{
         }
 
         public function get isNew():Boolean{
-            return (false);
+            return false;
         }
 
         public function set isNew(_arg1:Boolean):void{

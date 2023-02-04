@@ -39,7 +39,7 @@ package com.company.assembleegameclient.objects.particles{
                 map_.addObj(_local8, x_, y_);
                 _local5++;
             };
-            return (false);
+            return false;
         }
 
         override public function runNormalRendering(_arg1:int, _arg2:int):Boolean{
@@ -83,7 +83,7 @@ class SnowflakeParticle extends Particle {
     override public function update(_arg1:int, _arg2:int):Boolean{
         this.timeLeft_ = (this.timeLeft_ - _arg2);
         if (this.timeLeft_ <= 0){
-            return (false);
+            return false;
         };
         moveTo((x_ + (this.dx_ * _arg2)), (y_ + (this.dy_ * _arg2)));
         if (((this.split_) && ((this.timeLeft_ < this.timeSplit_)))){
@@ -92,7 +92,7 @@ class SnowflakeParticle extends Particle {
             this.split_ = false;
         };
         map_.addObj(new SparkParticle((100 * (z_ + 1)), color_, 600, z_, RandomUtil.plusMinus(1), RandomUtil.plusMinus(1)), x_, y_);
-        return (true);
+        return true;
     }
 
 

@@ -122,7 +122,7 @@ package com.greensock.core{
                     };
                 };
             };
-            return (false);
+            return false;
         }
 
         public function timeScale(_arg_1:Number=NaN):*{
