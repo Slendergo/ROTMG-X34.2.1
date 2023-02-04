@@ -39,9 +39,7 @@ package kabam.rotmg.messaging.impl.outgoing{
             _arg1.writeUTF(this.buildVersion_);
             _arg1.writeInt(this.gameId_);
             _arg1.writeUTF(this.guid_);
-            _arg1.writeInt(int(Math.floor((Math.random() * 0x3B9ACA00))));
             _arg1.writeUTF(this.password_);
-            _arg1.writeInt(int(Math.floor((Math.random() * 0x3B9ACA00))));
             _arg1.writeUTF(this.secret_);
             _arg1.writeInt(this.keyTime_);
             _arg1.writeShort(this.key_.length);

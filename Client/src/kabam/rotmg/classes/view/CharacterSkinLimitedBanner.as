@@ -5,7 +5,9 @@
 
 package kabam.rotmg.classes.view{
     import flash.display.Sprite;
-    import kabam.rotmg.text.view.TextFieldDisplayConcrete;
+
+import kabam.rotmg.assets.EmbeddedAssets;
+import kabam.rotmg.text.view.TextFieldDisplayConcrete;
     import org.osflash.signals.Signal;
     import flash.filters.DropShadowFilter;
     import kabam.rotmg.text.view.stringBuilder.LineBuilder;
@@ -17,10 +19,7 @@ package kabam.rotmg.classes.view{
         private const limitedBanner = makeLimitedBanner();
         public const readyForPositioning:Signal = new Signal();
 
-        private var LimitedBanner:Class;
-
         public function CharacterSkinLimitedBanner(){
-            this.LimitedBanner = CharacterSkinLimitedBanner_LimitedBanner;
             super();
         }
 
@@ -35,7 +34,7 @@ package kabam.rotmg.classes.view{
         }
 
         private function makeLimitedBanner(){
-            var _local1:* = new this.LimitedBanner();
+            var _local1:* = new EmbeddedAssets.CharacterSkinLimitedBanner_LimitedBanner();
             addChild(_local1);
             return (_local1);
         }

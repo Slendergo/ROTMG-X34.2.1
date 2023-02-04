@@ -7,6 +7,8 @@ package kabam.rotmg.assets {
 
 public class EmbeddedAssets {
 
+        [Embed(source="images/CharacterSkinLimitedBanner_LimitedBanner.png")] public static const CharacterSkinLimitedBanner_LimitedBanner:Class;
+
         [Embed(source="images/EmbeddedAssets_StarburstSpinner.png")] public static const StarburstSpinner:Class;
         [Embed(source="images/EmbeddedAssets_EvolveBackground.png")] public static const EvolveBackground:Class;
         [Embed(source="images/EmbeddedAssets_DarknessBackground.png")] public static const DarknessBackground:Class;
