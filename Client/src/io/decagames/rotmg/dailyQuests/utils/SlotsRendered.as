@@ -37,11 +37,11 @@ package io.decagames.rotmg.dailyQuests.utils{
                 }
                 else {
                     _local14++;
-                };
+                }
                 _local22 = _arg2.indexOf(_local19);
                 if (_local22 >= 0){
                     _arg2.splice(_local22, 1);
-                };
+                }
                 _local23 = new DailyQuestItemSlot(_local19, _arg3, (((_arg3 == DailyQuestItemSlotType.REWARD)) ? false : (_local22 >= 0)), _arg9);
                 _local23.x = (_local10 * (DailyQuestItemSlot.SLOT_SIZE + _arg6));
                 _local18.addChild(_local23);
@@ -51,14 +51,14 @@ package io.decagames.rotmg.dailyQuests.utils{
                     _local18 = _local17;
                     _local10 = 0;
                     _local15 = true;
-                };
-            };
+                }
+            }
             _local20 = ((_local13 * DailyQuestItemSlot.SLOT_SIZE) + ((_local13 - 1) * _arg6));
             _local21 = ((_local14 * DailyQuestItemSlot.SLOT_SIZE) + ((_local14 - 1) * _arg6));
             _arg4.y = _arg5;
             if (!_local15){
                 _arg4.y = (_arg4.y + Math.round(((DailyQuestItemSlot.SLOT_SIZE / 2) + (_arg6 / 2))));
-            };
+            }
             _local16.x = Math.round(((_arg7 - _local20) / 2));
             _local17.x = Math.round(((_arg7 - _local21) / 2));
         }

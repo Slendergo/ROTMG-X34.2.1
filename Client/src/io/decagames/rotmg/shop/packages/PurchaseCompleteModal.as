@@ -25,7 +25,7 @@ package io.decagames.rotmg.shop.packages{
                 case PackageInfo.PURCHASE_TYPE_MIXED:
                     _local3 = "Your purchase has been validated! You will find your items in the Gift Chest.";
                     break;
-            };
+            }
             super(300, "Package Purchased", _local3, _local2);
         }
 

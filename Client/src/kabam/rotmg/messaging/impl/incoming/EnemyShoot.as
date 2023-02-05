@@ -37,7 +37,7 @@ package kabam.rotmg.messaging.impl.incoming{
             else {
                 this.numShots_ = 1;
                 this.angleInc_ = 0;
-            };
+            }
         }
 
         override public function toString():String{

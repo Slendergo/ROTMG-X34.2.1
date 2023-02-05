@@ -36,7 +36,7 @@ package kabam.rotmg.classes.model{
             if (this.isSelected != _arg1){
                 this.isSelected = _arg1;
                 this.changed.dispatch(this);
-            };
+            }
         }
 
         public function getState():CharacterSkinState{
@@ -47,7 +47,7 @@ package kabam.rotmg.classes.model{
             if (this.state != _arg1){
                 this.state = _arg1;
                 this.changed.dispatch(this);
-            };
+            }
         }
 
 

@@ -27,8 +27,8 @@ package com.company.assembleegameclient.objects{
             else {
                 if (((_arg5) || ((_arg2 > 0)))){
                     SoundEffectLibrary.play(this.hurtSound_);
-                };
-            };
+                }
+            }
         }
 
 

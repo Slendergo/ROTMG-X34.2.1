@@ -75,7 +75,7 @@ package {
             }
             else {
                 addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
-            };
+            }
         }
 
         private function onAddedToStage(_arg1:Event):void{
@@ -111,7 +111,7 @@ package {
             if (Capabilities.playerType == "Desktop"){
                 Parameters.data_.fullscreenMode = false;
                 Parameters.save();
-            };
+            }
         }
 
 

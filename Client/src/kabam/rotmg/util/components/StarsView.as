@@ -34,7 +34,7 @@ package kabam.rotmg.util.components{
                 _local1[_local2] = new StarGraphic();
                 addChild(_local1[_local2]);
                 _local2++;
-            };
+            }
             return (_local1);
         }
 
@@ -44,7 +44,7 @@ package kabam.rotmg.util.components{
                 _arg1[_local2].x = (MARGIN + (_arg1[0].width * _local2));
                 _arg1[_local2].y = MARGIN;
                 _local2++;
-            };
+            }
         }
 
         private function makeBackground():Sprite{
@@ -69,7 +69,7 @@ package kabam.rotmg.util.components{
             while (_local2 < TOTAL) {
                 this.updateStar(_local2, _arg1);
                 _local2++;
-            };
+            }
         }
 
         private function updateStar(_arg1:int, _arg2:int):void{

@@ -73,7 +73,7 @@ package io.decagames.rotmg.dailyQuests.view.info{
             }
             else {
                 this.hoverTooltipDelegate.removeDisplayObject();
-            };
+            }
         }
 
         override public function destroy():void{
@@ -87,7 +87,7 @@ package io.decagames.rotmg.dailyQuests.view.info{
                 this.setupQuestInfo(_arg1);
                 if (this.view.hasEventListener(Event.ENTER_FRAME)){
                     this.view.removeEventListener(Event.ENTER_FRAME, this.updateQuestAvailable);
-                };
+                }
             }
             else {
                 if (_arg3 == DailyQuestsList.QUEST_TAB_LABEL){
@@ -96,8 +96,8 @@ package io.decagames.rotmg.dailyQuests.view.info{
                 }
                 else {
                     this.view.eventQuestsCompleted();
-                };
-            };
+                }
+            }
         }
 
         private function updateQuestAvailable(_arg1:Event):void{
@@ -113,7 +113,7 @@ package io.decagames.rotmg.dailyQuests.view.info{
             if (((!(this.view.completeButton.completed)) && (this.model.currentQuest.itemOfChoice))){
                 this.view.completeButton.disabled = true;
                 this.hoverTooltipDelegate.setDisplayObject(this.view.completeButton);
-            };
+            }
         }
 
         private function tileToSlot(_arg1:InventoryTile):SlotObjectData{
@@ -130,7 +130,7 @@ package io.decagames.rotmg.dailyQuests.view.info{
             }
             else {
                 this.completeQuest();
-            };
+            }
         }
 
         private function completeQuest():void{
@@ -149,27 +149,27 @@ package io.decagames.rotmg.dailyQuests.view.info{
                 _local5 = new Vector.<InventoryTile>();
                 if (_local2){
                     _local5 = _local5.concat(_local2.backpack.tiles);
-                };
+                }
                 if (_local3){
                     _local5 = _local5.concat(_local3.storage.tiles);
-                };
+                }
                 for each (_local6 in _local4) {
                     for each (_local7 in _local5) {
                         if (_local7.getItemId() == _local6){
                             _local5.splice(_local5.indexOf(_local7), 1);
                             _local1.push(this.tileToSlot(_local7));
                             break;
-                        };
-                    };
-                };
+                        }
+                    }
+                }
                 this.lockScreen.dispatch();
                 this.hud.gameSprite.gsc_.questRedeem(this.model.currentQuest.id, _local1, this.model.selectedItem);
                 if (!this.model.currentQuest.repeatable){
                     this.model.currentQuest.completed = true;
-                };
+                }
                 this.view.completeButton.completed = true;
                 this.view.completeButton.disabled = true;
-            };
+            }
         }
 
         private function checkIfQuestHasExpired():Boolean{
@@ -178,7 +178,7 @@ package io.decagames.rotmg.dailyQuests.view.info{
             var _local2:Date = new Date();
             if (_local1.expiration != ""){
                 _local3 = ((Number(_local1.expiration) - (_local2.time / 1000)) < 0);
-            };
+            }
             return (_local3);
         }
 

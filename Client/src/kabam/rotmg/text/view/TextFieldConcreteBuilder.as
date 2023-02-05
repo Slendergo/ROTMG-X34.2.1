@@ -45,8 +45,8 @@ package kabam.rotmg.text.view{
             else {
                 if (((!((this.containerWidth == -1))) && (!((this.containerMargin == -1))))){
                     _arg1.setTextWidth((this.containerWidth - (this.containerMargin * 2)));
-                };
-            };
+                }
+            }
             _arg1.setBold(true);
             _arg1.setWordWrap(true);
             _arg1.setMultiLine(true);
@@ -55,10 +55,10 @@ package kabam.rotmg.text.view{
             _arg1.filters = [new DropShadowFilter(0, 0, 0)];
             if (_arg2 != -1){
                 _arg1.x = _arg2;
-            };
+            }
             if (_arg3 != -1){
                 _arg1.y = _arg3;
-            };
+            }
             return (_arg1);
         }
 

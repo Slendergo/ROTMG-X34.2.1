@@ -73,7 +73,7 @@ package com.company.assembleegameclient.mapeditor{
             this.rectText_.text = ((("Position: " + _local2.x) + ", ") + _local2.y);
             if ((((_local2.width > 1)) || ((_local2.height > 1)))){
                 this.rectText_.text = (this.rectText_.text + ((("\nRect: " + _local2.width) + ", ") + _local2.height));
-            };
+            }
             this.rectText_.useTextDimensions();
             var _local3:METile = this.meMap_.getTile(_local2.x, _local2.y);
             var _local4:Vector.<int> = (((_local3 == null)) ? Layer.EMPTY_TILE : _local3.types_);

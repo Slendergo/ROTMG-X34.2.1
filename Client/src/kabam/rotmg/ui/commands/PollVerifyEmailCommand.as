@@ -38,7 +38,7 @@ package kabam.rotmg.ui.commands{
                 this.removeTimerListeners();
                 this.account.verify(_local4);
                 this.closeDialog.dispatch();
-            };
+            }
         }
 
         private function setupTimer():void{

@@ -24,28 +24,28 @@ package kabam.rotmg.fortune.components{
             this.f = _arg2;
             if (_arg3 != null){
                 this.data1 = _arg3;
-            };
+            }
             if (_arg4 != null){
                 this.data2 = _arg4;
-            };
+            }
             if (_arg5 != null){
                 this.data3 = _arg5;
-            };
+            }
             if (_arg6 != null){
                 this.data4 = _arg6;
-            };
+            }
             if (_arg7 != null){
                 this.data5 = _arg7;
-            };
+            }
             if (_arg8 != null){
                 this.data6 = _arg8;
-            };
+            }
             if (_arg9 != null){
                 this.data7 = _arg9;
-            };
+            }
             if (_arg10 != null){
                 this.data8 = _arg10;
-            };
+            }
             this.tbo = new Timer((_arg1 * 1000), 1);
             this.tbo.addEventListener(TimerEvent.TIMER_COMPLETE, this.callbackWrapper);
             this.tbo.start();
@@ -86,14 +86,14 @@ package kabam.rotmg.fortune.components{
                                         }
                                         else {
                                             this.f();
-                                        };
-                                    };
-                                };
-                            };
-                        };
-                    };
-                };
-            };
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
 
 

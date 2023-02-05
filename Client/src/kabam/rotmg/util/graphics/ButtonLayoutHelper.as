@@ -22,7 +22,7 @@ package kabam.rotmg.util.graphics{
                     return;
                 default:
                     throw (new IllegalOperationError("Currently unable to layout more than 2 buttons"));
-            };
+            }
         }
 
         private function centerButton(_arg1:int, _arg2:DisplayObject):void{

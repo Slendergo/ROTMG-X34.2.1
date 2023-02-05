@@ -129,9 +129,9 @@ package com.company.assembleegameclient.mapeditor{
                     _local7 = (_local5 / _local3);
                     if ((((_local6 < NUM_SQUARES)) && ((_local7 < NUM_SQUARES)))){
                         this.setTile(_local6, _local7, _local4);
-                    };
-                };
-            };
+                    }
+                }
+            }
             _local2 = null;
         }
 
@@ -139,7 +139,7 @@ package com.company.assembleegameclient.mapeditor{
             var _local4:METile = this.getTile(_arg1, _arg2);
             if (_local4 == null){
                 return (-1);
-            };
+            }
             return (_local4.types_[_arg3]);
         }
 
@@ -155,21 +155,21 @@ package com.company.assembleegameclient.mapeditor{
             var tile:METile = this.getOrCreateTile(x, y);
             if (tile.types_[layer] == type){
                 return;
-            };
+            }
             tile.types_[layer] = type;
             try {
                 this.drawTile(x, y, tile);
             }
             catch(error:Error) {
                 throw (new Error((((((("Invalid type: 0x" + type.toString(16)) + " at location: ") + x) + " x, ") + y) + " y")));
-            };
+            }
         }
 
         public function getObjectName(_arg1:int, _arg2:int):String{
             var _local3:METile = this.getTile(_arg1, _arg2);
             if (_local3 == null){
                 return (null);
-            };
+            }
             return (_local3.objName_);
         }
 
@@ -185,7 +185,7 @@ package com.company.assembleegameclient.mapeditor{
             for (_local2 in this.tileDict_) {
                 _local3 = int(_local2);
                 _local1.push(new IntPoint((_local3 % NUM_SQUARES), (_local3 / NUM_SQUARES)));
-            };
+            }
             return (_local1);
         }
 
@@ -210,7 +210,7 @@ package com.company.assembleegameclient.mapeditor{
             for (_local1 in this.tileDict_) {
                 _local2 = int(_local1);
                 this.eraseTile((_local2 % NUM_SQUARES), (_local2 / NUM_SQUARES));
-            };
+            }
         }
 
         public function getTileBounds():Rectangle{
@@ -231,21 +231,21 @@ package com.company.assembleegameclient.mapeditor{
                     _local9 = (_local7 / NUM_SQUARES);
                     if (_local8 < _local1){
                         _local1 = _local8;
-                    };
+                    }
                     if (_local9 < _local2){
                         _local2 = _local9;
-                    };
+                    }
                     if ((_local8 + 1) > _local3){
                         _local3 = (_local8 + 1);
-                    };
+                    }
                     if ((_local9 + 1) > _local4){
                         _local4 = (_local9 + 1);
-                    };
-                };
-            };
+                    }
+                }
+            }
             if (_local1 > _local3){
                 return (null);
-            };
+            }
             return (new Rectangle(_local1, _local2, (_local3 - _local1), (_local4 - _local2)));
         }
 
@@ -256,7 +256,7 @@ package com.company.assembleegameclient.mapeditor{
         private function modifyZoom(_arg1:Number):void{
             if ((((((_arg1 > 1)) && ((this.zoom_ >= maxZoom())))) || ((((_arg1 < 1)) && ((this.zoom_ <= minZoom())))))){
                 return;
-            };
+            }
             var _local2:IntPoint = this.mousePosT();
             this.zoom_ = (this.zoom_ * _arg1);
             var _local3:IntPoint = this.mousePosT();
@@ -266,7 +266,7 @@ package com.company.assembleegameclient.mapeditor{
         private function setZoom(_arg1:Number):void{
             if ((((_arg1 > maxZoom())) || ((_arg1 < minZoom())))){
                 return;
-            };
+            }
             var _local2:IntPoint = this.mousePosT();
             this.zoom_ = _arg1;
             var _local3:IntPoint = this.mousePosT();
@@ -279,7 +279,7 @@ package com.company.assembleegameclient.mapeditor{
             }
             else {
                 this.setZoom(minZoom());
-            };
+            }
         }
 
         private function canMove():Boolean{
@@ -289,7 +289,7 @@ package com.company.assembleegameclient.mapeditor{
         private function increaseZoom():void{
             if (!this.canMove()){
                 return;
-            };
+            }
             this.modifyZoom(2);
             this.draw();
         }
@@ -297,7 +297,7 @@ package com.company.assembleegameclient.mapeditor{
         private function decreaseZoom():void{
             if (!this.canMove()){
                 return;
-            };
+            }
             this.modifyZoom(0.5);
             this.draw();
         }
@@ -305,7 +305,7 @@ package com.company.assembleegameclient.mapeditor{
         private function moveLeft():void{
             if (!this.canMove()){
                 return;
-            };
+            }
             this.movePosT(-1, 0);
             this.draw();
         }
@@ -313,7 +313,7 @@ package com.company.assembleegameclient.mapeditor{
         private function moveRight():void{
             if (!this.canMove()){
                 return;
-            };
+            }
             this.movePosT(1, 0);
             this.draw();
         }
@@ -321,7 +321,7 @@ package com.company.assembleegameclient.mapeditor{
         private function moveUp():void{
             if (!this.canMove()){
                 return;
-            };
+            }
             this.movePosT(0, -1);
             this.draw();
         }
@@ -329,7 +329,7 @@ package com.company.assembleegameclient.mapeditor{
         private function moveDown():void{
             if (!this.canMove()){
                 return;
-            };
+            }
             this.movePosT(0, 1);
             this.draw();
         }
@@ -351,7 +351,7 @@ package com.company.assembleegameclient.mapeditor{
             var _local1:IntPoint = this.mousePosT();
             if (this.mouseRectAnchorT_ == null){
                 return (new Rectangle(_local1.x_, _local1.y_, 1, 1));
-            };
+            }
             return (new Rectangle(Math.min(_local1.x_, this.mouseRectAnchorT_.x_), Math.min(_local1.y_, this.mouseRectAnchorT_.y_), (Math.abs((_local1.x_ - this.mouseRectAnchorT_.x_)) + 1), (Math.abs((_local1.y_ - this.mouseRectAnchorT_.y_)) + 1)));
         }
 
@@ -420,7 +420,7 @@ package com.company.assembleegameclient.mapeditor{
                 case KeyCodes.EQUAL:
                     this.increaseZoom();
                     return;
-            };
+            }
         }
 
         private function onKeyUp(_arg1:KeyboardEvent):void{
@@ -433,7 +433,7 @@ package com.company.assembleegameclient.mapeditor{
                     this.mouseMoveAnchorT_ = null;
                     this.draw();
                     return;
-            };
+            }
         }
 
         public function clearSelectRect():void{
@@ -451,8 +451,8 @@ package com.company.assembleegameclient.mapeditor{
             else {
                 if (_arg1.delta < 0){
                     this.decreaseZoom();
-                };
-            };
+                }
+            }
         }
 
         private function onMouseDown(_arg1:MouseEvent):void{
@@ -467,9 +467,9 @@ package com.company.assembleegameclient.mapeditor{
                 while (_local7 < _local5) {
                     _local3.push(new IntPoint(_local6, _local7));
                     _local7++;
-                };
+                }
                 _local6++;
-            };
+            }
             dispatchEvent(new TilesEvent(_local3));
         }
 
@@ -492,19 +492,19 @@ package com.company.assembleegameclient.mapeditor{
             else {
                 if (this.mouseRectAnchorT_ == null){
                     this.mouseRectAnchorT_ = this.mousePosT();
-                };
-            };
+                }
+            }
             if (!_arg1.ctrlKey){
                 this.mouseMoveAnchorT_ = null;
             }
             else {
                 if (this.mouseMoveAnchorT_ == null){
                     this.mouseMoveAnchorT_ = this.mousePosT();
-                };
-            };
+                }
+            }
             if (_arg1.buttonDown){
                 dispatchEvent(new TilesEvent(new <IntPoint>[this.mousePosT()]));
-            };
+            }
             if (this.mouseMoveAnchorT_ != null){
                 _local2 = this.mousePosT();
                 this.movePosT((this.mouseMoveAnchorT_.x_ - _local2.x_), (this.mouseMoveAnchorT_.y_ - _local2.y_));
@@ -512,7 +512,7 @@ package com.company.assembleegameclient.mapeditor{
             }
             else {
                 this.drawOverlay();
-            };
+            }
         }
 
         private function getOrCreateTile(_arg1:int, _arg2:int):METile{
@@ -520,7 +520,7 @@ package com.company.assembleegameclient.mapeditor{
             var _local4:METile = this.tileDict_[_local3];
             if (_local4 != null){
                 return (_local4);
-            };
+            }
             _local4 = new METile();
             this.tileDict_[_local3] = _local4;
             return (_local4);
@@ -543,11 +543,11 @@ package com.company.assembleegameclient.mapeditor{
                 this.groundLayer_.erase(_local4);
                 this.objectLayer_.erase(_local4);
                 return;
-            };
+            }
             if (_arg3.types_[Layer.GROUND] != -1){
                 _local5 = GroundLibrary.getBitmapData(_arg3.types_[Layer.GROUND]);
                 this.groundLayer_.copyTo(_local5, _local5.rect, _local4);
-            };
+            }
             if (_arg3.types_[Layer.OBJECT] != -1){
                 _local6 = ObjectLibrary.getTextureFromType(_arg3.types_[Layer.OBJECT]);
                 if ((((_local6 == null)) || ((_local6 == this.invisibleTexture_)))){
@@ -555,12 +555,12 @@ package com.company.assembleegameclient.mapeditor{
                 }
                 else {
                     this.objectLayer_.copyTo(_local6, _local6.rect, _local4);
-                };
-            };
+                }
+            }
             if (_arg3.types_[Layer.REGION] != -1){
                 _local7 = RegionLibrary.getColor(_arg3.types_[Layer.REGION]);
                 this.regionMap_.setPixel32(_arg1, _arg2, (0x5F000000 | _local7));
-            };
+            }
         }
 
         private function drawOverlay():void{
@@ -582,10 +582,10 @@ package com.company.assembleegameclient.mapeditor{
             this.map_.fillRect(this.map_.rect, 0);
             if (this.ifShowGroundLayer_){
                 this.groundLayer_.copyFrom(new Rectangle((this.posT_.x_ * SQUARE_SIZE), (this.posT_.y_ * SQUARE_SIZE), _local1, _local1), this.map_, this.map_.rect);
-            };
+            }
             if (this.ifShowObjectLayer_){
                 this.objectLayer_.copyFrom(new Rectangle((this.posT_.x_ * SQUARE_SIZE), (this.posT_.y_ * SQUARE_SIZE), _local1, _local1), this.map_, this.map_.rect);
-            };
+            }
             if (this.ifShowRegionLayer_){
                 _local2 = new Matrix();
                 _local2.identity();
@@ -600,8 +600,8 @@ package com.company.assembleegameclient.mapeditor{
                     _local2.translate(-(this.posT_.x_), -(this.posT_.y_));
                     _local2.scale(_local3, _local3);
                     this.map_.draw(this.regionMap_, _local2, null, null, this.map_.rect);
-                };
-            };
+                }
+            }
             this.drawOverlay();
         }
 
@@ -630,19 +630,19 @@ package com.company.assembleegameclient.mapeditor{
                 _local5++;
                 if (_local6.types_[Layer.GROUND] != -1){
                     _local1++;
-                };
+                }
                 if (_local6.types_[Layer.OBJECT] != -1){
                     _local2++;
-                };
+                }
                 if (_local6.types_[Layer.REGION] != -1){
                     if (_local6.types_[Layer.REGION] == RegionLibrary.EXIT_REGION_TYPE){
                         _local3++;
-                    };
+                    }
                     if (_local6.types_[Layer.REGION] == RegionLibrary.ENTRY_REGION_TYPE){
                         _local4++;
-                    };
-                };
-            };
+                    }
+                }
+            }
             return ({
                 numObjects:_local2,
                 numGrounds:_local1,

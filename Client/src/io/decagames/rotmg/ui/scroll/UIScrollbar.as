@@ -56,23 +56,23 @@ package io.decagames.rotmg.ui.scroll{
                 _local1 = ((1 - (this.percent * SCROLL_SLIDER_SCALE_FACTOR)) * this.contentHeight);
                 if (_local1 < SCROLL_SLIDER_MINIMUM_HEIGHT){
                     _local1 = SCROLL_SLIDER_MINIMUM_HEIGHT;
-                };
+                }
                 this.sliderAsset.height = _local1;
-            };
+            }
         }
 
         public function updatePosition(_arg1:Number):void{
             this._slider.y = (this._slider.y + Math.round(_arg1));
             if (this._slider.y < 0){
                 this._slider.y = 0;
-            };
+            }
             var _local2:int = (this.contentHeight - this._slider.height);
             if (this._slider.y > _local2){
                 this._slider.y = _local2;
-            };
+            }
             if (_local2 > 0){
                 this._content.y = (this.initalPosition + -(Math.round((((this._content.height - this.contentHeight) * this._slider.y) / _local2))));
-            };
+            }
         }
 
         public function get content():DisplayObject{
@@ -86,7 +86,7 @@ package io.decagames.rotmg.ui.scroll{
         public function get scrollObject():DisplayObject{
             if (this._scrollObject){
                 return (this._scrollObject);
-            };
+            }
             return (this._content);
         }
 

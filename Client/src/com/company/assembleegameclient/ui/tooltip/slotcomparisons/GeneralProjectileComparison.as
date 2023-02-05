@@ -23,11 +23,11 @@ package com.company.assembleegameclient.ui.tooltip.slotcomparisons{
             if (_arg1.hasOwnProperty("NumProjectiles")){
                 this.addNumProjectileText();
                 processedTags[_arg1.NumProjectiles.toXMLString()] = true;
-            };
+            }
             if (_arg1.hasOwnProperty("Projectile")){
                 this.addProjectileText();
                 processedTags[_arg1.Projectile.toXMLString()] = true;
-            };
+            }
             this.buildRateOfFireText();
         }
 
@@ -39,13 +39,13 @@ package com.company.assembleegameclient.ui.tooltip.slotcomparisons{
             comparisonStringBuilder.pushParams(TextKey.RANGE, {range:wrapInColoredFont(_local3, getTextColor((_local1 - _local2)))});
             if (this.projXML.hasOwnProperty("MultiHit")){
                 comparisonStringBuilder.pushParams(TextKey.MULTIHIT, {}, TooltipHelper.getOpenTag(NO_DIFF_COLOR), TooltipHelper.getCloseTag());
-            };
+            }
             if (this.projXML.hasOwnProperty("PassesCover")){
                 comparisonStringBuilder.pushParams(TextKey.PASSES_COVER, {}, TooltipHelper.getOpenTag(NO_DIFF_COLOR), TooltipHelper.getCloseTag());
-            };
+            }
             if (this.projXML.hasOwnProperty("ArmorPiercing")){
                 comparisonStringBuilder.pushParams(TextKey.ARMOR_PIERCING, {}, TooltipHelper.getOpenTag(NO_DIFF_COLOR), TooltipHelper.getCloseTag());
-            };
+            }
         }
 
         private function addNumProjectileText():void{
@@ -71,19 +71,19 @@ package com.company.assembleegameclient.ui.tooltip.slotcomparisons{
         private function buildRateOfFireText():void{
             if ((((this.itemXML.RateOfFire.length() == 0)) || ((this.curItemXML.RateOfFire.length() == 0)))){
                 return;
-            };
+            }
             var _local1:Number = Number(this.curItemXML.RateOfFire[0]);
             var _local2:Number = Number(this.itemXML.RateOfFire[0]);
             var _local3:int = int(((_local2 / _local1) * 100));
             var _local4:int = (_local3 - 100);
             if (_local4 == 0){
                 return;
-            };
+            }
             var _local5:uint = getTextColor(_local4);
             var _local6:String = _local4.toString();
             if (_local4 > 0){
                 _local6 = ("+" + _local6);
-            };
+            }
             _local6 = wrapInColoredFont((_local6 + "%"), _local5);
             comparisonStringBuilder.pushParams(TextKey.RATE_OF_FIRE, {data:_local6});
             processedTags[this.itemXML.RateOfFire[0].toXMLString()];

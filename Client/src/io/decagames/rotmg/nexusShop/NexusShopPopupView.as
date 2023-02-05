@@ -63,7 +63,7 @@ package io.decagames.rotmg.nexusShop{
             var _local2:ItemWithTooltip;
             if (this.owner_.getSellableType() != -1){
                 _local2 = new ItemWithTooltip(this.owner_.getSellableType(), 80);
-            };
+            }
             _local2.x = ((WIDTH / 2) - (_local2.width / 2));
             _local2.y = (((HEIGHT / 2) - _local2.height) + 5);
             addChild(_local2);
@@ -91,12 +91,12 @@ package io.decagames.rotmg.nexusShop{
                 while (_local2 <= this.availableInventoryNumber) {
                     _local1.push(_local2);
                     _local2++;
-                };
+                }
             }
             else {
                 _local1.push(1);
                 this.buyButton.disabled = true;
-            };
+            }
             this.spinner = new FixedNumbersSpinner(TextureParser.instance.getSliceScalingBitmap("UI", "spinner_up_arrow"), 0, _local1, "x");
             this.buySectionContainer.addChild(this.buyButtonBackground);
             this.buySectionContainer.addChild(this.spinner);
@@ -121,20 +121,20 @@ package io.decagames.rotmg.nexusShop{
             }
             else {
                 this.spinner.upArrow.alpha = 0.5;
-            };
+            }
         }
 
         private function countUp(_arg1:MouseEvent):void{
             if (this.quantity_ < this.availableInventoryNumber){
                 this.quantity_ = (this.quantity_ + 1);
-            };
+            }
             this.refreshValues();
         }
 
         private function countDown(_arg1:MouseEvent):void{
             if (this.quantity_ > 1){
                 this.quantity_ = (this.quantity_ - 1);
-            };
+            }
             this.refreshValues();
         }
 

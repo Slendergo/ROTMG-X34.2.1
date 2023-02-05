@@ -21,7 +21,7 @@ package io.decagames.rotmg.characterMetrics.data{
         public function getStat(_arg1:int):int{
             if (!this.stats[_arg1]){
                 return (0);
-            };
+            }
             return (this.stats[_arg1]);
         }
 

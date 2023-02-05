@@ -59,7 +59,7 @@ package kabam.rotmg.stage3D.graphic3D{
             this.sinkLevel = GraphicsFillExtra.getSinkLevel(_arg1);
             if (this.sinkLevel != 0){
                 this.offsetMatrix = Vector.<Number>([0, -(this.sinkLevel), 0, 0]);
-            };
+            }
             this.transform();
             var _local3:ColorTransform = GraphicsFillExtra.getColorTransform(this.bitmapData);
             _arg2.GetContext3D().setProgramConstantsFromVector(Context3DProgramType.FRAGMENT, 2, Vector.<Number>([_local3.redMultiplier, _local3.greenMultiplier, _local3.blueMultiplier, _local3.alphaMultiplier]));
@@ -73,7 +73,7 @@ package kabam.rotmg.stage3D.graphic3D{
                 this.gradientVB.uploadFromVector(gradientVertex, 0, 4);
                 this.gradientIB = _arg2.GetContext3D().createIndexBuffer(6);
                 this.gradientIB.uploadFromVector(indices, 0, 6);
-            };
+            }
             this.shadowTransform(_arg3, _arg4);
         }
 
@@ -120,7 +120,7 @@ package kabam.rotmg.stage3D.graphic3D{
                 _arg1.GetContext3D().setProgramConstantsFromVector(Context3DProgramType.VERTEX, 4, this.offsetMatrix);
                 _arg1.GetContext3D().setVertexBufferAt(2, null, 6, Context3DVertexBufferFormat.FLOAT_2);
                 _arg1.drawTriangles(this.indexBuffer);
-            };
+            }
         }
 
         public function renderShadow(_arg1:Context3DProxy):void{

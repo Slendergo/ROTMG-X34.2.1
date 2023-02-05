@@ -28,7 +28,7 @@ package com.company.assembleegameclient.ui.tooltip{
         public function positionIcon(_arg1:int, _arg2:int):void{
             if (!this._icon){
                 return;
-            };
+            }
             this._icon.x = _arg1;
             this._icon.y = _arg2;
             addChild(this._icon);
@@ -40,7 +40,7 @@ package com.company.assembleegameclient.ui.tooltip{
             this.createTipLabel();
             if (this._icon){
                 this.positionIcon((width - (this._icon.width / 2)), (((height / 2) - (this._icon.height / 2)) + 3));
-            };
+            }
         }
 
         private function createTitleLabel():void{

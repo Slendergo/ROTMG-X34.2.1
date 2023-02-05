@@ -37,7 +37,7 @@ package kabam.rotmg.game.view{
             }
             else {
                 this.openDialog.dispatch(new RegisterPromptDialog(TextKey.MONEY_GOLD_NEED_REGISTRATION));
-            };
+            }
         }
 
 

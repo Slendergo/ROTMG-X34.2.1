@@ -90,7 +90,7 @@ package kabam.rotmg.mysterybox.components{
             var _local6:MysteryBoxSelectEntry;
             for each (_local1 in this.mysteryData) {
                 modalHeight = (modalHeight + aMysteryBoxHeight);
-            };
+            }
             _local2 = new backgroundImageEmbed();
             _local2.width = (modalWidth + 1);
             _local2.height = (modalHeight - 25);
@@ -113,14 +113,14 @@ package kabam.rotmg.mysterybox.components{
                 this.box_.addChild(_local6);
                 this.selectEntries.push(_local6);
                 _local5++;
-            };
+            }
         }
 
         public function updateContent():void{
             var _local1:MysteryBoxSelectEntry;
             for each (_local1 in this.selectEntries) {
                 _local1.updateContent();
-            };
+            }
         }
 
         private function onRemovedFromStage(_arg1:Event):void{

@@ -35,13 +35,13 @@ package com.company.assembleegameclient.objects{
             var _local5:Player;
             if (_arg1 < (this.lastUpdate_ + 500)){
                 return;
-            };
+            }
             this.lastUpdate_ = _arg1;
             this.members_.length = 0;
             var _local3:Player = this.map_.player_;
             if (_local3 == null){
                 return;
-            };
+            }
             for each (_local4 in this.map_.goDict_) {
                 _local5 = (_local4 as Player);
                 if (!(((_local5 == null)) || ((_local5 == _local3)))){
@@ -50,13 +50,13 @@ package com.company.assembleegameclient.objects{
                     _local5.distSqFromThisPlayer_ = PointUtil.distanceSquaredXY(_local3.x_, _local3.y_, _local5.x_, _local5.y_);
                     if (!(((_local5.distSqFromThisPlayer_ > PARTY_DISTANCE_SQ)) && (!(_local5.starred_)))){
                         this.members_.push(_local5);
-                    };
-                };
-            };
+                    }
+                }
+            }
             this.members_.sortOn(SORT_ON_FIELDS, SORT_ON_PARAMS);
             if (this.members_.length > NUM_MEMBERS){
                 this.members_.length = NUM_MEMBERS;
-            };
+            }
         }
 
         public function lockPlayer(_arg1:Player):void{
@@ -80,7 +80,7 @@ package com.company.assembleegameclient.objects{
                 this.starred_[_local3] = 1;
                 this.lastUpdate_ = int.MIN_VALUE;
                 _local2++;
-            };
+            }
         }
 
         public function removeStars(_arg1:AccountList):void{
@@ -91,7 +91,7 @@ package com.company.assembleegameclient.objects{
                 delete this.starred_[_local3];
                 this.lastUpdate_ = int.MIN_VALUE;
                 _local2++;
-            };
+            }
         }
 
         public function ignorePlayer(_arg1:Player):void{
@@ -116,7 +116,7 @@ package com.company.assembleegameclient.objects{
                 this.ignored_[_local3] = 1;
                 this.lastUpdate_ = int.MIN_VALUE;
                 _local2++;
-            };
+            }
         }
 
 

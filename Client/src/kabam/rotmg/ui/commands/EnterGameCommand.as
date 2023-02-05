@@ -50,9 +50,9 @@ package kabam.rotmg.ui.commands{
                     }
                     else {
                         this.showCurrentCharacterScreen();
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         private function showCurrentCharacterScreen():void{

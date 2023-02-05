@@ -79,7 +79,7 @@ package kabam.rotmg.game.view{
             else {
                 this.infoButton_ = new DeprecatedTextButton(16, _local6);
                 addChild(this.infoButton_);
-            };
+            }
             this.nameText_.setStringBuilder(new LineBuilder().setParams("Shop"));
             this.bitmap_.bitmapData = ArenaViewAssetFactory.returnHostBitmap(_arg2).bitmapData;
             addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
@@ -89,7 +89,7 @@ package kabam.rotmg.game.view{
         public function setOwner(_arg1:SellableObject):void{
             if (_arg1 == this.owner_){
                 return;
-            };
+            }
             this.owner_ = _arg1;
             this.buyButton_.setPrice(this.owner_.price_, this.owner_.currency_);
             var _local2:String = this.owner_.soldObjectName();
@@ -126,19 +126,19 @@ package kabam.rotmg.game.view{
                 }
                 else {
                     _local4.dispatch(new MysteryBoxSelectModal());
-                };
+                }
             }
             else {
                 if (!_local3.isRegistered()){
                     _local4.dispatch(new RegisterPromptDialog("SellableObjectPanelMediator.text", {type:Currency.typeToName(Currency.GOLD)}));
-                };
-            };
+                }
+            }
         }
 
         private function onKeyDown(_arg1:KeyboardEvent):void{
             if ((((_arg1.keyCode == Parameters.data_.interact)) && ((stage.focus == null)))){
                 this.onInfoButton();
-            };
+            }
         }
 
         override public function draw():void{
@@ -147,7 +147,7 @@ package kabam.rotmg.game.view{
             this.infoButton_.y = ((HEIGHT - (this.infoButton_.height / 2)) - this.BUTTON_OFFSET);
             if (!contains(this.infoButton_)){
                 addChild(this.infoButton_);
-            };
+            }
         }
 
 

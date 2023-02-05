@@ -52,7 +52,7 @@ package com.company.assembleegameclient.ui.board{
             }
             else {
                 this.reportError(_arg2);
-            };
+            }
         }
 
         private function showGuildBoard(_arg1:String):void{
@@ -112,7 +112,7 @@ package com.company.assembleegameclient.ui.board{
             }
             else {
                 this.onSaveError(_arg2);
-            };
+            }
         }
 
         private function onSaveDone(_arg1:String):void{

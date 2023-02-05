@@ -19,11 +19,11 @@ package com.company.assembleegameclient.tutorial{
             var _local2:String = String(_arg1.@objectId);
             if (((!((_local2 == null))) && (!((_local2 == ""))))){
                 this.objectType_ = ObjectLibrary.idToType_[_local2];
-            };
+            }
             this.objectName_ = String(_arg1.@objectName).replace("tutorial_script", "tutorial");
             if (this.objectName_ == null){
                 this.objectName_ = "";
-            };
+            }
             this.slot_ = int(_arg1.@slot);
             this.radius_ = Number(_arg1.@radius);
         }

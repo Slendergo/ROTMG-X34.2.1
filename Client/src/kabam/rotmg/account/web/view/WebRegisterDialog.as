@@ -110,7 +110,7 @@ package kabam.rotmg.account.web.view{
             this.displayErrors();
             if (_local2){
                 this.sendData();
-            };
+            }
         }
 
         private function areInputsValid():Boolean{
@@ -140,7 +140,7 @@ package kabam.rotmg.account.web.view{
             this.ageVerificationInput.setErrorHighlight(!(_local1));
             if (!_local1){
                 this.errors.push(TextKey.INVALID_BIRTHDATE);
-            };
+            }
             return (_local1);
         }
 
@@ -149,7 +149,7 @@ package kabam.rotmg.account.web.view{
             this.emailInput.setErrorHighlight(!(_local1));
             if (!_local1){
                 this.errors.push(TextKey.INVALID_EMAIL_ADDRESS);
-            };
+            }
             return (_local1);
         }
 
@@ -158,7 +158,7 @@ package kabam.rotmg.account.web.view{
             this.passwordInput.setErrorHighlight(!(_local1));
             if (!_local1){
                 this.errors.push(TextKey.PASSWORD_TOO_SHORT);
-            };
+            }
             return (_local1);
         }
 
@@ -167,7 +167,7 @@ package kabam.rotmg.account.web.view{
             this.retypePasswordInput.setErrorHighlight(!(_local1));
             if (!_local1){
                 this.errors.push(TextKey.PASSWORDS_DONT_MATCH);
-            };
+            }
             return (_local1);
         }
 
@@ -176,7 +176,7 @@ package kabam.rotmg.account.web.view{
             this.playerNameInput.setErrorHighlight(!(_local1));
             if (!_local1){
                 this.errors.push("Invalid Player Name");
-            };
+            }
             return (_local1);
         }
 
@@ -186,7 +186,7 @@ package kabam.rotmg.account.web.view{
             }
             else {
                 this.displayErrorText((((this.errors.length == 1)) ? this.errors[0] : TextKey.MULTIPLE_ERRORS_MESSAGE));
-            };
+            }
         }
 
         public function displayServerError(_arg1:String):void{

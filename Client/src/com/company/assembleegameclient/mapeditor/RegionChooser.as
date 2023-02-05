@@ -13,7 +13,7 @@ package com.company.assembleegameclient.mapeditor{
             for each (_local1 in GroupDivider.GROUPS["Regions"]) {
                 _local2 = new RegionElement(_local1);
                 addElement(_local2);
-            };
+            }
             hasBeenLoaded = true;
         }
 

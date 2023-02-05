@@ -30,7 +30,7 @@ package kabam.lib.console.view{
         private function onKeyDown(_arg1:KeyboardEvent):void{
             if (_arg1.keyCode == this.TRIGGER){
                 this.toggle.dispatch();
-            };
+            }
         }
 
 

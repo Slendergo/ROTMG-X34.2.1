@@ -17,17 +17,17 @@ package io.decagames.rotmg.utils.date{
                 _local3 = Math.floor((_arg1 / 86400));
                 _arg1 = (_arg1 - (_local3 * 86400));
                 _arg2 = _arg2.replace("%d", _local3);
-            };
+            }
             if (_arg2.indexOf("%h") >= 0){
                 _local4 = Math.floor((_arg1 / 3600));
                 _arg1 = (_arg1 - (_local4 * 3600));
                 _arg2 = _arg2.replace("%h", _local4);
-            };
+            }
             if (_arg2.indexOf("%m") >= 0){
                 _local5 = Math.floor((_arg1 / 60));
                 _arg1 = (_arg1 - (_local5 * 60));
                 _arg2 = _arg2.replace("%m", _local5);
-            };
+            }
             _arg2 = _arg2.replace("%s", _arg1);
             return (_arg2);
         }
@@ -38,7 +38,7 @@ package io.decagames.rotmg.utils.date{
             var _local4:Number = ((_arg1.time - _local3.time) / 1000);
             if (_local4 <= 0){
                 return ("");
-            };
+            }
             if (_local4 > TimeUtil.DAY_IN_S){
                 _local2 = (_local2 + TimeLeft.parse(_local4, "%dd %hh"));
             }
@@ -52,9 +52,9 @@ package io.decagames.rotmg.utils.date{
                     }
                     else {
                         _local2 = (_local2 + TimeLeft.parse(_local4, "%ss"));
-                    };
-                };
-            };
+                    }
+                }
+            }
             return (_local2);
         }
 

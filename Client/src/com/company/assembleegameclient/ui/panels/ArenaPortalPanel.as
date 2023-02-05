@@ -41,7 +41,7 @@ package com.company.assembleegameclient.ui.panels{
             addChild(this.closeContainer);
             if ((((gs_.map == null)) || ((gs_.map.player_ == null)))){
                 return;
-            };
+            }
             var _local3:Player = gs_.map.player_;
             this.nameText_ = this.makeTitle();
             this.openContainer.addChild(this.nameText_);
@@ -54,7 +54,7 @@ package com.company.assembleegameclient.ui.panels{
             }
             else {
                 this.fameButton.addEventListener(MouseEvent.CLICK, this.onFameClick);
-            };
+            }
             this.openContainer.addChild(this.fameButton);
             this.fameButton.readyForPlacement.addOnce(this.alignUI);
             this.closedText = new StaticTextDisplay();

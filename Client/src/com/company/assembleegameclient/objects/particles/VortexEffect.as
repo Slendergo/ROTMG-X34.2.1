@@ -29,10 +29,10 @@ package com.company.assembleegameclient.objects.particles{
             var _local8:Number;
             if (this.go_.map_ == null){
                 return false;
-            };
+            }
             if (this.lastUpdate_ < 0){
                 this.lastUpdate_ = Math.max(0, (_arg1 - 400));
-            };
+            }
             x_ = this.go_.x_;
             y_ = this.go_.y_;
             var _local3:int = (this.lastUpdate_ / 50);
@@ -46,7 +46,7 @@ package com.company.assembleegameclient.objects.particles{
                 map_.addObj(_local5, (x_ + _local7), (y_ + _local8));
                 _local5.restart(_local4, _arg1, x_, y_);
                 _local3++;
-            };
+            }
             this.lastUpdate_ = _arg1;
             return true;
         }
@@ -103,7 +103,7 @@ class VortexParticle extends Particle {
         var _local6:Number = ((Math.cos(_local3) / _local4) * G);
         if (this.mSize > size_){
             this.fSize = (this.fSize + (_arg2 * 0.01));
-        };
+        }
         size_ = this.fSize;
         moveTo((x_ + (((_local5 + this.initAccelX) * _arg2) * 0.0006)), (y_ + (((_local6 + this.initAccelY) * _arg2) * 0.0006)));
         z_ = (z_ + ((-0.5 * _arg2) * 0.0006));

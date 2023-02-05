@@ -39,7 +39,7 @@ package kabam.rotmg.promotions.view{
             if (this.daysRemaining != _arg1){
                 this.daysRemaining = _arg1;
                 this.updateTimeLeftPosition();
-            };
+            }
         }
 
         public function destroy():void{

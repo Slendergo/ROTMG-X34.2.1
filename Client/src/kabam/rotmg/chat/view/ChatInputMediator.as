@@ -69,10 +69,10 @@ package kabam.rotmg.chat.view{
             }
             else {
                 this.view.deactivate();
-            };
+            }
             if (!_arg1){
                 this.tellModel.resetRecipients();
-            };
+            }
         }
 
         private function makeTextfield():TextField{
@@ -84,7 +84,7 @@ package kabam.rotmg.chat.view{
         private function onKeyUp(_arg1:KeyboardEvent):void{
             if (((this.view.visible) && ((((_arg1.keyCode == this.chatShortcutModel.getTellShortcut())) || ((((this.stage.focus == null)) || (this.viewDoesntHaveFocus()))))))){
                 this.processKeyUp(_arg1);
-            };
+            }
         }
 
         private function viewDoesntHaveFocus():Boolean{
@@ -108,16 +108,16 @@ package kabam.rotmg.chat.view{
                     else {
                         if (_local2 == this.chatShortcutModel.getTellShortcut()){
                             this.handleTell();
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
         }
 
         private function handleTell():void{
             if (!this.view.hasEnteredText()){
                 this.view.activate((("/tell " + this.tellModel.getNext()) + " "), true);
-            };
+            }
         }
 
 

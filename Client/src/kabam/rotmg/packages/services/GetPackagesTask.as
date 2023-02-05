@@ -43,7 +43,7 @@ package kabam.rotmg.packages.services{
             else {
                 this.logger.warn("GetPackageTask.onComplete: Request failed.");
                 completeTask(true);
-            };
+            }
             reset();
         }
 
@@ -53,15 +53,15 @@ package kabam.rotmg.packages.services{
             var _local3:XMLList = XML(_arg1).child("SoldCounter");
             if (_local3.length() > 0){
                 this.updateSoldCounters(_local3);
-            };
+            }
             if (_local2.length() > 0){
                 this.parse(_local2);
             }
             else {
                 if (this.packageModel.getInitialized()){
                     this.packageModel.updateSignal.dispatch();
-                };
-            };
+                }
+            }
             completeTask(true);
         }
 
@@ -73,12 +73,12 @@ package kabam.rotmg.packages.services{
                 if (_local3 != null){
                     if (_local2.attribute("left") != "-1"){
                         _local3.unitsLeft = _local2.attribute("left");
-                    };
+                    }
                     if (_local2.attribute("purchaseLeft") != "-1"){
                         _local3.purchaseLeft = _local2.attribute("purchaseLeft");
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         private function hasNoPackage(_arg1):Boolean{
@@ -103,43 +103,43 @@ package kabam.rotmg.packages.services{
                 if (_local3.hasOwnProperty("Sale")){
                     _local4.saleAmount = int(_local3.Sale.attribute("price").toString());
                     _local4.saleCurrency = int(_local3.Sale.attribute("currency").toString());
-                };
+                }
                 if (_local3.hasOwnProperty("Left")){
                     _local4.unitsLeft = _local3.Left;
-                };
+                }
                 if (_local3.hasOwnProperty("MaxPurchase")){
                     _local4.maxPurchase = _local3.MaxPurchase;
-                };
+                }
                 if (_local3.hasOwnProperty("PurchaseLeft")){
                     _local4.purchaseLeft = _local3.PurchaseLeft;
-                };
+                }
                 if (_local3.hasOwnProperty("ShowOnLogin")){
                     _local4.showOnLogin = (int(_local3.ShowOnLogin) == 1);
-                };
+                }
                 if (_local3.hasOwnProperty("Total")){
                     _local4.totalUnits = _local3.Total;
-                };
+                }
                 if (_local3.hasOwnProperty("Slot")){
                     _local4.slot = _local3.Slot;
-                };
+                }
                 if (_local3.hasOwnProperty("Tags")){
                     _local4.tags = _local3.Tags;
-                };
+                }
                 if (_local3.StartTime.toString()){
                     _local4.startTime = TimeUtil.parseUTCDate(_local3.StartTime.toString());
-                };
+                }
                 if (_local3.EndTime.toString()){
                     _local4.endTime = TimeUtil.parseUTCDate(_local3.EndTime.toString());
-                };
+                }
                 _local4.image = _local3.Image.toString();
                 _local4.charSlot = int(_local3.CharSlot.toString());
                 _local4.vaultSlot = int(_local3.VaultSlot.toString());
                 _local4.gold = int(_local3.Gold.toString());
                 if (_local3.PopupImage.toString() != ""){
                     _local4.popupImage = _local3.PopupImage.toString();
-                };
+                }
                 _local2.push(_local4);
-            };
+            }
             this.packageModel.setPackages(_local2);
         }
 

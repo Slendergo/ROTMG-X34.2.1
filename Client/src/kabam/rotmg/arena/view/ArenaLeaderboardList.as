@@ -25,7 +25,7 @@ package kabam.rotmg.arena.view{
             while (_local1 < this.MAX_SIZE) {
                 this.listItemPool[_local1] = new ArenaLeaderboardListItem();
                 _local1++;
-            };
+            }
             this.scrollList.setSize(new Size(786, 400));
             addChild(this.scrollList);
         }
@@ -39,7 +39,7 @@ package kabam.rotmg.arena.view{
                 _local5 = (this.listItemPool[_local3] as ArenaLeaderboardListItem);
                 _local5.apply(_local4, _arg2);
                 _local3++;
-            };
+            }
             this.scrollList.setItems(this.listItemPool);
         }
 

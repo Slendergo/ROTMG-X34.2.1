@@ -44,7 +44,7 @@ package io.decagames.rotmg.supportCampaign.tab.donate{
                 this.view.upArrow.clickSignal.add(this.upClickHandler);
                 this.view.downArrow.clickSignal.add(this.downClickHandler);
                 this.view.amountTextfield.addEventListener(Event.CHANGE, this.onAmountChange);
-            };
+            }
             if (this.model.hasMaxRank()){
                 this.setDonateButtonState(true);
                 this.onMaxRankReached();
@@ -52,8 +52,8 @@ package io.decagames.rotmg.supportCampaign.tab.donate{
             else {
                 if (this.view.donateButton){
                     this.view.donateButton.clickSignal.add(this.donateClickHandler);
-                };
-            };
+                }
+            }
             if (this.model.donatePointsRatio == 0){
                 this.infoToolTip = new TextToolTip(0x363636, 15585539, "Donation not possible", "You cannot spend Gold to progress in this Campaign", 220);
                 this.hoverTooltipDelegate = new HoverTooltipDelegate();
@@ -61,7 +61,7 @@ package io.decagames.rotmg.supportCampaign.tab.donate{
                 this.hoverTooltipDelegate.setHideToolTipsSignal(this.hideTooltipSignal);
                 this.hoverTooltipDelegate.setDisplayObject(this.view);
                 this.hoverTooltipDelegate.tooltip = this.infoToolTip;
-            };
+            }
         }
 
         public function onCampaignUpdate():void{
@@ -76,7 +76,7 @@ package io.decagames.rotmg.supportCampaign.tab.donate{
         private function setDonateButtonState(_arg1:Boolean):void{
             if (this.view.donateButton){
                 this.view.donateButton.disabled = _arg1;
-            };
+            }
         }
 
         override public function destroy():void{
@@ -85,11 +85,11 @@ package io.decagames.rotmg.supportCampaign.tab.donate{
                 this.view.downArrow.clickSignal.remove(this.downClickHandler);
                 this.view.donateButton.clickSignal.remove(this.donateClickHandler);
                 this.view.amountTextfield.removeEventListener(Event.CHANGE, this.onAmountChange);
-            };
+            }
             if (this.model.donatePointsRatio == 0){
                 this.hoverTooltipDelegate = null;
                 this.infoToolTip = null;
-            };
+            }
             this.maxRankReachedSignal.remove(this.onMaxRankReached);
             this.updateCampaignProgress.remove(this.onCampaignUpdate);
         }
@@ -98,14 +98,14 @@ package io.decagames.rotmg.supportCampaign.tab.donate{
             var _local2:int = ((this.model.ranks[(this.model.ranks.length - 1)] - this.model.points) / this.model.donatePointsRatio);
             if (int(this.view.amountTextfield.text) > _local2){
                 this.view.amountTextfield.text = _local2.toString();
-            };
+            }
             this.view.updateDonateAmount();
         }
 
         private function upClickHandler(_arg1:BaseButton):void{
             if ((this.model.ranks[(this.model.ranks.length - 1)] - this.model.points) > 0){
                 this.view.addDonateAmount(this.getDonationPoints(SupporterCampaignModel.DEFAULT_DONATE_SPINNER_STEP));
-            };
+            }
         }
 
         private function downClickHandler(_arg1:BaseButton):void{
@@ -127,7 +127,7 @@ package io.decagames.rotmg.supportCampaign.tab.donate{
             else {
                 this.view.upArrow.disabled = false;
                 _local2 = _arg1;
-            };
+            }
             return (_local2);
         }
 

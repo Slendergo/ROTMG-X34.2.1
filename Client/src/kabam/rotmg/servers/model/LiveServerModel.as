@@ -24,7 +24,7 @@ package kabam.rotmg.servers.model{
             this.servers.length = 0;
             for each (_local2 in _arg1) {
                 this.servers.push(_local2);
-            };
+            }
             this._descendingFlag = false;
             this.servers.sort(this.compareServerName);
         }
@@ -47,7 +47,7 @@ package kabam.rotmg.servers.model{
                 if (!((_local10.isFull()) && (!(_local1)))){
                     if (_local10.name == Parameters.data_.preferredServer){
                         return (_local10);
-                    };
+                    }
                     _local11 = _local10.priority();
                     _local12 = LatLong.distance(_local5, _local10.latLong);
                     if ((((_local11 < _local8)) || ((((_local11 == _local8)) && ((_local12 < _local7)))))){
@@ -56,9 +56,9 @@ package kabam.rotmg.servers.model{
                         _local8 = _local11;
                         Parameters.data_.bestServer = _local6.name;
                         Parameters.save();
-                    };
-                };
-            };
+                    }
+                }
+            }
             return (_local6);
         }
 
@@ -67,8 +67,8 @@ package kabam.rotmg.servers.model{
             for each (_local2 in this.servers) {
                 if (_local2.address == _arg1){
                     return (_local2.name);
-                };
-            };
+                }
+            }
             return ("");
         }
 
@@ -79,10 +79,10 @@ package kabam.rotmg.servers.model{
         private function compareServerName(_arg1:Server, _arg2:Server):int{
             if (_arg1.name < _arg2.name){
                 return (((this._descendingFlag) ? -1 : 1));
-            };
+            }
             if (_arg1.name > _arg2.name){
                 return (((this._descendingFlag) ? 1 : -1));
-            };
+            }
             return (0);
         }
 

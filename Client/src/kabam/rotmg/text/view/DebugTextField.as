@@ -33,9 +33,9 @@ package kabam.rotmg.text.view{
                 }
                 else {
                     this.setBackground(INVALID_KEY_COLOR);
-                };
+                }
                 return (_local2.key);
-            };
+            }
             return (_arg1);
         }
 

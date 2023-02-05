@@ -37,7 +37,7 @@ package kabam.rotmg.errors{
             }
             else {
                 this.commandMap.map(ErrorSignal).toCommand(LogErrorCommand);
-            };
+            }
         }
 
 

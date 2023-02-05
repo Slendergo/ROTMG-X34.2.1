@@ -51,7 +51,7 @@ package com.company.assembleegameclient.appengine{
             }
             else {
                 this.reportError(_arg2);
-            };
+            }
         }
 
         public function makeTexture(_arg1:ByteArray):void{

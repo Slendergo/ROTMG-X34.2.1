@@ -61,11 +61,11 @@ package com.company.assembleegameclient.ui{
                 _local7.y = ((int((_local5 / 4)) * (Slot.HEIGHT + 4)) + 46);
                 if (((_arg4) && (_local6.tradeable_))){
                     _local7.addEventListener(MouseEvent.MOUSE_DOWN, this.onSlotClick);
-                };
+                }
                 this.slots_.push(_local7);
                 addChild(_local7);
                 _local5++;
-            };
+            }
         }
 
         public function getOffer():Vector.<Boolean>{
@@ -74,7 +74,7 @@ package com.company.assembleegameclient.ui{
             while (_local2 < this.slots_.length) {
                 _local1.push(this.slots_[_local2].included_);
                 _local2++;
-            };
+            }
             return (_local1);
         }
 
@@ -83,7 +83,7 @@ package com.company.assembleegameclient.ui{
             while (_local2 < this.slots_.length) {
                 this.slots_[_local2].setIncluded(_arg1[_local2]);
                 _local2++;
-            };
+            }
         }
 
         public function isOffer(_arg1:Vector.<Boolean>):Boolean{
@@ -91,9 +91,9 @@ package com.company.assembleegameclient.ui{
             while (_local2 < this.slots_.length) {
                 if (_arg1[_local2] != this.slots_[_local2].included_){
                     return false;
-                };
+                }
                 _local2++;
-            };
+            }
             return true;
         }
 
@@ -103,9 +103,9 @@ package com.company.assembleegameclient.ui{
             while (_local2 < this.slots_.length) {
                 if (this.slots_[_local2].included_){
                     _local1++;
-                };
+                }
                 _local2++;
-            };
+            }
             return (_local1);
         }
 
@@ -115,9 +115,9 @@ package com.company.assembleegameclient.ui{
             while (_local2 < this.slots_.length) {
                 if (this.slots_[_local2].isEmpty()){
                     _local1++;
-                };
+                }
                 _local2++;
-            };
+            }
             return (_local1);
         }
 
@@ -144,7 +144,7 @@ package com.company.assembleegameclient.ui{
                     this.taglineText_.setColor(0xB3B3B3);
                     _local2 = TextKey.TRADEINVENTORY_PLAYERISSELECTINGITEMS;
                     break;
-            };
+            }
             this.taglineText_.setStringBuilder(new LineBuilder().setParams(_local2));
         }
 

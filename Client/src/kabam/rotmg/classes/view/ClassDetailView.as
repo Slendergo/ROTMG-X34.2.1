@@ -112,7 +112,7 @@ package kabam.rotmg.classes.view{
                 this.nextGoalDetailText.x = ((WIDTH / 2) - (this.nextGoalDetailText.width / 2));
                 this.waiter.push(this.nextGoalDetailText.textChanged);
                 this.waiter.push(this.nextGoalText.textChanged);
-            };
+            }
         }
 
         public function setWalkingAnimation(_arg1:Animation):void{

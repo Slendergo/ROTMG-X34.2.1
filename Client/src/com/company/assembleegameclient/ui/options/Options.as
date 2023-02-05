@@ -114,14 +114,14 @@ package com.company.assembleegameclient.ui.options{
             if (UIUtils.SHOW_EXPERIMENTAL_MENU){
                 if (TABS.indexOf("Experimental") == -1){
                     TABS.push("Experimental");
-                };
+                }
             }
             else {
                 _local6 = TABS.indexOf("Experimental");
                 if (_local6 != -1){
                     TABS.pop();
-                };
-            };
+                }
+            }
             var _local3:int = 14;
             var _local4:int;
             while (_local4 < TABS.length) {
@@ -133,7 +133,7 @@ package com.company.assembleegameclient.ui.options{
                 this.tabs_.push(_local7);
                 _local3 = (_local3 + ((UIUtils.SHOW_EXPERIMENTAL_MENU) ? 90 : 108));
                 _local4++;
-            };
+            }
             addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
             addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
             var _local5:CloseDialogsSignal = StaticInjectorContext.getInjector().getInstance(CloseDialogsSignal);
@@ -213,7 +213,7 @@ package com.company.assembleegameclient.ui.options{
                 _local1.data = _local2;
                 Mouse.registerCursor(Parameters.data_.cursorSelect, _local1);
                 registeredCursors.push(Parameters.data_.cursorSelect);
-            };
+            }
             Mouse.cursor = Parameters.data_.cursorSelect;
         }
 
@@ -258,9 +258,9 @@ package com.company.assembleegameclient.ui.options{
                 _local3 = (this.options_[_local2] as BaseOption);
                 if (_local3 != null){
                     delete Parameters.data_[_local3.paramName_];
-                };
+                }
                 _local2++;
-            };
+            }
             Parameters.setDefaults();
             Parameters.save();
             this.refresh();
@@ -281,10 +281,10 @@ package com.company.assembleegameclient.ui.options{
         private function setSelected(_arg1:OptionsTabTitle):void{
             if (_arg1 == this.selected_){
                 return;
-            };
+            }
             if (this.selected_ != null){
                 this.selected_.setSelected(false);
-            };
+            }
             this.selected_ = _arg1;
             this.selected_.setSelected(true);
             this.removeOptions();
@@ -314,7 +314,7 @@ package com.company.assembleegameclient.ui.options{
                 case "Experimental":
                     this.addExperimentalOptions();
                     break;
-            };
+            }
             this.checkForScroll();
         }
 
@@ -326,7 +326,7 @@ package com.company.assembleegameclient.ui.options{
             }
             else {
                 this.scroll.visible = false;
-            };
+            }
         }
 
         private function onAddedToStage(_arg1:Event):void{
@@ -339,7 +339,7 @@ package com.company.assembleegameclient.ui.options{
             if (Capabilities.playerType == "Desktop"){
                 Parameters.data_.fullscreenMode = (stage.displayState == "fullScreenInteractive");
                 Parameters.save();
-            };
+            }
             this.setSelected(this.tabs_[0]);
             stage.addEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown, false, 1);
             stage.addEventListener(KeyboardEvent.KEY_UP, this.onKeyUp, false, 1);
@@ -355,10 +355,10 @@ package com.company.assembleegameclient.ui.options{
                 Parameters.data_.fullscreenMode = false;
                 Parameters.save();
                 this.refresh();
-            };
+            }
             if (_arg1.keyCode == Parameters.data_.options){
                 this.close();
-            };
+            }
             _arg1.stopImmediatePropagation();
         }
 
@@ -375,10 +375,10 @@ package com.company.assembleegameclient.ui.options{
             var _local1:Sprite;
             if (this.scrollContainer.contains(this.scrollContainerBottom)){
                 this.scrollContainer.removeChild(this.scrollContainerBottom);
-            };
+            }
             for each (_local1 in this.options_) {
                 this.scrollContainer.removeChild(_local1);
-            };
+            }
             this.options_.length = 0;
         }
 
@@ -418,10 +418,10 @@ package com.company.assembleegameclient.ui.options{
                 if (_local2 != null){
                     if ((((_local2.paramName_ == "rotateLeft")) || ((_local2.paramName_ == "rotateRight")))){
                         _local2.setDisabled(!(Parameters.data_.allowRotation));
-                    };
-                };
+                    }
+                }
                 _local1++;
-            };
+            }
         }
 
         private function addHotKeysOptions():void{
@@ -438,7 +438,7 @@ package com.company.assembleegameclient.ui.options{
             this.addOptionsChoiceOption();
             if (this.isAirApplication()){
                 this.addOptionAndPosition(new KeyMapper("toggleFullscreen", TextKey.OPTIONS_TOGGLE_FULLSCREEN, TextKey.OPTIONS_TOGGLE_FULLSCREEN_DESC));
-            };
+            }
         }
 
         public function isAirApplication():Boolean{
@@ -461,7 +461,7 @@ package com.company.assembleegameclient.ui.options{
                 _local2.setTooltipText(new LineBuilder().setParams(TextKey.OPTIONS_INVENTORY_SLOT_N_DESC, {n:_local1}));
                 this.addOptionAndPosition(_local2);
                 _local1++;
-            };
+            }
         }
 
         private function addChatOptions():void{
@@ -492,10 +492,10 @@ package com.company.assembleegameclient.ui.options{
                         case "chatAll":
                             _local2.refreshNoCallback();
                             break;
-                    };
-                };
+                    }
+                }
                 _local1++;
-            };
+            }
         }
 
         private function onAllChatEnabled():void{
@@ -515,10 +515,10 @@ package com.company.assembleegameclient.ui.options{
                         case "chatFriend":
                             _local2.refreshNoCallback();
                             break;
-                    };
-                };
+                    }
+                }
                 _local1++;
-            };
+            }
         }
 
         private function addExperimentalOptions():void{
@@ -555,11 +555,11 @@ package com.company.assembleegameclient.ui.options{
             else {
                 _local1 = TextKey.OPTIONS_HARDWARE_ACC_DESC_ERROR;
                 _local2 = 16724787;
-            };
+            }
             this.addOptionAndPosition(new ChoiceOption("GPURender", makeOnOffLabels(), [true, false], TextKey.OPTIONS_HARDWARE_ACC_TITLE, _local1, null, _local2));
             if (Capabilities.playerType == "Desktop"){
                 this.addOptionAndPosition(new ChoiceOption("fullscreenMode", makeOnOffLabels(), [true, false], TextKey.OPTIONS_FULLSCREEN_MODE, TextKey.OPTIONS_FULLSCREEN_MODE_DESC, this.onFullscreenChange));
-            };
+            }
             this.addOptionAndPosition(new ChoiceOption("toggleBarText", makeBarTextLabels(), [0, 1, 2, 3], "Toggle Fame and HP/MP Text", "Always show text value for Fame, remaining HP/MP, or both", onBarTextToggle));
             this.addOptionAndPosition(new ChoiceOption("particleEffect", makeHighLowLabels(), [true, false], TextKey.OPTIONS_TOGGLE_PARTICLE_EFFECT, TextKey.OPTIONS_TOGGLE_PARTICLE_EFFECT_DESC, null));
             this.addOptionAndPosition(new ChoiceOption("uiQuality", makeHighLowLabels(), [true, false], TextKey.OPTIONS_TOGGLE_UI_QUALITY, TextKey.OPTIONS_TOGGLE_UI_QUALITY_DESC, onUIQualityToggle));
@@ -578,13 +578,13 @@ package com.company.assembleegameclient.ui.options{
             var _local1:Player = this.gs_.map.player_;
             if (_local1.hasSupporterFeature(SupporterFeatures.GLOW)){
                 _local1.clearTextureCache();
-            };
+            }
         }
 
         private function onShowQuestPortraitsChange():void{
             if (((((((!((this.gs_ == null))) && (!((this.gs_.map == null))))) && (!((this.gs_.map.partyOverlay_ == null))))) && (!((this.gs_.map.partyOverlay_.questArrow_ == null))))){
                 this.gs_.map.partyOverlay_.questArrow_.refreshToolTip();
-            };
+            }
         }
 
         private function onFullscreenChange():void{
@@ -619,7 +619,7 @@ package com.company.assembleegameclient.ui.options{
             }
             else {
                 Music.setMusicVolume(0);
-            };
+            }
             this.refresh();
         }
 
@@ -630,7 +630,7 @@ package com.company.assembleegameclient.ui.options{
             }
             else {
                 SFX.setSFXVolume(0);
-            };
+            }
             this.refresh();
         }
 
@@ -664,7 +664,7 @@ package com.company.assembleegameclient.ui.options{
             positionOption = function ():void{
                 option.x = (((((options_.length % 2) == 0)) ? 20 : 415) + offsetX);
                 option.y = (((int((options_.length / 2)) * 44) + 122) + offsetY);
-            };
+            }
             option.textChanged.addOnce(positionOption);
             this.addOption(option);
         }
@@ -686,9 +686,9 @@ package com.company.assembleegameclient.ui.options{
                 _local2 = (this.options_[_local1] as BaseOption);
                 if (_local2 != null){
                     _local2.refresh();
-                };
+                }
                 _local1++;
-            };
+            }
         }
 
 

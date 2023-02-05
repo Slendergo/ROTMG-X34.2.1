@@ -22,7 +22,7 @@ package kabam.rotmg.messaging.impl.incoming{
             while (_local3 < _local2) {
                 this.offer_.push(_arg1.readBoolean());
                 _local3++;
-            };
+            }
         }
 
         override public function toString():String{

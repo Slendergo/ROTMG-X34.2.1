@@ -70,7 +70,7 @@ package com.company.assembleegameclient.objects{
         override public function addTo(_arg1:Map, _arg2:Number, _arg3:Number):Boolean{
             if (!super.addTo(_arg1, _arg2, _arg3)){
                 return false;
-            };
+            }
             _arg1.merchLookup_[new IntPoint(x_, y_)] = this;
             return true;
         }
@@ -79,7 +79,7 @@ package com.company.assembleegameclient.objects{
             var _local1:IntPoint = new IntPoint(x_, y_);
             if (map_.merchLookup_[_local1] == this){
                 map_.merchLookup_[_local1] = null;
-            };
+            }
             super.removeFromMap();
         }
 
@@ -105,8 +105,8 @@ package com.company.assembleegameclient.objects{
                         }
                         else {
                             _local2 = new LineBuilder().setParams("Merchant.goingInNMinutes", {minutes:this.minsLeft_});
-                        };
-                    };
+                        }
+                    }
                     _local3 = 5973542;
                     _local4 = 16549442;
                     _local5 = 16549442;
@@ -125,7 +125,7 @@ package com.company.assembleegameclient.objects{
                     break;
                 default:
                     return (null);
-            };
+            }
             _local2.setStringMap(this.stringMap);
             return (new AddSpeechBalloonVO(this, _local2.getString(), "", false, false, _local3, 1, _local4, 1, _local5, 6, true, false));
         }
@@ -138,13 +138,13 @@ package com.company.assembleegameclient.objects{
                     _local5 = new GTween(this, (0.5 * T), {size_:150}, {ease:Sine.easeOut});
                     _local5.nextTween = new GTween(this, (0.5 * T), {size_:100}, {ease:Sine.easeIn});
                     _local5.nextTween.paused = true;
-                };
+                }
                 this.firstUpdate_ = false;
-            };
+            }
             this.untilNextMessage_ = (this.untilNextMessage_ - _arg2);
             if (this.untilNextMessage_ > 0){
                 return true;
-            };
+            }
             this.untilNextMessage_ = 5000;
             var _local3:Vector.<int> = new Vector.<int>();
             if (this.minsLeft_ == 2147483647){
@@ -153,17 +153,17 @@ package com.company.assembleegameclient.objects{
             else {
                 if ((((this.minsLeft_ >= 0)) && ((this.minsLeft_ <= 5)))){
                     _local3.push(MINS_LEFT_MESSAGE);
-                };
-            };
+                }
+            }
             if ((((this.count_ >= 1)) && ((this.count_ <= 2)))){
                 _local3.push(ITEMS_LEFT_MESSAGE);
-            };
+            }
             if (this.discount_ > 0){
                 _local3.push(DISCOUNT_MESSAGE);
-            };
+            }
             if (_local3.length == 0){
                 return true;
-            };
+            }
             this.messageIndex_ = (++this.messageIndex_ % _local3.length);
             var _local4:int = _local3[this.messageIndex_];
             this.addSpeechBalloon.dispatch(this.getSpeechBalloon(_local4));
@@ -199,14 +199,14 @@ package com.company.assembleegameclient.objects{
                 _local3.text = String(_local2.Doses);
                 _local3.updateMetrics();
                 _local1.draw(_local3, DOSE_MATRIX);
-            };
+            }
             if (_local2.hasOwnProperty("Quantity")){
                 _local1 = _local1.clone();
                 _local4 = new BaseSimpleText(12, 0xFFFFFF, false, 0, 0);
                 _local4.text = String(_local2.Quantity);
                 _local4.updateMetrics();
                 _local1.draw(_local4, DOSE_MATRIX);
-            };
+            }
             return (_local1);
         }
 
@@ -214,10 +214,10 @@ package com.company.assembleegameclient.objects{
             var _local2:XML = ObjectLibrary.xmlLibrary_[this.merchandiseType_];
             if (_local2 == null){
                 return (_arg1);
-            };
+            }
             if ((((_local2.Activate == "Dye")) && (_local2.hasOwnProperty("Tex1")))){
                 return (int(_local2.Tex1));
-            };
+            }
             return (_arg1);
         }
 
@@ -225,22 +225,22 @@ package com.company.assembleegameclient.objects{
             var _local2:XML = ObjectLibrary.xmlLibrary_[this.merchandiseType_];
             if (_local2 == null){
                 return (_arg1);
-            };
+            }
             if ((((_local2.Activate == "Dye")) && (_local2.hasOwnProperty("Tex2")))){
                 return (int(_local2.Tex2));
-            };
+            }
             return (_arg1);
         }
 
         override protected function getTexture(_arg1:Camera, _arg2:int):BitmapData{
             if ((((this.alpha_ == 1)) && ((size_ == 100)))){
                 return (this.merchandiseTexture_);
-            };
+            }
             var _local3:BitmapData = ObjectLibrary.getRedrawnTextureFromType(this.merchandiseType_, size_, false, false);
             if (this.alpha_ != 1){
                 this.ct_.alphaMultiplier = this.alpha_;
                 _local3.colorTransform(_local3.rect, this.ct_);
-            };
+            }
             return (_local3);
         }
 

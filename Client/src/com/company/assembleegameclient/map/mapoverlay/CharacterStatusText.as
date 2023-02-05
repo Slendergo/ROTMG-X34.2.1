@@ -42,19 +42,19 @@ package com.company.assembleegameclient.map.mapoverlay{
         public function draw(_arg1:Camera, _arg2:int):Boolean{
             if (this.startTime_ == 0){
                 this.startTime_ = (_arg2 + this.offsetTime_);
-            };
+            }
             if (_arg2 < this.startTime_){
                 visible = false;
                 return true;
-            };
+            }
             var _local3:int = (_arg2 - this.startTime_);
             if ((((_local3 > this.lifetime_)) || (((!((this.go_ == null))) && ((this.go_.map_ == null)))))){
                 return false;
-            };
+            }
             if ((((this.go_ == null)) || (!(this.go_.drawn_)))){
                 visible = false;
                 return true;
-            };
+            }
             visible = true;
             x = ((((this.go_)!=null) ? this.go_.posS_[0] : 0) + (((this.offset_)!=null) ? this.offset_.x : 0));
             var _local4:Number = ((_local3 / this.lifetime_) * this.MAX_DRIFT);

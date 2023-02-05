@@ -71,7 +71,7 @@ package kabam.rotmg.account.web.view{
             }
             else {
                 this.onError(_arg2);
-            };
+            }
         }
 
         private function onSent():void{

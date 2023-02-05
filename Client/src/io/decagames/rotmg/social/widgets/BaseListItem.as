@@ -53,9 +53,9 @@ package io.decagames.rotmg.social.widgets{
                     this.toolTip_ = new TextToolTip(0x363636, 0x9B9B9B, "", "", 200);
                     this.hoverTooltipDelegate.setDisplayObject(this._characterContainer);
                     this.hoverTooltipDelegate.tooltip = this.toolTip_;
-                };
+                }
                 this.toolTip_.setTitle(new LineBuilder().setParams(_arg1, _arg2));
-            };
+            }
         }
 
         public function setToolTipText(_arg1:String, _arg2:Object=null):void{
@@ -64,9 +64,9 @@ package io.decagames.rotmg.social.widgets{
                     this.toolTip_ = new TextToolTip(0x363636, 0x9B9B9B, "", "", 200);
                     this.hoverTooltipDelegate.setDisplayObject(this._characterContainer);
                     this.hoverTooltipDelegate.tooltip = this.toolTip_;
-                };
+                }
                 this.toolTip_.setText(new LineBuilder().setParams(_arg1, _arg2));
-            };
+            }
         }
 
         protected function init():void{
@@ -91,7 +91,7 @@ package io.decagames.rotmg.social.widgets{
                     this.listBackground = TextureParser.instance.getSliceScalingBitmap("UI", "listitem_content_background_indicator");
                     addChild(this.listBackground);
                     break;
-            };
+            }
             this.listBackground.height = this.LIST_ITEM_HEIGHT;
             this.listBackground.width = this.LIST_ITEM_WIDTH;
         }
@@ -111,7 +111,7 @@ package io.decagames.rotmg.social.widgets{
             this.listPortrait.y = (-(Math.round((this.listPortrait.height / 2))) + 20);
             if (this.listPortrait){
                 this._characterContainer.addChild(this.listPortrait);
-            };
+            }
         }
 
         protected function setLabelColorByState(_arg1:UILabel):void{
@@ -124,7 +124,7 @@ package io.decagames.rotmg.social.widgets{
                     return;
                 default:
                     DefaultLabelFormat.defaultSmallPopupTitle(_arg1);
-            };
+            }
         }
 
         protected function addButton(_arg1:String, _arg2:int, _arg3:int, _arg4:int, _arg5:String, _arg6:String=""):IconButton{

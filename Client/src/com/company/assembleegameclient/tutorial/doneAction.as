@@ -9,7 +9,7 @@ package com.company.assembleegameclient.tutorial{
     public function doneAction(_arg1:AGameSprite, _arg2:String):void{
         if (_arg1.tutorial_ == null){
             return;
-        };
+        }
         _arg1.tutorial_.doneAction(_arg2);
     }
 

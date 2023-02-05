@@ -38,13 +38,13 @@ package io.decagames.rotmg.dailyQuests.messages.data{
             while (_local3 < _local2) {
                 this.requirements.push(_arg1.readInt());
                 _local3++;
-            };
+            }
             _local2 = _arg1.readShort();
             _local3 = 0;
             while (_local3 < _local2) {
                 this.rewards.push(_arg1.readInt());
                 _local3++;
-            };
+            }
             this.completed = _arg1.readBoolean();
             this.itemOfChoice = _arg1.readBoolean();
             this.repeatable = _arg1.readBoolean();

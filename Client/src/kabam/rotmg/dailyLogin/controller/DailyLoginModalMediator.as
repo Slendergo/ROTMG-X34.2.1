@@ -66,7 +66,7 @@ package kabam.rotmg.dailyLogin.controller{
             if (this.hudModel.gameSprite.map.name_ != Map.DAILY_QUEST_ROOM){
                 this.view.claimButton.removeEventListener(MouseEvent.CLICK, this.onClaimClickHandler);
                 this.view.removeEventListener(MouseEvent.CLICK, this.onPopupClickHandler);
-            };
+            }
             super.destroy();
         }
 
@@ -82,7 +82,7 @@ package kabam.rotmg.dailyLogin.controller{
         private function onPopupClickHandler(_arg1:MouseEvent):void{
             if (_arg1.target != DialogCloseButton){
                 this.enterPortal();
-            };
+            }
         }
 
 

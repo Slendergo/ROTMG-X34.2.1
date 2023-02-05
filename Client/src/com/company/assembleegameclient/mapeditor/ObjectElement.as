@@ -31,8 +31,8 @@ package com.company.assembleegameclient.mapeditor{
                 _local7 = _local3.getTexture(0.4);
                 if (_local7 != null){
                     _local2 = _local7;
-                };
-            };
+                }
+            }
             _local5 = new Bitmap(_local2);
             var _local6:Number = ((WIDTH - 4) / Math.max(_local5.width, _local5.height));
             _local5.scaleX = (_local5.scaleY = _local6);

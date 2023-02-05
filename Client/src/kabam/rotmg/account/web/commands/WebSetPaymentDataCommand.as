@@ -22,7 +22,7 @@ package kabam.rotmg.account.web.commands{
                 _local2 = XML(this.characterListData.KabamPaymentInfo);
                 _local1.signedRequest = _local2.signedRequest;
                 _local1.kabamId = _local2.naid;
-            };
+            }
         }
 
 

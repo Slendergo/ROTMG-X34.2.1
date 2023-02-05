@@ -13,7 +13,7 @@ package com.company.assembleegameclient.objects.particles{
             var _local2:XML;
             for each (_local2 in _arg1.Particle) {
                 propsLibrary_[_local2.@id] = new ParticleProperties(_local2);
-            };
+            }
         }
 
 

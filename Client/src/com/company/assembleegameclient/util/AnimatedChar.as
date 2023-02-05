@@ -48,8 +48,8 @@ package com.company.assembleegameclient.util{
                     this.dict_[DOWN] = this.loadDir(7, false, true, _local6);
                     if (_local6.images_.length >= 21){
                         this.dict_[UP] = this.loadDir(14, false, true, _local6);
-                    };
-                };
+                    }
+                }
             }
             else {
                 if (_arg4 == DOWN){
@@ -59,11 +59,11 @@ package com.company.assembleegameclient.util{
                         this.dict_[LEFT] = this.loadDir(7, true, false, _local6);
                         if (_local6.images_.length >= 21){
                             this.dict_[UP] = this.loadDir(14, false, true, _local6);
-                        };
-                    };
+                        }
+                    }
                     return;
-                };
-            };
+                }
+            }
         }
 
         public function getFirstDirImage():BitmapData{
@@ -72,21 +72,21 @@ package com.company.assembleegameclient.util{
             var _local3:Vector.<MaskedImage> = _local2[STAND];
             if (_local3.length > 0){
                 _local1.copyPixels(_local3[0].image_, _local3[0].image_.rect, new Point(0, 0));
-            };
+            }
             _local3 = _local2[WALK];
             if (_local3.length > 0){
                 _local1.copyPixels(_local3[0].image_, _local3[0].image_.rect, new Point(this.width_, 0));
-            };
+            }
             if (_local3.length > 1){
                 _local1.copyPixels(_local3[1].image_, _local3[1].image_.rect, new Point((this.width_ * 2), 0));
-            };
+            }
             _local3 = _local2[ATTACK];
             if (_local3.length > 0){
                 _local1.copyPixels(_local3[0].image_, _local3[0].image_.rect, new Point((this.width_ * 4), 0));
-            };
+            }
             if (_local3.length > 1){
                 _local1.copyPixels(_local3[1].image_, new Rectangle(this.width_, 0, (this.width_ * 2), this.height_), new Point((this.width_ * 5), 0));
-            };
+            }
             return (_local1);
         }
 
@@ -109,8 +109,8 @@ package com.company.assembleegameclient.util{
                 _local6 = this.dict_[_local5[1]];
                 if (_local6 == null){
                     _local6 = this.dict_[_local5[2]];
-                };
-            };
+                }
+            }
             var _local7:Vector.<MaskedImage> = _local6[_arg2];
             _arg3 = Math.max(0, Math.min(0.99999, _arg3));
             var _local8:int = (_arg3 * _local7.length);
@@ -126,8 +126,8 @@ package com.company.assembleegameclient.util{
                 _local8 = this.dict_[_local7[1]];
                 if (_local8 == null){
                     _local8 = this.dict_[_local7[2]];
-                };
-            };
+                }
+            }
             var _local9:Vector.<MaskedImage> = _local8[_arg3];
             _arg4 = Math.max(0, Math.min(0.99999, _arg4));
             var _local10:int = (_arg4 * _local9.length);
@@ -144,15 +144,15 @@ package com.company.assembleegameclient.util{
             var _local8:MaskedImage = _arg4.images_[(_arg1 + 2)];
             if (_local8.amountTransparent() == 1){
                 _local8 = null;
-            };
+            }
             var _local9:MaskedImage = _arg4.images_[(_arg1 + 4)];
             var _local10:MaskedImage = _arg4.images_[(_arg1 + 5)];
             if (_local9.amountTransparent() == 1){
                 _local9 = null;
-            };
+            }
             if (_local10.amountTransparent() == 1){
                 _local10 = null;
-            };
+            }
             var _local11:MaskedImage = _arg4.images_[(_arg1 + 6)];
             if (((!((_local10 == null))) && (!((_local11.amountTransparent() == 1))))){
                 _local15 = new BitmapDataSpy((this.width_ * 3), this.height_, true, 0);
@@ -161,15 +161,15 @@ package com.company.assembleegameclient.util{
                 _local16 = null;
                 if (((!((_local10.mask_ == null))) || (!((_local11.mask_ == null))))){
                     _local16 = new BitmapDataSpy((this.width_ * 3), this.height_, true, 0);
-                };
+                }
                 if (_local10.mask_ != null){
                     _local16.copyPixels(_local10.mask_, new Rectangle(0, 0, this.width_, this.height_), new Point(this.width_, 0));
-                };
+                }
                 if (_local11.mask_ != null){
                     _local16.copyPixels(_local11.mask_, new Rectangle(0, 0, this.width_, this.height_), new Point((this.width_ * 2), 0));
-                };
+                }
                 _local10 = new MaskedImage(_local15, _local16);
-            };
+            }
             var _local12:Vector.<MaskedImage> = new Vector.<MaskedImage>();
             _local12.push(((_arg2) ? _local6.mirror() : _local6));
             _local5[STAND] = _local12;
@@ -184,8 +184,8 @@ package com.company.assembleegameclient.util{
                 }
                 else {
                     _local13.push(((_arg2) ? _local6.mirror() : _local6));
-                };
-            };
+                }
+            }
             _local5[WALK] = _local13;
             if ((((_local9 == null)) && ((_local10 == null)))){
                 _local14 = _local13;
@@ -194,11 +194,11 @@ package com.company.assembleegameclient.util{
                 _local14 = new Vector.<MaskedImage>();
                 if (_local9 != null){
                     _local14.push(((_arg2) ? _local9.mirror() : _local9));
-                };
+                }
                 if (_local10 != null){
                     _local14.push(((_arg2) ? _local10.mirror() : _local10));
-                };
-            };
+                }
+            }
             _local5[ATTACK] = _local14;
             return (_local5);
         }

@@ -63,7 +63,7 @@ package kabam.rotmg.news.view{
                 this.scrollBar_.y = TEXT_TOP_MARGIN_HTML;
                 this.scrollBar_.setIndicatorSize(HEIGHT, _local4.height);
                 addChild(this.scrollBar_);
-            };
+            }
             this.addEventListener(Event.ADDED_TO_STAGE, this.onAddedHandler);
         }
 
@@ -80,7 +80,7 @@ package kabam.rotmg.news.view{
             this.addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
             if (this.scrollBar_){
                 this.scrollBar_.addEventListener(Event.CHANGE, this.onScrollBarChange);
-            };
+            }
         }
 
         private function onRemovedFromStage(_arg1:Event):void{
@@ -88,7 +88,7 @@ package kabam.rotmg.news.view{
             this.removeEventListener(Event.ADDED_TO_STAGE, this.onAddedHandler);
             if (this.scrollBar_){
                 this.scrollBar_.removeEventListener(Event.CHANGE, this.onScrollBarChange);
-            };
+            }
         }
 
 

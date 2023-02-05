@@ -52,14 +52,14 @@ package com.company.assembleegameclient.objects.particles{
             this.numFramesRemaining--;
             if (this.numFramesRemaining <= 0){
                 return false;
-            };
+            }
             this.percentageDone = (1 - (this.numFramesRemaining / this.duration));
             this.plusX = (Expo.easeOut(this.percentageDone) * this.dx_);
             this.plusY = (Expo.easeOut(this.percentageDone) * this.dy_);
             if (Parameters.data_.cameraAngle != this.cameraAngle){
                 this.cameraAngle = Parameters.data_.cameraAngle;
                 _rotation = (-(this.radians) - this.cameraAngle);
-            };
+            }
             moveTo(((this.go.x_ + this.originX) + this.plusX), ((this.go.y_ + this.originY) + this.plusY));
             return true;
         }

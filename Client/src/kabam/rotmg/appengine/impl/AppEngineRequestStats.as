@@ -13,7 +13,6 @@ package kabam.rotmg.appengine.impl{
         [Inject]
         public var watch:ConsoleWatchSignal;
 
-
         public function recordStats(_arg1:String, _arg2:Boolean, _arg3:int):void{
             var _local4:StatsWatch = (this.nameMap[_arg1] = ((this.nameMap[_arg1]) || (new StatsWatch(_arg1))));
             _local4.addResponse(_arg2, _arg3);

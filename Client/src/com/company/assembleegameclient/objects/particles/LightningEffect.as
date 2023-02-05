@@ -40,7 +40,7 @@ package com.company.assembleegameclient.objects.particles{
                 _local8 = Math.min(_local5, (_local4 - _local5));
                 map_.addObj(_local7, (_local6.x + RandomUtil.plusMinus(((_local3 / 200) * _local8))), (_local6.y + RandomUtil.plusMinus(((_local3 / 200) * _local8))));
                 _local5++;
-            };
+            }
             return false;
         }
 
@@ -60,7 +60,7 @@ package com.company.assembleegameclient.objects.particles{
                 _local8 = Math.min(_local5, (_local4 - _local5));
                 map_.addObj(_local7, (_local6.x + RandomUtil.plusMinus(((_local3 / 200) * _local8))), (_local6.y + RandomUtil.plusMinus(((_local3 / 200) * _local8))));
                 _local5++;
-            };
+            }
             return false;
         }
 

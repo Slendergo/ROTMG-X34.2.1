@@ -135,7 +135,7 @@ package kabam.rotmg.legends.view{
             while (_local3 < _local2) {
                 this.makeTab(_local1[_local3], _local3);
                 _local3++;
-            };
+            }
         }
 
         private function makeTab(_arg1:Timespan, _arg2:int):LegendsTab{
@@ -151,7 +151,7 @@ package kabam.rotmg.legends.view{
         private function onTabSelected(_arg1:LegendsTab):void{
             if (this.selectedTab != _arg1){
                 this.updateTabAndSelectTimespan(_arg1);
-            };
+            }
         }
 
         private function updateTabAndSelectTimespan(_arg1:LegendsTab):void{
@@ -189,7 +189,7 @@ package kabam.rotmg.legends.view{
             var _local1:LegendListItem;
             for each (_local1 in this.items) {
                 _local1.selected.remove(this.onItemSelected);
-            };
+            }
             this.items.length = 0;
             this.mainContainer.removeChild(this.listContainer);
             this.listContainer = null;
@@ -213,7 +213,7 @@ package kabam.rotmg.legends.view{
             while (_local1 < this.count) {
                 this.items[_local1] = this.makeItemFromLegend(_local1);
                 _local1++;
-            };
+            }
         }
 
         private function makeItemFromLegend(_arg1:int):LegendListItem{
@@ -235,7 +235,7 @@ package kabam.rotmg.legends.view{
             else {
                 this.scrollBar.removeEventListener(Event.CHANGE, this.onScrollBarChange);
                 this.scrollBar.visible = false;
-            };
+            }
         }
 
         private function positionScrollbarToDisplayFocussedLegend():void{
@@ -246,7 +246,7 @@ package kabam.rotmg.legends.view{
                 _local2 = this.legends.indexOf(_local1);
                 _local3 = ((_local2 + 0.5) * LegendListItem.HEIGHT);
                 this.scrollBar.setPos(((_local3 - 200) / (this.listContainer.height - 400)));
-            };
+            }
         }
 
         private function getLegendFocus():Legend{
@@ -256,8 +256,8 @@ package kabam.rotmg.legends.view{
                 if (_local2.isFocus){
                     _local1 = _local2;
                     break;
-                };
-            };
+                }
+            }
             return (_local1);
         }
 

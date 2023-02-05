@@ -44,10 +44,10 @@ package com.company.assembleegameclient.mapeditor{
             var _local9:Vector.<String> = new Vector.<String>();
             if (_arg1 != ""){
                 _local10 = new RegExp(_arg1, "gix");
-            };
+            }
             if (_arg2 != ""){
                 _arg2 = this.filterTypes[_arg2];
-            };
+            }
             var _local11:Dictionary = GroupDivider.GROUPS["Enemies"];
             for each (_local7 in _local11) {
                 _local12 = String(_local7.@id);
@@ -57,12 +57,12 @@ package com.company.assembleegameclient.mapeditor{
                         if (_local8 < 0) continue;
                         _local5 = (_local8 >= _arg3);
                         _local6 = !((((_arg4 > 0)) && ((_local8 > _arg4))));
-                    };
+                    }
                     if (((_local5) && (_local6))){
                         _local9.push(_local12);
-                    };
-                };
-            };
+                    }
+                }
+            }
             _local9.sort(MoreStringUtil.cmp);
             for each (_local12 in _local9) {
                 _local13 = ObjectLibrary.idToType_[_local12];
@@ -72,9 +72,9 @@ package com.company.assembleegameclient.mapeditor{
                 }
                 else {
                     _local14 = this.cache[_local13];
-                };
+                }
                 addElement(_local14);
-            };
+            }
             hasBeenLoaded = true;
             scrollBar_.setIndicatorSize(HEIGHT, elementContainer_.height, true);
         }

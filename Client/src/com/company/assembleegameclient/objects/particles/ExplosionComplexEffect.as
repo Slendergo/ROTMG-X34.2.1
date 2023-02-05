@@ -49,7 +49,7 @@ package com.company.assembleegameclient.objects.particles{
                 _local11 = new ExplosionComplexParticle(this.color_, 0.2, size_, this.maxLife_, _local7, _local8, _local10);
                 map_.addObj(_local11, x_, y_);
                 _local4++;
-            };
+            }
             return false;
         }
 
@@ -93,9 +93,9 @@ class ExplosionComplexParticle extends Particle {
             if (!this.deleted){
                 total_--;
                 this.deleted = true;
-            };
+            }
             return false;
-        };
+        }
         x_ = (x_ + ((this.moveVec_.x * _arg2) * 0.008));
         y_ = (y_ + ((this.moveVec_.y * _arg2) * 0.008));
         z_ = (z_ + ((this.moveVec_.z * _arg2) * 0.008));

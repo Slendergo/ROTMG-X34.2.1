@@ -48,7 +48,7 @@ package io.decagames.rotmg.pets.components.petIcon{
         override public function dispatchEvent(_arg1:Event):Boolean{
             if (this.enabled){
                 return (super.dispatchEvent(_arg1));
-            };
+            }
             return false;
         }
 
@@ -80,7 +80,7 @@ package io.decagames.rotmg.pets.components.petIcon{
         public function setTooltipEnabled(_arg1:Boolean):void{
             this.doShowTooltip = _arg1;
             if (!_arg1){
-            };
+            }
         }
 
         public function get petVO():PetVO{

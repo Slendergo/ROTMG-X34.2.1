@@ -41,7 +41,7 @@ package kabam.rotmg.game.view.components{
             if (this.view.currentState == StatsView.STATE_DOCKED){
                 this.view.undock();
                 this.statsUndocked.dispatch(this.view);
-            };
+            }
         }
 
         private function onStatsDock():void{

@@ -19,7 +19,7 @@ package io.decagames.rotmg.ui.defaults{
             applyTextFormat(_local7, _arg1);
             if (_arg6){
                 _arg1.filters = _arg6;
-            };
+            }
         }
 
         public static function defaultButtonLabel(_arg1:UILabel):void{

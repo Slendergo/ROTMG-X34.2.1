@@ -33,8 +33,8 @@ package com.company.assembleegameclient.util{
             for each (_local2 in PAYMENT_METHODS) {
                 if (_local2.label_ == _arg1){
                     return (_local2);
-                };
-            };
+                }
+            }
             return (null);
         }
 
@@ -56,7 +56,7 @@ package com.company.assembleegameclient.util{
                     _local6["price"] = _arg3.price_.toString();
                     _local6["paymentid"] = this.paymentid_;
                     break;
-            };
+            }
             return (((_local5.getAppEngineUrl(true) + "/credits/add?") + _local6.toString()));
         }
 

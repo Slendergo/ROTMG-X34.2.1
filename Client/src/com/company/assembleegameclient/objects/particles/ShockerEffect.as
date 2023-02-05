@@ -39,7 +39,7 @@ package com.company.assembleegameclient.objects.particles{
                 this.innerRadius = 0.7;
                 this.outerRadius = 2;
                 this.particleScale = 40;
-            };
+            }
         }
 
         private function parseBitmapDataFromImageSet():void{
@@ -51,16 +51,16 @@ package com.company.assembleegameclient.objects.particles{
             while (_local2 < _local3) {
                 images.push(TextureRedrawer.redraw(_local1.images_[_local2], this.particleScale, true, 0, true));
                 _local2++;
-            };
+            }
         }
 
         override public function update(_arg1:int, _arg2:int):Boolean{
             if (this.isDestroyed){
                 return false;
-            };
+            }
             if (!this.timer){
                 this.initialize();
-            };
+            }
             x_ = this.go.x_;
             y_ = this.go.y_;
             return true;
@@ -80,7 +80,7 @@ package com.company.assembleegameclient.objects.particles{
                 this.start_ = new Point((this.go.x_ + (Math.sin(this.radians) * this.innerRadius)), (this.go.y_ + (Math.cos(this.radians) * this.innerRadius)));
                 this.end_ = new Point((this.go.x_ + (Math.sin(this.radians) * this.outerRadius)), (this.go.y_ + (Math.cos(this.radians) * this.outerRadius)));
                 map_.addObj(new ShockParticle(this.objectId, 25, this.particleScale, this.start_, this.end_, this.radians, this.go, images), this.start_.x, this.start_.y);
-            };
+            }
         }
 
         private function onTimerComplete(_arg1:TimerEvent):void{
@@ -93,7 +93,7 @@ package com.company.assembleegameclient.objects.particles{
                 this.timer.removeEventListener(TimerEvent.TIMER, this.onTimerComplete);
                 this.timer.stop();
                 this.timer = null;
-            };
+            }
             this.go = null;
             this.isDestroyed = true;
         }

@@ -36,10 +36,10 @@ package com.company.assembleegameclient.map{
             super(null);
             if (_arg1 == MODE_SNOW){
                 addEventListener(Event.ENTER_FRAME, this.activateModeSnow);
-            };
+            }
             if (_arg1 == MODE_AUTO_UPDATE){
                 addEventListener(Event.ENTER_FRAME, this.updater);
-            };
+            }
         }
 
         public static function getLocalPos(_arg1:Number):Number{
@@ -55,14 +55,14 @@ package com.company.assembleegameclient.map{
             }
             else {
                 this.internalAddObj(_arg1);
-            };
+            }
         }
 
         override public function internalAddObj(_arg1:BasicObject):void{
             var _local2:Dictionary = boDict_;
             if (_local2[_arg1.objectId_] != null){
                 return;
-            };
+            }
             _arg1.map_ = this;
             _local2[_arg1.objectId_] = _arg1;
         }
@@ -72,7 +72,7 @@ package com.company.assembleegameclient.map{
             var _local3:BasicObject = _local2[_arg1];
             if (_local3 == null){
                 return;
-            };
+            }
             _local3.removeFromMap();
             delete _local2[_arg1];
         }
@@ -84,16 +84,16 @@ package com.company.assembleegameclient.map{
             for each (_local3 in boDict_) {
                 if (!_local3.update(_arg1, _arg2)){
                     this.idsToRemove_.push(_local3.objectId_);
-                };
-            };
+                }
+            }
             this.inUpdate_ = false;
             for each (_local3 in this.objsToAdd_) {
                 this.internalAddObj(_local3);
-            };
+            }
             this.objsToAdd_.length = 0;
             for each (_local4 in this.idsToRemove_) {
                 this.internalRemoveObj(_local4);
-            };
+            }
             this.idsToRemove_.length = 0;
         }
 
@@ -105,11 +105,11 @@ package com.company.assembleegameclient.map{
                 _local4++;
                 _local3.computeSortValNoCamera(PSCALE);
                 _local3.draw(this.graphicsData_, _arg1, _arg2);
-            };
+            }
             graphics.clear();
             if (this.graphicsData_.length > 0){
                 graphics.drawGraphicsData(this.graphicsData_);
-            };
+            }
         }
 
         private function activateModeSnow(_arg1:Event):void{
@@ -117,13 +117,13 @@ package com.company.assembleegameclient.map{
             var _local3 = 600;
             if (this.time != 0){
                 this.dt = (getTimer() - this.time);
-            };
+            }
             this.dtBuildup = (this.dtBuildup + this.dt);
             this.time = getTimer();
             if (this.dtBuildup > 500){
                 this.dtBuildup = 0;
                 this.doSnow((Math.random() * 600), -100);
-            };
+            }
             this.update(this.time, this.dt);
             this.draw(null, this.time);
         }
@@ -131,7 +131,7 @@ package com.company.assembleegameclient.map{
         private function updater(_arg1:Event):void{
             if (this.time != 0){
                 this.dt = (getTimer() - this.time);
-            };
+            }
             this.time = getTimer();
             this.update(this.time, this.dt);
             this.draw(null, this.time);

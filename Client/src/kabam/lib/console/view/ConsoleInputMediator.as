@@ -45,7 +45,7 @@ package kabam.lib.console.view{
             }
             else {
                 this.logError(_arg1);
-            };
+            }
         }
 
         private function logAction(_arg1:String):void{

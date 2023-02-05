@@ -46,7 +46,7 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles{
             var _local2:Boolean = super.setItem(_arg1);
             if (_local2){
                 this.hotKeyBMP.visible = (itemSprite.itemId <= 0);
-            };
+            }
             return (_local2);
         }
 

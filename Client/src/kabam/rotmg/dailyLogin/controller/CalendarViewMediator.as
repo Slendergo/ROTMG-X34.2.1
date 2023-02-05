@@ -47,12 +47,12 @@ package kabam.rotmg.dailyLogin.controller{
                 this.addTextLine.dispatch(ChatMessage.make(Parameters.SERVER_CHAT_NAME, ((((((_arg1.gold > 0)) ? _arg1.gold : _arg1.quantity) + "x ") + _local2) + " was claimed."), -1, -1, "", false));
                 if (this.hudModel.gameSprite.map.player_ != null){
                     this.hudModel.gameSprite.map.player_.credits_ = (this.hudModel.gameSprite.map.player_.credits_ + _arg1.gold);
-                };
+                }
             }
             else {
                 _local2 = LineBuilder.getLocalizedStringFromKey(ObjectLibrary.typeToDisplayId_[_arg1.itemId]);
                 this.addTextLine.dispatch(ChatMessage.make(Parameters.SERVER_CHAT_NAME, ((((((_arg1.gold > 0)) ? _arg1.gold : _arg1.quantity) + "x ") + _local2) + " was claimed and will be sent to the gift chests in your vault."), -1, -1, "", false));
-            };
+            }
         }
 
 

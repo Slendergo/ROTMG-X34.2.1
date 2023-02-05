@@ -41,7 +41,7 @@ package com.company.assembleegameclient.objects.particles{
             _local3 = map_.getSquare(_arg1, _arg2);
             if (_local3 == null){
                 return false;
-            };
+            }
             x_ = _arg1;
             y_ = _arg2;
             square_ = _local3;

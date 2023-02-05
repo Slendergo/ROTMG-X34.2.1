@@ -36,7 +36,7 @@ package kabam.rotmg.text.view.stringBuilder{
             var _local1:Vector.<String> = new Vector.<String>();
             for each (_local2 in this.data) {
                 _local1.push(_local2.getString(this.provider));
-            };
+            }
             return (_local1.join(this.delimiter));
         }
 
@@ -93,7 +93,7 @@ class LineData {
         _local3 = _arg1.getValue(TextKey.stripCurlyBrackets(this.key));
         if (_local3 == null){
             _local3 = this.key;
-        };
+        }
         _local2 = _local2.concat(_local3);
         for (_local4 in this.tokens) {
             if ((this.tokens[_local4] is StringBuilder)){
@@ -105,10 +105,10 @@ class LineData {
                 _local6 = this.tokens[_local4];
                 if ((((((_local6.length > 0)) && ((_local6.charAt(0) == "{")))) && ((_local6.charAt((_local6.length - 1)) == "}")))){
                     _local6 = _arg1.getValue(_local6.substr(1, (_local6.length - 2)));
-                };
+                }
                 _local2 = _local2.replace((("{" + _local4) + "}"), _local6);
-            };
-        };
+            }
+        }
         _local2 = _local2.replace(/\\n/g, "\n");
         _local2 = _local2.concat(this.closingHTMLTags);
         return (_local2);

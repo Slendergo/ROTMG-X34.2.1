@@ -25,11 +25,11 @@ package com.company.assembleegameclient.map{
             this.yOffset_ = _arg4;
             if (((!((this.xOffset_ == 0))) || (!((this.yOffset_ == 0))))){
                 this.face_.bitmapFill_.repeat = true;
-            };
+            }
             this.animate_ = _arg5;
             if (this.animate_ != AnimateProperties.NO_ANIMATE){
                 this.face_.bitmapFill_.repeat = true;
-            };
+            }
             this.animateDx_ = _arg6;
             this.animateDy_ = _arg7;
         }
@@ -52,17 +52,17 @@ package com.company.assembleegameclient.map{
                         _local4 = (this.xOffset_ + ((this.animateDx_ * _arg3) / 1000));
                         _local5 = (this.yOffset_ + ((this.animateDy_ * _arg3) / 1000));
                         break;
-                };
+                }
             }
             else {
                 _local4 = this.xOffset_;
                 _local5 = this.yOffset_;
-            };
+            }
             if (Parameters.isGpuRender()){
                 GraphicsFillExtra.setOffsetUV(this.face_.bitmapFill_, _local4, _local5);
                 _local5 = 0;
                 _local4 = _local5;
-            };
+            }
             this.face_.uvt_.length = 0;
             this.face_.uvt_.push((0 + _local4), (0 + _local5), 0, (1 + _local4), (0 + _local5), 0, (1 + _local4), (1 + _local5), 0, (0 + _local4), (1 + _local5), 0);
             this.face_.setUVT(this.face_.uvt_);

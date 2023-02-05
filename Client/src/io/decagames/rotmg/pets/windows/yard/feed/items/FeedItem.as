@@ -46,15 +46,15 @@ package io.decagames.rotmg.pets.windows.yard.feed.items{
                 _local4 = ObjectLibrary.xmlPatchLibrary_[this._item.getItemId()];
                 if (_local4.hasOwnProperty("feedPower")){
                     this._feedPower = _local4.feedPower;
-                };
-            };
+                }
+            }
             var _local3:BitmapTextFactory = StaticInjectorContext.getInjector().getInstance(BitmapTextFactory);
             if (((((_local2) && (_local2.hasOwnProperty("Quantity")))) && (_local3))){
                 _local5 = _local3.make(new StaticStringBuilder(String(_local2.Quantity)), 12, 0xFFFFFF, false, new Matrix(), true);
                 _local6 = new Matrix();
                 _local6.translate(8, 7);
                 _local1.draw(_local5, _local6);
-            };
+            }
             this.imageBitmap.bitmapData = _local1;
             addChild(this.imageBitmap);
         }
@@ -83,7 +83,7 @@ package io.decagames.rotmg.pets.windows.yard.feed.items{
             }
             else {
                 this.renderBackground(0x454545, 0.25);
-            };
+            }
         }
 
         public function get item():InventoryTile{

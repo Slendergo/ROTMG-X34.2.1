@@ -33,7 +33,7 @@ package kabam.rotmg.arena.component{
                 _local5.x = 40;
                 _local5.y = 20;
                 addChild(_local5);
-            };
+            }
             super(0x363636, 0.5, 0xFFFFFF, 1);
             var _local4:EquippedGrid = new EquippedGrid(null, _arg1.slotTypes, null);
             _local4.x = 5;

@@ -38,13 +38,13 @@ package kabam.rotmg.chat.control{
                 _local1.setStringMap(this.textStringMap.getStringMap());
                 _local2 = _local1.getString();
                 this.chatMessage.name = ((_local2) ? ("#" + _local2) : this.chatMessage.name);
-            };
+            }
         }
 
         private function translateMessage():void{
             if ((((((((((this.chatMessage.name == Parameters.CLIENT_CHAT_NAME)) || ((this.chatMessage.name == Parameters.SERVER_CHAT_NAME)))) || ((this.chatMessage.name == Parameters.ERROR_CHAT_NAME)))) || ((this.chatMessage.name == Parameters.HELP_CHAT_NAME)))) || ((this.chatMessage.name.charAt(0) == "#")))){
                 this.translateChatMessage();
-            };
+            }
         }
 
         public function translateChatMessage():void{

@@ -30,7 +30,7 @@ import org.osflash.signals.Signal;
                 addChild(new EmbeddedAssets.CloseButtonLargeAsset());
                 scaleX = (scaleX * _arg1);
                 scaleY = (scaleY * _arg1);
-            };
+            }
             buttonMode = true;
             addEventListener(MouseEvent.CLICK, this.onClicked);
         }
@@ -42,7 +42,7 @@ import org.osflash.signals.Signal;
             }
             else {
                 addEventListener(MouseEvent.CLICK, this.onClicked);
-            };
+            }
         }
 
         public function disableLegacyCloseBehavior():void{
@@ -55,7 +55,7 @@ import org.osflash.signals.Signal;
                 removeEventListener(MouseEvent.CLICK, this.onClicked);
                 this.closeClicked.dispatch();
                 this.clicked.dispatch();
-            };
+            }
         }
 
 

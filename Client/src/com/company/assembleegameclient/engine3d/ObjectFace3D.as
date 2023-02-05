@@ -51,7 +51,7 @@ package com.company.assembleegameclient.engine3d{
             while (_local5 < this.indices_.length) {
                 _local4.push((((_local5 == 0)) ? GraphicsPathCommand.MOVE_TO : GraphicsPathCommand.LINE_TO));
                 _local5++;
-            };
+            }
             var _local6:Vector.<Number> = new Vector.<Number>();
             _local6.length = (this.indices_.length * 2);
             this.path_ = new GraphicsPath(_local4, _local6);
@@ -70,7 +70,7 @@ package com.company.assembleegameclient.engine3d{
             this.shade_ = Lighting3D.shadeValue(this.normalW_, 0.75);
             if (this.normalL_ != null){
                 this.normalW_ = this.obj_.lToW_.deltaTransformVector(this.normalL_);
-            };
+            }
         }
 
         public function draw(_arg1:Vector.<IGraphicsData>, _arg2:uint, _arg3:BitmapData):void{
@@ -85,7 +85,7 @@ package com.company.assembleegameclient.engine3d{
             var _local11:Number = (_local7[(_local6 + 1)] - _local7[(_local4 + 1)]);
             if (((_local8 * _local11) - (_local9 * _local10)) < 0){
                 return;
-            };
+            }
             if (((!(Parameters.data_.GPURender)) && (((!(this.useTexture_)) || ((_arg3 == null)))))){
                 this.solidFill_.color = MoreColorUtil.transformColor(new ColorTransform(this.shade_, this.shade_, this.shade_), _arg2);
                 _arg1.push(this.solidFill_);
@@ -96,23 +96,23 @@ package com.company.assembleegameclient.engine3d{
                 }
                 else {
                     _arg3 = TextureRedrawer.redrawFace(_arg3, this.shade_);
-                };
+                }
                 this.bitmapFill_.bitmapData = _arg3;
                 this.bitmapFill_.matrix = this.tToS(_arg3);
                 _arg1.push(this.bitmapFill_);
-            };
+            }
             var _local12:int;
             while (_local12 < this.indices_.length) {
                 _local13 = this.indices_[_local12];
                 this.path_.data[(_local12 * 2)] = _local7[(_local13 * 2)];
                 this.path_.data[((_local12 * 2) + 1)] = _local7[((_local13 * 2) + 1)];
                 _local12++;
-            };
+            }
             _arg1.push(this.path_);
             _arg1.push(GraphicsUtil.END_FILL);
             if (((((this.softwareException_) && (Parameters.isGpuRender()))) && (!((this.bitmapFill_ == null))))){
                 GraphicsFillExtra.setSoftwareDraw(this.bitmapFill_, true);
-            };
+            }
         }
 
         private function tToS(_arg1:BitmapData):Matrix{

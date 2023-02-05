@@ -35,8 +35,8 @@ package io.decagames.rotmg.pets.data.yard{
             for each (_local3 in PetYardEnum.list) {
                 if (_arg1 == _local3.value){
                     _local2 = _local3;
-                };
-            };
+                }
+            }
             return (_local2);
         }
 
@@ -46,8 +46,8 @@ package io.decagames.rotmg.pets.data.yard{
             for each (_local3 in PetYardEnum.list) {
                 if (_arg1 == _local3.ordinal){
                     _local2 = _local3;
-                };
-            };
+                }
+            }
             return (_local2);
         }
 

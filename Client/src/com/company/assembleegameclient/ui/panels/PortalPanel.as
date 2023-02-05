@@ -81,7 +81,7 @@ package com.company.assembleegameclient.ui.panels{
         private function onKeyDown(_arg1:KeyboardEvent):void{
             if ((((_arg1.keyCode == Parameters.data_.interact)) && ((stage.focus == null)))){
                 this.enterPortal();
-            };
+            }
         }
 
         private function enterPortal():void{
@@ -100,8 +100,8 @@ package com.company.assembleegameclient.ui.panels{
                 if (((((this.owner_.lockedPortal_) || (!(this.owner_.active_)))) && (contains(this._enterButton_)))){
                     removeChild(this._enterButton_);
                     addChild(this.fullText_);
-                };
-            };
+                }
+            }
         }
 
         private function updateNameText():void{
@@ -116,7 +116,7 @@ package com.company.assembleegameclient.ui.panels{
             var _local1:String = this.owner_.getName();
             if (((this.owner_.lockedPortal_) && ((_local1.indexOf(this.LOCKED) == 0)))){
                 return (_local1.substr(this.LOCKED.length));
-            };
+            }
             return (this.parseJson(_local1));
         }
 

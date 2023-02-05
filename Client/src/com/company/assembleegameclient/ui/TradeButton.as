@@ -92,7 +92,7 @@ package com.company.assembleegameclient.ui{
         private function setEnabled(_arg1:Boolean):void{
             if (_arg1 == mouseEnabled){
                 return;
-            };
+            }
             mouseEnabled = _arg1;
             mouseChildren = _arg1;
             graphicsData_[0] = ((_arg1) ? enabledFill_ : disabledFill_);
@@ -162,8 +162,8 @@ package com.company.assembleegameclient.ui{
                 if ((_local1 - this.lastResetTime_) >= WAIT_TIME){
                     this.state_ = NORMAL_STATE;
                     this.setEnabled(true);
-                };
-            };
+                }
+            }
             switch (this.state_){
                 case COUNTDOWN_STATE:
                     this.statusBar_.visible = true;
@@ -175,7 +175,7 @@ package com.company.assembleegameclient.ui{
                 case WAITING_STATE:
                     this.statusBar_.visible = false;
                     break;
-            };
+            }
             graphics.clear();
             graphics.drawGraphicsData(graphicsData_);
         }

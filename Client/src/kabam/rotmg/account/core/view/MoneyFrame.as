@@ -76,7 +76,7 @@ package kabam.rotmg.account.core.view{
             var _local1:Vector.<String> = new Vector.<String>();
             for each (_local2 in PaymentMethod.PAYMENT_METHODS) {
                 _local1.push(_local2.label_);
-            };
+            }
             return (_local1);
         }
 
@@ -111,7 +111,7 @@ package kabam.rotmg.account.core.view{
                 this.cancelButton.y = (((600 / 2) + (this.frame.h_ / 2)) - 52);
                 this.cancelButton.setAutoSize(TextFieldAutoSize.RIGHT);
                 addChild(this.cancelButton);
-            };
+            }
         }
 
         protected function onBuyNowClick(_arg1:MouseEvent):void{

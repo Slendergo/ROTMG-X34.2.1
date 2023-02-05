@@ -35,14 +35,14 @@ package kabam.rotmg.account.web.view{
             if (this.isEmailValid()){
                 disable();
                 this.submit.dispatch(this.emailInput.text());
-            };
+            }
         }
 
         private function isEmailValid():Boolean{
             var _local1 = !((this.emailInput.text() == ""));
             if (!_local1){
                 this.emailInput.setError("Not a valid email address");
-            };
+            }
             return (_local1);
         }
 

@@ -37,7 +37,7 @@ package kabam.rotmg.assets.services{
         public static function makeSupporterPointsIcon(_arg1:int=40, _arg2:Boolean=false):BitmapData{
             if (_arg2){
                 return (cropAndGlowIcon(TextureRedrawer.redraw(AssetLibrary.getImageFromSet("lofiInterfaceBig", 43), _arg1, true, 0xFFFFFFFF, false, 5, 0x666666)));
-            };
+            }
             return (cropAndGlowIcon(TextureRedrawer.resize(AssetLibrary.getImageFromSet("lofiInterfaceBig", 43), null, _arg1, true, 0, 0)));
         }
 

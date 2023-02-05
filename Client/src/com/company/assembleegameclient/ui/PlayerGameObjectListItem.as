@@ -28,7 +28,7 @@ package com.company.assembleegameclient.ui{
             var _local4:Player = (_arg3 as Player);
             if (_local4){
                 this.starred = _local4.starred_;
-            };
+            }
             addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
             addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
         }
@@ -54,8 +54,8 @@ package com.company.assembleegameclient.ui{
                 this.hoverTooltipDelegate.tooltip = ((this.enabled) ? new PlayerToolTip(Player(go)) : null);
                 if (!this.enabled){
                     this.hoverTooltipDelegate.getShowToolTip().dispatch(this.hoverTooltipDelegate.tooltip);
-                };
-            };
+                }
+            }
         }
 
         override public function draw(_arg1:GameObject, _arg2:ColorTransform=null):void{
@@ -63,7 +63,7 @@ package com.company.assembleegameclient.ui{
             if (((_local3) && (!((this.starred == _local3.starred_))))){
                 transform.colorTransform = ((_arg2) || (MoreColorUtil.identity));
                 this.starred = _local3.starred_;
-            };
+            }
             super.draw(_arg1, _arg2);
         }
 

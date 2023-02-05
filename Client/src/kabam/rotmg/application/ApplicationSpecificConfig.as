@@ -16,14 +16,11 @@ package kabam.rotmg.application{
         [Inject]
         public var applicationSetup:ApplicationSetup;
 
-
         public function configure():void{
             if (this.applicationSetup.isDebug()){
                 this.context.extend(ConsoleExtension);
-            };
+            }
         }
-
-
     }
 }//package kabam.rotmg.application
 

@@ -69,7 +69,7 @@ package kabam.rotmg.game.model{
             while (_local2 < _local1) {
                 this._requirementsStates[_local2] = false;
                 _local2++;
-            };
+            }
         }
 
 

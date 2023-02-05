@@ -46,11 +46,11 @@ package kabam.rotmg.game.view{
                 }
                 else {
                     this.view.gs_.gsc_.buy(_arg1.objectId_, _arg1.getQuantity());
-                };
+                }
             }
             else {
                 this.openDialog.dispatch(this.makeRegisterDialog(_arg1));
-            };
+            }
         }
 
         private function makeRegisterDialog(_arg1:SellableObject):RegisterPromptDialog{

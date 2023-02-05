@@ -40,7 +40,7 @@ package kabam.rotmg.game.commands{
         public function execute():void{
             if (!this.data.isNewGame){
                 this.socketServerModel.connectDelayMS = PlayGameCommand.RECONNECT_DELAY;
-            };
+            }
             this.recordCharacterUseInSharedObject();
             this.makeGameView();
             this.updatePet();
@@ -54,9 +54,9 @@ package kabam.rotmg.game.commands{
             else {
                 if (((((this.model.currentCharId) && (this.petsModel.getActivePet()))) && (!(this.data.isNewGame)))){
                     return;
-                };
+                }
                 this.petsModel.setActivePet(null);
-            };
+            }
         }
 
         private function recordCharacterUseInSharedObject():void{

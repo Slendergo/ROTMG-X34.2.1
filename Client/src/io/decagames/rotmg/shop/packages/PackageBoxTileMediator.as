@@ -51,10 +51,10 @@ package io.decagames.rotmg.shop.packages{
             this.view.buyButton.clickSignal.add(this.onBuyHandler);
             if (this.view.infoButton){
                 this.view.infoButton.clickSignal.add(this.onInfoClick);
-            };
+            }
             if (this.view.clickMask){
                 this.view.clickMask.addEventListener(MouseEvent.CLICK, this.onBoxClickHandler);
-            };
+            }
         }
 
         private function onBoxClickHandler(_arg1:MouseEvent):void{
@@ -67,7 +67,7 @@ package io.decagames.rotmg.shop.packages{
             }
             else {
                 this.view.buyButton.price = (_arg1 * int(this.view.boxInfo.priceAmount));
-            };
+            }
         }
 
         private function onBuyHandler(_arg1:BaseButton):void{
@@ -76,7 +76,7 @@ package io.decagames.rotmg.shop.packages{
                 this.inProgressModal = new PurchaseInProgressModal();
                 this.showPopupSignal.dispatch(this.inProgressModal);
                 this.sendPurchaseRequest();
-            };
+            }
         }
 
         private function sendPurchaseRequest():void{
@@ -91,7 +91,7 @@ package io.decagames.rotmg.shop.packages{
                 _local1.quantity = this.view.spinner.value;
                 _local1.price = this.view.boxInfo.priceAmount;
                 _local1.currency = this.view.boxInfo.priceCurrency;
-            };
+            }
             this.client.sendRequest("/account/purchasePackage", _local1);
             this.client.complete.addOnce(this.onRollRequestComplete);
         }
@@ -109,13 +109,13 @@ package io.decagames.rotmg.shop.packages{
                 _local3 = new XML(_arg2);
                 if (_local3.hasOwnProperty("CampaignProgress")){
                     this.supportCampaignModel.parseUpdateData(_local3.CampaignProgress);
-                };
+                }
                 if (((_local3.hasOwnProperty("Left")) && (!((this.view.boxInfo.unitsLeft == -1))))){
                     this.view.boxInfo.unitsLeft = int(_local3.Left);
-                };
+                }
                 if (((_local3.hasOwnProperty("PurchaseLeft")) && (!((this.view.boxInfo.purchaseLeft == -1))))){
                     this.view.boxInfo.purchaseLeft = int(_local3.PurchaseLeft);
-                };
+                }
                 _local4 = this.gameModel.player;
                 if (_local4 != null){
                     if (_local3.hasOwnProperty("Gold")){
@@ -124,8 +124,8 @@ package io.decagames.rotmg.shop.packages{
                     else {
                         if (_local3.hasOwnProperty("Fame")){
                             _local4.setFame(int(_local3.Fame));
-                        };
-                    };
+                        }
+                    }
                 }
                 else {
                     if (this.playerModel != null){
@@ -135,10 +135,10 @@ package io.decagames.rotmg.shop.packages{
                         else {
                             if (_local3.hasOwnProperty("Fame")){
                                 this.playerModel.setFame(int(_local3.Fame));
-                            };
-                        };
-                    };
-                };
+                            }
+                        }
+                    }
+                }
                 this.closePopupSignal.dispatch(this.inProgressModal);
                 this.showPopupSignal.dispatch(new PurchaseCompleteModal(PackageInfo(this.view.boxInfo).purchaseType));
             }
@@ -146,7 +146,7 @@ package io.decagames.rotmg.shop.packages{
                 _local5 = "MysteryBoxRollModal.pleaseTryAgainString";
                 if (LineBuilder.getLocalizedStringFromKey(_arg2) != ""){
                     _local5 = _arg2;
-                };
+                }
                 if (_arg2.indexOf("MysteryBoxError.soldOut") >= 0){
                     _local6 = _arg2.split("|");
                     if (_local6.length == 2){
@@ -160,9 +160,9 @@ package io.decagames.rotmg.shop.packages{
                                 left:this.view.boxInfo.unitsLeft,
                                 box:(((this.view.boxInfo.unitsLeft == 1)) ? LineBuilder.getLocalizedStringFromKey("MysteryBoxError.box") : LineBuilder.getLocalizedStringFromKey("MysteryBoxError.boxes"))
                             });
-                        };
-                    };
-                };
+                        }
+                    }
+                }
                 if (_arg2.indexOf("MysteryBoxError.maxPurchase") >= 0){
                     _local8 = _arg2.split("|");
                     if (_local8.length == 2){
@@ -172,17 +172,17 @@ package io.decagames.rotmg.shop.packages{
                         }
                         else {
                             _local5 = LineBuilder.getLocalizedStringFromKey("MysteryBoxError.maxPurchaseLeft", {left:_local9});
-                        };
-                    };
-                };
+                        }
+                    }
+                }
                 if (_arg2.indexOf("blockedForUser") >= 0){
                     _local10 = _arg2.split("|");
                     if (_local10.length == 2){
                         _local5 = LineBuilder.getLocalizedStringFromKey("MysteryBoxError.blockedForUser", {date:_local10[1]});
-                    };
-                };
+                    }
+                }
                 this.showErrorMessage(_local5);
-            };
+            }
         }
 
         private function showErrorMessage(_arg1:String):void{
@@ -199,10 +199,10 @@ package io.decagames.rotmg.shop.packages{
             this.view.buyButton.clickSignal.remove(this.onBuyHandler);
             if (this.view.infoButton){
                 this.view.infoButton.clickSignal.remove(this.onInfoClick);
-            };
+            }
             if (this.view.clickMask){
                 this.view.clickMask.removeEventListener(MouseEvent.CLICK, this.onBoxClickHandler);
-            };
+            }
         }
 
 

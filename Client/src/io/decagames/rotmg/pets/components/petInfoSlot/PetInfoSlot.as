@@ -59,17 +59,17 @@ package io.decagames.rotmg.pets.components.petInfoSlot{
             }
             else {
                 this.petPortrait.petVO = _arg1;
-            };
+            }
             if (this.isRarityLabelHidden){
                 this.petPortrait.hideRarityLabel();
-            };
+            }
             if (((this.showStats) && (_arg2))){
                 this.statsGrid = ((this._useFeedStats) ? new PetFeedStatsGrid(FEED_STATS_WIDTH, _arg1) : new PetStatsGrid(STATS_WIDTH, _arg1));
                 addChild(this.statsGrid);
                 this.statsGrid.y = ((this._useFeedStats) ? 132 : 130);
                 _local3 = ((this._useFeedStats) ? FEED_STATS_WIDTH : STATS_WIDTH);
                 this.statsGrid.x = Math.round(((this._slotWidth - _local3) / 2));
-            };
+            }
         }
 
         public function get slotWidth():int{

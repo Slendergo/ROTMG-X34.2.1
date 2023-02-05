@@ -87,7 +87,7 @@ import kabam.rotmg.util.components.api.BuyButton;
             else {
                 this.text.text = _arg1;
                 this.updateUI();
-            };
+            }
             this.withOutLine = _arg4;
         }
 
@@ -97,7 +97,7 @@ import kabam.rotmg.util.components.api.BuyButton;
                 this.currency = _arg2;
                 this.text.text = (this.prefix + _arg1.toString());
                 this.updateUI();
-            };
+            }
         }
 
         public function getPrice():int{
@@ -114,7 +114,7 @@ import kabam.rotmg.util.components.api.BuyButton;
                 mouseEnabled = _arg1;
                 filters = ((_arg1) ? [] : [grayfilter]);
                 this.draw();
-            };
+            }
         }
 
         override public function setWidth(_arg1:int):void{
@@ -150,7 +150,7 @@ import kabam.rotmg.util.components.api.BuyButton;
                     break;
                 default:
                     this.icon.bitmapData = null;
-            };
+            }
             this.updateIconPosition();
         }
 
@@ -187,7 +187,7 @@ import kabam.rotmg.util.components.api.BuyButton;
             graphics.drawGraphicsData(this.graphicsData);
             if (this.withOutLine){
                 this.drawOutline(graphics);
-            };
+            }
         }
 
         private function getWidth():int{

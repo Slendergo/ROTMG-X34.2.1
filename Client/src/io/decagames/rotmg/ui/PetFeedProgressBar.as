@@ -103,7 +103,7 @@ package io.decagames.rotmg.ui{
                 this.render(this._currentValue, this._currentValue);
                 this._currentValue = _arg1;
                 this._simulatedValue = _arg1;
-            };
+            }
         }
 
         public function set simulatedValue(_arg1:int):void{
@@ -137,7 +137,7 @@ package io.decagames.rotmg.ui{
             }
             else {
                 this.drawProgress(_local6);
-            };
+            }
             if (_local3){
                 if (_arg2 >= this._maxValue){
                     _local9 = AbilitiesUtil.abilityPointsToLevel(_arg2);
@@ -153,14 +153,14 @@ package io.decagames.rotmg.ui{
                         _local7 = (_arg2 - _local11);
                         this.drawSimulatedProgress((_local7 / _local8));
                         this.setLevelLabel(_local9);
-                    };
+                    }
                 }
                 else {
                     _local7 = (_arg2 - AbilitiesUtil.abilityPowerToMinPoints(this._currentLevel));
                     _local12 = (_local7 / _local4);
                     this.drawSimulatedProgress(_local12, _local6);
-                };
-            };
+                }
+            }
             this._abilityLabel.x = -2;
         }
 
@@ -183,7 +183,7 @@ package io.decagames.rotmg.ui{
                 this._animateCurrentProgress = true;
                 this._animateLevelProgress = false;
                 this.render(this._currentValue, this._currentValue);
-            };
+            }
         }
 
         private function onLevelUpdateComplete():void{
@@ -194,7 +194,7 @@ package io.decagames.rotmg.ui{
         private function drawProgress(_arg1:Number):void{
             if (_arg1 > 1){
                 _arg1 = 1;
-            };
+            }
             if (this._animateCurrentProgress){
                 TweenMax.to(this._progressShape, 0.6, {
                     scaleX:_arg1,
@@ -205,13 +205,13 @@ package io.decagames.rotmg.ui{
             else {
                 this._progressShape.scaleX = _arg1;
                 this.setLevelLabel(this._currentLevel);
-            };
+            }
         }
 
         private function drawSimulatedProgress(_arg1:Number, _arg2:Number=0):void{
             if (_arg2 == 0){
                 this._progressShape.visible = false;
-            };
+            }
             this._simulationShape.visible = true;
             this._simulationShape.scaleX = _arg1;
         }
@@ -219,7 +219,7 @@ package io.decagames.rotmg.ui{
         private function setLevelLabel(_arg1:int):void{
             if (this._levelLabel != null){
                 removeChild(this._levelLabel);
-            };
+            }
             this._levelLabel = new UILabel();
             addChild(this._levelLabel);
             if (_arg1 > this._currentLevel){
@@ -227,7 +227,7 @@ package io.decagames.rotmg.ui{
             }
             else {
                 DefaultLabelFormat.petStatLabelRight(this._levelLabel, 0xFFFFFF);
-            };
+            }
             if (_arg1 < this._maxLevel){
                 this._levelLabel.text = _arg1.toString();
             }
@@ -237,7 +237,7 @@ package io.decagames.rotmg.ui{
                 this._maxShape.visible = true;
                 this._simulationShape.visible = false;
                 this._progressShape.visible = false;
-            };
+            }
             this._levelLabel.x = ((this._componentWidth - this._levelLabel.width) + 2);
         }
 
@@ -268,10 +268,10 @@ package io.decagames.rotmg.ui{
         public function set showMaxLabel(_arg1:Boolean):void{
             if (((_arg1) && (!(this._maxLabel.parent)))){
                 addChild(this._maxLabel);
-            };
+            }
             if (((!(_arg1)) && (this._maxLabel.parent))){
                 removeChild(this._maxLabel);
-            };
+            }
             this._showMaxLabel = _arg1;
         }
 

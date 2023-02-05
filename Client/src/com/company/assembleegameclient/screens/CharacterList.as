@@ -32,7 +32,7 @@ package com.company.assembleegameclient.screens{
                     break;
                 default:
                     this.charRectList_ = new Sprite();
-            };
+            }
             addChild(this.charRectList_);
             if (height > 400){
                 _local3 = new Shape();
@@ -42,7 +42,7 @@ package com.company.assembleegameclient.screens{
                 _local4.endFill();
                 addChild(_local3);
                 mask = _local3;
-            };
+            }
         }
 
         public function setPos(_arg1:Number):void{

@@ -159,7 +159,7 @@ package com.company.assembleegameclient.objects{
             super();
             if (_arg1 == null){
                 return;
-            };
+            }
             this.objectType_ = int(_arg1.@type);
             this.props_ = ObjectLibrary.propsLibrary_[this.objectType_];
             hasShadow_ = (this.props_.shadowSize_ > 0);
@@ -170,29 +170,29 @@ package com.company.assembleegameclient.objects{
             this.randomTextureData_ = _local2.randomTextureData_;
             if (_local2.effectProps_ != null){
                 this.effect_ = ParticleEffect.fromProps(_local2.effectProps_, this);
-            };
+            }
             if (this.texture_ != null){
                 this.sizeMult_ = (this.texture_.height / 8);
-            };
+            }
             if (_arg1.hasOwnProperty("Model")){
                 this.obj3D_ = Model3D.getObject3D(String(_arg1.Model));
                 this.object3d_ = Model3D.getStage3dObject3D(String(_arg1.Model));
                 if (this.texture_ != null){
                     this.object3d_.setBitMapData(this.texture_);
-                };
-            };
+                }
+            }
             var _local3:AnimationsData = ObjectLibrary.typeToAnimationsData_[this.objectType_];
             if (_local3 != null){
                 this.animations_ = new Animations(_local3);
-            };
+            }
             z_ = this.props_.z_;
             this.flying_ = this.props_.flying_;
             if (_arg1.hasOwnProperty("MaxHitPoints")){
                 this.hp_ = (this.maxHP_ = int(_arg1.MaxHitPoints));
-            };
+            }
             if (_arg1.hasOwnProperty("Defense")){
                 this.defense_ = int(_arg1.Defense);
-            };
+            }
             if (_arg1.hasOwnProperty("SlotTypes")){
                 this.slotTypes_ = ConversionUtil.toIntVector(_arg1.SlotTypes);
                 this.equipment_ = new Vector.<int>(this.slotTypes_.length);
@@ -200,33 +200,33 @@ package com.company.assembleegameclient.objects{
                 while (_local4 < this.equipment_.length) {
                     this.equipment_[_local4] = -1;
                     _local4++;
-                };
+                }
                 this.lockedSlot = new Vector.<int>(this.slotTypes_.length);
-            };
+            }
             if (_arg1.hasOwnProperty("Tex1")){
                 this.tex1Id_ = int(_arg1.Tex1);
-            };
+            }
             if (_arg1.hasOwnProperty("Tex2")){
                 this.tex2Id_ = int(_arg1.Tex2);
-            };
+            }
             if (_arg1.hasOwnProperty("StunImmune")){
                 this.isStunImmune_ = true;
-            };
+            }
             if (_arg1.hasOwnProperty("ParalyzeImmune")){
                 this.isParalyzeImmune_ = true;
-            };
+            }
             if (_arg1.hasOwnProperty("SlowImmune")){
                 this.isSlowedImmune_ = true;
-            };
+            }
             if (_arg1.hasOwnProperty("DazedImmune")){
                 this.isDazedImmune_ = true;
-            };
+            }
             if (_arg1.hasOwnProperty("StasisImmune")){
                 this.isStasisImmune_ = true;
-            };
+            }
             if (_arg1.hasOwnProperty("Invincible")){
                 this.isInvincible_ = true;
-            };
+            }
             this.props_.loadSounds();
         }
 
@@ -238,22 +238,22 @@ package com.company.assembleegameclient.objects{
             else {
                 if ((_arg4[ConditionEffect.CE_FIRST_BATCH] & ConditionEffect.ARMORED_BIT) != 0){
                     _local5 = (_local5 * 2);
-                };
-            };
+                }
+            }
             if ((_arg4[ConditionEffect.CE_SECOND_BATCH] & ConditionEffect.EXPOSED_BIT) != 0){
                 _local5 = (_local5 - 20);
-            };
+            }
             var _local6:int = ((_arg1 * 3) / 20);
             var _local7:int = Math.max(_local6, (_arg1 - _local5));
             if ((_arg4[ConditionEffect.CE_FIRST_BATCH] & ConditionEffect.INVULNERABLE_BIT) != 0){
                 _local7 = 0;
-            };
+            }
             if ((_arg4[ConditionEffect.CE_SECOND_BATCH] & ConditionEffect.PETRIFIED_BIT) != 0){
                 _local7 = (_local7 * 0.9);
-            };
+            }
             if ((_arg4[ConditionEffect.CE_SECOND_BATCH] & ConditionEffect.CURSE_BIT) != 0){
                 _local7 = (_local7 * 1.2);
-            };
+            }
             return (_local7);
         }
 
@@ -268,8 +268,8 @@ package com.company.assembleegameclient.objects{
                 this.animatedChar_ = _local2.animatedChar_;
                 if (this.object3d_ != null){
                     this.object3d_.setBitMapData(this.texture_);
-                };
-            };
+                }
+            }
         }
 
         public function setTexture(_arg1:int):void{
@@ -289,27 +289,27 @@ package com.company.assembleegameclient.objects{
                 _local3 = _local2.getAltTextureData(_arg1);
                 if (_local3 == null){
                     return;
-                };
-            };
+                }
+            }
             this.texture_ = _local3.texture_;
             this.mask_ = _local3.mask_;
             this.animatedChar_ = _local3.animatedChar_;
             if (this.effect_ != null){
                 map_.removeObj(this.effect_.objectId_);
                 this.effect_ = null;
-            };
+            }
             if (((!(Parameters.data_.noParticlesMaster)) && (!((_local3.effectProps_ == null))))){
                 this.effect_ = ParticleEffect.fromProps(_local3.effectProps_, this);
                 if (map_ != null){
                     map_.addObj(this.effect_, x_, y_);
-                };
-            };
+                }
+            }
         }
 
         public function setTex1(_arg1:int):void{
             if (_arg1 == this.tex1Id_){
                 return;
-            };
+            }
             this.tex1Id_ = _arg1;
             this.texturingCache_ = new Dictionary();
             this.portrait_ = null;
@@ -318,7 +318,7 @@ package com.company.assembleegameclient.objects{
         public function setTex2(_arg1:int):void{
             if (_arg1 == this.tex2Id_){
                 return;
-            };
+            }
             this.tex2Id_ = _arg1;
             this.texturingCache_ = new Dictionary();
             this.portrait_ = null;
@@ -334,24 +334,24 @@ package com.company.assembleegameclient.objects{
             if (this.portrait_ != null){
                 this.portrait_.dispose();
                 this.portrait_ = null;
-            };
+            }
             this.clearTextureCache();
             this.texturingCache_ = null;
             if (this.obj3D_ != null){
                 this.obj3D_.dispose();
                 this.obj3D_ = null;
-            };
+            }
             if (this.object3d_ != null){
                 this.object3d_.dispose();
                 this.object3d_ = null;
-            };
+            }
             this.slotTypes_ = null;
             this.equipment_ = null;
             this.lockedSlot = null;
             if (this.nameBitmapData_ != null){
                 this.nameBitmapData_.dispose();
                 this.nameBitmapData_ = null;
-            };
+            }
             this.nameFill_ = null;
             this.namePath_ = null;
             this.bitmapFill_ = null;
@@ -368,7 +368,7 @@ package com.company.assembleegameclient.objects{
                 this.shadowPath_.commands = null;
                 this.shadowPath_.data = null;
                 this.shadowPath_ = null;
-            };
+            }
         }
 
         public function isQuiet():Boolean{
@@ -537,9 +537,9 @@ package com.company.assembleegameclient.objects{
                     _local4 = (((y_ > _local2.y_)) ? (y_ - _local2.y_) : (_local2.y_ - y_));
                     if ((((_local3 < _arg1)) && ((_local4 < _arg1)))){
                         return false;
-                    };
-                };
-            };
+                    }
+                }
+            }
             return true;
         }
 
@@ -550,7 +550,7 @@ package com.company.assembleegameclient.objects{
         public function getColor():uint{
             if (this.props_.color_ != -1){
                 return (this.props_.color_);
-            };
+            }
             return (BitmapUtil.mostCommonColor(this.texture_));
         }
 
@@ -573,7 +573,7 @@ package com.company.assembleegameclient.objects{
             else {
                 this.isShocked = false;
                 this.isShockedTransformSet = false;
-            };
+            }
         }
 
         public function toggleChargingEffect(_arg1:Boolean):void{
@@ -583,7 +583,7 @@ package com.company.assembleegameclient.objects{
             else {
                 this.isCharging = false;
                 this.isChargingTransformSet = false;
-            };
+            }
         }
 
         override public function addTo(_arg1:Map, _arg2:Number, _arg3:Number):Boolean{
@@ -593,10 +593,10 @@ package com.company.assembleegameclient.objects{
             if (!this.moveTo(_arg2, _arg3)){
                 map_ = null;
                 return false;
-            };
+            }
             if (this.effect_ != null){
                 map_.addObj(this.effect_, _arg2, _arg3);
-            };
+            }
             return true;
         }
 
@@ -604,12 +604,12 @@ package com.company.assembleegameclient.objects{
             if (((this.props_.static_) && (!((square_ == null))))){
                 if (square_.obj_ == this){
                     square_.obj_ = null;
-                };
+                }
                 square_ = null;
-            };
+            }
             if (this.effect_ != null){
                 map_.removeObj(this.effect_.objectId_);
-            };
+            }
             super.removeFromMap();
             this.dispose();
         }
@@ -618,22 +618,22 @@ package com.company.assembleegameclient.objects{
             var _local3:Square = map_.getSquare(_arg1, _arg2);
             if (_local3 == null){
                 return false;
-            };
+            }
             x_ = _arg1;
             y_ = _arg2;
             if (this.props_.static_){
                 if (square_ != null){
                     square_.obj_ = null;
-                };
+                }
                 _local3.obj_ = this;
-            };
+            }
             square_ = _local3;
             if (this.obj3D_ != null){
                 this.obj3D_.setPosition(x_, y_, 0, this.props_.rotation_);
-            };
+            }
             if (this.object3d_ != null){
                 this.object3d_.setPosition(x_, y_, 0, this.props_.rotation_);
-            };
+            }
             return true;
         }
 
@@ -654,8 +654,8 @@ package com.company.assembleegameclient.objects{
                     _local6 = (this.posAtTick_.y + (_local4 * this.moveVec_.y));
                     this.moveTo(_local5, _local6);
                     _local3 = true;
-                };
-            };
+                }
+            }
             if (this.props_.whileMoving_ != null){
                 if (!_local3){
                     z_ = this.props_.z_;
@@ -664,8 +664,8 @@ package com.company.assembleegameclient.objects{
                 else {
                     z_ = this.props_.whileMoving_.z_;
                     this.flying_ = this.props_.whileMoving_.flying_;
-                };
-            };
+                }
+            }
             return true;
         }
 
@@ -683,7 +683,7 @@ package com.company.assembleegameclient.objects{
         public function onTickPos(_arg1:Number, _arg2:Number, _arg3:int, _arg4:int):void{
             if (this.myLastTickId_ < map_.gs_.gsc_.lastTickId_){
                 this.moveTo(this.tickPosition_.x, this.tickPosition_.y);
-            };
+            }
             this.lastTickUpdateTime_ = map_.gs_.lastUpdate_;
             this.tickPosition_.x = _arg1;
             this.tickPosition_.y = _arg2;
@@ -720,7 +720,7 @@ package com.company.assembleegameclient.objects{
                                 _local10 = ConditionEffect.effects_[_local9];
                                 this.showConditionEffectPet(_local8, _local10.name_);
                                 _local8 = (_local8 + 500);
-                            };
+                            }
                         }
                         else {
                             switch (_local9){
@@ -748,7 +748,7 @@ package com.company.assembleegameclient.objects{
                                 case ConditionEffect.QUIET:
                                     if (map_.player_ == this){
                                         map_.player_.mp_ = 0;
-                                    };
+                                    }
                                     _local10 = ConditionEffect.effects_[_local9];
                                     break;
                                 case ConditionEffect.STASIS:
@@ -759,7 +759,7 @@ package com.company.assembleegameclient.objects{
                                     }
                                     else {
                                         _local10 = ConditionEffect.effects_[_local9];
-                                    };
+                                    }
                                     break;
                                 case ConditionEffect.SLOWED:
                                     if (this.isSlowedImmune()){
@@ -769,7 +769,7 @@ package com.company.assembleegameclient.objects{
                                     }
                                     else {
                                         _local10 = ConditionEffect.effects_[_local9];
-                                    };
+                                    }
                                     break;
                                 case ConditionEffect.ARMORBROKEN:
                                     if (this.isArmorBrokenImmune()){
@@ -779,7 +779,7 @@ package com.company.assembleegameclient.objects{
                                     }
                                     else {
                                         _local10 = ConditionEffect.effects_[_local9];
-                                    };
+                                    }
                                     break;
                                 case ConditionEffect.STUNNED:
                                     if (this.isStunImmune()){
@@ -789,7 +789,7 @@ package com.company.assembleegameclient.objects{
                                     }
                                     else {
                                         _local10 = ConditionEffect.effects_[_local9];
-                                    };
+                                    }
                                     break;
                                 case ConditionEffect.DAZED:
                                     if (this.isDazedImmune()){
@@ -799,7 +799,7 @@ package com.company.assembleegameclient.objects{
                                     }
                                     else {
                                         _local10 = ConditionEffect.effects_[_local9];
-                                    };
+                                    }
                                     break;
                                 case ConditionEffect.PARALYZED:
                                     if (this.isParalyzeImmune()){
@@ -809,7 +809,7 @@ package com.company.assembleegameclient.objects{
                                     }
                                     else {
                                         _local10 = ConditionEffect.effects_[_local9];
-                                    };
+                                    }
                                     break;
                                 case ConditionEffect.PETRIFIED:
                                     if (this.isPetrifiedImmune()){
@@ -819,7 +819,7 @@ package com.company.assembleegameclient.objects{
                                     }
                                     else {
                                         _local10 = ConditionEffect.effects_[_local9];
-                                    };
+                                    }
                                     break;
                                 case ConditionEffect.CURSE:
                                     if (this.isCursedImmune()){
@@ -829,12 +829,12 @@ package com.company.assembleegameclient.objects{
                                     }
                                     else {
                                         _local10 = ConditionEffect.effects_[_local9];
-                                    };
+                                    }
                                     break;
                                 case ConditionEffect.GROUND_DAMAGE:
                                     _local7 = true;
                                     break;
-                            };
+                            }
                             if (_local10 != null){
                                 if (_local9 < ConditionEffect.NEW_CON_THREASHOLD){
                                     if ((this.condition_[ConditionEffect.CE_FIRST_BATCH] | _local10.bit_) == this.condition_[ConditionEffect.CE_FIRST_BATCH]) continue;
@@ -843,15 +843,15 @@ package com.company.assembleegameclient.objects{
                                 else {
                                     if ((this.condition_[ConditionEffect.CE_SECOND_BATCH] | _local10.bit_) == this.condition_[ConditionEffect.CE_SECOND_BATCH]) continue;
                                     this.condition_[ConditionEffect.CE_SECOND_BATCH] = (this.condition_[ConditionEffect.CE_SECOND_BATCH] | _local10.bit_);
-                                };
+                                }
                                 _local14 = _local10.localizationKey_;
                                 this.showConditionEffect(_local8, _local14);
                                 _local8 = (_local8 + 500);
-                            };
-                        };
-                    };
-                };
-            };
+                            }
+                        }
+                    }
+                }
+            }
             if (((!(((this.props_.isEnemy_) && (Parameters.data_.disableEnemyParticles)))) && (!(((!(this.props_.isEnemy_)) && (Parameters.data_.disablePlayersHitParticles)))))){
                 _local15 = BloodComposition.getBloodComposition(this.objectType_, this.texture_, this.props_.bloodProb_, this.props_.bloodColor_);
                 if (this.dead_){
@@ -863,16 +863,16 @@ package com.company.assembleegameclient.objects{
                     }
                     else {
                         map_.addObj(new ExplosionEffect(_local15, this.size_, 10), x_, y_);
-                    };
-                };
-            };
+                    }
+                }
+            }
             if (((!(_arg1)) && (((((Parameters.data_.noEnemyDamage) && (this.props_.isEnemy_))) || (((Parameters.data_.noAllyDamage) && (this.props_.isPlayer_))))))){
                 return;
-            };
+            }
             if (_arg2 > 0){
                 _local16 = ((((((this.isArmorBroken()) || (((!((_arg5 == null))) && (_arg5.projProps_.armorPiercing_))))) || (_local7))) || (_arg6));
                 this.showDamageText(_arg2, _local16);
-            };
+            }
         }
 
         public function showConditionEffect(_arg1:int, _arg2:String):void{
@@ -905,7 +905,7 @@ package com.company.assembleegameclient.objects{
                 this.nameBitmapData_ = this.makeNameBitmapData();
                 this.nameFill_ = new GraphicsBitmapFill(null, new Matrix(), false, false);
                 this.namePath_ = new GraphicsPath(GraphicsUtil.QUAD_COMMANDS, new Vector.<Number>());
-            };
+            }
             var _local3:int = ((this.nameBitmapData_.width / 2) + 1);
             var _local4:int = 30;
             var _local5:Vector.<Number> = this.namePath_.data;
@@ -923,7 +923,7 @@ package com.company.assembleegameclient.objects{
         protected function getHallucinatingTexture():BitmapData{
             if (this.hallucinatingTexture_ == null){
                 this.hallucinatingTexture_ = AssetLibrary.getImageFromSet("lofiChar8x8", int((Math.random() * 239)));
-            };
+            }
             return (this.hallucinatingTexture_);
         }
 
@@ -941,14 +941,14 @@ package com.company.assembleegameclient.objects{
                 if (((!((this.condition_[ConditionEffect.CE_FIRST_BATCH] == 0))) && (!(this.isPaused())))){
                     if (_local6.skinId != 32912){
                         _local6.setSkin(32912);
-                    };
+                    }
                 }
                 else {
                     if (!_local6.isDefaultAnimatedChar){
                         _local6.setDefaultSkin();
-                    };
-                };
-            };
+                    }
+                }
+            }
             var _local3:BitmapData = this.texture_;
             var _local4:int = this.size_;
             var _local5:BitmapData;
@@ -958,7 +958,7 @@ package com.company.assembleegameclient.objects{
                 if (_arg2 < (this.attackStart_ + ATTACK_PERIOD)){
                     if (!this.props_.dontFaceAttacks_){
                         this.facing_ = this.attackAngle_;
-                    };
+                    }
                     _local7 = (((_arg2 - this.attackStart_) % ATTACK_PERIOD) / ATTACK_PERIOD);
                     _local8 = AnimatedChar.ATTACK;
                 }
@@ -969,15 +969,15 @@ package com.company.assembleegameclient.objects{
                         if ((((((((this.moveVec_.x > ZERO_LIMIT)) || ((this.moveVec_.x < NEGATIVE_ZERO_LIMIT)))) || ((this.moveVec_.y > ZERO_LIMIT)))) || ((this.moveVec_.y < NEGATIVE_ZERO_LIMIT)))){
                             if (!this.props_.dontFaceMovement_){
                                 this.facing_ = Math.atan2(this.moveVec_.y, this.moveVec_.x);
-                            };
+                            }
                             _local8 = AnimatedChar.WALK;
                         }
                         else {
                             _local8 = AnimatedChar.STAND;
-                        };
+                        }
                         _local7 = ((_arg2 % _local10) / _local10);
-                    };
-                };
+                    }
+                }
                 _local9 = this.animatedChar_.imageFromFacing(this.facing_, _arg1, _local8, _local7);
                 _local3 = _local9.image_;
                 _local5 = _local9.mask_;
@@ -987,30 +987,30 @@ package com.company.assembleegameclient.objects{
                     _local11 = this.animations_.getTexture(_arg2);
                     if (_local11 != null){
                         _local3 = _local11;
-                    };
-                };
-            };
+                    }
+                }
+            }
             if (((this.props_.drawOnGround_) || (!((this.obj3D_ == null))))){
                 return (_local3);
-            };
+            }
             if (_arg1.isHallucinating_){
                 _local12 = (((_local3 == null)) ? 8 : _local3.width);
                 _local3 = this.getHallucinatingTexture();
                 _local5 = null;
                 _local4 = (this.size_ * Math.min(1.5, (_local12 / _local3.width)));
-            };
+            }
             if (!(this is Pet)){
                 if (((this.isStasis()) || (this.isPetrified()))){
                     _local3 = CachingColorTransformer.filterBitmapData(_local3, PAUSED_FILTER);
-                };
-            };
+                }
+            }
             if ((((this.tex1Id_ == 0)) && ((this.tex2Id_ == 0)))){
                 if (((this.isCursed()) && (Parameters.data_.curseIndication))){
                     _local3 = TextureRedrawer.redraw(_local3, _local4, false, 0xFF0000);
                 }
                 else {
                     _local3 = TextureRedrawer.redraw(_local3, _local4, false, 0);
-                };
+                }
             }
             else {
                 _local13 = null;
@@ -1019,14 +1019,14 @@ package com.company.assembleegameclient.objects{
                 }
                 else {
                     _local13 = this.texturingCache_[_local3];
-                };
+                }
                 if (_local13 == null){
                     _local13 = TextureRedrawer.resize(_local3, _local5, _local4, false, this.tex1Id_, this.tex2Id_);
                     _local13 = GlowRedrawer.outlineGlow(_local13, 0);
                     this.texturingCache_[_local3] = _local13;
-                };
+                }
                 _local3 = _local13;
-            };
+            }
             return (_local3);
         }
 
@@ -1043,7 +1043,7 @@ package com.company.assembleegameclient.objects{
                 _local2 = ((4 / _local1.width) * 100);
                 this.portrait_ = TextureRedrawer.resize(_local1, this.mask_, _local2, true, this.tex1Id_, this.tex2Id_);
                 this.portrait_ = GlowRedrawer.outlineGlow(this.portrait_, 0);
-            };
+            }
             return (this.portrait_);
         }
 
@@ -1055,7 +1055,7 @@ package com.company.assembleegameclient.objects{
         override public function draw3d(_arg1:Vector.<Object3DStage3D>):void{
             if (this.object3d_ != null){
                 _arg1.push(this.object3d_);
-            };
+            }
         }
 
         protected function drawHpBar(_arg1:Vector.<IGraphicsData>, _arg2:int=6):void{
@@ -1066,10 +1066,10 @@ package com.company.assembleegameclient.objects{
                 this.hpbarBackPath_ = new GraphicsPath(GraphicsUtil.QUAD_COMMANDS, new Vector.<Number>());
                 this.hpbarFill_ = new GraphicsSolidFill();
                 this.hpbarPath_ = new GraphicsPath(GraphicsUtil.QUAD_COMMANDS, new Vector.<Number>());
-            };
+            }
             if (this.hp_ > this.maxHP_){
                 this.maxHP_ = this.hp_;
-            };
+            }
             this.hpbarBackFill_.color = 0x111111;
             var _local3:int = 20;
             var _local4:int = 5;
@@ -1088,7 +1088,7 @@ package com.company.assembleegameclient.objects{
                 _arg1.push(this.hpbarFill_);
                 _arg1.push(this.hpbarPath_);
                 _arg1.push(GraphicsUtil.END_FILL);
-            };
+            }
             GraphicsFillExtra.setSoftwareDrawSolid(this.hpbarFill_, true);
             GraphicsFillExtra.setSoftwareDrawSolid(this.hpbarBackFill_, true);
         }
@@ -1102,7 +1102,7 @@ package com.company.assembleegameclient.objects{
             if (this.props_.drawOnGround_){
                 if (square_.faces_.length == 0){
                     return;
-                };
+                }
                 this.path_.data = square_.faces_[0].face_.vout_;
                 this.bitmapFill_.bitmapData = _local4;
                 square_.baseTexMatrix_.calculateTextureMatrix(this.path_.data);
@@ -1111,27 +1111,27 @@ package com.company.assembleegameclient.objects{
                 _arg1.push(this.path_);
                 _arg1.push(GraphicsUtil.END_FILL);
                 return;
-            };
+            }
             var _local5:Boolean = ((((((((this.props_) && (((this.props_.isEnemy_) || (this.props_.isPlayer_))))) && (!(this.isInvincible())))) && (((this.props_.isPlayer_) || (!(this.isInvulnerable())))))) && (!(this.props_.noMiniMap_)));
             if (this.obj3D_ != null){
                 if (((((_local5) && (this.bHPBarParamCheck()))) && (this.props_.healthBar_))){
                     this.drawHpBar(_arg1, this.props_.healthBar_);
-                };
+                }
                 if (!Parameters.isGpuRender()){
                     this.obj3D_.draw(_arg1, _arg2, this.props_.color_, _local4);
                     return;
-                };
+                }
                 if (Parameters.isGpuRender()){
                     _arg1.push(null);
                     return;
-                };
-            };
+                }
+            }
             var _local6:int = _local4.width;
             var _local7:int = _local4.height;
             var _local8:int = (square_.sink_ + this.sinkLevel_);
             if ((((_local8 > 0)) && (((this.flying_) || (((!((square_.obj_ == null))) && (square_.obj_.props_.protectFromSink_))))))){
                 _local8 = 0;
-            };
+            }
             if (Parameters.isGpuRender()){
                 if (_local8 != 0){
                     GraphicsFillExtra.setSinkLevel(this.bitmapFill_, Math.max((((_local8 / _local7) * 1.65) - 0.02), 0));
@@ -1140,9 +1140,9 @@ package com.company.assembleegameclient.objects{
                 else {
                     if ((((_local8 == 0)) && (!((GraphicsFillExtra.getSinkLevel(this.bitmapFill_) == 0))))){
                         GraphicsFillExtra.clearSink(this.bitmapFill_);
-                    };
-                };
-            };
+                    }
+                }
+            }
             this.vS_.length = 0;
             this.vS_.push((posS_[3] - (_local6 / 2)), ((posS_[4] - _local7) + _local8), (posS_[3] + (_local6 / 2)), ((posS_[4] - _local7) + _local8), (posS_[3] + (_local6 / 2)), posS_[4], (posS_[3] - (_local6 / 2)), posS_[4]);
             this.path_.data = this.vS_;
@@ -1153,12 +1153,12 @@ package com.company.assembleegameclient.objects{
                     }
                     else {
                         _local4 = this.flash_.apply(_local4, _arg3);
-                    };
+                    }
                 }
                 else {
                     this.flash_ = null;
-                };
-            };
+                }
+            }
             if (this.statusFlash_ != null){
                 if (!this.statusFlash_.doneAt(_arg3)){
                     if (Parameters.isGpuRender()){
@@ -1166,12 +1166,12 @@ package com.company.assembleegameclient.objects{
                     }
                     else {
                         _local4 = this.statusFlash_.apply(_local4, _arg3);
-                    };
+                    }
                 }
                 else {
                     this.statusFlash_ = null;
-                };
-            };
+                }
+            }
             if (((this.isShocked) && (!(this.isShockedTransformSet)))){
                 if (Parameters.isGpuRender()){
                     GraphicsFillExtra.setColorTransform(_local4, new ColorTransform(-1, -1, -1, 1, 0xFF, 0xFF, 0xFF, 0));
@@ -1181,9 +1181,9 @@ package com.company.assembleegameclient.objects{
                     _local9.colorTransform(_local9.rect, new ColorTransform(-1, -1, -1, 1, 0xFF, 0xFF, 0xFF, 0));
                     _local9 = CachingColorTransformer.filterBitmapData(_local9, new ColorMatrixFilter(MoreColorUtil.greyscaleFilterMatrix));
                     _local4 = _local9;
-                };
+                }
                 this.isShockedTransformSet = true;
-            };
+            }
             if (((this.isCharging) && (!(this.isChargingTransformSet)))){
                 if (Parameters.isGpuRender()){
                     GraphicsFillExtra.setColorTransform(_local4, new ColorTransform(1, 1, 1, 1, 0xFF, 0xFF, 0xFF, 0));
@@ -1192,9 +1192,9 @@ package com.company.assembleegameclient.objects{
                     _local9 = _local4.clone();
                     _local9.colorTransform(_local9.rect, new ColorTransform(1, 1, 1, 1, 0xFF, 0xFF, 0xFF, 0));
                     _local4 = _local9;
-                };
+                }
                 this.isChargingTransformSet = true;
-            };
+            }
             this.bitmapFill_.bitmapData = _local4;
             this.fillMatrix_.identity();
             this.fillMatrix_.translate(this.vS_[0], this.vS_[1]);
@@ -1204,10 +1204,10 @@ package com.company.assembleegameclient.objects{
             _arg1.push(GraphicsUtil.END_FILL);
             if (((((((!(this.isPaused())) && (((this.condition_[ConditionEffect.CE_FIRST_BATCH]) || (this.condition_[ConditionEffect.CE_SECOND_BATCH]))))) && (!(Parameters.screenShotMode_)))) && (!((this is Pet))))){
                 this.drawConditionIcons(_arg1, _arg2, _arg3);
-            };
+            }
             if (((((this.props_.showName_) && (!((this.name_ == null))))) && (!((this.name_.length == 0))))){
                 this.drawName(_arg1, _arg2);
-            };
+            }
             if (_local5){
                 _local10 = ((_local4.getPixel32((_local4.width / 4), (_local4.height / 4)) | _local4.getPixel32((_local4.width / 2), (_local4.height / 2))) | _local4.getPixel32(((_local4.width * 3) / 4), ((_local4.height * 3) / 4)));
                 _local11 = (_local10 >> 24);
@@ -1216,12 +1216,12 @@ package com.company.assembleegameclient.objects{
                     _local12 = ((((this.props_.isPlayer_) && (!((this == map_.player_))))) ? 12 : 0);
                     if (((this.bHPBarParamCheck()) && (!((this.props_.healthBar_ == -1))))){
                         this.drawHpBar(_arg1, ((this.props_.healthBar_) ? this.props_.healthBar_ : (_local12 + DEFAULT_HP_BAR_Y_OFFSET)));
-                    };
+                    }
                 }
                 else {
                     hasShadow_ = false;
-                };
-            };
+                }
+            }
         }
 
         private function bHPBarParamCheck():Boolean{
@@ -1239,7 +1239,7 @@ package com.company.assembleegameclient.objects{
                 this.icons_ = new Vector.<BitmapData>();
                 this.iconFills_ = new Vector.<GraphicsBitmapFill>();
                 this.iconPaths_ = new Vector.<GraphicsPath>();
-            };
+            }
             this.icons_.length = 0;
             var _local4:int = (_arg3 / 500);
             ConditionEffect.getConditionEffectIcons(this.condition_[ConditionEffect.CE_FIRST_BATCH], this.icons_, _local4);
@@ -1253,7 +1253,7 @@ package com.company.assembleegameclient.objects{
                 if (_local8 >= this.iconFills_.length){
                     this.iconFills_.push(new GraphicsBitmapFill(null, new Matrix(), false, false));
                     this.iconPaths_.push(new GraphicsPath(GraphicsUtil.QUAD_COMMANDS, new Vector.<Number>()));
-                };
+                }
                 _local10 = this.iconFills_[_local8];
                 _local11 = this.iconPaths_[_local8];
                 _local10.bitmapData = _local9;
@@ -1268,14 +1268,14 @@ package com.company.assembleegameclient.objects{
                 _arg1.push(_local11);
                 _arg1.push(GraphicsUtil.END_FILL);
                 _local8++;
-            };
+            }
         }
 
         override public function drawShadow(_arg1:Vector.<IGraphicsData>, _arg2:Camera, _arg3:int):void{
             if (this.shadowGradientFill_ == null){
                 this.shadowGradientFill_ = new GraphicsGradientFill(GradientType.RADIAL, [this.props_.shadowColor_, this.props_.shadowColor_], [0.5, 0], null, new Matrix());
                 this.shadowPath_ = new GraphicsPath(GraphicsUtil.QUAD_COMMANDS, new Vector.<Number>());
-            };
+            }
             var _local4:Number = (((this.size_ / 100) * (this.props_.shadowSize_ / 100)) * this.sizeMult_);
             var _local5:Number = (30 * _local4);
             var _local6:Number = (15 * _local4);
@@ -1305,11 +1305,11 @@ package com.company.assembleegameclient.objects{
                             _local5 = (_local4 as BitmapData);
                             if (_local5 != null){
                                 _local5.dispose();
-                            };
-                        };
-                    };
-                };
-            };
+                            }
+                        }
+                    }
+                }
+            }
             this.texturingCache_ = new Dictionary();
         }
 

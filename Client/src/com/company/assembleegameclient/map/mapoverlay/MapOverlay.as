@@ -26,7 +26,7 @@ package com.company.assembleegameclient.map.mapoverlay{
         private function onMouseDown(_arg1:MouseEvent):void{
             if (Parameters.isGpuRender()){
                 (parent as Map).mapHitArea.dispatchEvent(_arg1);
-            };
+            }
         }
 
         public function addSpeechBalloon(_arg1:SpeechBalloon):void{
@@ -34,7 +34,7 @@ package com.company.assembleegameclient.map.mapoverlay{
             var _local3:SpeechBalloon = this.speechBalloons[_local2];
             if (((_local3) && (contains(_local3)))){
                 removeChild(_local3);
-            };
+            }
             this.speechBalloons[_local2] = _arg1;
             addChild(_arg1);
         }
@@ -65,8 +65,8 @@ package com.company.assembleegameclient.map.mapoverlay{
                 }
                 else {
                     _local4.dispose();
-                };
-            };
+                }
+            }
         }
 
 

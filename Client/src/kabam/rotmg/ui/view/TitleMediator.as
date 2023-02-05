@@ -105,8 +105,8 @@ import robotlegs.bender.bundles.mvcs.Mediator;
                 _local3 = new XML(_arg2);
                 if (((_local3.hasOwnProperty("mp")) && (_local3.hasOwnProperty("sg")))){
                     this.toSupportPage(_local3.mp, _local3.sg);
-                };
-            };
+                }
+            }
         }
 
         private function toSupportPage(_arg1:String, _arg2:String):void{
@@ -117,7 +117,7 @@ import robotlegs.bender.bundles.mvcs.Mediator;
             _local3.sg = _arg2;
             if (((DynamicSettings.settingExists("SalesforceMobile")) && ((DynamicSettings.getSettingValue("SalesforceMobile") == 1)))){
                 _local5 = true;
-            };
+            }
             var _local6:String = this.playerModel.getSalesForceData();
             if ((((_local6 == "unavailable")) || (!(_local5)))){
                 _local4.url = "https://decagames.desk.com/customer/authentication/multipass/callback";
@@ -133,7 +133,7 @@ import robotlegs.bender.bundles.mvcs.Mediator;
                     }
                     else {
                         ExternalInterface.call("reopenSalesForce");
-                    };
+                    }
                 }
                 else {
                     _local3.data = _local6;
@@ -141,8 +141,8 @@ import robotlegs.bender.bundles.mvcs.Mediator;
                     _local4.method = URLRequestMethod.GET;
                     _local4.data = _local3;
                     navigateToURL(_local4, "_blank");
-                };
-            };
+                }
+            }
         }
 
         private function onOptionalButtonsAdded():void{
@@ -175,7 +175,7 @@ import robotlegs.bender.bundles.mvcs.Mediator;
             }
             else {
                 this.openAccountInfo.dispatch(false);
-            };
+            }
         }
 
         private function handleIntentionToReviewAccount():void{

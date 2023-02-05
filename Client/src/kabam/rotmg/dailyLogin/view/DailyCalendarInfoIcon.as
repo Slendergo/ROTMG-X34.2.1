@@ -33,13 +33,13 @@ package kabam.rotmg.dailyLogin.view{
             addChild(_local4);
             if (_arg1 != ""){
                 this.setToolTipTitle(_arg1, _arg2, _arg3);
-            };
+            }
         }
 
         public function destroy():void{
             while (numChildren > 0) {
                 this.removeChildAt((numChildren - 1));
-            };
+            }
             this.toolTip_ = null;
             this.hoverTooltipDelegate.removeDisplayObject();
             this.hoverTooltipDelegate = null;

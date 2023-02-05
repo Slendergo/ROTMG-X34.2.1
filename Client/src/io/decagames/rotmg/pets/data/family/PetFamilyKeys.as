@@ -20,7 +20,7 @@ package io.decagames.rotmg.pets.data.family{
             Aquatic:"Pets.aquatic",
             Spooky:"Pets.spooky",
             Automaton:"Pets.automaton"
-        };
+        }
 
 
         public static function getTranslationKey(_arg1:String):String{

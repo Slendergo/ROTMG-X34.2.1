@@ -38,7 +38,7 @@ package io.decagames.rotmg.supportCampaign.tab.tiers.progressBar{
             if (!this.buttonAreReady){
                 this.renderProgressBar();
                 this.renderButtons();
-            };
+            }
             this.updateProgressBar();
             this.updateButtons();
         }
@@ -46,10 +46,10 @@ package io.decagames.rotmg.supportCampaign.tab.tiers.progressBar{
         private function getStatusByTier(_arg1:int):int{
             if (this._claimed >= _arg1){
                 return (TierButtonStatus.CLAIMED);
-            };
+            }
             if (this._currentRank >= _arg1){
                 return (TierButtonStatus.UNLOCKED);
-            };
+            }
             return (TierButtonStatus.LOCKED);
         }
 
@@ -64,21 +64,21 @@ package io.decagames.rotmg.supportCampaign.tab.tiers.progressBar{
                 }
                 else {
                     _local2.selected = false;
-                };
-            };
+                }
+            }
             if (!_local1){
                 if (this._currentRank != 0){
                     for each (_local2 in this._buttons) {
                         if (this._currentRank == _local2.tier){
                             _local1 = true;
                             _local2.selected = true;
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             if (!_local1){
                 this._buttons[0].selected = true;
-            };
+            }
         }
 
         private function updateProgressBar():void{
@@ -89,8 +89,8 @@ package io.decagames.rotmg.supportCampaign.tab.tiers.progressBar{
                 }
                 else {
                     this._progressBar.value = _local1;
-                };
-            };
+                }
+            }
         }
 
         private function renderProgressBar():void{
@@ -116,7 +116,7 @@ package io.decagames.rotmg.supportCampaign.tab.tiers.progressBar{
                 _local7 = new TierButton(_local1, this.getStatusByTier(_local1));
                 this._buttons.push(_local7);
                 _local1++;
-            };
+            }
             _local3 = this._buttons.length;
             _local4 = (this._componentWidth / _local3);
             _local5 = 1;
@@ -127,7 +127,7 @@ package io.decagames.rotmg.supportCampaign.tab.tiers.progressBar{
                 addChild(_local8);
                 _local5++;
                 _local6--;
-            };
+            }
             this.buttonAreReady = true;
         }
 

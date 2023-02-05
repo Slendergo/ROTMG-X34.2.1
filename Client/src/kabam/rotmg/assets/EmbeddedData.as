@@ -164,9 +164,9 @@ public class EmbeddedData {
                 _local6 = XML(_arg1[_local5]);
                 for each (_local7 in _local6[_arg3]) {
                     _local4 = _local4.appendChild(_local7);
-                };
+                }
                 _local5++;
-            };
+            }
             return (_local4);
         }
 

@@ -78,7 +78,7 @@ package io.decagames.rotmg.pets.windows.yard.list{
                 this.hoverTooltipDelegate.setHideToolTipsSignal(this.hideTooltipSignal);
                 this.hoverTooltipDelegate.setDisplayObject(this.view.upgradeButton);
                 this.hoverTooltipDelegate.tooltip = this.toolTip;
-            };
+            }
             this.release.add(this.onRelease);
         }
 
@@ -88,7 +88,7 @@ package io.decagames.rotmg.pets.windows.yard.list{
             this.evolvePetSignal.remove(this.evolvePetHandler);
             if (this.view.upgradeButton){
                 this.view.upgradeButton.clickSignal.add(this.upgradeYard);
-            };
+            }
             this.release.remove(this.onRelease);
         }
 
@@ -114,7 +114,7 @@ package io.decagames.rotmg.pets.windows.yard.list{
             var _local1:PetItem;
             for each (_local1 in this.petsList) {
                 _local1.removeEventListener(MouseEvent.CLICK, this.onPetSelected);
-            };
+            }
             this.petsList = new Vector.<PetItem>();
         }
 
@@ -131,23 +131,23 @@ package io.decagames.rotmg.pets.windows.yard.list{
                 _local3.addEventListener(MouseEvent.CLICK, this.onPetSelected);
                 this.petsList.push(_local3);
                 this.view.addPet(_local3);
-            };
+            }
         }
 
         private function sortByPower(_arg1:PetVO, _arg2:PetVO):int{
             if (_arg1.totalAbilitiesLevel() < _arg2.totalAbilitiesLevel()){
                 return (1);
-            };
+            }
             return (-1);
         }
 
         private function sortByFamily(_arg1:PetVO, _arg2:PetVO):int{
             if (_arg1.family == _arg2.family){
                 return (this.sortByPower(_arg1, _arg2));
-            };
+            }
             if (_arg1.family > _arg2.family){
                 return (1);
-            };
+            }
             return (-1);
         }
 

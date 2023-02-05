@@ -28,7 +28,7 @@ package com.company.assembleegameclient.ui.panels.itemgrids{
                 addToGrid(_local6, 2, _local5);
                 this._tiles[_local5] = _local6;
                 _local5++;
-            };
+            }
         }
 
         public function getItemById(_arg1:int):InventoryTile{
@@ -36,8 +36,8 @@ package com.company.assembleegameclient.ui.panels.itemgrids{
             for each (_local2 in this._tiles) {
                 if (_local2.getItemId() == _arg1){
                     return (_local2);
-                };
-            };
+                }
+            }
             return (null);
         }
 
@@ -53,19 +53,19 @@ package com.company.assembleegameclient.ui.panels.itemgrids{
                     if ((_local5 + indexOffset) < _local4){
                         if (this._tiles[_local5].setItem(_arg1[(_local5 + indexOffset)])){
                             _local3 = true;
-                        };
+                        }
                     }
                     else {
                         if (this._tiles[_local5].setItem(-1)){
                             _local3 = true;
-                        };
-                    };
+                        }
+                    }
                     _local5++;
-                };
+                }
                 if (_local3){
                     refreshTooltip();
-                };
-            };
+                }
+            }
         }
 
         public function get tiles():Vector.<InventoryTile>{
@@ -76,7 +76,7 @@ package com.company.assembleegameclient.ui.panels.itemgrids{
             var _local2:ItemTile;
             for each (_local2 in this._tiles) {
                 _local2.toggleTierTag(_arg1);
-            };
+            }
         }
 
 

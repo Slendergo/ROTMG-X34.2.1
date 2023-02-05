@@ -51,7 +51,7 @@ package com.hurlant.crypto{
                     _local5 = getCipher(_arg1, _arg2, _arg3);
                     if ((_local5 is IVMode)){
                         return (new SimpleIVMode((_local5 as IVMode)));
-                    };
+                    }
                     return (_local5);
                 case "aes":
                 case "aes128":
@@ -60,7 +60,7 @@ package com.hurlant.crypto{
                     _local4.shift();
                     if ((_arg2.length * 8) == _local4[0]){
                         _local4.shift();
-                    };
+                    }
                     return (getMode(_local4[0], new AESKey(_arg2), _arg3));
                 case "bf":
                 case "blowfish":
@@ -70,10 +70,10 @@ package com.hurlant.crypto{
                     _local4.shift();
                     if (((!((_local4[0] == "ede"))) && (!((_local4[0] == "ede3"))))){
                         return (getMode(_local4[0], new DESKey(_arg2), _arg3));
-                    };
+                    }
                     if (_local4.length == 1){
                         _local4.push("ecb");
-                    };
+                    }
                 case "3des":
                 case "des3":
                     _local4.shift();
@@ -84,7 +84,7 @@ package com.hurlant.crypto{
                 case "rc4":
                     _local4.shift();
                     return (new ARC4(_arg2));
-            };
+            }
             return (null);
         }
 
@@ -115,7 +115,7 @@ package com.hurlant.crypto{
                             return (24);
                         default:
                             return (8);
-                    };
+                    }
                 case "3des":
                 case "des3":
                     return (24);
@@ -124,9 +124,9 @@ package com.hurlant.crypto{
                 case "rc4":
                     if (parseInt(_local2[1]) > 0){
                         return ((parseInt(_local2[1]) / 8));
-                    };
+                    }
                     return (16);
-            };
+            }
             return (0);
         }
 
@@ -145,7 +145,7 @@ package com.hurlant.crypto{
                 case "cbc":
                 default:
                     return (new CBCMode(_arg2, _arg3));
-            };
+            }
         }
 
         public static function getHash(_arg1:String):IHash{
@@ -161,7 +161,7 @@ package com.hurlant.crypto{
                     return (new SHA224());
                 case "sha256":
                     return (new SHA256());
-            };
+            }
             return (null);
         }
 
@@ -169,11 +169,11 @@ package com.hurlant.crypto{
             var _local2:Array = _arg1.split("-");
             if (_local2[0] == "hmac"){
                 _local2.shift();
-            };
+            }
             var _local3:uint;
             if (_local2.length > 1){
                 _local3 = parseInt(_local2[1]);
-            };
+            }
             return (new HMAC(getHash(_local2[0]), _local3));
         }
 
@@ -181,11 +181,11 @@ package com.hurlant.crypto{
             var _local2:Array = _arg1.split("-");
             if (_local2[0] == "mac"){
                 _local2.shift();
-            };
+            }
             var _local3:uint;
             if (_local2.length > 1){
                 _local3 = parseInt(_local2[1]);
-            };
+            }
             return (new MAC(getHash(_local2[0]), _local3));
         }
 
@@ -196,7 +196,7 @@ package com.hurlant.crypto{
                 case "pkcs5":
                 default:
                     return (new PKCS5());
-            };
+            }
         }
 
         public static function getRSA(_arg1:String, _arg2:String):RSAKey{

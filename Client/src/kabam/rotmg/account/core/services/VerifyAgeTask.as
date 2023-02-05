@@ -25,7 +25,7 @@ package kabam.rotmg.account.core.services{
             }
             else {
                 this.verifyUserAge();
-            };
+            }
         }
 
         private function sendVerifyToServer():void{

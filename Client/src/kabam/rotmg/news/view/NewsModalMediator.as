@@ -30,7 +30,7 @@ package kabam.rotmg.news.view{
             this.getNews.start();
             if (firstRun){
                 firstRun = false;
-            };
+            }
         }
 
         override public function destroy():void{

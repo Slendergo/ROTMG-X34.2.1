@@ -71,7 +71,7 @@ package kabam.rotmg.dialogs.view{
             if (this.current == _local2){
                 this.background.visible = false;
                 this.current = null;
-            };
+            }
         }
 
         private function removeCurrentDialog():void{
@@ -79,7 +79,7 @@ package kabam.rotmg.dialogs.view{
                 this.current.removeEventListener(Event.REMOVED, this.onRemoved);
                 this.container.removeChild(this.current);
                 this.background.visible = false;
-            };
+            }
         }
 
 

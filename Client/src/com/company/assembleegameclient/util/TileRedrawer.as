@@ -55,7 +55,7 @@ package com.company.assembleegameclient.util{
             var _local5:BitmapData;
             if (Parameters.blendType_ == 0){
                 return (null);
-            };
+            }
             if (_arg1.tileType_ == 253){
                 _local3 = getCompositeSig(_arg1);
             }
@@ -65,25 +65,25 @@ package com.company.assembleegameclient.util{
                 }
                 else {
                     _local3 = getSig(_arg1);
-                };
-            };
+                }
+            }
             if (_local3 == null){
                 return (null);
-            };
+            }
             var _local4:Object = cache_[Parameters.blendType_];
             if (_local4.hasOwnProperty(_local3)){
                 return (_local4[_local3]);
-            };
+            }
             if (_arg1.tileType_ == 253){
                 _local5 = buildComposite(_local3);
                 _local4[_local3] = _local5;
                 return (_local5);
-            };
+            }
             if (_arg1.props_.hasEdge_){
                 _local5 = drawEdges(_local3);
                 _local4[_local3] = _local5;
                 return (_local5);
-            };
+            }
             var _local6:Boolean;
             var _local7:Boolean;
             var _local8:Boolean;
@@ -91,54 +91,54 @@ package com.company.assembleegameclient.util{
             if (_local3[1] != _local3[4]){
                 _local6 = true;
                 _local7 = true;
-            };
+            }
             if (_local3[3] != _local3[4]){
                 _local6 = true;
                 _local8 = true;
-            };
+            }
             if (_local3[5] != _local3[4]){
                 _local7 = true;
                 _local9 = true;
-            };
+            }
             if (_local3[7] != _local3[4]){
                 _local8 = true;
                 _local9 = true;
-            };
+            }
             if (((!(_local6)) && (!((_local3[0] == _local3[4]))))){
                 _local6 = true;
-            };
+            }
             if (((!(_local7)) && (!((_local3[2] == _local3[4]))))){
                 _local7 = true;
-            };
+            }
             if (((!(_local8)) && (!((_local3[6] == _local3[4]))))){
                 _local8 = true;
-            };
+            }
             if (((!(_local9)) && (!((_local3[8] == _local3[4]))))){
                 _local9 = true;
-            };
+            }
             if (((((((!(_local6)) && (!(_local7)))) && (!(_local8)))) && (!(_local9)))){
                 _local4[_local3] = null;
                 return (null);
-            };
+            }
             var _local10:BitmapData = GroundLibrary.getBitmapData(_arg1.tileType_);
             if (_arg2){
                 _local5 = _local10.clone();
             }
             else {
                 _local5 = new BitmapDataSpy(_local10.width, _local10.height, true, 0);
-            };
+            }
             if (_local6){
                 redrawRect(_local5, rect0, p0, mlist_[0], _local3[4], _local3[3], _local3[0], _local3[1]);
-            };
+            }
             if (_local7){
                 redrawRect(_local5, rect1, p1, mlist_[1], _local3[4], _local3[1], _local3[2], _local3[5]);
-            };
+            }
             if (_local8){
                 redrawRect(_local5, rect2, p2, mlist_[2], _local3[4], _local3[7], _local3[6], _local3[3]);
-            };
+            }
             if (_local9){
                 redrawRect(_local5, rect3, p3, mlist_[3], _local3[4], _local3[5], _local3[8], _local3[7]);
-            };
+            }
             _local4[_local3] = _local5;
             return (_local5);
         }
@@ -156,7 +156,7 @@ package com.company.assembleegameclient.util{
                         _arg1.copyPixels(GroundLibrary.getBitmapData(_arg6), _arg2, _arg3, _arg4[INNERP1].random(), p0, true);
                         _arg1.copyPixels(GroundLibrary.getBitmapData(_arg8), _arg2, _arg3, _arg4[INNERP2].random(), p0, true);
                         return;
-                    };
+                    }
                     _local10 = _arg4[INNER].random();
                     _local9 = GroundLibrary.getBitmapData(_arg6);
                 }
@@ -168,9 +168,9 @@ package com.company.assembleegameclient.util{
                     else {
                         _local10 = _arg4[SIDE1].random();
                         _local9 = GroundLibrary.getBitmapData(_arg8);
-                    };
-                };
-            };
+                    }
+                }
+            }
             _arg1.copyPixels(_local9, _arg2, _arg3, _local10, p0, true);
         }
 
@@ -194,12 +194,12 @@ package com.company.assembleegameclient.util{
                         }
                         else {
                             _local2.push(_local7.tileType_);
-                        };
-                    };
+                        }
+                    }
                     _local6++;
-                };
+                }
                 _local5++;
-            };
+            }
             return (_local2);
         }
 
@@ -213,7 +213,7 @@ package com.company.assembleegameclient.util{
             var _local7:int;
             for each (_local7 in [-1, 0, 2, 1]) {
                 _arg1.push(new <ImageSet>[rotateImageSet(_arg2, _local7), rotateImageSet(_arg3, (_local7 - 1)), rotateImageSet(_arg3, _local7), rotateImageSet(_arg4, _local7), rotateImageSet(_arg5, _local7), rotateImageSet(_arg6, _local7)]);
-            };
+            }
         }
 
         private static function rotateImageSet(_arg1:ImageSet, _arg2:int):ImageSet{
@@ -221,7 +221,7 @@ package com.company.assembleegameclient.util{
             var _local3:ImageSet = new ImageSet();
             for each (_local4 in _arg1.images_) {
                 _local3.add(BitmapUtil.rotateBitmapData(_local4, _arg2));
-            };
+            }
             return (_local3);
         }
 
@@ -253,8 +253,8 @@ package com.company.assembleegameclient.util{
                 }
                 else {
                     _local2[0] = _local6.tileType_;
-                };
-            };
+                }
+            }
             if ((((_local10 < 0)) && ((_local12 < 0)))){
                 _local15 = _local3.lookupSquare((_local4 + 1), (_local5 - 1));
                 _local2[1] = (((((_local15 == null)) || ((_local15.props_.compositePriority_ < 0)))) ? 0xFF : _local15.tileType_);
@@ -265,8 +265,8 @@ package com.company.assembleegameclient.util{
                 }
                 else {
                     _local2[1] = _local6.tileType_;
-                };
-            };
+                }
+            }
             if ((((_local11 < 0)) && ((_local13 < 0)))){
                 _local16 = _local3.lookupSquare((_local4 - 1), (_local5 + 1));
                 _local2[2] = (((((_local16 == null)) || ((_local16.props_.compositePriority_ < 0)))) ? 0xFF : _local16.tileType_);
@@ -277,8 +277,8 @@ package com.company.assembleegameclient.util{
                 }
                 else {
                     _local2[2] = _local7.tileType_;
-                };
-            };
+                }
+            }
             if ((((_local12 < 0)) && ((_local13 < 0)))){
                 _local17 = _local3.lookupSquare((_local4 + 1), (_local5 + 1));
                 _local2[3] = (((((_local17 == null)) || ((_local17.props_.compositePriority_ < 0)))) ? 0xFF : _local17.tileType_);
@@ -289,8 +289,8 @@ package com.company.assembleegameclient.util{
                 }
                 else {
                     _local2[3] = _local8.tileType_;
-                };
-            };
+                }
+            }
             return (_local2);
         }
 
@@ -300,19 +300,19 @@ package com.company.assembleegameclient.util{
             if (_arg1[0] != 0xFF){
                 _local3 = GroundLibrary.getBitmapData(_arg1[0]);
                 _local2.copyPixels(_local3, RECT0, POINT0);
-            };
+            }
             if (_arg1[1] != 0xFF){
                 _local3 = GroundLibrary.getBitmapData(_arg1[1]);
                 _local2.copyPixels(_local3, RECT1, POINT1);
-            };
+            }
             if (_arg1[2] != 0xFF){
                 _local3 = GroundLibrary.getBitmapData(_arg1[2]);
                 _local2.copyPixels(_local3, RECT2, POINT2);
-            };
+            }
             if (_arg1[3] != 0xFF){
                 _local3 = GroundLibrary.getBitmapData(_arg1[3]);
                 _local2.copyPixels(_local3, RECT3, POINT3);
-            };
+            }
             return (_local2);
         }
 
@@ -338,14 +338,14 @@ package com.company.assembleegameclient.util{
                         }
                         else {
                             _local9 = (((_local8 == null)) || (!((_local8.tileType_ == 0xFF))));
-                        };
+                        }
                         _local2.push(_local9);
                         _local4 = ((_local4) || (!(_local9)));
-                    };
+                    }
                     _local7++;
-                };
+                }
                 _local6++;
-            };
+            }
             return (((_local4) ? _local2 : null));
         }
 
@@ -359,37 +359,37 @@ package com.company.assembleegameclient.util{
             while (_local7 < 8) {
                 if (!_arg1[_local7]){
                     _local3.copyPixels(_local5[_local7], _local5[_local7].rect, PointUtil.ORIGIN, null, null, true);
-                };
+                }
                 _local7 = (_local7 + 2);
-            };
+            }
             if (_local5[0] != null){
                 if (((((_arg1[3]) && (_arg1[1]))) && (!(_arg1[0])))){
                     _local3.copyPixels(_local5[0], _local5[0].rect, PointUtil.ORIGIN, null, null, true);
-                };
+                }
                 if (((((_arg1[1]) && (_arg1[5]))) && (!(_arg1[2])))){
                     _local3.copyPixels(_local5[2], _local5[2].rect, PointUtil.ORIGIN, null, null, true);
-                };
+                }
                 if (((((_arg1[5]) && (_arg1[7]))) && (!(_arg1[8])))){
                     _local3.copyPixels(_local5[8], _local5[8].rect, PointUtil.ORIGIN, null, null, true);
-                };
+                }
                 if (((((_arg1[3]) && (_arg1[7]))) && (!(_arg1[6])))){
                     _local3.copyPixels(_local5[6], _local5[6].rect, PointUtil.ORIGIN, null, null, true);
-                };
-            };
+                }
+            }
             if (_local6 != null){
                 if (((!(_arg1[3])) && (!(_arg1[1])))){
                     _local3.copyPixels(_local6[0], _local6[0].rect, PointUtil.ORIGIN, null, null, true);
-                };
+                }
                 if (((!(_arg1[1])) && (!(_arg1[5])))){
                     _local3.copyPixels(_local6[2], _local6[2].rect, PointUtil.ORIGIN, null, null, true);
-                };
+                }
                 if (((!(_arg1[5])) && (!(_arg1[7])))){
                     _local3.copyPixels(_local6[8], _local6[8].rect, PointUtil.ORIGIN, null, null, true);
-                };
+                }
                 if (((!(_arg1[3])) && (!(_arg1[7])))){
                     _local3.copyPixels(_local6[6], _local6[6].rect, PointUtil.ORIGIN, null, null, true);
-                };
-            };
+                }
+            }
             return (_local3);
         }
 

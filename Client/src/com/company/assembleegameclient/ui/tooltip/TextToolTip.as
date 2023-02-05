@@ -20,11 +20,11 @@ package com.company.assembleegameclient.ui.tooltip{
             if (_arg3 != null){
                 this.titleText_ = new TextFieldDisplayConcrete().setSize(18).setColor(0xFFFFFF);
                 this.configureTextFieldDisplayAndAddChild(this.titleText_, _arg5, _arg3);
-            };
+            }
             if (_arg4 != null){
                 this.tipText_ = new TextFieldDisplayConcrete().setSize(14).setColor(0xB3B3B3);
                 this.configureTextFieldDisplayAndAddChild(this.tipText_, _arg5, _arg4, _arg6);
-            };
+            }
         }
 
         override protected function alignUI():void{

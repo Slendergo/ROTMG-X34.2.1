@@ -41,11 +41,11 @@ package io.decagames.rotmg.pets.popup.info{
                         else {
                             if (this.view.titel == "Wardrobe"){
                                 _local1 = new WardrobeTooltip();
-                            };
-                        };
-                    };
-                };
-            };
+                            }
+                        }
+                    }
+                }
+            }
             this.hoverTooltipDelegate = new HoverTooltipDelegate();
             this.hoverTooltipDelegate.setShowToolTipSignal(this.showTooltipSignal);
             this.hoverTooltipDelegate.setHideToolTipsSignal(this.hideTooltipSignal);

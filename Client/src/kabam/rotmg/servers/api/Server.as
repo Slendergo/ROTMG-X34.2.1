@@ -47,10 +47,10 @@ package kabam.rotmg.servers.api{
         public function priority():int{
             if (this.isAdminOnly){
                 return (2);
-            };
+            }
             if (this.isCrowded()){
                 return (1);
-            };
+            }
             return (0);
         }
 

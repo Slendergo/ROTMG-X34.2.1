@@ -19,7 +19,7 @@ package kabam.rotmg.chat.model{
             var _local2:int = this.pastRecipients.indexOf(_arg1);
             if (_local2 != -1){
                 this.pastRecipients.splice(_local2, 1);
-            };
+            }
             this.pastRecipients.unshift(_arg1);
         }
 
@@ -27,7 +27,7 @@ package kabam.rotmg.chat.model{
             if (this.pastRecipients.length > 0){
                 this.index = ((this.index + 1) % this.pastRecipients.length);
                 return (this.pastRecipients[this.index]);
-            };
+            }
             return ("");
         }
 

@@ -31,7 +31,7 @@ package com.company.assembleegameclient.objects.particles{
             }
             else {
                 this.bitmapData = TextureRedrawer.redrawSolidSquare(this.effectProps.color, this.effectProps.size);
-            };
+            }
         }
 
         public static function attachParticleGenerator(_arg1:EffectProperties, _arg2:GameObject):ParticleGenerator{
@@ -47,7 +47,7 @@ package com.company.assembleegameclient.objects.particles{
             _local4 = (_arg2 / 1000);
             if (this.targetGO.map_ == null){
                 return false;
-            };
+            }
             x_ = this.targetGO.x_;
             y_ = this.targetGO.y_;
             z_ = (this.targetGO.z_ + this.effectProps.zOffset);
@@ -61,12 +61,12 @@ package com.company.assembleegameclient.objects.particles{
                 }
                 else {
                     _local9 = new BaseParticle(this.bitmapData);
-                };
+                }
                 _local9.initialize((this.effectProps.life + (this.effectProps.lifeVariance * ((2 * Math.random()) - 1))), (this.effectProps.speed + (this.effectProps.speedVariance * ((2 * Math.random()) - 1))), (this.effectProps.speed + (this.effectProps.speedVariance * ((2 * Math.random()) - 1))), (this.effectProps.rise + (this.effectProps.riseVariance * ((2 * Math.random()) - 1))), z_);
                 map_.addObj(_local9, (x_ + (this.effectProps.rangeX * ((2 * Math.random()) - 1))), (y_ + (this.effectProps.rangeY * ((2 * Math.random()) - 1))));
                 this.liveParticles.push(_local9);
                 _local7++;
-            };
+            }
             this.generatedParticles = (this.generatedParticles + _local6);
             var _local8:int;
             while (_local8 < this.liveParticles.length) {
@@ -83,9 +83,9 @@ package com.company.assembleegameclient.objects.particles{
                     _local10.x_ = (_local10.x_ + (_local10.spdX * _local4));
                     _local10.y_ = (_local10.y_ + (_local10.spdY * _local4));
                     _local10.z_ = (_local10.z_ + (_local10.spdZ * _local4));
-                };
+                }
                 _local8++;
-            };
+            }
             return true;
         }
 
@@ -93,7 +93,7 @@ package com.company.assembleegameclient.objects.particles{
             var _local1:BaseParticle;
             for each (_local1 in this.liveParticles) {
                 map_.removeObj(_local1.objectId_);
-            };
+            }
             this.liveParticles = null;
             this.particlePool = null;
             super.removeFromMap();

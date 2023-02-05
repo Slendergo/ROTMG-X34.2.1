@@ -72,7 +72,7 @@ package kabam.rotmg.fame.service{
             }
             else {
                 this.onFameError(_arg2);
-            };
+            }
         }
 
         private function parseFameData(_arg1:String):void{
@@ -118,7 +118,7 @@ package kabam.rotmg.fame.service{
             else {
                 this.errorRetry = false;
                 this.openDialog.dispatch(new ErrorDialog(_arg1));
-            };
+            }
         }
 
 

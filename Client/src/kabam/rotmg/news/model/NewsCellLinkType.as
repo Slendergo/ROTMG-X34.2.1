@@ -13,7 +13,7 @@ package kabam.rotmg.news.model{
             1:OPENS_LINK,
             2:OPENS_PACKAGE,
             3:OPENS_SKIN
-        };
+        }
 
         private var index:int;
 

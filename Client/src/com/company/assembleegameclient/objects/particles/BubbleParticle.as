@@ -36,7 +36,7 @@ package com.company.assembleegameclient.objects.particles{
             var _local8:BubbleParticle = (FreeList.getObject(_arg1) as BubbleParticle);
             if (!_local8){
                 _local8 = new BubbleParticle(_arg2, _arg3, _arg4, _arg5, _arg6, _arg7);
-            };
+            }
             return (_local8);
         }
 
@@ -48,7 +48,7 @@ package com.company.assembleegameclient.objects.particles{
             if (this.spread > 0){
                 this.frequencyX = ((Math.random() * this.spread) - 0.1);
                 this.frequencyY = ((Math.random() * this.spread) - 0.1);
-            };
+            }
             var _local4:Number = ((_arg2 - _arg1) / 1000);
             this.timeLeft = (this.life - (this.life * (_local3 * (1 - this.lifeVariance))));
             z_ = (this.speed * _local4);
@@ -63,11 +63,11 @@ package com.company.assembleegameclient.objects.particles{
             this.timeLeft = (this.timeLeft - _arg2);
             if (this.timeLeft <= 0){
                 return false;
-            };
+            }
             z_ = (this.speed * _local3);
             if (this.spread > 0){
                 moveTo((x_ + ((this.frequencyX * _arg2) * this.SPREAD_DAMPER)), (y_ + ((this.frequencyY * _arg2) * this.SPREAD_DAMPER)));
-            };
+            }
             return true;
         }
 

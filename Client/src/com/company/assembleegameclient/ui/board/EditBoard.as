@@ -120,14 +120,14 @@ package com.company.assembleegameclient.ui.board{
         private function onTextChange(_arg1:Event):void{
             if (this.scrollBar_ == null){
                 return;
-            };
+            }
             this.scrollBar_.setIndicatorSize(TEXT_HEIGHT, this.boardText_.textHeight, false);
             if (this.boardText_.maxScrollV == 1){
                 this.scrollBar_.setPos(0);
             }
             else {
                 this.scrollBar_.setPos(((this.boardText_.scrollV - 1) / (this.boardText_.maxScrollV - 1)));
-            };
+            }
         }
 
 

@@ -74,13 +74,13 @@ package kabam.rotmg.friends.view{
                 this._portrait.bitmapData = _arg1.getPortrait();
                 this._nameText.setStringBuilder(new StaticStringBuilder(this._senderName));
                 this._nameText.x = (this._portrait.width + 12);
-            };
+            }
         }
 
         override public function destroy():void{
             while (numChildren > 0) {
                 this.removeChildAt((numChildren - 1));
-            };
+            }
             this._portrait = null;
             this._nameText = null;
             this._acceptButton.removeEventListener(MouseEvent.CLICK, this.onAcceptClicked);

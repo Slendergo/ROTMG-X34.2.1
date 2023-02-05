@@ -39,14 +39,14 @@ package kabam.rotmg.messaging.impl{
             if (this.lastRecord_ == -1){
                 this.lastRecord_ = _local1;
                 return;
-            };
+            }
             var _local2:int = (_local1 - this.lastRecord_);
             this.ticks_.push(_local2);
             this.sum_ = (this.sum_ + _local2);
             if (this.ticks_.length > 50){
                 _local3 = this.ticks_.shift();
                 this.sum_ = (this.sum_ - _local3);
-            };
+            }
             this.lastRecord_ = _local1;
         }
 
@@ -67,12 +67,12 @@ package kabam.rotmg.messaging.impl{
             var _local1:int = this.ticks_.length;
             if (_local1 == 0){
                 return (0);
-            };
+            }
             var _local2:Number = (this.sum_ / _local1);
             var _local3:Number = 0;
             for each (_local4 in this.ticks_) {
                 _local3 = (_local3 + ((_local4 - _local2) * (_local4 - _local2)));
-            };
+            }
             return (Math.sqrt((_local3 / _local1)));
         }
 

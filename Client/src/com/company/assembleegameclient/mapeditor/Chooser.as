@@ -64,8 +64,8 @@ package com.company.assembleegameclient.mapeditor{
                 if (_local2.type_ == _arg1){
                     this.setSelected(_local2);
                     return;
-                };
-            };
+                }
+            }
         }
 
         protected function addElement(_arg1:Element):void{
@@ -75,7 +75,7 @@ package com.company.assembleegameclient.mapeditor{
             this.elementContainer_.addChild(_arg1);
             if (_local2 == 0){
                 this.setSelected(_arg1);
-            };
+            }
             _arg1.addEventListener(MouseEvent.MOUSE_DOWN, this.onMouseDown);
             this.elements_.push(_arg1);
         }
@@ -87,7 +87,7 @@ package com.company.assembleegameclient.mapeditor{
             }
             else {
                 this.cleanupElements();
-            };
+            }
             this._hasBeenLoaded = false;
         }
 
@@ -98,13 +98,13 @@ package com.company.assembleegameclient.mapeditor{
                 _local2 = this.elements_.pop();
                 _local2.removeEventListener(MouseEvent.MOUSE_DOWN, this.onMouseDown);
                 _local1--;
-            };
+            }
         }
 
         protected function setSelected(_arg1:Element):void{
             if (this.selected_ != null){
                 this.selected_.setSelected(false);
-            };
+            }
             this.selected_ = _arg1;
             this.selected_.setSelected(true);
         }
@@ -135,7 +135,7 @@ package com.company.assembleegameclient.mapeditor{
                 _local3 = PNGEncoder.encode(_arg1.objectBitmap);
                 _local4 = new FileReference();
                 _local4.save(_local3, (_arg1.type_ + ".png"));
-            };
+            }
         }
 
         private function drawBackground():void{
@@ -151,7 +151,7 @@ package com.company.assembleegameclient.mapeditor{
             }
             else {
                 this.setSelected(_local2);
-            };
+            }
         }
 
         protected function onScrollBarChange(_arg1:Event):void{

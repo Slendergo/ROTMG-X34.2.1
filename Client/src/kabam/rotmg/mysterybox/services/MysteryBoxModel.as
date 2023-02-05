@@ -27,8 +27,8 @@ package kabam.rotmg.mysterybox.services{
             for each (_local2 in this.models) {
                 if (((!((_local2.slot == 0))) && (this.isBoxValid(_local2)))){
                     _local1[(_local2.slot - 1)] = _local2;
-                };
-            };
+                }
+            }
             return (_local1);
         }
 
@@ -41,8 +41,8 @@ package kabam.rotmg.mysterybox.services{
             for each (_local2 in this.models) {
                 if (_local2.id == _arg1){
                     return (_local2);
-                };
-            };
+                }
+            }
             return (null);
         }
 
@@ -51,7 +51,7 @@ package kabam.rotmg.mysterybox.services{
             this.models = {};
             for each (_local2 in _arg1) {
                 this.models[_local2.id] = _local2;
-            };
+            }
             this.updateSignal.dispatch();
             this.initialized = true;
         }

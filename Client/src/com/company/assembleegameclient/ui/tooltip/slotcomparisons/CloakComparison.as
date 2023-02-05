@@ -25,7 +25,7 @@ package com.company.assembleegameclient.ui.tooltip.slotcomparisons{
                 _local6 = Number(_local4.@duration);
                 this.appendDurationText(_local5, _local6);
                 processedTags[_local3.toXMLString()] = true;
-            };
+            }
             this.handleExceptions(_arg1);
         }
 
@@ -36,7 +36,7 @@ package com.company.assembleegameclient.ui.tooltip.slotcomparisons{
                 comparisonStringBuilder.pushParams(TextKey.TELEPORT_TO_TARGET, {}, TooltipHelper.getOpenTag(UNTIERED_COLOR), TooltipHelper.getCloseTag());
                 teleportTag = XML(itemXML.Activate.(text() == ActivationType.TELEPORT))[0];
                 processedTags[teleportTag.toXMLString()] = true;
-            };
+            }
         }
 
         private function getInvisibleTag(_arg1:XML):XML{
@@ -47,8 +47,8 @@ package com.company.assembleegameclient.ui.tooltip.slotcomparisons{
             for each (conditionTag in matches) {
                 if (conditionTag.(@effect == "Invisible")){
                     return (conditionTag);
-                };
-            };
+                }
+            }
             return (null);
         }
 

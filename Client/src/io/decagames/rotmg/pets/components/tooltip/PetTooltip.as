@@ -46,7 +46,7 @@ package io.decagames.rotmg.pets.components.tooltip{
             this.addChildren();
             if (this.hasAbilities){
                 this.addAbilities();
-            };
+            }
             this.positionChildren();
             this.updateTextFields();
         }
@@ -63,13 +63,13 @@ package io.decagames.rotmg.pets.components.tooltip{
             var _local1:XML = ObjectLibrary.xmlLibrary_[this.petVO.getType()];
             if (_local1 == null){
                 return ("");
-            };
+            }
             if (_local1.hasOwnProperty("NoHatchOrFuse")){
                 return (this.makeProbabilityTipLine("not", TooltipHelper.WORSE_COLOR));
-            };
+            }
             if (_local1.hasOwnProperty("BasicPet")){
                 return (this.makeProbabilityTipLine("commonly", TooltipHelper.BETTER_COLOR));
-            };
+            }
             return (this.makeProbabilityTipLine("rarely", TooltipHelper.NO_DIFF_COLOR));
         }
 
@@ -88,17 +88,17 @@ package io.decagames.rotmg.pets.components.tooltip{
             this.petsContent.addChild(this.petProbabilityInfoField);
             if (this.hasAbilities){
                 this.petsContent.addChild(this.lineBreak);
-            };
+            }
             if (!contains(this.petsContent)){
                 addChild(this.petsContent);
-            };
+            }
         }
 
         private function clearChildren():void{
             this.petsContent.graphics.clear();
             while (this.petsContent.numChildren > 0) {
                 this.petsContent.removeChildAt(0);
-            };
+            }
         }
 
         private function get hasAbilities():Boolean{
@@ -106,8 +106,8 @@ package io.decagames.rotmg.pets.components.tooltip{
             for each (_local1 in this.petVO.abilityList) {
                 if (((_local1.getUnlocked()) && ((_local1.level > 0)))){
                     return true;
-                };
-            };
+                }
+            }
             return false;
         }
 
@@ -122,7 +122,7 @@ package io.decagames.rotmg.pets.components.tooltip{
             var _local1:Boolean = (((this.petVO.rarity.rarityKey == PetRarityEnum.DIVINE.rarityKey)) || ((this.petVO.rarity.rarityKey == PetRarityEnum.LEGENDARY.rarityKey)));
             if (_local1){
                 return (2);
-            };
+            }
             return (3);
         }
 

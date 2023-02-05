@@ -27,7 +27,7 @@ package com.company.assembleegameclient.ui{
         public function setEnabled(_arg1:Boolean):void{
             if (_arg1 == mouseEnabled){
                 return;
-            };
+            }
             mouseEnabled = _arg1;
             graphicsData_[0] = ((_arg1) ? enabledFill_ : disabledFill_);
             this.draw();

@@ -29,9 +29,9 @@ package com.company.assembleegameclient.mapeditor{
             while (_local1 < Layer.NUM_LAYERS) {
                 if (this.types_[_local1] != -1){
                     return false;
-                };
+                }
                 _local1++;
-            };
+            }
             return true;
         }
 

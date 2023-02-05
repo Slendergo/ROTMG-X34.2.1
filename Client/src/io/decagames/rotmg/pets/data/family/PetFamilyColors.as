@@ -39,7 +39,7 @@ package io.decagames.rotmg.pets.data.family{
             "Pets.automaton":AUTOMATON,
             "Pets.miscellaneous":MISCELLANEOUS,
             "? ? ? ?":MISCELLANEOUS
-        };
+        }
 
         public static function getColorByFamilyKey(_arg1:String):uint{
             return (KEYS_TO_COLORS[PetFamilyKeys.getTranslationKey(_arg1)]);

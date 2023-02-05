@@ -15,7 +15,7 @@ package kabam.rotmg.arena.model{
             var _local1:ArenaLeaderboardFilter;
             for each (_local1 in FILTERS) {
                 _local1.clearEntries();
-            };
+            }
         }
 
 

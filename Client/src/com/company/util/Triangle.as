@@ -46,10 +46,10 @@ package com.company.util{
         public static function intersectTriAABB(_arg1:Number, _arg2:Number, _arg3:Number, _arg4:Number, _arg5:Number, _arg6:Number, _arg7:Number, _arg8:Number, _arg9:Number, _arg10:Number):Boolean{
             if ((((((((((((_arg7 > _arg1)) && ((_arg7 > _arg3)))) && ((_arg7 > _arg5)))) || ((((((_arg9 < _arg1)) && ((_arg9 < _arg3)))) && ((_arg9 < _arg5)))))) || ((((((_arg8 > _arg2)) && ((_arg8 > _arg4)))) && ((_arg8 > _arg6)))))) || ((((((_arg10 < _arg2)) && ((_arg10 < _arg4)))) && ((_arg10 < _arg6)))))){
                 return false;
-            };
+            }
             if ((((((((((((_arg7 < _arg1)) && ((_arg1 < _arg9)))) && ((_arg8 < _arg2)))) && ((_arg2 < _arg10)))) || ((((((((_arg7 < _arg3)) && ((_arg3 < _arg9)))) && ((_arg8 < _arg4)))) && ((_arg4 < _arg10)))))) || ((((((((_arg7 < _arg5)) && ((_arg5 < _arg9)))) && ((_arg8 < _arg6)))) && ((_arg6 < _arg10)))))){
                 return true;
-            };
+            }
             return (((((lineRectIntersect(_arg1, _arg2, _arg3, _arg4, _arg7, _arg8, _arg9, _arg10)) || (lineRectIntersect(_arg3, _arg4, _arg5, _arg6, _arg7, _arg8, _arg9, _arg10)))) || (lineRectIntersect(_arg5, _arg6, _arg1, _arg2, _arg7, _arg8, _arg9, _arg10))));
         }
 
@@ -67,7 +67,7 @@ package com.company.util{
             else {
                 _local11 = ((_local9 * _arg7) + _local10);
                 _local12 = ((_local9 * _arg5) + _local10);
-            };
+            }
             if (_arg2 < _arg4){
                 _local13 = _arg2;
                 _local14 = _arg4;
@@ -75,7 +75,7 @@ package com.company.util{
             else {
                 _local13 = _arg4;
                 _local14 = _arg2;
-            };
+            }
             var _local15:Number = (((_local11 > _local13)) ? _local11 : _local13);
             var _local16:Number = (((_local12 < _local14)) ? _local12 : _local14);
             return ((((_local15 < _local16)) && (!((((_local16 < _arg6)) || ((_local15 > _arg8)))))));
@@ -111,7 +111,7 @@ package com.company.util{
         public function distance(_arg1:Number, _arg2:Number):Number{
             if (this.contains(_arg1, _arg2)){
                 return (0);
-            };
+            }
             return (Math.min(LineSegmentUtil.pointDistance(_arg1, _arg2, this.x0_, this.y0_, this.x1_, this.y1_), LineSegmentUtil.pointDistance(_arg1, _arg2, this.x1_, this.y1_, this.x2_, this.y2_), LineSegmentUtil.pointDistance(_arg1, _arg2, this.x0_, this.y0_, this.x2_, this.y2_)));
         }
 

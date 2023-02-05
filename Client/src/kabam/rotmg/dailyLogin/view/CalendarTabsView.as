@@ -57,11 +57,11 @@ package kabam.rotmg.dailyLogin.view{
                 }
                 else {
                     _local2.state = CalendarTabButton.STATE_IDLE;
-                };
-            };
+                }
+            }
             if (this.calendar){
                 removeChild(this.calendar);
-            };
+            }
             this.calendar = new CalendarView();
             addChild(this.calendar);
             this.calendar.x = CalendarSettings.DAILY_LOGIN_TABS_PADDING;

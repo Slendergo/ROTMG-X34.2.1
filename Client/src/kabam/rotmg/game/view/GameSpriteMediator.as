@@ -121,7 +121,7 @@ package kabam.rotmg.game.view{
             var _local2:int = getTimer();
             while (true) {
                 if ((getTimer() - _local2) >= _arg1) break;
-            };
+            }
         }
 
 
@@ -162,7 +162,7 @@ package kabam.rotmg.game.view{
             }
             else {
                 this.flushQueueSignal.dispatch();
-            };
+            }
         }
 
         override public function destroy():void{
@@ -200,7 +200,7 @@ package kabam.rotmg.game.view{
         private function onClosed():void{
             if (!this.view.isEditor){
                 this.gameClosed.dispatch();
-            };
+            }
             this.closeDialogs.dispatch();
             this.closeAllPopups.dispatch();
             var _local1:HideMapLoadingSignal = StaticInjectorContext.getInjector().getInstance(HideMapLoadingSignal);
@@ -211,7 +211,7 @@ package kabam.rotmg.game.view{
         private function onReconnect(_arg1:ReconnectEvent):void{
             if (this.view.isEditor){
                 return;
-            };
+            }
             var _local2:GameInitData = new GameInitData();
             _local2.server = _arg1.server_;
             _local2.gameId = _arg1.gameId_;

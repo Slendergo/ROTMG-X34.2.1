@@ -123,14 +123,14 @@ package kabam.rotmg.account.ui.components{
             var _local3:int = int(_local2);
             if (((!((_local2 == "0"))) && (!(this.validator.isValidMonth(_local3))))){
                 _arg1.preventDefault();
-            };
+            }
         }
 
         private function onMonthFocusOut(_arg1:FocusEvent):void{
             var _local2:int = int(this.months.text);
             if ((((_local2 < 10)) && (!((this.days.text == ""))))){
                 this.months.text = ("0" + _local2.toString());
-            };
+            }
         }
 
         private function onEditMonth(_arg1:Event):void{
@@ -142,14 +142,14 @@ package kabam.rotmg.account.ui.components{
             var _local3:int = int(_local2);
             if (((!((_local2 == "0"))) && (!(this.validator.isValidDay(_local3))))){
                 _arg1.preventDefault();
-            };
+            }
         }
 
         private function onDayFocusOut(_arg1:FocusEvent):void{
             var _local2:int = int(this.days.text);
             if ((((_local2 < 10)) && (!((this.days.text == ""))))){
                 this.days.text = ("0" + _local2.toString());
-            };
+            }
         }
 
         private function onEditDay(_arg1:Event):void{
@@ -161,13 +161,13 @@ package kabam.rotmg.account.ui.components{
             var _local3:int = this.getEarliestYear(_local2);
             if (_local3 > this.thisYear){
                 _arg1.preventDefault();
-            };
+            }
         }
 
         private function getEarliestYear(_arg1:String):int{
             while (_arg1.length < 4) {
                 _arg1 = (_arg1 + "0");
-            };
+            }
             return (int(_arg1));
         }
 
@@ -192,7 +192,7 @@ package kabam.rotmg.account.ui.components{
         private function getFixedLengthString(_arg1:String, _arg2:int):String{
             while (_arg1.length < _arg2) {
                 _arg1 = ("0" + _arg1);
-            };
+            }
             return (_arg1);
         }
 

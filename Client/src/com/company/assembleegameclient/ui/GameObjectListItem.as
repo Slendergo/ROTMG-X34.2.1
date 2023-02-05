@@ -42,7 +42,7 @@ package com.company.assembleegameclient.ui{
             this.text = new TextFieldDisplayConcrete().setSize(13).setColor(_arg1).setHTML(_arg2);
             if (!_arg2){
                 this.text.setTextWidth(66).setTextHeight(20).setBold(true);
-            };
+            }
             this.text.x = 32;
             this.text.y = 6;
             this.text.filters = [new DropShadowFilter(0, 0, 0)];
@@ -59,7 +59,7 @@ package com.company.assembleegameclient.ui{
             if (((visible) && (((this.hasChanged()) || (_local3))))){
                 this.redraw();
                 transform.colorTransform = ((_arg2) || (MoreColorUtil.identity));
-            };
+            }
         }
 
         public function clear():void{
@@ -101,8 +101,8 @@ package com.company.assembleegameclient.ui{
                 }
                 else {
                     this.builder.setTemplate(ObjectLibrary.typeToDisplayId_[this.type]);
-                };
-            };
+                }
+            }
             return (this.builder);
         }
 
@@ -115,7 +115,7 @@ package com.company.assembleegameclient.ui{
                 }
                 else {
                     _local1 = "<b>{name}</b> ({type}{level})";
-                };
+                }
                 _local2.name = this.go.name_;
                 _local2.type = ObjectLibrary.typeToDisplayId_[this.type];
                 _local2.level = (((this.level < 1)) ? "" : (" " + this.level));
@@ -123,7 +123,7 @@ package com.company.assembleegameclient.ui{
             else {
                 _local1 = "<b>{name}</b>";
                 _local2.name = ObjectLibrary.typeToDisplayId_[this.type];
-            };
+            }
             this.builder.setTemplate(_local1, _local2);
         }
 
@@ -135,7 +135,7 @@ package com.company.assembleegameclient.ui{
             var _local1:Player = (this.go as Player);
             if (_local1){
                 return (PlayerUtil.getPlayerNameColor(_local1));
-            };
+            }
             return (this.color);
         }
 

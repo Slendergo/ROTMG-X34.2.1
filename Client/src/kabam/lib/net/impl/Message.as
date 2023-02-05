@@ -38,7 +38,7 @@ package kabam.lib.net.impl{
             while (_local4 < _args.length) {
                 _local3 = (_local3 + ((((" " + _args[_local4]) + '="') + this[_args[_local4]]) + '"'));
                 _local4++;
-            };
+            }
             _local3 = (_local3 + "]");
             return (_local3);
         }

@@ -57,7 +57,7 @@ package kabam.rotmg.servers.model{
                 if (!((_local6.isFull()) && (!(_local1)))){
                     if (_local6.name == Parameters.data_.preferredServer){
                         return (_local6);
-                    };
+                    }
                     _local5 = this.availableServers[0];
                     Parameters.data_.bestServer = _local5.name;
                     Parameters.save();

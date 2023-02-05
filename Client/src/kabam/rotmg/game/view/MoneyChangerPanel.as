@@ -40,7 +40,7 @@ package kabam.rotmg.game.view{
         private function onKeyDown(_arg1:KeyboardEvent):void{
             if ((((_arg1.keyCode == Parameters.data_.interact)) && ((stage.focus == null)))){
                 this.triggered.dispatch();
-            };
+            }
         }
 
 

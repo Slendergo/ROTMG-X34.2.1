@@ -30,7 +30,7 @@ package com.company.assembleegameclient.objects{
         override protected function getTexture(_arg1:Camera, _arg2:int):BitmapData{
             if (texture_ != null){
                 return (texture_);
-            };
+            }
             var _local3:TextField = new TextField();
             _local3.multiline = true;
             _local3.wordWrap = false;
@@ -47,7 +47,7 @@ package com.company.assembleegameclient.objects{
             var _local5:String = this.stringMap.getValue(this.stripCurlyBrackets(name_));
             if (_local5 == null){
                 _local5 = (((name_)!=null) ? name_ : "null");
-            };
+            }
             _local3.text = _local5.split("|").join("\n");
             var _local6:BitmapData = new BitmapDataSpy(_local3.width, _local3.height, true, 0);
             _local6.draw(_local3);

@@ -117,7 +117,7 @@ package com.company.assembleegameclient.objects{
             }
             else {
                 _local13 = ObjectLibrary.getSizeFromType(this.containerType_);
-            };
+            }
             this.p_.setSize((8 * (_local13 / 100)));
             this.damage_ = 0;
         }
@@ -132,7 +132,7 @@ package com.company.assembleegameclient.objects{
             this.startY_ = _arg3;
             if (!super.addTo(_arg1, _arg2, _arg3)){
                 return false;
-            };
+            }
             if (((!(this.containerProps_.flying_)) && (square_.sink_))){
                 z_ = 0.1;
             }
@@ -140,8 +140,8 @@ package com.company.assembleegameclient.objects{
                 _local4 = (_arg1.goDict_[this.ownerId_] as Player);
                 if (((!((_local4 == null))) && ((_local4.sinkLevel_ > 0)))){
                     z_ = (0.5 - (0.4 * (_local4.sinkLevel_ / Parameters.MAX_SINK_LEVEL)));
-                };
-            };
+                }
+            }
             return true;
         }
 
@@ -149,7 +149,7 @@ package com.company.assembleegameclient.objects{
             var _local3:Square = map_.getSquare(_arg1, _arg2);
             if (_local3 == null){
                 return false;
-            };
+            }
             x_ = _arg1;
             y_ = _arg2;
             square_ = _local3;
@@ -200,17 +200,17 @@ package com.company.assembleegameclient.objects{
                         _local13 = ((this.lifetime_ * ((this.projProps_.speed_ * this.speedMul_) / 10000)) / 2);
                         if (_local3 > _local13){
                             _local3 = (_local13 - (_local3 - _local13));
-                        };
-                    };
+                        }
+                    }
                     _arg2.x = (_arg2.x + (_local3 * Math.cos(this.angle_)));
                     _arg2.y = (_arg2.y + (_local3 * Math.sin(this.angle_)));
                     if (this.projProps_.amplitude_ != 0){
                         _local14 = (this.projProps_.amplitude_ * Math.sin((_local4 + ((((_arg1 / this.lifetime_) * this.projProps_.frequency_) * 2) * Math.PI))));
                         _arg2.x = (_arg2.x + (_local14 * Math.cos((this.angle_ + (Math.PI / 2)))));
                         _arg2.y = (_arg2.y + (_local14 * Math.sin((this.angle_ + (Math.PI / 2)))));
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         override public function update(_arg1:int, _arg2:int):Boolean{
@@ -224,7 +224,7 @@ package com.company.assembleegameclient.objects{
             var _local3:int = (_arg1 - this.startTime_);
             if (_local3 > this.lifetime_){
                 return false;
-            };
+            }
             var _local4:Point = this.staticPoint_;
             this.positionAt(_local3, _local4);
             if (((!(this.moveTo(_local4.x, _local4.y))) || ((square_.tileType_ == 0xFFFF)))){
@@ -236,11 +236,11 @@ package com.company.assembleegameclient.objects{
                         if (!Parameters.data_.noParticlesMaster){
                             _local5 = BloodComposition.getColors(this.texture_);
                             map_.addObj(new HitEffect(_local5, 100, 3, this.angle_, this.projProps_.speed_), _local4.x, _local4.y);
-                        };
-                    };
-                };
+                        }
+                    }
+                }
                 return false;
-            };
+            }
             if (((((!((square_.obj_ == null))) && (((!(square_.obj_.props_.isEnemy_)) || (!(this.damagesEnemies_)))))) && (((square_.obj_.props_.enemyOccupySquare_) || (((!(this.projProps_.passesCover_)) && (square_.obj_.props_.occupySquare_))))))){
                 if (this.damagesPlayers_){
                     map_.gs_.gsc_.otherHit(_arg1, this.bulletId_, this.ownerId_, square_.obj_.objectId_);
@@ -249,10 +249,10 @@ package com.company.assembleegameclient.objects{
                     if (!Parameters.data_.noParticlesMaster){
                         _local5 = BloodComposition.getColors(this.texture_);
                         map_.addObj(new HitEffect(_local5, 100, 3, this.angle_, this.projProps_.speed_), _local4.x, _local4.y);
-                    };
-                };
+                    }
+                }
                 return false;
-            };
+            }
             var _local6:GameObject = this.getHit(_local4.x, _local4.y);
             if (_local6 != null){
                 _local7 = map_.player_;
@@ -266,8 +266,8 @@ package com.company.assembleegameclient.objects{
                         _local12 = true;
                         if (_local6.props_.isEnemy_){
                             doneAction(map_.gs_, Tutorial.KILL_ACTION);
-                        };
-                    };
+                        }
+                    }
                     if (_local6 == _local7){
                         map_.gs_.gsc_.playerHit(this.bulletId_, this.ownerId_);
                         _local6.damage(true, _local11, this.projProps_.effects_, false, this);
@@ -280,17 +280,17 @@ package com.company.assembleegameclient.objects{
                         else {
                             if (!this.projProps_.multiHit_){
                                 map_.gs_.gsc_.otherHit(_arg1, this.bulletId_, this.ownerId_, _local6.objectId_);
-                            };
-                        };
-                    };
-                };
+                            }
+                        }
+                    }
+                }
                 if (this.projProps_.multiHit_){
                     this.multiHitDict_[_local6] = true;
                 }
                 else {
                     return false;
-                };
-            };
+                }
+            }
             return true;
         }
 
@@ -313,20 +313,20 @@ package com.company.assembleegameclient.objects{
                                     if (!((this.projProps_.multiHit_) && (!((this.multiHitDict_[_local5] == null))))){
                                         if (_local5 == map_.player_){
                                             return (_local5);
-                                        };
+                                        }
                                         _local8 = Math.sqrt(((_local6 * _local6) + (_local7 * _local7)));
                                         _local9 = ((_local6 * _local6) + (_local7 * _local7));
                                         if (_local9 < _local3){
                                             _local3 = _local9;
                                             _local4 = _local5;
-                                        };
-                                    };
-                                };
-                            };
-                        };
-                    };
-                };
-            };
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             return (_local4);
         }
 
@@ -337,7 +337,7 @@ package com.company.assembleegameclient.objects{
             var _local11:int;
             if (!Parameters.drawProj_){
                 return;
-            };
+            }
             var _local4:BitmapData = this.texture_;
             if (Parameters.projColorType_ != 0){
                 switch (Parameters.projColorType_){
@@ -365,9 +365,9 @@ package com.company.assembleegameclient.objects{
                         _local8 = 0;
                         _local9 = 0;
                         break;
-                };
+                }
                 _local4 = TextureRedrawer.redraw(_local4, 120, true, _local9);
-            };
+            }
             var _local5:Number = (((this.props_.rotation_ == 0)) ? 0 : (_arg3 / this.props_.rotation_));
             this.staticVector3D_.x = x_;
             this.staticVector3D_.y = y_;
@@ -381,10 +381,10 @@ package com.company.assembleegameclient.objects{
                 for (;_local11 < 3;_local11++) {
                     if (((!((map_ == null))) && (!((map_.player_.objectId_ == this.ownerId_))))){
                         if ((((this.projProps_.particleTrailIntensity_ == -1)) && (((Math.random() * 100) > this.projProps_.particleTrailIntensity_)))) continue;
-                    };
+                    }
                     map_.addObj(new SparkParticle(100, this.projProps_.particleTrailColor_, _local10, 0.5, RandomUtil.plusMinus(3), RandomUtil.plusMinus(3)), x_, y_);
-                };
-            };
+                }
+            }
         }
 
         private function getDirectionAngle(_arg1:Number):Number{
@@ -399,7 +399,7 @@ package com.company.assembleegameclient.objects{
         override public function drawShadow(_arg1:Vector.<IGraphicsData>, _arg2:Camera, _arg3:int):void{
             if (!Parameters.drawProj_){
                 return;
-            };
+            }
             var _local4:Number = (this.props_.shadowSize_ / 400);
             var _local5:Number = (30 * _local4);
             var _local6:Number = (15 * _local4);

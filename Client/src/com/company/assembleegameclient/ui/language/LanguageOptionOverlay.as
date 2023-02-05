@@ -110,7 +110,7 @@ package com.company.assembleegameclient.ui.language{
         public function clear():void{
             if (((this.languageDropDown) && (contains(this.languageDropDown)))){
                 removeChild(this.languageDropDown);
-            };
+            }
         }
 
 

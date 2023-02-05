@@ -45,30 +45,30 @@ package com.company.assembleegameclient.map{
             this.displayId_ = (this.id_ = String(_arg1.@id));
             if (_arg1.hasOwnProperty("DisplayId")){
                 this.displayId_ = String(_arg1.DisplayId);
-            };
+            }
             this.noWalk_ = _arg1.hasOwnProperty("NoWalk");
             if (_arg1.hasOwnProperty("MinDamage")){
                 this.minDamage_ = int(_arg1.MinDamage);
-            };
+            }
             if (_arg1.hasOwnProperty("MaxDamage")){
                 this.maxDamage_ = int(_arg1.MaxDamage);
-            };
+            }
             this.push_ = _arg1.hasOwnProperty("Push");
             if (_arg1.hasOwnProperty("Animate")){
                 this.animate_.parseXML(XML(_arg1.Animate));
-            };
+            }
             if (_arg1.hasOwnProperty("BlendPriority")){
                 this.blendPriority_ = int(_arg1.BlendPriority);
-            };
+            }
             if (_arg1.hasOwnProperty("CompositePriority")){
                 this.compositePriority_ = int(_arg1.CompositePriority);
-            };
+            }
             if (_arg1.hasOwnProperty("Speed")){
                 this.speed_ = Number(_arg1.Speed);
-            };
+            }
             if (_arg1.hasOwnProperty("SlideAmount")){
                 this.slideAmount_ = Number(_arg1.SlideAmount);
-            };
+            }
             this.xOffset_ = ((_arg1.hasOwnProperty("XOffset")) ? Number(_arg1.XOffset) : 0);
             this.yOffset_ = ((_arg1.hasOwnProperty("YOffset")) ? Number(_arg1.YOffset) : 0);
             this.push_ = _arg1.hasOwnProperty("Push");
@@ -80,25 +80,25 @@ package com.company.assembleegameclient.map{
                 this.edgeTD_ = new TextureDataConcrete(XML(_arg1.Edge));
                 if (_arg1.hasOwnProperty("Corner")){
                     this.cornerTD_ = new TextureDataConcrete(XML(_arg1.Corner));
-                };
+                }
                 if (_arg1.hasOwnProperty("InnerCorner")){
                     this.innerCornerTD_ = new TextureDataConcrete(XML(_arg1.InnerCorner));
-                };
-            };
+                }
+            }
             this.sameTypeEdgeMode_ = _arg1.hasOwnProperty("SameTypeEdgeMode");
             if (_arg1.hasOwnProperty("Top")){
                 this.topTD_ = new TextureDataConcrete(XML(_arg1.Top));
                 this.topAnimate_ = new AnimateProperties();
                 if (_arg1.hasOwnProperty("TopAnimate")){
                     this.topAnimate_.parseXML(XML(_arg1.TopAnimate));
-                };
-            };
+                }
+            }
         }
 
         public function getEdges():Vector.<BitmapData>{
             if (((!(this.hasEdge_)) || (!((this.edges_ == null))))){
                 return (this.edges_);
-            };
+            }
             this.edges_ = new Vector.<BitmapData>(9);
             this.edges_[3] = this.edgeTD_.getTexture(0);
             this.edges_[1] = BitmapUtil.rotateBitmapData(this.edges_[3], 1);
@@ -109,14 +109,14 @@ package com.company.assembleegameclient.map{
                 this.edges_[2] = BitmapUtil.rotateBitmapData(this.edges_[0], 1);
                 this.edges_[8] = BitmapUtil.rotateBitmapData(this.edges_[0], 2);
                 this.edges_[6] = BitmapUtil.rotateBitmapData(this.edges_[0], 3);
-            };
+            }
             return (this.edges_);
         }
 
         public function getInnerCorners():Vector.<BitmapData>{
             if ((((this.innerCornerTD_ == null)) || (!((this.innerCorners_ == null))))){
                 return (this.innerCorners_);
-            };
+            }
             this.innerCorners_ = this.edges_.concat();
             this.innerCorners_[0] = this.innerCornerTD_.getTexture(0);
             this.innerCorners_[2] = BitmapUtil.rotateBitmapData(this.innerCorners_[0], 1);

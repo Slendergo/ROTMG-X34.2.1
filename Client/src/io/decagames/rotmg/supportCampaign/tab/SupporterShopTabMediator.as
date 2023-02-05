@@ -80,19 +80,19 @@ package io.decagames.rotmg.supportCampaign.tab{
             else {
                 this._imageLoader = new ImageLoader();
                 this._imageLoader.loadImage(this.model.campaignBannerUrl, this.onBannerLoaded);
-            };
+            }
         }
 
         private function initView():void{
             if (!this.model.isStarted){
                 this.view.addEventListener(Event.ENTER_FRAME, this.updateStartCountdown);
-            };
+            }
             if (this.model.isUnlocked){
                 this.updateCampaignInformation();
-            };
+            }
             if (this.view.unlockButton){
                 this.view.unlockButton.clickSignal.add(this.unlockClick);
-            };
+            }
         }
 
         private function onBannerLoaded(_arg1:Event):void{
@@ -124,7 +124,7 @@ package io.decagames.rotmg.supportCampaign.tab{
             else {
                 this._imageLoader = new ImageLoader();
                 this._imageLoader.loadImage(_local1, this.onCampaignTierImageLoaded);
-            };
+            }
         }
 
         private function onCampaignTierImageLoaded(_arg1:Event):void{
@@ -143,7 +143,7 @@ package io.decagames.rotmg.supportCampaign.tab{
             if (_local2 == ""){
                 this.view.removeEventListener(Event.ENTER_FRAME, this.updateStartCountdown);
                 this.view.unlockButton.disabled = false;
-            };
+            }
             this.view.updateStartCountdown(_local2);
         }
 
@@ -151,7 +151,7 @@ package io.decagames.rotmg.supportCampaign.tab{
             this.updatePointsSignal.remove(this.onPointsUpdate);
             if (this.view.unlockButton){
                 this.view.unlockButton.clickSignal.remove(this.unlockClick);
-            };
+            }
             this.view.removeEventListener(Event.ENTER_FRAME, this.updateStartCountdown);
         }
 
@@ -165,7 +165,7 @@ package io.decagames.rotmg.supportCampaign.tab{
             if (_local1.hasSupporterFeature(SupporterFeatures.GLOW)){
                 _local1.supporterPoints = this.model.points;
                 _local1.clearTextureCache();
-            };
+            }
         }
 
         private function updateInfoTooltip():void{
@@ -175,20 +175,20 @@ package io.decagames.rotmg.supportCampaign.tab{
                 }
                 else {
                     this.infoToolTip = new TextToolTip(0x363636, 0x9B9B9B, "Bonus Points", ("This is the amount of Bonus Points you have collected so far. Collect more Points " + "and claim Rewards!"), 220);
-                };
+                }
                 this.hoverTooltipDelegate = new HoverTooltipDelegate();
                 this.hoverTooltipDelegate.setShowToolTipSignal(this.showTooltipSignal);
                 this.hoverTooltipDelegate.setHideToolTipsSignal(this.hideTooltipSignal);
                 this.hoverTooltipDelegate.setDisplayObject(this.view.infoButton);
                 this.hoverTooltipDelegate.tooltip = this.infoToolTip;
-            };
+            }
         }
 
         private function unlockClick(_arg1:BaseButton):void{
             if (this.currentGold < this.model.unlockPrice){
                 this.showPopup.dispatch(new NotEnoughResources(300, Currency.GOLD));
                 return;
-            };
+            }
             this.showFade.dispatch();
             var _local2:Object = this.account.getCredentials();
             this.client.sendRequest("/supportCampaign/unlock", _local2);
@@ -207,14 +207,14 @@ package io.decagames.rotmg.supportCampaign.tab{
                     xml = new XML(data);
                     if (xml.hasOwnProperty("Gold")){
                         this.updateUserGold(int(xml.Gold));
-                    };
+                    }
                     this.view.show(null, true, this.model.isStarted, this.model.unlockPrice, this.model.donatePointsRatio, this.model.isEnded, this._loader);
                     this.model.parseUpdateData(xml);
                     this.updateCampaignInformation();
                 }
                 catch(e:Error) {
                     showPopup.dispatch(new ErrorModal(300, "Campaign Error", "General campaign error."));
-                };
+                }
             }
             else {
                 try {
@@ -224,8 +224,8 @@ package io.decagames.rotmg.supportCampaign.tab{
                 }
                 catch(e:Error) {
                     showPopup.dispatch(new ErrorModal(300, "Campaign Error", "General campaign error."));
-                };
-            };
+                }
+            }
         }
 
         private function updateUserGold(_arg1:int):void{
@@ -235,17 +235,17 @@ package io.decagames.rotmg.supportCampaign.tab{
             }
             else {
                 this.playerModel.setCredits(_arg1);
-            };
+            }
         }
 
         private function get currentGold():int{
             var _local1:Player = this.gameModel.player;
             if (_local1 != null){
                 return (_local1.credits_);
-            };
+            }
             if (this.playerModel != null){
                 return (this.playerModel.getCredits());
-            };
+            }
             return (0);
         }
 

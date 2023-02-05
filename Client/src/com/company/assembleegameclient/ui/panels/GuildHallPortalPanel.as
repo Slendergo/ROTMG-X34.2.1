@@ -37,7 +37,7 @@ package com.company.assembleegameclient.ui.panels{
             this.owner_ = _arg2;
             if ((((gs_.map == null)) || ((gs_.map.player_ == null)))){
                 return;
-            };
+            }
             _local3 = gs_.map.player_;
             this.nameText_ = new TextFieldDisplayConcrete().setSize(18).setColor(0xFFFFFF).setTextWidth(WIDTH).setWordWrap(true).setMultiLine(true).setAutoSize(TextFieldAutoSize.CENTER).setBold(true).setHTML(true);
             this.nameText_.setStringBuilder(new LineBuilder().setParams(TextKey.GUILD_HALL_PORTAL_TITLE).setPrefix('<p align="center">').setPostfix("</p>"));
@@ -57,18 +57,18 @@ package com.company.assembleegameclient.ui.panels{
                 this.noGuildText_.filters = [new DropShadowFilter(0, 0, 0)];
                 this.waiter.push(this.noGuildText_.textChanged);
                 addChild(this.noGuildText_);
-            };
+            }
             this.waiter.complete.addOnce(this.alignUI);
         }
 
         private function alignUI():void{
             if (this.noGuildText_){
                 this.noGuildText_.y = ((HEIGHT - this.noGuildText_.height) - 12);
-            };
+            }
             if (this.enterButton_){
                 this.enterButton_.x = ((WIDTH / 2) - (this.enterButton_.width / 2));
                 this.enterButton_.y = ((HEIGHT - this.enterButton_.height) - 4);
-            };
+            }
         }
 
         private function onAdded(_arg1:Event):void{
@@ -87,7 +87,7 @@ package com.company.assembleegameclient.ui.panels{
         private function onKeyDown(_arg1:KeyboardEvent):void{
             if ((((_arg1.keyCode == Parameters.data_.interact)) && ((stage.focus == null)))){
                 this.enterPortal();
-            };
+            }
         }
 
         private function enterPortal():void{

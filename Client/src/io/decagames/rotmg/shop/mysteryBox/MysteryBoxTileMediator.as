@@ -52,7 +52,7 @@ package io.decagames.rotmg.shop.mysteryBox{
                 this.hoverTooltipDelegate.setHideToolTipsSignal(this.hideTooltipSignal);
                 this.hoverTooltipDelegate.setDisplayObject(this.view.clickMask);
                 this.hoverTooltipDelegate.tooltip = this.toolTip;
-            };
+            }
         }
 
         private function changeAmountHandler(_arg1:int):void{
@@ -61,14 +61,14 @@ package io.decagames.rotmg.shop.mysteryBox{
             }
             else {
                 this.view.buyButton.price = (_arg1 * int(this.view.boxInfo.priceAmount));
-            };
+            }
         }
 
         private function onBuyHandler(_arg1:BaseButton):void{
             var _local2:Boolean = BoxUtils.moneyCheckPass(this.view.boxInfo, this.view.spinner.value, this.gameModel, this.playerModel, this.showPopupSignal);
             if (_local2){
                 this.showPopupSignal.dispatch(new MysteryBoxRollModal(MysteryBoxInfo(this.view.boxInfo), this.view.spinner.value));
-            };
+            }
         }
 
         private function onBoxClickHandler(_arg1:MouseEvent):void{
@@ -88,7 +88,7 @@ package io.decagames.rotmg.shop.mysteryBox{
                 this.toolTip = null;
                 this.hoverTooltipDelegate.removeDisplayObject();
                 this.hoverTooltipDelegate = null;
-            };
+            }
         }
 
 

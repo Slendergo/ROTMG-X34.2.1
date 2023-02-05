@@ -47,7 +47,7 @@ package kabam.rotmg.death.control{
             }
             else {
                 this.showFame.dispatch(this.fameVO);
-            };
+            }
         }
 
         private function gotoFameViewOnceDataIsLoaded():void{

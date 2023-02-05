@@ -29,16 +29,16 @@ package kabam.rotmg.messaging.impl.data{
             while (_local3 < this.stats_.length) {
                 FreeList.deleteObject(this.stats_[_local3]);
                 _local3++;
-            };
+            }
             this.stats_.length = Math.min(_local2, this.stats_.length);
             while (this.stats_.length < _local2) {
                 this.stats_.push((FreeList.newObject(StatData) as StatData));
-            };
+            }
             _local3 = 0;
             while (_local3 < _local2) {
                 this.stats_[_local3].parseFromInput(_arg1);
                 _local3++;
-            };
+            }
         }
 
         public function writeToOutput(_arg1:IDataOutput):void{
@@ -49,7 +49,7 @@ package kabam.rotmg.messaging.impl.data{
             while (_local2 < this.stats_.length) {
                 this.stats_[_local2].writeToOutput(_arg1);
                 _local2++;
-            };
+            }
         }
 
         public function toString():String{

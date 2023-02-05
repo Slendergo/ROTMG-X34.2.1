@@ -14,7 +14,7 @@ package com.adobe.utils{
             var _local2:Array = new Array();
             for (_local3 in _arg1) {
                 _local2.push(_local3);
-            };
+            }
             return (_local2);
         }
 
@@ -23,7 +23,7 @@ package com.adobe.utils{
             var _local2:Array = new Array();
             for each (_local3 in _arg1) {
                 _local2.push(_local3);
-            };
+            }
             return (_local2);
         }
 

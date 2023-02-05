@@ -51,7 +51,7 @@ package com.company.assembleegameclient.ui.options{
         public function setKeyCode(_arg1:uint):void{
             if (_arg1 == this.keyCode_){
                 return;
-            };
+            }
             this.keyCode_ = _arg1;
             this.setTextToKey();
             dispatchEvent(new Event(Event.CHANGE, true));
@@ -94,7 +94,7 @@ package com.company.assembleegameclient.ui.options{
             if (stage != null){
                 removeEventListener(KeyboardEvent.KEY_DOWN, this.onInputKeyDown);
                 stage.removeEventListener(MouseEvent.MOUSE_DOWN, this.onInputMouseDown, true);
-            };
+            }
             this.setTextToKey();
             addEventListener(MouseEvent.CLICK, this.onNormalClick);
         }
@@ -102,7 +102,7 @@ package com.company.assembleegameclient.ui.options{
         private function setInputMode():void{
             if (stage == null){
                 return;
-            };
+            }
             stage.stageFocusRect = false;
             stage.focus = this;
             this.inputMode_ = true;
@@ -124,7 +124,7 @@ package com.company.assembleegameclient.ui.options{
             }
             else {
                 this.setText(new LineBuilder().setParams(TextKey.KEYCODEBOX_HITKEY));
-            };
+            }
         }
 
         private function onInputKeyDown(_arg1:KeyboardEvent):void{

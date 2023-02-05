@@ -36,7 +36,7 @@ package com.company.assembleegameclient.ui{
         public function draw(_arg1:String, _arg2:int):void{
             if ((((this.name_ == _arg1)) && ((_arg2 == _arg2)))){
                 return;
-            };
+            }
             this.name_ = _arg1;
             this.rank_ = _arg2;
             if ((((this.name_ == null)) || ((this.name_ == "")))){
@@ -48,7 +48,7 @@ package com.company.assembleegameclient.ui{
                 SpriteUtil.safeAddChild(this, this.icon_);
                 this.guildName_.setStringBuilder(new StaticStringBuilder(this.name_));
                 SpriteUtil.safeAddChild(this, this.guildName_);
-            };
+            }
         }
 
 

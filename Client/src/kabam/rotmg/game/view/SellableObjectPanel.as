@@ -115,7 +115,7 @@ package kabam.rotmg.game.view{
         public function setOwner(_arg1:SellableObject):void{
             if (_arg1 == this.owner_){
                 return;
-            };
+            }
             this.owner_ = _arg1;
             this.buyButton_.setPrice(this.owner_.price_, this.owner_.currency_);
             var _local2:String = this.owner_.soldObjectName();
@@ -142,22 +142,22 @@ package kabam.rotmg.game.view{
                 _local2 = StaticInjectorContext.getInjector();
                 _local3 = _local2.getInstance(ClosePopupByClassSignal);
                 _local3.dispatch(NexusShopPopupView);
-            };
+            }
             if (((((!((parent == null))) && (!((this.confirmBuyModal == null))))) && (this.confirmBuyModal.open))){
                 parent.removeChild(this.confirmBuyModal);
-            };
+            }
         }
 
         private function onBuyButtonClick(_arg1:MouseEvent):void{
             if (ConfirmBuyModal.free){
                 this.buyEvent();
-            };
+            }
         }
 
         private function onKeyDown(_arg1:KeyboardEvent):void{
             if ((((((_arg1.keyCode == Parameters.data_.interact)) && ((stage.focus == null)))) && (ConfirmBuyModal.free))){
                 this.buyEvent();
-            };
+            }
         }
 
         private function buyEvent():void{
@@ -171,7 +171,7 @@ package kabam.rotmg.game.view{
             }
             else {
                 this.buyItem.dispatch(this.owner_);
-            };
+            }
         }
 
         override public function draw():void{
@@ -181,25 +181,25 @@ package kabam.rotmg.game.view{
             if (_local1.numStars_ < _local2){
                 if (contains(this.buyButton_)){
                     removeChild(this.buyButton_);
-                };
+                }
                 if ((((this.rankReqText_ == null)) || (!(contains(this.rankReqText_))))){
                     this.rankReqText_ = createRankReqText(_local2);
                     this.rankReqText_.x = ((WIDTH / 2) - (this.rankReqText_.width / 2));
                     this.rankReqText_.y = ((HEIGHT - (this.rankReqText_.height / 2)) - 20);
                     addChild(this.rankReqText_);
-                };
+                }
             }
             else {
                 if (_local1.guildRank_ < this.owner_.guildRankReq_){
                     if (contains(this.buyButton_)){
                         removeChild(this.buyButton_);
-                    };
+                    }
                     if ((((this.guildRankReqText_ == null)) || (!(contains(this.guildRankReqText_))))){
                         this.guildRankReqText_ = createGuildRankReqText(this.owner_.guildRankReq_);
                         this.guildRankReqText_.x = ((WIDTH / 2) - (this.guildRankReqText_.width / 2));
                         this.guildRankReqText_.y = ((HEIGHT - (this.guildRankReqText_.height / 2)) - 20);
                         addChild(this.guildRankReqText_);
-                    };
+                    }
                 }
                 else {
                     this.buyButton_.setPrice(this.owner_.price_, this.owner_.currency_);
@@ -208,12 +208,12 @@ package kabam.rotmg.game.view{
                     this.buyButton_.y = ((HEIGHT - (this.buyButton_.height / 2)) - this.BUTTON_OFFSET);
                     if (!contains(this.buyButton_)){
                         addChild(this.buyButton_);
-                    };
+                    }
                     if (((!((this.rankReqText_ == null))) && (contains(this.rankReqText_)))){
                         removeChild(this.rankReqText_);
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         public function setShowToolTipSignal(_arg1:ShowTooltipSignal):void{

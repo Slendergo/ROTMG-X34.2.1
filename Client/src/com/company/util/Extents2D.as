@@ -18,16 +18,16 @@ package com.company.util{
         public function add(_arg1:Number, _arg2:Number):void{
             if (_arg1 < this.minX_){
                 this.minX_ = _arg1;
-            };
+            }
             if (_arg2 < this.minY_){
                 this.minY_ = _arg2;
-            };
+            }
             if (_arg1 > this.maxX_){
                 this.maxX_ = _arg1;
-            };
+            }
             if (_arg2 > this.maxY_){
                 this.maxY_ = _arg2;
-            };
+            }
         }
 
         public function clear():void{

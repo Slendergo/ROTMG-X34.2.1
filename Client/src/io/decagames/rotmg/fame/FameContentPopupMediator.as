@@ -81,7 +81,7 @@ import robotlegs.bender.bundles.mvcs.Mediator;
             }
             else {
                 _local1 = this.player.getCharacterById(this.characterID).bornOn();
-            };
+            }
             this.showInfo();
             this.view.fameOnDeath = this.totalFame.currentFame;
             if (this.view.characterId == -1){
@@ -91,7 +91,7 @@ import robotlegs.bender.bundles.mvcs.Mediator;
             else {
                 _local4 = this.player.getCharacterById(this.characterID);
                 this.view.setCharacterData(this.totalFame.baseFame, _local4.name(), _local4.level(), ObjectLibrary.typeToDisplayId_[_local4.objectType()], _local1, _local4.getIcon(100));
-            };
+            }
             this.toolTip = new TextToolTip(0x363636, 0x9B9B9B, "Fame calculation", "Refreshes when returning to the Nexus or main menu.", 230);
             this.hoverTooltipDelegate = new HoverTooltipDelegate();
             this.hoverTooltipDelegate.setShowToolTipSignal(this.showTooltipSignal);
@@ -126,14 +126,14 @@ import robotlegs.bender.bundles.mvcs.Mediator;
             while (_local2 <= 52) {
                 _local1 = (_local1 + this.metrics.getCharacterStat(this.characterID, _local2));
                 _local2++;
-            };
+            }
             return (((((((this.metrics.getCharacterStat(this.characterID, MetricsID.PIRATE_CAVES_COMPLETED) + this.metrics.getCharacterStat(this.characterID, MetricsID.UNDEAD_LAIRS_COMPLETED)) + this.metrics.getCharacterStat(this.characterID, MetricsID.ABYSS_OF_DEMONS_COMPLETED)) + this.metrics.getCharacterStat(this.characterID, MetricsID.SNAKE_PITS_COMPLETED)) + this.metrics.getCharacterStat(this.characterID, MetricsID.SPIDER_DENS_COMPLETED)) + this.metrics.getCharacterStat(this.characterID, MetricsID.SPRITE_WORLDS_COMPLETED)) + _local1));
         }
 
         private function getBonusValue(_arg1:int):int{
             if (!this.totalFame.bonuses[_arg1]){
                 return (0);
-            };
+            }
             return (this.totalFame.bonuses[_arg1].fameAdded);
         }
 
@@ -184,13 +184,13 @@ import robotlegs.bender.bundles.mvcs.Mediator;
             _local1 = _local1.sort(this.dungeonNameSort);
             for each (_local2 in _local1) {
                 this.view.addDungeonLine(_local2);
-            };
+            }
         }
 
         private function dungeonNameSort(_arg1:StatsLine, _arg2:StatsLine):int{
             if (_arg1.labelText > _arg2.labelText){
                 return (1);
-            };
+            }
             return (-1);
         }
 
@@ -198,7 +198,7 @@ import robotlegs.bender.bundles.mvcs.Mediator;
             var _local1:Number = 0;
             if ((((this.metrics.getCharacterStat(this.characterID, MetricsID.SHOTS_THAT_DAMAGE) > 0)) && ((this.metrics.getCharacterStat(this.characterID, MetricsID.SHOTS) > 0)))){
                 _local1 = ((this.metrics.getCharacterStat(this.characterID, MetricsID.SHOTS_THAT_DAMAGE) / this.metrics.getCharacterStat(this.characterID, MetricsID.SHOTS)) * 100);
-            };
+            }
             this.view.addStatLine(new StatsLine("Statistics", "", "", StatsLine.TYPE_TITLE));
             this.view.addStatLine(new StatsLine("Shots Fired", this.metrics.getCharacterStat(this.characterID, MetricsID.SHOTS).toString(), "The total number of shots fired by this character.", StatsLine.TYPE_STAT));
             this.view.addStatLine(new StatsLine("Shots Hit", this.metrics.getCharacterStat(this.characterID, MetricsID.SHOTS_THAT_DAMAGE).toString(), "The total number of enemy hitting shots fired by this character.", StatsLine.TYPE_STAT));
@@ -222,14 +222,14 @@ import robotlegs.bender.bundles.mvcs.Mediator;
         private function sortBonusesByLevel(_arg1:FameBonus, _arg2:FameBonus):int{
             if (_arg1.level > _arg2.level){
                 return (1);
-            };
+            }
             return (-1);
         }
 
         private function sortBonusesByFame(_arg1:FameBonus, _arg2:FameBonus):int{
             if (_arg1.fameAdded > _arg2.fameAdded){
                 return (-1);
-            };
+            }
             return (1);
         }
 
@@ -245,16 +245,16 @@ import robotlegs.bender.bundles.mvcs.Mediator;
                 }
                 else {
                     this.bonusesList.push(bonusConfig);
-                };
+                }
                 i = (i + 1);
-            };
+            }
             bonusConfig = this.totalFame.bonuses[16];
             if (bonusConfig == null){
                 this.bonusesList.push(FameBonusConfig.getBonus(16));
             }
             else {
                 this.bonusesList.push(bonusConfig);
-            };
+            }
             i = 18;
             while (i <= 22) {
                 bonusConfig = this.totalFame.bonuses[i];
@@ -263,15 +263,15 @@ import robotlegs.bender.bundles.mvcs.Mediator;
                 }
                 else {
                     this.bonusesList.push(bonusConfig);
-                };
+                }
                 i = (i + 1);
-            };
+            }
             if (this.view.characterId == -1){
                 level = this.hudModel.gameSprite.map.player_.level_;
             }
             else {
                 level = this.player.getCharacterById(this.characterID).level();
-            };
+            }
             this.bonusesList = this.bonusesList.sort(this.sortBonusesByLevel);
             var unlocked:Vector.<FameBonus> = this.bonusesList.filter(function (_arg1:FameBonus, _arg2:int, _arg3:Vector.<FameBonus>):Boolean{
                 return ((level >= _arg1.level));
@@ -284,7 +284,7 @@ import robotlegs.bender.bundles.mvcs.Mediator;
             this.view.addStatLine(new StatsLine("Bonuses", "", "", StatsLine.TYPE_TITLE));
             for each (bonus in this.bonusesList) {
                 this.view.addStatLine(new StatsLine(LineBuilder.getLocalizedStringFromKey(("FameBonus." + bonus.name)), bonus.fameAdded.toString(), ((LineBuilder.getLocalizedStringFromKey((("FameBonus." + bonus.name) + "Description")) + "\n") + LineBuilder.getLocalizedStringFromKey("FameBonus.LevelRequirement", {level:bonus.level})), StatsLine.TYPE_BONUS, (level < bonus.level)));
-            };
+            }
         }
 
         private function showInfo():void{

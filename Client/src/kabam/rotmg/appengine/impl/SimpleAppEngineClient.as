@@ -54,22 +54,22 @@ package kabam.rotmg.appengine.impl{
                 }
                 else {
                     _arg2.gameClientVersion = Parameters.CLIENT_VERSION;
-                };
+                }
             }
             catch(e:Error) {
-            };
+            }
             if (((!((_arg2 == null))) && (_arg2.guid))){
                 this.loader.sendRequest(this.makeURL(((_arg1 + "?g=") + escape(_arg2.guid))), _arg2);
             }
             else {
                 this.loader.sendRequest(this.makeURL(_arg1), _arg2);
-            };
+            }
         }
 
         private function makeURL(_arg1:String):String{
             if (_arg1.charAt(0) != "/"){
                 _arg1 = ("/" + _arg1);
-            };
+            }
             return ((this.setup.getAppEngineUrl() + _arg1));
         }
 

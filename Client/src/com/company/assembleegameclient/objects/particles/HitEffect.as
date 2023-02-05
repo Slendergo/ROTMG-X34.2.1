@@ -25,7 +25,7 @@ package com.company.assembleegameclient.objects.particles{
             var _local7:Particle;
             if (this.colors_.length == 0){
                 return false;
-            };
+            }
             var _local3:Number = ((this.speed_ / 600) * Math.cos((this.angle_ + Math.PI)));
             var _local4:Number = ((this.speed_ / 600) * Math.sin((this.angle_ + Math.PI)));
             var _local5:int;
@@ -34,7 +34,7 @@ package com.company.assembleegameclient.objects.particles{
                 _local7 = new HitParticle(_local6, 0.5, size_, (200 + (Math.random() * 100)), (_local3 + ((Math.random() - 0.5) * 0.4)), (_local4 + ((Math.random() - 0.5) * 0.4)), 0);
                 map_.addObj(_local7, x_, y_);
                 _local5++;
-            };
+            }
             return false;
         }
 
@@ -43,7 +43,7 @@ package com.company.assembleegameclient.objects.particles{
             var _local7:Particle;
             if (this.colors_.length == 0){
                 return false;
-            };
+            }
             var _local3:Number = ((this.speed_ / 600) * Math.cos((this.angle_ + Math.PI)));
             var _local4:Number = ((this.speed_ / 600) * Math.sin((this.angle_ + Math.PI)));
             this.numParts_ = (this.numParts_ * 0.2);
@@ -53,7 +53,7 @@ package com.company.assembleegameclient.objects.particles{
                 _local7 = new HitParticle(_local6, 0.5, 10, (5 + (Math.random() * 100)), (_local3 + ((Math.random() - 0.5) * 0.4)), (_local4 + ((Math.random() - 0.5) * 0.4)), 0);
                 map_.addObj(_local7, x_, y_);
                 _local5++;
-            };
+            }
             return false;
         }
 
@@ -83,7 +83,7 @@ class HitParticle extends Particle {
         this.timeLeft_ = (this.timeLeft_ - _arg2);
         if (this.timeLeft_ <= 0){
             return false;
-        };
+        }
         x_ = (x_ + ((this.moveVec_.x * _arg2) * 0.008));
         y_ = (y_ + ((this.moveVec_.y * _arg2) * 0.008));
         z_ = (z_ + ((this.moveVec_.z * _arg2) * 0.008));

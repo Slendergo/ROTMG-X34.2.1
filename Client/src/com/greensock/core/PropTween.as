@@ -30,7 +30,7 @@ package com.greensock.core{
             {
                 _arg_7._prev = this;
                 this._next = _arg_7;
-            };
+            }
             this.pr = _arg_8;
         }
 

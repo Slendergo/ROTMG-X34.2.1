@@ -66,7 +66,7 @@ package com.company.assembleegameclient.ui{
                 this.centerVertically(this.labelText_);
                 this.labelText_.filters = [new DropShadowFilter(0, 0, 0)];
                 addChild(this.labelText_);
-            };
+            }
             this.valueText_ = new TextFieldDisplayConcrete().setSize(14).setColor(0xFFFFFF);
             this.valueText_.setBold(true);
             this.valueText_.filters = [new DropShadowFilter(0, 0, 0)];
@@ -92,7 +92,7 @@ package com.company.assembleegameclient.ui{
             if (!this.bTextEnabled(Parameters.data_.toggleBarText)){
                 addEventListener(MouseEvent.ROLL_OVER, this.onMouseOver);
                 addEventListener(MouseEvent.ROLL_OUT, this.onMouseOut);
-            };
+            }
             barTextSignal.add(this.setBarText);
         }
 
@@ -112,10 +112,10 @@ package com.company.assembleegameclient.ui{
         public function draw(_arg1:int, _arg2:int, _arg3:int, _arg4:int=-1, _arg5:int=0):void{
             if (_arg2 > 0){
                 _arg1 = Math.min(_arg2, Math.max(0, _arg1));
-            };
+            }
             if ((((((((_arg1 == this.val_)) && ((_arg2 == this.max_)))) && ((_arg3 == this.boost_)))) && ((_arg4 == this.maxMax_)))){
                 return;
-            };
+            }
             this.val_ = _arg1;
             this.max_ = _arg2;
             this.boost_ = _arg3;
@@ -133,7 +133,7 @@ package com.company.assembleegameclient.ui{
             this.textColor_ = _arg1;
             if (this.boostText_ != null){
                 this.boostText_.setColor(this.textColor_);
-            };
+            }
             this.valueText_.setColor(this.textColor_);
         }
 
@@ -146,7 +146,7 @@ package com.company.assembleegameclient.ui{
             else {
                 addEventListener(MouseEvent.ROLL_OVER, this.onMouseOver);
                 addEventListener(MouseEvent.ROLL_OUT, this.onMouseOut);
-            };
+            }
             this.internalDraw();
         }
 
@@ -164,35 +164,35 @@ package com.company.assembleegameclient.ui{
             else {
                 if (this.boost_ > 0){
                     _local1 = 6206769;
-                };
-            };
+                }
+            }
             if (this.textColor_ != _local1){
                 this.setTextColor(_local1);
-            };
+            }
             graphics.beginFill(this.backColor_);
             graphics.drawRect(0, 0, this.w_, this.h_);
             graphics.endFill();
             if (this.isPulsing){
                 this.colorSprite.graphics.beginFill(this.pulseBackColor);
                 this.colorSprite.graphics.drawRect(0, 0, this.w_, this.h_);
-            };
+            }
             this.colorSprite.graphics.beginFill(this.color_);
             if (this.max_ > 0){
                 this.colorSprite.graphics.drawRect(0, 0, (this.w_ * (this.val_ / this.max_)), this.h_);
             }
             else {
                 this.colorSprite.graphics.drawRect(0, 0, this.w_, this.h_);
-            };
+            }
             this.colorSprite.graphics.endFill();
             if (contains(this.valueText_)){
                 removeChild(this.valueText_);
-            };
+            }
             if (contains(this.boostText_)){
                 removeChild(this.boostText_);
-            };
+            }
             if (((((this.bTextEnabled(Parameters.data_.toggleBarText)) || (((this.mouseOver_) && ((this.h_ > 4)))))) || (this.forceNumText_))){
                 this.drawWithMouseOver();
-            };
+            }
         }
 
         public function drawWithMouseOver():void{
@@ -202,26 +202,26 @@ package com.company.assembleegameclient.ui{
                 _local2 = (this.maxMax_ - (this.max_ - this.boost_));
                 if ((((this.level_ >= 20)) && ((_local2 > 0)))){
                     _local1 = (_local1 + ("|" + Math.ceil((_local2 / 5)).toString()));
-                };
-            };
+                }
+            }
             if (this.max_ > 0){
                 this.valueText_.setStringBuilder(this.valueTextStringBuilder_.setString((((this.val_ + "/") + this.max_) + _local1)));
             }
             else {
                 this.valueText_.setStringBuilder(this.valueTextStringBuilder_.setString(("" + this.val_)));
-            };
+            }
             if (!contains(this.valueText_)){
                 this.valueText_.mouseEnabled = false;
                 this.valueText_.mouseChildren = false;
                 addChild(this.valueText_);
-            };
+            }
             if (this.boost_ != 0){
                 this.boostText_.setStringBuilder(this.valueTextStringBuilder_.setString((((" (" + (((this.boost_ > 0)) ? "+" : "")) + this.boost_.toString()) + ")")));
                 if (!contains(this.boostText_)){
                     this.boostText_.mouseEnabled = false;
                     this.boostText_.mouseChildren = false;
                     addChild(this.boostText_);
-                };
+                }
                 this.valueText_.x = ((this.w_ / 2) - ((this.valueText_.width + this.boostText_.width) / 2));
                 this.boostText_.x = (this.valueText_.x + this.valueText_.width);
             }
@@ -229,8 +229,8 @@ package com.company.assembleegameclient.ui{
                 this.valueText_.x = ((this.w_ / 2) - (this.valueText_.width / 2));
                 if (contains(this.boostText_)){
                     removeChild(this.boostText_);
-                };
-            };
+                }
+            }
         }
 
         public function showMultiplierText():void{
@@ -243,7 +243,7 @@ package com.company.assembleegameclient.ui{
         public function hideMultiplierText():void{
             if (this.multiplierIcon.parent){
                 removeChild(this.multiplierIcon);
-            };
+            }
         }
 
         public function startPulse(_arg1:Number, _arg2:Number, _arg3:Number):void{
@@ -267,9 +267,9 @@ package com.company.assembleegameclient.ui{
                         this.colorSprite.alpha = 1;
                         this.internalDraw();
                         removeEventListener(Event.ENTER_FRAME, this.onPulse);
-                    };
-                };
-            };
+                    }
+                }
+            }
             this.colorSprite.alpha = (this.colorSprite.alpha + (this.speed * this.direction));
         }
 

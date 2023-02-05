@@ -99,7 +99,7 @@ package io.decagames.rotmg.shop.mysteryBox.contentPopup{
                     this.imageBitmap.y = (-(Math.round(((this.imageBitmap.height - this.itemSize) / 2))) - 2);
                     this._itemBackground.addChild(this.imageBitmap);
                     break;
-            };
+            }
             if (this.showFullName){
                 this.label.text = _local2;
                 this.label.x = 55;
@@ -108,7 +108,7 @@ package io.decagames.rotmg.shop.mysteryBox.contentPopup{
                 this.label.text = (_arg1 + "x");
                 this.label.x = 10;
                 this._itemBackground.x = (this._itemBackground.x + (this.label.x + 10));
-            };
+            }
             addChild(this.label);
         }
 
@@ -120,7 +120,7 @@ package io.decagames.rotmg.shop.mysteryBox.contentPopup{
         override public function resize(_arg1:int, _arg2:int=-1):void{
             if (!this.isBackgroundCleared){
                 this.drawBackground("", this.isLastElement, _arg1);
-            };
+            }
             this.targetWidth = _arg1;
             this.resizeLabel();
         }
@@ -128,7 +128,7 @@ package io.decagames.rotmg.shop.mysteryBox.contentPopup{
         override public function dispose():void{
             if (this.imageBitmap){
                 this.imageBitmap.bitmapData.dispose();
-            };
+            }
             super.dispose();
         }
 
@@ -146,7 +146,7 @@ package io.decagames.rotmg.shop.mysteryBox.contentPopup{
                 this.graphics.beginFill(0x2D2D2D);
                 this.graphics.drawRect(0, 0, _arg3, (this.itemSize + (2 * this.itemMargin)));
                 this.graphics.endFill();
-            };
+            }
         }
 
         public function get slotType():String{

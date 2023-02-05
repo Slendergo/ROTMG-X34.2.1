@@ -72,7 +72,7 @@ package com.company.assembleegameclient.ui.tooltip{
             if (_arg1){
                 this.targetObj = _arg1;
                 this.targetObj.addEventListener(MouseEvent.ROLL_OUT, this.onLeaveTarget);
-            };
+            }
         }
 
         public function detachFromTarget():void{
@@ -80,9 +80,9 @@ package com.company.assembleegameclient.ui.tooltip{
                 this.targetObj.removeEventListener(MouseEvent.ROLL_OUT, this.onLeaveTarget);
                 if (parent){
                     parent.removeChild(this);
-                };
+                }
                 this.targetObj = null;
-            };
+            }
         }
 
         public function forcePostionLeft():void{
@@ -102,17 +102,17 @@ package com.company.assembleegameclient.ui.tooltip{
         private function onAddedToStage(_arg1:Event):void{
             if (this.waiter.isEmpty()){
                 this.draw();
-            };
+            }
             if (this._followMouse){
                 this.position();
                 addEventListener(Event.ENTER_FRAME, this.onEnterFrame);
-            };
+            }
         }
 
         private function onRemovedFromStage(_arg1:Event):void{
             if (this._followMouse){
                 removeEventListener(Event.ENTER_FRAME, this.onEnterFrame);
-            };
+            }
         }
 
         private function onEnterFrame(_arg1:Event):void{
@@ -122,25 +122,25 @@ package com.company.assembleegameclient.ui.tooltip{
         protected function position():void{
             if (stage == null){
                 return;
-            };
+            }
             if (((((!(this.forcePositionLeft_)) && ((stage.mouseX < (stage.stageWidth / 2))))) || (this.forcePositionRight_))){
                 x = (stage.mouseX + 12);
             }
             else {
                 x = ((stage.mouseX - width) - 1);
-            };
+            }
             if (x < 12){
                 x = 12;
-            };
+            }
             if (((((!(this.forcePositionLeft_)) && ((stage.mouseY < (stage.stageHeight / 3))))) || (this.forcePositionRight_))){
                 y = (stage.mouseY + 12);
             }
             else {
                 y = ((stage.mouseY - height) - 1);
-            };
+            }
             if (y < 12){
                 y = 12;
-            };
+            }
         }
 
         public function draw():void{

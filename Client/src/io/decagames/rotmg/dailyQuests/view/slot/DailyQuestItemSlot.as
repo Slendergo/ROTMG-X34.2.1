@@ -51,7 +51,7 @@ package io.decagames.rotmg.dailyQuests.view.slot{
             if (!this.backgroundShape){
                 this.backgroundShape = new Shape();
                 this.imageContainer.addChild(this.backgroundShape);
-            };
+            }
             this.backgroundShape.graphics.clear();
             if (this.isSlotsSelectable){
                 if (this._selected){
@@ -61,11 +61,11 @@ package io.decagames.rotmg.dailyQuests.view.slot{
                 }
                 else {
                     this.backgroundShape.graphics.beginFill(0x454545, 1);
-                };
+                }
             }
             else {
                 this.backgroundShape.graphics.beginFill(((this.hasItem) ? 0x13A000 : 0x454545), 1);
-            };
+            }
             this.backgroundShape.graphics.drawRect(0, 0, SLOT_SIZE, SLOT_SIZE);
             this.backgroundShape.x = -(Math.round(((SLOT_SIZE + (SELECTED_BORDER_SIZE * 2)) / 2)));
             this.backgroundShape.y = -(Math.round(((SLOT_SIZE + (SELECTED_BORDER_SIZE * 2)) / 2)));
@@ -76,7 +76,7 @@ package io.decagames.rotmg.dailyQuests.view.slot{
             var _local4:Matrix;
             if (this.imageBitmap.bitmapData){
                 this.imageBitmap.bitmapData.dispose();
-            };
+            }
             var _local1:BitmapData = ObjectLibrary.getRedrawnTextureFromType(this._itemID, (SLOT_SIZE * 2), true);
             _local1 = _local1.clone();
             var _local2:XML = ObjectLibrary.xmlLibrary_[this._itemID];
@@ -86,16 +86,16 @@ package io.decagames.rotmg.dailyQuests.view.slot{
                 _local4 = new Matrix();
                 _local4.translate(8, 7);
                 _local1.draw(_local3, _local4);
-            };
+            }
             this.imageBitmap.bitmapData = _local1;
             if (((this.isSlotsSelectable) && (!(this._selected)))){
                 GreyScale.setGreyScale(_local1);
-            };
+            }
             if (!this.imageBitmap.parent){
                 this.imageBitmap.x = -(Math.round((this.imageBitmap.width / 2)));
                 this.imageBitmap.y = -(Math.round((this.imageBitmap.height / 2)));
                 this.imageContainer.addChild(this.imageBitmap);
-            };
+            }
         }
 
         public function set selected(_arg1:Boolean):void{
@@ -107,7 +107,7 @@ package io.decagames.rotmg.dailyQuests.view.slot{
         public function dispose():void{
             if (((this.imageBitmap) && (this.imageBitmap.bitmapData))){
                 this.imageBitmap.bitmapData.dispose();
-            };
+            }
         }
 
         public function get itemID():int{

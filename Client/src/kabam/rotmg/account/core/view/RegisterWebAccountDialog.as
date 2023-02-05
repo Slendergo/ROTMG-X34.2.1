@@ -81,14 +81,14 @@ package kabam.rotmg.account.core.view{
                 _local2.username = this.emailInput.text();
                 _local2.password = this.passwordInput.text();
                 this.register.dispatch(_local2);
-            };
+            }
         }
 
         private function isCheckboxChecked():Boolean{
             var _local1:Boolean = this.checkbox.isChecked();
             if (!_local1){
                 this.checkbox.setError(TextKey.REGISTER_WEB_ACCOUNT_CHECK_ERROR);
-            };
+            }
             return (_local1);
         }
 
@@ -96,7 +96,7 @@ package kabam.rotmg.account.core.view{
             var _local1:Boolean = EmailValidator.isValidEmail(this.emailInput.text());
             if (!_local1){
                 this.emailInput.setError(TextKey.INVALID_EMAIL_ADDRESS);
-            };
+            }
             return (_local1);
         }
 
@@ -104,7 +104,7 @@ package kabam.rotmg.account.core.view{
             var _local1 = (this.passwordInput.text().length >= 5);
             if (!_local1){
                 this.passwordInput.setError(TextKey.REGISTER_WEB_SHORT_ERROR);
-            };
+            }
             return (_local1);
         }
 
@@ -112,7 +112,7 @@ package kabam.rotmg.account.core.view{
             var _local1 = (this.passwordInput.text() == this.retypePasswordInput.text());
             if (!_local1){
                 this.retypePasswordInput.setError(TextKey.REGISTER_WEB_MATCH_ERROR);
-            };
+            }
             return (_local1);
         }
 

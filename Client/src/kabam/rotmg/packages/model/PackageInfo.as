@@ -43,9 +43,9 @@ package kabam.rotmg.packages.model{
             if (contents != ""){
                 if ((((this._charSlot > 0)) || ((this._vaultSlot > 0)))){
                     return (PURCHASE_TYPE_MIXED);
-                };
+                }
                 return (PURCHASE_TYPE_CONTENTS_ONLY);
-            };
+            }
             return (PURCHASE_TYPE_SLOTS_ONLY);
         }
 
@@ -63,7 +63,7 @@ package kabam.rotmg.packages.model{
                 _arg2.load(new URLRequest(_arg1));
             }
             catch(error:SecurityError) {
-            };
+            }
         }
 
         private function unbindLoaderEvents(_arg1:Loader, _arg2:Function):void{
@@ -71,7 +71,7 @@ package kabam.rotmg.packages.model{
                 _arg1.contentLoaderInfo.removeEventListener(Event.COMPLETE, _arg2);
                 _arg1.contentLoaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, this.onIOError);
                 _arg1.contentLoaderInfo.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, this.onSecurityEventError);
-            };
+            }
         }
 
         private function onIOError(_arg1:IOErrorEvent):void{

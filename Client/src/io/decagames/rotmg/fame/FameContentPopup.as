@@ -185,13 +185,13 @@ package io.decagames.rotmg.fame{
             }
             else {
                 _local2 = 0;
-            };
+            }
             _arg1.x = 6;
             _arg1.y = ((this.dungeonLinesPosition * 27) - _local2);
             this.dungeonContainer.addChild(_arg1);
             if ((this.dungeonLinesPosition % 2) == 1){
                 _arg1.drawBrightBackground();
-            };
+            }
             this.dungeonLinesPosition++;
         }
 
@@ -201,7 +201,7 @@ package io.decagames.rotmg.fame{
             this.statsContainer.addChild(_arg1);
             if ((this.statsLinesPosition % 2) == 1){
                 _arg1.drawBrightBackground();
-            };
+            }
             this.statsLinesPosition++;
         }
 

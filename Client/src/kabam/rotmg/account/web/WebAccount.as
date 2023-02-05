@@ -61,10 +61,10 @@ package kabam.rotmg.account.web{
                     _local4.data["Token"] = _arg3;
                     _local4.data["Password"] = _arg2;
                     _local4.flush();
-                };
+                }
             }
             catch(error:Error) {
-            };
+            }
         }
 
         public function clear():void{

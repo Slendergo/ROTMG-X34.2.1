@@ -58,7 +58,7 @@ package kabam.rotmg.news.model{
                     break;
                 default:
                     _local2 = true;
-            };
+            }
             return (_local2);
         }
 
@@ -66,10 +66,10 @@ package kabam.rotmg.news.model{
             inGameNews.sort(function (_arg1:InGameNews, _arg2:InGameNews):int{
                 if (_arg1.weight > _arg2.weight){
                     return (-1);
-                };
+                }
                 if (_arg1.weight == _arg2.weight){
                     return (0);
-                };
+                }
                 return (1);
             });
         }
@@ -79,7 +79,7 @@ package kabam.rotmg.news.model{
             if (_local1 != null){
                 Parameters.data_["lastNewsKey"] = _local1.newsKey;
                 Parameters.save();
-            };
+            }
         }
 
         public function hasUpdates():Boolean{
@@ -146,7 +146,7 @@ package kabam.rotmg.news.model{
             var _local2:uint = (_arg1.slot - 1);
             if (news[_local2]){
                 _arg1 = comparePriority(news[_local2], _arg1);
-            };
+            }
             news[_local2] = _arg1;
         }
 
@@ -176,7 +176,7 @@ package kabam.rotmg.news.model{
             if (hasValidModalNews()){
                 _local2 = inGameNews[(_arg1 - 1)];
                 return (new NewsModalPage(_local2.title, _local2.text));
-            };
+            }
             return (new NewsModalPage("No new information", "Please check back later."));
         }
     }

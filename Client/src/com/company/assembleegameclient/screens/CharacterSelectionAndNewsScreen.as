@@ -75,7 +75,7 @@ package com.company.assembleegameclient.screens{
         public function initialize(_arg1:PlayerModel):void{
             if (this.isInitialized){
                 return;
-            };
+            }
             this._buttonFactory = new ButtonFactory();
             this.isInitialized = true;
             this.model = _arg1;
@@ -93,7 +93,7 @@ package com.company.assembleegameclient.screens{
             if (_local1.hasCharacters()){
                 this.openCharactersText.setColor(TAB_SELECTED);
                 this.createOpenGraveyardText();
-            };
+            }
             this.createCharacterListChar();
             this.makeMenuOptionsBar();
         }
@@ -150,7 +150,7 @@ package com.company.assembleegameclient.screens{
             this.characterListHeight = this.characterList.height;
             if (this.characterListHeight > this.SCROLLBAR_REQUIREMENT_HEIGHT){
                 this.createScrollbar();
-            };
+            }
             addChild(this.characterList);
         }
 
@@ -162,7 +162,7 @@ package com.company.assembleegameclient.screens{
             this.characterListHeight = this.characterList.height;
             if (this.characterListHeight > this.SCROLLBAR_REQUIREMENT_HEIGHT){
                 this.createScrollbar();
-            };
+            }
             addChild(this.characterList);
         }
 
@@ -170,11 +170,11 @@ package com.company.assembleegameclient.screens{
             if (this.characterList != null){
                 removeChild(this.characterList);
                 this.characterList = null;
-            };
+            }
             if (this.scrollBar != null){
                 removeChild(this.scrollBar);
                 this.scrollBar = null;
-            };
+            }
         }
 
         private function createOpenCharactersText():void{
@@ -194,7 +194,7 @@ package com.company.assembleegameclient.screens{
                 this.openCharactersText.setColor(TAB_SELECTED);
                 this.openGraveyardText.setColor(TAB_UNSELECTED);
                 this.createCharacterListChar();
-            };
+            }
         }
 
         private function createOpenGraveyardText():void{
@@ -214,7 +214,7 @@ package com.company.assembleegameclient.screens{
                 this.openCharactersText.setColor(TAB_UNSELECTED);
                 this.openGraveyardText.setColor(TAB_SELECTED);
                 this.createCharacterListGrave();
-            };
+            }
         }
 
         private function createCreditDisplay():void{
@@ -239,7 +239,7 @@ package com.company.assembleegameclient.screens{
             var _local1:Rectangle = new Rectangle();
             if (stage){
                 _local1 = new Rectangle(0, 0, stage.stageWidth, stage.stageHeight);
-            };
+            }
             return (_local1);
         }
 
@@ -258,7 +258,7 @@ package com.company.assembleegameclient.screens{
         private function onScrollBarChange(_arg1:Event):void{
             if (this.characterList != null){
                 this.characterList.setPos((-(this.scrollBar.pos()) * (this.characterListHeight - 400)));
-            };
+            }
         }
 
         private function onPlayClick():void{
@@ -267,7 +267,7 @@ package com.company.assembleegameclient.screens{
             }
             else {
                 this.playGame.dispatch();
-            };
+            }
         }
 
         public function setName(_arg1:String):void{

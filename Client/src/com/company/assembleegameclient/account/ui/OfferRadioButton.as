@@ -77,7 +77,7 @@ package com.company.assembleegameclient.account.ui{
         public function showBonus(_arg1:Boolean):void{
             if (this.bonusText){
                 this.bonusText.visible = _arg1;
-            };
+            }
         }
 
         private function makeBackgroundBox():void{
@@ -127,7 +127,7 @@ package com.company.assembleegameclient.account.ui{
         private function makeBonusText():void{
             if (!this.hasBonus()){
                 return;
-            };
+            }
             this.bonusText = new TextFieldDisplayConcrete().setSize(18).setColor(0xFFFFFF).setBold(true);
             this.bonusText.setStringBuilder(new LineBuilder().setParams(TextKey.PAYMENTS_GOLD_BONUS, {percent:this.offer.bonus}));
             this.bonusText.filters = [new DropShadowFilter(0, 0, 0)];
@@ -138,7 +138,7 @@ package com.company.assembleegameclient.account.ui{
         private function makeTaglineTextIfApplicable():void{
             if (this.hasTagline()){
                 this.makeTaglineText();
-            };
+            }
         }
 
         private function makeTaglineText():void{
@@ -165,11 +165,11 @@ package com.company.assembleegameclient.account.ui{
             if (((this.hasBonus()) && (!((this.bonusText == null))))){
                 this.bonusText.x = 280;
                 this.bonusText.y = ((this.coinBitmap.height / 2) - (this.bonusText.height / 2));
-            };
+            }
             if (((this.hasTagline()) && (!((this.taglineText == null))))){
                 this.taglineText.x = 400;
                 this.taglineText.y = ((this.coinBitmap.height / 2) - (this.taglineText.height / 2));
-            };
+            }
         }
 
         private function updateBackgroundColor():void{

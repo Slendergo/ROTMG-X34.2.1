@@ -60,7 +60,7 @@ package kabam.rotmg.ui.view{
             if (Parameters.USE_NEW_FRIENDS_UI){
                 this.socialModel.noInvitationSignal.add(this.clearFriendsIndicator);
                 this.socialModel.socialDataSignal.add(this.onFriendsData);
-            };
+            }
             this.view.initFriendList(this.imageFactory, this.iconButtonFactory, this.onFriendsBtnClicked, ((Parameters.USE_NEW_FRIENDS_UI) && (this.socialModel.hasInvitations)));
         }
 
@@ -74,7 +74,7 @@ package kabam.rotmg.ui.view{
             }
             else {
                 this.openDialog.dispatch(new FriendListView());
-            };
+            }
         }
 
         private function onFriendsData(_arg1:String, _arg2:Boolean, _arg3:String):void{
@@ -84,8 +84,8 @@ package kabam.rotmg.ui.view{
                 }
                 else {
                     this.view.clearInvitationIndicator();
-                };
-            };
+                }
+            }
         }
 
         private function injectFactories():void{
@@ -102,7 +102,7 @@ package kabam.rotmg.ui.view{
             if (Parameters.USE_NEW_FRIENDS_UI){
                 this.socialModel.noInvitationSignal.remove(this.clearFriendsIndicator);
                 this.socialModel.socialDataSignal.remove(this.onFriendsData);
-            };
+            }
         }
 
         private function onGotoNexus():void{

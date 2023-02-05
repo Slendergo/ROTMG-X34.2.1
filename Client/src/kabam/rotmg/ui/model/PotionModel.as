@@ -34,7 +34,7 @@ package kabam.rotmg.ui.model{
             this._costs = _arg1;
             if (((!((_arg1 == null))) && ((_arg1.length > 0)))){
                 this.costIndex = 0;
-            };
+            }
         }
 
         public function get costs():Array{
@@ -64,15 +64,15 @@ package kabam.rotmg.ui.model{
                 this.available = false;
                 if (this.costIndex < (this.costs.length - 1)){
                     this.costIndex++;
-                };
+                }
                 this.update.dispatch(this.position);
-            };
+            }
         }
 
         private function coolDownPurchase(_arg1:TimerEvent):void{
             if (this.costIndex == 0){
                 this.purchaseCoolDownTimer.stop();
-            };
+            }
             this.available = true;
             this.update.dispatch(this.position);
         }
@@ -81,7 +81,7 @@ package kabam.rotmg.ui.model{
             this.costIndex--;
             if (this.costIndex == 0){
                 this.costCoolDownTimer.stop();
-            };
+            }
             this.update.dispatch(this.position);
         }
 
@@ -89,7 +89,7 @@ package kabam.rotmg.ui.model{
             var _local2:int;
             if (_arg1 <= 0){
                 _local2 = this.costs[this.costIndex];
-            };
+            }
             return (_local2);
         }
 

@@ -41,7 +41,7 @@ package io.decagames.rotmg.shop.mysteryBox{
             var _local3:int = int.MIN_VALUE;
             if (_arg1 >= (_local2.x * _local2.y)){
                 return (_local2);
-            };
+            }
             var _local4:int = 11;
             while (_local4 >= 1) {
                 _local5 = 4;
@@ -58,15 +58,15 @@ package io.decagames.rotmg.shop.mysteryBox{
                                     if (((_local2.x * _local2.y) - _arg1) > ((_local4 * _local5) - _arg1)){
                                         _local3 = _local6;
                                         _local2 = new Point(_local4, _local5);
-                                    };
-                                };
-                            };
-                        };
-                    };
+                                    }
+                                }
+                            }
+                        }
+                    }
                     _local5--;
-                };
+                }
                 _local4--;
-            };
+            }
             return (_local2);
         }
 
@@ -74,10 +74,10 @@ package io.decagames.rotmg.shop.mysteryBox{
             var _local2:int = Math.floor((this.maxResultHeight / _arg1.y));
             if ((_local2 * _arg1.x) > this.maxResultWidth){
                 _local2 = Math.floor((this.maxResultWidth / _arg1.x));
-            };
+            }
             if ((_local2 * _arg1.y) > this.maxResultHeight){
                 return (-1);
-            };
+            }
             return (_local2);
         }
 
@@ -87,10 +87,10 @@ package io.decagames.rotmg.shop.mysteryBox{
             var _local1:Array = MysteryBoxInfo(_boxInfo).displayedItems.split(",");
             if ((((_local1.length == 0)) || ((MysteryBoxInfo(_boxInfo).displayedItems == "")))){
                 return;
-            };
+            }
             if (_infoButton){
                 _infoButton.alpha = 0;
-            };
+            }
             switch (_local1.length){
                 case 1:
                     break;
@@ -99,14 +99,14 @@ package io.decagames.rotmg.shop.mysteryBox{
                     break;
                 case 3:
                     break;
-            };
+            }
             this.prepareResultGrid(_local1.length);
             var _local3:int;
             while (_local3 < _local1.length) {
                 _local4 = new UIItemContainer(_local1[_local3], 0, 0, this.resultElementWidth);
                 this.displayedItemsGrid.addGridElement(_local4);
                 _local3++;
-            };
+            }
         }
 
         override public function resize(_arg1:int, _arg2:int=-1):void{
@@ -124,7 +124,7 @@ package io.decagames.rotmg.shop.mysteryBox{
             _infoButton.y = 45;
             if (this.displayedItemsGrid){
                 this.displayedItemsGrid.x = (10 + Math.round(((this.maxResultWidth - (this.resultElementWidth * this.gridConfig.x)) / 2)));
-            };
+            }
             updateSaleLabel();
             updateClickMask(_arg1);
             updateStartTimeString(_arg1);
@@ -134,7 +134,7 @@ package io.decagames.rotmg.shop.mysteryBox{
         override public function dispose():void{
             if (this.displayedItemsGrid){
                 this.displayedItemsGrid.dispose();
-            };
+            }
             super.dispose();
         }
 

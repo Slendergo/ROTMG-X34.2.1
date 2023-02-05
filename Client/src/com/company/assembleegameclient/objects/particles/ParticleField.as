@@ -60,15 +60,15 @@ package com.company.assembleegameclient.objects.particles{
             var _local3:uint;
             if (this.doDestroy){
                 return false;
-            };
+            }
             var _local4:uint = this.squares.length;
             _local3 = 0;
             while (_local3 < _local4) {
                 if (this.squares[_local3]){
                     this.squares[_local3].move();
-                };
+                }
                 _local3++;
-            };
+            }
             _bitmapData = new BitmapData(this.width, this.height, true, 0);
             _bitmapData.draw(this.spriteSource);
             return true;
@@ -112,7 +112,7 @@ package com.company.assembleegameclient.objects.particles{
                 this.timer.removeEventListener(TimerEvent.TIMER, this.onTimer);
                 this.timer.stop();
                 this.timer = null;
-            };
+            }
             this.spriteSource = null;
             this.squares = [];
             this.doDestroy = true;
@@ -160,7 +160,7 @@ class Square extends Shape {
         this.lifespan--;
         if (!this.lifespan){
             this.complete.dispatch(this);
-        };
+        }
     }
 
 

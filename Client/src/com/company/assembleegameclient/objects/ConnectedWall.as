@@ -25,13 +25,13 @@ package com.company.assembleegameclient.objects{
             this.objectXML_ = _arg1;
             if (_arg1.hasOwnProperty("BaseIndent")){
                 this.bI_ = (0.5 - Number(_arg1.BaseIndent));
-            };
+            }
             if (_arg1.hasOwnProperty("TopIndent")){
                 this.tI_ = (0.5 - Number(_arg1.TopIndent));
-            };
+            }
             if (_arg1.hasOwnProperty("Height")){
                 this.h_ = Number(_arg1.Height);
-            };
+            }
             this.wallRepeat_ = !(_arg1.hasOwnProperty("NoWallTextureRepeat"));
             this.topRepeat_ = !(_arg1.hasOwnProperty("NoTopTextureRepeat"));
         }
@@ -52,7 +52,7 @@ package com.company.assembleegameclient.objects{
             var _local9:BitmapData = texture_;
             if (this.objectXML_.hasOwnProperty("DotTexture")){
                 _local9 = AssetLibrary.getImageFromSet(String(this.objectXML_.DotTexture.File), int(this.objectXML_.DotTexture.Index));
-            };
+            }
             this.addTop([_local5, _local6, _local7, _local8], new <Number>[0.25, 0.25, 0.75, 0.25, 0.25, 0.75], _local9);
         }
 
@@ -71,7 +71,7 @@ package com.company.assembleegameclient.objects{
             var _local9:BitmapData = texture_;
             if (this.objectXML_.hasOwnProperty("ShortLineTexture")){
                 _local9 = AssetLibrary.getImageFromSet(String(this.objectXML_.ShortLineTexture.File), int(this.objectXML_.ShortLineTexture.Index));
-            };
+            }
             this.addTop([_local5, _local6, _local7, _local8], new <Number>[0.25, 0, 0.75, 0, 0.25, 0.75], _local9);
         }
 
@@ -95,7 +95,7 @@ package com.company.assembleegameclient.objects{
             var _local13:BitmapData = texture_;
             if (this.objectXML_.hasOwnProperty("LTexture")){
                 _local13 = AssetLibrary.getImageFromSet(String(this.objectXML_.LTexture.File), int(this.objectXML_.LTexture.Index));
-            };
+            }
             this.addTop([_local7, _local8, _local9, _local10, _local11, _local12], new <Number>[0.25, 0, 0.75, 0, 0.25, 0.75], _local13);
         }
 
@@ -113,7 +113,7 @@ package com.company.assembleegameclient.objects{
             var _local9:BitmapData = texture_;
             if (this.objectXML_.hasOwnProperty("LineTexture")){
                 _local9 = AssetLibrary.getImageFromSet(String(this.objectXML_.LineTexture.File), int(this.objectXML_.LineTexture.Index));
-            };
+            }
             this.addTop([_local5, _local6, _local7, _local8], new <Number>[0.25, 0, 0.75, 0, 0.25, 1], _local9);
         }
 
@@ -142,7 +142,7 @@ package com.company.assembleegameclient.objects{
             var _local17:BitmapData = texture_;
             if (this.objectXML_.hasOwnProperty("TTexture")){
                 _local17 = AssetLibrary.getImageFromSet(String(this.objectXML_.TTexture.File), int(this.objectXML_.TTexture.Index));
-            };
+            }
             this.addTop([_local9, _local10, _local11, _local12, _local13, _local14, _local15, _local16], new <Number>[0.25, 0, 0.75, 0, 0.25, 0.25], _local17);
         }
 
@@ -182,7 +182,7 @@ package com.company.assembleegameclient.objects{
             var _local25:BitmapData = texture_;
             if (this.objectXML_.hasOwnProperty("CrossTexture")){
                 _local25 = AssetLibrary.getImageFromSet(String(this.objectXML_.CrossTexture.File), int(this.objectXML_.CrossTexture.Index));
-            };
+            }
             this.addTop([_local13, _local14, _local15, _local16, _local17, _local18, _local19, _local20, _local21, _local22, _local23, _local24], new <Number>[0.25, 0, 0.75, 0, 0.25, 0.25], _local25);
         }
 
@@ -203,16 +203,16 @@ package com.company.assembleegameclient.objects{
                 _local12 = 0;
                 if (_arg6){
                     _local11 = _local9;
-                };
+                }
                 if (_arg7){
                     _local12 = -(_local9);
-                };
+                }
                 if ((((((((_local12 == 0)) && ((_local11 == 0)))) && (_arg7))) && ((_arg4.x == -0.5)))){
                     _local12 = 0.34;
-                };
+                }
                 _local13 = Vector.<Number>([-0.5, 0.5, 0, 0, 0, 0.5, 0.5, 0, 1, 0, (-0.5 + _local11), -0.5, 0, 0, 1, (0.5 + _local12), -0.5, 0, 1, 1]);
                 GraphicsFillExtra.setVertexBuffer(_local10.bitmapFill_, _local13);
-            };
+            }
         }
 
         protected function addBit(_arg1:Vector3D, _arg2:Vector3D, _arg3:Vector3D, _arg4:Vector3D, _arg5:BitmapData, _arg6:Vector3D, _arg7:Boolean, _arg8:Boolean=false, _arg9:Boolean=false):void{
@@ -224,7 +224,7 @@ package com.company.assembleegameclient.objects{
             }
             else {
                 obj3D_.uvts_.push(1, 0, 0, (1.5 - this.tI_), 0, 0, 0, 0, 0, 1, 1, 0);
-            };
+            }
             var _local11:ObjectFace3D = new ObjectFace3D(obj3D_, new <int>[_local10, (_local10 + 1), (_local10 + 2), (_local10 + 3)]);
             _local11.texture_ = _arg5;
             _local11.bitmapFill_.repeat = this.wallRepeat_;
@@ -239,11 +239,11 @@ package com.company.assembleegameclient.objects{
                     }
                     else {
                         _local12 = Vector.<Number>([0.5, 0.5, 0, 0, 0, 0.75, 0.5, 0, 1, 0, 0.5, -0.5, 0, 0, 1, 0.75, -0.5, 0, 1, 1]);
-                    };
+                    }
                     GraphicsFillExtra.setVertexBuffer(_local11.bitmapFill_, _local12);
                     obj3D_.faces_.push(_local11);
-                };
-            };
+                }
+            }
         }
 
         protected function addTop(_arg1:Array, _arg2:Vector.<Number>, _arg3:BitmapData):void{
@@ -275,11 +275,11 @@ package com.company.assembleegameclient.objects{
                         }
                         else {
                             obj3D_.uvts_.push(0, 0, 0);
-                        };
-                    };
-                };
+                        }
+                    }
+                }
                 _local6++;
-            };
+            }
             var _local7:ObjectFace3D = new ObjectFace3D(obj3D_, _local5);
             _local7.texture_ = _arg3;
             _local7.bitmapFill_.repeat = this.topRepeat_;
@@ -289,7 +289,7 @@ package com.company.assembleegameclient.objects{
                 _local8.texture_ = _arg3;
                 _local8.bitmapFill_.repeat = this.topRepeat_;
                 obj3D_.faces_.push(_local8);
-            };
+            }
             var _local9:int;
             if ((((((_local5.length == 4)) && ((GraphicsFillExtra.getVertexBuffer(_local7.bitmapFill_) == null)))) && (Parameters.isGpuRender()))){
                 _local10 = new Vector.<Number>();
@@ -304,11 +304,11 @@ package com.company.assembleegameclient.objects{
                         }
                         else {
                             _local11 = _local9;
-                        };
-                    };
+                        }
+                    }
                     _local10.push(obj3D_.vL_[(_local5[_local11] * 3)], (obj3D_.vL_[((_local5[_local11] * 3) + 1)] * -1), obj3D_.vL_[((_local5[_local11] * 3) + 2)], obj3D_.uvts_[(_local5[(((_local11)!=2) ? _local11 : (_local11 - 1))] * 3)], obj3D_.uvts_[((_local5[(((_local11)!=2) ? _local11 : (_local11 + 1))] * 3) + 1)]);
                     _local9++;
-                };
+                }
                 GraphicsFillExtra.setVertexBuffer(_local7.bitmapFill_, _local10);
             }
             else {
@@ -320,7 +320,7 @@ package com.company.assembleegameclient.objects{
                     while (_local15 < 2) {
                         if (_local15 == 1){
                             _local12 = _local13;
-                        };
+                        }
                         _local10 = new Vector.<Number>();
                         _local16 = 0;
                         _local17 = 0;
@@ -330,20 +330,20 @@ package com.company.assembleegameclient.objects{
                             }
                             else {
                                 _local17 = _local9;
-                            };
+                            }
                             _local10.push(obj3D_.vL_[(_local5[_local9] * 3)], (obj3D_.vL_[((_local5[_local9] * 3) + 1)] * -1), obj3D_.vL_[((_local5[_local9] * 3) + 2)], obj3D_.uvts_[(_local5[(((_local17)!=2) ? _local17 : (_local17 - 1))] * 3)], obj3D_.uvts_[((_local5[(((_local17)!=2) ? _local17 : (_local17 + 1))] * 3) + 1)]);
                             _local16++;
-                        };
+                        }
                         if (_local15 == 1){
                             GraphicsFillExtra.setVertexBuffer(_local8.bitmapFill_, _local10);
                         }
                         else {
                             GraphicsFillExtra.setVertexBuffer(_local7.bitmapFill_, _local10);
-                        };
+                        }
                         _local15++;
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
 

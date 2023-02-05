@@ -25,17 +25,17 @@ package com.greensock.core{
                 if (this != _arg_1._timeline)
                 {
                     _arg_1._pauseTime = (_arg_1._startTime + ((rawTime() - _arg_1._startTime) / _arg_1._timeScale));
-                };
-            };
+                }
+            }
             if (_arg_1.timeline)
             {
                 _arg_1.timeline._remove(_arg_1, true);
-            };
+            }
             _arg_1.timeline = (_arg_1._timeline = this);
             if (_arg_1._gc)
             {
                 _arg_1._enabled(true, true);
-            };
+            }
             var _local_5:Animation = _last;
             if (_sortChildren)
             {
@@ -43,8 +43,8 @@ package com.greensock.core{
                 while (((_local_5) && (_local_5._startTime > _local_6)))
                 {
                     _local_5 = _local_5._prev;
-                };
-            };
+                }
+            }
             if (_local_5)
             {
                 _arg_1._next = _local_5._next;
@@ -54,7 +54,7 @@ package com.greensock.core{
             {
                 _arg_1._next = _first;
                 _first = Animation(_arg_1);
-            };
+            }
             if (_arg_1._next)
             {
                 _arg_1._next._prev = _arg_1;
@@ -62,12 +62,12 @@ package com.greensock.core{
             else
             {
                 _last = Animation(_arg_1);
-            };
+            }
             _arg_1._prev = _local_5;
             if (_timeline)
             {
                 _uncache(true);
-            };
+            }
             return (this);
         }
 
@@ -77,7 +77,7 @@ package com.greensock.core{
                 if (!_arg_2)
                 {
                     _arg_1._enabled(false, true);
-                };
+                }
                 if (_arg_1._prev)
                 {
                     _arg_1._prev._next = _arg_1._next;
@@ -87,8 +87,8 @@ package com.greensock.core{
                     if (_first === _arg_1)
                     {
                         _first = _arg_1._next;
-                    };
-                };
+                    }
+                }
                 if (_arg_1._next)
                 {
                     _arg_1._next._prev = _arg_1._prev;
@@ -98,14 +98,14 @@ package com.greensock.core{
                     if (_last === _arg_1)
                     {
                         _last = _arg_1._prev;
-                    };
-                };
+                    }
+                }
                 _arg_1._next = (_arg_1._prev = (_arg_1.timeline = null));
                 if (_timeline)
                 {
                     _uncache(true);
-                };
-            };
+                }
+            }
             return (this);
         }
 
@@ -129,10 +129,10 @@ package com.greensock.core{
                     else
                     {
                         _local_4.render((((_local_4._dirty) ? _local_4.totalDuration() : _local_4._totalDuration) - ((_arg_1 - _local_4._startTime) * _local_4._timeScale)), _arg_2, _arg_3);
-                    };
-                };
+                    }
+                }
                 _local_4 = _local_5;
-            };
+            }
         }
 
         public function insert(_arg_1:*, _arg_2:*=0):*{

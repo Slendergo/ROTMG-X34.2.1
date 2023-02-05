@@ -40,14 +40,14 @@ package io.decagames.rotmg.ui.tabs{
                 else {
                     this.decorBitmapData = TextureParser.instance.getTexture("UI", "tab_open_decor_center").bitmapData;
                     this.decorSliceRectangle = new Rectangle(18, 0, 1, 14);
-                };
-            };
+                }
+            }
             this.bitmapData.copyPixels(this.decorBitmapData, new Rectangle(0, 0, this.decorSliceRectangle.x, this.decorBitmapData.height), new Point(_arg1, 0));
             var _local5:int = _arg1;
             while (_local5 < _arg2) {
                 this.bitmapData.copyPixels(this.decorBitmapData, new Rectangle(this.decorSliceRectangle.x, 0, this.decorSliceRectangle.width, this.decorBitmapData.height), new Point((this.decorSliceRectangle.x + _local5), 0));
                 _local5++;
-            };
+            }
             this.bitmapData.copyPixels(this.decorBitmapData, new Rectangle((this.decorSliceRectangle.x + this.decorSliceRectangle.width), 0, (this.decorBitmapData.width - (this.decorSliceRectangle.x + this.decorSliceRectangle.width)), this.decorBitmapData.height), new Point(_arg2, 0));
         }
 

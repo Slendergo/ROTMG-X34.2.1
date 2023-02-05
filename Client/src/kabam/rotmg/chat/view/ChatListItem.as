@@ -62,12 +62,12 @@ package kabam.rotmg.chat.view{
                     else {
                         if (((((((this.isTrade) && (!((this.playerName == null))))) && (!((this.playerName == ""))))) && (!((hmod.gameSprite.map.player_.name_ == this.playerName))))){
                             hmod.gameSprite.addChatPlayerMenu(null, e.stageX, e.stageY, this.playerName, false, true);
-                        };
-                    };
-                };
+                        }
+                    }
+                }
             }
             catch(e:Error) {
-            };
+            }
         }
 
         public function isTimedOut():Boolean{
@@ -93,18 +93,18 @@ package kabam.rotmg.chat.view{
                     while (_local5 < _local2) {
                         this.list[_local5].y = (this.list[_local5].y - this.layoutHeight);
                         _local5++;
-                    };
-                };
+                    }
+                }
                 _local1 = (_local1 + _local4.width);
                 _local2++;
-            };
+            }
         }
 
         private function addItems():void{
             var _local1:DisplayObject;
             for each (_local1 in this.list) {
                 addChild(_local1);
-            };
+            }
         }
 
 

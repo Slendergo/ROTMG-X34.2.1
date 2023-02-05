@@ -31,14 +31,14 @@ package com.hurlant.crypto.hash{
             var _local4:uint = (_local2 * 8);
             while ((_arg1.length % 4) != 0) {
                 _arg1[_arg1.length] = 0;
-            };
+            }
             _arg1.position = 0;
             var _local5:Array = [];
             var _local6:uint;
             while (_local6 < _arg1.length) {
                 _local5.push(_arg1.readUnsignedInt());
                 _local6 = (_local6 + 4);
-            };
+            }
             var _local7:Array = this.core(_local5, _local4);
             var _local8:ByteArray = new ByteArray();
             var _local9:uint = (this.getHashSize() / 4);
@@ -46,7 +46,7 @@ package com.hurlant.crypto.hash{
             while (_local6 < _local9) {
                 _local8.writeUnsignedInt(_local7[_local6]);
                 _local6++;
-            };
+            }
             _arg1.length = _local2;
             _arg1.endian = _local3;
             return (_local8);

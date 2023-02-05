@@ -53,20 +53,20 @@ package com.company.assembleegameclient.ui.icons{
                 this.label_.x = ((this.icon_.x + this.icon_.width) - 8);
                 this.label_.y = 0;
                 addChild(this.label_);
-            };
+            }
             addEventListener(MouseEvent.MOUSE_OVER, this.onMouseOver);
             addEventListener(MouseEvent.MOUSE_OUT, this.onMouseOut);
             this.setToolTipTitle(_arg3);
             this.hotkeyName_ = _arg4;
             if (this.hotkeyName_ != ""){
                 this.setToolTipText(TextKey.ICON_BUTTON_HOT_KEY, {hotkey:KeyCodes.CharCodeStrings[Parameters.data_[this.hotkeyName_]]});
-            };
+            }
         }
 
         private function getCroppedBitmapData(_arg1:BitmapData, _arg2:int):BitmapData{
             if (!_arg2){
                 return (_arg1);
-            };
+            }
             var _local3:Rectangle = new Rectangle(0, _arg2, _arg1.width, (_arg1.height - _arg2));
             var _local4:BitmapData = new BitmapData(_arg1.width, (_arg1.height - _arg2));
             _local4.copyPixels(_arg1, _local3, new Point(0, 0));
@@ -92,9 +92,9 @@ package com.company.assembleegameclient.ui.icons{
                     this.toolTip_ = new TextToolTip(0x363636, 0x9B9B9B, "", "", 200);
                     this.hoverTooltipDelegate.setDisplayObject(this);
                     this.hoverTooltipDelegate.tooltip = this.toolTip_;
-                };
+                }
                 this.toolTip_.setTitle(new LineBuilder().setParams(_arg1, _arg2));
-            };
+            }
         }
 
         public function setToolTipText(_arg1:String, _arg2:Object=null):void{
@@ -103,22 +103,22 @@ package com.company.assembleegameclient.ui.icons{
                     this.toolTip_ = new TextToolTip(0x363636, 0x9B9B9B, "", "", 200);
                     this.hoverTooltipDelegate.setDisplayObject(this);
                     this.hoverTooltipDelegate.tooltip = this.toolTip_;
-                };
+                }
                 this.toolTip_.setText(new LineBuilder().setParams(_arg1, _arg2));
-            };
+            }
         }
 
         public function setColorTransform(_arg1:ColorTransform):void{
             if (_arg1 == this.ct_){
                 return;
-            };
+            }
             this.ct_ = _arg1;
             if (this.ct_ == null){
                 transform.colorTransform = MoreColorUtil.identity;
             }
             else {
                 transform.colorTransform = this.ct_;
-            };
+            }
         }
 
         public function set enabled(_arg1:Boolean):void{
@@ -133,7 +133,7 @@ package com.company.assembleegameclient.ui.icons{
                 removeEventListener(MouseEvent.MOUSE_OUT, this.onMouseOut);
                 this.setColorTransform(disableCT);
                 mouseEnabled = (mouseChildren = false);
-            };
+            }
         }
 
         protected function onMouseOver(_arg1:MouseEvent):void{

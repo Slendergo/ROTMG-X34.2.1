@@ -63,7 +63,7 @@ package kabam.rotmg.game.view{
             mouseEnabled = true;
             if (!_arg1){
                 GreyScale.greyScaleToDisplayObject(this, true);
-            };
+            }
         }
 
         public function get hasIndicator():Boolean{
@@ -76,7 +76,7 @@ package kabam.rotmg.game.view{
             }
             else {
                 this.resetIndicator();
-            };
+            }
         }
 
         public function addIndicator():void{
@@ -97,7 +97,7 @@ package kabam.rotmg.game.view{
             if (this._isOnNexus){
                 this.openShop();
                 this.newIndicator(false);
-            };
+            }
         }
 
         private function openShop():void{

@@ -30,24 +30,24 @@ package com.company.assembleegameclient.objects.particles{
                 _local4 = new InspireParticle(_arg2, 100);
                 this.parts2_.push(_local4);
                 _local5++;
-            };
+            }
         }
 
         override public function update(_arg1:int, _arg2:int):Boolean{
             if (this.go_.map_ == null){
                 this.endEffect();
                 return false;
-            };
+            }
             x_ = this.go_.x_;
             y_ = this.go_.y_;
             if (this.startTime_ < 0){
                 this.startTime_ = _arg1;
-            };
+            }
             var _local3:Number = ((_arg1 - this.startTime_) / LIFETIME);
             if (_local3 >= 1){
                 this.endEffect();
                 return false;
-            };
+            }
             this.updateSwirl(this.parts1_, 1, 0, _local3);
             this.updateSwirl(this.parts2_, 1, Math.PI, _local3);
             return true;
@@ -57,10 +57,10 @@ package com.company.assembleegameclient.objects.particles{
             var _local1:InspireParticle;
             for each (_local1 in this.parts1_) {
                 _local1.alive_ = false;
-            };
+            }
             for each (_local1 in this.parts2_) {
                 _local1.alive_ = false;
-            };
+            }
         }
 
         public function updateSwirl(_arg1:Vector.<InspireParticle>, _arg2:Number, _arg3:Number, _arg4:Number):void{
@@ -86,11 +86,11 @@ package com.company.assembleegameclient.objects.particles{
                         }
                         else {
                             _local6.moveTo(_local8, _local9);
-                        };
-                    };
-                };
+                        }
+                    }
+                }
                 _local5++;
-            };
+            }
         }
 
 

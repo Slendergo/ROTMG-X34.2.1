@@ -36,8 +36,8 @@ package com.hurlant.crypto.hash{
                     this.pad_1.writeByte(54);
                     this.pad_2.writeByte(92);
                     _local4++;
-                };
-            };
+                }
+            }
         }
 
         public function setPadSize(_arg1:int):void{
@@ -46,7 +46,7 @@ package com.hurlant.crypto.hash{
         public function getHashSize():uint{
             if (this.bits != 0){
                 return ((this.bits / 8));
-            };
+            }
             return (this.hash.getHashSize());
         }
 
@@ -62,8 +62,8 @@ package com.hurlant.crypto.hash{
                     this.pad_1.writeByte(54);
                     this.pad_2.writeByte(92);
                     _local4++;
-                };
-            };
+                }
+            }
             this.innerKey.length = 0;
             this.outerKey.length = 0;
             this.innerKey.writeBytes(_arg1);
@@ -76,7 +76,7 @@ package com.hurlant.crypto.hash{
             this.outerHash = this.hash.hash(this.outerKey);
             if ((((this.bits > 0)) && ((this.bits < (8 * this.outerHash.length))))){
                 this.outerHash.length = (this.bits / 8);
-            };
+            }
             return (this.outerHash);
         }
 

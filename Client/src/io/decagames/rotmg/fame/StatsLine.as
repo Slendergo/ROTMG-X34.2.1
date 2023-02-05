@@ -54,14 +54,14 @@ package io.decagames.rotmg.fame{
             if (_arg4 == TYPE_TITLE){
                 _local6.size = 15;
                 _local6.color = 0xFFFFFF;
-            };
+            }
             var _local7:TextFormat = new TextFormat();
             if (_arg4 == TYPE_BONUS){
                 _local7.color = 0xFFC800;
             }
             else {
                 _local7.color = 5544494;
-            };
+            }
             _local7.font = FontModel.DEFAULT_FONT_NAME;
             _local7.size = 13;
             _local7.bold = true;
@@ -75,13 +75,13 @@ package io.decagames.rotmg.fame{
                 this.fameValue.defaultTextFormat = _local7;
                 if ((((_arg2 == "0")) || ((_arg2 == "0.00%")))){
                     this.fameValue.defaultTextFormat = _local6;
-                };
+                }
                 if (_arg4 == TYPE_BONUS){
                     this.fameValue.text = ("+" + _arg2);
                 }
                 else {
                     this.fameValue.text = _arg2;
-                };
+                }
                 this.fameValue.x = ((this.lineWidth - 4) - this.fameValue.textWidth);
                 addChild(this.fameValue);
                 this.fameValue.y = 2;
@@ -93,7 +93,7 @@ package io.decagames.rotmg.fame{
                 addChild(this.lock);
                 this.lock.x = ((this.lineWidth - _local8) + 5);
                 this.lock.y = -8;
-            };
+            }
             this.setLabelsPosition();
             this._tooltipText = _arg3;
         }
@@ -108,7 +108,7 @@ package io.decagames.rotmg.fame{
             if (this.lock){
                 removeChild(this.lock);
                 this.lock.bitmapData.dispose();
-            };
+            }
         }
 
         public function drawBrightBackground():void{

@@ -20,7 +20,7 @@ package com.company.assembleegameclient.util{
                 _local3 = new Bitmap(_local4);
                 _local3.scaleX = _arg2;
                 _local3.scaleY = _arg2;
-            };
+            }
             return (_local3);
         }
 

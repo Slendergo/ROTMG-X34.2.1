@@ -60,8 +60,8 @@ package com.company.assembleegameclient.appengine{
             else {
                 if (!_arg7){
                     _local12 = CachingColorTransformer.transformBitmapData(_local12, new ColorTransform(0.75, 0.75, 0.75, 1, 0, 0, 0, 0));
-                };
-            };
+                }
+            }
             return (_local12);
         }
 
@@ -70,7 +70,7 @@ package com.company.assembleegameclient.appengine{
             var _local4:Number = ((Parameters.data_.charIdUseMap.hasOwnProperty(_arg2.charId())) ? Parameters.data_.charIdUseMap[_arg2.charId()] : 0);
             if (_local3 != _local4){
                 return ((_local4 - _local3));
-            };
+            }
             return ((_arg2.xp() - _arg1.xp()));
         }
 
@@ -92,11 +92,11 @@ package com.company.assembleegameclient.appengine{
                         _local5 = ObjectLibrary.xmlLibrary_[_local4];
                         if (((!((_local5 == null))) && (_local5.hasOwnProperty("FameBonus")))){
                             _local2 = (_local2 + int(_local5.FameBonus));
-                        };
-                    };
-                };
+                        }
+                    }
+                }
                 _local3++;
-            };
+            }
             return (_local2);
         }
 
@@ -181,7 +181,7 @@ package com.company.assembleegameclient.appengine{
         public function bornOn():String{
             if (!this.charXML_.hasOwnProperty("CreationDate")){
                 return ("Unknown");
-            };
+            }
             return (this.charXML_.CreationDate);
         }
 

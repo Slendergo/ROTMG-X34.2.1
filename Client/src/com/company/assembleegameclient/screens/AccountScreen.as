@@ -49,7 +49,7 @@ package com.company.assembleegameclient.screens{
             this.guildText.y = 6;
             while (this.guildLayer.numChildren > 0) {
                 this.guildLayer.removeChildAt(0);
-            };
+            }
             this.guildLayer.addChild(this.guildText);
         }
 
@@ -67,7 +67,7 @@ package com.company.assembleegameclient.screens{
             this.rankText.addEventListener(MouseEvent.ROLL_OUT, this.onRollOut);
             while (this.rankLayer.numChildren > 0) {
                 this.rankLayer.removeChildAt(0);
-            };
+            }
             this.rankLayer.addChild(this.rankText);
         }
 
@@ -79,7 +79,7 @@ package com.company.assembleegameclient.screens{
             _local2.y = 2;
             while (this.accountInfoLayer.numChildren > 0) {
                 this.accountInfoLayer.removeChildAt(0);
-            };
+            }
             this.accountInfoLayer.addChild(_local2);
         }
 

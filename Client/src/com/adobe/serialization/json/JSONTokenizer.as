@@ -63,7 +63,7 @@ package com.adobe.serialization.json{
                     }
                     else {
                         this.parseError(("Expecting 'true' but found " + _local2));
-                    };
+                    }
                     break;
                 case "f":
                     _local3 = (((("f" + this.nextChar()) + this.nextChar()) + this.nextChar()) + this.nextChar());
@@ -74,7 +74,7 @@ package com.adobe.serialization.json{
                     }
                     else {
                         this.parseError(("Expecting 'false' but found " + _local3));
-                    };
+                    }
                     break;
                 case "n":
                     _local4 = ((("n" + this.nextChar()) + this.nextChar()) + this.nextChar());
@@ -85,7 +85,7 @@ package com.adobe.serialization.json{
                     }
                     else {
                         this.parseError(("Expecting 'null' but found " + _local4));
-                    };
+                    }
                     break;
                 case '"':
                     _local1 = this.readString();
@@ -97,10 +97,10 @@ package com.adobe.serialization.json{
                     else {
                         if (this.ch == ""){
                             return (null);
-                        };
+                        }
                         this.parseError((("Unexpected " + this.ch) + " encountered"));
-                    };
-            };
+                    }
+            }
             return (_local1);
         }
 
@@ -145,24 +145,24 @@ package com.adobe.serialization.json{
                             while (_local4 < 4) {
                                 if (!this.isHexDigit(this.nextChar())){
                                     this.parseError((" Excepted a hex digit, but found: " + this.ch));
-                                };
+                                }
                                 _local3 = (_local3 + this.ch);
                                 _local4++;
-                            };
+                            }
                             _local2 = (_local2 + String.fromCharCode(parseInt(_local3, 16)));
                             break;
                         default:
                             _local2 = (_local2 + ("\\" + this.ch));
-                    };
+                    }
                 }
                 else {
                     _local2 = (_local2 + this.ch);
-                };
+                }
                 this.nextChar();
-            };
+            }
             if (this.ch == ""){
                 this.parseError("Unterminated string literal");
-            };
+            }
             this.nextChar();
             _local1.value = _local2;
             return (_local1);
@@ -175,54 +175,54 @@ package com.adobe.serialization.json{
             if (this.ch == "-"){
                 _local2 = (_local2 + "-");
                 this.nextChar();
-            };
+            }
             if (!this.isDigit(this.ch)){
                 this.parseError("Expecting a digit");
-            };
+            }
             if (this.ch == "0"){
                 _local2 = (_local2 + this.ch);
                 this.nextChar();
                 if (this.isDigit(this.ch)){
                     this.parseError("A digit cannot immediately follow 0");
-                };
+                }
             }
             else {
                 while (this.isDigit(this.ch)) {
                     _local2 = (_local2 + this.ch);
                     this.nextChar();
-                };
-            };
+                }
+            }
             if (this.ch == "."){
                 _local2 = (_local2 + ".");
                 this.nextChar();
                 if (!this.isDigit(this.ch)){
                     this.parseError("Expecting a digit");
-                };
+                }
                 while (this.isDigit(this.ch)) {
                     _local2 = (_local2 + this.ch);
                     this.nextChar();
-                };
-            };
+                }
+            }
             if ((((this.ch == "e")) || ((this.ch == "E")))){
                 _local2 = (_local2 + "e");
                 this.nextChar();
                 if ((((this.ch == "+")) || ((this.ch == "-")))){
                     _local2 = (_local2 + this.ch);
                     this.nextChar();
-                };
+                }
                 if (!this.isDigit(this.ch)){
                     this.parseError("Scientific notation number needs exponent value");
-                };
+                }
                 while (this.isDigit(this.ch)) {
                     _local2 = (_local2 + this.ch);
                     this.nextChar();
-                };
-            };
+                }
+            }
             var _local3:Number = Number(_local2);
             if (((isFinite(_local3)) && (!(isNaN(_local3))))){
                 _local1.value = _local3;
                 return (_local1);
-            };
+            }
             this.parseError((("Number " + _local3) + " is not valid!"));
             return (null);
         }
@@ -258,26 +258,26 @@ package com.adobe.serialization.json{
                                 if (this.ch == "/"){
                                     this.nextChar();
                                     break;
-                                };
+                                }
                             }
                             else {
                                 this.nextChar();
-                            };
+                            }
                             if (this.ch == ""){
                                 this.parseError("Multi-line comment not closed");
-                            };
-                        };
+                            }
+                        }
                         return;
                     default:
                         this.parseError((("Unexpected " + this.ch) + " encountered (expecting '/' or '*' )"));
-                };
-            };
+                }
+            }
         }
 
         private function skipWhite():void{
             while (this.isWhiteSpace(this.ch)) {
                 this.nextChar();
-            };
+            }
         }
 
         private function isWhiteSpace(_arg1:String):Boolean{

@@ -81,7 +81,7 @@ package kabam.rotmg.fame.view{
             this.isFadeComplete = true;
             if (this.isDataPopulated){
                 this.makeContinueButton();
-            };
+            }
         }
 
         public function setCharacterInfo(_arg1:String, _arg2:int, _arg3:int):void{
@@ -112,7 +112,7 @@ package kabam.rotmg.fame.view{
             }
             else {
                 _local3.setParams(TextKey.DEATH_INFO_SHORT, {date:_arg1});
-            };
+            }
             this.date.setStringBuilder(_local3);
             this.date.x = (stage.stageWidth / 2);
             this.date.y = 272;
@@ -162,22 +162,22 @@ package kabam.rotmg.fame.view{
                     case "lod cream tile":
                         _local4 = "lod Cream Tile";
                         break;
-                };
+                }
             }
             else {
                 _local4 = _local4.substr(0, (_local4.length - 1));
                 _local4 = _local4.replace(/_/g, " ");
                 _local4 = _local4.replace(/APOS/g, "'");
                 _local4 = _local4.replace(/BANG/g, "!");
-            };
+            }
             if (ObjectLibrary.getPropsFromId(_local4) != null){
                 _local4 = ObjectLibrary.getPropsFromId(_local4).displayId_;
             }
             else {
                 if (GroundLibrary.getPropsFromId(_local4) != null){
                     _local4 = GroundLibrary.getPropsFromId(_local4).displayId_;
-                };
-            };
+                }
+            }
             return (_local4);
         }
 
@@ -211,7 +211,7 @@ package kabam.rotmg.fame.view{
             this.isDataPopulated = true;
             if (((!(this.isAnimation)) || (this.isFadeComplete))){
                 this.makeContinueButton();
-            };
+            }
         }
 
         private function makeContinueButton():void{
@@ -224,7 +224,7 @@ package kabam.rotmg.fame.view{
             }
             else {
                 this.scoringBox.showScore();
-            };
+            }
         }
     }
 }//package kabam.rotmg.fame.view

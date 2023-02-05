@@ -85,7 +85,7 @@ package kabam.rotmg.util.components{
                 _local3 = (((this.prefix)!="") ? this.lineBuilder.setParams(this.prefix, {cost:_arg1.toString()}) : this.staticStringBuilder.setString(_arg1.toString()));
                 this.text.setStringBuilder(_local3);
                 this.updateUI();
-            };
+            }
         }
 
         public function setStringBuilder(_arg1:StringBuilder):void{
@@ -107,7 +107,7 @@ package kabam.rotmg.util.components{
                 mouseEnabled = _arg1;
                 filters = ((_arg1) ? [] : [grayfilter]);
                 this.draw();
-            };
+            }
         }
 
         override public function setWidth(_arg1:int):void{
@@ -143,7 +143,7 @@ package kabam.rotmg.util.components{
                     break;
                 default:
                     this.icon.bitmapData = null;
-            };
+            }
             this.updateIconPosition();
         }
 
@@ -178,7 +178,7 @@ package kabam.rotmg.util.components{
             graphics.drawGraphicsData(this.graphicsData);
             if (this.withOutLine){
                 this.drawOutline(graphics);
-            };
+            }
         }
 
         private function getWidth():int{

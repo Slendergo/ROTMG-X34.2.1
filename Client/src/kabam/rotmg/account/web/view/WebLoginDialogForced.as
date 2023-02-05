@@ -38,7 +38,7 @@ package kabam.rotmg.account.web.view{
                 addChild(this.getText("Attention!", -165, -85).setColor(0xFF0000));
                 addChild(this.getText("A new password was sent to your Sign In Email Address.", -165, -65));
                 addChild(this.getText("Please use the new password to Sign In.", -165, -45));
-            };
+            }
             this.forgot = new NativeMappedSignal(this.forgotText, MouseEvent.CLICK);
             this.register = new NativeMappedSignal(this.registerText, MouseEvent.CLICK);
             this.signInForced = new Signal(AccountData);
@@ -66,7 +66,7 @@ package kabam.rotmg.account.web.view{
         private function onKeyDown(_arg1:KeyboardEvent):void{
             if (_arg1.keyCode == KeyCodes.ENTER){
                 this.onSignInSub();
-            };
+            }
         }
 
         private function onSignIn(_arg1:MouseEvent):void{
@@ -80,14 +80,14 @@ package kabam.rotmg.account.web.view{
                 _local1.username = this.email.text();
                 _local1.password = this.password.text();
                 this.signInForced.dispatch(_local1);
-            };
+            }
         }
 
         private function isPasswordValid():Boolean{
             var _local1 = !((this.password.text() == ""));
             if (!_local1){
                 this.password.setError(TextKey.WEB_LOGIN_DIALOG_PASSWORD_ERROR);
-            };
+            }
             return (_local1);
         }
 
@@ -95,7 +95,7 @@ package kabam.rotmg.account.web.view{
             var _local1 = !((this.email.text() == ""));
             if (!_local1){
                 this.email.setError(TextKey.WEBLOGINDIALOG_EMAIL_ERROR);
-            };
+            }
             return (_local1);
         }
 

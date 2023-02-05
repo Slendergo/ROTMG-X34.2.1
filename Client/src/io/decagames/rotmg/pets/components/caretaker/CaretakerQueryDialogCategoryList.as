@@ -35,7 +35,7 @@ package io.decagames.rotmg.pets.components.caretaker{
             while (_local3 < _arg1.length) {
                 _local2.push(this.makeItem(_arg1[_local3]));
                 _local3++;
-            };
+            }
             return (_local2);
         }
 

@@ -19,7 +19,7 @@ package kabam.rotmg.errors.control{
             this.logger.error(this.event.text);
             if (((this.event["error"]) && ((this.event["error"] is Error)))){
                 this.logErrorObject(this.event["error"]);
-            };
+            }
         }
 
         private function logErrorObject(_arg1:Error):void{

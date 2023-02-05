@@ -25,7 +25,7 @@ package kabam.rotmg.dailyLogin.commands{
             }
             else {
                 this.flushStartupQueue.dispatch();
-            };
+            }
         }
 
 

@@ -21,7 +21,7 @@ package com.company.assembleegameclient.engine3d{
                 this.normal_ = new Vector3D();
                 computeNormal(_arg1, _arg2, _arg3, this.normal_);
                 this.d_ = -(this.normal_.dotProduct(_arg1));
-            };
+            }
         }
 
         public static function computeNormal(_arg1:Vector3D, _arg2:Vector3D, _arg3:Vector3D, _arg4:Vector3D):void{
@@ -55,10 +55,10 @@ package com.company.assembleegameclient.engine3d{
             var _local2:Number = (this.normal_.dotProduct(_arg1) + this.d_);
             if (_local2 > 0.001){
                 return (POSITIVE);
-            };
+            }
             if (_local2 < -0.001){
                 return (NEGATIVE);
-            };
+            }
             return (EQUAL);
         }
 
@@ -67,7 +67,7 @@ package com.company.assembleegameclient.engine3d{
             var _local3:Number = (((this.normal_.x * (_arg1.v1_.x - _arg1.v0_.x)) + (this.normal_.y * (_arg1.v1_.y - _arg1.v0_.y))) + (this.normal_.z * (_arg1.v1_.z - _arg1.v0_.z)));
             if (_local3 == 0){
                 return (NaN);
-            };
+            }
             return ((_local2 / _local3));
         }
 

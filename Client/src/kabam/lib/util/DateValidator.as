@@ -27,14 +27,14 @@ package kabam.lib.util{
         public function getDaysInMonth(_arg1:int=-1, _arg2:int=-1):int{
             if (_arg1 == -1){
                 return (31);
-            };
+            }
             return ((((_arg1 == FEBRUARY)) ? this.getDaysInFebruary(_arg2) : DAYS_IN_MONTH[(_arg1 - 1)]));
         }
 
         private function getDaysInFebruary(_arg1:int):int{
             if ((((_arg1 == -1)) || (this.isLeapYear(_arg1)))){
                 return (29);
-            };
+            }
             return (28);
         }
 

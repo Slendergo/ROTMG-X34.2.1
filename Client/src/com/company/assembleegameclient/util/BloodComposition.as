@@ -17,7 +17,7 @@ package com.company.assembleegameclient.util{
             var _local5:Vector.<uint> = idDict_[_arg1];
             if (_local5 != null){
                 return (_local5);
-            };
+            }
             _local5 = new Vector.<uint>();
             var _local6:Vector.<uint> = getColors(_arg2);
             var _local7:int;
@@ -27,9 +27,9 @@ package com.company.assembleegameclient.util{
                 }
                 else {
                     _local5.push(_local6[int((_local6.length * Math.random()))]);
-                };
+                }
                 _local7++;
-            };
+            }
             return (_local5);
         }
 
@@ -38,7 +38,7 @@ package com.company.assembleegameclient.util{
             if (_local2 == null){
                 _local2 = buildColors(_arg1);
                 imageDict_[_arg1] = _local2;
-            };
+            }
             return (_local2);
         }
 
@@ -53,11 +53,11 @@ package com.company.assembleegameclient.util{
                     _local5 = _arg1.getPixel32(_local3, _local4);
                     if ((_local5 & 0xFF000000) != 0){
                         _local2.push(_local5);
-                    };
+                    }
                     _local4++;
-                };
+                }
                 _local3++;
-            };
+            }
             return (_local2);
         }
 

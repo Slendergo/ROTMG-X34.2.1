@@ -49,7 +49,7 @@ package com.company.assembleegameclient.account.ui{
             }
             else {
                 this.sendNameToServer();
-            };
+            }
         }
 
         private function sendNameToServer():void{
@@ -66,13 +66,13 @@ package com.company.assembleegameclient.account.ui{
             }
             else {
                 this.onNameChoseError(_arg2);
-            };
+            }
         }
 
         private function onNameChoseDone():void{
             if (this.playerModel != null){
                 this.playerModel.setName(this.name);
-            };
+            }
             this.nameChanged.dispatch(this.name);
             this.closeDialogs.dispatch();
         }

@@ -44,8 +44,8 @@ package kabam.rotmg.chat.view{
                 }
                 else {
                     break;
-                };
-            };
+                }
+            }
             while (this.itemsToRemove.length > 0) {
                 this.onItemTimedOut(this.itemsToRemove.pop());
                 if (!this.isCurrent){
@@ -54,9 +54,9 @@ package kabam.rotmg.chat.view{
                         this.addNewItem(_local3);
                         this.isCurrent = (this.index == this.listItems.length);
                         this.positionItems();
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         public function setup(_arg1:ChatModel):void{
@@ -71,12 +71,12 @@ package kabam.rotmg.chat.view{
                 this.index--;
                 if (((!(this.isCurrent)) && ((this.index < this.visibleItemCount)))){
                     this.pageDown();
-                };
-            };
+                }
+            }
             this.listItems.push(_arg1);
             if (this.isCurrent){
                 this.displayNewItem(_arg1);
-            };
+            }
         }
 
         private function onItemTimedOut(_arg1:ChatListItem):void{
@@ -85,7 +85,7 @@ package kabam.rotmg.chat.view{
                 removeChild(_arg1);
                 this.visibleItems.splice(_local2, 1);
                 this.isCurrent = (this.index == this.listItems.length);
-            };
+            }
         }
 
         private function displayNewItem(_arg1:ChatListItem):void{
@@ -101,7 +101,7 @@ package kabam.rotmg.chat.view{
             }
             else {
                 this.showAvailable();
-            };
+            }
             this.ignoreTimeOuts = true;
         }
 
@@ -114,9 +114,9 @@ package kabam.rotmg.chat.view{
                 _local4 = this.listItems[_local3];
                 if (this.visibleItems.indexOf(_local4) == -1){
                     this.addOldItem(_local4);
-                };
+                }
                 _local3--;
-            };
+            }
             this.positionItems();
         }
 
@@ -125,21 +125,21 @@ package kabam.rotmg.chat.view{
                 this.ignoreTimeOuts = false;
                 this.scrollToCurrent();
                 this.onCheckTimeout(null);
-            };
+            }
             if (!this.isCurrent){
                 this.scrollItemsDown();
             }
             else {
                 if (this.ignoreTimeOuts){
                     this.ignoreTimeOuts = false;
-                };
-            };
+                }
+            }
         }
 
         public function scrollToCurrent():void{
             while (!(this.isCurrent)) {
                 this.scrollItemsDown();
-            };
+            }
         }
 
         public function pageUp():void{
@@ -156,10 +156,10 @@ package kabam.rotmg.chat.view{
                     }
                     else {
                         return;
-                    };
+                    }
                     _local1++;
-                };
-            };
+                }
+            }
         }
 
         public function pageDown():void{
@@ -171,9 +171,9 @@ package kabam.rotmg.chat.view{
                 else {
                     this.ignoreTimeOuts = false;
                     return;
-                };
+                }
                 _local1++;
-            };
+            }
         }
 
         private function addNewItem(_arg1:ChatListItem):void{
@@ -184,7 +184,7 @@ package kabam.rotmg.chat.view{
         private function removeOldestVisibleIfNeeded():void{
             if (this.visibleItems.length > this.visibleItemCount){
                 removeChild(this.visibleItems.shift());
-            };
+            }
         }
 
         private function canScrollUp():Boolean{
@@ -202,7 +202,7 @@ package kabam.rotmg.chat.view{
         private function scrollItemsDown():void{
             if (this.index < 0){
                 this.index = 0;
-            };
+            }
             var _local1:ChatListItem = this.listItems[this.index];
             this.index++;
             this.addNewItem(_local1);
@@ -219,7 +219,7 @@ package kabam.rotmg.chat.view{
         private function removeNewestVisibleIfNeeded():void{
             if (this.visibleItems.length > this.visibleItemCount){
                 removeChild(this.visibleItems.pop());
-            };
+            }
         }
 
         private function positionItems():void{
@@ -230,7 +230,7 @@ package kabam.rotmg.chat.view{
                 _local3 = this.visibleItems[_local2];
                 _local3.y = _local1;
                 _local1 = (_local1 - _local3.height);
-            };
+            }
         }
 
 

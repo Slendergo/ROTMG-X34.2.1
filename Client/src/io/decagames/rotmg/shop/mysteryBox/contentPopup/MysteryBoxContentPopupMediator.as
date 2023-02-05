@@ -57,8 +57,8 @@ package io.decagames.rotmg.shop.mysteryBox.contentPopup{
                     }
                     else {
                         _local6[_local8] = (_local6[_local8] + 1);
-                    };
-                };
+                    }
+                }
                 if (_arg1.length > 0){
                     _local9 = new UIGrid(220, 5, 4);
                     _local9.centerLastRow = true;
@@ -69,8 +69,8 @@ package io.decagames.rotmg.shop.mysteryBox.contentPopup{
                         _local11 = _local6[_local5.indexOf(_local7)];
                         if (_local11 > 1){
                             _local10.showQuantityLabel(_local11);
-                        };
-                    };
+                        }
+                    }
                     this.jackpotUI = new JackpotContainer();
                     this.jackpotUI.x = 10;
                     this.jackpotUI.y = ((55 + this.jackpotsHeight) - 22);
@@ -84,15 +84,15 @@ package io.decagames.rotmg.shop.mysteryBox.contentPopup{
                         else {
                             if (this.jackpotsNumber == 2){
                                 this.jackpotUI.silverBackground();
-                            };
-                        };
-                    };
+                            }
+                        }
+                    }
                     this.jackpotUI.addGrid(_local9);
                     this.view.addChild(this.jackpotUI);
                     this.jackpotsHeight = (this.jackpotsHeight + (this.jackpotUI.height + 5));
                     this.jackpotsNumber++;
-                };
-            };
+                }
+            }
         }
 
         private function addContentList(_arg1:String, _arg2:String):void{
@@ -128,22 +128,22 @@ package io.decagames.rotmg.shop.mysteryBox.contentPopup{
                         if (_local17 == _local15){
                             _local16 = true;
                             break;
-                        };
-                    };
+                        }
+                    }
                     if (!_local16){
                         _local18 = _local15.split(",");
                         _local13.push(_local18);
-                    };
-                };
+                    }
+                }
                 _local5[_local6] = _local13;
                 _local6++;
-            };
+            }
             _local8 = (486 - 11);
             _local9 = 30;
             if (this.jackpotsNumber > 0){
                 _local8 = (_local8 - (this.jackpotsHeight + 10));
                 _local9 = (_local9 + (this.jackpotsHeight + 10));
-            };
+            }
             this.contentGrids = new <UIGrid>[];
             var _local10:int = 5;
             var _local11:Number = ((260 - (_local10 * (_local5.length - 1))) / _local5.length);
@@ -161,8 +161,8 @@ package io.decagames.rotmg.shop.mysteryBox.contentPopup{
                         }
                         else {
                             _local22[_local23] = 1;
-                        };
-                    };
+                        }
+                    }
                     _local24 = [];
                     for each (_local25 in _local20) {
                         if (_local24.indexOf(_local25) == -1){
@@ -170,16 +170,16 @@ package io.decagames.rotmg.shop.mysteryBox.contentPopup{
                             _local27.clearBackground();
                             _local21.push(_local27);
                             _local24.push(_local25);
-                        };
-                    };
+                        }
+                    }
                     _local26 = new ItemsSetBox(_local21);
                     _local19.addGridElement(_local26);
-                };
+                }
                 _local19.y = _local9;
                 _local19.x = ((10 + (_local11 * this.contentGrids.length)) + (_local10 * this.contentGrids.length));
                 this.view.addChild(_local19);
                 this.contentGrids.push(_local19);
-            };
+            }
         }
 
         override public function destroy():void{
@@ -187,7 +187,7 @@ package io.decagames.rotmg.shop.mysteryBox.contentPopup{
             this.closeButton.dispose();
             for each (_local1 in this.contentGrids) {
                 _local1.dispose();
-            };
+            }
             this.contentGrids = null;
         }
 

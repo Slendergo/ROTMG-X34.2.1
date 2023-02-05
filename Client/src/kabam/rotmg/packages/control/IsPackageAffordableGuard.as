@@ -23,7 +23,7 @@ package kabam.rotmg.packages.control{
             var _local1 = (this.playerModel.getCredits() >= this.packageInfo.priceAmount);
             if (!_local1){
                 this.openMoneyWindow.dispatch();
-            };
+            }
             return (_local1);
         }
 

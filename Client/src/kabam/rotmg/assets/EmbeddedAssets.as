@@ -326,7 +326,7 @@ public class EmbeddedAssets {
             "Oryx Cage:": new oryxCage_(),
             "Oryx Hung Cage:": new oryxCageHung_(),
             "Oryx Door:": new oryxDoor_()
-        };
+        }
     }
 }//package kabam.rotmg.assets
 

@@ -49,7 +49,7 @@ package com.company.assembleegameclient.ui.menu{
             var _local2:BitmapData;
             if (_arg1 == this.ct_){
                 return;
-            };
+            }
             this.ct_ = _arg1;
             if (this.ct_ == null){
                 this.icon_.bitmapData = this.iconBitmapData_;
@@ -60,7 +60,7 @@ package com.company.assembleegameclient.ui.menu{
                 _local2 = TextureRedrawer.redraw(_local2, this.redrawSize(), true, 0);
                 this.icon_.bitmapData = _local2;
                 this.text_.transform.colorTransform = this.ct_;
-            };
+            }
         }
 
         protected function onMouseOver(_arg1:MouseEvent):void{

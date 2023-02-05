@@ -29,10 +29,10 @@ package kabam.rotmg.classes.control{
                     _local5 = 0xFFD700;
                     if (_local3.attribute("color").length() != 0){
                         _local5 = int(_local3.@color);
-                    };
+                    }
                     ObjectLibrary.skinSetXMLDataLibrary_[_local4] = _local3;
-                };
-            };
+                }
+            }
         }
 
 
@@ -44,12 +44,12 @@ package kabam.rotmg.classes.control{
             _local2 = _local1.children();
             for each (_local3 in _local2) {
                 this.parseNode(_local3);
-            };
+            }
             _local1 = EmbeddedData.skinsEquipmentSetsXML;
             _local2 = _local1.children();
             for each (_local3 in _local2) {
                 parseNodeEquipment(_local3);
-            };
+            }
         }
 
         private function parseNode(_arg1:XML):void{
@@ -61,14 +61,14 @@ package kabam.rotmg.classes.control{
             _local4.unlockLevel = _arg1.UnlockLevel;
             if (_arg1.hasOwnProperty("NoSkinSelect")){
                 _local4.skinSelectEnabled = false;
-            };
+            }
             if (_arg1.hasOwnProperty("UnlockSpecial")){
                 _local4.unlockSpecial = _arg1.UnlockSpecial;
-            };
+            }
             _local4.template = new CharacterTemplate(_local2, _local3);
             if (_local2.indexOf("16") >= 0){
                 _local4.is16x16 = true;
-            };
+            }
             var _local5:CharacterClass = this.model.getCharacterClass(_arg1.PlayerClassType);
             _local5.skins.addSkin(_local4);
         }

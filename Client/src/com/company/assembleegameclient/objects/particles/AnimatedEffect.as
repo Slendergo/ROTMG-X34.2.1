@@ -41,7 +41,7 @@ package com.company.assembleegameclient.objects.particles{
                 _bitmapData = this.images[_local3];
                 this.currentTime = (this.currentTime + _arg2);
                 return ((this.percentDone < 1));
-            };
+            }
             return ((this.percentDone < 1));
         }
 

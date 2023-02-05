@@ -30,7 +30,7 @@ package kabam.lib.ui.impl{
                 _local6.x = _local3;
                 _local3 = (_local3 + (_local6.width + this.padding));
                 _local5++;
-            };
+            }
         }
 
 

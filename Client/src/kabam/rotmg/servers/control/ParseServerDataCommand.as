@@ -26,7 +26,7 @@ package kabam.rotmg.servers.control{
             var _local2:Vector.<Server> = new <Server>[];
             for each (_local3 in _local1) {
                 _local2.push(this.makeServer(_local3));
-            };
+            }
             return (_local2);
         }
 

@@ -80,7 +80,7 @@ package kabam.rotmg.ui.view{
             }
             else {
                 this.hideTooltips.dispatch();
-            };
+            }
         }
 
         private function onUpdate():void{

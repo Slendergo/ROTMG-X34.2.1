@@ -48,7 +48,7 @@ package io.decagames.rotmg.pets.popup.choosePet{
                 _local2.addEventListener(MouseEvent.CLICK, this.onPetSelected);
                 this.petsList.push(_local2);
                 this.view.addPet(_local2);
-            };
+            }
         }
 
         private function onPetSelected(_arg1:MouseEvent):void{
@@ -63,7 +63,7 @@ package io.decagames.rotmg.pets.popup.choosePet{
             this.closeButton.dispose();
             for each (_local1 in this.petsList) {
                 _local1.removeEventListener(MouseEvent.CLICK, this.onPetSelected);
-            };
+            }
             this.petsList = new Vector.<PetItem>();
         }
 

@@ -57,7 +57,7 @@ package io.decagames.rotmg.ui.popups.modal{
                 this.contentMask.y = (this.contentMask.y + (_local7 + 15));
                 this.background.y = (this.background.y + _local7);
                 this.background.height = (this.background.height + 15);
-            };
+            }
         }
 
         private function drawContentMask(_arg1:int):void{
@@ -86,7 +86,7 @@ package io.decagames.rotmg.ui.popups.modal{
         override public function get height():Number{
             if (this._contentContainer.height > this.maxHeight){
                 return (((this.maxHeight + (2 * this.contentMargin)) + ((this.header) ? ((this._header.height / 2) + 14) : 0)));
-            };
+            }
             return (super.height);
         }
 
@@ -94,7 +94,7 @@ package io.decagames.rotmg.ui.popups.modal{
             var _local1:int = this._contentContainer.height;
             if (_local1 > this.maxHeight){
                 _local1 = this.maxHeight;
-            };
+            }
             this.drawContentMask(_local1);
             this.background.height = ((_local1 + (2 * this.contentMargin)) + ((this.header) ? 15 : 0));
             if ((((this._contentContainer.height > this.maxHeight)) && (!(this.scroll)))){
@@ -104,7 +104,7 @@ package io.decagames.rotmg.ui.popups.modal{
                 super.addChild(this.scroll);
                 this.scroll.scrollObject = this;
                 this.scroll.content = this._contentContainer;
-            };
+            }
         }
 
         public function get header():PopupHeader{
@@ -123,13 +123,13 @@ package io.decagames.rotmg.ui.popups.modal{
             if (this.background){
                 this.background.dispose();
                 this.background = null;
-            };
+            }
             if (this._header){
                 this._header.dispose();
-            };
+            }
             for each (_local1 in this.buttonsList) {
                 _local1.dispose();
-            };
+            }
             this.buttonsList = null;
         }
 

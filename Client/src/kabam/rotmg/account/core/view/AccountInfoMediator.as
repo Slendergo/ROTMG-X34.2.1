@@ -43,13 +43,13 @@ package kabam.rotmg.account.core.view{
                 _local2 = (this.account as WebAccount);
                 if (_local2 == null){
                     return;
-                };
+                }
                 _local1 = this.playerModel.getName();
                 if (((((!(_local1)) && (!((_local2.userDisplayName == null))))) && ((_local2.userDisplayName.length > 0)))){
                     _local1 = _local2.userDisplayName;
-                };
+                }
                 this.view.setInfo(_local1, this.account.isRegistered());
-            };
+            }
         }
 
         override public function destroy():void{

@@ -29,7 +29,7 @@ package com.company.assembleegameclient.ui.dialogs{
             var _local2:String;
             for each (_local2 in this.types) {
                 this.dialog.removeEventListener(_local2, this.onButtonType);
-            };
+            }
             this.dialog.getCloseSignal().dispatch();
         }
 

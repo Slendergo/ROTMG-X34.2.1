@@ -61,7 +61,7 @@ package com.company.assembleegameclient.background{
                 _local4 = this.islands_[_local3];
                 _local4.draw(_arg1, _arg2, this.graphicsData_);
                 _local3++;
-            };
+            }
         }
 
 

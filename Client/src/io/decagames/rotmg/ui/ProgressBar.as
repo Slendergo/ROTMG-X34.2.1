@@ -85,7 +85,7 @@ package io.decagames.rotmg.ui{
             var _local5:Number = ((this.componentWidth * _arg1) / (this._maxValue - this._minValue));
             if (isNaN(_local5)){
                 _local5 = 0;
-            };
+            }
             if (_arg3){
                 TweenLite.to(this.progressShape, 1, {
                     width:_local5,
@@ -97,11 +97,11 @@ package io.decagames.rotmg.ui{
                 this.progressShape.graphics.beginFill(((((this.useMaxColor) && ((_arg1 >= (this._maxValue - this._minValue))))) ? this._maxColor : this.progressBarColor), 1);
                 this.progressShape.graphics.drawRect(0, 0, _local5, this.componentHeight);
                 this.progressShape.width = _local5;
-            };
+            }
             if (_local4){
                 this.progressShape.graphics.beginFill(((((this.useMaxColor) && (((this._maxValue - this._minValue) == _arg2)))) ? this._maxColor : this.simulationColor), 1);
                 this.progressShape.graphics.drawRect(_local5, 0, (((this.componentWidth * _arg2) / (this._maxValue - this._minValue)) - _local5), this.componentHeight);
-            };
+            }
             var _local6:String = this._dynamicLabelString.replace(DYNAMIC_LABEL_TOKEN, ((_local4) ? _arg2 : _arg1));
             this._dynamicLabel.text = _local6.replace(MAX_VALUE_TOKEN, this._maxValue);
             this._maxLabel.text = "";
@@ -110,8 +110,8 @@ package io.decagames.rotmg.ui{
                 this._dynamicLabel.setTextFormat(this._simulatedValueTextFormat, _local7, (_local7 + _arg2.toString().length));
                 if (((this._showMaxLabel) && ((this._maxValue == _arg2)))){
                     this._maxLabel.text = "MAX";
-                };
-            };
+                }
+            }
             this._dynamicLabel.x = ((this.componentWidth - this._dynamicLabel.width) + 2);
             this._maxLabel.x = (this._dynamicLabel.x + this._dynamicLabel.width);
             this._staticLabel.x = -2;
@@ -166,10 +166,10 @@ package io.decagames.rotmg.ui{
         public function set showMaxLabel(_arg1:Boolean):void{
             if (((_arg1) && (!(this._maxLabel.parent)))){
                 addChild(this._maxLabel);
-            };
+            }
             if (((!(_arg1)) && (this._maxLabel.parent))){
                 removeChild(this._maxLabel);
-            };
+            }
             this._showMaxLabel = _arg1;
         }
 

@@ -45,7 +45,7 @@ package com.company.assembleegameclient.account.ui{
             while (_local2 < _local1) {
                 this.boxes[_local2] = this.makeRadioButton(this.labels[_local2]);
                 _local2++;
-            };
+            }
         }
 
         private function makeRadioButton(_arg1:String):PaymentMethodRadioButton{
@@ -75,7 +75,7 @@ package com.company.assembleegameclient.account.ui{
             while (_local3 < _local1) {
                 _local2[_local3] = this.boxes[_local3];
                 _local3++;
-            };
+            }
             return (_local2);
         }
 
@@ -92,7 +92,7 @@ package com.company.assembleegameclient.account.ui{
             while (_local3 < _local1) {
                 _local2[_local3] = this.boxes[_local3];
                 _local3++;
-            };
+            }
             return (_local2);
         }
 

@@ -23,10 +23,10 @@ package com.company.assembleegameclient.ui.dialogs{
             _local2.dispatch();
             if (((!((this.parent == null))) && (this.parent.contains(this)))){
                 this.parent.removeChild(this);
-            };
+            }
             if (this.f != null){
                 this.f();
-            };
+            }
         }
 
 

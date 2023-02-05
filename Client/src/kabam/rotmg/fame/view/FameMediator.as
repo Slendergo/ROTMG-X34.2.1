@@ -59,7 +59,7 @@ package kabam.rotmg.fame.view{
             this.death = this.deathModel.getLastDeath();
             if (((this.death) && (this.death.background))){
                 this.view.setBackground(this.death.background);
-            };
+            }
         }
 
         private function requestFameData():void{
@@ -80,7 +80,7 @@ package kabam.rotmg.fame.view{
         private function makeIcon():BitmapData{
             if (((this.isFreshDeath) && (this.death.isZombie))){
                 return (this.makeZombieTexture());
-            };
+            }
             return (this.makeNormalTexture());
         }
 
@@ -101,7 +101,7 @@ package kabam.rotmg.fame.view{
             }
             else {
                 this.gotoPrevious.dispatch();
-            };
+            }
         }
 
 

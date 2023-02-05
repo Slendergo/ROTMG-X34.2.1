@@ -18,10 +18,10 @@ package com.company.assembleegameclient.objects.particles{
             timeLeft_ = (timeLeft_ - _arg2);
             if (timeLeft_ <= 0){
                 return false;
-            };
+            }
             if (((square_.obj_) && (square_.obj_.props_.static_))){
                 return false;
-            };
+            }
             var _local3:Number = (Math.random() * this.noise);
             _local4 = (Math.random() * this.noise);
             x_ = (x_ + (((dx_ * _local3) * _arg2) / 1000));

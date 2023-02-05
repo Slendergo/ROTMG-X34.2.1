@@ -40,7 +40,7 @@ package kabam.rotmg.promotions.commands{
             }
             else {
                 this.promptUserToRegisterAndAbort();
-            };
+            }
         }
 
         private function openAccountSpecificPaymentScreen():void{

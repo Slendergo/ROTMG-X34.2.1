@@ -51,10 +51,10 @@ package io.decagames.rotmg.supportCampaign.data{
             this._hasValidData = _arg1.hasOwnProperty("CampaignConfig");
             if (this._hasValidData){
                 this.parseConfig(_arg1);
-            };
+            }
             if (_arg1.hasOwnProperty("CampaignProgress")){
                 this.parseUpdateData(_arg1.CampaignProgress, false);
-            };
+            }
         }
 
         public function updatePoints(_arg1:int):void{
@@ -67,17 +67,17 @@ package io.decagames.rotmg.supportCampaign.data{
             var _local3:int;
             if (!this.hasValidData){
                 return (0);
-            };
+            }
             var _local2:int;
             if (((!((this._ranks == null))) && ((this._ranks.length > 0)))){
                 _local3 = 0;
                 while (_local3 < this._ranks.length) {
                     if (_arg1 >= this._ranks[_local3]){
                         _local2 = (_local3 + 1);
-                    };
+                    }
                     _local3++;
-                };
-            };
+                }
+            }
             return (_local2);
         }
 
@@ -91,14 +91,14 @@ package io.decagames.rotmg.supportCampaign.data{
             this._rank = int(this.getXMLData(_arg1, "Rank", false));
             if (this._tempRank == 0){
                 this._tempRank = this._rank;
-            };
+            }
             this._claimed = int(this.getXMLData(_arg1, "Claimed", false));
             if (_arg2){
                 StaticInjectorContext.getInjector().getInstance(UpdateCampaignProgress).dispatch();
-            };
+            }
             if (this.hasMaxRank()){
                 StaticInjectorContext.getInjector().getInstance(MaxRankReachedSignal).dispatch();
-            };
+            }
         }
 
         private function parseConfig(_arg1:XML):void{
@@ -114,19 +114,19 @@ package io.decagames.rotmg.supportCampaign.data{
             this._ranks = this.getXMLData(_arg1.CampaignConfig, "RanksList", true).split(",");
             if (this._ranks){
                 this._maxRank = this._ranks.length;
-            };
+            }
             this._shopPurchasePointsRatio = int(this.getXMLData(_arg1.CampaignConfig, "ShopPurchasePointsRatio", true));
             this._rankConfig = new Vector.<RankVO>();
             var _local2:int;
             while (_local2 < this._ranks.length) {
                 this._rankConfig.push(new RankVO(this._ranks[_local2], SupporterCampaignModel.RANKS_NAMES[_local2]));
                 _local2++;
-            };
+            }
             this._picUrls = new <String>[];
             var _local3:XMLList = XML(_arg1.CampaignConfig.PicUrls).children();
             for each (_local4 in _local3) {
                 this._picUrls.push(_local4);
-            };
+            }
         }
 
         private function parseConfigStatus(_arg1:XML):void{
@@ -139,10 +139,10 @@ package io.decagames.rotmg.supportCampaign.data{
         private function getXMLData(_arg1:Object, _arg2:String, _arg3:Boolean):String{
             if (_arg1.hasOwnProperty(_arg2)){
                 return (String(_arg1[_arg2]));
-            };
+            }
             if (_arg3){
                 this._hasValidData = false;
-            };
+            }
             return ("");
         }
 
@@ -153,7 +153,7 @@ package io.decagames.rotmg.supportCampaign.data{
         public function addCampaignImageByUrl(_arg1:String, _arg2:DisplayObject):void{
             if (!this._campaignImages[_arg1]){
                 this._campaignImages[_arg1] = _arg2;
-            };
+            }
         }
 
         public function getCampaignPictureUrlByRank(_arg1:int):String{
@@ -161,7 +161,7 @@ package io.decagames.rotmg.supportCampaign.data{
             if (((((this._picUrls) && ((this._picUrls.length > 0)))) && ((_arg1 <= this._picUrls.length)))){
                 _arg1 = (((_arg1 == 0)) ? 1 : _arg1);
                 _local2 = this._picUrls[(_arg1 - 1)];
-            };
+            }
             return (_local2);
         }
 
@@ -181,14 +181,14 @@ package io.decagames.rotmg.supportCampaign.data{
             var _local2:String;
             if (this._ranks.length == 0){
                 return (1);
-            };
+            }
             var _local1:int = 1;
             for each (_local2 in this._ranks) {
                 if ((((this._rank >= _local1)) && ((this._claimed < _local1)))){
                     return (_local1);
-                };
+                }
                 _local1++;
-            };
+            }
             return (this._rank);
         }
 
@@ -197,7 +197,7 @@ package io.decagames.rotmg.supportCampaign.data{
             var _local2:Number = this.getSecondsToStart();
             if (_local2 <= 0){
                 return ("");
-            };
+            }
             if (_local2 > TimeUtil.DAY_IN_S){
                 _local1 = (_local1 + TimeLeft.parse(_local2, "%dd %hh"));
             }
@@ -211,9 +211,9 @@ package io.decagames.rotmg.supportCampaign.data{
                     }
                     else {
                         _local1 = (_local1 + TimeLeft.parse(_local2, "%ss"));
-                    };
-                };
-            };
+                    }
+                }
+            }
             return (_local1);
         }
 

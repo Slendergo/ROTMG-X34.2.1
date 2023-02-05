@@ -29,8 +29,8 @@ package com.hurlant.util.der{
                 }
                 else {
                     throw (new Error("Invalid call to new ObjectIdentifier"));
-                };
-            };
+                }
+            }
         }
 
         private function generate(_arg1:String):void{
@@ -52,8 +52,8 @@ package com.hurlant.util.der{
                 if (_local5){
                     _local3.push(_local4);
                     _local4 = 0;
-                };
-            };
+                }
+            }
             this.oid = _local3;
         }
 
@@ -95,16 +95,16 @@ package com.hurlant.util.der{
                             }
                             else {
                                 throw (new Error("OID element bigger than we thought. :("));
-                            };
-                        };
-                    };
-                };
+                            }
+                        }
+                    }
+                }
                 _local2++;
-            };
+            }
             this.len = _local1.length;
             if (this.type == 0){
                 this.type = 6;
-            };
+            }
             _local1.unshift(this.len);
             _local1.unshift(this.type);
             var _local3:ByteArray = new ByteArray();
@@ -112,7 +112,7 @@ package com.hurlant.util.der{
             while (_local2 < _local1.length) {
                 _local3[_local2] = _local1[_local2];
                 _local2++;
-            };
+            }
             return (_local3);
         }
 

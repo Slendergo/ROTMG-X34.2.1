@@ -39,7 +39,7 @@ package kabam.rotmg.chat.view{
             this.enteredText = false;
             if (_arg1 != null){
                 this.input.text = _arg1;
-            };
+            }
             var _local3:int = ((_arg1) ? _arg1.length : 0);
             this.input.setSelection(_local3, _local3);
             if (_arg2){
@@ -47,7 +47,7 @@ package kabam.rotmg.chat.view{
             }
             else {
                 this.activateDisabled();
-            };
+            }
             visible = true;
         }
 
@@ -98,16 +98,16 @@ package kabam.rotmg.chat.view{
                 }
                 else {
                     this.close.dispatch();
-                };
+                }
                 this.lastInput = this.input.text;
                 _arg1.stopImmediatePropagation();
-            };
+            }
             if (_arg1.keyCode == Keyboard.UP){
                 this.input.text = this.lastInput;
                 _local2 = this.lastInput.length;
                 this.input.setSelection(_local2, _local2);
                 _arg1.stopImmediatePropagation();
-            };
+            }
         }
 
 

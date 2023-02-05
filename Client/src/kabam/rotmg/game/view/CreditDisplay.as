@@ -78,7 +78,7 @@ package kabam.rotmg.game.view{
                 addChild(this.fameText_);
                 this.fameIcon_ = new Bitmap(FameUtil.getFameIcon());
                 addChild(this.fameIcon_);
-            };
+            }
             if (((this.displayFortune_) && (FortuneModel.HAS_FORTUNES))){
                 _local6 = StaticInjectorContext.getInjector().getInstance(FortuneModel).getFortune();
                 if (_local6._endTime != null){
@@ -88,7 +88,7 @@ package kabam.rotmg.game.view{
                     this.fortuneTimeText_.setStringBuilder(new StaticStringBuilder(this.getFortuneTimeLeftStr()));
                     addChild(this.fortuneTimeText_);
                     this.fortuneTimeText_.visible = false;
-                };
+                }
                 this.fortuneText_ = this.makeTextField(0xFFFFFF);
                 waiter.push(this.fortuneText_.textChanged);
                 addChild(this.fortuneText_);
@@ -97,7 +97,7 @@ package kabam.rotmg.game.view{
             }
             else {
                 this.displayFortune_ = false;
-            };
+            }
             this.draw(0, 0, 0);
             mouseEnabled = true;
             waiter.complete.add(this.onAlignHorizontal);
@@ -115,10 +115,10 @@ package kabam.rotmg.game.view{
             this.resourcePadding = 5;
             if (this._creditsButton){
                 removeChild(this._creditsButton);
-            };
+            }
             if (this._fameButton){
                 removeChild(this._fameButton);
-            };
+            }
         }
 
         private function onAlignHorizontal():void{
@@ -141,8 +141,8 @@ package kabam.rotmg.game.view{
                 if (this._creditsButton){
                     this._creditsButton.x = ((this.coinIcon_.x - this.creditsText_.width) - 16);
                     this._creditsButton.y = 7;
-                };
-            };
+                }
+            }
             if (this.displayFame_){
                 this.fameIcon_.x = ((this.creditsText_.x - this.fameIcon_.width) - this.resourcePadding);
                 this.fameText_.x = ((this.fameIcon_.x - this.fameText_.width) + 8);
@@ -150,8 +150,8 @@ package kabam.rotmg.game.view{
                 if (this._fameButton){
                     this._fameButton.x = ((this.fameIcon_.x - this.fameText_.width) - 16);
                     this._fameButton.y = 7;
-                };
-            };
+                }
+            }
         }
 
         public function onFameClick(_arg1:MouseEvent):void{
@@ -167,7 +167,7 @@ package kabam.rotmg.game.view{
         public function onCreditsClick(_arg1:MouseEvent):void{
             if (((((!(this.gs)) || (this.gs.evalIsNotInCombatMapArea()))) || ((Parameters.data_.clickForGold == true)))){
                 this.openAccountDialog.dispatch();
-            };
+            }
         }
 
         public function makeTextField(_arg1:uint=0xFFFFFF):TextFieldDisplayConcrete{
@@ -189,31 +189,31 @@ package kabam.rotmg.game.view{
                 else {
                     this.fortuneTimeText_.setStringBuilder(new StaticStringBuilder(_local1));
                     this.fortuneTimeLeftString = _local1;
-                };
+                }
                 this.onAlignHorizontal();
-            };
+            }
         }
 
         public function draw(_arg1:int, _arg2:int, _arg3:int=0):void{
             if (this.displayFortune_){
                 this.handleFortuneTimeTextUpdate();
-            };
+            }
             if ((((((_arg1 == this.credits_)) && (((this.displayFame_) && ((_arg2 == this.fame_)))))) && (((this.displayFortune_) && ((_arg3 == this.fortune_)))))){
                 return;
-            };
+            }
             this.credits_ = _arg1;
             this.creditsText_.setStringBuilder(new StaticStringBuilder(this.credits_.toString()));
             if (this.displayFame_){
                 this.fame_ = _arg2;
                 this.fameText_.setStringBuilder(new StaticStringBuilder(this.fame_.toString()));
-            };
+            }
             if (this.displayFortune_){
                 this.fortune_ = _arg3;
                 this.fortuneText_.setStringBuilder(new StaticStringBuilder(this.fortune_.toString()));
-            };
+            }
             if (waiter.isEmpty()){
                 this.onAlignHorizontal();
-            };
+            }
         }
 
         public function getFortuneTimeLeftStr():String{
@@ -241,11 +241,11 @@ package kabam.rotmg.game.view{
                             }
                             else {
                                 _local1 = "Ended";
-                            };
-                        };
-                    };
-                };
-            };
+                            }
+                        }
+                    }
+                }
+            }
             return (_local1);
         }
 

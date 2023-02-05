@@ -36,9 +36,9 @@ package com.hurlant.util.der{
                 }
                 else {
                     _local1.writeBytes(_local3.toDER());
-                };
+                }
                 _local2++;
-            };
+            }
             return (DER.wrapDER(this.type, _local1));
         }
 
@@ -57,14 +57,14 @@ package com.hurlant.util.der{
                             _local2 = (_local2 + (((_local5 + ": ") + this[_local3]) + "\n"));
                             _local4 = true;
                             break;
-                        };
-                    };
+                        }
+                    }
                     if (!_local4){
                         _local2 = (_local2 + (this[_local3] + "\n"));
-                    };
-                };
+                    }
+                }
                 _local3++;
-            };
+            }
             DER.indent = _local1;
             return ((((((((((DER.indent + "Sequence[") + this.type) + "][") + this.len) + "][\n") + _local2) + "\n") + _local1) + "]"));
         }
@@ -83,11 +83,11 @@ package com.hurlant.util.der{
                             _local5 = (_local4 as ObjectIdentifier);
                             if (_local5.toString() == _arg1){
                                 return ((_local3[1] as IAsn1Type));
-                            };
-                        };
-                    };
-                };
-            };
+                            }
+                        }
+                    }
+                }
+            }
             return (null);
         }
 

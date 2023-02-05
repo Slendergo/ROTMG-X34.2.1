@@ -39,10 +39,10 @@ package com.company.assembleegameclient.objects.particles{
             var _local9:Number;
             if (this.go_.map_ == null){
                 return false;
-            };
+            }
             if (this.lastUpdate_ < 0){
                 this.lastUpdate_ = Math.max(0, (_arg1 - 400));
-            };
+            }
             x_ = this.go_.x_;
             y_ = this.go_.y_;
             var _local3:int = int((this.lastUpdate_ / BUBBLE_PERIOD));
@@ -59,7 +59,7 @@ package com.company.assembleegameclient.objects.particles{
                 _local9 = (this.go_.y_ + (_local7 * Math.sin(_local6)));
                 map_.addObj(_local5, _local8, _local9);
                 _local3++;
-            };
+            }
             this.radius = Math.min((this.radius + (this.rise_ * (_arg2 / 1000))), this.maxRadius);
             this.lastUpdate_ = _arg1;
             return true;

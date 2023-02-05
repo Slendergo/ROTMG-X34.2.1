@@ -53,7 +53,7 @@ package com.company.assembleegameclient.screens{
             var _local11:LineBuilder = new LineBuilder().setParams(_arg4);
             if (_arg8 == "+"){
                 _local11.setPrefix("Bonus: ");
-            };
+            }
             this.nameText_.setStringBuilder(_local11);
             this.nameText_.x = 410;
             this.nameText_.filters = [new DropShadowFilter(0, 0, 0, 1, 4, 4, 2)];
@@ -65,16 +65,16 @@ package com.company.assembleegameclient.screens{
                 this.numberText_.x = 450;
                 this.numberText_.filters = [new DropShadowFilter(0, 0, 0, 1, 4, 4, 2)];
                 addChild(this.numberText_);
-            };
+            }
             if (_arg10 != null){
                 this.unitIcon_ = _arg10;
                 this.nameText_.textChanged.addOnce(this.onTextChanged);
                 addChild(this.unitIcon_);
-            };
+            }
             this.hoverTooltipDelegate.setDisplayObject(this);
             if (_arg5){
                 this.hoverTooltipDelegate.tooltip = textTooltip_;
-            };
+            }
             addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
             addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
         }
@@ -87,7 +87,7 @@ package com.company.assembleegameclient.screens{
             else {
                 this.unitIcon_.x = 450;
                 this.unitIcon_.y = (((this.nameText_.height / 2) - (this.unitIcon_.height / 2)) + 2);
-            };
+            }
         }
 
         public function setShowToolTipSignal(_arg1:ShowTooltipSignal):void{
@@ -113,7 +113,7 @@ package com.company.assembleegameclient.screens{
         private function onAddedToStage(_arg1:Event):void{
             if (this.startTime_ == 0){
                 this.startTime_ = getTimer();
-            };
+            }
             addEventListener(Event.ENTER_FRAME, this.onEnterFrame);
             addEventListener(MouseEvent.MOUSE_OVER, this.onMouseOver);
         }
@@ -132,18 +132,18 @@ package com.company.assembleegameclient.screens{
                 if (this.unitIcon_ != null){
                     this.unitIcon_.x = ((this.numberText_.x + this.numberText_.width) - 4);
                     this.unitIcon_.y = (((this.numberText_.height / 2) - (this.unitIcon_.height / 2)) + 2);
-                };
-            };
+                }
+            }
             if (_local2 == 1){
                 removeEventListener(Event.ENTER_FRAME, this.onEnterFrame);
-            };
+            }
         }
 
         public function onMouseOver(_arg1:Event):void{
             if (this.description != null){
                 textTooltip_.setText(this.makeDescription());
                 stage.addChild(textTooltip_);
-            };
+            }
         }
 
         private function makeDescription():StringBuilder{
@@ -154,7 +154,7 @@ package com.company.assembleegameclient.screens{
                 _local1.pushParams(TextKey.BLANK, {data:" \n("});
                 _local1.pushParams("FameBonus.LevelRequirement", {level:this.level});
                 _local1.pushParams(TextKey.BLANK, {data:")"});
-            };
+            }
             return (_local1);
         }
 

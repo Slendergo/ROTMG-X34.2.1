@@ -29,7 +29,7 @@ package kabam.rotmg.packages.control{
             var _local1:PackageInfo = this.packageModel.getPackageById(this.packageId);
             if (((_local1) && (!((_local1.popupImage == ""))))){
                 this.showPopupSignal.dispatch(new StartupPackage(_local1));
-            };
+            }
         }
 
 

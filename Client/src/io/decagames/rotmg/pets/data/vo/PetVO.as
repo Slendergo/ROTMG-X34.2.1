@@ -58,7 +58,7 @@ package io.decagames.rotmg.pets.data.vo{
             var _local1:AbilityVO;
             for each (_local1 in this._abilityList) {
                 _local1.updated.add(this.onAbilityUpdate);
-            };
+            }
         }
 
         public function maxedAvailableAbilities():Boolean{
@@ -66,8 +66,8 @@ package io.decagames.rotmg.pets.data.vo{
             for each (_local1 in this._abilityList) {
                 if (((_local1.getUnlocked()) && ((_local1.level < this.maxAbilityPower)))){
                     return false;
-                };
-            };
+                }
+            }
             return true;
         }
 
@@ -77,8 +77,8 @@ package io.decagames.rotmg.pets.data.vo{
             for each (_local2 in this._abilityList) {
                 if (((_local2.getUnlocked()) && (_local2.level))){
                     _local1 = (_local1 + _local2.level);
-                };
-            };
+                }
+            }
             return (_local1);
         }
 
@@ -88,8 +88,8 @@ package io.decagames.rotmg.pets.data.vo{
             for each (_local2 in this._abilityList) {
                 if (_local2.getUnlocked()){
                     _local1 = (_local1 + this._maxAbilityPower);
-                };
-            };
+                }
+            }
             return (_local1);
         }
 
@@ -99,8 +99,8 @@ package io.decagames.rotmg.pets.data.vo{
             for each (_local2 in this._abilityList) {
                 if (((_local2.getUnlocked()) && ((_local2.level == this.maxAbilityPower)))){
                     _local1++;
-                };
-            };
+                }
+            }
             return ((_local1 == this._abilityList.length));
         }
 
@@ -137,14 +137,14 @@ package io.decagames.rotmg.pets.data.vo{
                 _local4.level = _arg1.Abilities.Ability[_local2].@power;
                 _local4.points = _arg1.Abilities.Ability[_local2].@points;
                 _local2++;
-            };
+            }
         }
 
         public function get family():String{
             var _local1:SkinVO = this.skinVO;
             if (_local1){
                 return (_local1.family);
-            };
+            }
             return (this.staticData.Family);
         }
 
@@ -189,7 +189,7 @@ package io.decagames.rotmg.pets.data.vo{
             this._name = ObjectLibrary.typeToDisplayId_[_skinType];
             if ((((this._name == null)) || ((this._name == "")))){
                 this._name = ObjectLibrary.typeToDisplayId_[this.getType()];
-            };
+            }
             this._updated.dispatch();
         }
 

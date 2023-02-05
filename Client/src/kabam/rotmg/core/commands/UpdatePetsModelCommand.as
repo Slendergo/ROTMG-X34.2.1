@@ -21,10 +21,10 @@ package kabam.rotmg.core.commands{
         override public function execute():void{
             if (this.data.Account.hasOwnProperty("PetYardType")){
                 this.model.setPetYardType(this.parseYardFromXML());
-            };
+            }
             if (this.data.hasOwnProperty("Pet")){
                 this.model.setActivePet(this.parsePetFromXML());
-            };
+            }
         }
 
         private function parseYardFromXML():int{

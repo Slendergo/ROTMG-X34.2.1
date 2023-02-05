@@ -54,19 +54,19 @@ package io.decagames.rotmg.supportCampaign.tab{
                 if (this.unlockScreenContainer != null){
                     removeChild(this.unlockScreenContainer);
                     this.unlockScreenContainer = null;
-                };
+                }
                 this.drawDonatePanel(_arg5, _arg6);
             }
             else {
                 this.showUnlockScreen(_arg3, _arg4, _arg5, _arg6, _arg7);
-            };
+            }
         }
 
         public function updateStartCountdown(_arg1:String):void{
             this._countdown.text = _arg1;
             if (_arg1 == ""){
                 this._campaignTimer.text = "";
-            };
+            }
         }
 
         public function updatePoints(_arg1:int, _arg2:int):void{
@@ -80,7 +80,7 @@ package io.decagames.rotmg.supportCampaign.tab{
                 addChild(this.supportIcon);
                 this._infoButton = new SliceScalingButton(TextureParser.instance.getSliceScalingBitmap("UI", "tier_info"));
                 addChild(this._infoButton);
-            };
+            }
             this.pointsInfo.text = ((_arg1) ? _arg1.toString() : "0");
             this.pointsInfo.x = (((this.background.width / 2) - (this.pointsInfo.width / 2)) + 8);
             this.pointsInfo.y = (this.background.y - 8);
@@ -104,13 +104,13 @@ package io.decagames.rotmg.supportCampaign.tab{
                 }
                 else {
                     _local3 = (_local3 + ((((((_local2.days > 9)) ? _local2.days.toString() : ("0" + _local2.days.toString())) + "d ") + (((_local2.hours > 9)) ? _local2.hours.toString() : ("0" + _local2.hours.toString()))) + "h"));
-                };
-            };
+                }
+            }
             if (!this.endDateInfo){
                 this.endDateInfo = new UILabel();
                 DefaultLabelFormat.createLabelFormat(this.endDateInfo, 14, 0xFE9700, TextFormatAlign.CENTER, false);
                 addChild(this.endDateInfo);
-            };
+            }
             this.endDateInfo.text = _local3;
             this.endDateInfo.wordWrap = true;
             this.endDateInfo.width = (this.background.width - 13);
@@ -124,7 +124,7 @@ package io.decagames.rotmg.supportCampaign.tab{
                 this.tiersPreview.x = (this.background.x + 15);
                 this.tiersPreview.y = (this.background.y + 20);
                 addChild(this.tiersPreview);
-            };
+            }
             this.tiersPreview.showTier(_arg1, _arg3, _arg4, _arg5);
         }
 
@@ -134,7 +134,7 @@ package io.decagames.rotmg.supportCampaign.tab{
                 this.progressBar.x = (this.background.x + 15);
                 this.progressBar.y = 285;
                 addChild(this.progressBar);
-            };
+            }
             this.progressBar.show(_arg1, _arg3, _arg4);
         }
 
@@ -187,8 +187,8 @@ package io.decagames.rotmg.supportCampaign.tab{
                     this._countdown.width = _arg5.width;
                     this._countdown.y = 197;
                     this.unlockScreenContainer.addChild(this._countdown);
-                };
-            };
+                }
+            }
             DefaultLabelFormat.createLabelFormat(this._campaignTimer, 14, 0xFE9700, TextFormatAlign.CENTER, false);
             this._campaignTimer.wordWrap = true;
             this._campaignTimer.width = _arg5.width;

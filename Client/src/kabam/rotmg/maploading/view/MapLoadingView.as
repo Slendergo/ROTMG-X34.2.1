@@ -63,7 +63,7 @@ package kabam.rotmg.maploading.view{
             while (_local2 <= MAX_DIFFICULTY) {
                 this.indicators[(_local2 - 1)] = this.diffRow.getChildByName(("indicator_" + _local2));
                 _local2++;
-            };
+            }
             addChild(this.screen);
             this.setValues();
         }
@@ -89,9 +89,9 @@ package kabam.rotmg.maploading.view{
                     while (_local1 < MAX_DIFFICULTY) {
                         this.indicators[_local1].visible = (_local1 < this.difficulty);
                         _local1++;
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         public function showAnimation(_arg1:Animation):void{
@@ -129,10 +129,10 @@ package kabam.rotmg.maploading.view{
                         if (TitleView.queueRegistrationPrompt){
                             StaticInjectorContext.getInjector().getInstance(OpenDialogSignal).dispatch(new WebRegisterDialog());
                             TitleView.queueRegistrationPrompt = false;
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             var _local1:GTween = new GTween(this, FADE_OUT_TIME, {alpha:0});
             _local1.onComplete = this.onFadeOutComplete;
             mouseEnabled = false;

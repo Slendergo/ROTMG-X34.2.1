@@ -54,11 +54,11 @@ package io.decagames.rotmg.supportCampaign.tab.donate{
                 this.updatePoints((SupporterCampaignModel.DEFAULT_DONATE_AMOUNT * this._ratio));
                 if (this._ratio == 0){
                     this.disableElements();
-                };
+                }
             }
             else {
                 this.createCompleteTextField();
-            };
+            }
         }
 
         private function disableElements():void{
@@ -165,7 +165,7 @@ package io.decagames.rotmg.supportCampaign.tab.donate{
         public function setCompleteText(_arg1:String):void{
             if (!this.completeTextfield){
                 this.createCompleteTextField();
-            };
+            }
             this._donationContent.visible = false;
             this.completeTextfield.text = _arg1;
             this.completeTextfield.x = Math.round(((this._mainContent.width - this.completeTextfield.width) / 2));
@@ -181,7 +181,7 @@ package io.decagames.rotmg.supportCampaign.tab.donate{
             var _local2:int = (int(this._amountTextfield.text) + _arg1);
             if ((((_local2.toString().length > SupporterCampaignModel.DONATE_MAX_INPUT_CHARS)) || ((_local2 <= 0)))){
                 return;
-            };
+            }
             this._amountTextfield.text = _local2.toString();
             this.updatePoints((_local2 * this._ratio));
         }

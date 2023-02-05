@@ -87,7 +87,7 @@ import kabam.rotmg.text.model.FontModel;
             }
             else {
                 _local5.setStringBuilder(new LineBuilder().setParams(_arg1));
-            };
+            }
             _local5.setWordWrap(true);
             _local5.setMultiLine(true);
             _local5.setAutoSize(TextFieldAutoSize.CENTER);
@@ -104,7 +104,7 @@ import kabam.rotmg.text.model.FontModel;
             closeButton.clicked.remove(this.onCloseButtonClicked);
             if (this.triggeredOnStartup){
                 _local1.dispatch();
-            };
+            }
         }
 
         private function onAdded(_arg1:Event):void{
@@ -138,14 +138,14 @@ import kabam.rotmg.text.model.FontModel;
                 case this.rightNavSprite:
                     if ((this.currentPageNumber + 1) <= this.newsModel.numberOfNews){
                         this.setPage((this.currentPageNumber + 1));
-                    };
+                    }
                     return;
                 case this.leftNavSprite:
                     if ((this.currentPageNumber - 1) >= 1){
                         this.setPage((this.currentPageNumber - 1));
-                    };
+                    }
                     return;
-            };
+            }
         }
 
         private function destroy(_arg1:Event):void{
@@ -164,7 +164,7 @@ import kabam.rotmg.text.model.FontModel;
             this.currentPageNumber = _arg1;
             if (((this.currentPage) && (this.currentPage.parent))){
                 removeChild(this.currentPage);
-            };
+            }
             this.currentPage = this.newsModel.getModalPage(_arg1);
             addChild(this.currentPage);
             this.updateIndicator();
@@ -174,7 +174,7 @@ import kabam.rotmg.text.model.FontModel;
             var _local1:HUDModel = StaticInjectorContext.getInjector().getInstance(HUDModel);
             if (((!((_local1 == null))) && (!((_local1.gameSprite == null))))){
                 _local1.gameSprite.refreshNewsUpdateButton();
-            };
+            }
         }
 
         override protected function makeModalBackground():Sprite{
@@ -201,15 +201,15 @@ import kabam.rotmg.text.model.FontModel;
             if (_arg1.keyCode == KeyCodes.RIGHT){
                 if ((this.currentPageNumber + 1) <= this.newsModel.numberOfNews){
                     this.setPage((this.currentPageNumber + 1));
-                };
+                }
             }
             else {
                 if (_arg1.keyCode == KeyCodes.LEFT){
                     if ((this.currentPageNumber - 1) >= 1){
                         this.setPage((this.currentPageNumber - 1));
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         private function makeLeftNav():Sprite{

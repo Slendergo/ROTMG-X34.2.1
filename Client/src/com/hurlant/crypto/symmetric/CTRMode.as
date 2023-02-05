@@ -38,7 +38,7 @@ package com.hurlant.crypto.symmetric{
                 while (_local6 < blockSize) {
                     _arg1[(_local5 + _local6)] = (_arg1[(_local5 + _local6)] ^ _local4[_local6]);
                     _local6++;
-                };
+                }
                 _local6 = (blockSize - 1);
                 while (_local6 >= 0) {
                     var _local7 = _local3;
@@ -47,9 +47,9 @@ package com.hurlant.crypto.symmetric{
                     _local7[_local8] = _local9;
                     if (_local3[_local6] != 0) break;
                     _local6--;
-                };
+                }
                 _local5 = (_local5 + blockSize);
-            };
+            }
         }
 
         public function toString():String{

@@ -37,11 +37,11 @@ package com.company.assembleegameclient.map.partyoverlay{
             var _local1:Player = (go_ as Player);
             if ((((_local1 == null)) || ((_local1.map_ == null)))){
                 return (null);
-            };
+            }
             var _local2:Player = _local1.map_.player_;
             if (_local2 == null){
                 return (null);
-            };
+            }
             return (new PlayerGroupMenu(_local1.map_, this.getFullPlayerVec()));
         }
 
@@ -50,7 +50,7 @@ package com.company.assembleegameclient.map.partyoverlay{
             var _local1:Vector.<Player> = new <Player>[(go_ as Player)];
             for each (_local2 in extraGOs_) {
                 _local1.push((_local2 as Player));
-            };
+            }
             return (_local1);
         }
 

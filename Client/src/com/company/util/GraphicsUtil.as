@@ -65,7 +65,7 @@ package com.company.util{
                 _local13 = (_arg2 + ((_arg3 * _local6) * Math.sin(_local9)));
                 _arg4.curveTo(_local12, _local13, _local10, _local11);
                 _local7++;
-            };
+            }
         }
 
         public static function drawCutEdgeRect(_arg1:int, _arg2:int, _arg3:int, _arg4:int, _arg5:int, _arg6:Array, _arg7:GraphicsPath):void{
@@ -75,34 +75,34 @@ package com.company.util{
             }
             else {
                 _arg7.moveTo(_arg1, _arg2);
-            };
+            }
             if (_arg6[1] != 0){
                 _arg7.lineTo(((_arg1 + _arg3) - _arg5), _arg2);
                 _arg7.lineTo((_arg1 + _arg3), (_arg2 + _arg5));
             }
             else {
                 _arg7.lineTo((_arg1 + _arg3), _arg2);
-            };
+            }
             if (_arg6[2] != 0){
                 _arg7.lineTo((_arg1 + _arg3), ((_arg2 + _arg4) - _arg5));
                 _arg7.lineTo(((_arg1 + _arg3) - _arg5), (_arg2 + _arg4));
             }
             else {
                 _arg7.lineTo((_arg1 + _arg3), (_arg2 + _arg4));
-            };
+            }
             if (_arg6[3] != 0){
                 _arg7.lineTo((_arg1 + _arg5), (_arg2 + _arg4));
                 _arg7.lineTo(_arg1, ((_arg2 + _arg4) - _arg5));
             }
             else {
                 _arg7.lineTo(_arg1, (_arg2 + _arg4));
-            };
+            }
             if (_arg6[0] != 0){
                 _arg7.lineTo(_arg1, (_arg2 + _arg5));
             }
             else {
                 _arg7.lineTo(_arg1, _arg2);
-            };
+            }
         }
 
         public static function drawDiamond(_arg1:Number, _arg2:Number, _arg3:Number, _arg4:GraphicsPath):void{

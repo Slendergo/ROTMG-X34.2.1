@@ -64,7 +64,7 @@ package io.decagames.rotmg.pets.panels{
         private function onKeyDown(_arg1:KeyboardEvent):void{
             if ((((_arg1.keyCode == Parameters.data_.interact)) && ((this.view.stage.focus == null)))){
                 this.openPets();
-            };
+            }
         }
 
         private function openPets():void{

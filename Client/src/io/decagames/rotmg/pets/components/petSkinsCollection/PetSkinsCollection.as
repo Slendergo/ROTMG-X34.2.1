@@ -98,17 +98,17 @@ package io.decagames.rotmg.pets.components.petSkinsCollection{
         private function sortByName(_arg1:SkinVO, _arg2:SkinVO):int{
             if (_arg1.name > _arg2.name){
                 return (1);
-            };
+            }
             return (-1);
         }
 
         private function sortByRarity(_arg1:SkinVO, _arg2:SkinVO):int{
             if (_arg1.rarity.ordinal == _arg2.rarity.ordinal){
                 return (this.sortByName(_arg1, _arg2));
-            };
+            }
             if (_arg1.rarity.ordinal > _arg2.rarity.ordinal){
                 return (1);
-            };
+            }
             return (-1);
         }
 
@@ -116,7 +116,7 @@ package io.decagames.rotmg.pets.components.petSkinsCollection{
             var _local5:SkinVO;
             if (_arg2 == null){
                 return;
-            };
+            }
             var _local3:int;
             var _local4:int;
             this.petGrid = new UIGrid((COLLECTION_WIDTH - 40), 7, 5);
@@ -126,8 +126,8 @@ package io.decagames.rotmg.pets.components.petSkinsCollection{
                 _local3++;
                 if (_local5.isOwned){
                     _local4++;
-                };
-            };
+                }
+            }
             this.petGrid.x = 10;
             this.petGrid.y = 25;
             var _local6:PetFamilyContainer = new PetFamilyContainer(_arg1, _local4, _local3);

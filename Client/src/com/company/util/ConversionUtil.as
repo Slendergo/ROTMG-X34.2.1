@@ -16,7 +16,7 @@ package com.company.util{
         public static function toIntArray(_arg1:Object, _arg2:String=","):Array{
             if (_arg1 == null){
                 return (new Array());
-            };
+            }
             var _local3:Array = _arg1.toString().split(_arg2).map(mapParseInt);
             return (_local3);
         }
@@ -24,7 +24,7 @@ package com.company.util{
         public static function toNumberArray(_arg1:Object, _arg2:String=","):Array{
             if (_arg1 == null){
                 return (new Array());
-            };
+            }
             var _local3:Array = _arg1.toString().split(_arg2).map(mapParseFloat);
             return (_local3);
         }
@@ -32,7 +32,7 @@ package com.company.util{
         public static function toIntVector(_arg1:Object, _arg2:String=","):Vector.<int>{
             if (_arg1 == null){
                 return (new Vector.<int>());
-            };
+            }
             var _local3:Vector.<int> = Vector.<int>(_arg1.toString().split(_arg2).map(mapParseInt));
             return (_local3);
         }
@@ -40,7 +40,7 @@ package com.company.util{
         public static function toNumberVector(_arg1:Object, _arg2:String=","):Vector.<Number>{
             if (_arg1 == null){
                 return (new Vector.<Number>());
-            };
+            }
             var _local3:Vector.<Number> = Vector.<Number>(_arg1.toString().split(_arg2).map(mapParseFloat));
             return (_local3);
         }
@@ -48,7 +48,7 @@ package com.company.util{
         public static function toStringArray(_arg1:Object, _arg2:String=","):Array{
             if (_arg1 == null){
                 return (new Array());
-            };
+            }
             var _local3:Array = _arg1.toString().split(_arg2);
             return (_local3);
         }
@@ -56,7 +56,7 @@ package com.company.util{
         public static function toRectangle(_arg1:Object, _arg2:String=","):Rectangle{
             if (_arg1 == null){
                 return (new Rectangle());
-            };
+            }
             var _local3:Array = _arg1.toString().split(_arg2).map(mapParseFloat);
             return ((((((_local3 == null)) || ((_local3.length < 4)))) ? new Rectangle() : new Rectangle(_local3[0], _local3[1], _local3[2], _local3[3])));
         }
@@ -64,7 +64,7 @@ package com.company.util{
         public static function toPoint(_arg1:Object, _arg2:String=","):Point{
             if (_arg1 == null){
                 return (new Point());
-            };
+            }
             var _local3:Array = _arg1.toString().split(_arg2).map(ConversionUtil.mapParseFloat);
             return ((((((_local3 == null)) || ((_local3.length < 2)))) ? new Point() : new Point(_local3[0], _local3[1])));
         }
@@ -75,13 +75,13 @@ package com.company.util{
                 _local3.push(new Point());
                 _local3.push(new Point());
                 return (_local3);
-            };
+            }
             var _local4:Array = _arg1.toString().split(_arg2).map(ConversionUtil.mapParseFloat);
             if ((((_local4 == null)) || ((_local4.length < 4)))){
                 _local3.push(new Point());
                 _local3.push(new Point());
                 return (_local3);
-            };
+            }
             _local3.push(new Point(_local4[0], _local4[1]));
             _local3.push(new Point(_local4[2], _local4[3]));
             return (_local3);
@@ -90,7 +90,7 @@ package com.company.util{
         public static function toVector3D(_arg1:Object, _arg2:String=","):Vector3D{
             if (_arg1 == null){
                 return (new Vector3D());
-            };
+            }
             var _local3:Array = _arg1.toString().split(_arg2).map(ConversionUtil.mapParseFloat);
             return ((((((_local3 == null)) || ((_local3.length < 3)))) ? new Vector3D() : new Vector3D(_local3[0], _local3[1], _local3[2])));
         }
@@ -98,7 +98,7 @@ package com.company.util{
         public static function toCharCodesVector(_arg1:Object, _arg2:String=","):Vector.<int>{
             if (_arg1 == null){
                 return (new Vector.<int>());
-            };
+            }
             var _local3:Vector.<int> = Vector.<int>(_arg1.toString().split(_arg2).map(mapParseCharCode));
             return (_local3);
         }
@@ -107,22 +107,22 @@ package com.company.util{
             var _local5:Number;
             if (_arg1 == null){
                 return;
-            };
+            }
             var _local4:Array = _arg1.toString().split(_arg3).map(mapParseFloat);
             for each (_local5 in _local4) {
                 _arg2.push(_local5);
-            };
+            }
         }
 
         public static function addToIntVector(_arg1:Object, _arg2:Vector.<int>, _arg3:String=","):void{
             var _local5:int;
             if (_arg1 == null){
                 return;
-            };
+            }
             var _local4:Array = _arg1.toString().split(_arg3).map(mapParseFloat);
             for each (_local5 in _local4) {
                 _arg2.push(_local5);
-            };
+            }
         }
 
         public static function mapParseFloat(_arg1, ... _args):Number{

@@ -57,7 +57,7 @@ package kabam.rotmg.startup.control{
             }
             else {
                 completeTask(true);
-            };
+            }
         }
 
         private function isAnotherTask():Boolean{
@@ -78,7 +78,7 @@ package kabam.rotmg.startup.control{
             }
             else {
                 completeTask(false, _arg3);
-            };
+            }
         }
 
 

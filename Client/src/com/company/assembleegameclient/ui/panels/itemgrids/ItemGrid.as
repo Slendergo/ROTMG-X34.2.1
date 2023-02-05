@@ -26,7 +26,7 @@ package com.company.assembleegameclient.ui.panels.itemgrids{
             1:[[1, 0, 0, 1], NO_CUT, NO_CUT, [0, 1, 1, 0]],
             2:[[1, 0, 0, 0], NO_CUT, NO_CUT, [0, 1, 0, 0], [0, 0, 0, 1], NO_CUT, NO_CUT, [0, 0, 1, 0]],
             3:[[1, 0, 0, 1], NO_CUT, NO_CUT, [0, 1, 1, 0], [1, 0, 0, 0], NO_CUT, NO_CUT, [0, 1, 0, 0], [0, 0, 0, 1], NO_CUT, NO_CUT, [0, 0, 1, 0]]
-        };
+        }
 
         private const padding:uint = 4;
         private const rowLength:uint = 4;
@@ -47,7 +47,7 @@ package com.company.assembleegameclient.ui.panels.itemgrids{
             var _local4:Container = (_arg1 as Container);
             if ((((_arg1 == _arg2)) || (_local4))){
                 this.interactive = true;
-            };
+            }
         }
 
         public function hideTooltip():void{
@@ -55,24 +55,24 @@ package com.company.assembleegameclient.ui.panels.itemgrids{
                 this.tooltip.detachFromTarget();
                 this.tooltip = null;
                 this.tooltipFocusTile = null;
-            };
+            }
         }
 
         public function refreshTooltip():void{
             if (((((!(stage)) || (!(this.tooltip)))) || (!(this.tooltip.stage)))){
                 return;
-            };
+            }
             if (this.tooltipFocusTile){
                 this.tooltip.detachFromTarget();
                 this.tooltip = null;
                 this.addToolTipToTile(this.tooltipFocusTile);
-            };
+            }
         }
 
         private function onTileHover(_arg1:MouseEvent):void{
             if (!stage){
                 return;
-            };
+            }
             var _local2:ItemTile = (_arg1.currentTarget as ItemTile);
             this.addToolTipToTile(_local2);
             this.tooltipFocusTile = _local2;
@@ -89,9 +89,9 @@ package com.company.assembleegameclient.ui.panels.itemgrids{
                 }
                 else {
                     _local2 = TextKey.ITEM;
-                };
+                }
                 this.tooltip = new TextToolTip(0x363636, 0x9B9B9B, null, TextKey.ITEM_EMPTY_SLOT, 200, {itemType:TextKey.wrapForTokenResolution(_local2)});
-            };
+            }
             this.tooltip.attachToTarget(_arg1);
             this.addToolTip.dispatch(this.tooltip);
         }
@@ -99,10 +99,10 @@ package com.company.assembleegameclient.ui.panels.itemgrids{
         private function getCharacterType():String{
             if (this.owner == this.curPlayer){
                 return (InventoryOwnerTypes.CURRENT_PLAYER);
-            };
+            }
             if ((this.owner is Player)){
                 return (InventoryOwnerTypes.OTHER_PLAYER);
-            };
+            }
             return (InventoryOwnerTypes.NPC);
         }
 

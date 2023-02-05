@@ -62,7 +62,7 @@ package kabam.rotmg.ui.view{
         private function onSelected(_arg1:SavedCharacter):void{
             if (_arg1.objectType() == 796){
                 return;
-            };
+            }
             var _local2:CharacterClass = this.classesModel.getCharacterClass(_arg1.objectType());
             _local2.setIsSelected(true);
             _local2.skins.getSkin(_arg1.skinType()).setIsSelected(true);

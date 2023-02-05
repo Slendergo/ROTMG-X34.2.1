@@ -59,13 +59,13 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles{
                     _local4 = this.bitmapFactory.make(new StaticStringBuilder(String(_local3.Doses)), 12, 0xFFFFFF, false, IDENTITY_MATRIX, false);
                     _local4.applyFilter(_local4, _local4.rect, PointUtil.ORIGIN, PotionSlotView.READABILITY_SHADOW_2);
                     _local2.draw(_local4, DOSE_MATRIX);
-                };
+                }
                 if (((((_local3) && (_local3.hasOwnProperty("Quantity")))) && (this.bitmapFactory))){
                     _local2 = _local2.clone();
                     _local5 = this.bitmapFactory.make(new StaticStringBuilder(String(_local3.Quantity)), 12, 0xFFFFFF, false, IDENTITY_MATRIX, false);
                     _local5.applyFilter(_local5, _local5.rect, PointUtil.ORIGIN, PotionSlotView.READABILITY_SHADOW_2);
                     _local2.draw(_local5, DOSE_MATRIX);
-                };
+                }
                 this.itemBitmap.bitmapData = _local2;
                 this.itemBitmap.x = (-(_local2.width) / 2);
                 this.itemBitmap.y = (-(_local2.height) / 2);
@@ -73,7 +73,7 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles{
             }
             else {
                 visible = false;
-            };
+            }
         }
 
         public function setBitmapFactory(_arg1:BitmapTextFactory):void{

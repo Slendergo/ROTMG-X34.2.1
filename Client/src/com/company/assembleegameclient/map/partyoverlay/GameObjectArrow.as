@@ -62,9 +62,9 @@ package com.company.assembleegameclient.map.partyoverlay{
             if (menu_ != null){
                 if (menu_.parent != null){
                     menu_.parent.removeChild(menu_);
-                };
+                }
                 menu_ = null;
-            };
+            }
         }
 
 
@@ -81,7 +81,7 @@ package com.company.assembleegameclient.map.partyoverlay{
         protected function onMouseDown(_arg1:MouseEvent):void{
             if (Parameters.isGpuRender()){
                 this.map_.mapHitArea.dispatchEvent(_arg1);
-            };
+            }
         }
 
         protected function setToolTip(_arg1:ToolTip):void{
@@ -90,16 +90,16 @@ package com.company.assembleegameclient.map.partyoverlay{
             if (this.tooltip_ != null){
                 addChild(this.tooltip_);
                 this.positionTooltip(this.tooltip_);
-            };
+            }
         }
 
         protected function removeTooltip():void{
             if (this.tooltip_ != null){
                 if (this.tooltip_.parent != null){
                     this.tooltip_.parent.removeChild(this.tooltip_);
-                };
+                }
                 this.tooltip_ = null;
-            };
+            }
         }
 
         protected function setMenu(_arg1:Menu):void{
@@ -111,11 +111,11 @@ package com.company.assembleegameclient.map.partyoverlay{
         public function setGameObject(_arg1:GameObject):void{
             if (this.go_ != _arg1){
                 this.go_ = _arg1;
-            };
+            }
             this.extraGOs_.length = 0;
             if (this.go_ == null){
                 visible = false;
-            };
+            }
         }
 
         public function addGameObject(_arg1:GameObject):void{
@@ -129,7 +129,7 @@ package com.company.assembleegameclient.map.partyoverlay{
             if (this.go_ == null){
                 visible = false;
                 return;
-            };
+            }
             this.go_.computeSortVal(_arg2);
             _local3 = _arg2.clipRect_;
             _local4 = this.go_.posS_[0];
@@ -138,54 +138,54 @@ package com.company.assembleegameclient.map.partyoverlay{
                 this.go_ = null;
                 visible = false;
                 return;
-            };
+            }
             x = this.tempPoint.x;
             y = this.tempPoint.y;
             var _local6:Number = Trig.boundTo180((270 - (Trig.toDegrees * Math.atan2(_local4, _local5))));
             if (this.tempPoint.x < (_local3.left + 5)){
                 if (_local6 > 45){
                     _local6 = 45;
-                };
+                }
                 if (_local6 < -45){
                     _local6 = -45;
-                };
+                }
             }
             else {
                 if (this.tempPoint.x > (_local3.right - 5)){
                     if (_local6 > 0){
                         if (_local6 < 135){
                             _local6 = 135;
-                        };
+                        }
                     }
                     else {
                         if (_local6 > -135){
                             _local6 = -135;
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             if (this.tempPoint.y < (_local3.top + 5)){
                 if (_local6 < 45){
                     _local6 = 45;
-                };
+                }
                 if (_local6 > 135){
                     _local6 = 135;
-                };
+                }
             }
             else {
                 if (this.tempPoint.y > (_local3.bottom - 5)){
                     if (_local6 > -45){
                         _local6 = -45;
-                    };
+                    }
                     if (_local6 < -135){
                         _local6 = -135;
-                    };
-                };
-            };
+                    }
+                }
+            }
             this.arrow_.rotation = _local6;
             if (this.tooltip_ != null){
                 this.positionTooltip(this.tooltip_);
-            };
+            }
             visible = true;
         }
 
@@ -220,9 +220,9 @@ package com.company.assembleegameclient.map.partyoverlay{
                         _arg1.x = (_local4 - _local6);
                         _local9 = (_local5 - (_local7 * Math.tan((_local2 * Trig.toRadians))));
                         _arg1.y = (((_local5 + _local9) / 2) - (_local7 / 2));
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         private function drawArrow():void{

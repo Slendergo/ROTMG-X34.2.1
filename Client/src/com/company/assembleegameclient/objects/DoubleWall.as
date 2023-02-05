@@ -46,17 +46,17 @@ package com.company.assembleegameclient.objects{
             var _local8:Square;
             if (texture_ == null){
                 return;
-            };
+            }
             if (this.faces_.length == 0){
                 this.rebuild3D();
-            };
+            }
             var _local4:BitmapData = texture_;
             if (animations_ != null){
                 _local6 = animations_.getTexture(_arg3);
                 if (_local6 != null){
                     _local4 = _local6;
-                };
-            };
+                }
+            }
             var _local5:int;
             while (_local5 < this.faces_.length) {
                 _local7 = this.faces_[_local5];
@@ -68,11 +68,11 @@ package com.company.assembleegameclient.objects{
                     _local7.blackOut_ = false;
                     if (animations_ != null){
                         _local7.setTexture(_local4);
-                    };
-                };
+                    }
+                }
                 _local7.draw(_arg1, _arg2);
                 _local5++;
-            };
+            }
             this.topFace_.draw(_arg1, _arg2);
         }
 

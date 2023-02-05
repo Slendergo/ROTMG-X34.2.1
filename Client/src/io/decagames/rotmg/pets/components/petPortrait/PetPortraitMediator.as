@@ -35,13 +35,13 @@ package io.decagames.rotmg.pets.components.petPortrait{
         override public function initialize():void{
             if (this.view.switchable){
                 this.view.petSkin.addEventListener(MouseEvent.CLICK, this.onSwitchPetHandler);
-            };
+            }
             if (this.view.showCurrentPet){
                 this.selectPetSignal.add(this.onPetSelected);
-            };
+            }
             if (((this.view.petVO) && (this.view.petVO.updated))){
                 this.view.petVO.updated.add(this.VOUpdated);
-            };
+            }
             this.view.releaseSignal.add(this.releasePetHandler);
             this.releasePetSignal.add(this.onRelease);
             this.simulateFeedSignal.add(this.simulateFeed);
@@ -52,7 +52,7 @@ package io.decagames.rotmg.pets.components.petPortrait{
             this.selectPetSignal.remove(this.onPetSelected);
             if (((this.view.petVO) && (this.view.petVO.updated))){
                 this.view.petVO.updated.remove(this.VOUpdated);
-            };
+            }
             this.view.releaseSignal.remove(this.releasePetHandler);
             this.view.dispose();
             this.releasePetSignal.remove(this.onRelease);
@@ -64,7 +64,7 @@ package io.decagames.rotmg.pets.components.petPortrait{
             if (this.view.petVO){
                 _local2 = AbilitiesUtil.simulateAbilityUpgrade(this.view.petVO, _arg1);
                 this.view.simulateFeed(_local2, _arg1);
-            };
+            }
         }
 
         private function onRelease(_arg1:int):void{
@@ -79,16 +79,16 @@ package io.decagames.rotmg.pets.components.petPortrait{
             var _local2:Boolean;
             if (((this.view.petVO) && (this.view.petVO.updated))){
                 this.view.petVO.updated.remove(this.VOUpdated);
-            };
+            }
             if (this.view.enableAnimation){
                 _local2 = true;
                 this.view.enableAnimation = false;
-            };
+            }
             this.view.petVO = _arg1;
             this.view.enableAnimation = _local2;
             if (((this.view.petVO) && (this.view.petVO.updated))){
                 this.view.petVO.updated.add(this.VOUpdated);
-            };
+            }
         }
 
         private function onSwitchPetHandler(_arg1:MouseEvent):void{

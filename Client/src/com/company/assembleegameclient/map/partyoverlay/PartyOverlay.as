@@ -28,7 +28,7 @@ package com.company.assembleegameclient.map.partyoverlay{
                 this.partyMemberArrows_[_local2] = _local3;
                 addChild(_local3);
                 _local2++;
-            };
+            }
             this.questArrow_ = new QuestArrow(this.map_);
             addChild(this.questArrow_);
             addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
@@ -47,7 +47,7 @@ package com.company.assembleegameclient.map.partyoverlay{
             var _local11:Number;
             if (this.map_.player_ == null){
                 return;
-            };
+            }
             var _local3:Party = this.map_.party_;
             var _local4:Player = this.map_.player_;
             var _local5:int;
@@ -72,21 +72,21 @@ package com.company.assembleegameclient.map.partyoverlay{
                                 if (((_local10 * _local10) + (_local11 * _local11)) < 64){
                                     if (!_local9.mouseOver_){
                                         _local9.addGameObject(_local7);
-                                    };
+                                    }
                                     _local6.setGameObject(null);
                                     break;
-                                };
+                                }
                                 _local8++;
-                            };
+                            }
                             _local6.draw(_arg2, _arg1);
-                        };
-                    };
-                };
+                        }
+                    }
+                }
                 _local5++;
-            };
+            }
             if (!this.questArrow_.mouseOver_){
                 this.questArrow_.draw(_arg2, _arg1);
-            };
+            }
         }
 
 

@@ -22,7 +22,7 @@ package kabam.rotmg.dialogs.model{
             if ((((_arg3 == -1)) || (this.canDisplayPopupToday(_arg1)))){
                 this.queue.push(new PopupQueueEntry(_arg1, _arg2, _arg3, _arg4));
                 this.sortQueue();
-            };
+            }
         }
 
         private function sortQueue():void{
@@ -31,7 +31,7 @@ package kabam.rotmg.dialogs.model{
                 var _local4:int = getPopupPriorityByName(_arg2.name);
                 if (_local3 < _local4){
                     return (-1);
-                };
+                }
                 return (1);
             });
         }
@@ -39,7 +39,7 @@ package kabam.rotmg.dialogs.model{
         public function flushStartupQueue():PopupQueueEntry{
             if (this.queue.length == 0){
                 return (null);
-            };
+            }
             var _local1:PopupQueueEntry = this.queue.shift();
             Parameters.data_[_local1.name] = new Date().time;
             return (_local1);
@@ -50,7 +50,7 @@ package kabam.rotmg.dialogs.model{
             var _local3:int;
             if (!Parameters.data_[_arg1]){
                 return true;
-            };
+            }
             _local2 = Math.floor((Number(Parameters.data_[_arg1]) / 86400000));
             _local3 = Math.floor((new Date().time / 86400000));
             return ((_local3 > _local2));
@@ -60,7 +60,7 @@ package kabam.rotmg.dialogs.model{
             var _local2:int = this.popupPriority.indexOf(_arg1);
             if (_local2 < 0){
                 _local2 = int.MAX_VALUE;
-            };
+            }
             return (_local2);
         }
 

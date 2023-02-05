@@ -43,7 +43,7 @@ package io.decagames.rotmg.pets.components.petStatsGrid{
             if (this._petVO){
                 this._maxLevel = this._petVO.maxAbilityPower;
                 this.refreshAbilities(this._petVO);
-            };
+            }
         }
 
         private function createPlusLabels():void{
@@ -60,7 +60,7 @@ package io.decagames.rotmg.pets.components.petStatsGrid{
                 addChild(_local2);
                 this._plusLabels.push(_local2);
                 _local1++;
-            };
+            }
         }
 
         private function createLabels():void{
@@ -84,7 +84,7 @@ package io.decagames.rotmg.pets.components.petStatsGrid{
             for each (_local3 in _arg1) {
                 this.renderAbilitySimulation(_local3, _local2);
                 _local2++;
-            };
+            }
         }
 
         private function refreshAbilities(_arg1:IPetVO):void{
@@ -100,7 +100,7 @@ package io.decagames.rotmg.pets.components.petStatsGrid{
                 this._plusLabels[_local2].visible = false;
                 this.renderAbility(_local3, _local2);
                 _local2++;
-            };
+            }
         }
 
         private function renderAbilitySimulation(_arg1:AbilityVO, _arg2:int):void{
@@ -115,8 +115,8 @@ package io.decagames.rotmg.pets.components.petStatsGrid{
                 }
                 else {
                     this._plusLabels[_arg2].visible = false;
-                };
-            };
+                }
+            }
         }
 
         private function renderAbility(_arg1:AbilityVO, _arg2:int):void{
@@ -127,8 +127,8 @@ package io.decagames.rotmg.pets.components.petStatsGrid{
                 if (_arg1.getUnlocked()){
                     if (((!((_local3.maxValue == _local4))) || (!((_local3.value == _arg1.points))))){
                         this.updateProgressBarValues(_local3, _arg1, _local4);
-                    };
-                };
+                    }
+                }
             }
             else {
                 _local3 = new PetFeedProgressBar(195, 4, _arg1.name, _local4, ((_arg1.getUnlocked()) ? _arg1.points : 0), _arg1.level, this._maxLevel, 0x545454, 15306295, 6538829);
@@ -140,7 +140,7 @@ package io.decagames.rotmg.pets.components.petStatsGrid{
                 _local3.simulatedValueTextFormat = DefaultLabelFormat.createTextFormat(12, 6538829, TextFormatAlign.RIGHT, true);
                 this.abilityBars.push(_local3);
                 addGridElement(_local3);
-            };
+            }
             if (!_arg1.getUnlocked()){
                 _local3.alpha = 0.4;
             }
@@ -148,9 +148,9 @@ package io.decagames.rotmg.pets.components.petStatsGrid{
                 if (_local3.alpha != 1){
                     _local3.maxValue = _local4;
                     _local3.value = _arg1.points;
-                };
+                }
                 _local3.alpha = 1;
-            };
+            }
         }
 
         private function updateProgressBarValues(_arg1:PetFeedProgressBar, _arg2:AbilityVO, _arg3:int):void{
@@ -165,11 +165,11 @@ package io.decagames.rotmg.pets.components.petStatsGrid{
                 this.abilityBars.length = 0;
                 this._labelContainer.visible = false;
                 clearGrid();
-            };
+            }
             this._petVO = _arg1;
             if (this._petVO != null){
                 this.refreshAbilities(_arg1);
-            };
+            }
         }
 
         public function get petVO():IPetVO{

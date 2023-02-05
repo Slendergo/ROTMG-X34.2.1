@@ -25,14 +25,14 @@ package com.company.assembleegameclient.editor{
         public function undo():void{
             if (this.currPos == 0){
                 return;
-            };
+            }
             this.list_[--this.currPos].unexecute();
         }
 
         public function redo():void{
             if (this.currPos == this.list_.length){
                 return;
-            };
+            }
             this.list_[this.currPos++].execute();
         }
 

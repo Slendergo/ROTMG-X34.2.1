@@ -32,7 +32,7 @@ package kabam.rotmg.classes.control{
         public function execute():void{
             if (this.isSkinPurchasable()){
                 this.enterPurchaseFlow();
-            };
+            }
         }
 
         private function enterPurchaseFlow():void{
@@ -41,7 +41,7 @@ package kabam.rotmg.classes.control{
             }
             else {
                 this.enterGetCreditsFlow();
-            };
+            }
         }
 
         private function isSkinPurchasable():Boolean{

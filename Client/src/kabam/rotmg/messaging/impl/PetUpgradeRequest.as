@@ -35,7 +35,7 @@ package kabam.rotmg.messaging.impl{
             _arg1.writeShort(this.slotsObject.length);
             for each (_local2 in this.slotsObject) {
                 _local2.writeToOutput(_arg1);
-            };
+            }
         }
 
 

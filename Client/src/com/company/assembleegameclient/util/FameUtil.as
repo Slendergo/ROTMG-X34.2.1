@@ -34,7 +34,7 @@ package com.company.assembleegameclient.util{
             var _local2:int;
             while ((((_local2 < STARS.length)) && ((_arg1 >= STARS[_local2])))) {
                 _local2++;
-            };
+            }
             return (_local2);
         }
 
@@ -44,9 +44,9 @@ package com.company.assembleegameclient.util{
             while (_local4 < STARS.length) {
                 if (STARS[_local4] > _local3){
                     return (STARS[_local4]);
-                };
+                }
                 _local4++;
-            };
+            }
             return (-1);
         }
 
@@ -60,8 +60,8 @@ package com.company.assembleegameclient.util{
                 }
                 else {
                     _local4 = (_local4 + FameUtil.numStars(_local6.BestFame));
-                };
-            };
+                }
+            }
             _local4 = (_local4 + FameUtil.numStars(Math.max(_local5, _arg2)));
             return (_local4);
         }
@@ -94,11 +94,11 @@ package com.company.assembleegameclient.util{
                         else {
                             if (_arg1 < (ObjectLibrary.playerChars_.length * 5)){
                                 _local2.transform.colorTransform = yellowCT;
-                            };
-                        };
-                    };
-                };
-            };
+                            }
+                        }
+                    }
+                }
+            }
             return (_local2);
         }
 

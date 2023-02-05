@@ -52,7 +52,7 @@ package com.company.assembleegameclient.ui{
         private function onClose(_arg1:Event):void{
             if (parent != null){
                 parent.removeChild(this);
-            };
+            }
         }
 
 

@@ -32,16 +32,16 @@ package kabam.rotmg.messaging.impl.incoming{
             while (_local3 < this.statuses_.length) {
                 FreeList.deleteObject(this.statuses_[_local3]);
                 _local3++;
-            };
+            }
             this.statuses_.length = Math.min(_local2, this.statuses_.length);
             while (this.statuses_.length < _local2) {
                 this.statuses_.push((FreeList.newObject(ObjectStatusData) as ObjectStatusData));
-            };
+            }
             _local3 = 0;
             while (_local3 < _local2) {
                 this.statuses_[_local3].parseFromInput(_arg1);
                 _local3++;
-            };
+            }
         }
 
         override public function toString():String{

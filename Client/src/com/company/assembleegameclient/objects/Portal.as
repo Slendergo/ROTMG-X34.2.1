@@ -40,7 +40,7 @@ package com.company.assembleegameclient.objects{
             super.draw(_arg1, _arg2, _arg3);
             if (this.nexusPortal_){
                 drawName(_arg1, _arg2);
-            };
+            }
         }
 
         public function getPanel(_arg1:GameSprite):Panel{

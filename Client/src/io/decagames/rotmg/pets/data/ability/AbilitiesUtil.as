@@ -14,10 +14,10 @@ package io.decagames.rotmg.pets.data.ability{
         public static function isActiveAbility(_arg1:PetRarityEnum, _arg2:int):Boolean{
             if (_arg1.ordinal >= PetRarityEnum.LEGENDARY.ordinal){
                 return true;
-            };
+            }
             if (_arg1.ordinal >= PetRarityEnum.UNCOMMON.ordinal){
                 return ((_arg2 <= 1));
-            };
+            }
             return ((_arg2 == 0));
         }
 
@@ -43,12 +43,12 @@ package io.decagames.rotmg.pets.data.ability{
                     if (_local6 > _arg1.maxAbilityPower){
                         _local6 = _arg1.maxAbilityPower;
                         _local5.points = abilityPowerToMinPoints(_local6);
-                    };
+                    }
                     _local5.level = _local6;
-                };
+                }
                 _local3.push(_local5);
                 _local4++;
-            };
+            }
             return (_local3);
         }
 

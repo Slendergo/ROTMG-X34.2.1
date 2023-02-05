@@ -46,7 +46,7 @@ package kabam.rotmg.arena.view{
             }
             else {
                 this.view.show();
-            };
+            }
         }
 
         private function removeView():void{
@@ -71,7 +71,7 @@ package kabam.rotmg.arena.view{
         private function onClose():void{
             if (this.layers.mouseDisabledTop.contains(this.view)){
                 this.layers.mouseDisabledTop.removeChild(this.view);
-            };
+            }
         }
 
 

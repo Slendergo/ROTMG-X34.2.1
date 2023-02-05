@@ -66,7 +66,7 @@ package io.decagames.rotmg.pets.components.guiTab{
             var _local1:Boolean = (((this.petVO.rarity.rarityKey == PetRarityEnum.DIVINE.rarityKey)) || ((this.petVO.rarity.rarityKey == PetRarityEnum.LEGENDARY.rarityKey)));
             if (_local1){
                 return (2);
-            };
+            }
             return (3);
         }
 

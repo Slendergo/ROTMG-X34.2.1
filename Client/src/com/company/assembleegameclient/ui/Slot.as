@@ -57,7 +57,7 @@ package com.company.assembleegameclient.ui{
                 case ItemConstants.SPELL_TYPE:
                     _local4.y = -2;
                     break;
-            };
+            }
             return (_local4);
         }
 
@@ -88,9 +88,9 @@ package com.company.assembleegameclient.ui{
                         this.backgroundImage_.x = ((WIDTH / 2) - (_local1.width / 2));
                         this.backgroundImage_.y = ((HEIGHT / 2) - 18);
                         addChild(this.backgroundImage_);
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
 

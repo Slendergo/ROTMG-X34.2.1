@@ -64,7 +64,7 @@ package io.decagames.rotmg.ui.popups{
             var _local1:BasePopup;
             for each (_local1 in this.popups) {
                 this.view.removeChild(_local1);
-            };
+            }
             this.popups = new Vector.<BasePopup>();
         }
 
@@ -79,8 +79,8 @@ package io.decagames.rotmg.ui.popups{
                 else {
                     _arg1.x = Math.round(((800 - _arg1.width) / 2));
                     _arg1.y = Math.round(((600 - _arg1.height) / 2));
-                };
-            };
+                }
+            }
             this.drawPopupBackground(_arg1);
         }
 
@@ -89,7 +89,7 @@ package io.decagames.rotmg.ui.popups{
             if (_local2 >= 0){
                 this.view.removeChild(this.popups[_local2]);
                 this.popups.splice(_local2, 1);
-            };
+            }
         }
 
         private function closeByClassHandler(_arg1:Class):void{
@@ -98,9 +98,9 @@ package io.decagames.rotmg.ui.popups{
                 if ((this.popups[_local2] is _arg1)){
                     this.view.removeChild(this.popups[_local2]);
                     this.popups.splice(_local2, 1);
-                };
+                }
                 _local2--;
-            };
+            }
         }
 
         private function drawPopupBackground(_arg1:BasePopup):void{

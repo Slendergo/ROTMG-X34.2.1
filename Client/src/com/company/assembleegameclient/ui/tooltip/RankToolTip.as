@@ -68,7 +68,7 @@ package com.company.assembleegameclient.ui.tooltip{
                 addChild(_local2);
                 _local3 = (_local3 + _local2.height);
                 _local4++;
-            };
+            }
             _local2 = new LegendLine(FameUtil.maxStars(), FameUtil.maxStars(), new ColorTransform());
             _local2.x = PADDING_LEFT;
             _local2.y = _local3;

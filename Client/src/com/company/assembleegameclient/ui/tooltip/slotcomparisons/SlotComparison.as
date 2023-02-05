@@ -36,10 +36,10 @@ package com.company.assembleegameclient.ui.tooltip.slotcomparisons{
         protected function getTextColor(_arg1:Number):uint{
             if (_arg1 < 0){
                 return (WORSE_COLOR);
-            };
+            }
             if (_arg1 > 0){
                 return (BETTER_COLOR);
-            };
+            }
             return (NO_DIFF_COLOR);
         }
 

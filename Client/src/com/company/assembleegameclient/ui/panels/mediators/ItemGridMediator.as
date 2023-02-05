@@ -81,22 +81,22 @@ package com.company.assembleegameclient.ui.panels.mediators{
             if (this.swapTooSoon()){
                 _local2.resetItemPosition();
                 return;
-            };
+            }
             var _local3:* = DisplayHierarchy.getParentWithTypeArray(_local2.getDropTarget(), TabStripView, InteractiveItemTile, Map);
             if ((((_local2.getItemId() == PotionInventoryModel.HEALTH_POTION_ID)) || ((_local2.getItemId() == PotionInventoryModel.MAGIC_POTION_ID)))){
                 this.onPotionMove(_arg1);
                 return;
-            };
+            }
             if ((_local3 is InteractiveItemTile)){
                 _local4 = (_local3 as InteractiveItemTile);
                 if (this.view.curPlayer.lockedSlot[_local4.tileId] == 0){
                     if (this.canSwapItems(_local2, _local4)){
                         this.swapItemTiles(_local2, _local4);
-                    };
+                    }
                 }
                 else {
                     this.addTextLine.dispatch(ChatMessage.make(Parameters.ERROR_CHAT_NAME, "You cannot put items into this slot right now."));
-                };
+                }
             }
             else {
                 if ((_local3 is TabStripView)){
@@ -106,14 +106,14 @@ package com.company.assembleegameclient.ui.panels.mediators{
                         GameServerConnection.instance.invSwap(this.view.curPlayer, _local2.ownerGrid.owner, _local2.tileId, _local2.itemSprite.itemId, this.view.curPlayer, _local6, ItemConstants.NO_ITEM);
                         _local2.setItem(ItemConstants.NO_ITEM);
                         _local2.updateUseability(this.view.curPlayer);
-                    };
+                    }
                 }
                 else {
                     if ((((_local3 is Map)) || ((this.hudModel.gameSprite.map.mouseX < 300)))){
                         this.dropItem(_local2);
-                    };
-                };
-            };
+                    }
+                }
+            }
             _local2.resetItemPosition();
         }
 
@@ -133,15 +133,15 @@ package com.company.assembleegameclient.ui.panels.mediators{
             else {
                 if ((((_local3 is Map)) || ((this.hudModel.gameSprite.map.mouseX < 300)))){
                     this.dropItem(_local2);
-                };
-            };
+                }
+            }
             _local2.resetItemPosition();
         }
 
         private function addToPotionStack(_arg1:InteractiveItemTile):void{
             if (((((((!(GameServerConnection.instance)) || (!(this.view.interactive)))) || (!(_arg1)))) || ((this.potionInventoryModel.getPotionModel(_arg1.getItemId()).maxPotionCount <= this.hudModel.gameSprite.map.player_.getPotionCount(_arg1.getItemId()))))){
                 return;
-            };
+            }
             GameServerConnection.instance.invSwapPotion(this.view.curPlayer, this.view.owner, _arg1.tileId, _arg1.itemSprite.itemId, this.view.curPlayer, PotionInventoryModel.getPotionSlot(_arg1.getItemId()), ItemConstants.NO_ITEM);
             _arg1.setItem(ItemConstants.NO_ITEM);
             _arg1.updateUseability(this.view.curPlayer);
@@ -150,16 +150,16 @@ package com.company.assembleegameclient.ui.panels.mediators{
         private function canSwapItems(_arg1:InteractiveItemTile, _arg2:InteractiveItemTile):Boolean{
             if (!_arg1.canHoldItem(_arg2.getItemId())){
                 return false;
-            };
+            }
             if (!_arg2.canHoldItem(_arg1.getItemId())){
                 return false;
-            };
+            }
             if ((ItemGrid(_arg2.parent).owner is OneWayContainer)){
                 return false;
-            };
+            }
             if (((_arg1.blockingItemUpdates) || (_arg2.blockingItemUpdates))){
                 return false;
-            };
+            }
             return true;
         }
 
@@ -180,30 +180,30 @@ package com.company.assembleegameclient.ui.panels.mediators{
                     while (_local8 < _local7) {
                         if (_local6[_local8] < 0) break;
                         _local8++;
-                    };
+                    }
                     if (_local8 < _local7){
                         this.dropWithoutDestTile(_arg1, _local5, _local8);
                     }
                     else {
                         GameServerConnection.instance.invDrop(this.view.owner, _arg1.tileId, _arg1.getItemId());
-                    };
+                    }
                 }
                 else {
                     GameServerConnection.instance.invDrop(this.view.owner, _arg1.tileId, _arg1.getItemId());
-                };
+                }
             }
             else {
                 if (((((_local4.canHaveSoulbound_) && (_local4.isLoot_))) && (_local3))){
                     GameServerConnection.instance.invDrop(this.view.owner, _arg1.tileId, _arg1.getItemId());
-                };
-            };
+                }
+            }
             _arg1.setItem(-1);
         }
 
         private function swapItemTiles(_arg1:ItemTile, _arg2:ItemTile):Boolean{
             if (((((((!(GameServerConnection.instance)) || (!(this.view.interactive)))) || (!(_arg1)))) || (!(_arg2)))){
                 return false;
-            };
+            }
             GameServerConnection.instance.invSwap(this.view.curPlayer, this.view.owner, _arg1.tileId, _arg1.itemSprite.itemId, _arg2.ownerGrid.owner, _arg2.tileId, _arg2.itemSprite.itemId);
             var _local3:int = _arg1.getItemId();
             _arg1.setItem(_arg2.getItemId());
@@ -216,7 +216,7 @@ package com.company.assembleegameclient.ui.panels.mediators{
         private function dropWithoutDestTile(_arg1:ItemTile, _arg2:Container, _arg3:int):void{
             if (((((((!(GameServerConnection.instance)) || (!(this.view.interactive)))) || (!(_arg1)))) || (!(_arg2)))){
                 return;
-            };
+            }
             GameServerConnection.instance.invSwap(this.view.curPlayer, this.view.owner, _arg1.tileId, _arg1.itemSprite.itemId, _arg2, _arg3, -1);
             _arg1.setItem(ItemConstants.NO_ITEM);
         }
@@ -225,7 +225,7 @@ package com.company.assembleegameclient.ui.panels.mediators{
             var _local2:InteractiveItemTile = _arg1.tile;
             if ((((_local2.ownerGrid is InventoryGrid)) || ((_local2.ownerGrid is ContainerGrid)))){
                 GameServerConnection.instance.useItem_new(_local2.ownerGrid.owner, _local2.tileId);
-            };
+            }
         }
 
         private function onCtrlClick(_arg1:ItemTileEvent):void{
@@ -233,7 +233,7 @@ package com.company.assembleegameclient.ui.panels.mediators{
             var _local3:int;
             if (this.swapTooSoon()){
                 return;
-            };
+            }
             if (Parameters.data_.inventorySwap){
                 _local2 = _arg1.tile;
                 if ((_local2.ownerGrid is InventoryGrid)){
@@ -242,15 +242,15 @@ package com.company.assembleegameclient.ui.panels.mediators{
                         GameServerConnection.instance.invSwap(this.view.curPlayer, _local2.ownerGrid.owner, _local2.tileId, _local2.itemSprite.itemId, this.view.curPlayer, _local3, ItemConstants.NO_ITEM);
                         _local2.setItem(ItemConstants.NO_ITEM);
                         _local2.updateUseability(this.view.curPlayer);
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         private function onDoubleClick(_arg1:ItemTileEvent):void{
             if (this.swapTooSoon()){
                 return;
-            };
+            }
             var _local2:InteractiveItemTile = _arg1.tile;
             if (this.isStackablePotion(_local2)){
                 this.addToPotionStack(_local2);
@@ -261,8 +261,8 @@ package com.company.assembleegameclient.ui.panels.mediators{
                 }
                 else {
                     this.equipOrUseInventory(_local2);
-                };
-            };
+                }
+            }
             this.view.refreshTooltip();
         }
 
@@ -274,7 +274,7 @@ package com.company.assembleegameclient.ui.panels.mediators{
             var _local2:int = this.view.curPlayer.nextAvailableInventorySlot();
             if (_local2 != -1){
                 GameServerConnection.instance.invSwap(this.view.curPlayer, this.view.owner, _arg1.tileId, _arg1.itemSprite.itemId, this.view.curPlayer, _local2, ItemConstants.NO_ITEM);
-            };
+            }
         }
 
         private function equipOrUseContainer(_arg1:InteractiveItemTile):void{
@@ -286,7 +286,7 @@ package com.company.assembleegameclient.ui.panels.mediators{
             }
             else {
                 GameServerConnection.instance.useItem_new(_local2, _arg1.tileId);
-            };
+            }
         }
 
         private function equipOrUseInventory(_arg1:InteractiveItemTile):void{
@@ -298,7 +298,7 @@ package com.company.assembleegameclient.ui.panels.mediators{
             }
             else {
                 GameServerConnection.instance.useItem_new(_local2, _arg1.tileId);
-            };
+            }
         }
 
         private function swapTooSoon():Boolean{
@@ -306,7 +306,7 @@ package com.company.assembleegameclient.ui.panels.mediators{
             if ((this.view.curPlayer.lastSwap_ + 600) > _local1){
                 SoundEffectLibrary.play("error");
                 return true;
-            };
+            }
             this.view.curPlayer.lastSwap_ = _local1;
             return false;
         }

@@ -60,8 +60,8 @@ package com.company.assembleegameclient.screens.charrects{
                     addChild(_local3);
                     this.yOffset = (this.yOffset + (CharacterRect.HEIGHT + 4));
                     _local2++;
-                };
-            };
+                }
+            }
         }
 
         private function createSavedCharacters():void{
@@ -80,11 +80,11 @@ package com.company.assembleegameclient.screens.charrects{
                 }
                 else {
                     _local5.setIcon(this.getIcon(_local2, 100));
-                };
+                }
                 _local5.y = this.yOffset;
                 addChild(_local5);
                 this.yOffset = (this.yOffset + (CharacterRect.HEIGHT + 4));
-            };
+            }
         }
 
         private function createSignals():void{

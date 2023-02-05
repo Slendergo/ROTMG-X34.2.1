@@ -98,7 +98,7 @@ package kabam.rotmg.arena.view{
         private function onPlayerIconOver(_arg1:MouseEvent):void{
             if (this.playerTooltip){
                 this.showTooltip.dispatch(this.playerTooltip);
-            };
+            }
         }
 
         private function onPetIconOut(_arg1:MouseEvent):void{
@@ -108,19 +108,19 @@ package kabam.rotmg.arena.view{
         private function onPetIconOver(_arg1:MouseEvent):void{
             if (this.playerTooltip){
                 this.showTooltip.dispatch(this.petTooltip);
-            };
+            }
         }
 
         private function onMouseOut(_arg1:MouseEvent):void{
             if (this.isActive){
                 this.background.alpha = 0;
-            };
+            }
         }
 
         private function onMouseOver(_arg1:MouseEvent):void{
             if (this.isActive){
                 this.background.alpha = 1;
-            };
+            }
         }
 
         public function apply(_arg1:ArenaLeaderboardEntry, _arg2:Boolean):void{
@@ -134,20 +134,20 @@ package kabam.rotmg.arena.view{
                 }
                 else {
                     this.rankNumber.visible = false;
-                };
+                }
                 if (this.petBitmap){
                     this.destroyPetIcon();
-                };
+                }
                 if (_arg1.pet){
                     this.initPetIcon(_arg1);
-                };
+                }
                 this.rank = _arg1.rank;
                 this.isPersonalRecord = _arg1.isPersonalRecord;
                 this.setColor();
             }
             else {
                 this.clear();
-            };
+            }
             this.align();
         }
 
@@ -188,8 +188,8 @@ package kabam.rotmg.arena.view{
             else {
                 if (this.rank == 1){
                     _local1 = 16777103;
-                };
-            };
+                }
+            }
             this.playerName.setColor(_local1);
             this.waveNumber.setColor(_local1);
             this.runTime.setColor(_local1);
@@ -204,7 +204,7 @@ package kabam.rotmg.arena.view{
             this.rankNumber.setStringBuilder(this.rankNumberStringBuilder.setString(""));
             if (this.petBitmap){
                 this.destroyPetIcon();
-            };
+            }
             this.petBitmap = null;
             this.petIconBackground.visible = false;
             this.rank = 0;
@@ -254,7 +254,7 @@ package kabam.rotmg.arena.view{
                 this.petBitmap.y = ((HEIGHT / 2) - (this.petBitmap.height / 2));
                 this.petIconBackground.x = 175;
                 this.petIconBackground.y = ((HEIGHT / 2) - (this.petIconBackground.height / 2));
-            };
+            }
             this.playerName.x = 230;
             this.playerName.y = ((HEIGHT / 2) - (this.playerName.height / 2));
             this.waveNumber.x = 485;

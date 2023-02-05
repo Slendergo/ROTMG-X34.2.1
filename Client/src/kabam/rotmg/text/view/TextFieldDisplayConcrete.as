@@ -184,7 +184,7 @@ package kabam.rotmg.text.view{
         private function setPropertiesIfHasTextField():void{
             if (this.textField){
                 this.setProperties();
-            };
+            }
         }
 
         private function setProperties():void{
@@ -195,10 +195,10 @@ package kabam.rotmg.text.view{
         private function setTextFieldProperties():void{
             if (this.textWidth != 0){
                 this.textField.width = this.textWidth;
-            };
+            }
             if (this.textHeight != 0){
                 this.textField.height = this.textHeight;
-            };
+            }
             this.textField.selectable = false;
             this.textField.textColor = this.color;
             this.textField.autoSize = this.autoSize;
@@ -224,7 +224,7 @@ package kabam.rotmg.text.view{
             if (this.textField){
                 _arg1.text = this.textField.text;
                 removeChild(this.textField);
-            };
+            }
         }
 
         private function setTextIfAble():void{
@@ -236,7 +236,7 @@ package kabam.rotmg.text.view{
                 this.alignVertically();
                 this.invalidateTextField();
                 this.textChanged.dispatch();
-            };
+            }
         }
 
         private function invalidateTextField():void{
@@ -249,7 +249,7 @@ package kabam.rotmg.text.view{
             }
             else {
                 this.textField.text = _arg1;
-            };
+            }
         }
 
         private function alignVertically():void{
@@ -261,8 +261,8 @@ package kabam.rotmg.text.view{
                 if (this.verticalAlign == BOTTOM){
                     _local1 = this.textField.getLineMetrics(0);
                     this.textField.y = -(getOnlyTextHeight(_local1));
-                };
-            };
+                }
+            }
         }
 
         public function getTextHeight():Number{

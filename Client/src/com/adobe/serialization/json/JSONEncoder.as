@@ -21,19 +21,19 @@ package com.adobe.serialization.json{
         private function convertToString(_arg1):String{
             if ((_arg1 is String)){
                 return (this.escapeString((_arg1 as String)));
-            };
+            }
             if ((_arg1 is Number)){
                 return (((isFinite((_arg1 as Number))) ? _arg1.toString() : "null"));
-            };
+            }
             if ((_arg1 is Boolean)){
                 return (((_arg1) ? "true" : "false"));
-            };
+            }
             if ((_arg1 is Array)){
                 return (this.arrayToString((_arg1 as Array)));
-            };
+            }
             if ((((_arg1 is Object)) && (!((_arg1 == null))))){
                 return (this.objectToString(_arg1));
-            };
+            }
             return ("null");
         }
 
@@ -76,10 +76,10 @@ package com.adobe.serialization.json{
                         }
                         else {
                             _local2 = (_local2 + _local3);
-                        };
-                };
+                        }
+                }
                 _local5++;
-            };
+            }
             return ((('"' + _local2) + '"'));
         }
 
@@ -89,10 +89,10 @@ package com.adobe.serialization.json{
             while (_local3 < _arg1.length) {
                 if (_local2.length > 0){
                     _local2 = (_local2 + ",");
-                };
+                }
                 _local2 = (_local2 + this.convertToString(_arg1[_local3]));
                 _local3++;
-            };
+            }
             return ((("[" + _local2) + "]"));
         }
 
@@ -109,19 +109,19 @@ package com.adobe.serialization.json{
                     if (!(value is Function)){
                         if (s.length > 0){
                             s = (s + ",");
-                        };
+                        }
                         s = (s + ((this.escapeString(key) + ":") + this.convertToString(value)));
-                    };
-                };
+                    }
+                }
             }
             else {
                 for each (v in classInfo..*.(((name() == "variable")) || ((name() == "accessor")))) {
                     if (s.length > 0){
                         s = (s + ",");
-                    };
+                    }
                     s = (s + ((this.escapeString(v.@name.toString()) + ":") + this.convertToString(o[v.@name])));
-                };
-            };
+                }
+            }
             return ((("{" + s) + "}"));
         }
 

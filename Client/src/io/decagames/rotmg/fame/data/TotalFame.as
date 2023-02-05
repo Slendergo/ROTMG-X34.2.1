@@ -24,7 +24,7 @@ package io.decagames.rotmg.fame.data{
             if (_arg1 != null){
                 this._bonuses.push(_arg1);
                 this._currentFame = (this._currentFame + _arg1.fameAdded);
-            };
+            }
         }
 
         public function get bonuses():Dictionary{
@@ -32,7 +32,7 @@ package io.decagames.rotmg.fame.data{
             var _local1:Dictionary = new Dictionary();
             for each (_local2 in this._bonuses) {
                 _local1[_local2.id] = _local2;
-            };
+            }
             return (_local1);
         }
 

@@ -21,7 +21,7 @@ package com.company.assembleegameclient.objects.particles{
                 _local8 = new TeleportParticle(0xFF, 50, 0.1, _local7);
                 map_.addObj(_local8, (x_ + (_local6 * Math.cos(_local5))), (y_ + (_local6 * Math.sin(_local5))));
                 _local4++;
-            };
+            }
             return false;
         }
 
@@ -39,7 +39,7 @@ package com.company.assembleegameclient.objects.particles{
                 _local8 = new TeleportParticle(0xFF, 50, 0.1, _local7);
                 map_.addObj(_local8, (x_ + (_local6 * Math.cos(_local5))), (y_ + (_local6 * Math.sin(_local5))));
                 _local4++;
-            };
+            }
             return false;
         }
 
@@ -66,7 +66,7 @@ class TeleportParticle extends Particle {
         this.timeLeft_ = (this.timeLeft_ - _arg2);
         if (this.timeLeft_ <= 0){
             return false;
-        };
+        }
         z_ = (z_ + ((this.moveVec_.z * _arg2) * 0.008));
         return true;
     }

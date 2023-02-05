@@ -15,13 +15,13 @@ package com.company.assembleegameclient.util{
         public static function getPlayerNameColor(_arg1:Player):Number{
             if (_arg1.isFellowGuild_){
                 return (Parameters.FELLOW_GUILD_COLOR);
-            };
+            }
             if (_arg1.hasSupporterFeature(SupporterFeatures.SPECIAL_NAME_COLOR)){
                 return (SupporterCampaignModel.SUPPORT_COLOR);
-            };
+            }
             if (_arg1.nameChosen_){
                 return (Parameters.NAME_CHOSEN_COLOR);
-            };
+            }
             return (0xFFFFFF);
         }
 

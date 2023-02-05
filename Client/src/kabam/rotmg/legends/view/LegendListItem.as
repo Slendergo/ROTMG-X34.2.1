@@ -84,7 +84,7 @@ package kabam.rotmg.legends.view{
             while (_local1.hasNext()) {
                 _local2 = InteractiveItemTile(_local1.next());
                 _local2.setInteractive(false);
-            };
+            }
             this.inventoryGrid.setItems(this.legend.equipment);
             this.inventoryGrid.x = 400;
             this.inventoryGrid.y = ((HEIGHT / 2) - (Slot.HEIGHT / 2));
@@ -120,8 +120,8 @@ package kabam.rotmg.legends.view{
                 }
                 else {
                     _local1 = 0xFFFFFF;
-                };
-            };
+                }
+            }
             return (_local1);
         }
 

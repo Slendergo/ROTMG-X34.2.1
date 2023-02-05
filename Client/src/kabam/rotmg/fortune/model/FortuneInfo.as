@@ -204,11 +204,11 @@ package kabam.rotmg.fortune.model{
                     if (_local2[int(_local6)] == null){
                         _local2[int(_local6)] = true;
                         this._rollsWithContentsUnique.push(int(_local6));
-                    };
+                    }
                     _local4.push(int(_local6));
-                };
+                }
                 this._rollsWithContents.push(_local4);
-            };
+            }
         }
 
         public function get infoImage():DisplayObject{

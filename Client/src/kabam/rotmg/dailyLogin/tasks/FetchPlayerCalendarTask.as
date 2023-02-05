@@ -51,7 +51,7 @@ package kabam.rotmg.dailyLogin.tasks{
             }
             else {
                 this.onTextError(_arg2);
-            };
+            }
         }
 
         private function onCalendarUpdate(_arg1:String):void{
@@ -63,21 +63,21 @@ package kabam.rotmg.dailyLogin.tasks{
             catch(e:Error) {
                 completeTask(true);
                 return;
-            };
+            }
             this.dailyLoginModel.clear();
             var serverTimestamp:Number = (parseFloat(xmlData.attribute("serverTime")) * 1000);
             this.dailyLoginModel.setServerTime(serverTimestamp);
             if (((!(Parameters.data_.calendarShowOnDay)) || ((Parameters.data_.calendarShowOnDay < this.dailyLoginModel.getTimestampDay())))){
                 this.dailyLoginModel.shouldDisplayCalendarAtStartup = true;
-            };
+            }
             if (this.buildData.getEnvironment() == BuildEnvironment.LOCALHOST){
-            };
+            }
             if (((xmlData.hasOwnProperty("NonConsecutive")) && ((xmlData.NonConsecutive..Login.length() > 0)))){
                 this.parseCalendar(xmlData.NonConsecutive, CalendarTypes.NON_CONSECUTIVE, xmlData.attribute("nonconCurDay"));
-            };
+            }
             if (((xmlData.hasOwnProperty("Consecutive")) && ((xmlData.Consecutive..Login.length() > 0)))){
                 this.parseCalendar(xmlData.Consecutive, CalendarTypes.CONSECUTIVE, xmlData.attribute("conCurDay"));
-            };
+            }
             completeTask(true);
         }
 
@@ -88,12 +88,12 @@ package kabam.rotmg.dailyLogin.tasks{
                 _local5 = this.getDayFromXML(_local4, _arg2);
                 if (_local4.hasOwnProperty("key")){
                     _local5.claimKey = _local4.key;
-                };
+                }
                 this.dailyLoginModel.addDay(_local5, _arg2);
-            };
+            }
             if (_arg3){
                 this.dailyLoginModel.setCurrentDay(_arg2, int(_arg3));
-            };
+            }
             this.dailyLoginModel.setUserDay(_arg1.attribute("days"), _arg2);
             this.dailyLoginModel.calculateCalendar(_arg2);
         }

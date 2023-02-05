@@ -154,8 +154,8 @@ package com.company.assembleegameclient.map{
             if (!Parameters.isGpuRender()){
                 if (background_ != null){
                     this.bgCont.addChild(background_);
-                };
-            };
+                }
+            }
             addChild(map_);
             addChild(mapHitArea);
             addChild(hurtOverlay_);
@@ -181,18 +181,18 @@ package com.company.assembleegameclient.map{
             partyOverlay_ = null;
             for each (_local1 in squareList_) {
                 _local1.dispose();
-            };
+            }
             squareList_.length = 0;
             squareList_ = null;
             squares_.length = 0;
             squares_ = null;
             for each (_local2 in goDict_) {
                 _local2.dispose();
-            };
+            }
             goDict_ = null;
             for each (_local3 in boDict_) {
                 _local3.dispose();
-            };
+            }
             boDict_ = null;
             merchLookup_ = null;
             player_ = null;
@@ -212,21 +212,21 @@ package com.company.assembleegameclient.map{
             for each (_local3 in goDict_) {
                 if (!_local3.update(_arg1, _arg2)){
                     this.idsToRemove_.push(_local3.objectId_);
-                };
-            };
+                }
+            }
             for each (_local3 in boDict_) {
                 if (!_local3.update(_arg1, _arg2)){
                     this.idsToRemove_.push(_local3.objectId_);
-                };
-            };
+                }
+            }
             this.inUpdate_ = false;
             for each (_local3 in this.objsToAdd_) {
                 this.internalAddObj(_local3);
-            };
+            }
             this.objsToAdd_.length = 0;
             for each (_local4 in this.idsToRemove_) {
                 this.internalRemoveObj(_local4);
-            };
+            }
             this.idsToRemove_.length = 0;
             party_.update(_arg1, _arg2);
         }
@@ -236,8 +236,8 @@ package com.company.assembleegameclient.map{
             for each (_local3 in this.visibleSquares_) {
                 if (((!((_local3.faces_.length == 0))) && (_local3.faces_[0].face_.contains(_arg1, _arg2)))){
                     return (new Point(_local3.center_.x, _local3.center_.y));
-                };
-            };
+                }
+            }
             return (null);
         }
 
@@ -257,11 +257,11 @@ package com.company.assembleegameclient.map{
                     _local10 = squares_[_local9];
                     if (((!((_local10 == null))) && (((_local10.props_.hasEdge_) || (!((_local10.tileType_ == _arg3))))))){
                         _local10.faces_.length = 0;
-                    };
+                    }
                     _local8++;
-                };
+                }
                 _local7++;
-            };
+            }
         }
 
         override public function addObj(_arg1:BasicObject, _arg2:Number, _arg3:Number):void{
@@ -269,30 +269,30 @@ package com.company.assembleegameclient.map{
             _arg1.y_ = _arg3;
             if ((_arg1 is ParticleEffect)){
                 (_arg1 as ParticleEffect).reducedDrawEnabled = !(Parameters.data_.particleEffect);
-            };
+            }
             if (this.inUpdate_){
                 this.objsToAdd_.push(_arg1);
             }
             else {
                 this.internalAddObj(_arg1);
-            };
+            }
         }
 
         public function internalAddObj(_arg1:BasicObject):void{
             if (!_arg1.addTo(this, _arg1.x_, _arg1.y_)){
                 return;
-            };
+            }
             var _local2:Dictionary = (((_arg1 is GameObject)) ? goDict_ : boDict_);
             if (_local2[_arg1.objectId_] != null){
                 if (!isPetYard){
                     return;
-                };
-            };
+                }
+            }
             if ((((name_ == ORYX_CHAMBER)) && ((this.oryxObjectId == 0)))){
                 if ((((_arg1 is Character)) && (((_arg1 as Character).getName() == QuestModel.ORYX_THE_MAD_GOD)))){
                     this.oryxObjectId = _arg1.objectId_;
-                };
-            };
+                }
+            }
             _local2[_arg1.objectId_] = _arg1;
         }
 
@@ -302,7 +302,7 @@ package com.company.assembleegameclient.map{
             }
             else {
                 this.internalRemoveObj(_arg1);
-            };
+            }
         }
 
         public function internalRemoveObj(_arg1:int):void{
@@ -313,33 +313,33 @@ package com.company.assembleegameclient.map{
                 _local3 = _local2[_arg1];
                 if (_local3 == null){
                     return;
-                };
-            };
+                }
+            }
             _local3.removeFromMap();
             if ((((name_ == ORYX_CHAMBER)) && ((_arg1 == this.oryxObjectId)))){
                 StaticInjectorContext.getInjector().getInstance(RealmOryxSignal).dispatch();
-            };
+            }
             delete _local2[_arg1];
         }
 
         public function getSquare(_arg1:Number, _arg2:Number):Square{
             if ((((((((_arg1 < 0)) || ((_arg1 >= width_)))) || ((_arg2 < 0)))) || ((_arg2 >= height_)))){
                 return (null);
-            };
+            }
             var _local3:int = (int(_arg1) + (int(_arg2) * width_));
             var _local4:Square = squares_[_local3];
             if (_local4 == null){
                 _local4 = new Square(this, int(_arg1), int(_arg2));
                 squares_[_local3] = _local4;
                 squareList_.push(_local4);
-            };
+            }
             return (_local4);
         }
 
         public function lookupSquare(_arg1:int, _arg2:int):Square{
             if ((((((((_arg1 < 0)) || ((_arg1 >= width_)))) || ((_arg2 < 0)))) || ((_arg2 >= height_)))){
                 return (null);
-            };
+            }
             return (squares_[(_arg1 + (_arg2 * width_))]);
         }
 
@@ -365,20 +365,20 @@ package com.company.assembleegameclient.map{
                 }
                 else {
                     map_.graphics.clear();
-                };
+                }
                 signalRenderSwitch.dispatch(wasLastFrameGpu);
                 wasLastFrameGpu = Parameters.isGpuRender();
                 if (Parameters.isGpuRender()){
                     if (((!((background_ == null))) && (this.bgCont.contains(background_)))){
                         this.bgCont.removeChild(background_);
-                    };
+                    }
                 }
                 else {
                     if (((!((background_ == null))) && (!(this.bgCont.contains(background_))))){
                         this.bgCont.addChild(background_);
-                    };
-                };
-            };
+                    }
+                }
+            }
             var _local3:Rectangle = _arg1.clipRect_;
             x = -(_local3.x);
             y = -(_local3.y);
@@ -386,7 +386,7 @@ package com.company.assembleegameclient.map{
             var _local5:Point = new Point((_arg1.x_ + (_local4 * Math.cos((_arg1.angleRad_ - (Math.PI / 2))))), (_arg1.y_ + (_local4 * Math.sin((_arg1.angleRad_ - (Math.PI / 2))))));
             if (((!((background_ == null))) && (this.bgCont.contains(background_)))){
                 background_.draw(_arg1, _arg2);
-            };
+            }
             this.visible_.length = 0;
             this.visibleUnder_.length = 0;
             this.visibleSquares_.length = 0;
@@ -414,13 +414,13 @@ package com.company.assembleegameclient.map{
                             this.visibleSquares_.push(_local6);
                             if (_local6.topFace_ != null){
                                 this.topSquares_.push(_local6);
-                            };
-                        };
-                    };
+                            }
+                        }
+                    }
                     _local15++;
-                };
+                }
                 _local12++;
-            };
+            }
             for each (_local13 in goDict_) {
                 _local13.drawn_ = false;
                 if (!((_local13.dead_) || ((_local13.size_ == 0)))){
@@ -434,14 +434,14 @@ package com.company.assembleegameclient.map{
                             }
                             else {
                                 this.visibleUnder_.push(_local13);
-                            };
+                            }
                         }
                         else {
                             this.visible_.push(_local13);
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             for each (_local14 in boDict_) {
                 _local14.drawn_ = false;
                 _local6 = _local14.square_;
@@ -449,33 +449,33 @@ package com.company.assembleegameclient.map{
                     _local14.drawn_ = true;
                     _local14.computeSortVal(_arg1);
                     this.visible_.push(_local14);
-                };
-            };
+                }
+            }
             if (this.visibleUnder_.length > 0){
                 this.visibleUnder_.sortOn(VISIBLE_SORT_FIELDS, VISIBLE_SORT_PARAMS);
                 for each (_local14 in this.visibleUnder_) {
                     _local14.draw(this.graphicsData_, _arg1, _arg2);
-                };
-            };
+                }
+            }
             this.visible_.sortOn(VISIBLE_SORT_FIELDS, VISIBLE_SORT_PARAMS);
             if (Parameters.data_.drawShadows){
                 for each (_local14 in this.visible_) {
                     if (_local14.hasShadow_){
                         _local14.drawShadow(this.graphicsData_, _arg1, _arg2);
-                    };
-                };
-            };
+                    }
+                }
+            }
             for each (_local14 in this.visible_) {
                 _local14.draw(this.graphicsData_, _arg1, _arg2);
                 if (Parameters.isGpuRender()){
                     _local14.draw3d(this.graphicsData3d_);
-                };
-            };
+                }
+            }
             if (this.topSquares_.length > 0){
                 for each (_local6 in this.topSquares_) {
                     _local6.drawTop(this.graphicsData_, _arg1, _arg2);
-                };
-            };
+                }
+            }
             if (((((!((player_ == null))) && ((player_.breath_ >= 0)))) && ((player_.breath_ < Parameters.BREATH_THRESH)))){
                 _local19 = ((Parameters.BREATH_THRESH - player_.breath_) / Parameters.BREATH_THRESH);
                 _local20 = (Math.abs(Math.sin((_arg2 / 300))) * 0.75);
@@ -487,7 +487,7 @@ package com.company.assembleegameclient.map{
             }
             else {
                 hurtOverlay_.visible = false;
-            };
+            }
             if (((!((player_ == null))) && (!(Parameters.screenShotMode_)))){
                 gradientOverlay_.visible = true;
                 gradientOverlay_.x = (_local3.right - 10);
@@ -495,7 +495,7 @@ package com.company.assembleegameclient.map{
             }
             else {
                 gradientOverlay_.visible = false;
-            };
+            }
             if (((Parameters.isGpuRender()) && (Renderer.inGame))){
                 _local21 = this.getFilterIndex();
                 _local22 = StaticInjectorContext.getInjector().getInstance(Render3D);
@@ -512,48 +512,48 @@ package com.company.assembleegameclient.map{
                             this.graphicsDataStageSoftware_.push(this.graphicsData_[_local23]);
                             this.graphicsDataStageSoftware_.push(this.graphicsData_[(_local23 + 1)]);
                             this.graphicsDataStageSoftware_.push(this.graphicsData_[(_local23 + 2)]);
-                        };
-                    };
+                        }
+                    }
                     _local23++;
-                };
+                }
                 if (this.graphicsDataStageSoftware_.length > 0){
                     map_.graphics.clear();
                     map_.graphics.drawGraphicsData(this.graphicsDataStageSoftware_);
                     if (this.lastSoftwareClear){
                         this.lastSoftwareClear = false;
-                    };
+                    }
                 }
                 else {
                     if (!this.lastSoftwareClear){
                         map_.graphics.clear();
                         this.lastSoftwareClear = true;
-                    };
-                };
+                    }
+                }
                 if ((_arg2 % 149) == 0){
                     GraphicsFillExtra.manageSize();
-                };
+                }
             }
             else {
                 map_.graphics.clear();
                 map_.graphics.drawGraphicsData(this.graphicsData_);
-            };
+            }
             map_.filters.length = 0;
             if (((!((player_ == null))) && (!(((player_.condition_[ConditionEffect.CE_FIRST_BATCH] & ConditionEffect.MAP_FILTER_BITMASK) == 0))))){
                 _local24 = [];
                 if (player_.isDrunk()){
                     _local25 = (20 + (10 * Math.sin((_arg2 / 1000))));
                     _local24.push(new BlurFilter(_local25, _local25));
-                };
+                }
                 if (player_.isBlind()){
                     _local24.push(BLIND_FILTER);
-                };
+                }
                 map_.filters = _local24;
             }
             else {
                 if (map_.filters.length > 0){
                     map_.filters = [];
-                };
-            };
+                }
+            }
             mapOverlay_.draw(_arg1, _arg2);
             partyOverlay_.draw(_arg1, _arg2);
             if (((player_) && (player_.isDarkness()))){
@@ -565,8 +565,8 @@ package com.company.assembleegameclient.map{
             else {
                 if (contains(this.darkness)){
                     removeChild(this.darkness);
-                };
-            };
+                }
+            }
         }
 
         private function getFilterIndex():uint{
@@ -582,10 +582,10 @@ package com.company.assembleegameclient.map{
                     else {
                         if (player_.isDrunk()){
                             _local1 = Renderer.STAGE3D_FILTER_DRUNK;
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             return (_local1);
         }
 

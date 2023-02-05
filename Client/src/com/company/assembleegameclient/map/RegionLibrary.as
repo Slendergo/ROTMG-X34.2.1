@@ -22,14 +22,14 @@ package com.company.assembleegameclient.map{
                 _local3 = int(_local2.@type);
                 xmlLibrary_[_local3] = _local2;
                 idToType_[String(_local2.@id)] = _local3;
-            };
+            }
         }
 
         public static function getIdFromType(_arg1:int):String{
             var _local2:XML = xmlLibrary_[_arg1];
             if (_local2 == null){
                 return (null);
-            };
+            }
             return (String(_local2.@id));
         }
 
@@ -37,7 +37,7 @@ package com.company.assembleegameclient.map{
             var _local2:XML = xmlLibrary_[_arg1];
             if (_local2 == null){
                 return (0);
-            };
+            }
             return (uint(_local2.Color));
         }
 

@@ -50,7 +50,7 @@ package kabam.rotmg.ui.view.components{
             var _local1:Number = (getTimer() / 1000);
             if (this.previousSeconds){
                 this.secondsElapsed = (this.secondsElapsed + (_local1 - this.previousSeconds));
-            };
+            }
             this.previousSeconds = _local1;
         }
 

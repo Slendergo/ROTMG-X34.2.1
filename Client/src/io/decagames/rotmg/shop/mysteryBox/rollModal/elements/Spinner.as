@@ -73,14 +73,14 @@ package io.decagames.rotmg.shop.mysteryBox.rollModal.elements{
         private function applyColor(_arg1:Number):void{
             if (!this.multicolor){
                 return;
-            };
+            }
             if (_arg1 < this.previousProgress){
                 this.direction = !(this.direction);
-            };
+            }
             this.previousProgress = _arg1;
             if (this.direction){
                 _arg1 = (1 - _arg1);
-            };
+            }
             var _local2:uint = this.getColorByProgress(_arg1);
             Tint.add(this.graphic, _local2, 1);
         }
@@ -108,7 +108,7 @@ package io.decagames.rotmg.shop.mysteryBox.rollModal.elements{
             var _local1:Number = (getTimer() / 1000);
             if (this.previousSeconds){
                 this.secondsElapsed = (this.secondsElapsed + (_local1 - this.previousSeconds));
-            };
+            }
             this.previousSeconds = _local1;
         }
 

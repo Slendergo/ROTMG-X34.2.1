@@ -31,8 +31,8 @@ package com.greensock.plugins{
                 if (_arg_1[_local_2].API == TweenPlugin.API)
                 {
                     TweenLite._plugins[new ((_arg_1[_local_2] as Class))()._propName] = _arg_1[_local_2];
-                };
-            };
+                }
+            }
             return true;
         }
 
@@ -52,7 +52,7 @@ package com.greensock.plugins{
                     while (((_local_5) && (_local_5.pr > _local_3.pr)))
                     {
                         _local_5 = _local_5._next;
-                    };
+                    }
                     if ((_local_3._prev = ((_local_5) ? _local_5._prev : _local_7)))
                     {
                         _local_3._prev._next = _local_3;
@@ -60,7 +60,7 @@ package com.greensock.plugins{
                     else
                     {
                         _local_6 = _local_3;
-                    };
+                    }
                     if ((_local_3._next = _local_5))
                     {
                         _local_5._prev = _local_3;
@@ -68,11 +68,11 @@ package com.greensock.plugins{
                     else
                     {
                         _local_7 = _local_3;
-                    };
+                    }
                     _local_3 = _local_8;
-                };
+                }
                 _local_3 = (_arg_2._firstPT = _local_6);
-            };
+            }
             while (_local_3)
             {
                 if (_local_3.pg)
@@ -82,11 +82,11 @@ package com.greensock.plugins{
                         if (_local_3.t[_arg_1]())
                         {
                             _local_4 = true;
-                        };
-                    };
-                };
+                        }
+                    }
+                }
                 _local_3 = _local_3._next;
-            };
+            }
             return (_local_4);
         }
 
@@ -98,9 +98,9 @@ package com.greensock.plugins{
                 if (((_propName in _arg_1) || ((!(_local_3.n == null)) && (_local_3.n.split((_propName + "_")).join("") in _arg_1))))
                 {
                     _local_3.r = _arg_2;
-                };
+                }
                 _local_3 = _local_3._next;
-            };
+            }
         }
 
         public function setRatio(_arg_1:Number):void{
@@ -112,7 +112,7 @@ package com.greensock.plugins{
                 if (_local_2.r)
                 {
                     _local_3 = ((_local_3 + ((_local_3 > 0) ? 0.5 : -0.5)) | 0x00);
-                };
+                }
                 if (_local_2.f)
                 {
                     var _local_4:* = _local_2.t;
@@ -121,9 +121,9 @@ package com.greensock.plugins{
                 else
                 {
                     _local_2.t[_local_2.p] = _local_3;
-                };
+                }
                 _local_2 = _local_2._next;
-            };
+            }
         }
 
         public function _kill(_arg_1:Object):Boolean{
@@ -140,9 +140,9 @@ package com.greensock.plugins{
                     if ((_overwriteProps[_local_3] in _arg_1))
                     {
                         _overwriteProps.splice(_local_3, 1);
-                    };
-                };
-            };
+                    }
+                }
+            }
             var _local_2:PropTween = _firstPT;
             while (_local_2)
             {
@@ -151,7 +151,7 @@ package com.greensock.plugins{
                     if (_local_2._next)
                     {
                         _local_2._next._prev = _local_2._prev;
-                    };
+                    }
                     if (_local_2._prev)
                     {
                         _local_2._prev._next = _local_2._next;
@@ -162,11 +162,11 @@ package com.greensock.plugins{
                         if (_firstPT == _local_2)
                         {
                             _firstPT = _local_2._next;
-                        };
-                    };
-                };
+                        }
+                    }
+                }
                 _local_2 = _local_2._next;
-            };
+            }
             return false;
         }
 
@@ -177,7 +177,7 @@ package com.greensock.plugins{
                 _firstPT = new PropTween(_arg_1, _arg_2, _arg_3, _local_7, ((_arg_5) || (_arg_2)), false, _firstPT);
                 _firstPT.r = _arg_6;
                 return (_firstPT);
-            };
+            }
             return (null);
         }
 

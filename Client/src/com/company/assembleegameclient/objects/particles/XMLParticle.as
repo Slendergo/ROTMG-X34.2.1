@@ -44,7 +44,7 @@ package com.company.assembleegameclient.objects.particles{
             this.texture_ = _arg1.textureData_.getTexture(objectId_);
             if (_arg1.animationsData_ != null){
                 this.animations_ = new Animations(_arg1.animationsData_);
-            };
+            }
             this.moveVec_ = new Vector3D();
             var _local2:Number = ((Math.PI * 2) * Math.random());
             this.moveVec_.x = ((Math.cos(_local2) * 0.1) * 5);
@@ -56,7 +56,7 @@ package com.company.assembleegameclient.objects.particles{
             _local3 = map_.getSquare(_arg1, _arg2);
             if (_local3 == null){
                 return false;
-            };
+            }
             x_ = _arg1;
             y_ = _arg2;
             square_ = _local3;
@@ -69,7 +69,7 @@ package com.company.assembleegameclient.objects.particles{
             this.durationLeft_ = (this.durationLeft_ - _local3);
             if (this.durationLeft_ <= 0){
                 return false;
-            };
+            }
             x_ = (x_ + (this.moveVec_.x * _local3));
             y_ = (y_ + (this.moveVec_.y * _local3));
             return true;
@@ -82,8 +82,8 @@ package com.company.assembleegameclient.objects.particles{
                 _local7 = this.animations_.getTexture(_arg3);
                 if (_local7 != null){
                     _local4 = _local7;
-                };
-            };
+                }
+            }
             _local4 = TextureRedrawer.redraw(_local4, this.size_, true, 0);
             var _local5:int = _local4.width;
             var _local6:int = _local4.height;

@@ -12,7 +12,7 @@ package com.company.assembleegameclient.util{
         public static function getParentWithType(_arg1:DisplayObject, _arg2:Class):DisplayObject{
             while (((_arg1) && (!((_arg1 is _arg2))))) {
                 _arg1 = _arg1.parent;
-            };
+            }
             return (_arg1);
         }
 
@@ -22,10 +22,10 @@ package com.company.assembleegameclient.util{
                 for each (_local3 in _args) {
                     if ((_arg1 is _local3)){
                         return (_arg1);
-                    };
-                };
+                    }
+                }
                 _arg1 = _arg1.parent;
-            };
+            }
             return (_arg1);
         }
 

@@ -35,7 +35,7 @@ package com.company.assembleegameclient.ui.options{
             Parameters.data_[paramName_] = this.choiceBox_.value();
             if (this.callback_ != null){
                 this.callback_();
-            };
+            }
             Parameters.save();
         }
 

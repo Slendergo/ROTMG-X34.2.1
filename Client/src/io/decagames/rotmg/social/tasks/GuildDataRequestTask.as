@@ -31,7 +31,7 @@ package io.decagames.rotmg.social.tasks{
             }
             else {
                 completeTask(false, _arg2);
-            };
+            }
         }
 
         public function get requestURL():String{

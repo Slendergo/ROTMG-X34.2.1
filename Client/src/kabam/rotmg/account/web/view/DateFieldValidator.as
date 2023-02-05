@@ -15,7 +15,7 @@ package kabam.rotmg.account.web.view{
             var _local4:uint = (Number(_local3.fullYear) - Number(_local2.fullYear));
             if ((((_local2.month > _local3.month)) || ((((_local2.month == _local3.month)) && ((_local2.date > _local3.date)))))){
                 _local4--;
-            };
+            }
             return (_local4);
         }
 

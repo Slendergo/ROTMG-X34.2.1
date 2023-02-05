@@ -40,7 +40,7 @@ package kabam.rotmg.language.service{
             }
             else {
                 this.onLanguageError();
-            };
+            }
             completeTask(_arg1, _arg2);
         }
 

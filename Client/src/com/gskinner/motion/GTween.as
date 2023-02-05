@@ -70,15 +70,15 @@ package com.gskinner.motion{
             if (_arg4){
                 _local6 = _arg4.swapValues;
                 delete _arg4.swapValues;
-            };
+            }
             this.copy(_arg4, this);
             this.resetValues(_arg3);
             if (_local6){
                 this.swapValues();
-            };
+            }
             if ((((((this.duration == 0)) && ((this.delay == 0)))) && (this.autoPlay))){
                 this.position = 0;
-            };
+            }
         }
 
         public static function installPlugin(_arg1:Object, _arg2:Array, _arg3:Boolean=false):void{
@@ -88,7 +88,7 @@ package com.gskinner.motion{
                 _local5 = _arg2[_local4];
                 if (_local5 == "*"){
                     hasStarPlugins = true;
-                };
+                }
                 if (plugins[_local5] == null){
                     plugins[_local5] = [_arg1];
                 }
@@ -98,10 +98,10 @@ package com.gskinner.motion{
                     }
                     else {
                         plugins[_local5].push(_arg1);
-                    };
-                };
+                    }
+                }
                 _local4++;
-            };
+            }
         }
 
         public static function linearEase(_arg1:Number, _arg2:Number, _arg3:Number, _arg4:Number):Number{
@@ -120,12 +120,12 @@ package com.gskinner.motion{
             time = (getTimer() / 1000);
             if (pauseAll){
                 return;
-            };
+            }
             var _local3:Number = ((time - _local2) * timeScaleAll);
             for (_local4 in tickList) {
                 _local5 = (_local4 as GTween);
                 _local5.position = (_local5._position + (((_local5.useFrames) ? timeScaleAll : _local3) * _local5.timeScale));
-            };
+            }
         }
 
 
@@ -136,13 +136,13 @@ package com.gskinner.motion{
         public function set paused(_arg1:Boolean):void{
             if (_arg1 == this._paused){
                 return;
-            };
+            }
             this._paused = _arg1;
             if (this._paused){
                 delete tickList[this];
                 if ((this.target is IEventDispatcher)){
                     this.target.removeEventListener("_", this.invalidate);
-                };
+                }
                 delete gcLockList[this];
             }
             else {
@@ -150,15 +150,15 @@ package com.gskinner.motion{
                     this._inited = false;
                     this.calculatedPosition = (this.calculatedPositionOld = (this.ratio = (this.ratioOld = (this.positionOld = 0))));
                     this._position = -(this.delay);
-                };
+                }
                 tickList[this] = true;
                 if ((this.target is IEventDispatcher)){
                     this.target.addEventListener("_", this.invalidate);
                 }
                 else {
                     gcLockList[this] = true;
-                };
-            };
+                }
+            }
         }
 
         public function get position():Number{
@@ -181,7 +181,7 @@ package com.gskinner.motion{
             if (_local3){
                 if (this.calculatedPositionOld == _local2){
                     return;
-                };
+                }
                 this._position = _local2;
                 this.calculatedPosition = ((((this.reflect) && (!((this.repeatCount & 1))))) ? 0 : this.duration);
             }
@@ -190,13 +190,13 @@ package com.gskinner.motion{
                 this.calculatedPosition = (((this._position < 0)) ? 0 : (this._position % this.duration));
                 if (((this.reflect) && (((this._position / this.duration) & 1)))){
                     this.calculatedPosition = (this.duration - this.calculatedPosition);
-                };
-            };
+                }
+            }
             this.ratio = (((((this.duration == 0)) && ((this._position >= 0)))) ? 1 : this.ease((this.calculatedPosition / this.duration), 0, 1, 1));
             if (((((this.target) && ((((this._position >= 0)) || ((this.positionOld >= 0)))))) && (!((this.calculatedPosition == this.calculatedPositionOld))))){
                 if (!this._inited){
                     this.init();
-                };
+                }
                 for (_local4 in this._values) {
                     _local5 = this._initValues[_local4];
                     _local6 = this._rangeValues[_local4];
@@ -208,16 +208,16 @@ package com.gskinner.motion{
                         while (_local10 < _local9) {
                             _local7 = _local8[_local10].tween(this, _local4, _local7, _local5, _local6, this.ratio, _local3);
                             _local10++;
-                        };
+                        }
                         if (!isNaN(_local7)){
                             this.target[_local4] = _local7;
-                        };
+                        }
                     }
                     else {
                         this.target[_local4] = _local7;
-                    };
-                };
-            };
+                    }
+                }
+            }
             if (hasStarPlugins){
                 _local8 = plugins["*"];
                 _local9 = _local8.length;
@@ -225,30 +225,30 @@ package com.gskinner.motion{
                 while (_local10 < _local9) {
                     _local8[_local10].tween(this, "*", NaN, NaN, NaN, this.ratio, _local3);
                     _local10++;
-                };
-            };
+                }
+            }
             if (!this.suppressEvents){
                 if (this.dispatchEvents){
                     this.dispatchEvt("change");
-                };
+                }
                 if (this.onChange != null){
                     this.onChange(this);
-                };
-            };
+                }
+            }
             if (_local3){
                 this.paused = true;
                 if (this.nextTween){
                     this.nextTween.paused = false;
-                };
+                }
                 if (!this.suppressEvents){
                     if (this.dispatchEvents){
                         this.dispatchEvt("complete");
-                    };
+                    }
                     if (this.onComplete != null){
                         this.onComplete(this);
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         public function get delay():Number{
@@ -258,14 +258,14 @@ package com.gskinner.motion{
         public function set delay(_arg1:Number):void{
             if (this._position <= 0){
                 this._position = -(_arg1);
-            };
+            }
             this._delay = _arg1;
         }
 
         public function get proxy():TargetProxy{
             if (this._proxy == null){
                 this._proxy = new TargetProxy(this);
-            };
+            }
             return (this._proxy);
         }
 
@@ -307,13 +307,13 @@ package com.gskinner.motion{
             var _local3:Number;
             if (!this._inited){
                 this.init();
-            };
+            }
             var _local1:Object = this._values;
             this._values = this._initValues;
             this._initValues = _local1;
             for (_local2 in this._rangeValues) {
                 this._rangeValues[_local2] = (this._rangeValues[_local2] * -1);
-            };
+            }
             if (this._position < 0){
                 _local3 = this.positionOld;
                 this.position = 0;
@@ -322,7 +322,7 @@ package com.gskinner.motion{
             }
             else {
                 this.position = this._position;
-            };
+            }
         }
 
         public function init():void{
@@ -343,15 +343,15 @@ package com.gskinner.motion{
                     while (_local5 < _local3) {
                         _local4 = _local2[_local5].init(this, _local1, _local4);
                         _local5++;
-                    };
+                    }
                     if (!isNaN(_local4)){
                         this._rangeValues[_local1] = (this._values[_local1] - (this._initValues[_local1] = _local4));
-                    };
+                    }
                 }
                 else {
                     this._rangeValues[_local1] = (this._values[_local1] - (this._initValues[_local1] = this.target[_local1]));
-                };
-            };
+                }
+            }
             if (hasStarPlugins){
                 _local2 = plugins["*"];
                 _local3 = _local2.length;
@@ -359,16 +359,16 @@ package com.gskinner.motion{
                 while (_local5 < _local3) {
                     _local2[_local5].init(this, "*", NaN);
                     _local5++;
-                };
-            };
+                }
+            }
             if (!this.suppressEvents){
                 if (this.dispatchEvents){
                     this.dispatchEvt("init");
-                };
+                }
                 if (this.onInit != null){
                     this.onInit(this);
-                };
-            };
+                }
+            }
         }
 
         public function beginning():void{
@@ -384,10 +384,10 @@ package com.gskinner.motion{
             this._inited = false;
             if (this._position > 0){
                 this._position = 0;
-            };
+            }
             if (this.autoPlay){
                 this.paused = false;
-            };
+            }
         }
 
         protected function copy(_arg1:Object, _arg2:Object, _arg3:Boolean=false):Object{
@@ -398,15 +398,15 @@ package com.gskinner.motion{
                 }
                 else {
                     _arg2[_local4] = _arg1[_local4];
-                };
-            };
+                }
+            }
             return (_arg2);
         }
 
         protected function dispatchEvt(_arg1:String):void{
             if (hasEventListener(_arg1)){
                 dispatchEvent(new Event(_arg1));
-            };
+            }
         }
 
 
@@ -440,7 +440,7 @@ dynamic class TargetProxy extends Proxy {
         }
         else {
             this.tween.setValue(String(_arg1), Number(_arg2));
-        };
+        }
     }
 
     override flash_proxy function deleteProperty(_arg1):Boolean{

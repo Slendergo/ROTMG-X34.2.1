@@ -30,7 +30,7 @@ package kabam.rotmg.arena.service{
             for each (_local4 in _arg1) {
                 _local2.push(this.makeArenaEntry(_local4, _local3));
                 _local3++;
-            };
+            }
             _local2 = this.removeDuplicateUser(_local2);
             _local2 = this.addCurrentRun(_local2);
             return (_local2);
@@ -49,20 +49,20 @@ package kabam.rotmg.arena.service{
                         this.currentRunModel.entry.rank = _local5.rank;
                         _local2.push(this.currentRunModel.entry);
                         _local3 = true;
-                    };
+                    }
                     if (_local5.isPersonalRecord){
                         _local4 = true;
-                    };
+                    }
                     if (_local3){
                         _local5.rank++;
-                    };
+                    }
                     _local2.push(_local5);
-                };
+                }
                 if ((((((_local2.length < 20)) && (!(_local3)))) && (!(_local4)))){
                     this.currentRunModel.entry.rank = (_local2.length + 1);
                     _local2.push(this.currentRunModel.entry);
-                };
-            };
+                }
+            }
             return ((((_local2.length > 0)) ? _local2 : _arg1));
         }
 
@@ -82,13 +82,13 @@ package kabam.rotmg.arena.service{
                     else {
                         if (_local3){
                             _local5.rank--;
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             if (_local2 != -1){
                 _arg1.splice(_local2, 1);
-            };
+            }
             return (_arg1);
         }
 
@@ -117,7 +117,7 @@ package kabam.rotmg.arena.service{
                 _local11 = new XML(_arg1.PlayData.Pet);
                 _local10.apply(_local11);
                 _local3.pet = _local10;
-            };
+            }
             return (_local3);
         }
 

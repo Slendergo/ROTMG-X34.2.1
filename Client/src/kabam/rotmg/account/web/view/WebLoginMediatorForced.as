@@ -61,7 +61,7 @@ package kabam.rotmg.account.web.view{
             else {
                 this.view.email.setError(TextKey.WEBLOGINDIALOG_EMAIL_MATCH_ERROR);
                 this.view.enable();
-            };
+            }
         }
 
         private function onRegister():void{
@@ -78,7 +78,7 @@ package kabam.rotmg.account.web.view{
             }
             else {
                 this.openDialog.dispatch(new WebChangePasswordDialogForced());
-            };
+            }
         }
 
         private function onLoginError(_arg1:String):void{

@@ -51,7 +51,7 @@ package io.decagames.rotmg.pets.components.selectedPetSkinInfo{
             this.selectPetSignal.add(this.onPetSelected);
             if (this.currentPet){
                 this.currentPet.updated.add(this.currentPetUpdate);
-            };
+            }
         }
 
         private function currentPetUpdate():void{
@@ -74,9 +74,9 @@ package io.decagames.rotmg.pets.components.selectedPetSkinInfo{
                     }
                     else {
                         this.setAction(SelectedPetButtonType.NONE, _arg1);
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         private function onPetSelected(_arg1:PetVO):void{
@@ -87,17 +87,17 @@ package io.decagames.rotmg.pets.components.selectedPetSkinInfo{
         private function setAction(_arg1:int, _arg2:IPetVO):void{
             if (this.view.goldActionButton){
                 this.view.goldActionButton.clickSignal.remove(this.onActionButtonClickHandler);
-            };
+            }
             if (this.view.fameActionButton){
                 this.view.fameActionButton.clickSignal.remove(this.onActionButtonClickHandler);
-            };
+            }
             this.view.actionButtonType = _arg1;
             if (this.view.goldActionButton){
                 this.view.goldActionButton.clickSignal.add(this.onActionButtonClickHandler);
-            };
+            }
             if (this.view.fameActionButton){
                 this.view.fameActionButton.clickSignal.add(this.onActionButtonClickHandler);
-            };
+            }
         }
 
         private function get currentPet():PetVO{
@@ -108,10 +108,10 @@ package io.decagames.rotmg.pets.components.selectedPetSkinInfo{
             var _local1:Player = this.gameModel.player;
             if (_local1 != null){
                 return (_local1.credits_);
-            };
+            }
             if (this.playerModel != null){
                 return (this.playerModel.getCredits());
-            };
+            }
             return (0);
         }
 
@@ -119,10 +119,10 @@ package io.decagames.rotmg.pets.components.selectedPetSkinInfo{
             var _local1:Player = this.gameModel.player;
             if (_local1 != null){
                 return (_local1.fame_);
-            };
+            }
             if (this.playerModel != null){
                 return (this.playerModel.getFame());
-            };
+            }
             return (0);
         }
 
@@ -134,9 +134,9 @@ package io.decagames.rotmg.pets.components.selectedPetSkinInfo{
                     if ((((((_local2.currency == Currency.GOLD)) && ((this.currentGold < _local2.price)))) || ((((_local2.currency == Currency.FAME)) && ((this.currentFame < _local2.price)))))){
                         this.showPopupSignal.dispatch(new NotEnoughResources(300, _local2.currency));
                         return;
-                    };
+                    }
                     break;
-            };
+            }
             this.hudModel.gameSprite.gsc_.changePetSkin(this.currentPet.getID(), this.selectedSkin.skinType, _local2.currency);
             this.onSkinSelected(null);
         }
@@ -145,7 +145,7 @@ package io.decagames.rotmg.pets.components.selectedPetSkinInfo{
             this.selectPetSkinSignal.remove(this.onSkinSelected);
             if (this.currentPet){
                 this.currentPet.updated.remove(this.currentPetUpdate);
-            };
+            }
             this.selectPetSignal.remove(this.onPetSelected);
         }
 

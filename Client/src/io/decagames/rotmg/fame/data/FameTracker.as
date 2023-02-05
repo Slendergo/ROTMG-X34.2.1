@@ -28,7 +28,7 @@ package io.decagames.rotmg.fame.data{
             var _local5:int = this.getCharacterLevel(_arg1);
             if (_local5 < _local4.level){
                 return (null);
-            };
+            }
             _local4.fameAdded = Math.floor((((_local4.added * _arg3) / 100) + _local4.numAdded));
             return (_local4);
         }
@@ -45,70 +45,70 @@ package io.decagames.rotmg.fame.data{
             var _local4:int = this.getCharacterType(_arg1);
             if (this.player.getTotalFame() == 0){
                 _local2.addBonus(this.getFameBonus(_arg1, FameBonusID.ANCESTOR, _local2.currentFame));
-            };
+            }
             if (this.metrics.getCharacterStat(_arg1, MetricsID.POTIONS_DRUNK) == 0){
                 _local2.addBonus(this.getFameBonus(_arg1, FameBonusID.THIRSTY, _local2.currentFame));
-            };
+            }
             if (this.metrics.getCharacterStat(_arg1, MetricsID.SHOTS_THAT_DAMAGE) == 0){
                 _local2.addBonus(this.getFameBonus(_arg1, FameBonusID.PACIFIST, _local2.currentFame));
-            };
+            }
             if (this.metrics.getCharacterStat(_arg1, MetricsID.SPECIAL_ABILITY_USES) == 0){
                 _local2.addBonus(this.getFameBonus(_arg1, FameBonusID.MUNDANE, _local2.currentFame));
-            };
+            }
             if (this.metrics.getCharacterStat(_arg1, MetricsID.TELEPORTS) == 0){
                 _local2.addBonus(this.getFameBonus(_arg1, FameBonusID.BOOTS_ON_THE_GROUND, _local2.currentFame));
-            };
+            }
             if ((((((((((((((((((((this.metrics.getCharacterStat(_arg1, MetricsID.PIRATE_CAVES_COMPLETED) > 0)) && ((this.metrics.getCharacterStat(_arg1, MetricsID.UNDEAD_LAIRS_COMPLETED) > 0)))) && ((this.metrics.getCharacterStat(_arg1, MetricsID.ABYSS_OF_DEMONS_COMPLETED) > 0)))) && ((this.metrics.getCharacterStat(_arg1, MetricsID.SNAKE_PITS_COMPLETED) > 0)))) && ((this.metrics.getCharacterStat(_arg1, MetricsID.SPIDER_DENS_COMPLETED) > 0)))) && ((this.metrics.getCharacterStat(_arg1, MetricsID.SPRITE_WORLDS_COMPLETED) > 0)))) && ((this.metrics.getCharacterStat(_arg1, MetricsID.TOMBS_COMPLETED) > 0)))) && ((this.metrics.getCharacterStat(_arg1, MetricsID.TRENCHES_COMPLETED) > 0)))) && ((this.metrics.getCharacterStat(_arg1, MetricsID.JUNGLES_COMPLETED) > 0)))) && ((this.metrics.getCharacterStat(_arg1, MetricsID.MANORS_COMPLETED) > 0)))){
                 _local2.addBonus(this.getFameBonus(_arg1, FameBonusID.TUNNEL_RAT, _local2.currentFame));
-            };
+            }
             var _local5:int = this.metrics.getCharacterStat(_arg1, MetricsID.MONSTER_KILLS);
             var _local6:int = this.metrics.getCharacterStat(_arg1, MetricsID.GOD_KILLS);
             if ((_local5 + _local6) > 0){
                 if ((_local6 / (_local5 + _local6)) > 0.1){
                     _local2.addBonus(this.getFameBonus(_arg1, FameBonusID.ENEMY_OF_THE_GODS, _local2.currentFame));
-                };
+                }
                 if ((_local6 / (_local5 + _local6)) > 0.5){
                     _local2.addBonus(this.getFameBonus(_arg1, FameBonusID.SLAYER_OF_THE_GODS, _local2.currentFame));
-                };
-            };
+                }
+            }
             if (this.metrics.getCharacterStat(_arg1, MetricsID.ORYX_KILLS) > 0){
                 _local2.addBonus(this.getFameBonus(_arg1, FameBonusID.ORYX_SLAYER, _local2.currentFame));
-            };
+            }
             var _local7:int = this.metrics.getCharacterStat(_arg1, MetricsID.SHOTS);
             var _local8:int = this.metrics.getCharacterStat(_arg1, MetricsID.SHOTS_THAT_DAMAGE);
             if ((((_local8 > 0)) && ((_local7 > 0)))){
                 if ((_local8 / _local7) > 0.25){
                     _local2.addBonus(this.getFameBonus(_arg1, FameBonusID.ACCURATE, _local2.currentFame));
-                };
+                }
                 if ((_local8 / _local7) > 0.5){
                     _local2.addBonus(this.getFameBonus(_arg1, FameBonusID.SHARPSHOOTER, _local2.currentFame));
-                };
+                }
                 if ((_local8 / _local7) > 0.75){
                     _local2.addBonus(this.getFameBonus(_arg1, FameBonusID.SNIPER, _local2.currentFame));
-                };
-            };
+                }
+            }
             if (this.metrics.getCharacterStat(_arg1, MetricsID.TILES_UNCOVERED) > 1000000){
                 _local2.addBonus(this.getFameBonus(_arg1, FameBonusID.EXPLORER, _local2.currentFame));
-            };
+            }
             if (this.metrics.getCharacterStat(_arg1, MetricsID.TILES_UNCOVERED) > 0x3D0900){
                 _local2.addBonus(this.getFameBonus(_arg1, FameBonusID.CARTOGRAPHER, _local2.currentFame));
-            };
+            }
             if (this.metrics.getCharacterStat(_arg1, MetricsID.CUBE_KILLS) == 0){
                 _local2.addBonus(this.getFameBonus(_arg1, FameBonusID.FRIEND_OF_THE_CUBES, _local2.currentFame));
-            };
+            }
             if (this.metrics.getCharacterStat(_arg1, MetricsID.LEVEL_UP_ASSISTS) > 100){
                 _local2.addBonus(this.getFameBonus(_arg1, FameBonusID.TEAM_PLAYER, _local2.currentFame));
-            };
+            }
             if (this.metrics.getCharacterStat(_arg1, MetricsID.LEVEL_UP_ASSISTS) > 1000){
                 _local2.addBonus(this.getFameBonus(_arg1, FameBonusID.LEADER_OF_MEN, _local2.currentFame));
-            };
+            }
             if (this.metrics.getCharacterStat(_arg1, MetricsID.QUESTS_COMPLETED) > 1000){
                 _local2.addBonus(this.getFameBonus(_arg1, FameBonusID.DOER_OF_DEEDS, _local2.currentFame));
-            };
+            }
             _local2.addBonus(this.getWellEquippedBonus(this.getCharacterFameBonus(_arg1), _local2.currentFame));
             if (_local2.currentFame > this.player.getBestCharFame()){
                 _local2.addBonus(this.getFameBonus(_arg1, FameBonusID.FIRST_BORN, _local2.currentFame));
-            };
+            }
             return (_local2);
         }
 
@@ -123,28 +123,28 @@ package io.decagames.rotmg.fame.data{
         private function getCharacterExp(_arg1:int):int{
             if (this.hasMapPlayer()){
                 return (this.hudModel.gameSprite.map.player_.exp_);
-            };
+            }
             return (this.getSavedCharacter(_arg1).xp());
         }
 
         private function getCharacterLevel(_arg1:int):int{
             if (this.hasMapPlayer()){
                 return (this.hudModel.gameSprite.map.player_.level_);
-            };
+            }
             return (this.getSavedCharacter(_arg1).level());
         }
 
         private function getCharacterType(_arg1:int):int{
             if (this.hasMapPlayer()){
                 return (this.hudModel.gameSprite.map.player_.objectType_);
-            };
+            }
             return (this.getSavedCharacter(_arg1).objectType());
         }
 
         private function getCharacterFameBonus(_arg1:int):int{
             if (this.hasMapPlayer()){
                 return (this.hudModel.gameSprite.map.player_.getFameBonus());
-            };
+            }
             return (this.getSavedCharacter(_arg1).fameBonus());
         }
 
@@ -154,7 +154,7 @@ package io.decagames.rotmg.fame.data{
             var _local4:int = this.getCharacterLevel(_arg1);
             if (this.hasMapPlayer()){
                 _local3 = (_local3 + (((_local4 - 1) * (_local4 - 1)) * 50));
-            };
+            }
             return (this.calculateBaseFame(_local3, _local2));
         }
 

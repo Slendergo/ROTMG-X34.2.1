@@ -21,8 +21,8 @@ package com.company.assembleegameclient.screens{
                 if (_local2.isCharDeath()){
                     this.addLine(new GraveyardLine(_local2.getIcon(), _local2.title_, _local2.tagline_, _local2.link_, _local2.date_, _arg1.getAccountId()));
                     this.hasCharacters_ = true;
-                };
-            };
+                }
+            }
         }
 
         public function hasCharacters():Boolean{

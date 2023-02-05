@@ -15,7 +15,7 @@ package com.company.assembleegameclient.objects.animation{
             super();
             for each (_local2 in _arg1.Animation) {
                 this.animations.push(new AnimationData(_local2));
-            };
+            }
         }
 
     }

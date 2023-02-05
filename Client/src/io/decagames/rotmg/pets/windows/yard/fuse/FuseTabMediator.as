@@ -94,18 +94,18 @@ package io.decagames.rotmg.pets.windows.yard.fuse{
                 this.toggleButtons(false);
                 for each (_local2 in this.petsList) {
                     _local2.selected = false;
-                };
-            };
+                }
+            }
         }
 
         private function get currentGold():int{
             var _local1:Player = this.gameModel.player;
             if (_local1 != null){
                 return (_local1.credits_);
-            };
+            }
             if (this.playerModel != null){
                 return (this.playerModel.getCredits());
-            };
+            }
             return (0);
         }
 
@@ -113,10 +113,10 @@ package io.decagames.rotmg.pets.windows.yard.fuse{
             var _local1:Player = this.gameModel.player;
             if (_local1 != null){
                 return (_local1.fame_);
-            };
+            }
             if (this.playerModel != null){
                 return (this.playerModel.getFame());
-            };
+            }
             return (0);
         }
 
@@ -138,17 +138,17 @@ package io.decagames.rotmg.pets.windows.yard.fuse{
                 if ((((_arg1 == PetUpgradeRequest.GOLD_PAYMENT_TYPE)) && ((this.currentGold < _arg2)))){
                     this.showPopup.dispatch(new NotEnoughResources(300, Currency.GOLD));
                     return;
-                };
+                }
                 if ((((_arg1 == PetUpgradeRequest.FAME_PAYMENT_TYPE)) && ((this.currentFame < _arg2)))){
                     this.showPopup.dispatch(new NotEnoughResources(300, Currency.FAME));
                     return;
-                };
+                }
                 this.newAbilityUnlocked.add(this.abilityUnlocked);
                 this.evolvePetSignal.add(this.evolvePetHandler);
                 _local3 = new FusePetRequestVO(this.currentSelectedPet.getID(), this.fusePet.getID(), _arg1);
                 this.showFade.dispatch();
                 this.upgradePet.dispatch(_local3);
-            };
+            }
         }
 
         private function purchaseFame(_arg1:BaseButton):void{
@@ -163,7 +163,7 @@ package io.decagames.rotmg.pets.windows.yard.fuse{
             if ((this.currentSelectedPet.rarity.ordinal + 1) >= this.model.getPetYardType()){
                 this.showPopup.dispatch(new ErrorModal(350, "Fuse Pets", LineBuilder.getLocalizedStringFromKey("server.upgrade_petyard_first")));
                 return false;
-            };
+            }
             return true;
         }
 
@@ -178,7 +178,7 @@ package io.decagames.rotmg.pets.windows.yard.fuse{
             var _local1:PetItem;
             for each (_local1 in this.petsList) {
                 _local1.removeEventListener(MouseEvent.CLICK, this.onFusePetSelected);
-            };
+            }
             this.view.clearGrid();
         }
 
@@ -187,20 +187,20 @@ package io.decagames.rotmg.pets.windows.yard.fuse{
             var _local3:PetItem;
             if (_arg1 == null){
                 return;
-            };
+            }
             this.currentSelectedPet = _arg1;
             if (_arg1.rarity.ordinal == PetRarityEnum.DIVINE.ordinal){
                 this.view.setStrengthPercentage(-1, (_arg1.rarity.ordinal == PetRarityEnum.DIVINE.ordinal));
                 return;
-            };
+            }
             for each (_local2 in this.model.getAllPets(_arg1.family, _arg1.rarity)) {
                 if (_local2 != _arg1){
                     _local3 = this.petIconFactory.create(_local2, 40, 0x545454, 1);
                     _local3.addEventListener(MouseEvent.CLICK, this.onFusePetSelected);
                     this.petsList.push(_local3);
                     this.view.addPet(_local3);
-                };
-            };
+                }
+            }
         }
 
         private function onFusePetSelected(_arg1:MouseEvent):void{
@@ -225,7 +225,7 @@ package io.decagames.rotmg.pets.windows.yard.fuse{
             var _local2:PetItem;
             for each (_local2 in this.petsList) {
                 _local2.selected = (_local2 == _arg1);
-            };
+            }
         }
 
 

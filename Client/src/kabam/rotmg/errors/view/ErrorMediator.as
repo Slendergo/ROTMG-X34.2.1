@@ -30,13 +30,13 @@ package kabam.rotmg.errors.view{
             this.loaderInfo = this.contextView.loaderInfo;
             if (this.canCatchGlobalErrors()){
                 this.addGlobalErrorListener();
-            };
+            }
         }
 
         override public function destroy():void{
             if (this.canCatchGlobalErrors()){
                 this.removeGlobalErrorListener();
-            };
+            }
         }
 
         private function canCatchGlobalErrors():Boolean{

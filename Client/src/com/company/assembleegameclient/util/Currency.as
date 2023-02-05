@@ -23,7 +23,7 @@ package com.company.assembleegameclient.util{
                     return ("Guild Fame");
                 case FORTUNE:
                     return ("Fortune Token");
-            };
+            }
             return ("");
         }
 

@@ -47,7 +47,7 @@ package kabam.rotmg.friends.view{
         public function destroy():void{
             while (numChildren > 0) {
                 this.removeChildAt((numChildren - 1));
-            };
+            }
             this.tabSprite.removeEventListener(MouseEvent.CLICK, this.onTabClicked);
             this.tabs = null;
             this.contents = null;
@@ -68,7 +68,7 @@ package kabam.rotmg.friends.view{
                 _local4.setSelected(true);
                 this.showContent(0);
                 this.tabSelected.dispatch(_arg2.name);
-            };
+            }
         }
 
         public function clearTabs():void{
@@ -80,7 +80,7 @@ package kabam.rotmg.friends.view{
                 this.tabSprite.removeChild(this.tabs[_local1]);
                 this.containerSprite.removeChild(this.contents[_local1]);
                 _local1++;
-            };
+            }
             this.tabs = new Vector.<TabView>();
             this.contents = new Vector.<Sprite>();
         }
@@ -110,8 +110,8 @@ package kabam.rotmg.friends.view{
                     _arg1.setSelected(true);
                     this.showContent(_arg1.index);
                     this.tabSelected.dispatch(this.contents[_arg1.index].name);
-                };
-            };
+                }
+            }
         }
 
         private function addTextTab(_arg1:int, _arg2:BaseSimpleText):TabTextView{
@@ -132,7 +132,7 @@ package kabam.rotmg.friends.view{
                 _local2.visible = false;
                 _local3.visible = true;
                 this.currentTabIndex = _arg1;
-            };
+            }
         }
 
         private function drawBackground():void{

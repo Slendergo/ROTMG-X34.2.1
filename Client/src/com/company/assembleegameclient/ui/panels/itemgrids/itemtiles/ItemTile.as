@@ -71,10 +71,10 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles{
         public function setItem(_arg1:int):Boolean{
             if (_arg1 == this.itemSprite.itemId){
                 return false;
-            };
+            }
             if (this.blockingItemUpdates){
                 return true;
-            };
+            }
             this.itemSprite.setType(_arg1);
             this.setTierTag();
             this.updateUseability(this.ownerGrid.curPlayer);
@@ -85,7 +85,7 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles{
             if (!this.itemContainer){
                 this.itemContainer = new Sprite();
                 addChild(this.itemContainer);
-            };
+            }
             this.itemSprite = _arg1;
             this.itemSprite.x = (WIDTH / 2);
             this.itemSprite.y = (HEIGHT / 2);
@@ -99,7 +99,7 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles{
             }
             else {
                 this.restrictedUseIndicator.visible = false;
-            };
+            }
         }
 
         public function canHoldItem(_arg1:int):Boolean{
@@ -127,36 +127,36 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles{
                     if (!this.tagContainer){
                         this.tagContainer = new Sprite();
                         addChild(this.tagContainer);
-                    };
+                    }
                     this.tierText.filters = FilterUtil.getTextOutlineFilter();
                     this.tierText.x = (WIDTH - this.tierText.width);
                     this.tierText.y = ((HEIGHT / 2) + 5);
                     this.toggleTierTag(Parameters.data_.showTierTag);
                     this.tagContainer.addChild(this.tierText);
-                };
-            };
+                }
+            }
         }
 
         private function clearTierTag():void{
             if (((((this.tierText) && (this.tagContainer))) && (this.tagContainer.contains(this.tierText)))){
                 this.tagContainer.removeChild(this.tierText);
                 this.tierText = null;
-            };
+            }
         }
 
         public function toggleTierTag(_arg1:Boolean):void{
             if (this.tierText){
                 this.tierText.visible = _arg1;
-            };
+            }
         }
 
         protected function toggleDragState(_arg1:Boolean):void{
             if (((this.tierText) && (Parameters.data_.showTierTag))){
                 this.tierText.visible = _arg1;
-            };
+            }
             if (((!(this.isItemUsable)) && (!(_arg1)))){
                 this.restrictedUseIndicator.visible = _arg1;
-            };
+            }
         }
 
 

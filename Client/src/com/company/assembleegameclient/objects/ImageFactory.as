@@ -23,7 +23,7 @@ package com.company.assembleegameclient.objects{
                 _local4 = ((_arg2 - TextureRedrawer.minSize) / _local3.width);
                 _local5 = ObjectLibrary.getRedrawnTextureFromType(_arg1, 100, true, false, _local4);
                 return (_local5);
-            };
+            }
             return (new BitmapDataSpy(_arg2, _arg2));
         }
 

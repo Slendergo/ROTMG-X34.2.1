@@ -134,18 +134,18 @@ package com.company.assembleegameclient.ui.dialogs{
                 this.titleText_.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8, 1)];
                 this.titleText_.setStringBuilder(new StaticStringBuilder(_arg1));
                 this.addTextFieldDisplay(this.titleText_);
-            };
+            }
         }
 
         private function makeNonNullButtons():void{
             if (this.leftButtonKey != null){
                 this.leftButton = new DeprecatedTextButton(16, this.leftButtonKey, 120, true);
                 this.leftButton.addEventListener(MouseEvent.CLICK, this.onLeftButtonClick);
-            };
+            }
             if (this.rightButtonKey != null){
                 this.rightButton = new DeprecatedTextButton(16, this.rightButtonKey, 120, true);
                 this.rightButton.addEventListener(MouseEvent.CLICK, this.onRightButtonClick);
-            };
+            }
         }
 
         private function onComplete():void{
@@ -170,7 +170,7 @@ package com.company.assembleegameclient.ui.dialogs{
         protected function drawButtonsAndBackground():void{
             if (this.box_.contains(this.rect_)){
                 this.box_.removeChild(this.rect_);
-            };
+            }
             this.removeButtonsIfAlreadyAdded();
             this.addButtonsAndLayout();
             this.drawBackground();
@@ -208,8 +208,8 @@ package com.company.assembleegameclient.ui.dialogs{
                     this.box_.addChild(this.rightButton);
                     this.rightButton.x = (((3 * this.dialogWidth) / 4) - (this.rightButton.width / 2));
                     this.rightButton.y = _local1;
-                };
-            };
+                }
+            }
         }
 
         private function drawTitleAndText():void{
@@ -220,16 +220,16 @@ package com.company.assembleegameclient.ui.dialogs{
             }
             else {
                 this.textText_.y = 4;
-            };
+            }
         }
 
         private function removeButtonsIfAlreadyAdded():void{
             if (((this.leftButton) && (this.box_.contains(this.leftButton)))){
                 this.box_.removeChild(this.leftButton);
-            };
+            }
             if (((this.rightButton) && (this.box_.contains(this.rightButton)))){
                 this.box_.removeChild(this.rightButton);
-            };
+            }
         }
 
         protected function onLeftButtonClick(_arg1:MouseEvent):void{

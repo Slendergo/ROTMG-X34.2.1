@@ -61,7 +61,7 @@ package kabam.rotmg.ui.view.components{
                 _local2 = this.potionInventoryModel.getPotionModel(this.view.objectType);
                 _local3 = _arg1.getPotionCount(_local2.objectId);
                 this.view.setData(_local3, _local2.currentCost(_local3), _local2.available);
-            };
+            }
         }
 
         private function onDrop(_arg1:DisplayObject):void{
@@ -76,9 +76,9 @@ package kabam.rotmg.ui.view.components{
                     _local4 = (_local3 as InteractiveItemTile);
                     if ((((_local4.getItemId() == ItemConstants.NO_ITEM)) && (!((_local4.ownerGrid.owner == _local2))))){
                         GameServerConnection.instance.invSwapPotion(_local2, _local2, PotionInventoryModel.getPotionSlot(this.view.objectType), this.view.objectType, _local4.ownerGrid.owner, _local4.tileId, ItemConstants.NO_ITEM);
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         private function onBuyUse():void{
@@ -87,7 +87,7 @@ package kabam.rotmg.ui.view.components{
             if (_local1.available){
                 _local2 = new UseBuyPotionVO(_local1.objectId, UseBuyPotionVO.SHIFTCLICK);
                 this.useBuyPotionSignal.dispatch(_local2);
-            };
+            }
         }
 
 

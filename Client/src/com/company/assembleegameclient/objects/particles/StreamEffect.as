@@ -31,7 +31,7 @@ package com.company.assembleegameclient.objects.particles{
                 _local6 = new StreamParticle(1.85, _local5, this.color_, (1500 + (Math.random() * 3000)), (0.1 + (Math.random() * 0.1)), this.start_, this.end_);
                 map_.addObj(_local6, x_, y_);
                 _local4++;
-            };
+            }
             return false;
         }
 
@@ -79,7 +79,7 @@ class StreamParticle extends Particle {
         this.timeLeft_ = (this.timeLeft_ - _arg2);
         if (this.timeLeft_ <= 0){
             return false;
-        };
+        }
         this.pathX_ = (this.pathX_ + (this.dx_ * _arg2));
         this.pathY_ = (this.pathY_ + (this.dy_ * _arg2));
         var _local3:Number = Math.sin(((this.timeLeft_ / 1000) / this.period_));

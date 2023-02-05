@@ -18,7 +18,7 @@ package com.company.assembleegameclient.mapeditor{
             this.objectName_ = new TextInputField("Object Name", false);
             if (_arg1 != null){
                 this.objectName_.inputText_.text = _arg1;
-            };
+            }
             addTextInputField(this.objectName_);
             leftButton_.addEventListener(MouseEvent.CLICK, this.onCancel);
             rightButton_.addEventListener(MouseEvent.CLICK, this.onDone);

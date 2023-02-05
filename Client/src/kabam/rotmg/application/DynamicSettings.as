@@ -8,7 +8,6 @@ package kabam.rotmg.application{
 
         private static var _xml:XML;
 
-
         public static function get xml():XML{
             return (_xml);
         }
@@ -24,8 +23,6 @@ package kabam.rotmg.application{
         public static function getSettingValue(_arg1:String):Number{
             return (Number(_xml.child(_arg1).toString()));
         }
-
-
     }
 }//package kabam.rotmg.application
 

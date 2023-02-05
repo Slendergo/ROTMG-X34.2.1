@@ -87,14 +87,14 @@ package com.company.assembleegameclient.mapeditor{
         public function get minValue():Number{
             if (this._minInput.text() == ""){
                 return (0);
-            };
+            }
             return (Number(this._minInput.text()));
         }
 
         public function get maxValue():Number{
             if (this._maxInput.text() == ""){
                 return (-1);
-            };
+            }
             return (Number(this._maxInput.text()));
         }
 
@@ -151,7 +151,7 @@ package com.company.assembleegameclient.mapeditor{
                 case this._minInput:
                     this._minPrompt.visible = false;
                     return;
-            };
+            }
         }
 
         private function onFocusOut(_arg1:FocusEvent):void{
@@ -159,19 +159,19 @@ package com.company.assembleegameclient.mapeditor{
                 case this._search:
                     if (this._search.text() == ""){
                         this._searchPrompt.visible = this._isSearchEnabled;
-                    };
+                    }
                     return;
                 case this._maxInput:
                     if (this._maxInput.text() == ""){
                         this._maxPrompt.visible = this._isValueFilterEnabled;
-                    };
+                    }
                     return;
                 case this._minInput:
                     if (this._minInput.text() == ""){
                         this._minPrompt.visible = this._isValueFilterEnabled;
-                    };
+                    }
                     return;
-            };
+            }
         }
 
 

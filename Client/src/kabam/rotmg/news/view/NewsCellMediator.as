@@ -43,7 +43,7 @@ package kabam.rotmg.news.view{
                 case NewsCellLinkType.OPENS_SKIN:
                     this.openSkinSignal.dispatch(_arg1.linkDetail);
                     return;
-            };
+            }
         }
 
 

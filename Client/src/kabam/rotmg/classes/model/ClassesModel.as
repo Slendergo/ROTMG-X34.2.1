@@ -22,7 +22,7 @@ package kabam.rotmg.classes.model{
             var _local1:CharacterClass;
             for each (_local1 in this.classes) {
                 _local1.resetSkin();
-            };
+            }
         }
 
         public function getCount():uint{
@@ -49,7 +49,7 @@ package kabam.rotmg.classes.model{
                 ((this.selectedChar) && (this.selectedChar.setIsSelected(false)));
                 this.selectedChar = _arg1;
                 this.selected.dispatch(_arg1);
-            };
+            }
         }
 
         public function getSelected():CharacterClass{
@@ -62,7 +62,7 @@ package kabam.rotmg.classes.model{
             for each (_local3 in this.classes) {
                 _local2 = _local3.skins.getSkin(_arg1);
                 if (_local2 != _local3.skins.getDefaultSkin()) break;
-            };
+            }
             return (_local2);
         }
 

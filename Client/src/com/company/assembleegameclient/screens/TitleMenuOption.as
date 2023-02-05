@@ -101,13 +101,13 @@ package com.company.assembleegameclient.screens{
         private function onAddedToStage(_arg1:Event):void{
             if (this.isPulse){
                 addEventListener(Event.ENTER_FRAME, this.onEnterFrame);
-            };
+            }
         }
 
         private function onRemovedFromStage(_arg1:Event):void{
             if (this.isPulse){
                 removeEventListener(Event.ENTER_FRAME, this.onEnterFrame);
-            };
+            }
         }
 
         private function onEnterFrame(_arg1:Event):void{
@@ -119,14 +119,14 @@ package com.company.assembleegameclient.screens{
         public function setColorTransform(_arg1:ColorTransform):void{
             if (_arg1 == this.colorTransform){
                 return;
-            };
+            }
             this.colorTransform = _arg1;
             if (this.colorTransform == null){
                 this.textField.transform.colorTransform = MoreColorUtil.identity;
             }
             else {
                 this.textField.transform.colorTransform = this.colorTransform;
-            };
+            }
         }
 
         protected function onMouseOver(_arg1:MouseEvent):void{
@@ -139,7 +139,7 @@ package com.company.assembleegameclient.screens{
             }
             else {
                 this.setColorTransform(null);
-            };
+            }
         }
 
         protected function onMouseClick(_arg1:MouseEvent):void{

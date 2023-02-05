@@ -21,7 +21,7 @@ package kabam.rotmg.stage3D.graphic3D{
             if (_arg1 != null){
                 this.indexBuffer = _arg1.createIndexBuffer(numVertices);
                 this.indexBuffer.uploadFromVector(_local2, 0, numVertices);
-            };
+            }
         }
 
         public function apply(_arg1:Class, _arg2:Injector, _arg3:Dictionary):Object{

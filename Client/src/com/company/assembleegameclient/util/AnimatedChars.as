@@ -16,7 +16,7 @@ package com.company.assembleegameclient.util{
             var _local3:Vector.<AnimatedChar> = nameMap_[_arg1];
             if ((((_local3 == null)) || ((_arg2 >= _local3.length)))){
                 return (null);
-            };
+            }
             return (_local3[_arg2]);
         }
 
@@ -27,7 +27,7 @@ package com.company.assembleegameclient.util{
             _local10.addFromBitmapData(_arg2, _arg3, _arg6, _arg7);
             for each (_local11 in _local10.images_) {
                 _local9.push(new AnimatedChar(_local11, _arg4, _arg5, _arg8));
-            };
+            }
             nameMap_[_arg1] = _local9;
         }
 

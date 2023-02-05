@@ -34,7 +34,7 @@ package io.decagames.rotmg.utils.colors{
             }
             else {
                 _arg1.filters = [];
-            };
+            }
         }
 
 

@@ -52,7 +52,7 @@ package kabam.rotmg.chat.control{
                         MoreObjectUtil.addToObject(_local1, this.account.getCredentials());
                         this.client.sendRequest("/dailyquest/resetDailyQuestsAdmin", _local1);
                         this.addTextLine.dispatch(ChatMessage.make(Parameters.SERVER_CHAT_NAME, "Restarting daily quests. Please refresh game."));
-                    };
+                    }
                     return;
                 case "/resetPackagePopup":
                     Parameters.data_[PopupNamesConfig.PACKAGES_OFFER_POPUP] = null;
@@ -70,17 +70,17 @@ package kabam.rotmg.chat.control{
                         if (_local4.props_.isPlayer_){
                             _local2[_local4.objectType_] = (((_local2[_local4.objectType_])!=undefined) ? (_local2[_local4.objectType_] + 1) : uint(1));
                             _local3++;
-                        };
-                    };
+                        }
+                    }
                     _local5 = "";
                     for (_local6 in _local2) {
                         _local5 = (_local5 + (((" " + ObjectLibrary.typeToDisplayId_[_local6]) + ": ") + _local2[_local6]));
-                    };
+                    }
                     this.addTextLine.dispatch(ChatMessage.make("", ((("Classes online (" + _local3) + "):") + _local5)));
                     return;
                 default:
                     this.hudModel.gameSprite.gsc_.playerText(this.data);
-            };
+            }
         }
 
 

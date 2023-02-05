@@ -52,7 +52,7 @@ package kabam.rotmg.ui.view{
             this.stopDraggingStatsAsset(_local2);
             if (_local2.hitTestObject(this.view.tabStrip)){
                 this.dockStats(_local2);
-            };
+            }
         }
 
         private function dockStats(_arg1:Sprite):void{
@@ -80,7 +80,7 @@ package kabam.rotmg.ui.view{
             this.statsUndocked.remove(this.onStatsUndocked);
             if (((this.stats) && (this.stats.hasEventListener(MouseEvent.MOUSE_DOWN)))){
                 this.stats.removeEventListener(MouseEvent.MOUSE_DOWN, this.onStatsMouseDown);
-            };
+            }
         }
 
         private function onUpdateHUD(_arg1:Player):void{

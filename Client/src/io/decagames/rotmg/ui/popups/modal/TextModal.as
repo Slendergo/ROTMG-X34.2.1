@@ -27,13 +27,13 @@ package io.decagames.rotmg.ui.popups.modal{
             }
             else {
                 _local6.text = _arg3;
-            };
+            }
             _local6.wordWrap = true;
             addChild(_local6);
             var _local7:int;
             for each (_local8 in _arg4) {
                 _local7 = (_local7 + _local8.width);
-            };
+            }
             _local7 = (_local7 + (this.buttonsMargin * (_arg4.length - 1)));
             _local9 = ((_arg1 - _local7) / 2);
             for each (_local8 in _arg4) {
@@ -42,7 +42,7 @@ package io.decagames.rotmg.ui.popups.modal{
                 _local8.y = ((_local6.y + _local6.textHeight) + 15);
                 addChild(_local8);
                 registerButton(_local8);
-            };
+            }
         }
 
     }

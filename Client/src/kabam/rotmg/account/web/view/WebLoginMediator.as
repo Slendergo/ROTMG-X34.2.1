@@ -49,7 +49,7 @@ package kabam.rotmg.account.web.view{
         private function onSignIn(_arg1:AccountData):void{
             if ((this.account is WebAccount)){
                 WebAccount(this.account).rememberMe = this.view.isRememberMeSelected();
-            };
+            }
             this.view.disable();
             this.login.dispatch(_arg1);
         }

@@ -104,13 +104,13 @@ package com.company.assembleegameclient.account.ui{
                 _local1.lineTo((BOX_SIZE - 2), 2);
                 _local1.lineStyle();
                 this.hasError = false;
-            };
+            }
             if (this.hasError){
                 _local2 = 16549442;
             }
             else {
                 _local2 = 0x454545;
-            };
+            }
             _local1.lineStyle(2, _local2, 1, false, LineScaleMode.NORMAL, CapsStyle.ROUND, JointStyle.ROUND);
             _local1.drawRect(0, 0, BOX_SIZE, BOX_SIZE);
             _local1.lineStyle();

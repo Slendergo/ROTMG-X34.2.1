@@ -57,7 +57,7 @@ package io.decagames.rotmg.social.widgets{
                     if (_local2 != _local1){
                         _local3 = ((("Your friend is playing on server: " + _local1) + ". ") + "Clicking this will take you to this server.");
                         this.teleportButton = addButton("lofiInterface2", 3, 230, 12, TextKey.FRIEND_TELEPORT_TITLE, _local3);
-                    };
+                    }
                     this.messageButton = addButton("lofiInterfaceBig", 21, 0xFF, 12, TextKey.PLAYERMENU_PM);
                     this.removeButton = addButton("lofiInterfaceBig", 12, 280, 12, TextKey.FRIEND_REMOVE_BUTTON);
                     return;
@@ -72,7 +72,7 @@ package io.decagames.rotmg.social.widgets{
                     this.rejectButton = addButton("lofiInterfaceBig", 12, 0xFF, 12, TextKey.GUILD_REJECTION);
                     this.blockButton = addButton("lofiInterfaceBig", 8, 280, 12, TextKey.FRIEND_BLOCK_BUTTON, TextKey.FRIEND_BLOCK_BUTTON_DESC);
                     return;
-            };
+            }
         }
 
         public function get vo():FriendVO{

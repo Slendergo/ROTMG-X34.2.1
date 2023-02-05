@@ -25,14 +25,14 @@ package kabam.rotmg.messaging.impl.incoming{
             while (_local2 < _local3) {
                 this.myOffer_.push(_arg1.readBoolean());
                 _local2++;
-            };
+            }
             this.yourOffer_.length = 0;
             _local3 = _arg1.readShort();
             _local2 = 0;
             while (_local2 < _local3) {
                 this.yourOffer_.push(_arg1.readBoolean());
                 _local2++;
-            };
+            }
         }
 
         override public function toString():String{

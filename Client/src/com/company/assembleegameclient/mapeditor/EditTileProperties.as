@@ -34,7 +34,7 @@ package com.company.assembleegameclient.mapeditor{
         public function getObjectName():String{
             if (this.frame_.objectName_.text() == ""){
                 return (null);
-            };
+            }
             return (this.frame_.objectName_.text());
         }
 

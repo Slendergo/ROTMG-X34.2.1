@@ -31,7 +31,7 @@ package kabam.rotmg.classes.view{
             this.view.setPlayButtonEnabled(_local1);
             if (_local1){
                 this.view.play.addOnce(this.onPlay);
-            };
+            }
             this.view.back.addOnce(this.onBack);
         }
 

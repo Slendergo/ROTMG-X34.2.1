@@ -36,7 +36,7 @@ package kabam.rotmg.chat.view{
             this.view.setup(this.model);
             for each (_local1 in this.model.chatMessages) {
                 this.view.addMessage(this.itemFactory.make(_local1, true));
-            };
+            }
             this.view.scrollToCurrent();
             this.showChatInput.add(this.onShowChatInput);
             this.scrollList.add(this.onScrollList);
@@ -61,8 +61,8 @@ package kabam.rotmg.chat.view{
             else {
                 if (_arg1 < 0){
                     this.view.pageUp();
-                };
-            };
+                }
+            }
         }
 
         private function onAddChat(_arg1:ChatMessage):void{

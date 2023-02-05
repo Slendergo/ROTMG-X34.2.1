@@ -59,7 +59,7 @@ package kabam.rotmg.dailyLogin.view{
         private function onTileHover(_arg1:MouseEvent):void{
             if (!stage){
                 return;
-            };
+            }
             var _local2:ItemTile = (_arg1.currentTarget as ItemTile);
             this.addToolTipToTile(_local2);
         }
@@ -75,9 +75,9 @@ package kabam.rotmg.dailyLogin.view{
                 }
                 else {
                     _local4 = TextKey.ITEM;
-                };
+                }
                 this.tooltip = new TextToolTip(0x363636, 0x9B9B9B, null, TextKey.ITEM_EMPTY_SLOT, 200, {itemType:TextKey.wrapForTokenResolution(_local4)});
-            };
+            }
             this.tooltip.attachToTarget(_arg1);
             var _local2:Injector = StaticInjectorContext.getInjector();
             var _local3:ShowTooltipSignal = _local2.getInstance(ShowTooltipSignal);
@@ -97,12 +97,12 @@ package kabam.rotmg.dailyLogin.view{
                     _local2 = _local2.clone();
                     _local4 = this.bitmapFactory.make(new StaticStringBuilder(String(_local3.Doses)), 12, 0xFFFFFF, false, IDENTITY_MATRIX, false);
                     _local2.draw(_local4, DOSE_MATRIX);
-                };
+                }
                 if (((((_local3) && (_local3.hasOwnProperty("Quantity")))) && (this.bitmapFactory))){
                     _local2 = _local2.clone();
                     _local5 = this.bitmapFactory.make(new StaticStringBuilder(String(_local3.Quantity)), 12, 0xFFFFFF, false, IDENTITY_MATRIX, false);
                     _local2.draw(_local5, DOSE_MATRIX);
-                };
+                }
                 this.itemBitmap.bitmapData = _local2;
                 this.itemBitmap.x = (-(_local2.width) / 2);
                 this.itemBitmap.y = (-(_local2.width) / 2);
@@ -110,7 +110,7 @@ package kabam.rotmg.dailyLogin.view{
             }
             else {
                 visible = false;
-            };
+            }
         }
 
 

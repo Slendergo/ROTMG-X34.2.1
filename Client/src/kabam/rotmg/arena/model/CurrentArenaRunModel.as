@@ -46,7 +46,7 @@ package kabam.rotmg.arena.model{
             else {
                 this.entry.currentWave++;
                 this.waveUpdated.dispatch();
-            };
+            }
         }
 
         public function hasEntry():Boolean{

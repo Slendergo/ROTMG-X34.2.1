@@ -63,7 +63,7 @@ package com.hurlant.crypto.hash{
                         _local24 = ((this.rrol(_local3[(_local21 - 15)], 7) ^ this.rrol(_local3[(_local21 - 15)], 18)) ^ (_local3[(_local21 - 15)] >>> 3));
                         _local25 = ((this.rrol(_local3[(_local21 - 2)], 17) ^ this.rrol(_local3[(_local21 - 2)], 19)) ^ (_local3[(_local21 - 2)] >>> 10));
                         _local3[_local21] = (((_local3[(_local21 - 16)] + _local24) + _local3[(_local21 - 7)]) + _local25);
-                    };
+                    }
                     _local22 = (((this.rrol(_local4, 2) ^ this.rrol(_local4, 13)) ^ this.rrol(_local4, 22)) + (((_local4 & _local5) ^ (_local4 & _local6)) ^ (_local5 & _local6)));
                     _local23 = ((((_local11 + ((this.rrol(_local8, 6) ^ this.rrol(_local8, 11)) ^ this.rrol(_local8, 25))) + ((_local8 & _local9) ^ (_local10 & ~(_local8)))) + k[_local21]) + _local3[_local21]);
                     _local11 = _local10;
@@ -75,7 +75,7 @@ package com.hurlant.crypto.hash{
                     _local5 = _local4;
                     _local4 = (_local23 + _local22);
                     _local21++;
-                };
+                }
                 _local4 = (_local4 + _local13);
                 _local5 = (_local5 + _local14);
                 _local6 = (_local6 + _local15);
@@ -85,7 +85,7 @@ package com.hurlant.crypto.hash{
                 _local10 = (_local10 + _local19);
                 _local11 = (_local11 + _local20);
                 _local12 = (_local12 + 16);
-            };
+            }
             return ([_local4, _local5, _local6, _local7, _local8, _local9, _local10, _local11]);
         }
 

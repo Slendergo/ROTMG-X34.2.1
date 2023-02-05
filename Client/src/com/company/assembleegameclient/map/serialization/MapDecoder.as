@@ -61,20 +61,20 @@ package com.company.assembleegameclient.map.serialization{
                         if (_local9.hasOwnProperty("ground")){
                             _local11 = GroundLibrary.idToType_[_local9["ground"]];
                             _arg2.setGroundTile(_local8, _local7, _local11);
-                        };
+                        }
                         _local10 = _local9["objs"];
                         if (_local10 != null){
                             for each (_local12 in _local10) {
                                 _local13 = getGameObject(_local12);
                                 _local13.objectId_ = BasicObject.getNextFakeObjectId();
                                 _arg2.addObj(_local13, (_local8 + 0.5), (_local7 + 0.5));
-                            };
-                        };
-                    };
+                            }
+                        }
+                    }
                     _local8++;
-                };
+                }
                 _local7++;
-            };
+            }
         }
 
         public static function getGameObject(_arg1:Object):GameObject{

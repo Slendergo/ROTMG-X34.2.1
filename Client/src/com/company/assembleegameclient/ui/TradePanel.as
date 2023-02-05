@@ -61,7 +61,7 @@ package com.company.assembleegameclient.ui{
         public function youAccepted(_arg1:Vector.<Boolean>, _arg2:Vector.<Boolean>):void{
             if (((this.myInv_.isOffer(_arg1)) && (this.yourInv_.isOffer(_arg2)))){
                 this.yourInv_.setMessage(TradeInventory.TRADEACCEPTED_MESSAGE);
-            };
+            }
         }
 
         private function onAddedToStage(_arg1:Event):void{
@@ -103,20 +103,20 @@ package com.company.assembleegameclient.ui{
             }
             else {
                 this.myInv_.setMessage(TradeInventory.CLICKITEMS_MESSAGE);
-            };
+            }
             if (((_local1 - _local3) - _local4) > 0){
                 this.yourInv_.setMessage(TradeInventory.NOTENOUGHSPACE_MESSAGE);
                 _local5 = false;
             }
             else {
                 this.yourInv_.setMessage(TradeInventory.TRADEWAITING_MESSAGE);
-            };
+            }
             if (_local5){
                 this.tradeButton_.reset();
             }
             else {
                 this.tradeButton_.disable();
-            };
+            }
         }
 
 

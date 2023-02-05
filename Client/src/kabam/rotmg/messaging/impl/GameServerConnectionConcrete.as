@@ -384,7 +384,7 @@ package kabam.rotmg.messaging.impl{
             var _local2:String = server_.name;
             if (_local2 == '{"text":"server.vault"}'){
                 _local2 = "server.vault";
-            };
+            }
             _local2 = LineBuilder.getLocalizedStringFromKey(_local2);
             _local1.tokens = {serverName:_local2};
             this.addTextLine.dispatch(_local1);
@@ -618,7 +618,7 @@ package kabam.rotmg.messaging.impl{
                 _local2 = Crypto.getCipher("rc4", MoreStringUtil.hexStringToByteArray("6a39570cc9de4ec71d64821894c79332b197f92ba85ed281a023".substring(26)));
                 serverConnection.setOutgoingCipher(_local1);
                 serverConnection.setIncomingCipher(_local2);
-            };
+            }
         }
 
         override public function getNextDamage(_arg1:uint, _arg2:uint):uint{
@@ -628,13 +628,13 @@ package kabam.rotmg.messaging.impl{
         override public function enableJitterWatcher():void{
             if (jitterWatcher_ == null){
                 jitterWatcher_ = new JitterWatcher();
-            };
+            }
         }
 
         override public function disableJitterWatcher():void{
             if (jitterWatcher_ != null){
                 jitterWatcher_ = null;
-            };
+            }
         }
 
         private function create():void{
@@ -652,7 +652,7 @@ package kabam.rotmg.messaging.impl{
             serverConnection.sendMessage(_local1);
             if (isFromArena_){
                 this.openDialog.dispatch(new BattleSummaryDialog());
-            };
+            }
         }
 
         override public function playerShoot(_arg1:int, _arg2:Projectile):void{
@@ -732,7 +732,7 @@ package kabam.rotmg.messaging.impl{
         override public function invSwap(_arg1:Player, _arg2:GameObject, _arg3:int, _arg4:int, _arg5:GameObject, _arg6:int, _arg7:int):Boolean{
             if (!gs_){
                 return (false);
-            };
+            }
             var _local8:InvSwap = (this.messages.require(INVSWAP) as InvSwap);
             _local8.time_ = gs_.lastUpdate_;
             _local8.position_.x_ = _arg1.x_;
@@ -754,7 +754,7 @@ package kabam.rotmg.messaging.impl{
         override public function invSwapPotion(_arg1:Player, _arg2:GameObject, _arg3:int, _arg4:int, _arg5:GameObject, _arg6:int, _arg7:int):Boolean{
             if (!gs_){
                 return (false);
-            };
+            }
             var _local8:InvSwap = (this.messages.require(INVSWAP) as InvSwap);
             _local8.time_ = gs_.lastUpdate_;
             _local8.position_.x_ = _arg1.x_;
@@ -772,8 +772,8 @@ package kabam.rotmg.messaging.impl{
             else {
                 if (_arg4 == PotionInventoryModel.MAGIC_POTION_ID){
                     _arg1.magicPotionCount_++;
-                };
-            };
+                }
+            }
             serverConnection.sendMessage(_local8);
             SoundEffectLibrary.play("inventory_move_item");
             return true;;
@@ -787,7 +787,7 @@ package kabam.rotmg.messaging.impl{
             serverConnection.sendMessage(_local4);
             if (((!((_arg2 == PotionInventoryModel.HEALTH_POTION_SLOT))) && (!((_arg2 == PotionInventoryModel.MAGIC_POTION_SLOT))))){
                 _arg1.equipment_[_arg2] = ItemConstants.NO_ITEM;
-            };
+            }
         }
 
         override public function useItem(_arg1:int, _arg2:int, _arg3:int, _arg4:int, _arg5:Number, _arg6:Number, _arg7:int):void{
@@ -810,14 +810,14 @@ package kabam.rotmg.messaging.impl{
                 if (!this.validStatInc(_local3, _arg1)){
                     this.addTextLine.dispatch(ChatMessage.make("", (_local4.attribute("id") + " not consumed. Already at Max.")));
                     return (false);
-                };
+                }
                 if (isStatPotion(_local3)){
                     this.addTextLine.dispatch(ChatMessage.make("", (_local4.attribute("id") + " Consumed ++")));
-                };
+                }
                 this.applyUseItem(_arg1, _arg2, _local3, _local4);
                 SoundEffectLibrary.play("use_potion");
                 return true;;
-            };
+            }
             SoundEffectLibrary.play("error");
             return (false);
         }
@@ -832,14 +832,14 @@ package kabam.rotmg.messaging.impl{
                 }
                 else {
                     p = this.player;
-                };
+                }
                 if ((((((((((((((((((((((((itemId == 2591)) || ((itemId == 5465)))) || ((itemId == 9064)))) || ((itemId == 9729)))) && ((p.attackMax_ == (p.attack_ - p.attackBoost_))))) || ((((((((((itemId == 2592)) || ((itemId == 5466)))) || ((itemId == 9065)))) || ((itemId == 9727)))) && ((p.defenseMax_ == (p.defense_ - p.defenseBoost_))))))) || ((((((((((itemId == 2593)) || ((itemId == 5467)))) || ((itemId == 9066)))) || ((itemId == 9726)))) && ((p.speedMax_ == (p.speed_ - p.speedBoost_))))))) || ((((((((((itemId == 2612)) || ((itemId == 5468)))) || ((itemId == 9067)))) || ((itemId == 9724)))) && ((p.vitalityMax_ == (p.vitality_ - p.vitalityBoost_))))))) || ((((((((((itemId == 2613)) || ((itemId == 5469)))) || ((itemId == 9068)))) || ((itemId == 9725)))) && ((p.wisdomMax_ == (p.wisdom_ - p.wisdomBoost_))))))) || ((((((((((itemId == 2636)) || ((itemId == 5470)))) || ((itemId == 9069)))) || ((itemId == 0x2600)))) && ((p.dexterityMax_ == (p.dexterity_ - p.dexterityBoost_))))))) || ((((((((((itemId == 2793)) || ((itemId == 5471)))) || ((itemId == 9070)))) || ((itemId == 9731)))) && ((p.maxHPMax_ == (p.maxHP_ - p.maxHPBoost_))))))) || ((((((((((itemId == 2794)) || ((itemId == 5472)))) || ((itemId == 9071)))) || ((itemId == 9730)))) && ((p.maxMPMax_ == (p.maxMP_ - p.maxMPBoost_))))))){
                     return (false);
-                };
+                }
             }
             catch(err:Error) {
                 logger.error(("PROBLEM IN STAT INC " + err.getStackTrace()));
-            };
+            }
             return true;;
         }
 
@@ -854,7 +854,7 @@ package kabam.rotmg.messaging.impl{
             serverConnection.sendMessage(_local5);
             if (_arg4.hasOwnProperty("Consumable")){
                 _arg1.equipment_[_arg2] = -1;
-            };
+            }
         }
 
         override public function setCondition(_arg1:uint, _arg2:Number):void{
@@ -872,7 +872,7 @@ package kabam.rotmg.messaging.impl{
             if (((_arg3) && (!(_arg3.isPaused())))){
                 _local4 = _arg3.x_;
                 _local5 = _arg3.y_;
-            };
+            }
             var _local6:Move = (this.messages.require(MOVE) as Move);
             _local6.tickId_ = _arg1;
             _local6.time_ = gs_.lastUpdate_;
@@ -888,8 +888,8 @@ package kabam.rotmg.messaging.impl{
                     if (gs_.moveRecords_.records_[_local9].time_ >= (_local6.time_ - 25)) break;
                     _local6.records_.push(gs_.moveRecords_.records_[_local9]);
                     _local9++;
-                };
-            };
+                }
+            }
             gs_.moveRecords_.clear(_local6.time_);
             serverConnection.sendMessage(_local6);
             ((_arg3) && (_arg3.onMove()));
@@ -914,15 +914,15 @@ package kabam.rotmg.messaging.impl{
             var quantity:int = _arg2;
             if (outstandingBuy_ != null){
                 return;
-            };
+            }
             sObj = gs_.map.goDict_[sellableObjectId];
             if (sObj == null){
                 return;
-            };
+            }
             converted = false;
             if (sObj.currency_ == Currency.GOLD){
                 converted = ((((gs_.model.getConverted()) || ((this.player.credits_ > 100)))) || ((sObj.price_ > this.player.credits_)));
-            };
+            }
             if (sObj.soldObjectName() == TextKey.VAULT_CHEST){
                 this.openDialog.dispatch(new PurchaseConfirmationDialog(function ():void{
                     buyConfirmation(sObj, converted, sellableObjectId, quantity);
@@ -930,7 +930,7 @@ package kabam.rotmg.messaging.impl{
             }
             else {
                 this.buyConfirmation(sObj, converted, sellableObjectId, quantity);
-            };
+            }
         }
 
         private function buyConfirmation(_arg1:SellableObject, _arg2:Boolean, _arg3:int, _arg4:int, _arg5:Boolean=false):void{
@@ -1009,7 +1009,7 @@ package kabam.rotmg.messaging.impl{
         override public function escape():void{
             if (this.playerId_ == -1){
                 return;
-            };
+            }
             if (((gs_.map) && ((gs_.map.name_ == "Arena")))){
                 serverConnection.sendMessage(this.messages.require(ACCEPT_ARENA_DEATH));
             }
@@ -1017,7 +1017,7 @@ package kabam.rotmg.messaging.impl{
                 this.isNexusing = true;
                 serverConnection.sendMessage(this.messages.require(ESCAPE));
                 this.showHideKeyUISignal.dispatch(false);
-            };
+            }
         }
 
         override public function gotoQuestRoom():void{
@@ -1090,13 +1090,13 @@ package kabam.rotmg.messaging.impl{
                 _local3 = (_local2.boDict_[_local5] as Projectile);
                 if (((!((_local3 == null))) && (!(_local3.projProps_.multiHit_)))){
                     _local2.removeObj(_local5);
-                };
-            };
+                }
+            }
             var _local4:GameObject = _local2.goDict_[_arg1.targetId_];
             if (_local4 != null){
                 _local6 = (_arg1.objectId_ == this.player.objectId_);
                 _local4.damage(_local6, _arg1.damageAmount_, _arg1.effects_, _arg1.kill_, _local3, _arg1.armorPierce_);
-            };
+            }
         }
 
         private function onServerPlayerShoot(_arg1:ServerPlayerShoot):void{
@@ -1105,12 +1105,12 @@ package kabam.rotmg.messaging.impl{
             if ((((_local3 == null)) || (_local3.dead_))){
                 if (_local2){
                     this.shootAck(-1);
-                };
+                }
                 return;
-            };
+            }
             if (((!((_local3.objectId_ == this.playerId_))) && (Parameters.data_.disableAllyShoot))){
                 return;
-            };
+            }
             var _local4:Projectile = (FreeList.newObject(Projectile) as Projectile);
             var _local5:Player = (_local3 as Player);
             if (_local5 != null){
@@ -1118,12 +1118,12 @@ package kabam.rotmg.messaging.impl{
             }
             else {
                 _local4.reset(_arg1.containerType_, 0, _arg1.ownerId_, _arg1.bulletId_, _arg1.angle_, gs_.lastUpdate_);
-            };
+            }
             _local4.setDamage(_arg1.damage_);
             gs_.map.addObj(_local4, _arg1.startingPos_.x_, _arg1.startingPos_.y_);
             if (_local2){
                 this.shootAck(gs_.lastUpdate_);
-            };
+            }
         }
 
         private function onAllyShoot(_arg1:AllyShoot):void{
@@ -1132,14 +1132,14 @@ package kabam.rotmg.messaging.impl{
             var _local2:GameObject = gs_.map.goDict_[_arg1.ownerId_];
             if ((((_local2 == null)) || (_local2.dead_))){
                 return;
-            };
+            }
             if (Parameters.data_.disableAllyShoot == 1){
                 return;
-            };
+            }
             _local2.setAttack(_arg1.containerType_, _arg1.angle_);
             if (Parameters.data_.disableAllyShoot == 2){
                 return;
-            };
+            }
             var _local3:Projectile = (FreeList.newObject(Projectile) as Projectile);
             var _local4:Player = (_local2 as Player);
             if (_local4 != null){
@@ -1148,12 +1148,12 @@ package kabam.rotmg.messaging.impl{
                 if (!_arg1.bard_){
                     _local5 = 1;
                     _local6 = 1;
-                };
+                }
                 _local3.reset(_arg1.containerType_, 0, _arg1.ownerId_, _arg1.bulletId_, _arg1.angle_, gs_.lastUpdate_, _local4.projectileIdSetOverrideNew, _local4.projectileIdSetOverrideOld, _local5, _local6);
             }
             else {
                 _local3.reset(_arg1.containerType_, 0, _arg1.ownerId_, _arg1.bulletId_, _arg1.angle_, gs_.lastUpdate_);
-            };
+            }
             gs_.map.addObj(_local3, _local2.x_, _local2.y_);
         }
 
@@ -1165,15 +1165,15 @@ package kabam.rotmg.messaging.impl{
                 for (_local2 in this.model.player.lockedSlot) {
                     if (this.model.player.lockedSlot[_local2] == _arg1.skinID){
                         this.model.player.lockedSlot[_local2] = 0;
-                    };
-                };
+                    }
+                }
                 _local3 = this.classesModel.getCharacterClass(this.model.player.objectType_).skins.getSkin(_arg1.skinID);
                 _local3.setState(CharacterSkinState.OWNED);
             }
             else {
                 _local4 = StaticInjectorContext.getInjector().getInstance(PetsModel);
                 _local4.unlockSkin(_arg1.skinID);
-            };
+            }
         }
 
         private function onEnemyShoot(_arg1:EnemyShoot):void{
@@ -1183,7 +1183,7 @@ package kabam.rotmg.messaging.impl{
             if ((((_local2 == null)) || (_local2.dead_))){
                 this.shootAck(-1);
                 return;
-            };
+            }
             var _local3:int;
             while (_local3 < _arg1.numShots_) {
                 _local4 = (FreeList.newObject(Projectile) as Projectile);
@@ -1192,7 +1192,7 @@ package kabam.rotmg.messaging.impl{
                 _local4.setDamage(_arg1.damage_);
                 gs_.map.addObj(_local4, _arg1.startingPos_.x_, _arg1.startingPos_.y_);
                 _local3++;
-            };
+            }
             this.shootAck(gs_.lastUpdate_);
             _local2.setAttack(_local2.objectType_, (_arg1.angle_ + (_arg1.angleInc_ * ((_arg1.numShots_ - 1) / 2))));
         }
@@ -1200,13 +1200,13 @@ package kabam.rotmg.messaging.impl{
         private function onTradeRequested(_arg1:TradeRequested):void{
             if (!Parameters.data_.chatTrade){
                 return;
-            };
+            }
             if (((Parameters.data_.tradeWithFriends) && (!(this.socialModel.isMyFriend(_arg1.name_))))){
                 return;
-            };
+            }
             if (Parameters.data_.showTradePopup){
                 gs_.hudView.interactPanel.setOverride(new TradeRequestPanel(gs_, _arg1.name_));
-            };
+            }
             this.addTextLine.dispatch(ChatMessage.make("", ((((_arg1.name_ + " wants to ") + 'trade with you.  Type "/trade ') + _arg1.name_) + '" to trade.')));
         }
 
@@ -1229,7 +1229,7 @@ package kabam.rotmg.messaging.impl{
                 _local3 = _local4.tokens;
             }
             catch(e:Error) {
-            };
+            }
             this.addTextLine.dispatch(ChatMessage.make(Parameters.SERVER_CHAT_NAME, _local2, -1, -1, "", false, _local3));
         }
 
@@ -1242,17 +1242,17 @@ package kabam.rotmg.messaging.impl{
             var _local3:GameObject = ObjectLibrary.getObjectFromType(_arg1.objectType_);
             if (_local3 == null){
                 return;
-            };
+            }
             var _local4:ObjectStatusData = _arg1.status_;
             _local3.setObjectId(_local4.objectId_);
             _local2.addObj(_local3, _local4.pos_.x_, _local4.pos_.y_);
             if ((_local3 is Player)){
                 this.handleNewPlayer((_local3 as Player), _local2);
-            };
+            }
             this.processObjectStatus(_local4, 0, -1);
             if (((((_local3.props_.static_) && (_local3.props_.occupySquare_))) && (!(_local3.props_.noMiniMap_)))){
                 this.updateGameObjectTileSignal.dispatch(new UpdateGameObjectTileVO(_local3.x_, _local3.y_, _local3));
-            };
+            }
         }
 
         private function handleNewPlayer(_arg1:Player, _arg2:AbstractMap):void{
@@ -1263,7 +1263,7 @@ package kabam.rotmg.messaging.impl{
                 _arg2.player_ = _arg1;
                 gs_.setFocus(_arg1);
                 this.setGameFocus.dispatch(this.playerId_.toString());
-            };
+            }
         }
 
         private function onUpdate(_arg1:Update):void{
@@ -1277,17 +1277,17 @@ package kabam.rotmg.messaging.impl{
                 gs_.map.setGroundTile(_local4.x_, _local4.y_, _local4.type_);
                 this.updateGroundTileSignal.dispatch(new UpdateGroundTileVO(_local4.x_, _local4.y_, _local4.type_));
                 _local3++;
-            };
+            }
             _local3 = 0;
             while (_local3 < _arg1.newObjs_.length) {
                 this.addObject(_arg1.newObjs_[_local3]);
                 _local3++;
-            };
+            }
             _local3 = 0;
             while (_local3 < _arg1.drops_.length) {
                 gs_.map.removeObj(_arg1.drops_[_local3]);
                 _local3++;
-            };
+            }
         }
 
         private function onNotification(_arg1:Notification):void{
@@ -1298,15 +1298,15 @@ package kabam.rotmg.messaging.impl{
                 if (_local2 == this.player){
                     if (_local3.key == "server.quest_complete"){
                         gs_.map.quest_.completed();
-                    };
+                    }
                     this.makeNotification(_local3, _local2, _arg1.color_, 1000);
                 }
                 else {
                     if (((_local2.props_.isEnemy_) || (!(Parameters.data_.noAllyNotifications)))){
                         this.makeNotification(_local3, _local2, _arg1.color_, 1000);
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         private function makeNotification(_arg1:LineBuilder, _arg2:GameObject, _arg3:uint, _arg4:int):void{
@@ -1340,30 +1340,30 @@ package kabam.rotmg.messaging.impl{
                     return;
                 case "beginnersPackage":
                     return;
-            };
+            }
         }
 
         private function onNewTick(_arg1:NewTick):void{
             var _local2:ObjectStatusData;
             if (jitterWatcher_ != null){
                 jitterWatcher_.record();
-            };
+            }
             lastServerRealTimeMS_ = _arg1.serverRealTimeMS_;
             this.move(_arg1.tickId_, lastServerRealTimeMS_, this.player);
             for each (_local2 in _arg1.statuses_) {
                 this.processObjectStatus(_local2, _arg1.tickTime_, _arg1.tickId_);
-            };
+            }
             lastTickId_ = _arg1.tickId_;
         }
 
         private function canShowEffect(_arg1:GameObject):Boolean{
             if (_arg1 != null){
                 return true;;
-            };
+            }
             var _local2 = (_arg1.objectId_ == this.playerId_);
             if (((((!(_local2)) && (_arg1.props_.isPlayer_))) && (Parameters.data_.disableAllyShoot))){
                 return (false);
-            };
+            }
             return true;;
         }
 
@@ -1387,7 +1387,7 @@ package kabam.rotmg.messaging.impl{
             var _local19:uint;
             if (((Parameters.data_.noParticlesMaster) && ((((((((((((((((((_arg1.effectType_ == ShowEffect.HEAL_EFFECT_TYPE)) || ((_arg1.effectType_ == ShowEffect.TELEPORT_EFFECT_TYPE)))) || ((_arg1.effectType_ == ShowEffect.STREAM_EFFECT_TYPE)))) || ((_arg1.effectType_ == ShowEffect.POISON_EFFECT_TYPE)))) || ((_arg1.effectType_ == ShowEffect.LINE_EFFECT_TYPE)))) || ((_arg1.effectType_ == ShowEffect.FLOW_EFFECT_TYPE)))) || ((_arg1.effectType_ == ShowEffect.COLLAPSE_EFFECT_TYPE)))) || ((_arg1.effectType_ == ShowEffect.CONEBLAST_EFFECT_TYPE)))) || ((_arg1.effectType_ == ShowEffect.NOVA_NO_AOE_EFFECT_TYPE)))))){
                 return;
-            };
+            }
             var _local2:AbstractMap = gs_.map;
             switch (_arg1.effectType_){
                 case ShowEffect.HEAL_EFFECT_TYPE:
@@ -1483,7 +1483,7 @@ package kabam.rotmg.messaging.impl{
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
                     if (((_local3) && (_local3.spritesProjectEffect))){
                         _local3.spritesProjectEffect.destroy();
-                    };
+                    }
                     _local2.addObj(new InspireEffect(_local3, 0xFFBA00, 5), _local3.x_, _local3.y_);
                     _local3.flash_ = new FlashDescription(getTimer(), _arg1.color_, _arg1.pos2_.x_, _arg1.pos2_.y_);
                     _local4 = new SpritesProjectEffect(_local3, _arg1.pos1_.x_);
@@ -1495,7 +1495,7 @@ package kabam.rotmg.messaging.impl{
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
                     if (((_local3) && (_local3.shockEffect))){
                         _local3.shockEffect.destroy();
-                    };
+                    }
                     _local4 = new ShockerEffect(_local3);
                     _local3.shockEffect = ShockerEffect(_local4);
                     gs_.map.addObj(_local4, _local3.x_, _local3.y_);
@@ -1567,7 +1567,7 @@ package kabam.rotmg.messaging.impl{
                     _local3.flash_ = new FlashDescription(getTimer(), _local17, 0.25, 1);
                     _local2.addObj(new OrbEffect(_local3, _local17, _local18, _local19, 1.5, 2500, _arg1.pos1_.toPoint()), _arg1.pos1_.x_, _arg1.pos1_.y_);
                     return;
-            };
+            }
         }
 
         private function onGoto(_arg1:Goto):void{
@@ -1575,7 +1575,7 @@ package kabam.rotmg.messaging.impl{
             var _local2:GameObject = gs_.map.goDict_[_arg1.objectId_];
             if (_local2 == null){
                 return;
-            };
+            }
             _local2.onGoto(_arg1.pos_.x_, _arg1.pos_.y_, gs_.lastUpdate_);
         }
 
@@ -1591,9 +1591,9 @@ package kabam.rotmg.messaging.impl{
                 this.petUpdater.updatePet(_local6, _arg2);
                 if (gs_.map.isPetYard){
                     this.petUpdater.updatePetVOs(_local6, _arg2);
-                };
+                }
                 return;
-            };
+            }
             for each (_local7 in _arg2) {
                 _local8 = _local7.statValue_;
                 switch (_local7.statType_){
@@ -1604,7 +1604,7 @@ package kabam.rotmg.messaging.impl{
                         _arg1.hp_ = _local8;
                         if (((((((_arg1.dead_) && ((_local8 > 1)))) && (_arg1.props_.isEnemy_))) && ((++_arg1.deadCounter_ >= 2)))){
                             _arg1.dead_ = false;
-                        };
+                        }
                         break;
                     case StatData.SIZE_STAT:
                         _arg1.size_ = _local8;
@@ -1616,7 +1616,7 @@ package kabam.rotmg.messaging.impl{
                         _local4.mp_ = _local8;
                         if (_local8 == 0){
                             _local4.mpZeroed_ = true;
-                        };
+                        }
                         break;
                     case StatData.NEXT_LEVEL_EXP_STAT:
                         _local4.nextLevelExp_ = _local8;
@@ -1628,7 +1628,7 @@ package kabam.rotmg.messaging.impl{
                         _arg1.level_ = _local8;
                         if (((!((_local4 == null))) && ((_arg1.objectId_ == this.playerId_)))){
                             this.realmQuestLevelSignal.dispatch(_local8);
-                        };
+                        }
                         break;
                     case StatData.ATTACK_STAT:
                         _local4.attack_ = _local8;
@@ -1666,7 +1666,7 @@ package kabam.rotmg.messaging.impl{
                         _local9 = (_local7.statType_ - StatData.INVENTORY_0_STAT);
                         if (_local8 != -1){
                             _arg1.lockedSlot[_local9] = 0;
-                        };
+                        }
                         _arg1.equipment_[_local9] = _local8;
                         break;
                     case StatData.NUM_STARS_STAT:
@@ -1676,7 +1676,7 @@ package kabam.rotmg.messaging.impl{
                         if (_arg1.name_ != _local7.strStatValue_){
                             _arg1.name_ = _local7.strStatValue_;
                             _arg1.nameBitmapData_ = null;
-                        };
+                        }
                         break;
                     case StatData.TEX1_STAT:
                         (((_local8 >= 0)) && (_arg1.setTex1(_local8)));
@@ -1711,13 +1711,13 @@ package kabam.rotmg.messaging.impl{
                             _local4.clearTextureCache();
                             if (_local4.objectId_ == this.playerId_){
                                 StaticInjectorContext.getInjector().getInstance(SupporterCampaignModel).updatePoints(_local8);
-                            };
-                        };
+                            }
+                        }
                         break;
                     case StatData.SUPPORTER_STAT:
                         if (_local4 != null){
                             _local4.setSupporterFlag(_local8);
-                        };
+                        }
                         break;
                     case StatData.MERCHANDISE_CURRENCY_STAT:
                         (_arg1 as SellableObject).setCurrency(_local8);
@@ -1786,7 +1786,7 @@ package kabam.rotmg.messaging.impl{
                     case StatData.SINK_LEVEL_STAT:
                         if (!_arg3){
                             _local4.sinkLevel_ = _local8;
-                        };
+                        }
                         break;
                     case StatData.ALT_TEXTURE_STAT:
                         _arg1.setAltTexture(_local8);
@@ -1831,14 +1831,14 @@ package kabam.rotmg.messaging.impl{
                         else {
                             if ((((_arg1.objectType_ == 1813)) && ((_local8 > 0)))){
                                 _arg1.setTexture(_local8);
-                            };
-                        };
+                            }
+                        }
                         break;
                     case StatData.HASBACKPACK_STAT:
                         (_arg1 as Player).hasBackpack_ = Boolean(_local8);
                         if (_arg3){
                             this.updateBackpackTab.dispatch(Boolean(_local8));
-                        };
+                        }
                         break;
                     case StatData.BACKPACK_0_STAT:
                     case StatData.BACKPACK_1_STAT:
@@ -1854,8 +1854,8 @@ package kabam.rotmg.messaging.impl{
                     case StatData.NEW_CON_STAT:
                         _arg1.condition_[ConditionEffect.CE_SECOND_BATCH] = _local8;
                         break;
-                };
-            };
+                }
+            }
         }
 
         private function setPlayerSkinTemplate(_arg1:Player, _arg2:int):void{
@@ -1882,26 +1882,26 @@ package kabam.rotmg.messaging.impl{
             var _local5:GameObject = _local4.goDict_[_arg1.objectId_];
             if (_local5 == null){
                 return;
-            };
+            }
             var _local6 = (_arg1.objectId_ == this.playerId_);
             if (((!((_arg2 == 0))) && (!(_local6)))){
                 _local5.onTickPos(_arg1.pos_.x_, _arg1.pos_.y_, _arg2, _arg3);
-            };
+            }
             var _local7:Player = (_local5 as Player);
             if (_local7 != null){
                 _local8 = _local7.level_;
                 _local9 = _local7.exp_;
                 _local10 = _local7.skinId;
                 _local11 = _local7.currFame_;
-            };
+            }
             this.updateGameObject(_local5, _arg1.stats_, _local6);
             if (_local7){
                 if (_local6){
                     _local12 = this.classesModel.getCharacterClass(_local7.objectType_);
                     if (_local12.getMaxLevelAchieved() < _local7.level_){
                         _local12.setMaxLevelAchieved(_local7.level_);
-                    };
-                };
+                    }
+                }
                 if (_local7.skinId != _local10){
                     if (ObjectLibrary.skinSetXMLDataLibrary_[_local7.skinId] != null){
                         _local13 = (ObjectLibrary.skinSetXMLDataLibrary_[_local7.skinId] as XML);
@@ -1909,56 +1909,56 @@ package kabam.rotmg.messaging.impl{
                         _local15 = _local13.attribute("bulletType");
                         if (((!((_local8 == -1))) && ((_local14.length > 0)))){
                             _local7.levelUpParticleEffect(int(_local14));
-                        };
+                        }
                         if (_local15.length > 0){
                             _local7.projectileIdSetOverrideNew = _local15;
                             _local16 = _local7.equipment_[0];
                             _local17 = ObjectLibrary.propsLibrary_[_local16];
                             _local18 = _local17.projectiles_[0];
                             _local7.projectileIdSetOverrideOld = _local18.objectId_;
-                        };
+                        }
                     }
                     else {
                         if (ObjectLibrary.skinSetXMLDataLibrary_[_local7.skinId] == null){
                             _local7.projectileIdSetOverrideNew = "";
                             _local7.projectileIdSetOverrideOld = "";
-                        };
-                    };
-                };
+                        }
+                    }
+                }
                 if (((!((_local8 == -1))) && ((_local7.level_ > _local8)))){
                     if (_local6){
                         _local19 = gs_.model.getNewUnlocks(_local7.objectType_, _local7.level_);
                         _local7.handleLevelUp(!((_local19.length == 0)));
                         if (_local19.length > 0){
                             this.newClassUnlockSignal.dispatch(_local19);
-                        };
+                        }
                     }
                     else {
                         if (!Parameters.data_.noAllyNotifications){
                             _local7.levelUpEffect(TextKey.PLAYER_LEVELUP);
-                        };
-                    };
+                        }
+                    }
                 }
                 else {
                     if (((!((_local8 == -1))) && ((_local7.exp_ > _local9)))){
                         if (((_local6) || (!(Parameters.data_.noAllyNotifications)))){
                             _local7.handleExpUp((_local7.exp_ - _local9));
-                        };
-                    };
-                };
+                        }
+                    }
+                }
                 if (((((Parameters.data_.showFameGain) && (!((_local11 == -1))))) && ((_local7.currFame_ > _local11)))){
                     if (_local6){
                         _local7.updateFame((_local7.currFame_ - _local11));
-                    };
-                };
+                    }
+                }
                 this.socialModel.updateFriendVO(_local7.getName(), _local7);
-            };
+            }
         }
 
         private function onInvResult(_arg1:InvResult):void{
             if (_arg1.result_ != 0){
                 this.handleInvFailure();
-            };
+            }
         }
 
         private function handleInvFailure():void{
@@ -1976,7 +1976,7 @@ package kabam.rotmg.messaging.impl{
             isFromArena_ = _arg1.isFromArena_;
             if (_arg1.stats_){
                 this.statsTracker.setBinaryStringData(_local5, _arg1.stats_);
-            };
+            }
             this.isNexusing = false;
             var _local8:ReconnectEvent = new ReconnectEvent(_local2, _local3, _local4, _local5, _local6, _local7, isFromArena_);
             gs_.dispatchEvent(_local8);
@@ -2000,10 +2000,10 @@ package kabam.rotmg.messaging.impl{
             var _local3:String;
             for each (_local2 in _arg1.clientXML_) {
                 this.parseXML(_local2);
-            };
+            }
             for each (_local3 in _arg1.extraXML_) {
                 this.parseXML(_local3);
-            };
+            }
             changeMapSignal.dispatch();
             this.closeDialogs.dispatch();
             gs_.applyMapInfo(_arg1);
@@ -2013,7 +2013,7 @@ package kabam.rotmg.messaging.impl{
             }
             else {
                 this.load();
-            };
+            }
             connectionGuid = _arg1.connectionGuid_;
         }
 
@@ -2028,18 +2028,18 @@ package kabam.rotmg.messaging.impl{
             _arg1.background = _local2;
             if (!gs_.isEditor){
                 this.handleDeath.dispatch(_arg1);
-            };
+            }
             if (gs_.map.name_ == "Davy Jones' Locker"){
                 this.showHideKeyUISignal.dispatch(false);
-            };
+            }
         }
 
         private function onBuyResult(_arg1:BuyResult):void{
             if (_arg1.result_ == BuyResult.SUCCESS_BRID){
                 if (outstandingBuy_ != null){
                     outstandingBuy_.record();
-                };
-            };
+                }
+            }
             outstandingBuy_ = null;
             this.handleBuyResultType(_arg1);
         }
@@ -2059,7 +2059,7 @@ package kabam.rotmg.messaging.impl{
                     return;
                 default:
                     this.handleDefaultResult(_arg1);
-            };
+            }
         }
 
         private function handleDefaultResult(_arg1:BuyResult):void{
@@ -2078,17 +2078,17 @@ package kabam.rotmg.messaging.impl{
                     }
                     else {
                         gs_.map.party_.removeStars(_arg1);
-                    };
+                    }
                 }
                 else {
                     gs_.map.party_.setStars(_arg1);
-                };
+                }
             }
             else {
                 if (_arg1.accountListId_ == 1){
                     gs_.map.party_.setIgnores(_arg1);
-                };
-            };
+                }
+            }
         }
 
         private function onQuestObjId(_arg1:QuestObjId):void{
@@ -2101,13 +2101,13 @@ package kabam.rotmg.messaging.impl{
             if (this.player == null){
                 this.aoeAck(gs_.lastUpdate_, 0, 0);
                 return;
-            };
+            }
             var _local2:AOEEffect = new AOEEffect(_arg1.pos_.toPoint(), _arg1.radius_, _arg1.color_);
             gs_.map.addObj(_local2, _arg1.pos_.x_, _arg1.pos_.y_);
             if (((this.player.isInvincible()) || (this.player.isPaused()))){
                 this.aoeAck(gs_.lastUpdate_, this.player.x_, this.player.y_);
                 return;
-            };
+            }
             var _local3 = (this.player.distTo(_arg1.pos_) < _arg1.radius_);
             if (_local3){
                 _local4 = GameObject.damageWithDefense(_arg1.damage_, this.player.defense_, _arg1.armorPierce_, this.player.condition_);
@@ -2115,9 +2115,9 @@ package kabam.rotmg.messaging.impl{
                 if (_arg1.effect_ != 0){
                     _local5 = new Vector.<uint>();
                     _local5.push(_arg1.effect_);
-                };
+                }
                 this.player.damage(true, _local4, _local5, false, null, _arg1.armorPierce_);
-            };
+            }
             this.aoeAck(gs_.lastUpdate_, this.player.x_, this.player.y_);
         }
 
@@ -2134,7 +2134,7 @@ package kabam.rotmg.messaging.impl{
                 _local2 = LineBuilder.fromJSON(_arg1.lineBuilderJSON);
                 this.addTextLine.dispatch(ChatMessage.make(Parameters.ERROR_CHAT_NAME, _local2.key, -1, -1, "", false, _local2.tokens));
                 gs_.dispatchEvent(new GuildResultEvent(_arg1.success_, _local2.key, _local2.tokens));
-            };
+            }
         }
 
         private function onClientStat(_arg1:ClientStat):void{
@@ -2149,7 +2149,7 @@ package kabam.rotmg.messaging.impl{
         private function onInvitedToGuild(_arg1:InvitedToGuild):void{
             if (Parameters.data_.showGuildInvitePopup){
                 gs_.hudView.interactPanel.setOverride(new GuildInvitePanel(gs_, _arg1.name_, _arg1.guildName_));
-            };
+            }
             this.addTextLine.dispatch(ChatMessage.make("", (((((("You have been invited by " + _arg1.name_) + " to join the guild ") + _arg1.guildName_) + '.\n  If you wish to join type "/join ') + _arg1.guildName_) + '"')));
         }
 
@@ -2172,11 +2172,11 @@ package kabam.rotmg.messaging.impl{
             TitleView.queueEmailConfirmation = true;
             if (gs_ != null){
                 gs_.closed.dispatch();
-            };
+            }
             var _local2:HideMapLoadingSignal = StaticInjectorContext.getInjector().getInstance(HideMapLoadingSignal);
             if (_local2 != null){
                 _local2.dispatch();
-            };
+            }
         }
 
         private function onPasswordPrompt(_arg1:PasswordPrompt):void{
@@ -2190,16 +2190,16 @@ package kabam.rotmg.messaging.impl{
                 else {
                     if (_arg1.cleanPasswordStatus == 4){
                         TitleView.queueRegistrationPrompt = true;
-                    };
-                };
-            };
+                    }
+                }
+            }
             if (gs_ != null){
                 gs_.closed.dispatch();
-            };
+            }
             var _local2:HideMapLoadingSignal = StaticInjectorContext.getInjector().getInstance(HideMapLoadingSignal);
             if (_local2 != null){
                 _local2.dispatch();
-            };
+            }
         }
 
         override public function questFetch():void{
@@ -2321,7 +2321,7 @@ package kabam.rotmg.messaging.impl{
                     return;
                 default:
                     this.handleDefaultFailure(_arg1);
-            };
+            }
         }
 
         private function handleEmailVerificationNeeded(_arg1:Failure):void{
@@ -2353,7 +2353,7 @@ package kabam.rotmg.messaging.impl{
             var _local2:String = LineBuilder.getLocalizedStringFromJSON(_arg1.errorDescription_);
             if (_local2 == ""){
                 _local2 = _arg1.errorDescription_;
-            };
+            }
             this.addTextLine.dispatch(ChatMessage.make(Parameters.ERROR_CHAT_NAME, _local2));
             this.player.nextTeleportAt_ = 0;
         }
@@ -2362,7 +2362,7 @@ package kabam.rotmg.messaging.impl{
             var _local2:String = LineBuilder.getLocalizedStringFromJSON(_arg1.errorDescription_);
             if (_local2 == ""){
                 _local2 = _arg1.errorDescription_;
-            };
+            }
             this.addTextLine.dispatch(ChatMessage.make(Parameters.ERROR_CHAT_NAME, _local2));
             this.retryConnection_ = false;
             gs_.closed.dispatch();
@@ -2383,7 +2383,7 @@ package kabam.rotmg.messaging.impl{
             var _local2:String = LineBuilder.getLocalizedStringFromJSON(_arg1.errorDescription_);
             if (_local2 == ""){
                 _local2 = _arg1.errorDescription_;
-            };
+            }
             this.addTextLine.dispatch(ChatMessage.make(Parameters.ERROR_CHAT_NAME, _local2));
         }
 

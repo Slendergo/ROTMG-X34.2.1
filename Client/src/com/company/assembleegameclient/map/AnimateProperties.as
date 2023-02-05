@@ -23,7 +23,7 @@ package com.company.assembleegameclient.map{
                 case "Flow":
                     this.type_ = FLOW_ANIMATE;
                     break;
-            };
+            }
             this.dx_ = _arg1.@dx;
             this.dy_ = _arg1.@dy;
         }

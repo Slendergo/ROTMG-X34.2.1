@@ -58,7 +58,7 @@ package com.company.assembleegameclient.objects{
             }
             else {
                 this.skin = AnimatedChars.getAnimatedChar(_local3, _local4);
-            };
+            }
             this.isDefaultAnimatedChar = (this.skin == this.defaultSkin);
             _local5 = this.skin.imageFromAngle(0, AnimatedChar.STAND, 0);
             animatedChar_ = this.skin;
@@ -70,7 +70,7 @@ package com.company.assembleegameclient.objects{
                 props_.whileMoving_ = _local6.whileMoving_;
                 flying_ = props_.flying_;
                 z_ = props_.z_;
-            };
+            }
         }
 
         public function setDefaultSkin():void{
@@ -78,7 +78,7 @@ package com.company.assembleegameclient.objects{
             this.skinId = -1;
             if (this.defaultSkin == null){
                 return;
-            };
+            }
             _local1 = this.defaultSkin.imageFromAngle(0, AnimatedChar.STAND, 0);
             this.isDefaultAnimatedChar = true;
             animatedChar_ = this.defaultSkin;

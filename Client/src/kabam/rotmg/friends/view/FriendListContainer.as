@@ -59,14 +59,14 @@ package kabam.rotmg.friends.view{
             var _local2:Sprite = (this._itemContainer.getChildAt(_arg1) as Sprite);
             if (_local2 != null){
                 this._currentY = (this._currentY - (_local2.height + this.GAP_Y));
-            };
+            }
             return ((this._itemContainer.removeChildAt(_arg1) as Sprite));
         }
 
         public function clear():void{
             while (this._itemContainer.numChildren > 0) {
                 this._itemContainer.removeChildAt((this._itemContainer.numChildren - 1));
-            };
+            }
             this._currentY = 0;
         }
 
@@ -74,7 +74,7 @@ package kabam.rotmg.friends.view{
             this._scrollbar.visible = _arg1;
             if (_arg1){
                 this._scrollbar.setIndicatorSize(this._height, this._currentY);
-            };
+            }
         }
 
         private function onScrollBarChange(_arg1:Event):void{

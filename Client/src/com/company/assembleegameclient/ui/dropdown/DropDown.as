@@ -35,7 +35,7 @@ package com.company.assembleegameclient.ui.dropdown{
                 this.labelText_.updateMetrics();
                 addChild(this.labelText_);
                 this.xOffset_ = (this.labelText_.width + 5);
-            };
+            }
             this.setIndex(_arg5);
         }
 
@@ -53,16 +53,16 @@ package com.company.assembleegameclient.ui.dropdown{
                 if (_arg1 == this.strings_[_local2]){
                     this.setIndex(_local2);
                     return true;
-                };
+                }
                 _local2++;
-            };
+            }
             return false;
         }
 
         public function setIndex(_arg1:int):void{
             if (_arg1 >= this.strings_.length){
                 _arg1 = 0;
-            };
+            }
             this.setSelected(this.strings_[_arg1]);
         }
 
@@ -71,9 +71,9 @@ package com.company.assembleegameclient.ui.dropdown{
             while (_local1 < this.strings_.length) {
                 if (this.selected_.getValue() == this.strings_[_local1]){
                     return (_local1);
-                };
+                }
                 _local1++;
-            };
+            }
             return (-1);
         }
 
@@ -86,7 +86,7 @@ package com.company.assembleegameclient.ui.dropdown{
             this.selected_.addEventListener(MouseEvent.CLICK, this.onClick);
             if (_arg1 != _local2){
                 dispatchEvent(new Event(Event.CHANGE));
-            };
+            }
         }
 
         private function onClick(_arg1:MouseEvent):void{
@@ -94,7 +94,7 @@ package com.company.assembleegameclient.ui.dropdown{
             this.selected_.removeEventListener(MouseEvent.CLICK, this.onClick);
             if (contains(this.selected_)){
                 removeChild(this.selected_);
-            };
+            }
             this.showAll();
         }
 
@@ -113,7 +113,7 @@ package com.company.assembleegameclient.ui.dropdown{
                 _local5 = (this.xOffset_ - (this.w_ * _local6));
                 this.listItems(_local3, _local4, _local5);
                 _local6++;
-            };
+            }
             this.all_.addEventListener(MouseEvent.ROLL_OUT, this.onOut);
             stage.addChild(this.all_);
         }
@@ -131,7 +131,7 @@ package com.company.assembleegameclient.ui.dropdown{
                 this.all_.addChild(_local5);
                 _local4 = (_local4 + _local5.h_);
                 _local6++;
-            };
+            }
         }
 
         private function hideAll():void{

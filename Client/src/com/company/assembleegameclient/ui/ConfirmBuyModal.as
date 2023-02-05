@@ -69,7 +69,7 @@ package com.company.assembleegameclient.ui{
             this.quantityInputText = _local6.getLiteralTextObject("1", TEXT_MARGIN, 160);
             if (this.owner_.getSellableType() != -1){
                 _local8 = new ItemWithTooltip(this.owner_.getSellableType(), 64);
-            };
+            }
             _local8.x = (((WIDTH * 1) / 2) - (_local8.width / 2));
             _local8.y = 100;
             addChild(_local8);
@@ -157,14 +157,14 @@ package com.company.assembleegameclient.ui{
                 case this.rightNavSprite:
                     if (this.quantity_ < this.availableInventoryNumber){
                         this.quantity_ = (this.quantity_ + 1);
-                    };
+                    }
                     break;
                 case this.leftNavSprite:
                     if (this.quantity_ > 1){
                         this.quantity_ = (this.quantity_ - 1);
-                    };
+                    }
                     break;
-            };
+            }
             this.refreshNavDisable();
             var _local2:int = (this.owner_.price_ * this.quantity_);
             this.buyButton.setPrice(_local2, this.owner_.currency_);

@@ -20,7 +20,7 @@ package kabam.lib.signals{
         override public function dispatch(... _args):void{
             if (this.log){
                 this.data.push(_args);
-            };
+            }
             super.dispatch.apply(this, _args);
         }
 
@@ -28,7 +28,7 @@ package kabam.lib.signals{
             var _local2:ISlot = super.add(_arg1);
             while (this.data.length > 0) {
                 _arg1.apply(this, this.data.shift());
-            };
+            }
             this.log = false;
             return (_local2);
         }
@@ -41,10 +41,10 @@ package kabam.lib.signals{
             else {
                 _local2 = super.addOnce(_arg1);
                 this.log = false;
-            };
+            }
             while (this.data.length > 0) {
                 this.data.shift();
-            };
+            }
             return (_local2);
         }
 

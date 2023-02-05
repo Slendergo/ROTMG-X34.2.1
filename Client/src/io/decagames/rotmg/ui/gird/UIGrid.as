@@ -42,7 +42,7 @@ package io.decagames.rotmg.ui.gird{
                 this.scroll.content = this.gridContent;
                 this.scroll.scrollObject = _arg6;
                 this.gridMask = new Sprite();
-            };
+            }
             this.numberOfColumns = _arg2;
             this.addEventListener(Event.ADDED_TO_STAGE, this.onAddedHandler);
         }
@@ -68,8 +68,8 @@ package io.decagames.rotmg.ui.gird{
                 this.gridContent.addChild(_arg1);
                 if (this.stage){
                     this.render();
-                };
-            };
+                }
+            }
         }
 
         private function addDecorToRow(_arg1:int, _arg2:int, _arg3:int):void{
@@ -77,7 +77,7 @@ package io.decagames.rotmg.ui.gird{
             _arg3--;
             if (_arg3 == 0){
                 _arg3 = 1;
-            };
+            }
             var _local4:int;
             while (_local4 < _arg3) {
                 _local5 = TextureParser.instance.getSliceScalingBitmap("UI", this._decorBitmap);
@@ -86,7 +86,7 @@ package io.decagames.rotmg.ui.gird{
                 this.gridContent.addChild(_local5);
                 this.decors.push(_local5);
                 _local4++;
-            };
+            }
         }
 
         public function clearGrid():void{
@@ -95,17 +95,17 @@ package io.decagames.rotmg.ui.gird{
             for each (_local1 in this.elements) {
                 this.gridContent.removeChild(_local1);
                 _local1.dispose();
-            };
+            }
             for each (_local2 in this.decors) {
                 this.gridContent.removeChild(_local2);
                 _local2.dispose();
-            };
+            }
             if (this.elements){
                 this.elements.length = 0;
-            };
+            }
             if (this.decors){
                 this.decors.length = 0;
-            };
+            }
             this.lastRenderedItemsNumber = 0;
         }
 
@@ -114,7 +114,7 @@ package io.decagames.rotmg.ui.gird{
             var _local9:int;
             if (this.lastRenderedItemsNumber == this.elements.length){
                 return;
-            };
+            }
             this.elementWidth = ((this.gridWidth - ((this.numberOfColumns - 1) * this.gridMargin)) / this.numberOfColumns);
             var _local1:int = 1;
             var _local2:int;
@@ -127,7 +127,7 @@ package io.decagames.rotmg.ui.gird{
                 _local8.resize(this.elementWidth);
                 if (_local8.height > _local4){
                     _local4 = _local8.height;
-                };
+                }
                 _local8.x = _local2;
                 _local8.y = _local3;
                 _local1++;
@@ -135,31 +135,31 @@ package io.decagames.rotmg.ui.gird{
                     if (this._decorBitmap != ""){
                         _local7 = _local6;
                         this.addDecorToRow(_local3, _local4, (_local1 - 1));
-                    };
+                    }
                     _local6++;
                     _local2 = 0;
                     if ((((_local6 == _local5)) && (this._centerLastRow))){
                         _local9 = ((_local6 * this.numberOfColumns) - this.elements.length);
                         _local2 = Math.round((((_local9 * this.elementWidth) + ((_local9 - 1) * this.gridMargin)) / 2));
-                    };
+                    }
                     _local3 = (_local3 + (_local4 + this.gridMargin));
                     _local4 = 0;
                     _local1 = 1;
                 }
                 else {
                     _local2 = (_local2 + (this.elementWidth + this.gridMargin));
-                };
-            };
+                }
+            }
             if (((!((this._decorBitmap == ""))) && (!((_local7 == _local6))))){
                 this.addDecorToRow(_local3, _local4, (_local1 - 1));
-            };
+            }
             if (this.scrollHeight != -1){
                 this.gridMask.graphics.clear();
                 this.gridMask.graphics.beginFill(0xFF0000);
                 this.gridMask.graphics.drawRect(0, 0, this.gridWidth, this.scrollHeight);
                 this.gridContent.mask = this.gridMask;
                 addChild(this.gridMask);
-            };
+            }
             this.lastRenderedItemsNumber = this.elements.length;
         }
 
@@ -169,10 +169,10 @@ package io.decagames.rotmg.ui.gird{
             this.removeEventListener(Event.ENTER_FRAME, this.onUpdate);
             for each (_local1 in this.elements) {
                 _local1.dispose();
-            };
+            }
             for each (_local2 in this.decors) {
                 _local2.dispose();
-            };
+            }
             this.elements = null;
         }
 
@@ -180,7 +180,7 @@ package io.decagames.rotmg.ui.gird{
             var _local2:UIGridElement;
             for each (_local2 in this.elements) {
                 _local2.update();
-            };
+            }
         }
 
         public function get centerLastRow():Boolean{

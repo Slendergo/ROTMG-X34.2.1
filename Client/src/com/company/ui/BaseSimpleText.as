@@ -24,11 +24,11 @@ package com.company.ui{
             this.inputWidth_ = _arg4;
             if (this.inputWidth_ != 0){
                 width = _arg4;
-            };
+            }
             this.inputHeight_ = _arg5;
             if (this.inputHeight_ != 0){
                 height = _arg5;
-            };
+            }
             Font.registerFont(MyriadPro);
             var _local6:Font = new MyriadPro();
             var _local7:TextFormat = this.defaultTextFormat;
@@ -50,7 +50,7 @@ package com.company.ui{
             else {
                 selectable = false;
                 mouseEnabled = false;
-            };
+            }
         }
 
         public function setFont(_arg1:String):void{
@@ -114,10 +114,10 @@ package com.company.ui{
                 _local4 = (_local2.height + 4);
                 if (_local3 > this.actualWidth_){
                     this.actualWidth_ = _local3;
-                };
+                }
                 this.actualHeight_ = (this.actualHeight_ + _local4);
                 _local1++;
-            };
+            }
             width = (((this.inputWidth_)==0) ? this.actualWidth_ : this.inputWidth_);
             height = (((this.inputHeight_)==0) ? this.actualHeight_ : this.inputHeight_);
         }

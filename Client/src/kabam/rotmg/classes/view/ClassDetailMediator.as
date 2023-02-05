@@ -76,7 +76,7 @@ package kabam.rotmg.classes.view{
                 _local2 = this.skins[_local1];
                 _local2.dispose();
                 delete this.skins[_local1];
-            };
+            }
         }
 
 

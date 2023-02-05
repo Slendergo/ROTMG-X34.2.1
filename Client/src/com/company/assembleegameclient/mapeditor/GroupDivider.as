@@ -72,27 +72,27 @@ package com.company.assembleegameclient.mapeditor{
                                     else {
                                         _local7[_local10] = _local14;
                                         _local12 = true;
-                                    };
-                                };
-                            };
-                        };
+                                    }
+                                }
+                            }
+                        }
                         _local16 = ObjectLibrary.propsLibrary_[_local10].belonedDungeon;
                         if (((_local12) && (!((_local16 == ""))))){
                             if (_local9[_local16] == null){
                                 _local9[_local16] = new Dictionary(true);
-                            };
+                            }
                             _local9[_local16][_local10] = _local14;
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             for each (_local15 in GroundLibrary.xmlLibrary_) {
                 _local1[int(_local15.@type)] = _local15;
-            };
+            }
             if (_local13.isAdmin()){
                 for each (_local17 in RegionLibrary.xmlLibrary_) {
                     _local2[int(_local17.@type)] = _local17;
-                };
+                }
             }
             else {
                 _local2[RegionLibrary.idToType_["Spawn"]] = RegionLibrary.xmlLibrary_[RegionLibrary.idToType_["Spawn"]];
@@ -103,7 +103,7 @@ package com.company.assembleegameclient.mapeditor{
                 _local2[RegionLibrary.idToType_["Hallway 3"]] = RegionLibrary.xmlLibrary_[RegionLibrary.idToType_["Hallway 3"]];
                 _local2[RegionLibrary.idToType_["Quest Monster Region"]] = RegionLibrary.xmlLibrary_[RegionLibrary.idToType_["Quest Monster Region"]];
                 _local2[RegionLibrary.idToType_["Quest Monster Region 2"]] = RegionLibrary.xmlLibrary_[RegionLibrary.idToType_["Quest Monster Region 2"]];
-            };
+            }
             GROUPS[GROUP_LABELS[0]] = _local1;
             GROUPS[GROUP_LABELS[1]] = _local3;
             GROUPS[GROUP_LABELS[2]] = _local4;
@@ -120,7 +120,7 @@ package com.company.assembleegameclient.mapeditor{
             var _local1:Vector.<String> = new Vector.<String>();
             for (_local2 in ObjectLibrary.dungeonsXMLLibrary_) {
                 _local1.push(_local2);
-            };
+            }
             _local1.sort(MoreStringUtil.cmp);
             return (_local1);
         }
@@ -134,29 +134,29 @@ package com.company.assembleegameclient.mapeditor{
             var _local3:PlayerModel = StaticInjectorContext.getInjector().getInstance(PlayerModel);
             if (_arg2 == Layer.REGION){
                 return (GROUP_LABELS[6]);
-            };
+            }
             if (_arg2 == Layer.GROUND){
                 return (GROUP_LABELS[0]);
-            };
+            }
             if (_local3.isAdmin()){
                 return (GROUP_LABELS[5]);
-            };
+            }
             _local4 = ObjectLibrary.xmlLibrary_[_arg1];
             if (((((((((_local4.hasOwnProperty("Item")) || (_local4.hasOwnProperty("Player")))) || ((_local4.Class == "Projectile")))) || ((_local4.Class == "PetSkin")))) || ((_local4.Class == "Pet")))){
                 return ("");
-            };
+            }
             if (_local4.hasOwnProperty("Enemy")){
                 return (GROUP_LABELS[2]);
-            };
+            }
             if (_local4.hasOwnProperty("Model")){
                 return (GROUP_LABELS[4]);
-            };
+            }
             if (((_local4.hasOwnProperty("Class")) && (String(_local4.Class).match(/wall$/i)))){
                 return (GROUP_LABELS[3]);
-            };
+            }
             if (((_local4.hasOwnProperty("Static")) && (!(_local4.hasOwnProperty("Price"))))){
                 return (GROUP_LABELS[1]);
-            };
+            }
             return ("");
         }
 

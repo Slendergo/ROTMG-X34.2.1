@@ -84,12 +84,12 @@ package io.decagames.rotmg.supportCampaign.tab.donate.popup{
                     xml = new XML(data);
                     if (xml.hasOwnProperty("Gold")){
                         this.updateUserGold(int(xml.Gold));
-                    };
+                    }
                     this.model.parseUpdateData(xml);
                 }
                 catch(e:Error) {
                     showPopupSignal.dispatch(new ErrorModal(300, "Campaign Error", "General campaign error."));
-                };
+                }
             }
             else {
                 try {
@@ -99,8 +99,8 @@ package io.decagames.rotmg.supportCampaign.tab.donate.popup{
                 }
                 catch(e:Error) {
                     showPopupSignal.dispatch(new ErrorModal(300, "Campaign Error", "General campaign error."));
-                };
-            };
+                }
+            }
         }
 
         private function updateUserGold(_arg1:int):void{
@@ -110,7 +110,7 @@ package io.decagames.rotmg.supportCampaign.tab.donate.popup{
             }
             else {
                 this.playerModel.setCredits(_arg1);
-            };
+            }
         }
 
 

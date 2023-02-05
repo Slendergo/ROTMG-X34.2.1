@@ -44,7 +44,7 @@ package kabam.rotmg.classes.model{
             if (this.isSelected != _arg1){
                 this.isSelected = _arg1;
                 ((this.isSelected) && (this.selected.dispatch(this)));
-            };
+            }
         }
 
         public function getMaxLevelAchieved():int{

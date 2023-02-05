@@ -26,7 +26,7 @@ package kabam.rotmg.language.model{
         public function getValue(_arg1:String):String{
             if (((!((_arg1 == ""))) && (this.isInvalid(_arg1)))){
                 return (_arg1);
-            };
+            }
             return (this.delegate.getValue(_arg1));
         }
 

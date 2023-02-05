@@ -14,12 +14,12 @@ package com.hurlant.util{
             var _local2:ByteArray = new ByteArray();
             if ((_arg1.length&1)==1) {
                 _arg1 = ("0" + _arg1);
-            };
+            }
             var _local3:uint;
             while (_local3 < _arg1.length) {
                 _local2[(_local3 / 2)] = parseInt(_arg1.substr(_local3, 2), 16);
                 _local3 = (_local3 + 2);
-            };
+            }
             return (_local2);
         }
 
@@ -31,10 +31,10 @@ package com.hurlant.util{
                 if (_arg2){
                     if (_local4 < (_arg1.length - 1)){
                         _local3 = (_local3 + ":");
-                    };
-                };
+                    }
+                }
                 _local4++;
-            };
+            }
             return (_local3);
         }
 

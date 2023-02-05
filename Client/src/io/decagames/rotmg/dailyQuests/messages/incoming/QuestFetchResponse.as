@@ -26,7 +26,7 @@ package io.decagames.rotmg.dailyQuests.messages.incoming{
                 this.quests[_local3] = new QuestData();
                 this.quests[_local3].parseFromInput(_arg1);
                 _local3++;
-            };
+            }
             this.nextRefreshPrice = _arg1.readShort();
         }
 

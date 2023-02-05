@@ -40,14 +40,14 @@ package kabam.rotmg.account.web.view{
                 _local2.currentPassword = this.password_.text();
                 _local2.newPassword = this.newPassword_.text();
                 this.change.dispatch(_local2);
-            };
+            }
         }
 
         private function isCurrentPasswordValid():Boolean{
             var _local1 = (this.password_.text().length >= 5);
             if (!_local1){
                 this.password_.setError(TextKey.WEB_CHANGE_PASSWORD_INCORRECT);
-            };
+            }
             return (_local1);
         }
 
@@ -55,7 +55,7 @@ package kabam.rotmg.account.web.view{
             var _local1 = (this.newPassword_.text().length >= 5);
             if (!_local1){
                 this.newPassword_.setError(TextKey.LINK_WEB_ACCOUNT_SHORT);
-            };
+            }
             return (_local1);
         }
 
@@ -63,7 +63,7 @@ package kabam.rotmg.account.web.view{
             var _local1 = (this.newPassword_.text() == this.retypeNewPassword_.text());
             if (!_local1){
                 this.retypeNewPassword_.setError(TextKey.PASSWORD_DOES_NOT_MATCH);
-            };
+            }
             return (_local1);
         }
 

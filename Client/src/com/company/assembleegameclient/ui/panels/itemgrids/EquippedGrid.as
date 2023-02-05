@@ -35,7 +35,7 @@ package com.company.assembleegameclient.ui.panels.itemgrids{
                 _local3.setType(this._invTypes[_local2]);
                 this.tiles[_local2] = _local3;
                 _local2++;
-            };
+            }
         }
 
         public function createInteractiveItemTileIterator():IIterator{
@@ -45,7 +45,7 @@ package com.company.assembleegameclient.ui.panels.itemgrids{
         override public function setItems(_arg1:Vector.<int>, _arg2:int=0):void{
             if (!_arg1){
                 return;
-            };
+            }
             var _local3:int = _arg1.length;
             var _local4:int;
             while (_local4 < this.tiles.length) {
@@ -54,17 +54,17 @@ package com.company.assembleegameclient.ui.panels.itemgrids{
                 }
                 else {
                     this.tiles[_local4].setItem(-1);
-                };
+                }
                 this.tiles[_local4].updateDim(curPlayer);
                 _local4++;
-            };
+            }
         }
 
         public function toggleTierTags(_arg1:Boolean):void{
             var _local2:ItemTile;
             for each (_local2 in this.tiles) {
                 _local2.toggleTierTag(_arg1);
-            };
+            }
         }
 
 

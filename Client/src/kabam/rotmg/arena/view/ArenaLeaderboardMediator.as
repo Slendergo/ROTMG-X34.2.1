@@ -52,7 +52,7 @@ package kabam.rotmg.arena.view{
                 _local2 = this.injector.getInstance(GetArenaLeaderboardTask);
                 _local2.filter = _arg1;
                 _local2.start();
-            };
+            }
         }
 
         private function requestComplete():void{

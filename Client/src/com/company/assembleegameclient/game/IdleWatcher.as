@@ -38,19 +38,19 @@ package com.company.assembleegameclient.game{
             this.idleTime_ = (this.idleTime_ + _arg1);
             if (this.idleTime_ < (FIRST_WARNING_MINUTES * MINUTE_IN_MS)){
                 return false;
-            };
+            }
             if ((((this.idleTime_ >= (FIRST_WARNING_MINUTES * MINUTE_IN_MS))) && ((_local2 < (FIRST_WARNING_MINUTES * MINUTE_IN_MS))))){
                 this.addTextLine.dispatch(this.makeFirstWarning());
                 return false;
-            };
+            }
             if ((((this.idleTime_ >= (SECOND_WARNING_MINUTES * MINUTE_IN_MS))) && ((_local2 < (SECOND_WARNING_MINUTES * MINUTE_IN_MS))))){
                 this.addTextLine.dispatch(this.makeSecondWarning());
                 return false;
-            };
+            }
             if ((((this.idleTime_ >= (KICK_MINUTES * MINUTE_IN_MS))) && ((_local2 < (KICK_MINUTES * MINUTE_IN_MS))))){
                 this.addTextLine.dispatch(this.makeThirdWarning());
                 return true;
-            };
+            }
             return false;
         }
 

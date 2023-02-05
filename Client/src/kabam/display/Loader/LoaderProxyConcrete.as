@@ -29,7 +29,7 @@ package kabam.display.Loader{
             if (this._contentLoaderInfo == null){
                 this._contentLoaderInfo = new LoaderInfoProxyConcrete();
                 this._contentLoaderInfo.loaderInfo = this.loader.contentLoaderInfo;
-            };
+            }
             return (this._contentLoaderInfo);
         }
 

@@ -50,7 +50,7 @@ package kabam.rotmg.external.service{
                 this.makeRequest();
                 this.retryCount++;
                 this.timer.stop();
-            };
+            }
         }
 
         private function makeRequest():void{
@@ -65,15 +65,15 @@ package kabam.rotmg.external.service{
                 _local4 = XML(_arg2).toString();
                 if (((!((_local4 == ""))) && (!((_local4.search("Error") == -1))))){
                     this.setCredits(int(_local4));
-                };
+                }
             }
             else {
                 if (this.retryCount < this.retryTimes.length){
                     this.timer.addEventListener(TimerEvent.TIMER, this.handleTimer);
                     this.timer.start();
                     _local3 = true;
-                };
-            };
+                }
+            }
             ((!(_local3)) && (completeTask(_arg1, _arg2)));
         }
 
@@ -85,9 +85,9 @@ package kabam.rotmg.external.service{
                 else {
                     if (((!((this.playerModel == null))) && (!((this.playerModel.getCredits() == _arg1))))){
                         this.playerModel.setCredits(_arg1);
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         private function makeRequestObject():Object{

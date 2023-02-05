@@ -73,7 +73,7 @@ package com.company.assembleegameclient.account.ui{
                 this.leftButton_.buttonMode = true;
                 this.leftButton_.x = 109;
                 addChild(this.leftButton_);
-            };
+            }
         }
 
         private function makeAndAddRightButton(_arg1:String):void{
@@ -83,7 +83,7 @@ package com.company.assembleegameclient.account.ui{
                 this.rightButton_.x = ((this.w_ - this.rightButton_.width) - 26);
                 this.rightButton_.setAutoSize(TextFieldAutoSize.RIGHT);
                 addChild(this.rightButton_);
-            };
+            }
         }
 
         public function addLabeledField(_arg1:LabeledField):void{
@@ -123,7 +123,7 @@ package com.company.assembleegameclient.account.ui{
             position = function ():void{
                 positionText(text);
                 draw();
-            };
+            }
             text = new TextFieldDisplayConcrete().setSize(12).setColor(0xFFFFFF);
             text.setStringBuilder(new LineBuilder().setParams(plainText, tokens));
             text.filters = [new DropShadowFilter(0, 0, 0)];
@@ -171,7 +171,7 @@ package com.company.assembleegameclient.account.ui{
             mouseChildren = false;
             for each (_local1 in this.navigationLinks_) {
                 _local1.setDefaultColor(0xB3B3B3);
-            };
+            }
             this.leftButton_.setDefaultColor(0xB3B3B3);
             this.rightButton_.setDefaultColor(0xB3B3B3);
         }
@@ -182,7 +182,7 @@ package com.company.assembleegameclient.account.ui{
             mouseChildren = true;
             for each (_local1 in this.navigationLinks_) {
                 _local1.setDefaultColor(0xFFFFFF);
-            };
+            }
             this.leftButton_.setDefaultColor(0xFFFFFF);
             this.rightButton_.setDefaultColor(0xFFFFFF);
         }
@@ -193,7 +193,7 @@ package com.company.assembleegameclient.account.ui{
             y = ((stage.stageHeight / 2) - (height / 2));
             if (this.textInputFields_.length > 0){
                 stage.focus = this.textInputFields_[0].inputText_;
-            };
+            }
         }
 
         protected function draw():void{

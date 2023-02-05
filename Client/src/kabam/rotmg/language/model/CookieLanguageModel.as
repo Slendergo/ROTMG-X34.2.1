@@ -72,8 +72,8 @@ public class CookieLanguageModel implements LanguageModel {
             for (_local3 in this.availableLanguages) {
                 if (this.availableLanguages[_local3] == _arg1){
                     _local2 = _local3;
-                };
-            };
+                }
+            }
             return (_local2);
         }
 

@@ -19,7 +19,7 @@ package io.decagames.rotmg.ui.popups.modal{
                 this.lastContentHeight = this.view.contentContainer.height;
                 this.view.resize();
                 this.view.addEventListener(Event.ENTER_FRAME, this.checkForUpdates);
-            };
+            }
         }
 
         override public function destroy():void{
@@ -31,7 +31,7 @@ package io.decagames.rotmg.ui.popups.modal{
             if (this.view.contentContainer.height != this.lastContentHeight){
                 this.lastContentHeight = this.view.contentContainer.height;
                 this.view.resize();
-            };
+            }
         }
 
 

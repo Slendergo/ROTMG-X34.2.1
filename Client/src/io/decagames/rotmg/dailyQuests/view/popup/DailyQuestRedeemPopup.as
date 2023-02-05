@@ -48,7 +48,7 @@ package io.decagames.rotmg.dailyQuests.view.popup{
             }
             else {
                 SlotsRendered.renderSlots(_arg1.rewards, new Vector.<int>(), DailyQuestItemSlotType.REWARD, _local5, this.slotContainerPosition, 4, this.w_, this.slots);
-            };
+            }
             var _local6:UILabel = new UILabel();
             DefaultLabelFormat.questRefreshLabel(_local6);
             _local6.width = this.w_;

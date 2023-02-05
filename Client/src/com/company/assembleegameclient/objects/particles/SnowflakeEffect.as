@@ -38,7 +38,7 @@ package com.company.assembleegameclient.objects.particles{
                 _local8 = new SnowflakeParticle(size_, _local6, this.maxLife_, _local7, _local4, true);
                 map_.addObj(_local8, x_, y_);
                 _local5++;
-            };
+            }
             return false;
         }
 
@@ -84,13 +84,13 @@ class SnowflakeParticle extends Particle {
         this.timeLeft_ = (this.timeLeft_ - _arg2);
         if (this.timeLeft_ <= 0){
             return false;
-        };
+        }
         moveTo((x_ + (this.dx_ * _arg2)), (y_ + (this.dy_ * _arg2)));
         if (((this.split_) && ((this.timeLeft_ < this.timeSplit_)))){
             map_.addObj(new SnowflakeParticle(size_, color_, this.timeLeft_, (this.angle_ + (60 * MathUtil.TO_RAD)), (this.radius_ * 0.5)), x_, y_);
             map_.addObj(new SnowflakeParticle(size_, color_, this.timeLeft_, (this.angle_ - (60 * MathUtil.TO_RAD)), (this.radius_ * 0.5)), x_, y_);
             this.split_ = false;
-        };
+        }
         map_.addObj(new SparkParticle((100 * (z_ + 1)), color_, 600, z_, RandomUtil.plusMinus(1), RandomUtil.plusMinus(1)), x_, y_);
         return true;
     }

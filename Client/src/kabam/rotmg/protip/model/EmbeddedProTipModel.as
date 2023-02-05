@@ -32,7 +32,7 @@ package kabam.rotmg.protip.model{
             this.tips = new <String>[];
             for each (_local2 in _local1.Protip) {
                 this.tips.push(_local2.toString());
-            };
+            }
             this.count = this.tips.length;
         }
 
@@ -42,11 +42,11 @@ package kabam.rotmg.protip.model{
             while (_local2 < this.count) {
                 _local1.push(_local2);
                 _local2++;
-            };
+            }
             this.indices = new <int>[];
             while (_local2 > 0) {
                 this.indices.push(_local1.splice(Math.floor((Math.random() * _local2--)), 1)[0]);
-            };
+            }
             this.indices.fixed = true;
         }
 

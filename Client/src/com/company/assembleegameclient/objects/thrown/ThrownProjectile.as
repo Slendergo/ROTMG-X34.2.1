@@ -39,7 +39,7 @@ package com.company.assembleegameclient.objects.thrown{
             this.timeLeft_ = (this.timeLeft_ - _arg2);
             if (this.timeLeft_ <= 0){
                 return false;
-            };
+            }
             z_ = (Math.sin(((this.timeLeft_ / this.lifetime_) * Math.PI)) * 2);
             setSize(z_);
             this.pathX_ = (this.pathX_ + (this.dx_ * _arg2));

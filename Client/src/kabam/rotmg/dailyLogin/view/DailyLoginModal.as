@@ -53,7 +53,7 @@ package kabam.rotmg.dailyLogin.view{
             this.tabs.y = CalendarSettings.TABS_Y_POSITION;
             if (this.daysLeft < CalendarSettings.CLAIM_WARNING_BEFORE_DAYS){
                 this.tabs.y = (this.tabs.y + 20);
-            };
+            }
             this.centerModal();
         }
 
@@ -98,7 +98,7 @@ package kabam.rotmg.dailyLogin.view{
             }
             else {
                 _local2.x = CalendarSettings.DAILY_LOGIN_MODAL_PADDING;
-            };
+            }
             addChild(_local2);
         }
 
@@ -106,7 +106,7 @@ package kabam.rotmg.dailyLogin.view{
             this.claimButton.x = CalendarSettings.DAILY_LOGIN_MODAL_PADDING;
             this.claimButton.y = ((this.modalRectangle.height - this.claimButton.height) - CalendarSettings.DAILY_LOGIN_MODAL_PADDING);
             if (this.daysLeft < CalendarSettings.CLAIM_WARNING_BEFORE_DAYS){
-            };
+            }
         }
 
         private function createModalBox():void{
@@ -154,7 +154,7 @@ package kabam.rotmg.dailyLogin.view{
             else {
                 this.calendarView.y = 70;
                 this.serverTimeTxt.y = 40;
-            };
+            }
             addChild(this.serverTimeTxt);
         }
 
@@ -166,7 +166,7 @@ package kabam.rotmg.dailyLogin.view{
             }
             else {
                 _local5.setStringBuilder(new LineBuilder().setParams(_arg1));
-            };
+            }
             _local5.setWordWrap(true);
             _local5.setMultiLine(true);
             _local5.setAutoSize(TextFieldAutoSize.CENTER);

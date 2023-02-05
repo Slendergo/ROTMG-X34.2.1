@@ -83,11 +83,11 @@ package io.decagames.rotmg.pets.data{
                 this.pets.splice(this.getPetIndex(_arg1), 1);
                 if (((this._activeUIVO) && ((this._activeUIVO.getID() == _arg1)))){
                     this._activeUIVO = null;
-                };
+                }
                 if (((this.activePet) && ((this.activePet.getID() == _arg1)))){
                     this.removeActivePet();
-                };
-            };
+                }
+            }
         }
 
         public function clearPets():void{
@@ -120,13 +120,13 @@ package io.decagames.rotmg.pets.data{
                             this._totalPetsSkins++;
                             if (!this.familySkins[_local4.family]){
                                 this.familySkins[_local4.family] = new Vector.<SkinVO>();
-                            };
+                            }
                             this.familySkins[_local4.family].push(_local4);
-                        };
-                    };
+                        }
+                    }
                     _local2++;
-                };
-            };
+                }
+            }
         }
 
         public function unlockSkin(_arg1:int):void{
@@ -134,7 +134,7 @@ package io.decagames.rotmg.pets.data{
             this.skins[_arg1].isOwned = true;
             if (this.ownedSkinsIDs.indexOf(_arg1) == -1){
                 this.ownedSkinsIDs.push(_arg1);
-            };
+            }
         }
 
         public function getSkinVOById(_arg1:int):SkinVO{
@@ -148,14 +148,14 @@ package io.decagames.rotmg.pets.data{
         public function parseOwnedSkins(_arg1:XML):void{
             if (_arg1.toString() != ""){
                 this.ownedSkinsIDs = Vector.<int>(_arg1.toString().split(","));
-            };
+            }
         }
 
         public function getPetVO(_arg1:int):PetVO{
             var _local2:PetVO;
             if (this.hash[_arg1] != null){
                 return (this.hash[_arg1]);
-            };
+            }
             _local2 = new PetVO(_arg1);
             this.pets.push(_local2);
             this.hash[_arg1] = _local2;
@@ -190,12 +190,12 @@ package io.decagames.rotmg.pets.data{
                 petsList = petsList.filter(function (_arg1:PetVO, _arg2:int, _arg3:Vector.<PetVO>):Boolean{
                     return ((_arg1.family == family));
                 });
-            };
+            }
             if (rarity != null){
                 petsList = petsList.filter(function (_arg1:PetVO, _arg2:int, _arg3:Vector.<PetVO>):Boolean{
                     return ((_arg1.rarity == rarity));
                 });
-            };
+            }
             return (petsList);
         }
 
@@ -208,7 +208,7 @@ package io.decagames.rotmg.pets.data{
             var _local2:SavedCharacter = this.playerModel.getCharacterById(this.playerModel.currentCharId);
             if (_local2){
                 _local2.setPetVO(this.activePet);
-            };
+            }
             this.notifyActivePetUpdated.dispatch();
         }
 
@@ -219,11 +219,11 @@ package io.decagames.rotmg.pets.data{
         public function removeActivePet():void{
             if (this.activePet == null){
                 return;
-            };
+            }
             var _local1:SavedCharacter = this.playerModel.getCharacterById(this.playerModel.currentCharId);
             if (_local1){
                 _local1.setPetVO(null);
-            };
+            }
             this.activePet = null;
             this.notifyActivePetUpdated.dispatch();
         }
@@ -232,7 +232,7 @@ package io.decagames.rotmg.pets.data{
             var _local2:int = this.getPetIndex(_arg1);
             if (_local2 == -1){
                 return (null);
-            };
+            }
             return (this.pets[_local2]);
         }
 
@@ -243,9 +243,9 @@ package io.decagames.rotmg.pets.data{
                 _local2 = this.pets[_local3];
                 if (_local2.getID() == _arg1){
                     return (_local3);
-                };
+                }
                 _local3++;
-            };
+            }
             return (-1);
         }
 

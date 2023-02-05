@@ -119,13 +119,13 @@ package kabam.rotmg.mysterybox.model{
                     if (_local2[int(_local7)] == null){
                         _local2[int(_local7)] = true;
                         this._rollsWithContentsUnique.push(int(_local7));
-                    };
+                    }
                     _local5.push(int(_local7));
-                };
+                }
                 this._rollsWithContents.push(_local5);
                 this._rollsContents[_local3] = _local5;
                 _local3++;
-            };
+            }
         }
 
         public function get currencyName():String{
@@ -134,7 +134,7 @@ package kabam.rotmg.mysterybox.model{
                     return (LineBuilder.getLocalizedStringFromKey("Currency.gold").toLowerCase());
                 case "1":
                     return (LineBuilder.getLocalizedStringFromKey("Currency.fame").toLowerCase());
-            };
+            }
             return ("");
         }
 

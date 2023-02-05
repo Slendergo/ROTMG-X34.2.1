@@ -39,7 +39,7 @@ package kabam.rotmg.promotions.view{
             this.view.isSpecialOfferAvailable = ((!((this.beginnersPackageModel.status == BeginnersPackageModel.STATUS_CANNOT_BUY))) || (this.view.isPackageOffer));
             if (!this.view.isSpecialOfferAvailable){
                 this.view.destroy();
-            };
+            }
         }
 
         override public function destroy():void{
@@ -53,7 +53,7 @@ package kabam.rotmg.promotions.view{
             }
             else {
                 this.showBeginnersPackage.dispatch();
-            };
+            }
         }
 
         private function onMarkedAsPurchased():void{

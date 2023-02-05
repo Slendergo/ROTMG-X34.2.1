@@ -69,16 +69,16 @@ package com.company.assembleegameclient.ui.options{
                 if (_arg1 == this.values_[_local3]){
                     if (_local3 == this.selectedIndex_){
                         return;
-                    };
+                    }
                     this.selectedIndex_ = _local3;
                     break;
-                };
+                }
                 _local3++;
-            };
+            }
             this.setSelected(this.selectedIndex_);
             if (_arg2){
                 dispatchEvent(new Event(Event.CHANGE));
-            };
+            }
         }
 
         public function value(){
@@ -114,7 +114,7 @@ package com.company.assembleegameclient.ui.options{
             this.selectedIndex_ = _arg1;
             if ((((this.selectedIndex_ < 0)) || ((this.selectedIndex_ >= this.labels_.length)))){
                 this.selectedIndex_ = 0;
-            };
+            }
             this.setText(this.labels_[this.selectedIndex_]);
         }
 

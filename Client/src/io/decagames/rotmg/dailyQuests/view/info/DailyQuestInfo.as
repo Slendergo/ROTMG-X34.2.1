@@ -53,8 +53,8 @@ package io.decagames.rotmg.dailyQuests.view.info{
                 _local5 = _local3.indexOf(_local4);
                 if (_local5 >= 0){
                     _local3.splice(_local5, 1);
-                };
-            };
+                }
+            }
             return ((_local3.length == 0));
         }
 
@@ -189,13 +189,13 @@ package io.decagames.rotmg.dailyQuests.view.info{
             this.showQuestsCompleteInfo(true);
             for each (_local1 in this.slots) {
                 _local1.parent.removeChild(_local1);
-            };
+            }
             if (!this.slots){
                 this.slots = new Vector.<DailyQuestItemSlot>();
             }
             else {
                 this.slots.length = 0;
-            };
+            }
         }
 
         public function eventQuestsCompleted():void{
@@ -205,13 +205,13 @@ package io.decagames.rotmg.dailyQuests.view.info{
             this.showQuestsCompleteInfo(false, false);
             for each (_local1 in this.slots) {
                 _local1.parent.removeChild(_local1);
-            };
+            }
             if (!this.slots){
                 this.slots = new Vector.<DailyQuestItemSlot>();
             }
             else {
                 this.slots.length = 0;
-            };
+            }
         }
 
         private function showQuestsCompleteInfo(_arg1:Boolean, _arg2:Boolean=true):void{

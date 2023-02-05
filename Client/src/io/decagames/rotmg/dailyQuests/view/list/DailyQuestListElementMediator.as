@@ -24,7 +24,7 @@ package io.decagames.rotmg.dailyQuests.view.list{
         private function resetElement(_arg1:String, _arg2:int, _arg3:String):void{
             if ((((_arg1 == "")) || ((_arg2 == -1)))){
                 return;
-            };
+            }
             if (_arg1 != this.view.id){
                 if (((!((_arg2 == 7))) && (!((this.view.category == 7))))){
                     this.view.isSelected = false;
@@ -32,9 +32,9 @@ package io.decagames.rotmg.dailyQuests.view.list{
                 else {
                     if (_arg2 == this.view.category){
                         this.view.isSelected = false;
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         override public function destroy():void{

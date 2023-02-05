@@ -26,18 +26,18 @@ package kabam.rotmg.dailyLogin.view{
                 _local9.x = (_local5 * CalendarSettings.BOX_WIDTH);
                 if (_local5 > 0){
                     _local9.x = (_local9.x + (_local5 * CalendarSettings.BOX_MARGIN));
-                };
+                }
                 _local9.y = (_local6 * CalendarSettings.BOX_HEIGHT);
                 if (_local6 > 0){
                     _local9.y = (_local9.y + (_local6 * CalendarSettings.BOX_MARGIN));
-                };
+                }
                 _local5++;
                 _local4++;
                 if ((_local4 % CalendarSettings.NUMBER_OF_COLUMNS) == 0){
                     _local5 = 0;
                     _local6++;
-                };
-            };
+                }
+            }
             _local8 = ((CalendarSettings.BOX_WIDTH * CalendarSettings.NUMBER_OF_COLUMNS) + ((CalendarSettings.NUMBER_OF_COLUMNS - 1) * CalendarSettings.BOX_MARGIN));
             this.x = ((this.parent.width - _local8) / 2);
             this.y = (CalendarSettings.DAILY_LOGIN_TABS_PADDING + CalendarSettings.TABS_HEIGHT);

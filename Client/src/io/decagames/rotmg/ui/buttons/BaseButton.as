@@ -47,7 +47,7 @@ package io.decagames.rotmg.ui.buttons{
         protected function onClickHandler(_arg1:MouseEvent):void{
             if (!this._disabled){
                 this.clickSignal.dispatch(this);
-            };
+            }
         }
 
         protected function onMouseDownHandler(_arg1:MouseEvent):void{

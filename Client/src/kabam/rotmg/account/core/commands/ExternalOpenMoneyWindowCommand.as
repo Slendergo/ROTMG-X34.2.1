@@ -67,7 +67,7 @@ package kabam.rotmg.account.core.commands{
             }
             else {
                 this.handleInvalidMoneyWindowRequest();
-            };
+            }
         }
 
         private function handleInvalidMoneyWindowRequest():void{
@@ -77,8 +77,8 @@ package kabam.rotmg.account.core.commands{
             else {
                 if (!this.account.isRegistered()){
                     this.openDialogSignal.dispatch(new ErrorDialog(this.REGISTRATION_ERROR_MESSAGE));
-                };
-            };
+                }
+            }
         }
 
         private function handleValidMoneyWindowRequest():void{
@@ -106,7 +106,7 @@ package kabam.rotmg.account.core.commands{
             }
             else {
                 _local2.createdat = 0;
-            };
+            }
             _local3.url = (_local1 + "/credits/kabamadd");
             _local3.method = URLRequestMethod.POST;
             _local3.data = _local2;
@@ -134,10 +134,10 @@ package kabam.rotmg.account.core.commands{
                 }
                 else {
                     _local1 = 0;
-                };
+                }
                 ExternalInterface.call(this.moneyConfig.jsInitializeFunction(), this.account.getMoneyUserId(), this.account.getMoneyAccessToken(), _local1);
                 this.moneyWindowModel.isInitialized = true;
-            };
+            }
         }
 
         private function openKabamMoneyWindowFromBrowser():void{
@@ -170,12 +170,12 @@ package kabam.rotmg.account.core.commands{
                     }
                     catch(e:Error) {
                         openPaymentwallMoneyWindowFromStandalonePlayer(tokenInformation);
-                    };
-                };
+                    }
+                }
             }
             else {
                 this.showPopup.dispatch(new ErrorModal(350, "Payment Error", "Unable to fetch payment information. Try again later."));
-            };
+            }
         }
 
         private function isGoldPurchaseEnabled():Boolean{

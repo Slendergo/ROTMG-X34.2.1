@@ -34,7 +34,7 @@ package kabam.rotmg.account.web.view{
             var _local1 = (this.password_.text().length >= 5);
             if (!_local1){
                 this.password_.setError(TextKey.WEB_CHANGE_PASSWORD_INCORRECT);
-            };
+            }
             return (_local1);
         }
 
@@ -52,10 +52,10 @@ package kabam.rotmg.account.web.view{
                     if ((((_local2.charAt(_local3) == _local2.charAt((_local3 + 1)))) && ((_local2.charAt((_local3 + 1)) == _local2.charAt((_local3 + 2)))))){
                         this.newPassword_.setError(TextKey.LINK_WEB_ACCOUNT_SHORT);
                         _local1 = false;
-                    };
+                    }
                     _local3++;
-                };
-            };
+                }
+            }
             return (_local1);
         }
 
@@ -63,7 +63,7 @@ package kabam.rotmg.account.web.view{
             var _local1 = (this.newPassword_.text() == this.retypeNewPassword_.text());
             if (!_local1){
                 this.retypeNewPassword_.setError(TextKey.PASSWORD_DOES_NOT_MATCH);
-            };
+            }
             return (_local1);
         }
 

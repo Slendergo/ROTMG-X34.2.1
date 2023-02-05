@@ -56,7 +56,7 @@ package com.company.assembleegameclient.ui.guild{
             var _local6:Object = {
                 num:_arg1,
                 offset:_arg2
-            };
+            }
             MoreObjectUtil.addToObject(_local6, _local5.getCredentials());
             this.listClient_ = StaticInjectorContext.getInjector().getInstance(AppEngineClient);
             this.listClient_.setMaxRetries(2);
@@ -70,7 +70,7 @@ package com.company.assembleegameclient.ui.guild{
             }
             else {
                 this.onTextError(_arg2);
-            };
+            }
         }
 
         private function onGenericData(_arg1:String):void{
@@ -135,7 +135,7 @@ package com.company.assembleegameclient.ui.guild{
                 _local9.y = (_local4 * MemberListLine.HEIGHT);
                 this.listSprite_.addChild(_local9);
                 _local4++;
-            };
+            }
             _local6 = (GuildUtil.MAX_MEMBERS - (this.offset_ + _local4));
             this.openSlotsText_ = new TextFieldDisplayConcrete().setSize(22).setColor(0xB3B3B3);
             this.openSlotsText_.setStringBuilder(new LineBuilder().setParams(TextKey.GUILD_PLAYER_LIST_OPENSLOTS, {openSlots:_local6}));
@@ -152,7 +152,7 @@ package com.company.assembleegameclient.ui.guild{
                 this.scrollBar_.setIndicatorSize(400, this.listSprite_.height);
                 this.scrollBar_.addEventListener(Event.CHANGE, this.onScrollBarChange);
                 addChild(this.scrollBar_);
-            };
+            }
         }
 
         private function onScrollBarChange(_arg1:Event):void{

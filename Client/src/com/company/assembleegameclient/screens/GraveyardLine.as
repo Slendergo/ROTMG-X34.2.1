@@ -89,7 +89,7 @@ package com.company.assembleegameclient.screens{
                 case "https":
                 default:
                     navigateToURL(new URLRequest(this.link), "_blank");
-            };
+            }
         }
 
         private function getTimeDiff(_arg1:int):String{
@@ -97,16 +97,16 @@ package com.company.assembleegameclient.screens{
             var _local3:int = (_local2 - _arg1);
             if (_local3 <= 0){
                 return ("now");
-            };
+            }
             if (_local3 < 60){
                 return ((_local3 + " secs"));
-            };
+            }
             if (_local3 < (60 * 60)){
                 return ((int((_local3 / 60)) + " mins"));
-            };
+            }
             if (_local3 < ((60 * 60) * 24)){
                 return ((int((_local3 / (60 * 60))) + " hours"));
-            };
+            }
             return ((int((_local3 / ((60 * 60) * 24))) + " days"));
         }
 

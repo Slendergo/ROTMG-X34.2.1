@@ -31,7 +31,7 @@ package io.decagames.rotmg.pets.tasks{
             else {
                 this.client.complete.addOnce(this.onComplete);
                 this.client.sendRequest("/account/getOwnedPetSkins", this.makeDataPacket());
-            };
+            }
         }
 
         private function makeDataPacket():Object{

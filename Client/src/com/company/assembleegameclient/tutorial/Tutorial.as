@@ -109,15 +109,15 @@ package com.company.assembleegameclient.tutorial{
                                     if (_local13 <= _local6.radius_){
                                         _local11 = true;
                                         break;
-                                    };
-                                };
-                            };
+                                    }
+                                }
+                            }
                             if (!_local11){
                                 _local5 = false;
-                            };
+                            }
                             break;
-                    };
-                };
+                    }
+                }
                 if (!_local5){
                     _local4.satisfiedSince_ = 0;
                 }
@@ -173,10 +173,10 @@ package com.company.assembleegameclient.tutorial{
                     case EQUIP_REQUIREMENT:
                         if (_local4.equipment_[_local3.slot_] != _local3.objectType_){
                             return;
-                        };
+                        }
                         break;
-                };
-            };
+                }
+            }
             this.currStepId_++;
             this.draw();
         }

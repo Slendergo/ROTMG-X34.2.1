@@ -46,17 +46,17 @@ package com.company.assembleegameclient.ui.tooltip{
             var _local3:String = ((_arg1 + " ") + _arg2);
             if (_arg1 != 1){
                 return ((_local3 + "s"));
-            };
+            }
             return (_local3);
         }
 
         public static function getTextColor(_arg1:Number):uint{
             if (_arg1 < 0){
                 return (WORSE_COLOR);
-            };
+            }
             if (_arg1 > 0){
                 return (BETTER_COLOR);
-            };
+            }
             return (NO_DIFF_COLOR);
         }
 

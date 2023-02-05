@@ -72,7 +72,7 @@ package com.company.assembleegameclient.ui.panels{
         private function onKeyDown(_arg1:KeyboardEvent):void{
             if ((((_arg1.keyCode == Parameters.data_.interact)) && ((stage.focus == null)))){
                 dispatchEvent(new Event(Event.COMPLETE));
-            };
+            }
         }
 
         private function onTimer(_arg1:TimerEvent):void{

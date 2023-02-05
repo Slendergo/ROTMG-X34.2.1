@@ -79,7 +79,7 @@ package com.company.assembleegameclient.ui.tooltip{
 //                this._backgroundColor = 0x363636;
 //                this._borderColor = 0xFFFFFF;
 //                this._lineColor = 0x1C1C1C;
-//            };
+//            }
             super(this._backgroundColor, 1, this._borderColor, 1);
             this.init();
         }
@@ -120,7 +120,7 @@ package com.company.assembleegameclient.ui.tooltip{
             var _local4:BitmapData = TextureRedrawer.redraw(_local2.image_, _local3, true, 0);
             if (this.showUnlockRequirements){
                 _local4 = CachingColorTransformer.transformBitmapData(_local4, new ColorTransform(0, 0, 0, 0.5, 0, 0, 0, 0));
-            };
+            }
             this.portrait_ = new Bitmap();
             this.portrait_.bitmapData = _local4;
             this.portrait_.x = -4;
@@ -156,7 +156,7 @@ package com.company.assembleegameclient.ui.tooltip{
                     }
                 }
                 _local3++;
-            };
+            }
         }
 
         private function createCharacterName():void{
@@ -194,11 +194,11 @@ package com.company.assembleegameclient.ui.tooltip{
                 }
                 else {
                     this.nextClassQuest_.setStringBuilder(new LineBuilder().setParams("Earn 20 Fame with {typeToDisplay} to unlock the first star", {typeToDisplay:getDisplayId(this._playerXML)}));
-                };
+                }
                 this.nextClassQuest_.filters = [new DropShadowFilter(0, 0, 0)];
                 waiter.push(this.nextClassQuest_.textChanged);
                 addChild(this.nextClassQuest_);
-            };
+            }
         }
 
         private function createStarProgress():void{
@@ -249,13 +249,13 @@ package com.company.assembleegameclient.ui.tooltip{
                             if (_local7 > _local3[(_local5 - 1)]){
                                 _local13 = (((_local7 - _local3[(_local5 - 1)]) / (_local6 - _local3[(_local5 - 1)])) * _local10);
                                 _local1.drawRect(_local2, 31, _local13, 4);
-                            };
-                        };
-                    };
-                };
+                            }
+                        }
+                    }
+                }
                 _local2 = (_local2 + (1 + _local10));
                 _local5++;
-            };
+            }
         }
 
         private function createBestLevelAndFame():void{
@@ -327,11 +327,11 @@ package com.company.assembleegameclient.ui.tooltip{
                             _local12.y = _local5;
                             this._classUnlockContainer.addChild(_local12);
                             _local5 = (_local5 + 14);
-                        };
-                    };
-                };
+                        }
+                    }
+                }
                 _local6++;
-            };
+            }
             addChild(this._classUnlockContainer);
         }
 
@@ -354,8 +354,8 @@ package com.company.assembleegameclient.ui.tooltip{
                         unlockLevel:_local4,
                         typeToDisplay:ObjectLibrary.typeToDisplayId_[_local3]
                     });
-                };
-            };
+                }
+            }
             this.unlockText_.setStringBuilder(_local1);
             this.unlockText_.filters = [new DropShadowFilter(0, 0, 0)];
             waiter.push(this.unlockText_.textChanged);
@@ -381,7 +381,7 @@ package com.company.assembleegameclient.ui.tooltip{
                 if (this._nextStarFame > 0){
                     this.nextClassQuest_.x = 8;
                     this.nextClassQuest_.y = (height - 4);
-                };
+                }
                 this._progressContainer.x = 10;
                 this._progressContainer.y = (height - 2);
                 this._bestContainer.x = 6;
@@ -394,8 +394,8 @@ package com.company.assembleegameclient.ui.tooltip{
                     this.classUnlockText_.y = height;
                     this._classUnlockContainer.x = 6;
                     this._classUnlockContainer.y = (height - 6);
-                };
-            };
+                }
+            }
             this.draw();
             position();
         }

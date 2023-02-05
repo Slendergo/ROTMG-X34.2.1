@@ -63,7 +63,7 @@ package kabam.rotmg.classes.view{
             var _local2:PlayerModel = StaticInjectorContext.getInjector().getInstance(PlayerModel);
             if (_local2 != null){
                 _local1.draw(_local2.getCredits(), _local2.getFame(), _local2.getTokens());
-            };
+            }
             _local1.x = 800;
             _local1.y = 20;
             addChild(_local1);
@@ -124,7 +124,7 @@ package kabam.rotmg.classes.view{
         public function setPlayButtonEnabled(_arg1:Boolean):void{
             if (!_arg1){
                 this.playBtn.deactivate();
-            };
+            }
         }
 
         private function makeSignalWaiter():SignalWaiter{

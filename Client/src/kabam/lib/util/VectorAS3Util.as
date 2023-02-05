@@ -12,7 +12,7 @@ package kabam.lib.util{
             var _local2:Array = [];
             for each (_local3 in _arg1) {
                 _local2.push(_local3);
-            };
+            }
             return (_local2);
         }
 

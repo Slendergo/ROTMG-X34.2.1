@@ -61,19 +61,19 @@ package io.decagames.rotmg.social.widgets{
             this._gameServerConnection = this._gameSprite.gsc_;
             if (this.view.removeButton){
                 this.view.removeButton.addEventListener(MouseEvent.CLICK, this.onRemoveClick);
-            };
+            }
             if (this.view.messageButton){
                 this.view.messageButton.addEventListener(MouseEvent.CLICK, this.onMessageClick);
-            };
+            }
             if (this.view.teleportButton){
                 this.view.teleportButton.addEventListener(MouseEvent.CLICK, this.onTeleportClick);
-            };
+            }
             if (this.view.promoteButton){
                 this.view.promoteButton.addEventListener(MouseEvent.CLICK, this.onPromoteClick);
-            };
+            }
             if (this.view.demoteButton){
                 this.view.demoteButton.addEventListener(MouseEvent.CLICK, this.onDemoteClick);
-            };
+            }
         }
 
         private function onRemoveClick(_arg1:MouseEvent):void{
@@ -96,7 +96,7 @@ package io.decagames.rotmg.social.widgets{
             if (_arg1.success_){
                 this.socialModel.removeGuildMember(this.view.getLabelText());
                 this.refreshSignal.dispatch(RefreshListSignal.CONTEXT_GUILD_LIST, _arg1.success_);
-            };
+            }
         }
 
         private function onCancelDialog(_arg1:Event):void{
@@ -144,7 +144,7 @@ package io.decagames.rotmg.social.widgets{
             this._gameSprite.removeEventListener(GuildResultEvent.EVENT, this.onSetRankResult);
             if (_arg1.success_){
                 this.socialModel.loadGuildData();
-            };
+            }
         }
 
         private function onDemoteClick(_arg1:MouseEvent):void{

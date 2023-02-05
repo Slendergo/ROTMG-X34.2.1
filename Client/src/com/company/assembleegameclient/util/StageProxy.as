@@ -27,14 +27,14 @@ package com.company.assembleegameclient.util{
         public function getStageWidth():Number{
             if (this.reference.stage != null){
                 return (this.reference.stage.stageWidth);
-            };
+            }
             return (800);
         }
 
         public function getStageHeight():Number{
             if (this.reference.stage != null){
                 return (this.reference.stage.stageHeight);
-            };
+            }
             return (600);
         }
 
@@ -77,7 +77,7 @@ package com.company.assembleegameclient.util{
         public function getStage3Ds(_arg1:int):Stage3DProxy{
             if (stage3D == null){
                 stage3D = new Stage3DProxy(this.reference.stage.stage3Ds[_arg1]);
-            };
+            }
             return (stage3D);
         }
 

@@ -32,7 +32,7 @@ package com.company.assembleegameclient.ui{
                 this.prefix_.filters = [new DropShadowFilter(0, 0, 0)];
                 this.prefix_.textChanged.addOnce(this.position);
                 addChild(this.prefix_);
-            };
+            }
             mouseEnabled = false;
             mouseChildren = false;
             this.draw(_arg1);
@@ -61,7 +61,7 @@ package com.company.assembleegameclient.ui{
                 background.graphics.drawRoundRect(-2, (icon.y - 3), (_local1 + 6), _local2, 12, 12);
                 background.graphics.endFill();
                 position();
-            };
+            }
 
             if (numStars == this.numStars_) {
                 return;
@@ -95,7 +95,7 @@ package com.company.assembleegameclient.ui{
             }
             else {
                 this.waiter.complete.addOnce(this.position);
-            };
+            }
         }
 
         private function position():void{

@@ -55,7 +55,7 @@ package kabam.rotmg.arena.view{
         public function setCurrentRun(_arg1:int, _arg2:int):void{
             if (this.leftSummary){
                 removeChild(this.leftSummary);
-            };
+            }
             this.leftSummary = new BattleSummaryText(TextKey.BATTLE_SUMMARY_CURRENT_SUBTITLE, _arg1, _arg2);
             this.leftSummary.y = ((60 - (this.leftSummary.height / 2)) + 132);
             this.leftSummary.x = ((this.WIDTH / 4) - (this.leftSummary.width / 2));
@@ -65,7 +65,7 @@ package kabam.rotmg.arena.view{
         public function setBestRun(_arg1:int, _arg2:int):void{
             if (this.rightSummary){
                 removeChild(this.rightSummary);
-            };
+            }
             this.rightSummary = new BattleSummaryText(TextKey.BATTLE_SUMMARY_BEST_SUBTITLE, _arg1, _arg2);
             this.rightSummary.y = ((60 - (this.rightSummary.height / 2)) + 132);
             this.rightSummary.x = (((this.WIDTH / 4) - (this.rightSummary.width / 2)) + (this.WIDTH / 2));

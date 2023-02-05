@@ -24,15 +24,15 @@ package com.company.assembleegameclient.objects.animation{
                 this.nextRun_ = new Vector.<int>();
                 for each (_local2 in this.animationsData_.animations) {
                     this.nextRun_.push(_local2.getLastRun(_arg1));
-                };
-            };
+                }
+            }
             if (this.running_ != null){
                 _local4 = this.running_.getTexture(_arg1);
                 if (_local4 != null){
                     return (_local4);
-                };
+                }
                 this.running_ = null;
-            };
+            }
             var _local3:int;
             while (_local3 < this.nextRun_.length) {
                 if (_arg1 > this.nextRun_[_local3]){
@@ -42,10 +42,10 @@ package com.company.assembleegameclient.objects.animation{
                     if (!((!((_local2.prob_ == 1))) && ((Math.random() > _local2.prob_)))){
                         this.running_ = new RunningAnimation(_local2, _local5);
                         return (this.running_.getTexture(_arg1));
-                    };
-                };
+                    }
+                }
                 _local3++;
-            };
+            }
             return (null);
         }
 
@@ -78,15 +78,15 @@ class RunningAnimation {
         while ((_arg1 - this.frameStart_) > _local2.time_) {
             if (this.frameId_ >= (this.animationData_.frames.length - 1)){
                 return (null);
-            };
+            }
             this.frameStart_ = (this.frameStart_ + _local2.time_);
             this.frameId_++;
             _local2 = this.animationData_.frames[this.frameId_];
             this.texture_ = null;
-        };
+        }
         if (this.texture_ == null){
             this.texture_ = _local2.textureData_.getTexture((Math.random() * 100));
-        };
+        }
         return (this.texture_);
     }
 

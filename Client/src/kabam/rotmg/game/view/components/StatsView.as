@@ -56,7 +56,7 @@ package kabam.rotmg.game.view.components{
                 this.containerSprite.addChild(_local3);
                 _local1 = (_local1 + (_local2 % 2));
                 _local2++;
-            };
+            }
         }
 
         private function createStat(_arg1:int, _arg2:int):StatView{
@@ -72,10 +72,10 @@ package kabam.rotmg.game.view.components{
             if (_arg1){
                 this.setBackgroundVisibility();
                 this.drawStats(_arg1);
-            };
+            }
             if (_arg2){
                 this.containerSprite.x = ((this.WIDTH - this.containerSprite.width) / 2);
-            };
+            }
         }
 
         private function drawStats(_arg1:Player):void{
@@ -112,8 +112,8 @@ package kabam.rotmg.game.view.components{
             else {
                 if (this.currentState == STATE_DOCKED){
                     this.background.alpha = 0;
-                };
-            };
+                }
+            }
         }
 
 

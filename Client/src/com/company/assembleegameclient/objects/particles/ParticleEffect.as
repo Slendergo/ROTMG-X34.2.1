@@ -23,7 +23,7 @@ package com.company.assembleegameclient.objects.particles{
         public static function fromProps(_arg1:EffectProperties, _arg2:GameObject):ParticleEffect{
             if (((Parameters.data_.noParticlesMaster) && (!((((_arg1.id == "Vortex")) || ((_arg1.id == "Vent"))))))){
                 return (null);
-            };
+            }
             switch (_arg1.id){
                 case "Healing":
                     return (new HealingEffect(_arg2));
@@ -53,7 +53,7 @@ package com.company.assembleegameclient.objects.particles{
                     return (new XMLEffect(_arg2, _arg1));
                 case "CustomParticles":
                     return (ParticleGenerator.attachParticleGenerator(_arg1, _arg2));
-            };
+            }
             return (null);
         }
 
@@ -61,7 +61,7 @@ package com.company.assembleegameclient.objects.particles{
         override public function update(_arg1:int, _arg2:int):Boolean{
             if (this.reducedDrawEnabled){
                 return (this.runEasyRendering(_arg1, _arg2));
-            };
+            }
             return (this.runNormalRendering(_arg1, _arg2));
         }
 

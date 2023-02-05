@@ -36,14 +36,14 @@ package com.company.assembleegameclient.screens{
                 addChild(_local3);
                 this.boxes_.push(_local3);
                 _local4++;
-            };
+            }
         }
 
         private function onMouseDown(_arg1:MouseEvent):void{
             var _local2:ServerBox = (_arg1.currentTarget as ServerBox);
             if (_local2 == null){
                 return;
-            };
+            }
             this.setSelected(_local2);
             var _local3:String = _local2.value_;
             Parameters.data_.preferredServer = _local3;

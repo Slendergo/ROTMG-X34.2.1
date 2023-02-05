@@ -19,7 +19,7 @@ package io.decagames.rotmg.shop{
             _local5.push(new ClosePopupButton("Cancel"));
             if ((_arg2 == Currency.GOLD)){
                 _local5.push(new BuyGoldButton());
-            };
+            }
             super(_arg1, ("Not enough " + _local3), _local4, _local5);
         }
 

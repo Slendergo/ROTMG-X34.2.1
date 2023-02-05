@@ -73,7 +73,7 @@ package io.decagames.rotmg.pets.components.petPortrait{
                 addChild(this.petSwitch);
                 this.petSwitch.y = (BASE_POS_Y + 20);
                 this.petSwitch.x = ((_arg1 / 2) - (this.petSwitch.width / 2));
-            };
+            }
             this.petRarity = new UILabel();
             DefaultLabelFormat.petInfoLabel(this.petRarity, 0xFFFFFF);
             addChild(this.petRarity);
@@ -129,7 +129,7 @@ package io.decagames.rotmg.pets.components.petPortrait{
         public function dispose():void{
             if (this._releaseButton){
                 this._releaseButton.removeEventListener(MouseEvent.CLICK, this.onReleaseClickHandler);
-            };
+            }
         }
 
         private function startAnimation():void{
@@ -140,7 +140,7 @@ package io.decagames.rotmg.pets.components.petPortrait{
             var hideDuration:Number;
             if (this.isAnimating){
                 return;
-            };
+            }
             this.animationWaitCounter = 0;
             this.isAnimating = true;
             animationSpiral = TextureParser.instance.getSliceScalingBitmap("UI", "animation_spiral");
@@ -195,7 +195,7 @@ package io.decagames.rotmg.pets.components.petPortrait{
                 }
                 else {
                     this.applyPetChange();
-                };
+                }
             }
             else {
                 this.petName.text = "";
@@ -203,13 +203,13 @@ package io.decagames.rotmg.pets.components.petPortrait{
                 this.petFamily.text = "";
                 if (this.contentDividerTitle.parent){
                     removeChild(this.contentDividerTitle);
-                };
+                }
                 if (this._releaseButton){
                     this._releaseButton.removeEventListener(MouseEvent.CLICK, this.onReleaseClickHandler);
                     removeChild(this._releaseButton);
                     this._releaseButton = null;
-                };
-            };
+                }
+            }
         }
 
         private function applyPetChange():void{
@@ -225,11 +225,11 @@ package io.decagames.rotmg.pets.components.petPortrait{
             if (!this.contentDividerTitle.parent){
                 addChild(this.contentDividerTitle);
                 addChild(this.petFamily);
-            };
+            }
             DefaultLabelFormat.petNameLabel(this.petName, this.petVO.rarity.color);
             if (this.petName.textWidth >= this.slotWidth){
                 DefaultLabelFormat.petNameLabelSmall(this.petName, this.petVO.rarity.color);
-            };
+            }
             this.petRarity.x = ((this.slotWidth / 2) - (this.petRarity.width / 2));
             this.petFamily.x = ((this.slotWidth / 2) - (this.petFamily.width / 2));
             this.petName.x = ((this.slotWidth / 2) - (this.petName.width / 2));
@@ -240,13 +240,13 @@ package io.decagames.rotmg.pets.components.petPortrait{
                 this._releaseButton.y = 10;
                 this._releaseButton.addEventListener(MouseEvent.CLICK, this.onReleaseClickHandler);
                 addChild(this._releaseButton);
-            };
+            }
             if (this._releaseButton){
                 this._releaseButton.setToolTipText(("Release " + this.petVO.name));
-            };
+            }
             if (this.showFeedPower){
                 this.updateFeedPowerInfo(this.getCurrentPointsFromAbilitiesList(), this.getMaxPointsFromAbilitiesList(), false);
-            };
+            }
         }
 
         private function getMaxPointsFromAbilitiesList():int{
@@ -255,8 +255,8 @@ package io.decagames.rotmg.pets.components.petPortrait{
             for each (_local2 in this._petVO.abilityList) {
                 if (_local2.getUnlocked()){
                     _local1 = (_local1 + AbilitiesUtil.abilityPowerToMinPoints(this._petVO.maxAbilityPower));
-                };
-            };
+                }
+            }
             return (_local1);
         }
 
@@ -266,8 +266,8 @@ package io.decagames.rotmg.pets.components.petPortrait{
             for each (_local2 in this._petVO.abilityList) {
                 if (_local2.getUnlocked()){
                     _local1 = (_local1 + _local2.points);
-                };
-            };
+                }
+            }
             return (_local1);
         }
 

@@ -39,23 +39,23 @@ package kabam.rotmg.account.core.view{
             y = ((WebMain.STAGE.stageHeight / 2) - (this.modalHeight / 2));
             if (_arg3 != ""){
                 this.setTitle(_arg3, true);
-            };
+            }
             if (this.background == null){
                 this.backgroundContainer = new Sprite();
                 this.background = this.makeModalBackground();
                 this.backgroundContainer.addChild(this.background);
                 addChild(this.backgroundContainer);
-            };
+            }
             if (_arg3 != ""){
                 this.setTitle(_arg3, true);
-            };
+            }
         }
 
         private function onRemovedFromStage(_arg1:Event):void{
             removeEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
             if (this.closeButton != null){
                 this.closeButton.removeEventListener(MouseEvent.CLICK, this.onCloseClick);
-            };
+            }
         }
 
         public function setWidth(_arg1:Number):void{
@@ -73,24 +73,24 @@ package kabam.rotmg.account.core.view{
         public function setTitle(_arg1:String, _arg2:Boolean):void{
             if (((!((this.title == null))) && (!((this.title.parent == null))))){
                 removeChild(this.title);
-            };
+            }
             if (_arg1 != null){
                 this.title = this.getText(_arg1, TEXT_MARGIN, 5, _arg2);
                 addChild(this.title);
             }
             else {
                 this.title = null;
-            };
+            }
         }
 
         public function setDesc(_arg1:String, _arg2:Boolean):void{
             if (_arg1 != null){
                 if (((!((this.desc == null))) && (!((this.desc.parent == null))))){
                     removeChild(this.desc);
-                };
+                }
                 this.desc = this.getText(_arg1, TEXT_MARGIN, 50, _arg2);
                 addChild(this.desc);
-            };
+            }
         }
 
         public function setCloseButton(_arg1:Boolean):void{
@@ -104,8 +104,8 @@ package kabam.rotmg.account.core.view{
                 if (((!((this.closeButton == null))) && (!(_arg1)))){
                     removeChild(this.closeButton);
                     this.closeButton = null;
-                };
-            };
+                }
+            }
         }
 
         protected function getText(_arg1:String, _arg2:int, _arg3:int, _arg4:Boolean):TextFieldDisplayConcrete{
@@ -117,7 +117,7 @@ package kabam.rotmg.account.core.view{
             }
             else {
                 _local5.setStringBuilder(new LineBuilder().setParams(_arg1));
-            };
+            }
             _local5.setWordWrap(true);
             _local5.setMultiLine(true);
             _local5.setAutoSize(TextFieldAutoSize.CENTER);
@@ -135,7 +135,7 @@ package kabam.rotmg.account.core.view{
             _local1.draw(this.modalWidth, this.modalHeight, PopupWindowBackground.TYPE_DEFAULT_GREY);
             if (this.title != null){
                 _local1.divide(PopupWindowBackground.HORIZONTAL_DIVISION, 30);
-            };
+            }
             return (_local1);
         }
 

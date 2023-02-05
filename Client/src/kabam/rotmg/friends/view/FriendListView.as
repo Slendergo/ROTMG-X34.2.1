@@ -91,7 +91,7 @@ package kabam.rotmg.friends.view{
         public function destroy():void{
             while (numChildren > 0) {
                 this.removeChildAt((numChildren - 1));
-            };
+            }
             this._addButton.removeEventListener(MouseEvent.CLICK, this.onAddFriendClicked);
             this._addButton = null;
             this._tabView.destroy();
@@ -111,22 +111,22 @@ package kabam.rotmg.friends.view{
             while (_local5 > 0) {
                 this._friendsContainer.removeChildAt((this._friendsContainer.getTotal() - 1));
                 _local5--;
-            };
+            }
             _local5 = 0;
             while (_local5 < this._friendsContainer.getTotal()) {
                 _local3 = _arg1.pop();
                 if (_local3 != null){
                     _local4 = (this._friendsContainer.getChildAt(_local5) as FListItem);
                     _local4.update(_local3, _arg2);
-                };
+                }
                 _local5++;
-            };
+            }
             for each (_local3 in _arg1) {
                 _local4 = new FriendListItem(_local3, LIST_ITEM_WIDTH, LIST_ITEM_HEIGHT, _arg2);
                 _local4.actionSignal.add(this.onListItemAction);
                 _local4.x = 2;
                 this._friendsContainer.addListItem(_local4);
-            };
+            }
             _arg1.length = 0;
             _arg1 = null;
         }
@@ -141,21 +141,21 @@ package kabam.rotmg.friends.view{
             while (_local4 > 0) {
                 this._invitationsContainer.removeChildAt((this._invitationsContainer.getTotal() - 1));
                 _local4--;
-            };
+            }
             _local4 = 0;
             while (_local4 < this._invitationsContainer.getTotal()) {
                 _local2 = _arg1.pop();
                 if (_local2 != null){
                     _local3 = (this._invitationsContainer.getChildAt(_local4) as FListItem);
                     _local3.update(_local2, "");
-                };
+                }
                 _local4++;
-            };
+            }
             for each (_local2 in _arg1) {
                 _local3 = new InvitationListItem(_local2, LIST_ITEM_WIDTH, LIST_ITEM_HEIGHT);
                 _local3.actionSignal.add(this.onListItemAction);
                 this._invitationsContainer.addListItem(_local3);
-            };
+            }
             _arg1.length = 0;
             _arg1 = null;
         }

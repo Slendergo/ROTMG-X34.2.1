@@ -31,7 +31,7 @@ package kabam.rotmg.classes.view{
             while (_local5 < _local3) {
                 _local4[_local5] = this.makeCharacterSkinTile(_local2[_local5]);
                 _local5++;
-            };
+            }
             return (_local4);
         }
 

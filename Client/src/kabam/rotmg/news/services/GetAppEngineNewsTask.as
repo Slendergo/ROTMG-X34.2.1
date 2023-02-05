@@ -58,7 +58,7 @@ package kabam.rotmg.news.services{
             var _local3:Object = JSON.parse(_arg1);
             for each (_local4 in _local3) {
                 _local2.push(this.returnNewsCellVO(_local4));
-            };
+            }
             this.model.updateNews(_local2);
         }
 

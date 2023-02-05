@@ -79,13 +79,13 @@ package com.company.assembleegameclient.ui{
             this.jumpDist_ = ((_arg1 / (_arg2 - _arg1)) * 0.33);
             if (_arg3){
                 this.setPos(0);
-            };
+            }
         }
 
         public function setPos(_arg1:Number):void{
             if ((((_arg1 == Number.POSITIVE_INFINITY)) || ((_arg1 == Number.NEGATIVE_INFINITY)))){
                 return;
-            };
+            }
             _arg1 = Math.max(0, Math.min(1, _arg1));
             this.posIndicator_.y = ((_arg1 * (this.indicatorRect_.height - this.posIndicator_.height)) + this.indicatorRect_.y);
             this.sendPos();
@@ -123,7 +123,7 @@ package com.company.assembleegameclient.ui{
             }
             else {
                 this.jumpDown();
-            };
+            }
         }
 
         protected function onAddedToStage(_arg1:Event):void{
@@ -136,8 +136,8 @@ package com.company.assembleegameclient.ui{
                 }
                 else {
                     WebMain.STAGE.addEventListener(MouseEvent.MOUSE_WHEEL, this.onMouseWheel);
-                };
-            };
+                }
+            }
         }
 
         protected function onRemovedFromStage(_arg1:Event):void{
@@ -150,8 +150,8 @@ package com.company.assembleegameclient.ui{
                 }
                 else {
                     WebMain.STAGE.removeEventListener(MouseEvent.MOUSE_WHEEL, this.onMouseWheel);
-                };
-            };
+                }
+            }
             removeEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
             removeEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
         }
@@ -165,8 +165,8 @@ package com.company.assembleegameclient.ui{
             else {
                 if (_arg1.delta < 0){
                     this.jumpDown();
-                };
-            };
+                }
+            }
         }
 
         private function onUpArrowDown(_arg1:MouseEvent):void{

@@ -23,13 +23,13 @@ package kabam.rotmg.stage3D.graphic3D{
         public function Program3DFactory(_arg1:String=""){
             if (_arg1 != "yoThisIsInternal"){
                 throw (new Error("Program3DFactory is a singleton. Use Program3DFactory.getInstance()"));
-            };
+            }
         }
 
         public static function getInstance():Program3DFactory{
             if (instance == null){
                 instance = new Program3DFactory("yoThisIsInternal");
-            };
+            }
             return (instance);
         }
 
@@ -37,10 +37,10 @@ package kabam.rotmg.stage3D.graphic3D{
         public function dispose():void{
             if (this.repeatProgram != null){
                 this.repeatProgram.getProgram3D().dispose();
-            };
+            }
             if (this.noRepeatProgram != null){
                 this.noRepeatProgram.getProgram3D().dispose();
-            };
+            }
             instance = null;
         }
 
@@ -51,23 +51,23 @@ package kabam.rotmg.stage3D.graphic3D{
                     if (this.repeatProgram == null){
                         this.repeatProgram = _arg1.createProgram();
                         this.repeatProgram.upload(new VertextShader().getVertexProgram(), new FragmentShaderRepeat().getVertexProgram());
-                    };
+                    }
                     _local3 = this.repeatProgram;
                     break;
                 case TYPE_REPEAT_OFF:
                     if (this.noRepeatProgram == null){
                         this.noRepeatProgram = _arg1.createProgram();
                         this.noRepeatProgram.upload(new VertextShader().getVertexProgram(), new FragmentShader().getVertexProgram());
-                    };
+                    }
                     _local3 = this.noRepeatProgram;
                     break;
                 default:
                     if (this.repeatProgram == null){
                         this.repeatProgram = _arg1.createProgram();
                         this.repeatProgram.upload(new VertextShader().getVertexProgram(), new FragmentShaderRepeat().getVertexProgram());
-                    };
+                    }
                     _local3 = this.repeatProgram;
-            };
+            }
             return (_local3);
         }
 

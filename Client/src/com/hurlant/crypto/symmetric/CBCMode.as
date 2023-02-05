@@ -22,12 +22,12 @@ package com.hurlant.crypto.symmetric{
                 while (_local4 < blockSize) {
                     _arg1[(_local3 + _local4)] = (_arg1[(_local3 + _local4)] ^ _local2[_local4]);
                     _local4++;
-                };
+                }
                 key.encrypt(_arg1, _local3);
                 _local2.position = 0;
                 _local2.writeBytes(_arg1, _local3, blockSize);
                 _local3 = (_local3 + blockSize);
-            };
+            }
         }
 
         public function decrypt(_arg1:ByteArray):void{
@@ -43,11 +43,11 @@ package com.hurlant.crypto.symmetric{
                 while (_local5 < blockSize) {
                     _arg1[(_local4 + _local5)] = (_arg1[(_local4 + _local5)] ^ _local2[_local5]);
                     _local5++;
-                };
+                }
                 _local2.position = 0;
                 _local2.writeBytes(_local3, 0, blockSize);
                 _local4 = (_local4 + blockSize);
-            };
+            }
             padding.unpad(_arg1);
         }
 

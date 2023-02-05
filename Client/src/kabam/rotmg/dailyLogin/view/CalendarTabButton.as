@@ -65,15 +65,15 @@ package kabam.rotmg.dailyLogin.view{
         private function drawTab():void{
             if (this.background){
                 removeChild(this.background);
-            };
+            }
             if (this.tooltip){
                 removeChild(this.tooltip);
-            };
+            }
             this.background = CalendarDayBox.drawRectangleWithCuts([1, 1, 0, 0], CalendarSettings.TABS_WIDTH, CalendarSettings.TABS_HEIGHT, 0x363636, 1, (((this.state_ == STATE_IDLE)) ? this.graphicsDataBackgroundIdle : this.graphicsDataBackground), this.path_);
             this.addChild(this.background);
             if (this.tabNameTxt){
                 removeChild(this.tabNameTxt);
-            };
+            }
             this.tabNameTxt = new TextFieldDisplayConcrete().setSize(CalendarSettings.TABS_FONT_SIZE).setColor((((this.state_ == STATE_IDLE)) ? 0xFFFFFF : 0xFFDE00)).setTextWidth(CalendarSettings.TABS_WIDTH).setAutoSize(TextFieldAutoSize.CENTER);
             this.tabNameTxt.setStringBuilder(new StaticStringBuilder(this.tabName));
             this.tabNameTxt.y = ((CalendarSettings.TABS_HEIGHT - CalendarSettings.TABS_FONT_SIZE) / 2);
@@ -83,7 +83,7 @@ package kabam.rotmg.dailyLogin.view{
             addChild(this.tooltip);
             if (this.state_ == STATE_IDLE){
                 this.tabNameTxt.alpha = 0.5;
-            };
+            }
             this.addChild(this.tabNameTxt);
         }
 
@@ -91,7 +91,7 @@ package kabam.rotmg.dailyLogin.view{
             if (_arg1 != this.state_){
                 this.state_ = _arg1;
                 this.drawTab();
-            };
+            }
         }
 
         public function get calendarType():String{

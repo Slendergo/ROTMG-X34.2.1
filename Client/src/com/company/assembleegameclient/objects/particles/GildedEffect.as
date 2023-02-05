@@ -46,15 +46,15 @@ package com.company.assembleegameclient.objects.particles{
                     this.runs++;
                     if (this.runs >= this.numArm){
                         this.healUpdate = _arg1;
-                    };
-                };
-            };
+                    }
+                }
+            }
             if (this.healUpdate != 0){
                 if ((_arg1 - this.healUpdate) > this.healEffectDelay){
                     this.go_.map_.addObj(new HealEffect(this.go_, this.color3_, this.color1_), this.go_.x_, this.go_.y_);
                     return false;
-                };
-            };
+                }
+            }
             x_ = this.go_.x_;
             y_ = this.go_.y_;
             return true;
@@ -67,7 +67,7 @@ package com.company.assembleegameclient.objects.particles{
             var _local5:GildedParticle;
             if (!map_){
                 return;
-            };
+            }
             this.particlesOffset = (this.particlesOffset - 0.01618);
             this.healEffectDelay = (this.healEffectDelay - this.delayBetweenParticles);
             var _local1:int;
@@ -78,7 +78,7 @@ package com.company.assembleegameclient.objects.particles{
                 _local5 = new GildedParticle(this.go_, _local3, _local4, _local2, this.rad_, this.healEffectDelay, this.color1_, this.color2_, this.color3_);
                 map_.addObj(_local5, (x_ + _local3), (y_ + _local4));
                 _local1++;
-            };
+            }
         }
 
 

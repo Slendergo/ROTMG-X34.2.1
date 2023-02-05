@@ -26,14 +26,14 @@ package com.company.assembleegameclient.editor{
             var _local1:Command;
             for each (_local1 in this.list_) {
                 _local1.execute();
-            };
+            }
         }
 
         public function unexecute():void{
             var _local1:Command;
             for each (_local1 in this.list_) {
                 _local1.unexecute();
-            };
+            }
         }
 
 

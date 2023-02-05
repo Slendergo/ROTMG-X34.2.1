@@ -35,16 +35,16 @@ package com.company.assembleegameclient.editor{
                     if (_local3.command_ == _arg1){
                         this.setSelected(_local3);
                         return;
-                    };
-                };
+                    }
+                }
                 _local2++;
-            };
+            }
         }
 
         protected function setSelected(_arg1:CommandMenuItem):void{
             if (this.selected_ != null){
                 this.selected_.setSelected(false);
-            };
+            }
             this.selected_ = _arg1;
             this.selected_.setSelected(true);
         }
@@ -60,11 +60,11 @@ package com.company.assembleegameclient.editor{
         private function onKeyDown(_arg1:KeyboardEvent):void{
             if (stage.focus != null){
                 return;
-            };
+            }
             var _local2:CommandMenuItem = this.keyCodeDict_[_arg1.keyCode];
             if (_local2 == null){
                 return;
-            };
+            }
             _local2.callback_(_local2);
         }
 
@@ -74,10 +74,10 @@ package com.company.assembleegameclient.editor{
             addChild(_local5);
             if (_arg2 != -1){
                 this.keyCodeDict_[_arg2] = _local5;
-            };
+            }
             if (this.selected_ == null){
                 this.setSelected(_local5);
-            };
+            }
             this.yOffset_ = (this.yOffset_ + 30);
         }
 

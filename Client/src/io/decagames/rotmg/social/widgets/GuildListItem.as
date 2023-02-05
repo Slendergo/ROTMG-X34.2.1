@@ -43,7 +43,7 @@ package io.decagames.rotmg.social.widgets{
                 hoverTooltipDelegate.setDisplayObject(_characterContainer);
                 setToolTipTitle("Last Seen:");
                 setToolTipText((TimeUtil.humanReadableTime(this._guildMemberVO.lastLogin) + " ago!"));
-            };
+            }
             this.createButtons();
             createListLabel(this._guildMemberVO.name);
             createListPortrait(this._guildMemberVO.player.getPortrait());
@@ -77,12 +77,12 @@ package io.decagames.rotmg.social.widgets{
                 this.teleportButton.enabled = ((this._isOnline) && (!((_local4 == _local3))));
                 this.messageButton = addButton("lofiInterfaceBig", 21, 0xFF, 12, TextKey.PLAYERMENU_PM);
                 this.messageButton.enabled = this._isOnline;
-            };
+            }
             var _local2:String = ((this._isMe) ? "Leave Guild" : "Remove member");
             this.removeButton = addButton("lofiInterfaceBig", 12, 280, 12, _local2);
             if (!this._isMe){
                 this.removeButton.enabled = GuildUtil.canRemove(this._myRank, this._guildMemberRank);
-            };
+            }
         }
 
         public function get guildMemberVO():GuildMemberVO{

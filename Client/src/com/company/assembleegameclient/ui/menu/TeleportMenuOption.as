@@ -62,7 +62,7 @@ package com.company.assembleegameclient.ui.menu{
                     addChild(this.barText_);
                     addChild(this.barMask);
                     this.barText_.mask = this.barMask;
-                };
+                }
                 _local4 = (this.barTextOrigWidth_ * (1 - (_local2 / _local3)));
                 this.barMask.width = _local4;
                 setColorTransform(inactiveCT);
@@ -70,14 +70,14 @@ package com.company.assembleegameclient.ui.menu{
             else {
                 if (contains(this.barText_)){
                     removeChild(this.barText_);
-                };
+                }
                 if (this.mouseOver_){
                     setColorTransform(mouseOverCT);
                 }
                 else {
                     setColorTransform(null);
-                };
-            };
+                }
+            }
         }
 
         override protected function onMouseOver(_arg1:MouseEvent):void{

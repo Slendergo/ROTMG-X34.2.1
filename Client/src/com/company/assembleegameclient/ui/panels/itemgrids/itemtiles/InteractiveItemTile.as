@@ -41,7 +41,7 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles{
                 removeEventListener(MouseEvent.MOUSE_DOWN, this.onMouseDown);
                 removeEventListener(MouseEvent.MOUSE_UP, this.onMouseUp);
                 removeEventListener(MouseEvent.MOUSE_OUT, this.onMouseOut);
-            };
+            }
         }
 
         public function getDropTarget():DisplayObject{
@@ -61,7 +61,7 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles{
         private function onMouseUp(_arg1:MouseEvent):void{
             if (this.isDragging){
                 return;
-            };
+            }
             if (_arg1.shiftKey){
                 this.setPendingDoubleClick(false);
                 dispatchEvent(new ItemTileEvent(ItemTileEvent.ITEM_SHIFT_CLICK, this));
@@ -78,15 +78,15 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles{
                     else {
                         this.setPendingDoubleClick(false);
                         dispatchEvent(new ItemTileEvent(ItemTileEvent.ITEM_DOUBLE_CLICK, this));
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         private function onMouseDown(_arg1:MouseEvent):void{
             if (getItemId() == -1){
                 return;
-            };
+            }
             this.beginDragCheck(_arg1);
         }
 
@@ -98,7 +98,7 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles{
             }
             else {
                 this.doubleClickTimer.stop();
-            };
+            }
         }
 
         private function beginDragCheck(_arg1:MouseEvent):void{
@@ -122,7 +122,7 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles{
                 this.cancelDragCheck(null);
                 this.setPendingDoubleClick(false);
                 this.beginDrag(_arg1);
-            };
+            }
         }
 
         private function onDoubleClickTimerComplete(_arg1:TimerEvent):void{
@@ -154,7 +154,7 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles{
             var _local2:Boolean = super.setItem(_arg1);
             if (_local2){
                 this.stopDragging();
-            };
+            }
             return (_local2);
         }
 
@@ -169,9 +169,9 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles{
                 itemSprite.stopDrag();
                 if (stage.contains(itemSprite)){
                     stage.removeChild(itemSprite);
-                };
+                }
                 this.isDragging = false;
-            };
+            }
         }
 
 

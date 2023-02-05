@@ -63,8 +63,8 @@ package kabam.rotmg.game.view.components{
                     _arg1.setSelected(true);
                     this.showContent(_arg1.index);
                     this.tabSelected.dispatch(this.contents[_arg1.index].name);
-                };
-            };
+                }
+            }
         }
 
         public function getTabView(_arg1:Class){
@@ -72,8 +72,8 @@ package kabam.rotmg.game.view.components{
             for each (_local2 in this.contents) {
                 if ((_local2 is _arg1)){
                     return ((_local2 as _arg1));
-                };
-            };
+                }
+            }
             return (null);
         }
 
@@ -96,7 +96,7 @@ package kabam.rotmg.game.view.components{
                 this.tabSprite.removeChild(this.tabs[_local1]);
                 this.containerSprite.removeChild(this.contents[_local1]);
                 _local1++;
-            };
+            }
             this.tabs = new Vector.<TabView>();
             this.contents = new Vector.<Sprite>();
         }
@@ -110,8 +110,8 @@ package kabam.rotmg.game.view.components{
             else {
                 if ((_arg1 is BaseSimpleText)){
                     _local4 = this.addTextTab(_local3, (_arg1 as BaseSimpleText));
-                };
-            };
+                }
+            }
             this.tabs.push(_local4);
             this.tabSprite.addChild(_local4);
             this.contents.push(_arg2);
@@ -123,7 +123,7 @@ package kabam.rotmg.game.view.components{
                 _local4.setSelected(true);
                 this.showContent(0);
                 this.tabSelected.dispatch(_arg2.name);
-            };
+            }
         }
 
         public function removeTab():void{
@@ -156,7 +156,7 @@ package kabam.rotmg.game.view.components{
                 _local2.visible = false;
                 _local3.visible = true;
                 this.currentTabIndex = _arg1;
-            };
+            }
         }
 
 

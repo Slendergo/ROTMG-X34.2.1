@@ -47,7 +47,7 @@ package com.hurlant.crypto.symmetric{
                 _local6 = (_local6 + _local7);
                 _local4 = (_local4 + ((((_local3 << 4) ^ (_local3 >> 5)) + _local3) ^ (_local6 + this.k[((_local6 >> 11) & 3)])));
                 _local5++;
-            };
+            }
             _arg1.position = (_arg1.position - 8);
             _arg1.writeUnsignedInt(_local3);
             _arg1.writeUnsignedInt(_local4);
@@ -66,7 +66,7 @@ package com.hurlant.crypto.symmetric{
                 _local7 = (_local7 - _local6);
                 _local3 = (_local3 - ((((_local4 << 4) ^ (_local4 >> 5)) + _local4) ^ (_local7 + this.k[(_local7 & 3)])));
                 _local5++;
-            };
+            }
             _arg1.position = (_arg1.position - 8);
             _arg1.writeUnsignedInt(_local3);
             _arg1.writeUnsignedInt(_local4);
@@ -79,7 +79,7 @@ package com.hurlant.crypto.symmetric{
                 this.k[_local2] = _local1.nextByte();
                 delete this.k[_local2];
                 _local2++;
-            };
+            }
             this.k = null;
             Memory.gc();
         }

@@ -39,17 +39,17 @@ package kabam.rotmg.game.logging{
                 this.rollingTotal = (this.rollingTotal - this.times[this.index]);
                 this.rollingTotal = (this.rollingTotal + _arg1);
                 this.times[this.index] = _arg1;
-            };
+            }
             if (++this.index == COUNT){
                 this.index = 0;
-            };
+            }
             this.mean = (this.rollingTotal / this.count);
             if (_arg1 > this.max){
                 this.max = _arg1;
-            };
+            }
             if (_arg1 < this.min){
                 this.min = _arg1;
-            };
+            }
             data = WATCH_PATTERN.replace("{NAME}", name).replace("{MEAN}", this.mean).replace("{MIN}", this.min).replace("{MAX}", this.max);
         }
 

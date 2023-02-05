@@ -54,7 +54,7 @@ package kabam.rotmg.arena.component{
             }
             else {
                 _local6 = (((((_local3 + " hours, ") + _local4) + " minutes, ") + _local5) + " seconds");
-            };
+            }
             return (_local6);
         }
 
@@ -69,7 +69,7 @@ package kabam.rotmg.arena.component{
             if ((((_local1.dayUTC == this.MONDAY)) && ((_local1.hoursUTC < this.UTC_COUNTOFF_HOUR)))){
                 _local1.setUTCHours((this.UTC_COUNTOFF_HOUR - _local1.hoursUTC));
                 return (_local1);
-            };
+            }
             _local1.setUTCHours(7);
             _local1.setUTCMinutes(0);
             _local1.setUTCSeconds(0);
@@ -77,7 +77,7 @@ package kabam.rotmg.arena.component{
             _local1.setUTCDate((_local1.dateUTC + 1));
             while (_local1.dayUTC != this.MONDAY) {
                 _local1.setUTCDate((_local1.dateUTC + 1));
-            };
+            }
             return (_local1);
         }
 

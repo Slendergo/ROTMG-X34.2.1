@@ -30,8 +30,8 @@ package com.company.assembleegameclient.objects{
             if (Parameters.isGpuRender()){
                 for each (_local6 in obj3D_.faces_) {
                     GraphicsFillExtra.setSoftwareDraw(_local6.bitmapFill_, true);
-                };
-            };
+                }
+            }
         }
 
         override protected function buildShortLine():void{
@@ -51,8 +51,8 @@ package com.company.assembleegameclient.objects{
             if (Parameters.isGpuRender()){
                 for each (_local9 in obj3D_.faces_) {
                     GraphicsFillExtra.setSoftwareDraw(_local9.bitmapFill_, true);
-                };
-            };
+                }
+            }
         }
 
         override protected function buildL():void{
@@ -74,8 +74,8 @@ package com.company.assembleegameclient.objects{
             if (Parameters.isGpuRender()){
                 for each (_local11 in obj3D_.faces_) {
                     GraphicsFillExtra.setSoftwareDraw(_local11.bitmapFill_, true);
-                };
-            };
+                }
+            }
         }
 
         override protected function buildLine():void{
@@ -94,8 +94,8 @@ package com.company.assembleegameclient.objects{
             if (Parameters.isGpuRender()){
                 for each (_local9 in obj3D_.faces_) {
                     GraphicsFillExtra.setSoftwareDraw(_local9.bitmapFill_, true);
-                };
-            };
+                }
+            }
         }
 
         override protected function buildT():void{
@@ -119,8 +119,8 @@ package com.company.assembleegameclient.objects{
             if (Parameters.isGpuRender()){
                 for each (_local13 in obj3D_.faces_) {
                     GraphicsFillExtra.setSoftwareDraw(_local13.bitmapFill_, true);
-                };
-            };
+                }
+            }
         }
 
         override protected function buildCross():void{
@@ -149,8 +149,8 @@ package com.company.assembleegameclient.objects{
             if (Parameters.isGpuRender()){
                 for each (_local17 in obj3D_.faces_) {
                     GraphicsFillExtra.setSoftwareDraw(_local17.bitmapFill_, true);
-                };
-            };
+                }
+            }
         }
 
         protected function getVertex(_arg1:int, _arg2:int):Vector3D{
@@ -167,7 +167,7 @@ package com.company.assembleegameclient.objects{
                 case 2:
                     _local4++;
                     break;
-            };
+            }
             switch (_arg2){
                 case 0:
                 case 3:
@@ -177,7 +177,7 @@ package com.company.assembleegameclient.objects{
                 case 2:
                     _local6 = (3 + (((_local3 * 2179) ^ (_local4 * 1237)) % 35));
                     break;
-            };
+            }
             switch (_arg2){
                 case 0:
                     _local7 = (-(_local6) / 100);
@@ -195,7 +195,7 @@ package com.company.assembleegameclient.objects{
                     _local7 = (_local6 / 100);
                     _local8 = 0;
                     break;
-            };
+            }
             switch (_arg1){
                 case 0:
                     return (new Vector3D(_local7, -0.5, _local8));
@@ -205,7 +205,7 @@ package com.company.assembleegameclient.objects{
                     return (new Vector3D(_local7, 0.5, _local8));
                 case 3:
                     return (new Vector3D(-0.5, _local7, _local8));
-            };
+            }
             return (null);
         }
 
@@ -216,7 +216,7 @@ package com.company.assembleegameclient.objects{
             var _local4:int = (obj3D_.vL_.length / 3);
             for each (_local5 in _args) {
                 obj3D_.vL_.push(_local5.x, _local5.y, _local5.z);
-            };
+            }
             _local6 = obj3D_.faces_.length;
             if (_args.length == 4){
                 obj3D_.uvts_.push(0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0);
@@ -225,7 +225,7 @@ package com.company.assembleegameclient.objects{
                 }
                 else {
                     obj3D_.faces_.push(new ObjectFace3D(obj3D_, new <int>[_local4, (_local4 + 2), (_local4 + 3)]), new ObjectFace3D(obj3D_, new <int>[_local4, (_local4 + 1), (_local4 + 2)]));
-                };
+                }
             }
             else {
                 if (_args.length == 3){
@@ -246,19 +246,19 @@ package com.company.assembleegameclient.objects{
                             if (_args.length == 8){
                                 obj3D_.uvts_.push(0, 0, 0, 0.2, 0, 0, 1, 0.2, 0, 1, 0.8, 0, 0.8, 1, 0, 0.2, 1, 0, 0, 0.8, 0, 0, 0.2, 0);
                                 obj3D_.faces_.push(new ObjectFace3D(obj3D_, new <int>[_local4, (_local4 + 1), (_local4 + 2), (_local4 + 3), (_local4 + 4), (_local4 + 5), (_local4 + 6), (_local4 + 7)]));
-                            };
-                        };
-                    };
-                };
-            };
+                            }
+                        }
+                    }
+                }
+            }
             if (((!((_arg1 == null))) || (!((_arg2 == null))))){
                 _local7 = _local6;
                 while (_local7 < obj3D_.faces_.length) {
                     obj3D_.faces_[_local7].normalL_ = _arg1;
                     obj3D_.faces_[_local7].texture_ = _arg2;
                     _local7++;
-                };
-            };
+                }
+            }
         }
 
 

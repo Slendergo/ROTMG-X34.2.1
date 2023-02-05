@@ -29,7 +29,7 @@ package kabam.rotmg.messaging.impl.incoming{
             while (_local3 < _local2) {
                 this.effects_.push(_arg1.readUnsignedByte());
                 _local3++;
-            };
+            }
             this.damageAmount_ = _arg1.readUnsignedShort();
             this.kill_ = _arg1.readBoolean();
             this.armorPierce_ = _arg1.readBoolean();

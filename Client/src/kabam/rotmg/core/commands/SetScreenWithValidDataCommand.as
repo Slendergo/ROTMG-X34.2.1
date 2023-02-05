@@ -41,7 +41,7 @@ package kabam.rotmg.core.commands{
             }
             else {
                 this.setScreen.dispatch(this.view);
-            };
+            }
         }
 
         private function reloadDataThenSetScreen():void{

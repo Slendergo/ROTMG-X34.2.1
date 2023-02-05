@@ -22,16 +22,16 @@ package com.company.assembleegameclient.objects.particles{
             this.textureData_ = new TextureDataConcrete(_arg1);
             if (_arg1.hasOwnProperty("Size")){
                 this.size_ = Number(_arg1.Size);
-            };
+            }
             if (_arg1.hasOwnProperty("Z")){
                 this.z_ = Number(_arg1.Z);
-            };
+            }
             if (_arg1.hasOwnProperty("Duration")){
                 this.duration_ = Number(_arg1.Duration);
-            };
+            }
             if (_arg1.hasOwnProperty("Animation")){
                 this.animationsData_ = new AnimationsData(_arg1);
-            };
+            }
         }
 
     }

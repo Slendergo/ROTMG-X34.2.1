@@ -60,12 +60,12 @@ package com.company.assembleegameclient.map{
             this.texture_ = null;
             for each (_local1 in this.faces_) {
                 _local1.dispose();
-            };
+            }
             this.faces_.length = 0;
             if (this.topFace_ != null){
                 this.topFace_.dispose();
                 this.topFace_ = null;
-            };
+            }
             this.faces_ = null;
             this.baseTexMatrix_ = null;
         }
@@ -86,18 +86,18 @@ package com.company.assembleegameclient.map{
             var _local4:SquareFace;
             if (this.texture_ == null){
                 return;
-            };
+            }
             if (this.faces_.length == 0){
                 this.rebuild3D();
-            };
+            }
             for each (_local4 in this.faces_) {
                 if (!_local4.draw(_arg1, _arg2, _arg3)){
                     if (_local4.face_.vout_[1] < _arg2.clipRect_.bottom){
                         this.lastVisible_ = 0;
-                    };
+                    }
                     return;
-                };
-            };
+                }
+            }
         }
 
         public function drawTop(_arg1:Vector.<IGraphicsData>, _arg2:Camera, _arg3:int):void{
@@ -118,7 +118,7 @@ package com.company.assembleegameclient.map{
                 _local1 = TileRedrawer.redraw(this, false);
                 if (_local1 != null){
                     this.faces_.push(new SquareFace(_local1, this.vin_, 0, 0, AnimateProperties.NO_ANIMATE, 0, 0));
-                };
+                }
             }
             else {
                 _local1 = TileRedrawer.redraw(this, true);
@@ -132,16 +132,16 @@ package com.company.assembleegameclient.map{
                     else {
                         _local2 = this.props_.xOffset_;
                         _local3 = this.props_.yOffset_;
-                    };
-                };
+                    }
+                }
                 this.faces_.push(new SquareFace((((_local1)!=null) ? _local1 : this.texture_), this.vin_, _local2, _local3, AnimateProperties.NO_ANIMATE, 0, 0));
-            };
+            }
             if (this.props_.sink_){
                 this.sink_ = (((_local1)==null) ? 12 : 6);
             }
             else {
                 this.sink_ = 0;
-            };
+            }
             if (this.props_.topTD_){
                 _local4 = this.props_.topTD_.getTexture();
                 _local5 = this.vin_.concat();
@@ -149,9 +149,9 @@ package com.company.assembleegameclient.map{
                 while (_local6 < _local5.length) {
                     _local5[_local6] = 1;
                     _local6 = (_local6 + 3);
-                };
+                }
                 this.topFace_ = new SquareFace(_local4, _local5, 0, 0, this.props_.topAnimate_.type_, this.props_.topAnimate_.dx_, this.props_.topAnimate_.dy_);
-            };
+            }
         }
 
 

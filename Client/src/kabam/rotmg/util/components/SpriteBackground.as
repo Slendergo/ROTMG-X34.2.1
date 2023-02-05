@@ -69,7 +69,7 @@ package kabam.rotmg.util.components{
                 mouseEnabled = _arg1;
                 filters = ((_arg1) ? [] : [grayfilter]);
                 this.draw();
-            };
+            }
         }
 
         private function updateUI():void{

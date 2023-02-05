@@ -38,7 +38,7 @@ package kabam.rotmg.account.core.services{
             if (((!((this.guid == this.model.lastOfferRequestGUID))) || (((_local1 - this.model.lastOfferRequestTime) > OfferModel.TIME_BETWEEN_REQS)))){
                 this.model.lastOfferRequestGUID = this.guid;
                 this.model.lastOfferRequestTime = _local1;
-            };
+            }
         }
 
         private function sendGetOffersRequest():void{
@@ -59,7 +59,7 @@ package kabam.rotmg.account.core.services{
             }
             else {
                 this.onTextError(_arg2);
-            };
+            }
             completeTask(_arg1);
         }
 

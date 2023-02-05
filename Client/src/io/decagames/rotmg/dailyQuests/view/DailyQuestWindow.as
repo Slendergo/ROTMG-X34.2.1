@@ -71,7 +71,7 @@ package io.decagames.rotmg.dailyQuests.view{
             if (_arg1 == _arg2){
                 DefaultLabelFormat.questCompletedLabel(this.completedTxt, true, false);
                 DefaultLabelFormat.questCompletedLabel(this.completedCounter, true, true);
-            };
+            }
             this.completedCounter.text = ((_arg1 + "/") + _arg2);
             this.completedCounter.x = (this.completedCounter.x - this.completedCounter.textWidth);
         }
@@ -83,7 +83,7 @@ package io.decagames.rotmg.dailyQuests.view{
         public function renderQuestInfo():void{
             if (((this.questInfo) && (this.questInfo.parent))){
                 this.questInfo.parent.removeChild(this.questInfo);
-            };
+            }
             this.questInfo = new DailyQuestInfo();
             this.questInfo.x = 0x0101;
             this.questInfo.y = 130;
@@ -93,7 +93,7 @@ package io.decagames.rotmg.dailyQuests.view{
         public function renderList():void{
             if (((this._questList) && (this._questList.parent))){
                 removeChild(this._questList);
-            };
+            }
             this._questList = new DailyQuestsList();
             this._questList.x = 20;
             this._questList.y = 160;
@@ -111,16 +111,16 @@ package io.decagames.rotmg.dailyQuests.view{
                 this.fade.graphics.beginFill(_arg1, 0.8);
                 this.fade.graphics.drawRect(0, 0, MODAL_FULL_WIDTH, MODAL_HEIGHT);
                 addChild(this.fade);
-            };
+            }
         }
 
         public function hideFade():void{
             if (((this.fade) && (this.fade.parent))){
                 removeChild(this.fade);
-            };
+            }
             if (((this.particleLayer) && (this.particleLayer.parent))){
                 removeChild(this.particleLayer);
-            };
+            }
         }
 
         public function get closeButton():Sprite{

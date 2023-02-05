@@ -170,8 +170,8 @@ package com.company.assembleegameclient.util{
                 while (_local2 < effects_.length) {
                     conditionEffectFromName_[effects_[_local2].name_] = _local2;
                     _local2++;
-                };
-            };
+                }
+            }
             return (conditionEffectFromName_[_arg1]);
         }
 
@@ -180,8 +180,8 @@ package com.company.assembleegameclient.util{
             for each (_local2 in effects_) {
                 if (_local2.name_ == _arg1){
                     return (_local2);
-                };
-            };
+                }
+            }
             return (null);
         }
 
@@ -195,9 +195,9 @@ package com.company.assembleegameclient.util{
                 _local6 = getIconsFromBit(_local5);
                 if (_local6 != null){
                     _arg2.push(_local6[(_arg3 % _local6.length)]);
-                };
+                }
                 _arg1 = _local4;
-            };
+            }
         }
 
         public static function getConditionEffectIcons2(_arg1:uint, _arg2:Vector.<BitmapData>, _arg3:int):void{
@@ -210,9 +210,9 @@ package com.company.assembleegameclient.util{
                 _local6 = getIconsFromBit2(_local5);
                 if (_local6 != null){
                     _arg2.push(_local6[(_arg3 % _local6.length)]);
-                };
+                }
                 _arg1 = _local4;
-            };
+            }
         }
 
         public static function addConditionEffectIcon(_arg1:Vector.<BitmapData>, _arg2:int, _arg3:Boolean):void{
@@ -221,7 +221,7 @@ package com.company.assembleegameclient.util{
             var _local6:Matrix;
             if (effectIconCache == null){
                 effectIconCache = {};
-            };
+            }
             if (effectIconCache[_arg2]){
                 _local4 = effectIconCache[_arg2];
             }
@@ -237,11 +237,11 @@ package com.company.assembleegameclient.util{
                 else {
                     _local4 = new BitmapDataSpy(16, 16, true, 0);
                     _local4.draw(AssetLibrary.getImageFromSet("lofiInterface2", _arg2), _local5);
-                };
+                }
                 _local4 = GlowRedrawer.outlineGlow(_local4, 0xFFFFFFFF);
                 _local4.applyFilter(_local4, _local4.rect, PointUtil.ORIGIN, GLOW_FILTER);
                 effectIconCache[_arg2] = _local4;
-            };
+            }
             _arg1.push(_local4);
         }
 
@@ -268,12 +268,12 @@ package com.company.assembleegameclient.util{
                             _local6.applyFilter(_local6, _local6.rect, PointUtil.ORIGIN, GLOW_FILTER);
                             _local4.push(_local6);
                             _local5++;
-                        };
-                    };
+                        }
+                    }
                     bitToIcon_[effects_[_local3].bit_] = _local4;
                     _local3++;
-                };
-            };
+                }
+            }
             return (bitToIcon_[_arg1]);
         }
 
@@ -305,20 +305,20 @@ package com.company.assembleegameclient.util{
                             else {
                                 _local3 = new BitmapDataSpy(16, 16, true, 0);
                                 _local3.draw(AssetLibrary.getImageFromSet("lofiInterface2", effects_[_local6].iconOffsets_[_local7]), _local4);
-                            };
+                            }
                             _local3 = GlowRedrawer.outlineGlow(_local3, 0xFFFFFFFF);
                             _local3.applyFilter(_local3, _local3.rect, PointUtil.ORIGIN, GLOW_FILTER);
                             _local2.push(_local3);
                             _local7++;
-                        };
-                    };
+                        }
+                    }
                     bitToIcon2_[effects_[_local6].bit_] = _local2;
                     _local6++;
-                };
-            };
+                }
+            }
             if (((!((bitToIcon2_ == null))) && (!((bitToIcon2_[_arg1] == null))))){
                 return (bitToIcon2_[_arg1]);
-            };
+            }
             return (null);
         }
 

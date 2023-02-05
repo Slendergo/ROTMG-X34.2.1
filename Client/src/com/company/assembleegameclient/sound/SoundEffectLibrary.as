@@ -71,7 +71,7 @@ package com.company.assembleegameclient.sound{
                 activeSfxList_[channel] = volume;
             }
             catch(error:Error) {
-            };
+            }
         }
 
         private static function onSoundComplete(_arg1:Event):void{
@@ -87,7 +87,7 @@ package com.company.assembleegameclient.sound{
                 _local3 = _local2.soundTransform;
                 _local3.volume = ((Parameters.data_.playSFX) ? activeSfxList_[_local2] : 0);
                 _local2.soundTransform = _local3;
-            };
+            }
         }
 
         public static function updateTransform():void{
@@ -97,7 +97,7 @@ package com.company.assembleegameclient.sound{
                 _local2 = _local1.soundTransform;
                 _local2.volume = ((Parameters.data_.playSFX) ? activeSfxList_[_local1] : 0);
                 _local1.soundTransform = _local2;
-            };
+            }
         }
 
         public static function onIOError(_arg1:IOErrorEvent):void{

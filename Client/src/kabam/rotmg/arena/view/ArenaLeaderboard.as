@@ -72,7 +72,7 @@ package kabam.rotmg.arena.view{
             for each (_local1 in this.tabs) {
                 _local1.selected.remove(this.onSelected);
                 _local1.destroy();
-            };
+            }
         }
 
         public function reloadList():void{
@@ -93,7 +93,7 @@ package kabam.rotmg.arena.view{
             }
             else {
                 this.requestData.dispatch(_arg1.getFilter());
-            };
+            }
         }
 
         public function setList(_arg1:Vector.<ArenaLeaderboardEntry>):void{
@@ -112,7 +112,7 @@ package kabam.rotmg.arena.view{
                 _local2.push(_local4);
                 _local1.push(_local4.readyToAlign);
                 addChild(_local4);
-            };
+            }
             _local1.complete.addOnce(this.alignTabs);
             return (_local2);
         }
@@ -121,7 +121,7 @@ package kabam.rotmg.arena.view{
             var _local2:BitmapData = TextureRedrawer.redraw(AssetLibrary.getImageFromSet("lofiInterface2", 8), 64, true, 0, true);
             if (_arg1){
                 _local2 = BitmapUtil.mirror(_local2);
-            };
+            }
             return (new Bitmap(_local2));
         }
 
@@ -169,7 +169,7 @@ package kabam.rotmg.arena.view{
             for each (_local2 in this.tabs) {
                 _local2.x = _local1;
                 _local1 = (_local1 + (_local2.width + 20));
-            };
+            }
         }
 
         private function makeResetTimer():LeaderboardWeeklyResetTimer{

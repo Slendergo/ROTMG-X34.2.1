@@ -34,7 +34,7 @@ package com.company.assembleegameclient.ui.panels{
         private function onKeyDown(_arg1:KeyboardEvent):void{
             if ((((_arg1.keyCode == Parameters.data_.interact)) && ((stage.focus == null)))){
                 gs_.closed.dispatch();
-            };
+            }
         }
 
 

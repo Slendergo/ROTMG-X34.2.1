@@ -30,7 +30,7 @@ package com.company.assembleegameclient.ui.panels{
             var _local1:Player = gs_.map.player_;
             if (_local1 == null){
                 return;
-            };
+            }
             gs_.addChild(new GuildBoardWindow((_local1.guildRank_ >= GuildUtil.OFFICER)));
         }
 
@@ -45,7 +45,7 @@ package com.company.assembleegameclient.ui.panels{
         private function onKeyDown(_arg1:KeyboardEvent):void{
             if ((((_arg1.keyCode == Parameters.data_.interact)) && ((stage.focus == null)))){
                 this.openWindow();
-            };
+            }
         }
 
 

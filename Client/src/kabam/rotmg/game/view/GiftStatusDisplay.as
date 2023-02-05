@@ -87,13 +87,13 @@ package kabam.rotmg.game.view{
         public function drawAsClosed():void{
             if (((this.background) && ((this.background.parent == this)))){
                 removeChild(this.background);
-            };
+            }
             if (((this.text) && ((this.text.parent == this)))){
                 removeChild(this.text);
-            };
+            }
             if (((this.bitmap) && ((this.bitmap.parent == this)))){
                 removeChild(this.bitmap);
-            };
+            }
             this._isOpen = false;
         }
 

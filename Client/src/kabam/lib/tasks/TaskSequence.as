@@ -36,7 +36,7 @@ package kabam.lib.tasks{
             var _local1:Task;
             for each (_local1 in this.tasks) {
                 _local1.reset();
-            };
+            }
         }
 
         private function doNextTaskOrComplete():void{
@@ -45,7 +45,7 @@ package kabam.lib.tasks{
             }
             else {
                 completeTask(true);
-            };
+            }
         }
 
         private function isAnotherTask():Boolean{
@@ -64,7 +64,7 @@ package kabam.lib.tasks{
             }
             else {
                 completeTask(false, _arg3);
-            };
+            }
         }
 
 

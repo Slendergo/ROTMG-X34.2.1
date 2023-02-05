@@ -46,7 +46,7 @@ package com.company.assembleegameclient.engine3d{
             this.posS_ = Utils3D.projectVector(_arg4, _arg2);
             if (this.posS_.w < 0){
                 return;
-            };
+            }
             var _local8:Number = (this.posS_.w * Math.sin(((_arg5.pp_.fieldOfView / 2) * Trig.toRadians)));
             var _local9:Number = (this.size_ / _local8);
             this.data_.length = 0;
@@ -57,7 +57,7 @@ package com.company.assembleegameclient.engine3d{
                 _local10 = Math.cos(_arg3);
                 _local11 = Math.sin(_arg3);
                 this.data_.push((this.posS_.x + ((_local10 * -(_local9)) + (_local11 * -(_local9)))), (this.posS_.y + ((_local11 * -(_local9)) - (_local10 * -(_local9)))), (this.posS_.x + ((_local10 * _local9) + (_local11 * -(_local9)))), (this.posS_.y + ((_local11 * _local9) - (_local10 * -(_local9)))), (this.posS_.x + ((_local10 * _local9) + (_local11 * _local9))), (this.posS_.y + ((_local11 * _local9) - (_local10 * _local9))), (this.posS_.x + ((_local10 * -(_local9)) + (_local11 * _local9))), (this.posS_.y + ((_local11 * -(_local9)) - (_local10 * _local9))));
-            };
+            }
             if (_arg6 != null){
                 this.bitmapFill_.bitmapData = _arg6;
                 _local12 = this.bitmapFill_.matrix;
@@ -71,7 +71,7 @@ package com.company.assembleegameclient.engine3d{
             else {
                 this.solidFill_.color = _arg7;
                 _arg1.push(this.solidFill_);
-            };
+            }
             _arg1.push(this.path_);
             _arg1.push(END_FILL);
         }

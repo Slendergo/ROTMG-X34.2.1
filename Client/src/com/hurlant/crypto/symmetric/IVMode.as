@@ -25,7 +25,7 @@ package com.hurlant.crypto.symmetric{
             }
             else {
                 _arg2.setBlockSize(this.blockSize);
-            };
+            }
             this.padding = _arg2;
             this.prng = new Random();
             this.iv = null;
@@ -43,19 +43,19 @@ package com.hurlant.crypto.symmetric{
                 while (_local1 < this.iv.length) {
                     this.iv[_local1] = this.prng.nextByte();
                     _local1++;
-                };
+                }
                 this.iv.length = 0;
                 this.iv = null;
-            };
+            }
             if (this.lastIV != null){
                 _local1 = 0;
                 while (_local1 < this.iv.length) {
                     this.lastIV[_local1] = this.prng.nextByte();
                     _local1++;
-                };
+                }
                 this.lastIV.length = 0;
                 this.lastIV = null;
-            };
+            }
             this.key.dispose();
             this.key = null;
             this.padding = null;
@@ -81,7 +81,7 @@ package com.hurlant.crypto.symmetric{
             }
             else {
                 this.prng.nextBytes(_local1, this.blockSize);
-            };
+            }
             this.lastIV.length = 0;
             this.lastIV.writeBytes(_local1);
             return (_local1);
@@ -94,7 +94,7 @@ package com.hurlant.crypto.symmetric{
             }
             else {
                 throw (new Error("an IV must be set before calling decrypt()"));
-            };
+            }
             return (_local1);
         }
 

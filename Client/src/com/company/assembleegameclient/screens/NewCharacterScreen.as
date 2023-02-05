@@ -48,7 +48,7 @@ package com.company.assembleegameclient.screens{
             var _local8:CharacterBox;
             if (this.isInitialized){
                 return;
-            };
+            }
             this.isInitialized = true;
             this.backButton_ = new TitleMenuOption(ScreenTypes.BACK, 36, false);
             this.backButton_.addEventListener(MouseEvent.CLICK, this.onBackClick);
@@ -102,7 +102,7 @@ package com.company.assembleegameclient.screens{
             var _local2:CharacterBox = (_arg1.currentTarget.parent as CharacterBox);
             if (!_local2.available_){
                 return;
-            };
+            }
             var _local3:int = _local2.objectType();
             this.selected.dispatch(_local3);
         }
@@ -128,11 +128,11 @@ package com.company.assembleegameclient.screens{
                     if (_local7){
                         if (((_local6) || (_arg1.isLevelRequirementsMet(_local4)))){
                             _local7.unlock();
-                        };
-                    };
-                };
+                        }
+                    }
+                }
                 _local2++;
-            };
+            }
         }
 
 

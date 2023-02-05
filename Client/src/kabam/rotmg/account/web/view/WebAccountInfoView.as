@@ -120,7 +120,7 @@ package kabam.rotmg.account.web.view{
         private function removeUIElements():void{
             while (numChildren) {
                 removeChildAt(0);
-            };
+            }
         }
 
         private function showUIForRegisteredAccount():void{
@@ -132,7 +132,7 @@ package kabam.rotmg.account.web.view{
             }
             else {
                 this.addAndAlignHorizontally(this.accountText, this.loginButton);
-            };
+            }
         }
 
         private function showUIForGuestAccount():void{
@@ -147,14 +147,14 @@ package kabam.rotmg.account.web.view{
             var _local5:DisplayObject;
             for each (_local2 in _args) {
                 addChild(_local2);
-            };
+            }
             _local3 = 0;
             _local4 = _args.length;
             while (_local4--) {
                 _local5 = _args[_local4];
                 _local5.x = _local3;
                 _local3 = (_local3 - _local5.width);
-            };
+            }
         }
 
 

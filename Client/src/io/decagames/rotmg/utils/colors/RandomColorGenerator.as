@@ -29,10 +29,10 @@ package io.decagames.rotmg.utils.colors{
             var _local2:Number = _arg1[0];
             if (_local2 === 0){
                 _local2 = 1;
-            };
+            }
             if (_local2 === 360){
                 _local2 = 359;
-            };
+            }
             _local2 = (_local2 / 360);
             var _local3:Number = (_arg1[1] / 100);
             var _local4:Number = (_arg1[2] / 100);
@@ -75,7 +75,7 @@ package io.decagames.rotmg.utils.colors{
                     _local11 = _local7;
                     _local12 = _local8;
                     break;
-            };
+            }
             return ([Math.floor((_local10 * 0xFF)), Math.floor((_local11 * 0xFF)), Math.floor((_local12 * 0xFF))]);
         }
 
@@ -93,7 +93,7 @@ package io.decagames.rotmg.utils.colors{
                 case "light":
                     _local5 = 55;
                     break;
-            };
+            }
             return (this.randomWithin([_local4, _local5]));
         }
 
@@ -102,13 +102,13 @@ package io.decagames.rotmg.utils.colors{
             var _local3:Object;
             if ((((_arg1 >= 334)) && ((_arg1 <= 360)))){
                 _arg1 = (_arg1 - 360);
-            };
+            }
             for (_local2 in this.colorDictionary) {
                 _local3 = this.colorDictionary[_local2];
                 if (((((_local3.hueRange) && ((_arg1 >= _local3.hueRange[0])))) && ((_arg1 <= _local3.hueRange[1])))){
                     return (this.colorDictionary[_local2]);
-                };
-            };
+                }
+            }
             return (null);
         }
 
@@ -130,7 +130,7 @@ package io.decagames.rotmg.utils.colors{
                     _local4 = 0;
                     _local5 = 100;
                     break;
-            };
+            }
             return (this.randomWithin([_local4, _local5]));
         }
 
@@ -152,9 +152,9 @@ package io.decagames.rotmg.utils.colors{
                     _local9 = ((_local8 - _local6) / (_local7 - _local5));
                     _local10 = (_local6 - (_local9 * _local5));
                     return (((_local9 * _arg2) + _local10));
-                };
+                }
                 _local4++;
-            };
+            }
             return (0);
         }
 
@@ -164,7 +164,7 @@ package io.decagames.rotmg.utils.colors{
             var _local4:Number;
             if (this.seed == -1){
                 return (Math.floor((_arg1[0] + (Math.random() * ((_arg1[1] + 1) - _arg1[0])))));
-            };
+            }
             _local2 = ((_arg1[1]) || (1));
             _local3 = ((_arg1[0]) || (0));
             this.seed = (((this.seed * 9301) + 49297) % 233280);
@@ -177,14 +177,14 @@ package io.decagames.rotmg.utils.colors{
             var _local3:int = this.randomWithin(_local2);
             if (_local3 < 0){
                 _local3 = (360 + _local3);
-            };
+            }
             return (_local3);
         }
 
         private function getHueRange(_arg1:int):Array{
             if ((((_arg1 < 360)) && ((_arg1 > 0)))){
                 return ([_arg1, _arg1]);
-            };
+            }
             return ([0, 360]);
         }
 
@@ -198,7 +198,7 @@ package io.decagames.rotmg.utils.colors{
                 lowerBounds:_arg3,
                 saturationRange:[_local4, _local5],
                 brightnessRange:[_local6, _local7]
-            };
+            }
         }
 
         private function loadColorBounds():void{

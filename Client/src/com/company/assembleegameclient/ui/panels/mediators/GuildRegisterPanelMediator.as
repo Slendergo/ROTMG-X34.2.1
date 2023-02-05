@@ -46,7 +46,7 @@ package com.company.assembleegameclient.ui.panels.mediators{
             var _local1:GameSprite = this.hudModel.gameSprite;
             if ((((_local1.map == null)) || ((_local1.map.player_ == null)))){
                 return;
-            };
+            }
             var _local2:Player = _local1.map.player_;
             var _local3:Dialog = new Dialog(TextKey.RENOUNCE_DIALOG_SUBTITLE, TextKey.RENOUNCE_DIALOG_TITLE, TextKey.RENOUNCE_DIALOG_CANCEL, TextKey.RENOUNCE_DIALOG_ACCEPT, "/renounceGuild");
             _local3.setTextParams(TextKey.RENOUNCE_DIALOG_TITLE, {guildName:_local2.guildName_});
@@ -63,7 +63,7 @@ package com.company.assembleegameclient.ui.panels.mediators{
             var _local2:GameSprite = this.hudModel.gameSprite;
             if ((((_local2.map == null)) || ((_local2.map.player_ == null)))){
                 return;
-            };
+            }
             var _local3:Player = _local2.map.player_;
             _local2.gsc_.guildRemove(_local3.name_);
             this.closeDialog.dispatch();

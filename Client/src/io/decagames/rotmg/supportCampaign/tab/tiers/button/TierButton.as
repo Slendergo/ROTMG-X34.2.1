@@ -49,7 +49,7 @@ package io.decagames.rotmg.supportCampaign.tab.tiers.button{
         public function updateStatus(_arg1:int):void{
             if (((this.background) && (this.background.parent))){
                 removeChild(this.background);
-            };
+            }
             switch (_arg1){
                 case TierButtonStatus.LOCKED:
                     this.background = TextureParser.instance.getSliceScalingBitmap("UI", "tier_locked");
@@ -88,7 +88,7 @@ package io.decagames.rotmg.supportCampaign.tab.tiers.button{
                     }
                     else {
                         this.claimTween.play(0);
-                    };
+                    }
                     break;
                 case TierButtonStatus.CLAIMED:
                     this.tierLabel.visible = false;
@@ -97,10 +97,10 @@ package io.decagames.rotmg.supportCampaign.tab.tiers.button{
                     addChildAt(this.background, 0);
                     if (this.claimTween){
                         this.claimTween.pause(0);
-                    };
+                    }
                     this._removeToolTipSignal.dispatch();
                     break;
-            };
+            }
             addChild(this.tierLabel);
             this.applySelectFilter();
         }
@@ -137,11 +137,11 @@ package io.decagames.rotmg.supportCampaign.tab.tiers.button{
                 }
                 else {
                     this.tierTween.play(0);
-                };
+                }
             }
             else {
                 this.background.filters = [];
-            };
+            }
         }
 
         public function get label():UILabel{

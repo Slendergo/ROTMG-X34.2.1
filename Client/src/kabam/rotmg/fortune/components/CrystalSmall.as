@@ -77,42 +77,42 @@ import kabam.rotmg.text.view.stringBuilder.LineBuilder;
                 _local1 = TextureRedrawer.redraw(_local1, this.size_, true, 0xFFFFFF, true);
                 this.crystalFrames.push(new Bitmap(_local1));
                 _local2++;
-            };
+            }
             _local2 = 0;
             while (_local2 < 3) {
                 _local1 = AssetLibrary.getImageFromSet("lofiCharBig", ((this.STARTING_FRAME_INDEX + 16) + _local2));
                 _local1 = TextureRedrawer.redraw(_local1, this.size_, true, 0xFFFFFF, true);
                 this.crystalFrames.push(new Bitmap(_local1));
                 _local2++;
-            };
+            }
             _local2 = 0;
             while (_local2 < 7) {
                 _local1 = AssetLibrary.getImageFromSet("lofiCharBig", ((this.STARTING_FRAME_INDEX + 32) + _local2));
                 _local1 = TextureRedrawer.redraw(_local1, this.size_, true, 0xFFFFFF, true);
                 this.crystalFrames.push(new Bitmap(_local1));
                 _local2++;
-            };
+            }
             _local2 = 0;
             while (_local2 < 7) {
                 _local1 = AssetLibrary.getImageFromSet("lofiCharBig", ((this.STARTING_FRAME_INDEX + 48) + _local2));
                 _local1 = TextureRedrawer.redraw(_local1, this.size_, true, 0xFFFFFF, true);
                 this.crystalFrames.push(new Bitmap(_local1));
                 _local2++;
-            };
+            }
             _local2 = 0;
             while (_local2 < 5) {
                 _local1 = AssetLibrary.getImageFromSet("lofiCharBig", ((this.STARTING_FRAME_INDEX + 64) + _local2));
                 _local1 = TextureRedrawer.redraw(_local1, this.size_, true, 0xFFFFFF, true);
                 this.crystalFrames.push(new Bitmap(_local1));
                 _local2++;
-            };
+            }
             _local2 = 0;
             while (_local2 < 8) {
                 _local1 = AssetLibrary.getImageFromSet("lofiCharBig", ((this.STARTING_FRAME_INDEX + 80) + _local2));
                 _local1 = TextureRedrawer.redraw(_local1, this.size_, true, 0xFFFFFF, true);
                 this.crystalFrames.push(new Bitmap(_local1));
                 _local2++;
-            };
+            }
             _local1 = AssetLibrary.getImageFromSet("lofiCharBig", 0x0100);
             _local1 = TextureRedrawer.redraw(_local1, this.size_, true, 0, true);
             this.crystal = new Bitmap(_local1);
@@ -175,13 +175,13 @@ import kabam.rotmg.text.view.stringBuilder.LineBuilder;
             this.glowState = _arg1;
             if (this.glowState == GLOW_STATE_PULSE){
                 this.glowFilter.alpha = 1;
-            };
+            }
         }
 
         public function doItemReveal(_arg1:int):void{
             if ((((this.parent == null)) || ((this.parent.parent == null)))){
                 return;
-            };
+            }
             this.removeItemReveal();
             this.item = new ItemWithTooltip(_arg1);
             this.item.itemBitmap.alpha = 1;
@@ -201,16 +201,16 @@ import kabam.rotmg.text.view.stringBuilder.LineBuilder;
         public function removeItemReveal():void{
             if (((!((this.item == null))) && (this.item.parent))){
                 parent.removeChild(this.item);
-            };
+            }
             if (((!((this.itemNameField == null))) && (this.itemNameField.parent))){
                 parent.removeChild(this.itemNameField);
-            };
+            }
         }
 
         public function doItemShow(_arg1:int):void{
             if ((((this.parent == null)) || ((this.parent.parent == null)))){
                 return;
-            };
+            }
             this.removeItemReveal();
             var _local2:TextFormat = new TextFormat();
             _local2.size = 18;
@@ -279,7 +279,7 @@ import kabam.rotmg.text.view.stringBuilder.LineBuilder;
                 this.crystalGrey.alpha = 1;
                 this.setAnimation(0, 3);
                 this.setAnimationDuration(100);
-            };
+            }
             this.active = true;
         }
 
@@ -290,11 +290,11 @@ import kabam.rotmg.text.view.stringBuilder.LineBuilder;
             if (this.active){
                 if (this.crystal != null){
                     this.crystal.alpha = 1;
-                };
+                }
                 if (this.crystalGrey != null){
                     this.crystalGrey.alpha = 0;
-                };
-            };
+                }
+            }
             this.active = false;
         }
 
@@ -309,7 +309,7 @@ import kabam.rotmg.text.view.stringBuilder.LineBuilder;
                 else {
                     this.crystalGrey.alpha = 0;
                     this.crystal.alpha = 1;
-                };
+                }
             }
             else {
                 if ((((this.crystal.alpha > 0)) && ((this.crystalGrey.alpha < 1)))){
@@ -319,14 +319,14 @@ import kabam.rotmg.text.view.stringBuilder.LineBuilder;
                 else {
                     this.crystalGrey.alpha = 1;
                     this.crystal.alpha = 0;
-                };
-            };
+                }
+            }
             if (this.glowState == GLOW_STATE_FADE){
                 this.glowFilter.alpha = (this.glowFilter.alpha - 0.07);
                 this.filters = [this.glowFilter];
                 if (this.glowFilter.alpha <= 0.03){
                     this.filters = [];
-                };
+                }
             }
             else {
                 if (this.glowState == GLOW_STATE_PULSE){
@@ -336,28 +336,28 @@ import kabam.rotmg.text.view.stringBuilder.LineBuilder;
                     else {
                         if ((((this.glowFilter.alpha <= 0.5)) && (!(this.pulsePolarity)))){
                             this.pulsePolarity = true;
-                        };
-                    };
+                        }
+                    }
                     _local3 = ((this.pulsePolarity) ? 1 : -1);
                     this.glowFilter.alpha = (this.glowFilter.alpha + (0.01 * _local3));
                     this.filters = [this.glowFilter];
-                };
-            };
+                }
+            }
             if (this.isTrackingMouse_){
                 _local4 = this.squareDistanceTo(FortuneModal.fMouseX, FortuneModal.fMouseY);
                 if (_local4 <= this.EXCITING_MODE_SQUARE_RANGE){
                     if (this.currentAnimation != ANIM_HOVER){
                         this.setAnimationHover();
-                    };
+                    }
                     this.animationDuration_ = Math.max((_local4 / 8), 70);
                     this.animationDuration_ = Math.min(this.animationDuration_, 170);
                 }
                 else {
                     if (this.currentAnimation != ANIM_PULSE){
                         this.setAnimationPulse();
-                    };
-                };
-            };
+                    }
+                }
+            }
             if (this.shake){
                 this.setXPos((this.originX + ((Math.random() * 6) - 3)));
                 this.setYPos((this.originY + ((Math.random() * 6) - 3)));
@@ -365,8 +365,8 @@ import kabam.rotmg.text.view.stringBuilder.LineBuilder;
                 if (this.shakeCount == MAX_SHAKE){
                     this.shake = false;
                     this.shakeCount = 0;
-                };
-            };
+                }
+            }
             this.drawAnimation(_arg1, _arg2);
         }
 
@@ -385,8 +385,8 @@ import kabam.rotmg.text.view.stringBuilder.LineBuilder;
                 else {
                     if (this.frameOffset_ > this.numFramesofLoop_){
                         this.frameOffset_ = 0;
-                    };
-                };
+                    }
+                }
                 this.crystal = this.crystalFrames[(this.startFrame_ + this.frameOffset_)];
                 if (this.currentAnimation == ANIM_CLICKED){
                     if (this.scaleX > 0.01){
@@ -398,10 +398,10 @@ import kabam.rotmg.text.view.stringBuilder.LineBuilder;
                     else {
                         this.scaleX = 0.01;
                         this.scaleY = 0.01;
-                    };
-                };
+                    }
+                }
                 addChild(this.crystal);
-            };
+            }
         }
 
         public function setAnimationDuration(_arg1:Number):void{

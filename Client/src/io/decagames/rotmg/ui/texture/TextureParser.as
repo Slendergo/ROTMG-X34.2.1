@@ -30,7 +30,7 @@ package io.decagames.rotmg.ui.texture{
         public static function get instance():TextureParser{
             if (_instance == null){
                 _instance = new (TextureParser)();
-            };
+            }
             return (_instance);
         }
 
@@ -40,16 +40,16 @@ package io.decagames.rotmg.ui.texture{
                 texture:_arg1,
                 configuration:this.json.parse(_arg2),
                 sliceRectangles:this.json.parse(_arg3)
-            };
+            }
         }
 
         private function getConfiguration(_arg1:String, _arg2:String):Object{
             if (!this.textures[_arg1]){
                 throw (new Error(("Can't find set name " + _arg1)));
-            };
+            }
             if (!this.textures[_arg1].configuration.frames[(_arg2 + ".png")]){
                 throw (new Error(("Can't find config for " + _arg2)));
-            };
+            }
             return (this.textures[_arg1].configuration.frames[(_arg2 + ".png")]);
         }
 
@@ -75,12 +75,12 @@ package io.decagames.rotmg.ui.texture{
             if (_local5){
                 _local6 = new Rectangle(_local5.rectangle.x, _local5.rectangle.y, _local5.rectangle.w, _local5.rectangle.h);
                 _local7 = _local5.type;
-            };
+            }
             var _local8:SliceScalingBitmap = new SliceScalingBitmap(_local4.bitmapData, _local7, _local6);
             _local8.sourceBitmapName = _arg2;
             if (_arg3 != 0){
                 _local8.width = _arg3;
-            };
+            }
             return (_local8);
         }
 

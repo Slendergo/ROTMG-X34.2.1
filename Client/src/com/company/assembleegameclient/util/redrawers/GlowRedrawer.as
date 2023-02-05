@@ -38,7 +38,7 @@ package com.company.assembleegameclient.util.redrawers{
             var _local7:String = getHash(_arg2, _arg3, _arg5);
             if (((_arg4) && (isCached(_arg1, _local7)))){
                 return (glowHashes[_arg1][_local7]);
-            };
+            }
             var _local8:BitmapData = _arg1.clone();
             tempMatrix_.identity();
             tempMatrix_.scale((_arg1.width / 0x0100), (_arg1.height / 0x0100));
@@ -62,7 +62,7 @@ package com.company.assembleegameclient.util.redrawers{
                         _local8.applyFilter(_local8, _local8.rect, PointUtil.ORIGIN, GLOW_FILTER_SUPPORT_OUTLINE_ALT);
                         _local8.applyFilter(_local8, _local8.rect, PointUtil.ORIGIN, GLOW_FILTER_SUPPORT_DARK_ALT);
                         _local8.applyFilter(_local8, _local8.rect, PointUtil.ORIGIN, GLOW_FILTER_SUPPORT_ALT);
-                    };
+                    }
                 }
                 else {
                     if (!_arg6){
@@ -76,12 +76,12 @@ package com.company.assembleegameclient.util.redrawers{
                         _local8.applyFilter(_local8, _local8.rect, PointUtil.ORIGIN, GLOW_FILTER_SUPPORT_OUTLINE);
                         _local8.applyFilter(_local8, _local8.rect, PointUtil.ORIGIN, GLOW_FILTER_SUPPORT_DARK);
                         _local8.applyFilter(_local8, _local8.rect, PointUtil.ORIGIN, GLOW_FILTER_SUPPORT);
-                    };
-                };
-            };
+                    }
+                }
+            }
             if (_arg4){
                 cache(_arg1, _arg2, _arg3, _local8, _arg5);
-            };
+            }
             return (_local8);
         }
 
@@ -95,7 +95,7 @@ package com.company.assembleegameclient.util.redrawers{
                 _local7 = {};
                 _local7[_local6] = _arg4;
                 glowHashes[_arg1] = _local7;
-            };
+            }
         }
 
         private static function isCached(_arg1:BitmapData, _arg2:String):Boolean{
@@ -104,8 +104,8 @@ package com.company.assembleegameclient.util.redrawers{
                 _local3 = glowHashes[_arg1];
                 if ((_arg2 in _local3)){
                     return true;
-                };
-            };
+                }
+            }
             return false;
         }
 

@@ -24,7 +24,7 @@ package io.decagames.rotmg.pets.commands{
             }
             else {
                 this.petsModel.setActivePet(this.petsModel.getPet(this.instanceID));
-            };
+            }
         }
 
 

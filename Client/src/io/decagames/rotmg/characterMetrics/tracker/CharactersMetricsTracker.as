@@ -22,7 +22,7 @@ package io.decagames.rotmg.characterMetrics.tracker{
             var _local5:int = (4 - (_arg2.length % 4));
             while (_local5--) {
                 _arg2 = (_arg2 + "=");
-            };
+            }
             _arg2 = _arg2.replace(_local3, "+").replace(_local4, "/");
             this.setBinaryData(_arg1, Base64.decodeToByteArray(_arg2));
         }

@@ -83,13 +83,13 @@ package kabam.rotmg.chat.view{
             else {
                 this.addListeners();
                 this.stage.focus = null;
-            };
+            }
         }
 
         private function onRegister(_arg1:AccountData):void{
             if (_arg1.error == null){
                 this.view.removeRegisterBlock();
-            };
+            }
         }
 
         override public function destroy():void{
@@ -106,7 +106,7 @@ package kabam.rotmg.chat.view{
                 this.stage.addEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown);
                 this.stage.addEventListener(KeyboardEvent.KEY_UP, this.onKeyUp);
                 this.listenersAdded = true;
-            };
+            }
         }
 
         private function removeListeners():void{
@@ -115,7 +115,7 @@ package kabam.rotmg.chat.view{
                 this.stage.removeEventListener(KeyboardEvent.KEY_UP, this.onKeyUp);
                 this.stage.removeEventListener(Event.ENTER_FRAME, this.iterate);
                 this.listenersAdded = false;
-            };
+            }
         }
 
         private function onKeyDown(_arg1:KeyboardEvent):void{
@@ -125,8 +125,8 @@ package kabam.rotmg.chat.view{
             else {
                 if (_arg1.keyCode == this.shortcuts.getScrollDown()){
                     this.setupScroll(1);
-                };
-            };
+                }
+            }
         }
 
         private function setupScroll(_arg1:int):void{
@@ -139,16 +139,16 @@ package kabam.rotmg.chat.view{
         private function iterate(_arg1:Event):void{
             if (this.scrollBuffer++ >= SCROLL_BUFFER_SIZE){
                 this.scrollList.dispatch(this.scrollDirection);
-            };
+            }
         }
 
         private function onKeyUp(_arg1:KeyboardEvent):void{
             if (this.listenersAdded){
                 this.checkForInputTrigger(_arg1.keyCode);
-            };
+            }
             if ((((_arg1.keyCode == this.shortcuts.getScrollUp())) || ((_arg1.keyCode == this.shortcuts.getScrollDown())))){
                 this.view.removeEventListener(Event.ENTER_FRAME, this.iterate);
-            };
+            }
         }
 
         private function checkForInputTrigger(_arg1:uint):void{
@@ -167,11 +167,11 @@ package kabam.rotmg.chat.view{
                         else {
                             if (_arg1 == this.shortcuts.getTellShortcut()){
                                 this.triggerOrPromptRegistration((("/tell " + this.tellModel.getNext()) + " "));
-                            };
-                        };
-                    };
-                };
-            };
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         private function triggerOrPromptRegistration(_arg1:String):void{
@@ -181,8 +181,8 @@ package kabam.rotmg.chat.view{
             else {
                 if (((!((this.hudModel.gameSprite == null))) && (this.hudModel.gameSprite.evalIsNotInCombatMapArea()))){
                     this.openDialog.dispatch(new RegisterPromptDialog(TextKey.CHAT_REGISTER_TO_CHAT));
-                };
-            };
+                }
+            }
         }
 
 

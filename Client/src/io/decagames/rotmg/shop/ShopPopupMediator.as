@@ -108,8 +108,8 @@ package io.decagames.rotmg.shop{
                     _local3 = this.createBoxTile(_local2, MysteryBoxTile);
                     _local3.selfRemoveSignal.add(this.updateMysteryBoxes);
                     this.mysteryBoxesGrid.addGridElement(_local3);
-                };
-            };
+                }
+            }
         }
 
         private function updatePackages():void{
@@ -122,8 +122,8 @@ package io.decagames.rotmg.shop{
                     _local3 = this.createBoxTile(_local2, PackageBoxTile);
                     _local3.selfRemoveSignal.add(this.updatePackages);
                     this.packageBoxesGrid.addGridElement(_local3);
-                };
-            };
+                }
+            }
         }
 
         private function createBoxTile(_arg1:GenericBoxInfo, _arg2:Class):GenericBoxTile{
@@ -137,7 +137,7 @@ package io.decagames.rotmg.shop{
             this.tabs = new UITabs(590);
             if (this.supporterModel.hasValidData){
                 this.tabs.addTab(new SupporterShopTabView(this.supporterModel.campaignTitle, this.supporterModel.campaignDescription), true);
-            };
+            }
             this.tabs.addTab(this.createMysteryBoxTab(), !(this.supporterModel.hasValidData));
             this.tabs.addTab(this.createPackageBoxTab());
             this.tabs.y = 115;
@@ -165,14 +165,14 @@ package io.decagames.rotmg.shop{
                 if (((!((_local4 == null))) && (((!(_local4.endTime)) || ((_local4.getSecondsToEnd() > 0)))))){
                     if (((_local4.isNew()) && ((((_local4.startTime.getTime() > _local2.getTime())) || (!(Parameters.data_["packages_indicator"])))))){
                         _local3 = true;
-                    };
-                };
-            };
+                    }
+                }
+            }
             this.packageTab = this.tabs.getTabButtonByLabel("Packages");
             if (this.packageTab){
                 this.packageTab.showIndicator = _local3;
                 this.packageTab.clickSignal.add(this.onPackageClick);
-            };
+            }
             this.gameModel.player.creditsWereChanged.add(this.refreshCoins);
             this.gameModel.player.fameWasChanged.add(this.refreshFame);
             this.toolTip = new TextToolTip(0x363636, 0x9B9B9B, "Buy Gold", "Click to buy more Realm Gold!", 200);
@@ -186,26 +186,26 @@ package io.decagames.rotmg.shop{
             this.tabs.tabSelectedSignal.add(this.onTabChange);
             if (!this.supporterModel.hasValidData){
                 this.updateShop(null);
-            };
+            }
         }
 
         private function onTabChange(_arg1:String):void{
             if (this.updateTimer){
                 this.updateTimer.reset();
-            };
+            }
             if (_arg1 != "Campaign"){
                 this.updateShop(null);
             }
             else {
                 TweenMax.killTweensOf(this.updateLabel);
                 this.updateLabel.alpha = 0;
-            };
+            }
         }
 
         private function get updateInterval():int{
             if (DynamicSettings.settingExists("MysteryBoxRefresh")){
                 return ((DynamicSettings.getSettingValue("MysteryBoxRefresh") * 1000));
-            };
+            }
             return ((ShopConfiguration.DEFAULT_SHOP_REFRESH_COOLDOWN * 1000));
         }
 
@@ -217,7 +217,7 @@ package io.decagames.rotmg.shop{
                 case "Packages":
                     this.tryUpdatePackages();
                     return;
-            };
+            }
         }
 
         private function tryUpdateMysteryBoxes():void{
@@ -262,7 +262,7 @@ package io.decagames.rotmg.shop{
             if (TabButton(_arg1).hasIndicator){
                 Parameters.data_["packages_indicator"] = new Date().getTime();
                 TabButton(_arg1).showIndicator = false;
-            };
+            }
         }
 
         override public function destroy():void{
@@ -283,7 +283,7 @@ package io.decagames.rotmg.shop{
             this.hoverTooltipDelegate = null;
             if (this.packageTab){
                 this.packageTab.clickSignal.remove(this.onPackageClick);
-            };
+            }
         }
 
         private function refreshCoins():void{

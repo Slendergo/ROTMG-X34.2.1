@@ -61,8 +61,8 @@ import kabam.rotmg.text.view.TextFieldDisplayConcrete;
             else {
                 if ((((_arg1 == 151)) && ((_arg2 == 189)))){
                     this.size = SMALL;
-                };
-            };
+                }
+            }
         }
 
         public function init(_arg1:NewsCellVO):void{
@@ -113,7 +113,7 @@ import kabam.rotmg.text.view.TextFieldDisplayConcrete;
                 this.textSize = (this.textSize - 2);
                 this.textField.setSize(this.textSize).setColor(0xFFFFFF);
                 this.resizeTextField();
-            };
+            }
         }
 
         public function load():void{

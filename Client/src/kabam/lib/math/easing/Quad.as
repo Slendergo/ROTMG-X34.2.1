@@ -19,7 +19,7 @@ package kabam.lib.math.easing{
             _arg1 = (_arg1 * 2);
             if (_arg1 < 1){
                 return (((0.5 * _arg1) * _arg1));
-            };
+            }
             --_arg1;
             return ((-0.5 * ((_arg1 * (_arg1 - 2)) - 1)));
         }

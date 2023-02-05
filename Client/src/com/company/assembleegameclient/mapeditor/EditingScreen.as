@@ -129,7 +129,7 @@ package com.company.assembleegameclient.mapeditor{
                 _local1 = GroupDivider.GROUP_LABELS.concat();
                 _local1.splice(_local1.indexOf(AllObjectChooser.GROUP_NAME_GAME_OBJECTS), 1);
                 this.chooserDropDown_ = new DropDown(_local1, Chooser.WIDTH, 26);
-            };
+            }
             this.chooserDropDown_.x = ((this.meMap_.x + MEMap.SIZE) + 4);
             this.chooserDropDown_.y = ((MAP_Y - this.chooserDropDown_.height) - 4);
             this.chooserDropDown_.addEventListener(Event.CHANGE, this.onDropDownChange);
@@ -142,7 +142,7 @@ package com.company.assembleegameclient.mapeditor{
             while (_local2 >= 64) {
                 _local1.push(((_local2 + "x") + _local2));
                 _local2 = (_local2 / 2);
-            };
+            }
             this.mapSizeDropDown_ = new DropDown(_local1, Chooser.WIDTH, 26);
             this.mapSizeDropDown_.setValue(((MEMap.NUM_SQUARES + "x") + MEMap.NUM_SQUARES));
             this.mapSizeDropDown_.x = ((this.chooserDropDown_.x - this.chooserDropDown_.width) - 4);
@@ -244,7 +244,7 @@ package com.company.assembleegameclient.mapeditor{
                 this.allGameObjChooser_.x = this.chooserDropDown_.x;
                 this.allGameObjChooser_.y = _local1;
                 this.choosers_[GroupDivider.GROUP_LABELS[8]] = this.allGameObjChooser_;
-            };
+            }
             this.chooser_ = this.groundChooser_;
             this.groundChooser_.reloadObjects("", "");
             addChild(this.groundChooser_);
@@ -285,7 +285,7 @@ package com.company.assembleegameclient.mapeditor{
                 case this.dungeonChooser_:
                     this.dungeonChooser_.reloadObjects(this.filter.dungeon, this.filter.searchStr);
                     return;
-            };
+            }
         }
 
         private function onCheckBoxUpdated(_arg1:MouseEvent):void{
@@ -313,7 +313,7 @@ package com.company.assembleegameclient.mapeditor{
                     (this.checkBoxArray[Layer.OBJECT] as CheckBoxField).setUnchecked();
                     (this.checkBoxArray[Layer.REGION] as CheckBoxField).setUnchecked();
                     break;
-            };
+            }
             this.meMap_.draw();
         }
 
@@ -339,7 +339,7 @@ package com.company.assembleegameclient.mapeditor{
                     _local4 = this.meMap_.getType(_local2.x_, _local2.y_, this.chooser_.layer_);
                     if (_local4 == -1){
                         return;
-                    };
+                    }
                     _local5 = GroupDivider.getCategoryByType(_local4, this.chooser_.layer_);
                     if (_local5 == "") break;
                     this.chooser_ = this.choosers_[_local5];
@@ -360,10 +360,10 @@ package com.company.assembleegameclient.mapeditor{
                         _local3 = this.meMap_.getTile(_local2.x_, _local2.y_);
                         if (_local3 != null){
                             _local3 = _local3.clone();
-                        };
+                        }
                         this.tilesBackup.push(_local3);
                         _local8.push(null);
-                    };
+                    }
                     this.addPasteCommandList(_arg1.tiles_, _local8);
                     this.meMap_.freezeSelect();
                     this.commandMenu_.setCommand(MECommandMenu.PASTE_COMMAND);
@@ -374,9 +374,9 @@ package com.company.assembleegameclient.mapeditor{
                         _local3 = this.meMap_.getTile(_local2.x_, _local2.y_);
                         if (_local3 != null){
                             _local3 = _local3.clone();
-                        };
+                        }
                         this.tilesBackup.push(_local3);
-                    };
+                    }
                     this.meMap_.freezeSelect();
                     this.commandMenu_.setCommand(MECommandMenu.PASTE_COMMAND);
                     break;
@@ -393,7 +393,7 @@ package com.company.assembleegameclient.mapeditor{
                         this.pickObjHolder.name = String(_local3.types_[Layer.OBJECT]);
                         this.addModifyCommandList(_arg1.tiles_, Layer.OBJECT, -1);
                         this.commandMenu_.setCommand(MECommandMenu.DROP_COMMAND);
-                    };
+                    }
                     break;
                 case MECommandMenu.DROP_COMMAND:
                     if (this.pickObjHolder != null){
@@ -403,9 +403,9 @@ package com.company.assembleegameclient.mapeditor{
                         this.pickObjHolder.removeChildAt(0);
                         this.pickObjHolder = null;
                         this.commandMenu_.setCommand(MECommandMenu.PICK_UP_COMMAND);
-                    };
+                    }
                     break;
-            };
+            }
             this.meMap_.draw();
         }
 
@@ -422,11 +422,11 @@ package com.company.assembleegameclient.mapeditor{
                 _local6 = this.meMap_.getType(_local5.x_, _local5.y_, _arg2);
                 if (_local6 != _arg3){
                     _local4.addCommand(new MEModifyCommand(this.meMap_, _local5.x_, _local5.y_, _arg2, _local6, _arg3));
-                };
-            };
+                }
+            }
             if (_local4.empty()){
                 return;
-            };
+            }
             this.commandQueue_.addCommandList(_local4);
         }
 
@@ -440,10 +440,10 @@ package com.company.assembleegameclient.mapeditor{
                 _local6 = this.meMap_.getTile(_local5.x_, _local5.y_);
                 _local3.addCommand(new MEReplaceCommand(this.meMap_, _local5.x_, _local5.y_, _local6, _arg2[_local4]));
                 _local4++;
-            };
+            }
             if (_local3.empty()){
                 return;
-            };
+            }
             this.commandQueue_.addCommandList(_local3);
         }
 
@@ -455,11 +455,11 @@ package com.company.assembleegameclient.mapeditor{
                 _local5 = this.meMap_.getObjectName(_local4.x_, _local4.y_);
                 if (_local5 != _arg2){
                     _local3.addCommand(new MEObjectNameCommand(this.meMap_, _local4.x_, _local4.y_, _local5, _arg2));
-                };
-            };
+                }
+            }
             if (_local3.empty()){
                 return;
-            };
+            }
             this.commandQueue_.addCommandList(_local3);
         }
 
@@ -480,7 +480,7 @@ package com.company.assembleegameclient.mapeditor{
                 case GroundLibrary.GROUND_CATEGORY:
                     if (!this.groundChooser_.hasBeenLoaded){
                         this.groundChooser_.reloadObjects("", "");
-                    };
+                    }
                     this.setSearch(this.groundChooser_.getLastSearch());
                     this.safeRemoveCategoryChildren();
                     SpriteUtil.safeAddChild(this, this.groundChooser_);
@@ -493,7 +493,7 @@ package com.company.assembleegameclient.mapeditor{
                 case "Basic Objects":
                     if (!this.objChooser_.hasBeenLoaded){
                         this.objChooser_.reloadObjects("");
-                    };
+                    }
                     this.setSearch(this.objChooser_.getLastSearch());
                     this.safeRemoveCategoryChildren();
                     SpriteUtil.safeAddChild(this, this.objChooser_);
@@ -505,7 +505,7 @@ package com.company.assembleegameclient.mapeditor{
                 case "Enemies":
                     if (!this.enemyChooser_.hasBeenLoaded){
                         this.enemyChooser_.reloadObjects("", "", 0, -1);
-                    };
+                    }
                     this.setSearch(this.enemyChooser_.getLastSearch());
                     this.safeRemoveCategoryChildren();
                     SpriteUtil.safeAddChild(this, this.enemyChooser_);
@@ -527,7 +527,7 @@ package com.company.assembleegameclient.mapeditor{
                 case "Walls":
                     if (!this.wallChooser_.hasBeenLoaded){
                         this.wallChooser_.reloadObjects("");
-                    };
+                    }
                     this.setSearch(this.wallChooser_.getLastSearch());
                     this.safeRemoveCategoryChildren();
                     SpriteUtil.safeAddChild(this, this.wallChooser_);
@@ -539,7 +539,7 @@ package com.company.assembleegameclient.mapeditor{
                 case "3D Objects":
                     if (!this.object3DChooser_.hasBeenLoaded){
                         this.object3DChooser_.reloadObjects("");
-                    };
+                    }
                     this.setSearch(this.object3DChooser_.getLastSearch());
                     this.safeRemoveCategoryChildren();
                     SpriteUtil.safeAddChild(this, this.object3DChooser_);
@@ -551,7 +551,7 @@ package com.company.assembleegameclient.mapeditor{
                 case "All Map Objects":
                     if (!this.allObjChooser_.hasBeenLoaded){
                         this.allObjChooser_.reloadObjects("");
-                    };
+                    }
                     this.setSearch(this.allObjChooser_.getLastSearch());
                     this.safeRemoveCategoryChildren();
                     SpriteUtil.safeAddChild(this, this.allObjChooser_);
@@ -562,7 +562,7 @@ package com.company.assembleegameclient.mapeditor{
                 case "All Game Objects":
                     if (!this.allGameObjChooser_.hasBeenLoaded){
                         this.allGameObjChooser_.reloadObjects("", AllObjectChooser.GROUP_NAME_GAME_OBJECTS);
-                    };
+                    }
                     this.setSearch(this.allGameObjChooser_.getLastSearch());
                     this.safeRemoveCategoryChildren();
                     SpriteUtil.safeAddChild(this, this.allGameObjChooser_);
@@ -573,7 +573,7 @@ package com.company.assembleegameclient.mapeditor{
                 case "Dungeons":
                     if (!this.dungeonChooser_.hasBeenLoaded){
                         this.dungeonChooser_.reloadObjects(GroupDivider.DEFAULT_DUNGEON, "");
-                    };
+                    }
                     this.setSearch(this.dungeonChooser_.getLastSearch());
                     this.safeRemoveCategoryChildren();
                     SpriteUtil.safeAddChild(this, this.dungeonChooser_);
@@ -582,7 +582,7 @@ package com.company.assembleegameclient.mapeditor{
                     this.filter.enableValueFilter(false);
                     this.filter.enableDungeonFilter(true);
                     return;
-            };
+            }
         }
 
         private function onDropDownSizeChange(_arg1:Event):void{
@@ -603,7 +603,7 @@ package com.company.assembleegameclient.mapeditor{
                 case "1024x1024":
                     _local2 = 0x0400;
                     break;
-            };
+            }
             this.meMap_.resize(_local2);
             this.meMap_.draw();
         }
@@ -627,11 +627,11 @@ package com.company.assembleegameclient.mapeditor{
                 _local5 = this.meMap_.getTile(_local4.x_, _local4.y_);
                 if (_local5 != null){
                     _local3.addCommand(new MEClearCommand(this.meMap_, _local4.x_, _local4.y_, _local5));
-                };
-            };
+                }
+            }
             if (_local3.empty()){
                 return;
-            };
+            }
             this.commandQueue_.addCommandList(_local3);
             this.meMap_.draw();
             this.filename_ = null;
@@ -646,7 +646,7 @@ package com.company.assembleegameclient.mapeditor{
             var _local1:Rectangle = this.meMap_.getTileBounds();
             if (_local1 == null){
                 return (null);
-            };
+            }
             var _local2:Object = {};
             _local2["width"] = int(_local1.width);
             _local2["height"] = int(_local1.height);
@@ -667,12 +667,12 @@ package com.company.assembleegameclient.mapeditor{
                     }
                     else {
                         _local11 = _local3[_local10];
-                    };
+                    }
                     _local5.writeShort(_local11);
                     _local7++;
-                };
+                }
                 _local6++;
-            };
+            }
             _local2["dict"] = _local4;
             _local5.compress();
             _local2["data"] = Base64.encodeByteArray(_local5);
@@ -683,7 +683,7 @@ package com.company.assembleegameclient.mapeditor{
             var _local2:String = this.createMapJSON();
             if (_local2 == null){
                 return;
-            };
+            }
             new FileReference().save(_local2, (((this.filename_ == null)) ? "map.jm" : this.filename_));
         }
 
@@ -691,7 +691,7 @@ package com.company.assembleegameclient.mapeditor{
             var _local2:String = this.createMapJSON();
             if (_local2 == null){
                 return;
-            };
+            }
             this.meMap_.setMinZoom();
             this.meMap_.draw();
             dispatchEvent(new SubmitJMEvent(_local2, this.meMap_.getMapStatistics()));
@@ -707,20 +707,20 @@ package com.company.assembleegameclient.mapeditor{
                 if (_local3[Layer.GROUND] != -1){
                     _local4 = GroundLibrary.getIdFromType(_local3[Layer.GROUND]);
                     _local2["ground"] = _local4;
-                };
+                }
                 if (_local3[Layer.OBJECT] != -1){
                     _local4 = ObjectLibrary.getIdFromType(_local3[Layer.OBJECT]);
                     _local5 = {id:_local4};
                     if (_arg1.objName_ != null){
                         _local5["name"] = _arg1.objName_;
-                    };
+                    }
                     _local2["objs"] = [_local5];
-                };
+                }
                 if (_local3[Layer.REGION] != -1){
                     _local4 = RegionLibrary.getIdFromType(_local3[Layer.REGION]);
                     _local2["regions"] = [{id:_local4}];
-                };
-            };
+                }
+            }
             return (_local2);
         }
 
@@ -739,7 +739,7 @@ package com.company.assembleegameclient.mapeditor{
                 loadedFile.load();
             }
             catch(e:Error) {
-            };
+            }
         }
 
         private function onFileLoadComplete(_arg1:Event):void{
@@ -759,13 +759,13 @@ package com.company.assembleegameclient.mapeditor{
             var _local6:Number = 64;
             while ((((_local6 < _local3["width"])) || ((_local6 < _local3["height"])))) {
                 _local6 = (_local6 * 2);
-            };
+            }
             if (MEMap.NUM_SQUARES != _local6){
                 _local7 = ((_local6 + "x") + _local6);
                 if (!this.mapSizeDropDown_.setValue(_local7)){
                     this.mapSizeDropDown_.setValue("512x512");
-                };
-            };
+                }
+            }
             var _local8:Rectangle = new Rectangle(int(((MEMap.NUM_SQUARES / 2) - (_local4 / 2))), int(((MEMap.NUM_SQUARES / 2) - (_local5 / 2))), _local4, _local5);
             this.meMap_.clear();
             this.commandQueue_.clear();
@@ -780,7 +780,7 @@ package com.company.assembleegameclient.mapeditor{
                     if (_local14.hasOwnProperty("ground")){
                         _local11 = GroundLibrary.idToType_[_local14["ground"]];
                         this.meMap_.modifyTile(_local13, _local12, Layer.GROUND, _local11);
-                    };
+                    }
                     _local15 = _local14["objs"];
                     if (_local15 != null){
                         for each (_local17 in _local15) {
@@ -789,21 +789,21 @@ package com.company.assembleegameclient.mapeditor{
                                 this.meMap_.modifyTile(_local13, _local12, Layer.OBJECT, _local11);
                                 if (_local17.hasOwnProperty("name")){
                                     this.meMap_.modifyObjectName(_local13, _local12, _local17["name"]);
-                                };
-                            };
-                        };
-                    };
+                                }
+                            }
+                        }
+                    }
                     _local16 = _local14["regions"];
                     if (_local16 != null){
                         for each (_local18 in _local16) {
                             _local11 = RegionLibrary.idToType_[_local18["id"]];
                             this.meMap_.modifyTile(_local13, _local12, Layer.REGION, _local11);
-                        };
-                    };
+                        }
+                    }
                     _local13++;
-                };
+                }
                 _local12++;
-            };
+            }
             this.meMap_.draw();
         }
 
@@ -825,7 +825,7 @@ package com.company.assembleegameclient.mapeditor{
         private function onMenuSelect(_arg1:Event):void{
             if (this.meMap_ != null){
                 this.meMap_.clearSelect();
-            };
+            }
         }
 
 

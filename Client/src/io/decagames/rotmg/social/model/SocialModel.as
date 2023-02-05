@@ -74,7 +74,7 @@ package io.decagames.rotmg.social.model{
         public function loadFriendsData():void{
             if (((this._friendsLoadInProcess) || (this._invitationsLoadInProgress))){
                 return;
-            };
+            }
             this._friendsLoadInProcess = true;
             this._invitationsLoadInProgress = true;
             this.loadList(this.friendsDataRequest, FriendsActions.getURL(FriendsActions.FRIEND_LIST), this.onFriendListResponse);
@@ -83,7 +83,7 @@ package io.decagames.rotmg.social.model{
         public function loadInvitations():void{
             if (((this._friendsLoadInProcess) || (this._invitationsLoadInProgress))){
                 return;
-            };
+            }
             this._invitationsLoadInProgress = true;
             this.loadList(this.friendsDataRequest, FriendsActions.getURL(FriendsActions.INVITE_LIST), this.onInvitationListResponse);
         }
@@ -91,7 +91,7 @@ package io.decagames.rotmg.social.model{
         public function loadGuildData():void{
             if (this._guildLoadInProgress){
                 return;
-            };
+            }
             this._guildLoadInProgress = true;
             this.loadList(this.guildDataRequest, GuildActions.getURL(GuildActions.GUILD_LIST), this.onGuildListResponse);
         }
@@ -116,7 +116,7 @@ package io.decagames.rotmg.social.model{
                         this._friends[_local5.getName()] = {
                             vo:_local5,
                             list:this._onlineFriends
-                        };
+                        }
                     }
                     else {
                         _local5.offline();
@@ -125,12 +125,12 @@ package io.decagames.rotmg.social.model{
                         this._friends[_local5.getName()] = {
                             vo:_local5,
                             list:this._offlineFriends
-                        };
-                    };
+                        }
+                    }
                 }
                 catch(error:Error) {
-                };
-            };
+                }
+            }
             this._onlineFriends.sort(this.sortFriend);
             this._offlineFriends.sort(this.sortFriend);
             this.updateFriendsList();
@@ -147,7 +147,7 @@ package io.decagames.rotmg.social.model{
                 _local3 = this._friends[_arg1];
                 _local4 = (_local3.vo as FriendVO);
                 _local4.updatePlayer(_arg2);
-            };
+            }
         }
 
         public function getFilterFriends(_arg1:String):Vector.<FriendVO>{
@@ -160,17 +160,17 @@ package io.decagames.rotmg.social.model{
                 _local3 = this._onlineFriends[_local4];
                 if (_local3.getName().search(_local2) >= 0){
                     this._onlineFilteredFriends.push(_local3);
-                };
+                }
                 _local4++;
-            };
+            }
             _local4 = 0;
             while (_local4 < this._offlineFriends.length) {
                 _local3 = this._offlineFriends[_local4];
                 if (_local3.getName().search(_local2) >= 0){
                     this._offlineFilteredFriends.push(_local3);
-                };
+                }
                 _local4++;
-            };
+            }
             this._onlineFilteredFriends.sort(this.sortFriend);
             this._offlineFilteredFriends.sort(this.sortFriend);
             return (this._onlineFilteredFriends.concat(this._offlineFilteredFriends));
@@ -185,7 +185,7 @@ package io.decagames.rotmg.social.model{
             var _local1:Vector.<FriendVO> = new Vector.<FriendVO>();
             for each (_local2 in this._invitations) {
                 _local1.push(_local2);
-            };
+            }
             _local1.sort(this.sortFriend);
             return (_local1);
         }
@@ -198,7 +198,7 @@ package io.decagames.rotmg.social.model{
                 this._friends[_arg1] = null;
                 delete this._friends[_arg1];
                 return true;
-            };
+            }
             return false;
         }
 
@@ -209,9 +209,9 @@ package io.decagames.rotmg.social.model{
                 this._numberOfInvitation--;
                 if (this._numberOfInvitation == 0){
                     this.noInvitationSignal.dispatch();
-                };
+                }
                 return true;
-            };
+            }
             return false;
         }
 
@@ -221,14 +221,14 @@ package io.decagames.rotmg.social.model{
                 if (_local2.name == _arg1){
                     this._onlineGuildMembers.splice(this._onlineGuildMembers.indexOf(_local2), 1);
                     break;
-                };
-            };
+                }
+            }
             for each (_local2 in this._offlineGuildMembers) {
                 if (_local2.name == _arg1){
                     this._offlineGuildMembers.splice(this._offlineGuildMembers.indexOf(_local2), 1);
                     break;
-                };
-            };
+                }
+            }
             this.updateGuildData();
         }
 
@@ -263,7 +263,7 @@ package io.decagames.rotmg.social.model{
             }
             else {
                 this.socialDataSignal.dispatch(SocialDataSignal.FRIENDS_DATA_LOADED, this._isFriDataOK, _arg3);
-            };
+            }
         }
 
         private function onInvitationListResponse(_arg1:FriendDataRequestTask, _arg2:Boolean, _arg3:String=""):void{
@@ -273,7 +273,7 @@ package io.decagames.rotmg.social.model{
             }
             else {
                 this.socialDataSignal.dispatch(SocialDataSignal.FRIEND_INVITATIONS_LOADED, _arg2, _arg3);
-            };
+            }
             _arg1.reset();
             this._invitationsLoadInProgress = false;
         }
@@ -284,7 +284,7 @@ package io.decagames.rotmg.social.model{
             }
             else {
                 this.clearGuildData();
-            };
+            }
             _arg1.reset();
             this._guildLoadInProgress = false;
             this.socialDataSignal.dispatch(SocialDataSignal.GUILD_DATA_LOADED, _arg2, _arg3);
@@ -304,12 +304,12 @@ package io.decagames.rotmg.social.model{
                             _local4 = Player.fromPlayerXML(_local2, _local3.Character[0]);
                             this._invitations[_local2] = new FriendVO(_local4);
                             this._numberOfInvitation++;
-                        };
-                    };
+                        }
+                    }
                 }
                 catch(error:Error) {
-                };
-            };
+                }
+            }
         }
 
         private function seedGuild(_arg1:XML):void{
@@ -332,7 +332,7 @@ package io.decagames.rotmg.social.model{
                     if (_local5 == this.hudModel.getPlayerName()){
                         _local4.isMe = true;
                         this._guildVO.myRank = _local3.Rank;
-                    };
+                    }
                     _local4.name = _local5;
                     _local4.rank = _local3.Rank;
                     _local4.fame = _local3.Fame;
@@ -347,9 +347,9 @@ package io.decagames.rotmg.social.model{
                     else {
                         _local4.lastLogin = this.getLastLoginInSeconds(_local3.LastLogin);
                         this._offlineGuildMembers.push(_local4);
-                    };
-                };
-            };
+                    }
+                }
+            }
             this.updateGuildData();
         }
 
@@ -357,7 +357,7 @@ package io.decagames.rotmg.social.model{
             var _local3:XML = _arg2.Character[0];
             if (int(_local3.ObjectType) == 0){
                 _local3.ObjectType = "782";
-            };
+            }
             return (Player.fromPlayerXML(_arg1, _local3));
         }
 
@@ -388,14 +388,14 @@ package io.decagames.rotmg.social.model{
                 if (_local2.getName() == _arg1){
                     this._onlineFriends.splice(this._onlineFriends.indexOf(_local2), 1);
                     break;
-                };
-            };
+                }
+            }
             for each (_local2 in this._offlineFriends) {
                 if (_local2.getName() == _arg1){
                     this._offlineFriends.splice(this._offlineFriends.indexOf(_local2), 1);
                     break;
-                };
-            };
+                }
+            }
             this.updateFriendsList();
         }
 
@@ -407,28 +407,28 @@ package io.decagames.rotmg.social.model{
                 if (_local3.getName() == _arg2){
                     _arg1.slice(_local4, 1);
                     return;
-                };
+                }
                 _local4++;
-            };
+            }
         }
 
         private function sortFriend(_arg1:FriendVO, _arg2:FriendVO):Number{
             if (_arg1.getName() < _arg2.getName()){
                 return (-1);
-            };
+            }
             if (_arg1.getName() > _arg2.getName()){
                 return (1);
-            };
+            }
             return (0);
         }
 
         private function sortGuildMemberByRank(_arg1:GuildMemberVO, _arg2:GuildMemberVO):Number{
             if (_arg1.rank > _arg2.rank){
                 return (-1);
-            };
+            }
             if (_arg1.rank < _arg2.rank){
                 return (1);
-            };
+            }
             return (0);
         }
 
@@ -436,12 +436,12 @@ package io.decagames.rotmg.social.model{
             if (_arg1.rank == _arg2.rank){
                 if (_arg1.name < _arg2.name){
                     return (-1);
-                };
+                }
                 if (_arg1.name > _arg2.name){
                     return (1);
-                };
+                }
                 return (0);
-            };
+            }
             return (0);
         }
 
@@ -449,12 +449,12 @@ package io.decagames.rotmg.social.model{
             var _local2:Server;
             if (this._serverDict){
                 return (this._serverDict);
-            };
+            }
             var _local1:Vector.<Server> = this.serverModel.getServers();
             this._serverDict = new Dictionary(true);
             for each (_local2 in _local1) {
                 this._serverDict[_local2.address] = _local2.name;
-            };
+            }
             return (this._serverDict);
         }
 

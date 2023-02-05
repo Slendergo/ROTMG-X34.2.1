@@ -33,10 +33,10 @@ package kabam.rotmg.stage3D.Object3D{
                 if (_local5 === 0){
                     _arg1.position = (_arg1.position + Math.max(0, (_arg2 - (_local4 + 1))));
                     break;
-                };
+                }
                 _local3 = (_local3 + String.fromCharCode(_local5));
                 _local4++;
-            };
+            }
             return (_local3);
         }
 

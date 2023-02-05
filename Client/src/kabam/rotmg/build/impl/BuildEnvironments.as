@@ -45,7 +45,7 @@ package kabam.rotmg.build.impl{
                     return (BuildEnvironment.PRODTEST);
                 case PRODUCTION:
                     return (BuildEnvironment.PRODUCTION);
-            };
+            }
             return (null);
         }
 

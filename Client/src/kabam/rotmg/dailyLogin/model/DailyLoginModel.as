@@ -32,12 +32,12 @@ package kabam.rotmg.dailyLogin.model{
             this.sortAsc = function (_arg1:CalendarDayModel, _arg2:CalendarDayModel):Number{
                 if (_arg1.dayNumber < _arg2.dayNumber){
                     return (-1);
-                };
+                }
                 if (_arg1.dayNumber > _arg2.dayNumber){
                     return (1);
-                };
+                }
                 return (0);
-            };
+            }
             super();
             this.clear();
         }
@@ -100,10 +100,10 @@ package kabam.rotmg.dailyLogin.model{
                 _local6 = this.getDayByNumber(_arg1, _local5);
                 if (_local5 == this.userDayConfig[_arg1]){
                     _local6.isCurrent = true;
-                };
+                }
                 _local4.push(_local6);
                 _local5++;
-            };
+            }
             this.daysConfig[_arg1] = _local4;
         }
 
@@ -112,8 +112,8 @@ package kabam.rotmg.dailyLogin.model{
             for each (_local3 in this.daysConfig[_arg1]) {
                 if (_local3.dayNumber == _arg2){
                     return (_local3);
-                };
-            };
+                }
+            }
             return (new CalendarDayModel(_arg2, -1, 0, 0, false, _arg1));
         }
 
@@ -131,8 +131,8 @@ package kabam.rotmg.dailyLogin.model{
             for each (_local2 in this.maxDayConfig) {
                 if (_local2 > _local1){
                     _local1 = _local2;
-                };
-            };
+                }
+            }
             return (_local1);
         }
 

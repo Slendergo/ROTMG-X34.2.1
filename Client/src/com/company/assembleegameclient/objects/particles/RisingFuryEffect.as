@@ -43,7 +43,7 @@ package com.company.assembleegameclient.objects.particles{
             if (((!((this.startX == _local2))) || (!((this.startY == _local3))))){
                 this.timer.stop();
                 this.particleField.destroy();
-            };
+            }
         }
 
         private function onChargingComplete(_arg1:TimerEvent):void{

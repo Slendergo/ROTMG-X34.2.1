@@ -28,7 +28,7 @@ package com.company.assembleegameclient.ui.tooltip.slotcomparisons{
                 comparisonStringBuilder.pushParams(TextKey.STASIS_GROUP, {stasis:new LineBuilder().setParams(TextKey.SEC_COUNT, {duration:_local5}).setPrefix(TooltipHelper.getOpenTag(_local7)).setPostfix(TooltipHelper.getCloseTag())});
                 processedTags[_local3.toXMLString()] = true;
                 this.handleExceptions(_arg1);
-            };
+            }
         }
 
         private function getStasisBlastTag(_arg1:XML):XML{
@@ -59,7 +59,7 @@ package com.company.assembleegameclient.ui.tooltip.slotcomparisons{
                 }, TooltipHelper.getOpenTag(UNTIERED_COLOR), TooltipHelper.getCloseTag());
                 processedTags[speedy.toXMLString()] = true;
                 processedTags[damaging.toXMLString()] = true;
-            };
+            }
         }
 
 

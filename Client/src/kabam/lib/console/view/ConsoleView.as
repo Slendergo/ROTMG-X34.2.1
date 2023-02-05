@@ -20,7 +20,7 @@ package kabam.lib.console.view{
             super.visible = _arg1;
             if (((_arg1) && (stage))){
                 stage.focus = this.input;
-            };
+            }
         }
 
 

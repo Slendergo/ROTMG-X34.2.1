@@ -26,7 +26,7 @@ package kabam.rotmg.messaging.impl.incoming{
             while (_local2 < _local3) {
                 this.accountIds_.push(_arg1.readUTF());
                 _local2++;
-            };
+            }
             this.lockAction_ = _arg1.readInt();
         }
 

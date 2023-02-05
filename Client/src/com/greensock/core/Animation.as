@@ -46,7 +46,7 @@ package com.greensock.core{
             if (this.vars._isGSVars)
             {
                 this.vars = this.vars.vars;
-            };
+            }
             _duration = (_totalDuration = ((_arg_1) || (0)));
             _delay = ((Number(this.vars.delay)) || (0));
             _timeScale = 1;
@@ -68,15 +68,15 @@ package com.greensock.core{
                 else
                 {
                     return;
-                };
-            };
+                }
+            }
             var _local_3:SimpleTimeline = ((this.vars.useFrames) ? _rootFramesTimeline : _rootTimeline);
             _local_3.add(this, _local_3._time);
             _reversed = (this.vars.reversed == true);
             if (this.vars.paused)
             {
                 paused(true);
-            };
+            }
         }
 
         public static function _updateRoot(_arg_1:Event=null):void{
@@ -91,11 +91,11 @@ package com.greensock.core{
             if (!arguments.length)
             {
                 return (_delay);
-            };
+            }
             if (_timeline.smoothChildTiming)
             {
                 startTime(((_startTime + _arg_1) - _delay));
-            };
+            }
             _delay = _arg_1;
             return (this);
         }
@@ -119,9 +119,9 @@ package com.greensock.core{
                     if (((!(_arg_1)) && (!(timeline == null))))
                     {
                         _timeline._remove(this, true);
-                    };
-                };
-            };
+                    }
+                }
+            }
             return false;
         }
 
@@ -130,13 +130,13 @@ package com.greensock.core{
             if (!arguments.length)
             {
                 return (_timeScale);
-            };
+            }
             _arg_1 = ((_arg_1) || (1E-6));
             if (((_timeline) && (_timeline.smoothChildTiming)))
             {
                 _local_3 = (((_pauseTime) || (_pauseTime == 0)) ? _pauseTime : _timeline._totalTime);
                 _startTime = (_local_3 - (((_local_3 - _startTime) * _timeScale) / _arg_1));
-            };
+            }
             _timeScale = _arg_1;
             return (_uncache(false));
         }
@@ -149,8 +149,8 @@ package com.greensock.core{
                 if (_arg_1[_local_2] === "{self}")
                 {
                     _local_3[_local_2] = this;
-                };
-            };
+                }
+            }
             return (_local_3);
         }
 
@@ -163,7 +163,7 @@ package com.greensock.core{
             {
                 _dirty = false;
                 return (_duration);
-            };
+            }
             _duration = (_totalDuration = _arg_1);
             _uncache(true);
             if (_timeline.smoothChildTiming)
@@ -175,10 +175,10 @@ package com.greensock.core{
                         if (_arg_1 != 0)
                         {
                             totalTime((_totalTime * (_arg_1 / _duration)), true);
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             return (this);
         }
 
@@ -195,7 +195,7 @@ package com.greensock.core{
             if (_arg_1 != null)
             {
                 seek(_arg_1, _arg_2);
-            };
+            }
             return (paused(false));
         }
 
@@ -205,7 +205,7 @@ package com.greensock.core{
             if (!arguments.length)
             {
                 return (_paused);
-            };
+            }
             if (_arg_1 != _paused)
             {
                 if (_timeline)
@@ -216,20 +216,20 @@ package com.greensock.core{
                     {
                         _startTime = (_startTime + _local_4);
                         _uncache(false);
-                    };
+                    }
                     _pauseTime = ((_arg_1) ? _local_3 : NaN);
                     _paused = _arg_1;
                     _active = (((!(_arg_1)) && (_totalTime > 0)) && (_totalTime < _totalDuration));
                     if (((((!(_arg_1)) && (!(_local_4 == 0))) && (_initted)) && (!(duration() === 0))))
                     {
                         render(((_timeline.smoothChildTiming) ? _totalTime : ((_local_3 - _startTime) / _timeScale)), true, true);
-                    };
-                };
-            };
+                    }
+                }
+            }
             if (((_gc) && (!(_arg_1))))
             {
                 _enabled(true, false);
-            };
+            }
             return (this);
         }
 
@@ -238,29 +238,29 @@ package com.greensock.core{
             if (!arguments.length)
             {
                 return (_totalTime);
-            };
+            }
             if (_timeline)
             {
                 if (((_arg_1 < 0) && (!(_arg_3))))
                 {
                     _arg_1 = (_arg_1 + totalDuration());
-                };
+                }
                 if (_timeline.smoothChildTiming)
                 {
                     if (_dirty)
                     {
                         totalDuration();
-                    };
+                    }
                     if (((_arg_1 > _totalDuration) && (!(_arg_3))))
                     {
                         _arg_1 = _totalDuration;
-                    };
+                    }
                     _local_5 = _timeline;
                     _startTime = (((_paused) ? _pauseTime : _local_5._time) - (((_reversed) ? (_totalDuration - _arg_1) : _arg_1) / _timeScale));
                     if (!_timeline._dirty)
                     {
                         _uncache(false);
-                    };
+                    }
                     if (_local_5._timeline != null)
                     {
                         while (_local_5._timeline)
@@ -268,20 +268,20 @@ package com.greensock.core{
                             if (_local_5._timeline._time !== ((_local_5._startTime + _local_5._totalTime) / _local_5._timeScale))
                             {
                                 _local_5.totalTime(_local_5._totalTime, true);
-                            };
+                            }
                             _local_5 = _local_5._timeline;
-                        };
-                    };
-                };
+                        }
+                    }
+                }
                 if (_gc)
                 {
                     _enabled(true, false);
-                };
+                }
                 if (((!(_totalTime == _arg_1)) || (_duration === 0)))
                 {
                     render(_arg_1, _arg_2, false);
-                };
-            };
+                }
+            }
             return (this);
         }
 
@@ -289,7 +289,7 @@ package com.greensock.core{
             if (_arg_1 != null)
             {
                 seek(_arg_1, _arg_2);
-            };
+            }
             reversed(false);
             return (paused(false));
         }
@@ -310,12 +310,12 @@ package com.greensock.core{
             if (!arguments.length)
             {
                 return (_reversed);
-            };
+            }
             if (_arg_1 != _reversed)
             {
                 _reversed = _arg_1;
                 totalTime((((_timeline) && (!(_timeline.smoothChildTiming))) ? (totalDuration() - _totalTime) : _totalTime), true);
-            };
+            }
             return (this);
         }
 
@@ -323,7 +323,7 @@ package com.greensock.core{
             if (!arguments.length)
             {
                 return (_startTime);
-            };
+            }
             if (_arg_1 != _startTime)
             {
                 _startTime = _arg_1;
@@ -332,9 +332,9 @@ package com.greensock.core{
                     if (timeline._sortChildren)
                     {
                         timeline.add(this, (_arg_1 - _delay));
-                    };
-                };
-            };
+                    }
+                }
+            }
             return (this);
         }
 
@@ -344,7 +344,7 @@ package com.greensock.core{
             {
                 _local_2._dirty = true;
                 _local_2 = _local_2.timeline;
-            };
+            }
             return (this);
         }
 
@@ -358,15 +358,15 @@ package com.greensock.core{
             if (!arguments.length)
             {
                 return (_time);
-            };
+            }
             if (_dirty)
             {
                 totalDuration();
-            };
+            }
             if (_arg_1 > _duration)
             {
                 _arg_1 = _duration;
-            };
+            }
             return (totalTime(_arg_1, _arg_2));
         }
 
@@ -379,7 +379,7 @@ package com.greensock.core{
             if (_arg_1 != null)
             {
                 seek(((_arg_1) || (totalDuration())), _arg_2);
-            };
+            }
             reversed(true);
             return (paused(false));
         }
@@ -392,7 +392,7 @@ package com.greensock.core{
             if (_arg_1 != null)
             {
                 seek(_arg_1, _arg_2);
-            };
+            }
             return (paused(true));
         }
 
@@ -400,13 +400,13 @@ package com.greensock.core{
             if (_arg_1 == null)
             {
                 return (null);
-            };
+            }
             if (_arg_1.substr(0, 2) == "on")
             {
                 if (arguments.length == 1)
                 {
                     return (vars[_arg_1]);
-                };
+                }
                 if (_arg_2 == null)
                 {
                     delete vars[_arg_1];
@@ -415,12 +415,12 @@ package com.greensock.core{
                 {
                     vars[_arg_1] = _arg_2;
                     vars[(_arg_1 + "Params")] = (((_arg_3 is Array) && (!(_arg_3.join("").indexOf("{self}") === -1))) ? _swapSelfInParams(_arg_3) : _arg_3);
-                };
+                }
                 if (_arg_1 == "onUpdate")
                 {
                     _onUpdate = _arg_2;
-                };
-            };
+                }
+            }
             return (this);
         }
 

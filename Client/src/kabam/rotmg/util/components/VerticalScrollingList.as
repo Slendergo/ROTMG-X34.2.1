@@ -44,7 +44,7 @@ package kabam.rotmg.util.components{
             this.size = _arg1;
             if (this.isScrollbarVisible()){
                 _arg1 = new Size((_arg1.width - SCROLLBAR_GUTTER), _arg1.height);
-            };
+            }
             this.list.setSize(_arg1);
             this.refreshScrollbar();
         }

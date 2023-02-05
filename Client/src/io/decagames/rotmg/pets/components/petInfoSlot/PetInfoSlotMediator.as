@@ -22,7 +22,7 @@ package io.decagames.rotmg.pets.components.petInfoSlot{
         override public function initialize():void{
             if (this.view.showCurrentPet){
                 this.view.showPetInfo(this.petModel.getActivePet());
-            };
+            }
             this.changePetSkinSignal.add(this.onSkinUpdate);
         }
 

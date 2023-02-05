@@ -122,7 +122,7 @@ package kabam.rotmg.ui.view.components{
                 this.objectType = _arg4;
                 if (this.potionIcon != null){
                     removeChild(this.potionIcon);
-                };
+                }
                 _local7 = ObjectLibrary.getRedrawnTextureFromType(_arg4, 55, false);
                 this.potionIcon = new Bitmap(_local7);
                 this.potionIcon.y = -11;
@@ -132,7 +132,7 @@ package kabam.rotmg.ui.view.components{
                 _local8.x = (_local8.x - 30);
                 _local8.y = (_local8.y - 30);
                 this.potionIconDraggableSprite.addChild(_local8);
-            };
+            }
             var _local5 = (_arg1 > 0);
             if (_local5){
                 this.setTextString(String(_arg1));
@@ -157,10 +157,10 @@ package kabam.rotmg.ui.view.components{
                 this.text.y = 4;
                 this.text.setBold(false);
                 this.text.setSize(14);
-            };
+            }
             if (this.potionIcon){
                 this.potionIcon.x = _local6;
-            };
+            }
             if (!_local5){
                 if (Parameters.data_.contextualPotionBuy){
                     this.text.setBold(false);
@@ -173,7 +173,7 @@ package kabam.rotmg.ui.view.components{
                     this.text.setColor(0xAAAAAA);
                     this.costIcon.filters = [this.grayscaleMatrix];
                     this.costIcon.visible = true;
-                };
+                }
             }
             else {
                 if (_arg1 <= 1){
@@ -186,12 +186,12 @@ package kabam.rotmg.ui.view.components{
                     else {
                         if (_arg1 >= 4){
                             this.text.setColor(3007543);
-                        };
-                    };
-                };
+                        }
+                    }
+                }
                 this.costIcon.filters = [];
                 this.costIcon.visible = false;
-            };
+            }
         }
 
         public function setTextString(_arg1:String):void{
@@ -205,7 +205,7 @@ package kabam.rotmg.ui.view.components{
         private function onMouseUp(_arg1:MouseEvent):void{
             if (this.isDragging){
                 return;
-            };
+            }
             if (_arg1.shiftKey){
                 this.setPendingDoubleClick(false);
                 this.buyUse.dispatch();
@@ -217,14 +217,14 @@ package kabam.rotmg.ui.view.components{
                 else {
                     this.setPendingDoubleClick(false);
                     this.buyUse.dispatch();
-                };
-            };
+                }
+            }
         }
 
         private function onMouseDown(_arg1:MouseEvent):void{
             if (!this.costIcon.visible){
                 this.beginDragCheck(_arg1);
-            };
+            }
         }
 
         private function setPendingDoubleClick(_arg1:Boolean):void{
@@ -235,7 +235,7 @@ package kabam.rotmg.ui.view.components{
             }
             else {
                 this.doubleClickTimer.stop();
-            };
+            }
         }
 
         private function beginDragCheck(_arg1:MouseEvent):void{
@@ -259,7 +259,7 @@ package kabam.rotmg.ui.view.components{
                 this.cancelDragCheck(null);
                 this.setPendingDoubleClick(false);
                 this.beginDrag();
-            };
+            }
         }
 
         private function onDoubleClickTimerComplete(_arg1:TimerEvent):void{
@@ -288,7 +288,7 @@ package kabam.rotmg.ui.view.components{
             this.cancelDragCheck(null);
             if (this.isDragging){
                 this.potionIconDraggableSprite.stopDrag();
-            };
+            }
         }
 
 

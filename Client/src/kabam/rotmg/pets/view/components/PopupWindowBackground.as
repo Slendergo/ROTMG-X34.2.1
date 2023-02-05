@@ -57,10 +57,10 @@ package kabam.rotmg.pets.view.components{
                             graphics.beginFill(0);
                             _local5.drawBevelRect(0, 0, _local4, graphics);
                             graphics.endFill();
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
         }
 
         public function divide(_arg1:String, _arg2:int):void{
@@ -70,8 +70,8 @@ package kabam.rotmg.pets.view.components{
             else {
                 if (_arg1 == VERTICAL_DIVISION){
                     this.divideVertically(_arg2);
-                };
-            };
+                }
+            }
         }
 
         private function divideHorizontally(_arg1:int):void{

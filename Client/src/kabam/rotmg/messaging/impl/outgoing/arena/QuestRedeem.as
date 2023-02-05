@@ -25,7 +25,7 @@ package kabam.rotmg.messaging.impl.outgoing.arena{
             _arg1.writeShort(this.slots.length);
             for each (_local2 in this.slots) {
                 _local2.writeToOutput(_arg1);
-            };
+            }
         }
 
 

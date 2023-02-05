@@ -41,7 +41,7 @@ package com.company.assembleegameclient.account.ui{
             while (_local2 < _local1) {
                 this.choices[_local2] = this.makeGoldChoice(this.offers.offerList[_local2]);
                 _local2++;
-            };
+            }
         }
 
         private function makeGoldChoice(_arg1:Offer):OfferRadioButton{
@@ -70,7 +70,7 @@ package com.company.assembleegameclient.account.ui{
             while (_local3 < _local1) {
                 _local2[_local3] = this.choices[_local3];
                 _local3++;
-            };
+            }
             return (_local2);
         }
 
@@ -87,7 +87,7 @@ package com.company.assembleegameclient.account.ui{
             while (_local3 < _local1) {
                 _local2[_local3] = this.choices[_local3];
                 _local3++;
-            };
+            }
             return (_local2);
         }
 
@@ -95,7 +95,7 @@ package com.company.assembleegameclient.account.ui{
             var _local2:int = this.choices.length;
             while (_local2--) {
                 this.choices[_local2].showBonus(_arg1);
-            };
+            }
         }
 
 

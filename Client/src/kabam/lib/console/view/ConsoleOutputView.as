@@ -60,7 +60,7 @@ package kabam.lib.console.view{
             if (_local2){
                 delete this.watchMap[_arg1];
                 this.watched.splice(this.watched.indexOf(_local2), 1);
-            };
+            }
         }
 
         private function makeWatch(_arg1:String):Watch{
@@ -81,7 +81,7 @@ package kabam.lib.console.view{
             this.watched.length = 0;
             for (_local1 in this.watchMap) {
                 delete this.watchMap[_local1];
-            };
+            }
         }
 
         public function resize(_arg1:Rectangle):void{

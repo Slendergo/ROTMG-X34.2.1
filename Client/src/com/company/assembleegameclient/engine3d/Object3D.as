@@ -34,12 +34,12 @@ package com.company.assembleegameclient.engine3d{
                 this.uvts_ = this.model_.uvts_.concat();
                 for each (_local2 in this.model_.faces_) {
                     this.faces_.push(new ObjectFace3D(this, _local2.indicies_, _local2.useTexture_));
-                };
+                }
             }
             else {
                 this.vL_ = new Vector.<Number>();
                 this.uvts_ = new Vector.<Number>();
-            };
+            }
             this.setPosition(0, 0, 0, 0);
         }
 
@@ -55,7 +55,7 @@ package com.company.assembleegameclient.engine3d{
             this.uvts_ = null;
             for each (_local1 in this.faces_) {
                 _local1.dispose();
-            };
+            }
             this.faces_.length = 0;
             this.faces_ = null;
             this.vS_ = null;
@@ -71,14 +71,14 @@ package com.company.assembleegameclient.engine3d{
             this.lToW_.transformVectors(this.vL_, this.vW_);
             for each (_local5 in this.faces_) {
                 _local5.computeLighting();
-            };
+            }
         }
 
         public function getVecW(_arg1:int):Vector3D{
             var _local2:int = (_arg1 * 3);
             if (_local2 >= this.vW_.length){
                 return (null);
-            };
+            }
             return (new Vector3D(this.vW_[_local2], this.vW_[(_local2 + 1)], this.vW_[(_local2 + 2)]));
         }
 
@@ -87,7 +87,7 @@ package com.company.assembleegameclient.engine3d{
             Utils3D.projectVectors(_arg2.wToS_, this.vW_, this.vS_, this.uvts_);
             for each (_local5 in this.faces_) {
                 _local5.draw(_arg1, _arg3, _arg4);
-            };
+            }
         }
 
 

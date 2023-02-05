@@ -40,7 +40,7 @@ package kabam.rotmg.game.view{
             }
             else {
                 this.view.removeResourceButtons();
-            };
+            }
             if (((this.view.creditsButton) && (((!((this.view.gs == null))) && ((this.view.gs.map.name_ == Map.NEXUS)))))){
                 this.view.creditsButton.addEventListener(MouseEvent.CLICK, this.view.onCreditsClick, false, 0, true);
                 this.toolTip = new TextToolTip(0x363636, 0x9B9B9B, "Buy Gold", "Click to buy more Realm Gold!", 190);
@@ -49,7 +49,7 @@ package kabam.rotmg.game.view{
                 this.hoverTooltipDelegate.setHideToolTipsSignal(this.hideTooltipSignal);
                 this.hoverTooltipDelegate.setDisplayObject(this.view.creditsButton);
                 this.hoverTooltipDelegate.tooltip = this.toolTip;
-            };
+            }
             if (((this.view.fameButton) && (((!((this.view.gs == null))) && ((this.view.gs.map.name_ == Map.NEXUS)))))){
                 this.view.fameButton.addEventListener(MouseEvent.CLICK, this.view.onFameClick);
                 this.toolTip = new TextToolTip(0x363636, 0x9B9B9B, "Fame", "Click to get an Overview!", 160);
@@ -58,7 +58,7 @@ package kabam.rotmg.game.view{
                 this.hoverTooltipDelegate.setHideToolTipsSignal(this.hideTooltipSignal);
                 this.hoverTooltipDelegate.setDisplayObject(this.view.fameButton);
                 this.hoverTooltipDelegate.tooltip = this.toolTip;
-            };
+            }
             this.view.displayFameTooltip.add(this.forceShowingTooltip);
         }
 
@@ -67,7 +67,7 @@ package kabam.rotmg.game.view{
                 this.hoverTooltipDelegate.getDisplayObject().dispatchEvent(new MouseEvent(MouseEvent.MOUSE_OVER, true));
                 this.toolTip.x = 267;
                 this.toolTip.y = 41;
-            };
+            }
         }
 
         override public function destroy():void{
@@ -76,10 +76,10 @@ package kabam.rotmg.game.view{
             this.view.openAccountDialog.remove(this.onOpenAccountDialog);
             if (((this.view.fameButton) && (((!((this.view.gs == null))) && ((this.view.gs.map.name_ == Map.NEXUS)))))){
                 this.view.fameButton.removeEventListener(MouseEvent.CLICK, this.view.onFameClick);
-            };
+            }
             if (((this.view.creditsButton) && (((!((this.view.gs == null))) && ((this.view.gs.map.name_ == Map.NEXUS)))))){
                 this.view.creditsButton.removeEventListener(MouseEvent.CLICK, this.view.onCreditsClick);
-            };
+            }
             this.view.displayFameTooltip.remove(this.forceShowingTooltip);
         }
 

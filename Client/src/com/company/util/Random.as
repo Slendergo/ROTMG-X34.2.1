@@ -49,7 +49,7 @@ package com.company.util{
             _local2 = (_local2 + (_local1 >> 15));
             if (_local2 > 2147483647){
                 _local2 = (_local2 - 2147483647);
-            };
+            }
             return ((this.seed = _local2));
         }
 

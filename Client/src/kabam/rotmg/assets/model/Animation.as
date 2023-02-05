@@ -49,13 +49,13 @@ package kabam.rotmg.assets.model{
             this.index = 0;
             for each (_local2 in _args) {
                 this.count = this.frames.push(_local2);
-            };
+            }
             if (this.started){
                 this.start();
             }
             else {
                 this.iterate();
-            };
+            }
         }
 
         public function addFrame(_arg1:BitmapData):void{
@@ -67,7 +67,7 @@ package kabam.rotmg.assets.model{
             if (((!(this.started)) && ((this.count > 0)))){
                 this.timer.start();
                 this.iterate();
-            };
+            }
             this.started = true;
         }
 
@@ -90,7 +90,7 @@ package kabam.rotmg.assets.model{
             this.frames.length = 0;
             for each (_local1 in this.frames) {
                 _local1.dispose();
-            };
+            }
         }
 
         public function isStarted():Boolean{

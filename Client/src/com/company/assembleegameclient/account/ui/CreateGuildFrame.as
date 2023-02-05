@@ -53,13 +53,13 @@ package com.company.assembleegameclient.account.ui{
                 _local2 = StaticInjectorContext.getInjector().getInstance(GameModel).player;
                 if (_local2 != null){
                     _local2.fame_ = (_local2.fame_ - Parameters.GUILD_CREATION_PRICE);
-                };
+                }
                 this.close.dispatch();
             }
             else {
                 this.name_.setError(_arg1.errorKey, _arg1.errorTokens);
                 enable();
-            };
+            }
         }
 
 

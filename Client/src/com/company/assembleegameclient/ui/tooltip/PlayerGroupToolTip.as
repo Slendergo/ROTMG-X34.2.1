@@ -27,7 +27,7 @@ package com.company.assembleegameclient.ui.tooltip{
             this.setPlayers(_arg1);
             if (!_arg2){
                 filters = [];
-            };
+            }
             waiter.push(this.clickMessage_.textChanged);
         }
 
@@ -38,7 +38,7 @@ package com.company.assembleegameclient.ui.tooltip{
             this.players_ = _arg1.slice();
             if ((((this.players_ == null)) || ((this.players_.length == 0)))){
                 return;
-            };
+            }
             var _local2:int;
             for each (_local3 in _arg1) {
                 _local4 = new GameObjectListItem(0xB3B3B3, true, _local3);
@@ -48,7 +48,7 @@ package com.company.assembleegameclient.ui.tooltip{
                 this.playerPanels_.push(_local4);
                 _local4.textReady.addOnce(this.onTextChanged);
                 _local2 = (_local2 + 32);
-            };
+            }
             this.clickMessage_.x = ((width / 2) - (this.clickMessage_.width / 2));
             this.clickMessage_.y = _local2;
             draw();
@@ -60,7 +60,7 @@ package com.company.assembleegameclient.ui.tooltip{
             draw();
             for each (_local1 in this.playerPanels_) {
                 _local1.textReady.remove(this.onTextChanged);
-            };
+            }
         }
 
         private function clear():void{
@@ -68,7 +68,7 @@ package com.company.assembleegameclient.ui.tooltip{
             graphics.clear();
             for each (_local1 in this.playerPanels_) {
                 removeChild(_local1);
-            };
+            }
             this.playerPanels_.length = 0;
         }
 

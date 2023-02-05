@@ -94,7 +94,7 @@ package kabam.lib.ui.impl{
             var _local1:int = this.list.length;
             while (_local1--) {
                 this.container.removeChild(this.list[_local1]);
-            };
+            }
             this.list.length = 0;
         }
 
@@ -102,7 +102,7 @@ package kabam.lib.ui.impl{
             var _local2:DisplayObject;
             for each (_local2 in _arg1) {
                 this.addToListAndContainer(_local2);
-            };
+            }
         }
 
         private function addToListAndContainer(_arg1:DisplayObject):void{

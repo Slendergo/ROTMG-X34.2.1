@@ -25,7 +25,7 @@ package io.decagames.rotmg.shop.genericBox{
             else {
                 _local6 = int(_arg1.priceCurrency);
                 _local7 = (int(_arg1.priceAmount) * _arg2);
-            };
+            }
             var _local8:Boolean = true;
             var _local9:int;
             var _local10:int;
@@ -38,8 +38,8 @@ package io.decagames.rotmg.shop.genericBox{
                 if (_arg4 != null){
                     _local10 = _arg4.getCredits();
                     _local9 = _arg4.getFame();
-                };
-            };
+                }
+            }
             if ((((_local6 == Currency.GOLD)) && ((_local10 < _local7)))){
                 _arg5.dispatch(new NotEnoughResources(300, Currency.GOLD));
                 _local8 = false;
@@ -48,8 +48,8 @@ package io.decagames.rotmg.shop.genericBox{
                 if ((((_local6 == Currency.FAME)) && ((_local9 < _local7)))){
                     _arg5.dispatch(new NotEnoughResources(300, Currency.FAME));
                     _local8 = false;
-                };
-            };
+                }
+            }
             return (_local8);
         }
 

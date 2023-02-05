@@ -34,7 +34,7 @@ package com.company.assembleegameclient.tutorial{
             else {
                 _local4.x = this.p1_.x;
                 _local4.y = this.p1_.y;
-            };
+            }
             _arg2.lineStyle(_arg1, this.color_);
             _arg2.moveTo(this.p0_.x, this.p0_.y);
             _arg2.lineTo(_local4.x, _local4.y);

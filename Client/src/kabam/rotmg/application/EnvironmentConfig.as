@@ -13,12 +13,9 @@ package kabam.rotmg.application{
         [Inject]
         public var injector:Injector;
 
-
         public function configure():void{
             this.injector.map(DomainModel).asSingleton();
         }
-
-
     }
 }//package kabam.rotmg.application
 

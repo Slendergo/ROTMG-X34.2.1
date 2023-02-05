@@ -19,28 +19,28 @@ package kabam.rotmg.util.graphics{
             }
             else {
                 _arg4.moveTo(_arg1, _arg2);
-            };
+            }
             if (_arg3.topRightBevel){
                 _arg4.lineTo((_local5 - _local7), _arg2);
                 _arg4.lineTo(_local5, (_arg2 + _local7));
             }
             else {
                 _arg4.lineTo(_local5, _arg2);
-            };
+            }
             if (_arg3.bottomRightBevel){
                 _arg4.lineTo(_local5, (_local6 - _local7));
                 _arg4.lineTo((_local5 - _local7), _local6);
             }
             else {
                 _arg4.lineTo(_local5, _local6);
-            };
+            }
             if (_arg3.bottomLeftBevel){
                 _arg4.lineTo((_arg1 + _local7), _local6);
                 _arg4.lineTo(_arg1, (_local6 - _local7));
             }
             else {
                 _arg4.lineTo(_arg1, _local6);
-            };
+            }
         }
 
 

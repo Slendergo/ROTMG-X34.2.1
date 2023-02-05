@@ -51,7 +51,7 @@ package io.decagames.rotmg.ui.buttons{
                 this._bitmap.scaleY = 1;
                 this._bitmap.x = 0;
                 this._bitmap.y = 0;
-            };
+            }
             super.onRollOverHandler(_arg1);
         }
 
@@ -61,7 +61,7 @@ package io.decagames.rotmg.ui.buttons{
                 this._bitmap.scaleY = 0.9;
                 this._bitmap.x = ((this._bitmap.width * 0.1) / 2);
                 this._bitmap.y = ((this._bitmap.height * 0.1) / 2);
-            };
+            }
             super.onMouseDownHandler(_arg1);
         }
 
@@ -71,7 +71,7 @@ package io.decagames.rotmg.ui.buttons{
                 this._bitmap.scaleY = 1;
                 this._bitmap.x = 0;
                 this._bitmap.y = 0;
-            };
+            }
             super.onClickHandler(_arg1);
         }
 
@@ -82,7 +82,7 @@ package io.decagames.rotmg.ui.buttons{
                 this._bitmap.scaleY = 1;
                 this._bitmap.x = 0;
                 this._bitmap.y = 0;
-            };
+            }
             super.onRollOutHandler(_arg1);
         }
 
@@ -91,15 +91,15 @@ package io.decagames.rotmg.ui.buttons{
             var _local2:Function = this.stateFactories[ButtonStates.DISABLED];
             if (_local2 != null){
                 (_local2(this._label));
-            };
+            }
             if (this._interactionEffects){
                 if (_arg1){
                     GreyScale.setGreyScale(this._bitmap.bitmapData);
                 }
                 else {
                     this.changeBitmap(this._bitmap.sourceBitmapName, new Point(this._bitmap.marginX, this._bitmap.marginY));
-                };
-            };
+                }
+            }
             this.render();
         }
 
@@ -107,11 +107,11 @@ package io.decagames.rotmg.ui.buttons{
             if (_arg3 == ButtonStates.IDLE){
                 if (_arg2 != null){
                     (_arg2(this._label));
-                };
+                }
                 this._label.text = _arg1;
                 addChild(this._label);
                 this.render();
-            };
+            }
             this.stateFactories[_arg3] = _arg2;
         }
 
@@ -130,7 +130,7 @@ package io.decagames.rotmg.ui.buttons{
         public function render():void{
             if (this.staticWidth){
                 this._bitmap.width = this._bitmapWidth;
-            };
+            }
             this._label.x = ((((this._bitmapWidth - this._label.textWidth) / 2) + this._bitmap.marginX) + this.labelMargin.x);
             this._label.y = ((((this._bitmap.height - this._label.textHeight) / 2) + this._bitmap.marginY) + this.labelMargin.y);
         }
@@ -139,10 +139,10 @@ package io.decagames.rotmg.ui.buttons{
             this._bitmap.dispose();
             if (this.disableBitmap){
                 this.disableBitmap.dispose();
-            };
+            }
             if (this.rollOverBitmap){
                 this.rollOverBitmap.dispose();
-            };
+            }
             super.dispose();
         }
 
@@ -152,7 +152,7 @@ package io.decagames.rotmg.ui.buttons{
             this._bitmap = TextureParser.instance.getSliceScalingBitmap("UI", _arg1);
             if (_arg2 != null){
                 this._bitmap.addMargin(_arg2.x, _arg2.y);
-            };
+            }
             addChildAt(this._bitmap, 0);
             this._bitmap.forceRenderInNextFrame = true;
             this.render();

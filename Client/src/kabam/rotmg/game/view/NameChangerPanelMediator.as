@@ -41,13 +41,13 @@ package kabam.rotmg.game.view{
             }
             else {
                 this.openDialog.dispatch(new RegisterPromptDialog(TextKey.NAME_CHANGER_PANEL_MEDIATOR_TEXT));
-            };
+            }
         }
 
         private function onNameChanged(_arg1:String):void{
             if ((this.account is WebAccount)){
                 WebAccount(this.account).userDisplayName = _arg1;
-            };
+            }
             this.view.updateName(_arg1);
         }
 

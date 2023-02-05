@@ -29,7 +29,7 @@ package kabam.rotmg.game.model{
                     return (HEALTH_POTION_SLOT);
                 case MAGIC_POTION_ID:
                     return (MAGIC_POTION_SLOT);
-            };
+            }
             return (-1);
         }
 
@@ -43,7 +43,7 @@ package kabam.rotmg.game.model{
             var _local5:Array = new Array();
             for each (_local6 in _arg1.PotionPurchaseCosts.cost) {
                 _local5.push(_local6);
-            };
+            }
             _local7 = new PotionModel();
             _local7.purchaseCooldownMillis = _local2;
             _local7.priceCooldownMillis = _local3;
@@ -69,8 +69,8 @@ package kabam.rotmg.game.model{
             for (_local2 in this.potionModels) {
                 if (this.potionModels[_local2].objectId == _arg1){
                     return (this.potionModels[_local2]);
-                };
-            };
+                }
+            }
             return (null);
         }
 

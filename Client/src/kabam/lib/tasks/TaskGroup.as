@@ -25,14 +25,14 @@ package kabam.lib.tasks{
             }
             else {
                 completeTask(true);
-            };
+            }
         }
 
         override protected function onReset():void{
             var _local1:BaseTask;
             for each (_local1 in this.tasks) {
                 _local1.reset();
-            };
+            }
         }
 
         private function startAllTasks():void{
@@ -40,18 +40,18 @@ package kabam.lib.tasks{
             while (_local1--) {
                 this.tasks[_local1].lastly.addOnce(this.onTaskFinished);
                 this.tasks[_local1].start();
-            };
+            }
         }
 
         private function onTaskFinished(_arg1:BaseTask, _arg2:Boolean, _arg3:String):void{
             if (_arg2){
                 if (--this.pending == 0){
                     completeTask(true);
-                };
+                }
             }
             else {
                 completeTask(false, _arg3);
-            };
+            }
         }
 
         public function toString():String{

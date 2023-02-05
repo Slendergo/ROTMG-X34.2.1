@@ -47,7 +47,7 @@ package com.company.assembleegameclient.ui{
         private function onButtonOut(_arg1:Event):void{
             if (this.boostPanel){
                 removeChild(this.boostPanel);
-            };
+            }
         }
 
 

@@ -33,10 +33,10 @@ package com.company.assembleegameclient.ui.panels.mediators{
         public function provideInteractive():IInteractiveObject{
             if (!this.isMapNameYardName()){
                 return (this.mapModel.currentInteractiveTarget);
-            };
+            }
             if (this.doesNewPanelOverrideOld()){
                 this.currentInteractive = this.mapModel.currentInteractiveTarget;
-            };
+            }
             return (this.currentInteractive);
         }
 
@@ -47,10 +47,10 @@ package com.company.assembleegameclient.ui.panels.mediators{
         private function doShowPet():Boolean{
             if (((!(this.currentInteractive)) && (this.isMapNameYardName()))){
                 return true;
-            };
+            }
             if ((((((this.currentInteractive is Pet)) && (this.isMapNameYardName()))) && (!((Pet(this.mapModel.currentInteractiveTarget).vo.getID() == Pet(this.currentInteractive).vo.getID()))))){
                 return true;
-            };
+            }
             return false;
         }
 

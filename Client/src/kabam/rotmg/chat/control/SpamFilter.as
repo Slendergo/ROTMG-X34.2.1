@@ -21,7 +21,7 @@ package kabam.rotmg.chat.control{
             for each (_local3 in _local2) {
                 _local1[_local3.charCodeAt(0)] = _local3.charAt(1);
                 _local1[_local3.charCodeAt(1)] = _local3.charAt(1);
-            };
+            }
             return (_local1);
         }
 
@@ -37,7 +37,7 @@ package kabam.rotmg.chat.control{
             var _local1:uint;
             while (_local1 < this.testPatterns.length) {
                 _local1++;
-            };
+            }
         }
 
         public function isSpam(_arg1:String):Boolean{
@@ -55,9 +55,9 @@ package kabam.rotmg.chat.control{
                 _local4 = this.filterTable[_arg1.charCodeAt(_local3)];
                 if (_local4 !== null){
                     _local2.push(_local4);
-                };
+                }
                 _local3++;
-            };
+            }
             return (_local2.join(""));
         }
 
@@ -71,12 +71,12 @@ package kabam.rotmg.chat.control{
                 while (_local4 < this.newPatterns[_local1].length) {
                     if (((!((this.newPatterns[_local1].charAt(_local4) == "'"))) && (!((this.newPatterns[_local1].charAt(_local4) == '"'))))){
                         _local3 = _local3.concat(this.newPatterns[_local1].charAt(_local4));
-                    };
+                    }
                     _local4++;
-                };
+                }
                 this.newPatterns[_local1] = _local3;
                 _local1++;
-            };
+            }
             var _local2:Array = this.newPatterns;
             _local2.sort();
             return (this.testPatterns);

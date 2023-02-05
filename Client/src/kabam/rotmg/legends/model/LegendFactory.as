@@ -40,8 +40,8 @@ package kabam.rotmg.legends.model{
                     _local4.isOwnLegend = (_local3.@accountId == this.ownAccountId);
                     _local4.isFocus = _arg2;
                     this.legends.push(_local4);
-                };
-            };
+                }
+            }
         }
 
         private function legendsContains(_arg1:XML):Boolean{
@@ -49,8 +49,8 @@ package kabam.rotmg.legends.model{
             for each (_local2 in this.legends) {
                 if ((((_local2.accountId == _arg1.@accountId)) && ((_local2.charId == _arg1.@charId)))){
                     return true;
-                };
-            };
+                }
+            }
             return false;
         }
 

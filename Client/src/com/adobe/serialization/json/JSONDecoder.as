@@ -29,20 +29,20 @@ package com.adobe.serialization.json{
             this.nextToken();
             if (this.token.type == JSONTokenType.RIGHT_BRACKET){
                 return (_local1);
-            };
+            }
             while (true) {
                 _local1.push(this.parseValue());
                 this.nextToken();
                 if (this.token.type == JSONTokenType.RIGHT_BRACKET){
                     return (_local1);
-                };
+                }
                 if (this.token.type == JSONTokenType.COMMA){
                     this.nextToken();
                 }
                 else {
                     this.tokenizer.parseError(("Expecting ] or , but found " + this.token.value));
-                };
-            };
+                }
+            }
             return (null);
         }
 
@@ -52,7 +52,7 @@ package com.adobe.serialization.json{
             this.nextToken();
             if (this.token.type == JSONTokenType.RIGHT_BRACE){
                 return (_local1);
-            };
+            }
             while (true) {
                 if (this.token.type == JSONTokenType.STRING){
                     _local2 = String(this.token.value);
@@ -63,22 +63,22 @@ package com.adobe.serialization.json{
                         this.nextToken();
                         if (this.token.type == JSONTokenType.RIGHT_BRACE){
                             return (_local1);
-                        };
+                        }
                         if (this.token.type == JSONTokenType.COMMA){
                             this.nextToken();
                         }
                         else {
                             this.tokenizer.parseError(("Expecting } or , but found " + this.token.value));
-                        };
+                        }
                     }
                     else {
                         this.tokenizer.parseError(("Expecting : but found " + this.token.value));
-                    };
+                    }
                 }
                 else {
                     this.tokenizer.parseError(("Expecting string but found " + this.token.value));
-                };
-            };
+                }
+            }
             return (null);
         }
 
@@ -100,7 +100,7 @@ package com.adobe.serialization.json{
                     return (this.token.value);
                 default:
                     this.tokenizer.parseError(("Unexpected " + this.token.value));
-            };
+            }
             return (null);
         }
 

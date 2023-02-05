@@ -61,10 +61,10 @@ package com.company.assembleegameclient.objects.particles{
                 }
                 else {
                     _local6 = apply(_local6, 3675232);
-                };
+                }
                 _local2.push(_local6);
                 _local4++;
-            };
+            }
             return (_local2);
         }
 

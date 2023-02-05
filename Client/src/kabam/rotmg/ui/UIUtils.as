@@ -40,7 +40,7 @@ package kabam.rotmg.ui{
         public static function toggleQuality(_arg1:Boolean):void{
             if (WebMain.STAGE != null){
                 WebMain.STAGE.quality = ((_arg1) ? StageQuality.HIGH : StageQuality.LOW);
-            };
+            }
         }
 
 

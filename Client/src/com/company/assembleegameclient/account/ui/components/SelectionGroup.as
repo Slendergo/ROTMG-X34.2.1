@@ -20,8 +20,8 @@ package com.company.assembleegameclient.account.ui.components{
                 if (_local2.getValue() == _arg1){
                     this.replaceSelected(_local2);
                     return;
-                };
-            };
+                }
+            }
         }
 
         public function getSelected():Selectable{
@@ -31,7 +31,7 @@ package com.company.assembleegameclient.account.ui.components{
         private function replaceSelected(_arg1:Selectable):void{
             if (this.selected != null){
                 this.selected.setSelected(false);
-            };
+            }
             this.selected = _arg1;
             this.selected.setSelected(true);
         }

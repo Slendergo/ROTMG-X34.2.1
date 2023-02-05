@@ -30,8 +30,8 @@ package kabam.rotmg.packages.services{
             for each (_local2 in this.models) {
                 if (((((!((_local2.slot == 0))) && (!((_local2.slot == TARGETING_BOX_SLOT))))) && (this.isPackageValid(_local2)))){
                     _local1[(_local2.slot - 1)] = _local2;
-                };
-            };
+                }
+            }
             return (_local1);
         }
 
@@ -41,8 +41,8 @@ package kabam.rotmg.packages.services{
             for each (_local2 in this.models) {
                 if ((((_local2.slot == TARGETING_BOX_SLOT)) && (this.isPackageValid(_local2)))){
                     _local1.push(_local2);
-                };
-            };
+                }
+            }
             return (_local1);
         }
 
@@ -56,18 +56,18 @@ package kabam.rotmg.packages.services{
             for each (_local2 in this.models) {
                 if (_local2.slot == TARGETING_BOX_SLOT){
                     return (_local2);
-                };
+                }
                 if (((((this.isPackageValid(_local2)) && (_local2.showOnLogin))) && (!((_local2.popupImage == ""))))){
                     if (_local1 != null){
                         if (((!((_local2.unitsLeft == -1))) || (!((_local2.maxPurchase == -1))))){
                             _local1 = _local2;
-                        };
+                        }
                     }
                     else {
                         _local1 = _local2;
-                    };
-                };
-            };
+                    }
+                }
+            }
             return (_local1);
         }
 
@@ -88,7 +88,7 @@ package kabam.rotmg.packages.services{
             this.models = {};
             for each (_local2 in _arg1) {
                 this.models[_local2.id] = _local2;
-            };
+            }
             this.updateSignal.dispatch();
             this.initialized = true;
         }
@@ -111,7 +111,7 @@ package kabam.rotmg.packages.services{
             var _local1:Object;
             for each (_local1 in this.models) {
                 return true;
-            };
+            }
             return false;
         }
 

@@ -44,10 +44,10 @@ package com.company.assembleegameclient.objects.particles{
             var _local7:Number;
             if (this.go_.map_ == null){
                 return false;
-            };
+            }
             if (this.lastUpdate_ < 0){
                 this.lastUpdate_ = Math.max(0, (_arg1 - 400));
-            };
+            }
             x_ = this.go_.x_;
             y_ = this.go_.y_;
             if (!this.bInitialized_){
@@ -64,23 +64,23 @@ package com.company.assembleegameclient.objects.particles{
                     map_.addObj(_local5, x_, y_);
                     _local5.z_ = (0.4 + (Math.sin(((_local7 * _local4) * 1.5)) * 0.05));
                     _local4++;
-                };
+                }
                 this.bInitialized_ = true;
-            };
+            }
             for each (_local3 in this.parts_) {
                 _local3.rad_ = this.rad_;
-            };
+            }
             if (this.maxLife_ <= 500){
                 this.rad_ = Math.max((this.rad_ - ((2 * this.maxRad_) * (_arg2 / 1000))), 0);
             }
             else {
                 this.rad_ = Math.min((this.rad_ + (this.rise_ * (_arg2 / 1000))), this.maxRad_);
-            };
+            }
             this.maxLife_ = (this.maxLife_ - _arg2);
             if (this.maxLife_ <= 0){
                 this.endEffect();
                 return false;
-            };
+            }
             this.lastUpdate_ = _arg1;
             return true;
         }
@@ -89,7 +89,7 @@ package com.company.assembleegameclient.objects.particles{
             var _local1:HeartParticle;
             for each (_local1 in this.parts_) {
                 _local1.alive_ = false;
-            };
+            }
         }
 
         override public function removeFromMap():void{

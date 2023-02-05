@@ -41,7 +41,7 @@ package com.company.assembleegameclient.objects.particles{
             var _local3:Number = (this.currentLife / this.lifetimeMS);
             if (this.mSize > size_){
                 this.fSize = (this.fSize + (_arg2 * 0.01));
-            };
+            }
             size_ = this.fSize;
             var _local4:Number = Quad.easeOut(_local3);
             var _local5:Number = ((2 * Math.PI) * (_local4 + this.armOffset));
@@ -55,8 +55,8 @@ package com.company.assembleegameclient.objects.particles{
             else {
                 if (_local3 > 0.5){
                     setColor(MoreColorUtil.lerpColor(this.color2_, this.color1_, this.normalizedRange(_local3, 0.5, 1)));
-                };
-            };
+                }
+            }
             this.currentLife = (this.currentLife + _arg2);
             return ((_local3 < 1));
         }
@@ -69,8 +69,8 @@ package com.company.assembleegameclient.objects.particles{
             else {
                 if (_local4 > 1){
                     _local4 = 1;
-                };
-            };
+                }
+            }
             return (_local4);
         }
 

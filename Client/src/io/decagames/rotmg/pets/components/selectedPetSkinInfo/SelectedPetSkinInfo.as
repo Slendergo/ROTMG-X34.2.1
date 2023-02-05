@@ -33,14 +33,14 @@ package io.decagames.rotmg.pets.components.selectedPetSkinInfo{
             if (this._goldActionButton){
                 removeChild(this._goldActionButton);
                 this._goldActionButton = null;
-            };
+            }
             if (this._fameActionButton){
                 removeChild(this._fameActionButton);
                 this._fameActionButton = null;
-            };
+            }
             if (this._actionLabel.parent){
                 removeChild(this._actionLabel);
-            };
+            }
             switch (this._actionButtonType){
                 case SelectedPetButtonType.SKIN:
                     this._fameActionButton = new ShopBuyButton(PetsPricing.CHANGE_SKIN_FAME_FEE, Currency.FAME);
@@ -52,7 +52,7 @@ package io.decagames.rotmg.pets.components.selectedPetSkinInfo{
                     this._goldActionButton = new ShopBuyButton(PetsPricing.CHANGE_FAMILY_GOLD_FEE);
                     this._fameActionButton = new ShopBuyButton(PetsPricing.CHANGE_FAMILY_FAME_FEE, Currency.FAME);
                     break;
-            };
+            }
             if (this._actionButtonType != SelectedPetButtonType.NONE){
                 this._actionLabel.x = Math.round(((slotWidth / 2) - (this._actionLabel.textWidth / 2)));
                 this._goldActionButton.width = 90;
@@ -64,7 +64,7 @@ package io.decagames.rotmg.pets.components.selectedPetSkinInfo{
                 addChild(this._goldActionButton);
                 addChild(this._fameActionButton);
                 addChild(this._actionLabel);
-            };
+            }
         }
 
         public function set actionButtonType(_arg1:int):void{

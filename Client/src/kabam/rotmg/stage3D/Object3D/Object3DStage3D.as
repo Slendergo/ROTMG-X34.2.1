@@ -46,7 +46,7 @@ package kabam.rotmg.stage3D.Object3D{
             if (this.texture_ != null){
                 this.texture_.dispose();
                 this.texture_ = null;
-            };
+            }
             this.bitmapData = null;
             this.modelMatrix_ = null;
             this.modelView_ = null;
@@ -80,14 +80,14 @@ package kabam.rotmg.stage3D.Object3D{
                     this.bitmapData = missingTextureBitmap;
                     this.texture_ = _arg1.createTexture(this.bitmapData.width, this.bitmapData.height, Context3DTextureFormat.BGRA, false);
                     this.texture_.uploadFromBitmapData(this.bitmapData);
-                };
-            };
+                }
+            }
             _arg1.setTextureAt(0, this.texture_);
             for each (_local2 in this.model_.groups) {
                 if (_local2.indexBuffer != null){
                     _arg1.drawTriangles(_local2.indexBuffer);
-                };
-            };
+                }
+            }
         }
 
 

@@ -32,7 +32,7 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles{
                 this.backgroundDetail.y = BORDER;
                 this.backgroundDetail.filters = FilterUtil.getGreyColorFilter();
                 addChildAt(this.backgroundDetail, 0);
-            };
+            }
             this.itemType = _arg1;
         }
 
@@ -41,7 +41,7 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles{
             if (_local2){
                 this.backgroundDetail.visible = (itemSprite.itemId <= 0);
                 this.updateMinMana();
-            };
+            }
             return (_local2);
         }
 
@@ -56,9 +56,9 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles{
                     }
                     else {
                         this.minManaUsage = _local1.MpCost;
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         public function updateDim(_arg1:Player):void{

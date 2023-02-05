@@ -23,12 +23,12 @@ package kabam.rotmg.classes.model{
             if (((!((this.selectedSkin == this.defaultSkin))) && (this.defaultSkin))){
                 if (this.selectedSkin){
                     this.selectedSkin.setIsSelected(false);
-                };
+                }
                 if (this.defaultSkin){
                     this.defaultSkin.setIsSelected(true);
-                };
+                }
                 this.selectedSkin = this.defaultSkin;
-            };
+            }
         }
 
         public function getDefaultSkin():CharacterSkin{
@@ -53,20 +53,20 @@ package kabam.rotmg.classes.model{
                 if (!this.selectedSkin){
                     this.selectedSkin = _arg1;
                     _arg1.setIsSelected(true);
-                };
+                }
             }
             else {
                 if (_arg1.getIsSelected()){
                     this.selectedSkin = _arg1;
-                };
-            };
+                }
+            }
         }
 
         private function onSkinChanged(_arg1:CharacterSkin):void{
             if (((_arg1.getIsSelected()) && (!((this.selectedSkin == _arg1))))){
                 ((this.selectedSkin) && (this.selectedSkin.setIsSelected(false)));
                 this.selectedSkin = _arg1;
-            };
+            }
         }
 
         public function updateSkins(_arg1:int):void{
@@ -74,7 +74,7 @@ package kabam.rotmg.classes.model{
             this.maxLevelAchieved = _arg1;
             for each (_local2 in this.skins) {
                 this.updateSkinState(_local2);
-            };
+            }
         }
 
         private function updateSkinState(_arg1:CharacterSkin):void{
@@ -84,17 +84,17 @@ package kabam.rotmg.classes.model{
             else {
                 if (_arg1.getState().isSkinStateDeterminedByLevel()){
                     _arg1.setState(this.getSkinState(_arg1));
-                };
-            };
+                }
+            }
         }
 
         private function getSkinState(_arg1:CharacterSkin):CharacterSkinState{
             if (!_arg1.skinSelectEnabled){
                 return (CharacterSkinState.UNLISTED);
-            };
+            }
             if ((((this.maxLevelAchieved >= _arg1.unlockLevel)) && ((_arg1.unlockSpecial == null)))){
                 return (CharacterSkinState.PURCHASABLE);
-            };
+            }
             return (CharacterSkinState.LOCKED);
         }
 
@@ -108,8 +108,8 @@ package kabam.rotmg.classes.model{
             for each (_local2 in this.skins) {
                 if (_local2.getState() != CharacterSkinState.UNLISTED){
                     _local1.push(_local2);
-                };
-            };
+                }
+            }
             return (_local1);
         }
 

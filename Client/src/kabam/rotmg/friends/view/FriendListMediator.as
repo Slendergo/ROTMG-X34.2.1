@@ -58,7 +58,7 @@ package kabam.rotmg.friends.view{
         private function initView(_arg1:Boolean=false):void{
             if (_arg1){
                 this.view.init(this.model.friendsList, this.model.getAllInvitations(), this.model.getCurrentServerName());
-            };
+            }
         }
 
         private function reportError(_arg1:String):void{
@@ -73,7 +73,7 @@ package kabam.rotmg.friends.view{
                 case FriendsActions.INVITE_TAB:
                     this.view.updateInvitationTab(this.model.getAllInvitations());
                     return;
-            };
+            }
         }
 
         private function onFriendActed(_arg1:String, _arg2:String):void{
@@ -88,14 +88,14 @@ package kabam.rotmg.friends.view{
                     else {
                         if (_arg2 == ""){
                             this.view.updateFriendTab(this.model.friendsList, this.model.getCurrentServerName());
-                        };
-                    };
+                        }
+                    }
                     return;
                 case FriendsActions.INVITE:
                     if (this.model.ifReachMax()){
                         this.view.updateInput(TextKey.FRIEND_REACH_CAPACITY);
                         return;
-                    };
+                    }
                     _local3.callback = this.inviteFriendCallback;
                     break;
                 case FriendsActions.REMOVE:
@@ -122,7 +122,7 @@ package kabam.rotmg.friends.view{
                 case FriendsActions.JUMP:
                     this.jumpCallback(_arg2);
                     return;
-            };
+            }
             this.actionSignal.dispatch(_local3);
         }
 
@@ -136,8 +136,8 @@ package kabam.rotmg.friends.view{
                 }
                 else {
                     this.view.updateInput(_arg2);
-                };
-            };
+                }
+            }
         }
 
         private function removeFriendCallback(_arg1:Boolean, _arg2:String, _arg3:String):void{
@@ -146,7 +146,7 @@ package kabam.rotmg.friends.view{
             }
             else {
                 this.reportError(_arg2);
-            };
+            }
         }
 
         private function acceptInvitationCallback(_arg1:Boolean, _arg2:String, _arg3:String):void{
@@ -154,22 +154,22 @@ package kabam.rotmg.friends.view{
                 this.model.seedFriends(XML(_arg2));
                 if (this.model.removeInvitation(_arg3)){
                     this.view.updateInvitationTab(this.model.getAllInvitations());
-                };
+                }
             }
             else {
                 this.reportError(_arg2);
-            };
+            }
         }
 
         private function rejectInvitationCallback(_arg1:Boolean, _arg2:String, _arg3:String):void{
             if (_arg1){
                 if (this.model.removeInvitation(_arg3)){
                     this.view.updateInvitationTab(this.model.getAllInvitations());
-                };
+                }
             }
             else {
                 this.reportError(_arg2);
-            };
+            }
         }
 
         private function blockInvitationCallback(_arg1:String):void{

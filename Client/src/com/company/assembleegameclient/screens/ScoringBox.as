@@ -47,7 +47,7 @@ package com.company.assembleegameclient.screens{
             this.addLine(TextKey.FAMEVIEW_SHOTS, null, 0, _arg2.Shots, false, 5746018);
             if (int(_arg2.Shots) != 0){
                 this.addLine(TextKey.FAMEVIEW_ACCURACY, null, 0, ((100 * Number(_arg2.ShotsThatDamage)) / Number(_arg2.Shots)), true, 5746018, "", "%");
-            };
+            }
             this.addLine(TextKey.FAMEVIEW_TILES_SEEN, null, 0, _arg2.TilesUncovered, false, 5746018);
             this.addLine(TextKey.FAMEVIEW_MONSTERKILLS, null, 0, _arg2.MonsterKills, false, 5746018);
             this.addLine(TextKey.FAMEVIEW_GODKILLS, null, 0, _arg2.GodKills, false, 5746018);
@@ -60,7 +60,7 @@ package com.company.assembleegameclient.screens{
             this.addLine(TextKey.FAMEVIEW_BASEFAMEEARNED, null, 0, _arg2.BaseFame, true, 0xFFC800, "", "", new Bitmap(_local3));
             for each (_local4 in _arg2.Bonus) {
                 this.addLine(_local4.@id, _local4.@desc, _local4.@level, int(_local4), true, 0xFFC800, "+", "", new Bitmap(_local3));
-            };
+            }
         }
 
         public function showScore():void{
@@ -69,7 +69,7 @@ package com.company.assembleegameclient.screens{
             this.startTime_ = -(int.MAX_VALUE);
             for each (_local1 in this.scoreTextLines_) {
                 _local1.skip();
-            };
+            }
         }
 
         public function animateScore():void{
@@ -85,7 +85,7 @@ package com.company.assembleegameclient.screens{
         private function addLine(_arg1:String, _arg2:String, _arg3:int, _arg4:int, _arg5:Boolean, _arg6:uint, _arg7:String="", _arg8:String="", _arg9:DisplayObject=null):void{
             if ((((_arg4 == 0)) && (!(_arg5)))){
                 return;
-            };
+            }
             this.scoreTextLines_.push(new ScoreTextLine(20, 0xB3B3B3, _arg6, _arg1, _arg2, _arg3, _arg4, _arg7, _arg8, _arg9));
         }
 
@@ -101,13 +101,13 @@ package com.company.assembleegameclient.screens{
                 _local6.y = (28 * _local5);
                 this.linesSprite_.addChild(_local6);
                 _local5++;
-            };
+            }
             this.linesSprite_.y = ((this.rect_.height - this.linesSprite_.height) - 10);
             if (_local3 > (_local2 + 1000)){
                 this.addScrollbar();
                 dispatchEvent(new Event(Event.COMPLETE));
                 removeEventListener(Event.ENTER_FRAME, this.onEnterFrame);
-            };
+            }
         }
 
         private function addScrollbar():void{

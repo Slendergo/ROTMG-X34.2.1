@@ -36,7 +36,7 @@ package kabam.rotmg.dailyLogin.controller{
             }
             else {
                 this.view.showNoCalendarButton();
-            };
+            }
         }
 
         private function showCalendarModal(_arg1:MouseEvent):void{
@@ -52,7 +52,7 @@ package kabam.rotmg.dailyLogin.controller{
         private function onKeyDown(_arg1:KeyboardEvent):void{
             if ((((_arg1.keyCode == Parameters.data_.interact)) && ((WebMain.STAGE.focus == null)))){
                 this.showCalendarModal(null);
-            };
+            }
         }
 
 

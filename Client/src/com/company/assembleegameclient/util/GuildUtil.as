@@ -30,7 +30,7 @@ package com.company.assembleegameclient.util{
                     return (wrapInBraces(TextKey.GUILD_RANK_LEADER));
                 case FOUNDER:
                     return (wrapInBraces(TextKey.GUILD_RANK_FOUNDER));
-            };
+            }
             return (wrapInBraces(TextKey.GUILD_RANK_UNKNOWN));
         }
 
@@ -56,7 +56,7 @@ package com.company.assembleegameclient.util{
                 case FOUNDER:
                     _local3 = AssetLibrary.getImageFromSet("lofiInterfaceBig", 16);
                     break;
-            };
+            }
             return (TextureRedrawer.redraw(_local3, _arg2, true, 0, true));
         }
 
@@ -68,16 +68,16 @@ package com.company.assembleegameclient.util{
         public static function allowedChange(_arg1:int, _arg2:int, _arg3:int):Boolean{
             if (_arg2 == _arg3){
                 return false;
-            };
+            }
             if ((((((_arg1 == FOUNDER)) && ((_arg2 < FOUNDER)))) && ((_arg3 < FOUNDER)))){
                 return true;
-            };
+            }
             if ((((((_arg1 == LEADER)) && ((_arg2 < LEADER)))) && ((_arg3 <= LEADER)))){
                 return true;
-            };
+            }
             if ((((((_arg1 == OFFICER)) && ((_arg2 < OFFICER)))) && ((_arg3 < OFFICER)))){
                 return true;
-            };
+            }
             return false;
         }
 
@@ -89,7 +89,7 @@ package com.company.assembleegameclient.util{
                     return (OFFICER);
                 case OFFICER:
                     return (LEADER);
-            };
+            }
             return (FOUNDER);
         }
 
@@ -106,7 +106,7 @@ package com.company.assembleegameclient.util{
                     return (OFFICER);
                 case FOUNDER:
                     return (LEADER);
-            };
+            }
             return (INITIATE);
         }
 
@@ -137,7 +137,7 @@ package com.company.assembleegameclient.util{
                 case FOUNDER:
                     _local2 = 16;
                     break;
-            };
+            }
             return (_local2);
         }
 

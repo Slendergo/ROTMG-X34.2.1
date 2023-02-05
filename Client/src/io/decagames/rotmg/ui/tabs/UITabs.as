@@ -46,7 +46,7 @@ package io.decagames.rotmg.ui.tabs{
             }
             else {
                 this.tabsButtonMargin = 3;
-            };
+            }
         }
 
         public function addTab(_arg1:UITab, _arg2:Boolean=false):void{
@@ -57,10 +57,10 @@ package io.decagames.rotmg.ui.tabs{
                 this.currentContent = _arg1;
                 this._currentTabLabel = _arg1.tabName;
                 addChild(_arg1);
-            };
+            }
             if (this._currentTabLabel == ""){
                 this._currentTabLabel = _arg1.tabName;
-            };
+            }
         }
 
         private function createTabButtons():void{
@@ -82,24 +82,24 @@ package io.decagames.rotmg.ui.tabs{
                     }
                     else {
                         _local3 = TabButton.CENTER;
-                    };
-                };
+                    }
+                }
                 _local6 = this.createTabButton(_local5.tabName, _local3);
                 _local6.width = _local2;
                 _local6.selected = (this.defaultSelectedIndex == (_local1 - 1));
                 if (_local6.selected){
                     _local4 = _local6;
-                };
+                }
                 _local6.y = 3;
                 _local6.x = ((this.tabsButtonMargin + (_local2 * (_local1 - 1))) + (this.tabsXSpace * (_local1 - 1)));
                 addChild(_local6);
                 _local6.clickSignal.add(this.onButtonSelected);
                 this.buttons.push(_local6);
                 _local1++;
-            };
+            }
             if (this.background){
                 this.background.addDecor((_local4.x - 4), ((_local4.x + _local4.width) - 12), this.defaultSelectedIndex, this.buttons.length);
-            };
+            }
             this.onButtonSelected(_local4);
             this.buttonsRenderedSignal.dispatch();
         }
@@ -118,18 +118,18 @@ package io.decagames.rotmg.ui.tabs{
                 }
                 else {
                     _local3.selected = true;
-                };
-            };
+                }
+            }
             if (this.currentContent){
                 this.currentContent.displaySignal.dispatch(false);
                 this.currentContent.alpha = 0;
                 this.currentContent.mouseChildren = false;
                 this.currentContent.mouseEnabled = false;
-            };
+            }
             this.currentContent = this.content[_local2];
             if (this.background){
                 this.background.addDecor((_arg1.x - 5), ((_arg1.x + _arg1.width) - 12), _local2, this.buttons.length);
-            };
+            }
             addChild(this.currentContent);
             this.currentContent.displaySignal.dispatch(true);
             this.currentContent.alpha = 1;
@@ -149,8 +149,8 @@ package io.decagames.rotmg.ui.tabs{
                 }
                 else {
                     _arg1.changeBitmap("tab_button_left_idle", new Point(0, ((this.borderlessMode) ? 0 : TabButton.SELECTED_MARGIN)));
-                };
-            };
+                }
+            }
         }
 
         public function getTabButtonByLabel(_arg1:String):TabButton{
@@ -158,8 +158,8 @@ package io.decagames.rotmg.ui.tabs{
             for each (_local2 in this.buttons) {
                 if (_local2.label.text == _arg1){
                     return (_local2);
-                };
-            };
+                }
+            }
             return (null);
         }
 
@@ -179,13 +179,13 @@ package io.decagames.rotmg.ui.tabs{
             var _local2:UITab;
             if (this.background){
                 this.background.dispose();
-            };
+            }
             for each (_local1 in this.buttons) {
                 _local1.dispose();
-            };
+            }
             for each (_local2 in this.content) {
                 _local2.dispose();
-            };
+            }
             this.currentContent.dispose();
             this.content = null;
             this.buttons = null;

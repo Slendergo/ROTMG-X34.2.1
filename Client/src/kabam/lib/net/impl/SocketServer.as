@@ -68,7 +68,7 @@ package kabam.lib.net.impl{
             }
             else {
                 this.socket.connect(_arg1, _arg2);
-            };
+            }
         }
 
         private function addListeners():void{
@@ -93,7 +93,7 @@ package kabam.lib.net.impl{
         public function disconnect():void{
             if (this.socket.connected){
                 this.socket.close();
-            };
+            }
             this.removeListeners();
             this.closed.dispatch();
         }
@@ -122,13 +122,13 @@ package kabam.lib.net.impl{
                 if (this.outgoingCipher != null){
                     this.outgoingCipher.encrypt(this.data);
                     this.data.position = 0;
-                };
+                }
                 this.socket.writeInt((this.data.bytesAvailable + 5));
                 this.socket.writeByte(_local2.id);
                 this.socket.writeBytes(this.data);
                 _local2.consume();
                 _local2 = _local2.next;
-            };
+            }
             this.socket.flush();
             this.unsentPlaceholder.next = null;
             this.unsentPlaceholder.prev = null;
@@ -174,34 +174,34 @@ package kabam.lib.net.impl{
                         error.dispatch(errorMessage);
                         messageLen = -1;
                         return;
-                    };
-                };
+                    }
+                }
                 if (this.socket.bytesAvailable < (this.messageLen - MESSAGE_LENGTH_SIZE_IN_BYTES)) break;
                 messageId = this.socket.readUnsignedByte();
                 message = this.messages.require(messageId);
                 data = new ByteArray();
                 if ((this.messageLen - 5) > 0){
                     this.socket.readBytes(data, 0, (this.messageLen - 5));
-                };
+                }
                 data.position = 0;
                 if (this.incomingCipher != null){
                     this.incomingCipher.decrypt(data);
                     data.position = 0;
-                };
+                }
                 this.messageLen = -1;
                 if (message == null){
                     this.logErrorAndClose("Socket-Server Protocol Error: Unknown message");
                     return;
-                };
+                }
                 try {
                     message.parseFromInput(data);
                 }
                 catch(error:Error) {
                     logErrorAndClose("Socket-Server Protocol Error: {0}", [error.toString()]);
                     return;
-                };
+                }
                 message.consume();
-            };
+            }
         }
 
         private function logErrorAndClose(_arg1:String, _arg2:Array=null):void{
@@ -215,7 +215,7 @@ package kabam.lib.net.impl{
             while (_local4 < _local3) {
                 _arg1 = _arg1.replace((("{" + _local4) + "}"), _arg2[_local4]);
                 _local4++;
-            };
+            }
             return (_arg1);
         }
 

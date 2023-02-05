@@ -26,7 +26,7 @@ package kabam.rotmg.account.web.services{
             }
             else {
                 this.onForgotError(_arg2);
-            };
+            }
         }
 
         private function onForgotDone():void{

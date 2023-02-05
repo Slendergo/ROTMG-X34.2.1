@@ -80,7 +80,7 @@ package com.company.assembleegameclient.ui.board{
                 this.scrollBar_.setIndicatorSize(400, this.boardText_.height);
                 this.scrollBar_.addEventListener(Event.CHANGE, this.onScrollBarChange);
                 addChild(this.scrollBar_);
-            };
+            }
             this.w_ = (TEXT_WIDTH + ((_local6) ? 26 : 0));
             this.editButton_ = new DeprecatedTextButton(14, TextKey.VIEW_GUILD_BOARD_EDIT, 120);
             this.editButton_.x = 4;

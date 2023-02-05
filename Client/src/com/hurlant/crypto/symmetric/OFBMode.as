@@ -37,11 +37,11 @@ package com.hurlant.crypto.symmetric{
                 while (_local7 < _local6) {
                     _arg1[(_local5 + _local7)] = (_arg1[(_local5 + _local7)] ^ _arg2[_local7]);
                     _local7++;
-                };
+                }
                 _arg2.position = 0;
                 _arg2.writeBytes(_local4);
                 _local5 = (_local5 + blockSize);
-            };
+            }
         }
 
         public function toString():String{

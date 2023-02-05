@@ -15,7 +15,7 @@ package com.company.util{
             while (_local3 < _arg1.length) {
                 _local2.writeByte(parseInt(_arg1.substr(_local3, 2), 16));
                 _local3 = (_local3 + 2);
-            };
+            }
             return (_local2);
         }
 

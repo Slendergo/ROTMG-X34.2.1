@@ -20,8 +20,8 @@ package com.company.assembleegameclient.util{
             else {
                 if (_local2.length > 0){
                     return (_local2.pop());
-                };
-            };
+                }
+            }
             return (new (_arg1)());
         }
 
@@ -30,7 +30,7 @@ package com.company.assembleegameclient.util{
             if (_local3 == null){
                 _local3 = new Vector.<Object>();
                 dict_[_arg1] = _local3;
-            };
+            }
             _local3.push(_arg2);
         }
 
@@ -38,7 +38,7 @@ package com.company.assembleegameclient.util{
             var _local2:Vector.<Object> = dict_[_arg1];
             if (((!((_local2 == null))) && ((_local2.length > 0)))){
                 return (_local2.pop());
-            };
+            }
             return (null);
         }
 
@@ -52,7 +52,7 @@ package com.company.assembleegameclient.util{
             if (_local3 == null){
                 _local3 = new Vector.<Object>();
                 dict_[_local2] = _local3;
-            };
+            }
             _local3.push(_arg1);
         }
 

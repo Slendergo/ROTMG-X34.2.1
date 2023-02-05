@@ -57,7 +57,7 @@ package com.greensock{
             "data":1,
             "paused":1,
             "reversed":1
-        };
+        }
         protected static var _overwriteLookup:Object;
 
         protected var _targets:Array;
@@ -80,7 +80,7 @@ package com.greensock{
             if (_arg_1 == null)
             {
                 throw (new Error(((("Cannot tween a null object. Duration: " + _arg_2) + ", data: ") + this.data)));
-            };
+            }
             if (!_overwriteLookup)
             {
                 _overwriteLookup = {
@@ -92,9 +92,9 @@ package com.greensock{
                     "preexisting":5,
                     "true":1,
                     "false":0
-                };
+                }
                 ticker.addEventListener("enterFrame", _dumpGarbage, false, -1, true);
-            };
+            }
             ratio = 0;
             this.target = _arg_1;
             _ease = defaultEase;
@@ -113,9 +113,9 @@ package com.greensock{
                         if (_siblings[_local_4].length > 1)
                         {
                             _applyOverwrite(_targets[_local_4], this, null, 1, _siblings[_local_4]);
-                        };
-                    };
-                };
+                        }
+                    }
+                }
             }
             else
             {
@@ -131,13 +131,13 @@ package com.greensock{
                     if (_overwrite == 1)
                     {
                         _applyOverwrite(_arg_1, this, null, 1, _siblings);
-                    };
-                };
-            };
+                    }
+                }
+            }
             if (((this.vars.immediateRender) || (((_arg_2 == 0) && (_delay == 0)) && (!(this.vars.immediateRender == false)))))
             {
                 render(-(_delay), false, true);
-            };
+            }
         }
 
         public static function fromTo(_arg_1:Object, _arg_2:Number, _arg_3:Object, _arg_4:Object):TweenLite{
@@ -160,7 +160,7 @@ package com.greensock{
                 while (--_local_3 > -1)
                 {
                     _local_4 = _local_4.concat(getTweensOf(_arg_1[_local_3], _arg_2));
-                };
+                }
                 _local_3 = _local_4.length;
                 while (--_local_3 > -1)
                 {
@@ -171,9 +171,9 @@ package com.greensock{
                         if (_local_6 === _local_4[_local_5])
                         {
                             _local_4.splice(_local_3, 1);
-                        };
-                    };
-                };
+                        }
+                    }
+                }
             }
             else
             {
@@ -184,9 +184,9 @@ package com.greensock{
                     if (((_local_4[_local_3]._gc) || ((_arg_2) && (!(_local_4[_local_3].isActive())))))
                     {
                         _local_4.splice(_local_3, 1);
-                    };
-                };
-            };
+                    }
+                }
+            }
             return (_local_4);
         }
 
@@ -196,7 +196,7 @@ package com.greensock{
             if (_local_4 == null)
             {
                 _local_4 = (_tweenLookup[_arg_1] = []);
-            };
+            }
             if (_arg_2)
             {
                 _local_5 = _local_4.length;
@@ -208,10 +208,10 @@ package com.greensock{
                         if (_local_4[_local_5] === _arg_2)
                         {
                             _local_4.splice(_local_5, 1);
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             return (_local_4);
         }
 
@@ -235,17 +235,17 @@ package com.greensock{
                             if (_local_8._enabled(false, false))
                             {
                                 _local_7 = true;
-                            };
-                        };
+                            }
+                        }
                     }
                     else
                     {
                         if (_arg_4 == 5) break;
-                    };
+                    }
                     _local_6++;
-                };
+                }
                 return (_local_7);
-            };
+            }
             var _local_9:Number = (_arg_2._startTime + 1E-10);
             var _local_10:Array = [];
             var _local_11:int;
@@ -263,7 +263,7 @@ package com.greensock{
                         {
                             var _local_15:* = _local_11++;
                             _local_10[_local_15] = _local_8;
-                        };
+                        }
                     }
                     else
                     {
@@ -275,12 +275,12 @@ package com.greensock{
                                 {
                                     _local_15 = _local_11++;
                                     _local_10[_local_15] = _local_8;
-                                };
-                            };
-                        };
-                    };
-                };
-            };
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             _local_6 = _local_11;
             while (--_local_6 > -1)
             {
@@ -290,16 +290,16 @@ package com.greensock{
                     if (_local_8._kill(_arg_3, _arg_1))
                     {
                         _local_7 = true;
-                    };
-                };
+                    }
+                }
                 if (((!(_arg_4 === 2)) || ((!(_local_8._firstPT)) && (_local_8._initted))))
                 {
                     if (_local_8._enabled(false, false))
                     {
                         _local_7 = true;
-                    };
-                };
-            };
+                    }
+                }
+            }
             return (_local_7);
         }
 
@@ -308,24 +308,24 @@ package com.greensock{
             {
                 _arg_3 = _arg_2;
                 _arg_2 = false;
-            };
+            }
             var _local_4:Array = TweenLite.getTweensOf(_arg_1, _arg_2);
             var _local_5:int = _local_4.length;
             while (--_local_5 > -1)
             {
                 _local_4[_local_5]._kill(_arg_3, _arg_1);
-            };
+            }
         }
 
         protected static function _prepVars(_arg_1:Object, _arg_2:Boolean=false):Object{
             if (_arg_1._isGSVars)
             {
                 _arg_1 = _arg_1.vars;
-            };
+            }
             if (((_arg_2) && (!("immediateRender" in _arg_1))))
             {
                 _arg_1.immediateRender = true;
-            };
+            }
             return (_arg_1);
         }
 
@@ -371,14 +371,14 @@ package com.greensock{
                         if (_local_3[_local_2]._gc)
                         {
                             _local_3.splice(_local_2, 1);
-                        };
-                    };
+                        }
+                    }
                     if (_local_3.length === 0)
                     {
                         delete _tweenLookup[_local_4];
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         public static function to(_arg_1:Object, _arg_2:Number, _arg_3:Object):TweenLite{
@@ -397,9 +397,9 @@ package com.greensock{
                 if (_local_4._paused)
                 {
                     return (-100);
-                };
+                }
                 _local_4 = _local_4._timeline;
-            };
+            }
             _local_6 = (_local_6 / _local_5);
             return ((_local_6 > _arg_2) ? (_local_6 - _arg_2) : ((((_arg_3) && (_local_6 == _arg_2)) || ((!(_arg_1._initted)) && ((_local_6 - _arg_2) < (2 * _local_7)))) ? _local_7 : (((_local_6 = (_local_6 + ((_arg_1.totalDuration() / _arg_1._timeScale) / _local_5))) > (_arg_2 + _local_7)) ? 0 : ((_local_6 - _arg_2) - _local_7))));
         }
@@ -415,7 +415,7 @@ package com.greensock{
             if (_arg_1 == null)
             {
                 return false;
-            };
+            }
             for (_local_6 in _local_5)
             {
                 _local_10 = _local_5[_local_6];
@@ -426,8 +426,8 @@ package com.greensock{
                         if (_local_10.join("").indexOf("{self}") !== -1)
                         {
                             _local_5[_local_6] = _swapSelfInParams((_local_10 as Array));
-                        };
-                    };
+                        }
+                    }
                 }
                 else
                 {
@@ -438,31 +438,31 @@ package com.greensock{
                         while (--_local_7 > -1)
                         {
                             _arg_2[_local_9._overwriteProps[_local_7]] = _firstPT;
-                        };
+                        }
                         if (((_local_9._priority) || ("_onInitAllProps" in _local_9)))
                         {
                             _local_8 = true;
-                        };
+                        }
                         if ((("_onDisable" in _local_9) || ("_onEnable" in _local_9)))
                         {
                             _notifyPluginsOfEnabled = true;
-                        };
+                        }
                     }
                     else
                     {
                         _firstPT = (_arg_2[_local_6] = new PropTween(_arg_1, _local_6, 0, 1, _local_6, false, _firstPT));
                         _firstPT.s = ((_firstPT.f) ? _arg_1[(((_local_6.indexOf("set")) || (!(("get" + _local_6.substr(3)) in _arg_1))) ? _local_6 : ("get" + _local_6.substr(3)))]() : Number(_arg_1[_local_6]));
                         _firstPT.c = ((typeof(_local_10) === "number") ? (Number(_local_10) - _firstPT.s) : (((typeof(_local_10) === "string") && (_local_10.charAt(1) === "=")) ? (int((_local_10.charAt(0) + "1")) * Number(_local_10.substr(2))) : ((Number(_local_10)) || (0))));
-                    };
-                };
-            };
+                    }
+                }
+            }
             if (_arg_4)
             {
                 if (_kill(_arg_4, _arg_1))
                 {
                     return (_initProps(_arg_1, _arg_2, _arg_3, _arg_4));
-                };
-            };
+                }
+            }
             if (_overwrite > 1)
             {
                 if (_firstPT != null)
@@ -473,10 +473,10 @@ package com.greensock{
                         {
                             _kill(_arg_2, _arg_1);
                             return (_initProps(_arg_1, _arg_2, _arg_3, _arg_4));
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             return (_local_8);
         }
 
@@ -490,21 +490,21 @@ package com.greensock{
                     while (--_local_3 > -1)
                     {
                         _siblings[_local_3] = _register(_targets[_local_3], this, true);
-                    };
+                    }
                 }
                 else
                 {
                     _siblings = _register(target, this, true);
-                };
-            };
+                }
+            }
             super._enabled(_arg_1, _arg_2);
             if (_notifyPluginsOfEnabled)
             {
                 if (_firstPT != null)
                 {
                     return (_onPluginEvent(((_arg_1) ? "_onEnable" : "_onDisable"), this));
-                };
-            };
+                }
+            }
             return false;
         }
 
@@ -523,14 +523,14 @@ package com.greensock{
                 {
                     _local_4 = true;
                     _local_5 = "onComplete";
-                };
+                }
                 if (_duration == 0)
                 {
                     _local_7 = _rawPrevTime;
                     if (_startTime === _timeline._duration)
                     {
                         _arg_1 = 0;
-                    };
+                    }
                     if ((((_arg_1 === 0) || (_local_7 < 0)) || (_local_7 === _tinyNum)))
                     {
                         if (_local_7 !== _arg_1)
@@ -539,11 +539,11 @@ package com.greensock{
                             if (((_local_7 > 0) && (!(_local_7 === _tinyNum))))
                             {
                                 _local_5 = "onReverseComplete";
-                            };
-                        };
-                    };
+                            }
+                        }
+                    }
                     _rawPrevTime = (_local_7 = ((((!(_arg_2)) || (!(_arg_1 === 0))) || (_rawPrevTime === _arg_1)) ? _arg_1 : _tinyNum));
-                };
+                }
             }
             else
             {
@@ -555,7 +555,7 @@ package com.greensock{
                     {
                         _local_5 = "onReverseComplete";
                         _local_4 = _reversed;
-                    };
+                    }
                     if (_arg_1 < 0)
                     {
                         _active = false;
@@ -564,17 +564,17 @@ package com.greensock{
                             if (_rawPrevTime >= 0)
                             {
                                 _arg_3 = true;
-                            };
+                            }
                             _rawPrevTime = (_local_7 = ((((!(_arg_2)) || (!(_arg_1 === 0))) || (_rawPrevTime === _arg_1)) ? _arg_1 : _tinyNum));
-                        };
+                        }
                     }
                     else
                     {
                         if (!_initted)
                         {
                             _arg_3 = true;
-                        };
-                    };
+                        }
+                    }
                 }
                 else
                 {
@@ -585,11 +585,11 @@ package com.greensock{
                         if (((_easeType == 1) || ((_easeType == 3) && (_local_9 >= 0.5))))
                         {
                             _local_9 = (1 - _local_9);
-                        };
+                        }
                         if (_easeType == 3)
                         {
                             _local_9 = (_local_9 * 2);
-                        };
+                        }
                         if (_easePower == 1)
                         {
                             _local_9 = (_local_9 * _local_9);
@@ -611,10 +611,10 @@ package com.greensock{
                                     if (_easePower == 4)
                                     {
                                         _local_9 = (_local_9 * (((_local_9 * _local_9) * _local_9) * _local_9));
-                                    };
-                                };
-                            };
-                        };
+                                    }
+                                }
+                            }
+                        }
                         if (_easeType == 1)
                         {
                             ratio = (1 - _local_9);
@@ -634,27 +634,27 @@ package com.greensock{
                                 else
                                 {
                                     ratio = (1 - (_local_9 / 2));
-                                };
-                            };
-                        };
+                                }
+                            }
+                        }
                     }
                     else
                     {
                         ratio = _ease.getRatio((_arg_1 / _duration));
-                    };
-                };
-            };
+                    }
+                }
+            }
             if (((_time == _local_8) && (!(_arg_3))))
             {
                 return;
-            };
+            }
             if (!_initted)
             {
                 _init();
                 if (((!(_initted)) || (_gc)))
                 {
                     return;
-                };
+                }
                 if (((_time) && (!(_local_4))))
                 {
                     ratio = _ease.getRatio((_time / _duration));
@@ -664,16 +664,16 @@ package com.greensock{
                     if (((_local_4) && (_ease._calcEnd)))
                     {
                         ratio = _ease.getRatio(((_time === 0) ? 0 : 1));
-                    };
-                };
-            };
+                    }
+                }
+            }
             if (!_active)
             {
                 if ((((!(_paused)) && (!(_time === _local_8))) && (_arg_1 >= 0)))
                 {
                     _active = true;
-                };
-            };
+                }
+            }
             if (_local_8 == 0)
             {
                 if (_startAt != null)
@@ -687,9 +687,9 @@ package com.greensock{
                         if (!_local_5)
                         {
                             _local_5 = "_dummyGS";
-                        };
-                    };
-                };
+                        }
+                    }
+                }
                 if (vars.onStart)
                 {
                     if (((!(_time == 0)) || (_duration == 0)))
@@ -697,10 +697,10 @@ package com.greensock{
                         if (!_arg_2)
                         {
                             vars.onStart.apply(null, vars.onStartParams);
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             _local_6 = _firstPT;
             while (_local_6)
             {
@@ -712,23 +712,23 @@ package com.greensock{
                 else
                 {
                     _local_6.t[_local_6.p] = ((_local_6.c * ratio) + _local_6.s);
-                };
+                }
                 _local_6 = _local_6._next;
-            };
+            }
             if (_onUpdate != null)
             {
                 if ((((_arg_1 < 0) && (!(_startAt == null))) && (!(_startTime == 0))))
                 {
                     _startAt.render(_arg_1, _arg_2, _arg_3);
-                };
+                }
                 if (!_arg_2)
                 {
                     if (((!(_time === _local_8)) || (_local_4)))
                     {
                         _onUpdate.apply(null, vars.onUpdateParams);
-                    };
-                };
-            };
+                    }
+                }
+            }
             if (_local_5)
             {
                 if (!_gc)
@@ -736,28 +736,28 @@ package com.greensock{
                     if (((((_arg_1 < 0) && (!(_startAt == null))) && (_onUpdate == null)) && (!(_startTime == 0))))
                     {
                         _startAt.render(_arg_1, _arg_2, _arg_3);
-                    };
+                    }
                     if (_local_4)
                     {
                         if (_timeline.autoRemoveChildren)
                         {
                             _enabled(false, false);
-                        };
+                        }
                         _active = false;
-                    };
+                    }
                     if (!_arg_2)
                     {
                         if (vars[_local_5])
                         {
                             vars[_local_5].apply(null, vars[(_local_5 + "Params")]);
-                        };
-                    };
+                        }
+                    }
                     if ((((_duration === 0) && (_rawPrevTime === _tinyNum)) && (!(_local_7 === _tinyNum))))
                     {
                         _rawPrevTime = 0;
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         protected function _init():void{
@@ -772,7 +772,7 @@ package com.greensock{
                 if (_startAt != null)
                 {
                     _startAt.render(-1, true);
-                };
+                }
                 vars.startAt.overwrite = 0;
                 vars.startAt.immediateRender = true;
                 _startAt = new TweenLite(target, 0, vars.startAt);
@@ -787,9 +787,9 @@ package com.greensock{
                         if (_duration !== 0)
                         {
                             return;
-                        };
-                    };
-                };
+                        }
+                    }
+                }
             }
             else
             {
@@ -808,8 +808,8 @@ package com.greensock{
                             if (!(_local_5 in _reservedProps))
                             {
                                 _local_6[_local_5] = vars[_local_5];
-                            };
-                        };
+                            }
+                        }
                         _local_6.overwrite = 0;
                         _local_6.data = "isFromStart";
                         _startAt = TweenLite.to(target, 0, _local_6);
@@ -822,11 +822,11 @@ package com.greensock{
                             if (_time === 0)
                             {
                                 return;
-                            };
-                        };
-                    };
-                };
-            };
+                            }
+                        }
+                    }
+                }
+            }
             if ((vars.ease is Ease))
             {
                 _ease = ((vars.easeParams is Array) ? vars.ease.config.apply(vars.ease, vars.easeParams) : vars.ease);
@@ -840,8 +840,8 @@ package com.greensock{
                 else
                 {
                     _ease = defaultEase;
-                };
-            };
+                }
+            }
             _easeType = _ease._type;
             _easePower = _ease._power;
             _firstPT = null;
@@ -853,17 +853,17 @@ package com.greensock{
                     if (_initProps(_targets[_local_2], (_propLookup[_local_2] = {}), _siblings[_local_2], ((_overwrittenProps) ? _overwrittenProps[_local_2] : null)))
                     {
                         _local_3 = true;
-                    };
-                };
+                    }
+                }
             }
             else
             {
                 _local_3 = _initProps(target, _propLookup, _siblings, _overwrittenProps);
-            };
+            }
             if (_local_3)
             {
                 _onPluginEvent("_onInitAllProps", this);
-            };
+            }
             if (_overwrittenProps)
             {
                 if (_firstPT == null)
@@ -871,9 +871,9 @@ package com.greensock{
                     if (typeof(target) !== "function")
                     {
                         _enabled(false, false);
-                    };
-                };
-            };
+                    }
+                }
+            }
             if (vars.runBackwards)
             {
                 _local_4 = _firstPT;
@@ -882,8 +882,8 @@ package com.greensock{
                     _local_4.s = (_local_4.s + _local_4.c);
                     _local_4.c = -(_local_4.c);
                     _local_4 = _local_4._next;
-                };
-            };
+                }
+            }
             _onUpdate = vars.onUpdate;
             _initted = true;
         }
@@ -892,7 +892,7 @@ package com.greensock{
             if (_notifyPluginsOfEnabled)
             {
                 _onPluginEvent("_onDisable", this);
-            };
+            }
             _firstPT = null;
             _overwrittenProps = null;
             _onUpdate = null;
@@ -914,14 +914,14 @@ package com.greensock{
             if (_arg_1 === "all")
             {
                 _arg_1 = null;
-            };
+            }
             if (_arg_1 == null)
             {
                 if (((_arg_2 == null) || (_arg_2 == this.target)))
                 {
                     return (_enabled(false, false));
-                };
-            };
+                }
+            }
             _arg_2 = (((_arg_2) || (_targets)) || (this.target));
             if (((_arg_2 is Array) && (typeof(_arg_2[0]) === "object")))
             {
@@ -931,8 +931,8 @@ package com.greensock{
                     if (_kill(_arg_1, _arg_2[_local_3]))
                     {
                         _local_8 = true;
-                    };
-                };
+                    }
+                }
             }
             else
             {
@@ -947,18 +947,18 @@ package com.greensock{
                             _overwrittenProps = ((_overwrittenProps) || ([]));
                             _local_4 = (_overwrittenProps[_local_3] = ((_arg_1) ? ((_overwrittenProps[_local_3]) || ({})) : "all"));
                             break;
-                        };
-                    };
+                        }
+                    }
                 }
                 else
                 {
                     if (_arg_2 !== this.target)
                     {
                         return false;
-                    };
+                    }
                     _local_7 = _propLookup;
                     _local_4 = (_overwrittenProps = ((_arg_1) ? ((_overwrittenProps) || ({})) : "all"));
-                };
+                }
                 if (_local_7)
                 {
                     _local_9 = ((_arg_1) || (_local_7));
@@ -971,7 +971,7 @@ package com.greensock{
                             if (((_local_6.pg) && (_local_6.t._kill(_local_9))))
                             {
                                 _local_8 = true;
-                            };
+                            }
                             if (((!(_local_6.pg)) || (_local_6.t._overwriteProps.length === 0)))
                             {
                                 if (_local_6._prev)
@@ -983,27 +983,27 @@ package com.greensock{
                                     if (_local_6 == _firstPT)
                                     {
                                         _firstPT = _local_6._next;
-                                    };
-                                };
+                                    }
+                                }
                                 if (_local_6._next)
                                 {
                                     _local_6._next._prev = _local_6._prev;
-                                };
+                                }
                                 _local_6._next = (_local_6._prev = null);
-                            };
+                            }
                             delete _local_7[_local_5];
-                        };
+                        }
                         if (_local_10)
                         {
                             _local_4[_local_5] = 1;
-                        };
-                    };
+                        }
+                    }
                     if (((_firstPT == null) && (_initted)))
                     {
                         _enabled(false, false);
-                    };
-                };
-            };
+                    }
+                }
+            }
             return (_local_8);
         }
 

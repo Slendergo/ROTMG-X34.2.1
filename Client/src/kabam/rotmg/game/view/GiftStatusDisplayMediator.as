@@ -31,7 +31,7 @@ package kabam.rotmg.game.view{
             }
             else {
                 this.view.drawAsClosed();
-            };
+            }
             this.displayAreaChangedSignal.dispatch();
         }
 

@@ -67,7 +67,7 @@ package kabam.rotmg.ui.view{
             addChild(this.miniMap);
             if (this.newClassUnlockNotification){
                 addChild(this.newClassUnlockNotification);
-            };
+            }
             addChild(this.tabStrip);
             addChild(this.characterDetails);
             addChild(this.statMeters);
@@ -81,7 +81,7 @@ package kabam.rotmg.ui.view{
             if (this.newClassUnlockNotification){
                 this.newClassUnlockNotification.x = this.MAP_POSITION.x;
                 this.newClassUnlockNotification.y = this.MAP_POSITION.y;
-            };
+            }
             this.tabStrip.x = this.TAB_STRIP_POSITION.x;
             this.tabStrip.y = this.TAB_STRIP_POSITION.y;
             this.characterDetails.x = this.CHARACTER_DETAIL_PANEL_POSITION.x;
@@ -126,10 +126,10 @@ package kabam.rotmg.ui.view{
         public function draw():void{
             if (this.equippedGrid){
                 this.equippedGrid.draw();
-            };
+            }
             if (this.interactPanel){
                 this.interactPanel.draw();
-            };
+            }
         }
 
         public function startTrade(_arg1:AGameSprite, _arg2:TradeStart):void{
@@ -139,7 +139,7 @@ package kabam.rotmg.ui.view{
                 this.tradePanel.addEventListener(Event.CANCEL, this.onTradeCancel);
                 addChild(this.tradePanel);
                 this.setNonTradePanelAssetsVisible(false);
-            };
+            }
         }
 
         private function setNonTradePanelAssetsVisible(_arg1:Boolean):void{
@@ -158,13 +158,13 @@ package kabam.rotmg.ui.view{
         public function tradeChanged(_arg1:TradeChanged):void{
             if (this.tradePanel){
                 this.tradePanel.setYourOffer(_arg1.offer_);
-            };
+            }
         }
 
         public function tradeAccepted(_arg1:TradeAccepted):void{
             if (this.tradePanel){
                 this.tradePanel.youAccepted(_arg1.myOffer_, _arg1.yourOffer_);
-            };
+            }
         }
 
         private function onTradeCancel(_arg1:Event):void{
@@ -177,7 +177,7 @@ package kabam.rotmg.ui.view{
                 this.tradePanel.removeEventListener(Event.CANCEL, this.onTradeCancel);
                 this.tradePanel = null;
                 this.setNonTradePanelAssetsVisible(true);
-            };
+            }
         }
 
 

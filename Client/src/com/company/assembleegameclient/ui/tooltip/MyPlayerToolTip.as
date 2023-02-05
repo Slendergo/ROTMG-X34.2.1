@@ -99,7 +99,7 @@ package com.company.assembleegameclient.ui.tooltip{
                 addChild(this.bGrid);
                 this.bGrid.setItems(this.player_.equipment_);
                 _local5 = (_local5 + 88);
-            };
+            }
             _local5 = (_local5 + 8);
             this.lineBreak_ = new LineBreakDesign(100, 0x1C1C1C);
             this.lineBreak_.x = 6;
@@ -111,7 +111,7 @@ package com.company.assembleegameclient.ui.tooltip{
             var _local6:int = FameUtil.nextStarFame((((this.charStats == null)) ? 0 : this.charStats.bestFame()), 0);
             if (_local6 > 0){
                 this.makeNextClassQuestText(_local6, _local2);
-            };
+            }
         }
 
         public function makeNextClassQuestText(_arg1:int, _arg2:XML):void{
@@ -144,7 +144,7 @@ package com.company.assembleegameclient.ui.tooltip{
             if (this.nextClassQuest_){
                 this.nextClassQuest_.x = 8;
                 this.nextClassQuest_.y = (this.bestLevel_.getBounds(this).bottom - 2);
-            };
+            }
         }
 
         override public function draw():void{

@@ -103,18 +103,18 @@ package com.company.assembleegameclient.ui.dialogs{
                 this.titleText_.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8, 1)];
                 this.titleText_.setStringBuilder(new StaticStringBuilder(_arg1));
                 this.addTextFieldDisplay(this.titleText_);
-            };
+            }
         }
 
         private function makeNonNullButtons(_arg1:String, _arg2:String):void{
             if (_arg1 != null){
                 this.button1_ = new DeprecatedTextButton(16, _arg1, 120);
                 this.button1_.addEventListener(MouseEvent.CLICK, this.onButton1Click);
-            };
+            }
             if (_arg2 != null){
                 this.button2_ = new DeprecatedTextButton(16, _arg2, 120);
                 this.button2_.addEventListener(MouseEvent.CLICK, this.onButton2Click);
-            };
+            }
         }
 
         private function onComplete():void{
@@ -139,7 +139,7 @@ package com.company.assembleegameclient.ui.dialogs{
         protected function drawButtonsAndBackground():void{
             if (this.box_.contains(this.rect_)){
                 this.box_.removeChild(this.rect_);
-            };
+            }
             this.removeButtonsIfAlreadyAdded();
             this.addButtonsAndLayout();
             this.drawBackground();
@@ -173,17 +173,17 @@ package com.company.assembleegameclient.ui.dialogs{
                     this.box_.addChild(this.button2_);
                     this.button2_.x = (((3 * WIDTH) / 4) - (this.button2_.width / 2));
                     this.button2_.y = _local1;
-                };
-            };
+                }
+            }
         }
 
         private function removeButtonsIfAlreadyAdded():void{
             if (((this.button1_) && (this.box_.contains(this.button1_)))){
                 this.box_.removeChild(this.button1_);
-            };
+            }
             if (((this.button2_) && (this.box_.contains(this.button2_)))){
                 this.box_.removeChild(this.button2_);
-            };
+            }
         }
 
         private function drawTitleAndText():void{
@@ -193,7 +193,7 @@ package com.company.assembleegameclient.ui.dialogs{
             }
             else {
                 this.textText_.y = 4;
-            };
+            }
         }
 
         private function onButton1Click(_arg1:MouseEvent):void{

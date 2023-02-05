@@ -41,7 +41,7 @@ package io.decagames.rotmg.dailyQuests.view.list{
             }
             else {
                 this.showInfoSignal.dispatch("", -1, _arg1);
-            };
+            }
         }
 
         private function onQuestsUpdate(_arg1:String):void{
@@ -62,17 +62,17 @@ package io.decagames.rotmg.dailyQuests.view.list{
                 _local5 = false;
                 if (_local4.expiration != ""){
                     _local5 = ((Number(_local4.expiration) - (_local3.time / 1000)) < 0);
-                };
+                }
                 if (!((_local4.completed) || (_local5))){
                     _local6 = new DailyQuestListElement(_local4.id, _local4.name, _local4.completed, DailyQuestInfo.hasAllItems(_local4.requirements, _arg1), _local4.category);
                     if (_local2){
                         _local6.isSelected = true;
-                    };
+                    }
                     _local2 = false;
                     this.view.addEventToList(_local6);
                     this.hasEvent = true;
-                };
-            };
+                }
+            }
         }
 
         private function addDailyQuests(_arg1:Vector.<int>):void{
@@ -84,18 +84,18 @@ package io.decagames.rotmg.dailyQuests.view.list{
                     _local4 = new DailyQuestListElement(_local3.id, _local3.name, _local3.completed, DailyQuestInfo.hasAllItems(_local3.requirements, _arg1), _local3.category);
                     if (_local2){
                         _local4.isSelected = true;
-                    };
+                    }
                     _local2 = false;
                     this.view.addQuestToList(_local4);
-                };
-            };
+                }
+            }
             this.onTabSelected(DailyQuestsList.QUEST_TAB_LABEL);
         }
 
         private function onAddedHandler():void{
             if (this.hasEvent){
                 this.view.addIndicator(this.hasEvent);
-            };
+            }
         }
 
         override public function destroy():void{

@@ -37,7 +37,7 @@ package com.company.assembleegameclient.map.partyoverlay{
                 this.questArrowTween.pause(0);
                 this.scaleX = 1;
                 this.scaleY = 1;
-            };
+            }
             setToolTip(this.getToolTip(go_, getTimer()));
         }
 
@@ -54,13 +54,13 @@ package com.company.assembleegameclient.map.partyoverlay{
         private function getToolTip(_arg1:GameObject, _arg2:int):ToolTip{
             if ((((_arg1 == null)) || ((_arg1.texture_ == null)))){
                 return (null);
-            };
+            }
             if (this.shouldShowFullQuest(_arg2)){
                 return (new QuestToolTip(go_));
-            };
+            }
             if (Parameters.data_.showQuestPortraits){
                 return (new PortraitToolTip(_arg1));
-            };
+            }
             return (null);
         }
 
@@ -80,8 +80,8 @@ package com.company.assembleegameclient.map.partyoverlay{
                 _local5 = _local4.getName();
                 if (_local5 != this.questModel.currentQuestHero){
                     this.questModel.currentQuestHero = _local5;
-                };
-            };
+                }
+            }
             if (_local3 != go_){
                 setGameObject(_local3);
                 setToolTip(this.getToolTip(_local3, _arg1));
@@ -103,7 +103,7 @@ package com.company.assembleegameclient.map.partyoverlay{
                 }
                 else {
                     this.questArrowTween.play(0);
-                };
+                }
             }
             else {
                 if (go_ != null){
@@ -111,9 +111,9 @@ package com.company.assembleegameclient.map.partyoverlay{
                     _local7 = this.shouldShowFullQuest(_arg1);
                     if (_local6 != _local7){
                         setToolTip(this.getToolTip(_local3, _arg1));
-                    };
-                };
-            };
+                    }
+                }
+            }
             super.draw(_arg1, _arg2);
         }
 

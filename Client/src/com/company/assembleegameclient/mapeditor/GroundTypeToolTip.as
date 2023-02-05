@@ -32,25 +32,25 @@ package com.company.assembleegameclient.mapeditor{
             }
             else {
                 _local2 = (_local2 + "Speed: 1.00\n");
-            };
+            }
             if (_arg1.hasOwnProperty("NoWalk")){
                 _local2 = (_local2 + "Unwalkable\n");
-            };
+            }
             if (_arg1.hasOwnProperty("Push")){
                 _local2 = (_local2 + "Push\n");
-            };
+            }
             if (_arg1.hasOwnProperty("Sink")){
                 _local2 = (_local2 + "Sink\n");
-            };
+            }
             if (_arg1.hasOwnProperty("Sinking")){
                 _local2 = (_local2 + "Sinking\n");
-            };
+            }
             if (_arg1.hasOwnProperty("Animate")){
                 _local2 = (_local2 + "Animated\n");
-            };
+            }
             if (_arg1.hasOwnProperty("RandomOffset")){
                 _local2 = (_local2 + "Randomized\n");
-            };
+            }
             this.descText_ = new BaseSimpleText(14, 0xB3B3B3, false, MAX_WIDTH, 0);
             this.descText_.wordWrap = true;
             this.descText_.text = String(_local2);

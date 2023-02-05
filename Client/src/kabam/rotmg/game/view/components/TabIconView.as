@@ -18,7 +18,7 @@ package kabam.rotmg.game.view.components{
             this.initBackground(_arg2);
             if (_arg3){
                 this.initIcon(_arg3);
-            };
+            }
         }
 
         private function initBackground(_arg1:Sprite):void{

@@ -30,7 +30,7 @@ package com.company.assembleegameclient.map{
                 xmlLibrary_[_local3] = _local2;
                 typeToTextureData_[_local3] = new TextureDataConcrete(_local2);
                 idToType_[String(_local2.@id)] = _local3;
-            };
+            }
             defaultProps_ = propsLibrary_[0xFF];
         }
 
@@ -38,7 +38,7 @@ package com.company.assembleegameclient.map{
             var _local2:GroundProperties = propsLibrary_[_arg1];
             if (_local2 == null){
                 return (null);
-            };
+            }
             return (_local2.id_);
         }
 
@@ -62,9 +62,9 @@ package com.company.assembleegameclient.map{
                 else {
                     _local4 = getBitmapData(_arg1);
                     _local3 = BitmapUtil.mostCommonColor(_local4);
-                };
+                }
                 tileTypeColorDict_[_arg1] = _local3;
-            };
+            }
             return (tileTypeColorDict_[_arg1]);
         }
 

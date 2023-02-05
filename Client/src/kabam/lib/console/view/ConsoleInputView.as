@@ -54,14 +54,14 @@ package kabam.lib.console.view{
                 case Keyboard.DOWN:
                     dispatchEvent(new ConsoleEvent(ConsoleEvent.GET_NEXT));
                     return;
-            };
+            }
         }
 
         public function resize(_arg1:Rectangle):void{
             var _local2:int = (_arg1.height * 0.5);
             if (_local2 > HEIGHT){
                 _local2 = HEIGHT;
-            };
+            }
             width = _arg1.width;
             height = _local2;
             x = _arg1.x;

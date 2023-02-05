@@ -43,7 +43,7 @@ package com.company.assembleegameclient.ui.menu{
                 this.playerPanels_.push(_local2);
                 _local2.textReady.addOnce(this.onTextChanged);
                 this.posY = (this.posY + 32);
-            };
+            }
         }
 
         private function onTextChanged():void{
@@ -51,7 +51,7 @@ package com.company.assembleegameclient.ui.menu{
             draw();
             for each (_local1 in this.playerPanels_) {
                 _local1.textReady.remove(this.onTextChanged);
-            };
+            }
         }
 
         private function createHeader():void{
@@ -66,7 +66,7 @@ package com.company.assembleegameclient.ui.menu{
                 this.lineBreakDesign_.y = 40;
                 addChild(this.lineBreakDesign_);
                 this.posY = 52;
-            };
+            }
         }
 
         private function onTeleport(_arg1:Event):void{
@@ -81,15 +81,15 @@ package com.company.assembleegameclient.ui.menu{
                     }
                     else {
                         break;
-                    };
-                };
-            };
+                    }
+                }
+            }
             if (_local3 != null){
                 _local2.teleportTo(_local3);
             }
             else {
                 this.unableToTeleport.dispatch();
-            };
+            }
             remove();
         }
 

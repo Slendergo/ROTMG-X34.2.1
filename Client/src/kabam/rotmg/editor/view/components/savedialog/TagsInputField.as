@@ -53,7 +53,7 @@ package kabam.rotmg.editor.view.components.savedialog{
             this.instructionsText_.y = this.inputText_.y;
             if (this.inputText_.text == ""){
                 addChild(this.instructionsText_);
-            };
+            }
         }
 
         public function text():String{
@@ -63,13 +63,13 @@ package kabam.rotmg.editor.view.components.savedialog{
         private function onFocusIn(_arg1:FocusEvent):void{
             if (contains(this.instructionsText_)){
                 removeChild(this.instructionsText_);
-            };
+            }
         }
 
         private function onFocusOut(_arg1:FocusEvent):void{
             if (((!(contains(this.instructionsText_))) && ((this.inputText_.text == "")))){
                 addChild(this.instructionsText_);
-            };
+            }
         }
 
 

@@ -28,7 +28,7 @@ package com.company.assembleegameclient.engine3d{
                 _local5 = (((_local3 < _local5)) ? _local3 : _local5);
                 _local6 = (((_local3 > _local6)) ? _local3 : _local6);
                 _local4++;
-            };
+            }
             var _local7:Number = Number.MAX_VALUE;
             var _local8:Number = Number.MIN_VALUE;
             _local4 = 0;
@@ -37,19 +37,19 @@ package com.company.assembleegameclient.engine3d{
                 _local7 = (((_local3 < _local7)) ? _local3 : _local7);
                 _local8 = (((_local3 > _local8)) ? _local3 : _local8);
                 _local4++;
-            };
+            }
             if (_local7 > _local5){
                 return (-1);
-            };
+            }
             if (_local7 < _local5){
                 return (1);
-            };
+            }
             if (_local8 > _local6){
                 return (-1);
-            };
+            }
             if (_local8 < _local6){
                 return (1);
-            };
+            }
             return (0);
         }
 

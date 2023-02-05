@@ -36,7 +36,7 @@ package com.company.assembleegameclient.ui.panels{
         public function setOverride(_arg1:Panel):void{
             if (this.overridePanel_ != null){
                 this.overridePanel_.removeEventListener(Event.COMPLETE, this.onComplete);
-            };
+            }
             this.overridePanel_ = _arg1;
             this.overridePanel_.addEventListener(Event.COMPLETE, this.onComplete);
         }
@@ -52,7 +52,7 @@ package com.company.assembleegameclient.ui.panels{
                 this.setPanel(this.overridePanel_);
                 this.currentPanel.draw();
                 return;
-            };
+            }
             _local1 = this.requestInteractive();
             if ((((this.currentPanel == null)) || (!((_local1 == this.currObj_))))){
                 this.currObj_ = _local1;
@@ -62,19 +62,19 @@ package com.company.assembleegameclient.ui.panels{
                 }
                 else {
                     _local2 = this.partyPanel_;
-                };
+                }
                 this.setPanel(_local2);
-            };
+            }
             if (this.currentPanel){
                 this.currentPanel.draw();
-            };
+            }
         }
 
         private function onComplete(_arg1:Event):void{
             if (this.overridePanel_ != null){
                 this.overridePanel_.removeEventListener(Event.COMPLETE, this.onComplete);
                 this.overridePanel_ = null;
-            };
+            }
             this.setPanel(null);
             this.draw();
         }
@@ -84,7 +84,7 @@ package com.company.assembleegameclient.ui.panels{
                 ((this.currentPanel) && (removeChild(this.currentPanel)));
                 this.currentPanel = _arg1;
                 ((this.currentPanel) && (this.positionPanelAndAdd()));
-            };
+            }
         }
 
         private function positionPanelAndAdd():void{
@@ -95,7 +95,7 @@ package com.company.assembleegameclient.ui.panels{
             else {
                 this.currentPanel.x = 6;
                 this.currentPanel.y = 8;
-            };
+            }
             addChild(this.currentPanel);
         }
 

@@ -30,7 +30,7 @@ package com.greensock.easing{
             {
                 _params[0] = _arg_1;
                 return (_func.apply(null, _params));
-            };
+            }
             _local_2 = ((_type == 1) ? (1 - _arg_1) : ((_type == 2) ? _arg_1 : ((_arg_1 < 0.5) ? (_arg_1 * 2) : ((1 - _arg_1) * 2))));
             if (_power == 1)
             {
@@ -53,10 +53,10 @@ package com.greensock.easing{
                         if (_power == 4)
                         {
                             _local_2 = (_local_2 * (((_local_2 * _local_2) * _local_2) * _local_2));
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             return ((_type == 1) ? (1 - _local_2) : ((_type == 2) ? _local_2 : ((_arg_1 < 0.5) ? (_local_2 / 2) : (1 - (_local_2 / 2)))));
         }
 

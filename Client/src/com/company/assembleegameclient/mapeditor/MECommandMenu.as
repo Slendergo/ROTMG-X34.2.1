@@ -31,7 +31,7 @@ package com.company.assembleegameclient.mapeditor{
             addCommandMenuItem("(E)rase", KeyCodes.E, this.select, ERASE_COMMAND);
             if (((!((_local1 == null))) && (_local1.isAdmin()))){
                 addCommandMenuItem("S(A)mple", KeyCodes.A, this.select, SAMPLE_COMMAND);
-            };
+            }
             addCommandMenuItem("(P)ick Up", KeyCodes.P, this.select, PICK_UP_COMMAND);
             addCommandMenuItem("Drop", -1, this.select, DROP_COMMAND);
             addCommandMenuItem("(U)ndo", KeyCodes.U, this.onUndo, NONE_COMMAND);
@@ -48,7 +48,7 @@ package com.company.assembleegameclient.mapeditor{
             }
             else {
                 addBreak();
-            };
+            }
         }
 
         private function select(_arg1:CommandMenuItem):void{

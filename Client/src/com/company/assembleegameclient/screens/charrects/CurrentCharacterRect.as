@@ -111,11 +111,11 @@ package com.company.assembleegameclient.screens.charrects{
                 this.petIcon = _local1.getSkinBitmap();
                 if (this.petIcon == null){
                     return;
-                };
+                }
                 this.petIcon.x = CharacterRectConstants.PET_ICON_POS_X;
                 this.petIcon.y = CharacterRectConstants.PET_ICON_POS_Y;
                 selectContainer.addChild(this.petIcon);
-            };
+            }
         }
 
         private function makeTagline():void{
@@ -131,7 +131,7 @@ package com.company.assembleegameclient.screens.charrects{
                 super.makeTaglineIcon();
                 super.makeTaglineText(new LineBuilder().setParams(TextKey.CURRENT_CHARACTER_TAGLINE_NOQUEST, {fame:this.char.fame()}));
                 taglineText.x = (taglineText.x + taglineIcon.width);
-            };
+            }
         }
 
         private function getNextStarFame():int{
@@ -151,7 +151,7 @@ package com.company.assembleegameclient.screens.charrects{
             var _local2:uint = 0xB3B3B3;
             if (_local1 >= 8){
                 _local2 = 0xFCDF00;
-            };
+            }
             this.statsMaxedText = new TextFieldDisplayConcrete().setSize(18).setColor(0xFFFFFF);
             this.statsMaxedText.setBold(true);
             this.statsMaxedText.setColor(_local2);
@@ -177,28 +177,28 @@ package com.company.assembleegameclient.screens.charrects{
             var _local1:int;
             if (this.char.hp() == this.charType.hp.max){
                 _local1++;
-            };
+            }
             if (this.char.mp() == this.charType.mp.max){
                 _local1++;
-            };
+            }
             if (this.char.att() == this.charType.attack.max){
                 _local1++;
-            };
+            }
             if (this.char.def() == this.charType.defense.max){
                 _local1++;
-            };
+            }
             if (this.char.spd() == this.charType.speed.max){
                 _local1++;
-            };
+            }
             if (this.char.dex() == this.charType.dexterity.max){
                 _local1++;
-            };
+            }
             if (this.char.vit() == this.charType.hpRegeneration.max){
                 _local1++;
-            };
+            }
             if (this.char.wis() == this.charType.mpRegeneration.max){
                 _local1++;
-            };
+            }
             return (_local1);
         }
 
@@ -213,7 +213,7 @@ package com.company.assembleegameclient.screens.charrects{
                 toolTip_ = this.myPlayerToolTipFactory.create(this.charName, this.char.charXML_, this.charStats);
                 toolTip_.createUI();
                 this.showToolTip.dispatch(toolTip_);
-            };
+            }
         }
 
         override protected function onRollOut(_arg1:MouseEvent):void{

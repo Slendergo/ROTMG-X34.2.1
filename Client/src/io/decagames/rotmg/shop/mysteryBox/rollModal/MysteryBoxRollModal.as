@@ -89,10 +89,10 @@ package io.decagames.rotmg.shop.mysteryBox.rollModal{
             var _local2:int = Math.floor((this.maxResultHeight / _arg1.y));
             if ((_local2 * _arg1.x) > this.maxResultWidth){
                 _local2 = Math.floor((this.maxResultWidth / _arg1.x));
-            };
+            }
             if ((_local2 * _arg1.y) > this.maxResultHeight){
                 return (-1);
-            };
+            }
             return (_local2);
         }
 
@@ -103,7 +103,7 @@ package io.decagames.rotmg.shop.mysteryBox.rollModal{
             var _local3:int = int.MIN_VALUE;
             if (_arg1 >= (_local2.x * _local2.y)){
                 return (_local2);
-            };
+            }
             var _local4:int = 11;
             while (_local4 >= 1) {
                 _local5 = 4;
@@ -120,15 +120,15 @@ package io.decagames.rotmg.shop.mysteryBox.rollModal{
                                     if (((_local2.x * _local2.y) - _arg1) > ((_local4 * _local5) - _arg1)){
                                         _local3 = _local6;
                                         _local2 = new Point(_local4, _local5);
-                                    };
-                                };
-                            };
-                        };
-                    };
+                                    }
+                                }
+                            }
+                        }
+                    }
                     _local5--;
-                };
+                }
                 _local4--;
-            };
+            }
             return (_local2);
         }
 
@@ -168,7 +168,7 @@ package io.decagames.rotmg.shop.mysteryBox.rollModal{
             }
             else {
                 this.buyButton = new ShopBuyButton(this.info.priceAmount, this.info.priceCurrency);
-            };
+            }
             this.buyButton.width = 95;
             this.buyButton.showCampaignTooltip = true;
             this.buyButtonBackground = TextureParser.instance.getSliceScalingBitmap("UI", "buy_button_background", (this.buyButton.width + 60));
@@ -195,7 +195,7 @@ package io.decagames.rotmg.shop.mysteryBox.rollModal{
             resultGridElement.alpha = 0;
             if (element.quantity > 1){
                 resultGridElement.showQuantityLabel(element.quantity);
-            };
+            }
             resultGridElement.showTooltip = false;
             this.resultGrid.addGridElement(resultGridElement);
             var scale:Number = (this.resultElementWidth / this.iconSize);
@@ -215,8 +215,8 @@ package io.decagames.rotmg.shop.mysteryBox.rollModal{
                 resultGridElement.showTooltip = true;
                 if (triggerEventOnEnd){
                     finishedShowingResult.dispatch();
-                };
-            };
+                }
+            }
             timeout = setTimeout(function ():void{
                 particleModalMap.doLightning(((rollGrid.x + element.x) + (element.width / 2)), ((rollGrid.y + element.y) + (element.height / 2)), ((resultGrid.x + resultGridElement.x) + (resultGridElement.width / 2)), ((resultGrid.y + resultGridElement.y) + (resultGridElement.height / 2)), 115, 15787660, movingDuration);
                 clearTimeout(timeout);
@@ -240,8 +240,8 @@ package io.decagames.rotmg.shop.mysteryBox.rollModal{
                 for each (_local1 in elements) {
                     _local2 = elements.indexOf(_local1);
                     animateGridElement(_local1, (_local2 * movingDelay), (_local2 == (elements.length - 1)));
-                };
-            };
+                }
+            }
             var blinkTween:GTween = new GTween(this.rollGrid, this.exposeDuration, {
                 x:(this.rollGrid.x - ((this.rollGrid.width * (this.exposeScale - 1)) / 2)),
                 y:(this.rollGrid.y - ((this.rollGrid.height * (this.exposeScale - 1)) / 2)),
@@ -264,16 +264,16 @@ package io.decagames.rotmg.shop.mysteryBox.rollModal{
                     _local6 = _local3[_local4];
                     if (_local6 > 1){
                         _local5.showQuantityLabel(_local6);
-                    };
+                    }
                     _local5.showTooltip = false;
                     _local2.push(_local5);
                     this.rollGrid.addGridElement(_local5);
-                };
-            };
+                }
+            }
             this.rollGrid.render();
             if (!this.rollGrid.parent){
                 addChild(this.rollGrid);
-            };
+            }
             this.rollGrid.x = (this.spinnersContainer.x - (this.rollGrid.width / 2));
             this.rollGrid.y = (this.spinnersContainer.y - (this.rollGrid.height / 2));
             return (_local2);
@@ -298,7 +298,7 @@ package io.decagames.rotmg.shop.mysteryBox.rollModal{
             this.rollGrid.dispose();
             if (this.resultGrid){
                 this.resultGrid.dispose();
-            };
+            }
             this.buyButtonBackground.dispose();
             this.buyButton.dispose();
             this.spinner.dispose();

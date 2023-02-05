@@ -25,7 +25,7 @@ package kabam.rotmg.stage3D.Object3D{
             if (this.indexBuffer != null){
                 this.indexBuffer.dispose();
                 this.indexBuffer = null;
-            };
+            }
             this._faces.length = 0;
             this._indices.length = 0;
         }

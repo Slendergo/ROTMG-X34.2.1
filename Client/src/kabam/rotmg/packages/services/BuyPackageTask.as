@@ -46,7 +46,7 @@ package kabam.rotmg.packages.services{
             }
             else {
                 this.abandonPurchase(_local3);
-            };
+            }
             completeTask(true, _arg2);
         }
 
@@ -63,7 +63,7 @@ package kabam.rotmg.packages.services{
             this.queueStatusText.dispatch(_arg1, 16744576);
             if (ERROR_MESSAGES_THAT_REFRESH.indexOf(_arg1) != -1){
                 this.getPackageTask.start();
-            };
+            }
         }
 
 

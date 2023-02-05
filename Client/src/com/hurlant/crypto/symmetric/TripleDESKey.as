@@ -25,7 +25,7 @@ package com.hurlant.crypto.symmetric{
             else {
                 this.encKey3 = encKey;
                 this.decKey3 = decKey;
-            };
+            }
         }
 
         override public function dispose():void{
@@ -36,33 +36,33 @@ package com.hurlant.crypto.symmetric{
                 while (_local1 < this.encKey2.length) {
                     this.encKey2[_local1] = 0;
                     _local1++;
-                };
+                }
                 this.encKey2 = null;
-            };
+            }
             if (this.encKey3 != null){
                 _local1 = 0;
                 while (_local1 < this.encKey3.length) {
                     this.encKey3[_local1] = 0;
                     _local1++;
-                };
+                }
                 this.encKey3 = null;
-            };
+            }
             if (this.decKey2 != null){
                 _local1 = 0;
                 while (_local1 < this.decKey2.length) {
                     this.decKey2[_local1] = 0;
                     _local1++;
-                };
+                }
                 this.decKey2 = null;
-            };
+            }
             if (this.decKey3 != null){
                 _local1 = 0;
                 while (_local1 < this.decKey3.length) {
                     this.decKey3[_local1] = 0;
                     _local1++;
-                };
+                }
                 this.decKey3 = null;
-            };
+            }
             Memory.gc();
         }
 

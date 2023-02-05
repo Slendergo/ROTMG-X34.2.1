@@ -48,7 +48,7 @@ package kabam.rotmg.text.model{
             _local6.bold = _arg4;
             if (_arg5){
                 _local6.align = "center";
-            };
+            }
             _arg1.defaultTextFormat = _local6;
             _arg1.setTextFormat(_local6);
             return (_local6);

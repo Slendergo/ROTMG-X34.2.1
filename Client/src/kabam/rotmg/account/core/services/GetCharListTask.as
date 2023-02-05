@@ -76,7 +76,7 @@ package kabam.rotmg.account.core.services{
             }
             else {
                 this.onTextError(_arg2);
-            };
+            }
         }
 
         public function makeRequestData():Object{

@@ -77,7 +77,7 @@ package com.company.assembleegameclient.objects{
             PetUpgrader:PetUpgrader,
             YardUpgrader:YardUpgrader,
             WallOfFame:WallOfFame
-        };
+        }
 
         public static var textureDataFactory:TextureDataFactory = new TextureDataFactory();
         public static var playerChars_:Vector.<XML> = new Vector.<XML>();
@@ -97,9 +97,9 @@ package com.company.assembleegameclient.objects{
                 else {
                     if (_arg1.indexOf("Object") != -1){
                         _local4 = _arg1.indexOf("ObjectCXML");
-                    };
-                };
-            };
+                    }
+                }
+            }
             currentDungeon = _arg1.substr(_local3, (_local4 - _local3));
             dungeonsXMLLibrary_[currentDungeon] = new Dictionary(true);
             parseFromXML(_arg2, parseDungeonCallbak);
@@ -109,7 +109,7 @@ package com.company.assembleegameclient.objects{
             if (((!((currentDungeon == ""))) && (!((dungeonsXMLLibrary_[currentDungeon] == null))))){
                 dungeonsXMLLibrary_[currentDungeon][_arg1] = _arg2;
                 propsLibrary_[_arg1].belonedDungeon = currentDungeon;
-            };
+            }
         }
 
         public static function parsePatchXML(_arg1:XML, _arg2:Function=null):void{
@@ -123,13 +123,13 @@ package com.company.assembleegameclient.objects{
                 _local5 = _local4;
                 if (_local3.hasOwnProperty("DisplayId")){
                     _local5 = _local3.DisplayId;
-                };
+                }
                 _local6 = int(_local3.@type);
                 _local7 = propsLibrary_[_local6];
                 if (_local7 != null){
                     xmlPatchLibrary_[_local6] = _local3;
-                };
-            };
+                }
+            }
         }
 
         public static function parseFromXML(_arg1:XML, _arg2:Function=null):void{
@@ -144,12 +144,12 @@ package com.company.assembleegameclient.objects{
                 _local5 = _local4;
                 if (_local3.hasOwnProperty("DisplayId")){
                     _local5 = _local3.DisplayId;
-                };
+                }
                 if (_local3.hasOwnProperty("Group")){
                     if (_local3.Group == "Hexable"){
                         hexTransforms_.push(_local3);
-                    };
-                };
+                    }
+                }
                 _local6 = int(_local3.@type);
                 if (((_local3.hasOwnProperty("PetBehavior")) || (_local3.hasOwnProperty("PetAbility")))){
                     petXMLDataLibrary_[_local6] = _local3;
@@ -161,7 +161,7 @@ package com.company.assembleegameclient.objects{
                     typeToDisplayId_[_local6] = _local5;
                     if (_arg2 != null){
                         (_arg2(_local6, _local3));
-                    };
+                    }
                     if (String(_local3.Class) == "Player"){
                         playerClassAbbr_[_local6] = String(_local3.@id).substr(0, 2);
                         _local7 = false;
@@ -170,35 +170,35 @@ package com.company.assembleegameclient.objects{
                             if (int(playerChars_[_local8].@type) == _local6){
                                 playerChars_[_local8] = _local3;
                                 _local7 = true;
-                            };
+                            }
                             _local8++;
-                        };
+                        }
                         if (!_local7){
                             playerChars_.push(_local3);
-                        };
-                    };
+                        }
+                    }
                     typeToTextureData_[_local6] = textureDataFactory.create(_local3);
                     if (_local3.hasOwnProperty("Top")){
                         typeToTopTextureData_[_local6] = textureDataFactory.create(XML(_local3.Top));
-                    };
+                    }
                     if (_local3.hasOwnProperty("Animation")){
                         typeToAnimationsData_[_local6] = new AnimationsData(_local3);
-                    };
+                    }
                     if (((_local3.hasOwnProperty("IntergamePortal")) && (_local3.hasOwnProperty("DungeonName")))){
                         dungeonToPortalTextureData_[String(_local3.DungeonName)] = typeToTextureData_[_local6];
-                    };
+                    }
                     if ((((String(_local3.Class) == "Pet")) && (_local3.hasOwnProperty("DefaultSkin")))){
                         petSkinIdToPetType_[String(_local3.DefaultSkin)] = _local6;
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         public static function getIdFromType(_arg1:int):String{
             var _local2:XML = xmlLibrary_[_arg1];
             if (_local2 == null){
                 return (null);
-            };
+            }
             return (String(_local2.@id));
         }
 
@@ -207,11 +207,11 @@ package com.company.assembleegameclient.objects{
             var _local3:int;
             if (setLibrary_[_arg1] != undefined){
                 return (setLibrary_[_arg1]);
-            };
+            }
             for each (_local2 in EmbeddedData.skinsEquipmentSetsXML.EquipmentSet) {
                 _local3 = int(_local2.@type);
                 setLibrary_[_local3] = _local2;
-            };
+            }
             return (setLibrary_[_arg1]);
         }
 
@@ -235,7 +235,7 @@ package com.company.assembleegameclient.objects{
             }
             catch(e:Error) {
                 throw (new Error(("Type: 0x" + objectType.toString(16))));
-            };
+            }
             var typeClass:Class = ((TYPE_MAP[typeReference]) || (makeClass(typeReference)));
             return (new typeClass(objectXML));
         }
@@ -249,7 +249,7 @@ package com.company.assembleegameclient.objects{
             var _local2:TextureData = typeToTextureData_[_arg1];
             if (_local2 == null){
                 return (null);
-            };
+            }
             return (_local2.getTexture());
         }
 
@@ -258,7 +258,7 @@ package com.company.assembleegameclient.objects{
             var _local3:BitmapData = ((_local2) ? _local2.getTexture() : null);
             if (_local3){
                 return (_local3);
-            };
+            }
             return (AssetLibrary.getImageFromSet(IMAGE_SET_NAME, IMAGE_ID));
         }
 
@@ -266,12 +266,12 @@ package com.company.assembleegameclient.objects{
             var _local6:BitmapData = getBitmapData(_arg1);
             if (((!((Parameters.itemTypes16.indexOf(_arg1) == -1))) || ((_local6.height == 16)))){
                 _arg2 = (_arg2 * 0.5);
-            };
+            }
             var _local7:TextureData = typeToTextureData_[_arg1];
             var _local8:BitmapData = ((_local7) ? _local7.mask_ : null);
             if (_local8 == null){
                 return (TextureRedrawer.redraw(_local6, _arg2, _arg3, 0, _arg4, _arg5));
-            };
+            }
             var _local9:XML = xmlLibrary_[_arg1];
             var _local10:int = ((_local9.hasOwnProperty("Tex1")) ? int(_local9.Tex1) : 0);
             var _local11:int = ((_local9.hasOwnProperty("Tex2")) ? int(_local9.Tex2) : 0);
@@ -284,7 +284,7 @@ package com.company.assembleegameclient.objects{
             var _local2:XML = xmlLibrary_[_arg1];
             if (!_local2.hasOwnProperty("Size")){
                 return (100);
-            };
+            }
             return (int(_local2.Size));
         }
 
@@ -292,23 +292,23 @@ package com.company.assembleegameclient.objects{
             var _local2:XML = xmlLibrary_[_arg1];
             if (!_local2.hasOwnProperty("SlotType")){
                 return (-1);
-            };
+            }
             return (int(_local2.SlotType));
         }
 
         public static function isEquippableByPlayer(_arg1:int, _arg2:Player):Boolean{
             if (_arg1 == ItemConstants.NO_ITEM){
                 return false;
-            };
+            }
             var _local3:XML = xmlLibrary_[_arg1];
             var _local4:int = int(_local3.SlotType.toString());
             var _local5:uint;
             while (_local5 < GeneralConstants.NUM_EQUIPMENT_SLOTS) {
                 if (_arg2.slotTypes_[_local5] == _local4){
                     return true;
-                };
+                }
                 _local5++;
-            };
+            }
             return false;
         }
 
@@ -323,32 +323,32 @@ package com.company.assembleegameclient.objects{
                 while (_local5 < GeneralConstants.NUM_EQUIPMENT_SLOTS) {
                     if (_arg2.slotTypes_[_local5] == _local4){
                         return (_local5);
-                    };
+                    }
                     _local5++;
-                };
-            };
+                }
+            }
             return (-1);
         }
 
         public static function isUsableByPlayer(_arg1:int, _arg2:Player):Boolean{
             if ((((_arg2 == null)) || ((_arg2.slotTypes_ == null)))){
                 return true;
-            };
+            }
             var _local3:XML = xmlLibrary_[_arg1];
             if ((((_local3 == null)) || (!(_local3.hasOwnProperty("SlotType"))))){
                 return false;
-            };
+            }
             var _local4:int = _local3.SlotType;
             if ((((_local4 == ItemConstants.POTION_TYPE)) || ((_local4 == ItemConstants.EGG_TYPE)))){
                 return true;
-            };
+            }
             var _local5:int;
             while (_local5 < _arg2.slotTypes_.length) {
                 if (_arg2.slotTypes_[_local5] == _local4){
                     return true;
-                };
+                }
                 _local5++;
-            };
+            }
             return false;
         }
 
@@ -369,11 +369,11 @@ package com.company.assembleegameclient.objects{
             var _local2:XML = xmlLibrary_[_arg1];
             if ((((_local2 == null)) || (!(_local2.hasOwnProperty("SlotType"))))){
                 return (null);
-            };
+            }
             var _local3:int = _local2.SlotType;
             if ((((((_local3 == ItemConstants.POTION_TYPE)) || ((_local3 == ItemConstants.RING_TYPE)))) || ((_local3 == ItemConstants.EGG_TYPE)))){
                 return (null);
-            };
+            }
             var _local4:Vector.<String> = new Vector.<String>();
             for each (_local5 in playerChars_) {
                 _local6 = ConversionUtil.toIntVector(_local5.SlotTypes);
@@ -382,10 +382,10 @@ package com.company.assembleegameclient.objects{
                     if (_local6[_local7] == _local3){
                         _local4.push(typeToDisplayId_[int(_local5.@type)]);
                         break;
-                    };
+                    }
                     _local7++;
-                };
-            };
+                }
+            }
             return (_local4);
         }
 
@@ -393,13 +393,13 @@ package com.company.assembleegameclient.objects{
             var _local4:XML;
             if (_arg2 == null){
                 return true;
-            };
+            }
             var _local3:XML = xmlLibrary_[_arg1];
             for each (_local4 in _local3.EquipRequirement) {
                 if (!playerMeetsRequirement(_local4, _arg2)){
                     return false;
-                };
-            };
+                }
+            }
             return true;
         }
 
@@ -426,8 +426,8 @@ package com.company.assembleegameclient.objects{
                         return ((_arg2.wisdom_ >= _local3));
                     case StatData.DEXTERITY_STAT:
                         return ((_arg2.dexterity_ >= _local3));
-                };
-            };
+                }
+            }
             return false;
         }
 

@@ -82,11 +82,11 @@ package com.company.assembleegameclient.appengine{
                 _local5.reportIntStat("BestFame", this.bestOverallFame());
                 _local5.reportIntStat("NumStars", this.numStars_);
                 _local5.verify(_local2.hasOwnProperty("VerifiedEmail"));
-            };
+            }
             this.classAvailability = new Object();
             for each (_local4 in this.charsXML_.ClassAvailabilityList.ClassAvailability) {
                 this.classAvailability[_local4.@id.toString()] = _local4.toString();
-            };
+            }
         }
 
         public function getCharById(_arg1:int):SavedCharacter{
@@ -94,8 +94,8 @@ package com.company.assembleegameclient.appengine{
             for each (_local2 in this.savedChars_) {
                 if (_local2.charId() == _arg1){
                     return (_local2);
-                };
-            };
+                }
+            }
             return (null);
         }
 
@@ -128,7 +128,7 @@ package com.company.assembleegameclient.appengine{
             }
             else {
                 _local2.status = BeginnersPackageModel.STATUS_CANNOT_BUY;
-            };
+            }
         }
 
         private function getBeginnerModel():BeginnersPackageModel{
@@ -143,7 +143,7 @@ package com.company.assembleegameclient.appengine{
                 _local2 = XML(_arg1.Guild);
                 this.guildName_ = _local2.Name;
                 this.guildRank_ = int(_local2.Rank);
-            };
+            }
         }
 
         private function parseCharacterData():void{
@@ -175,7 +175,7 @@ package com.company.assembleegameclient.appengine{
             var _local1:XML = XML(this.charsXML_.News);
             for each (_local2 in _local1.Item) {
                 this.news_.push(new SavedNewsItem(_local2.Icon, _local2.Title, _local2.TagLine, _local2.Link, int(_local2.Date)));
-            };
+            }
         }
 
         private function parseGeoPositioningData():void{
@@ -184,19 +184,19 @@ package com.company.assembleegameclient.appengine{
             }
             else {
                 this.myPos_ = DEFAULT_LATLONG;
-            };
+            }
         }
 
         private function parseSalesForceData():void{
             if (((this.charsXML_.hasOwnProperty("SalesForce")) && (this.charsXML_.hasOwnProperty("SalesForce")))){
                 this.salesForceData_ = String(this.charsXML_.SalesForce);
-            };
+            }
         }
 
         private function parseTOSPopup():void{
             if (this.charsXML_.hasOwnProperty("TOSPopup")){
                 StaticInjectorContext.getInjector().getInstance(ShowPopupSignal).dispatch(new ToSPopup());
-            };
+            }
         }
 
         public function isFirstTimeLogin():Boolean{
@@ -214,8 +214,8 @@ package com.company.assembleegameclient.appengine{
             for each (_local2 in this.charStats_) {
                 if (_local2.bestLevel() > _local1){
                     _local1 = _local2.bestLevel();
-                };
-            };
+                }
+            }
             return (_local1);
         }
 
@@ -230,8 +230,8 @@ package com.company.assembleegameclient.appengine{
             for each (_local2 in this.charStats_) {
                 if (_local2.bestFame() > _local1){
                     _local1 = _local2.bestFame();
-                };
-            };
+                }
+            }
             return (_local1);
         }
 
@@ -243,8 +243,8 @@ package com.company.assembleegameclient.appengine{
                 _local4 = ObjectLibrary.idToType_[_local3.toString()];
                 if (this.bestLevel(_local4) < int(_local3.@level)){
                     return false;
-                };
-            };
+                }
+            }
             return true;
         }
 
@@ -279,16 +279,16 @@ package com.company.assembleegameclient.appengine{
                             if (((!((_local10 == _arg1))) || (!((_local11 == _arg2))))){
                                 _local7 = false;
                                 break;
-                            };
+                            }
                             _local8 = true;
-                        };
-                    };
+                        }
+                    }
                     if (((_local7) && (_local8))){
                         _local3.push(_local6);
-                    };
-                };
+                    }
+                }
                 _local4++;
-            };
+            }
             return (_local3);
         }
 
@@ -305,7 +305,7 @@ package com.company.assembleegameclient.appengine{
             if (_local1){
                 this.account = _local1.getInstance(Account);
                 ((this.account) && (this.updateAccount()));
-            };
+            }
         }
 
         private function updateAccount():void{
@@ -319,9 +319,9 @@ package com.company.assembleegameclient.appengine{
                 if (this.levelRequirementsMet(_local4)){
                     this.account.reportIntStat((_local3.@id + "Unlocked"), 1);
                     _local1++;
-                };
+                }
                 _local2++;
-            };
+            }
             this.account.reportIntStat("ClassesUnlocked", _local1);
         }
 

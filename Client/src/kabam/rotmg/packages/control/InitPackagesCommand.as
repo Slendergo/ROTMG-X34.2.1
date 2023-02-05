@@ -27,8 +27,8 @@ package kabam.rotmg.packages.control{
             else {
                 if (this.packageModel.hasPackages()){
                     this.packageAvailable.dispatch();
-                };
-            };
+                }
+            }
         }
 
 

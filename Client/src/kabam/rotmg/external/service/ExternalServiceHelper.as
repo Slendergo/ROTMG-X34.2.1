@@ -16,7 +16,7 @@ package kabam.rotmg.external.service{
         public function mapExternalCallbacks():void{
             if (ExternalInterface.available){
                 ExternalInterface.addCallback("updatePlayerCredits", this.updatePlayerCredits);
-            };
+            }
         }
 
         private function updatePlayerCredits():void{

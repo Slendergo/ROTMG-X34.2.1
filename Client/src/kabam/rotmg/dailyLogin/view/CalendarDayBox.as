@@ -63,7 +63,7 @@ package kabam.rotmg.dailyLogin.view{
                 }
                 else {
                     this.boxCuts = [1, 0, 0, 0];
-                };
+                }
             }
             else {
                 if (_arg1.dayNumber == _arg2){
@@ -72,7 +72,7 @@ package kabam.rotmg.dailyLogin.view{
                     }
                     else {
                         this.boxCuts = [0, 0, 1, 0];
-                    };
+                    }
                 }
                 else {
                     if ((((_local4 == 1)) && (((_arg1.dayNumber % CalendarSettings.NUMBER_OF_COLUMNS) == 0)))){
@@ -84,24 +84,24 @@ package kabam.rotmg.dailyLogin.view{
                         }
                         else {
                             this.boxCuts = [0, 0, 0, 0];
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             this.drawBackground(this.boxCuts, _arg3);
             if ((((_arg1.gold == 0)) && ((_arg1.itemID > 0)))){
                 _local6 = new ItemTileRenderer(_arg1.itemID);
                 addChild(_local6);
                 _local6.x = Math.round((CalendarSettings.BOX_WIDTH / 2));
                 _local6.y = Math.round((CalendarSettings.BOX_HEIGHT / 2));
-            };
+            }
             if (_arg1.gold > 0){
                 _local7 = new Bitmap();
                 _local7.bitmapData = IconFactory.makeCoin(80);
                 addChild(_local7);
                 _local7.x = Math.round(((CalendarSettings.BOX_WIDTH / 2) - (_local7.width / 2)));
                 _local7.y = Math.round(((CalendarSettings.BOX_HEIGHT / 2) - (_local7.height / 2)));
-            };
+            }
             this.displayDayNumber(_arg1.dayNumber);
             if (_arg1.claimKey != ""){
                 _local8 = AssetLibrary.getImageFromSet("lofiInterface", 52);
@@ -111,17 +111,17 @@ package kabam.rotmg.dailyLogin.view{
                 this.redDot.x = ((CalendarSettings.BOX_WIDTH - Math.round((this.redDot.width / 2))) - 10);
                 this.redDot.y = (-(Math.round((this.redDot.width / 2))) + 10);
                 addChild(this.redDot);
-            };
+            }
             if ((((_arg1.quantity > 1)) || ((_arg1.gold > 0)))){
                 _local9 = new TextFieldDisplayConcrete().setSize(14).setColor(0xFFFFFF).setTextWidth(CalendarSettings.BOX_WIDTH).setAutoSize(TextFieldAutoSize.RIGHT);
                 _local9.setStringBuilder(new StaticStringBuilder(("x" + (((_arg1.gold > 0)) ? _arg1.gold.toString() : _arg1.quantity.toString()))));
                 _local9.y = (CalendarSettings.BOX_HEIGHT - 18);
                 _local9.x = -2;
                 addChild(_local9);
-            };
+            }
             if (_arg1.isClaimed){
                 this.markAsClaimed();
-            };
+            }
         }
 
         public static function drawRectangleWithCuts(_arg1:Array, _arg2:int, _arg3:int, _arg4:uint, _arg5:Number, _arg6:Vector.<IGraphicsData>, _arg7:GraphicsPath):Sprite{
@@ -152,7 +152,7 @@ package kabam.rotmg.dailyLogin.view{
         public function markAsClaimed():void{
             if (((this.redDot) && (this.redDot.parent))){
                 removeChild(this.redDot);
-            };
+            }
             var _local1:BitmapData = AssetLibrary.getImageFromSet("lofiInterfaceBig", 11);
             _local1 = TextureRedrawer.redraw(_local1, 60, true, 2997032);
             var _local2:Bitmap = new Bitmap(_local1);

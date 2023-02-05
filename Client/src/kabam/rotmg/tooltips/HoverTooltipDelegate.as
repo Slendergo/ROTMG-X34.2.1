@@ -34,7 +34,7 @@ package kabam.rotmg.tooltips{
                 this.displayObject.removeEventListener(MouseEvent.MOUSE_OVER, this.onMouseOver);
                 this.displayObject.removeEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
                 this.displayObject = null;
-            };
+            }
         }
 
         public function getDisplayObject():DisplayObject{
@@ -60,7 +60,7 @@ package kabam.rotmg.tooltips{
         private function onRemovedFromStage(_arg1:Event):void{
             if (((!((this.tooltip == null))) && (!((this.tooltip.parent == null))))){
                 this.hideToolTips.dispatch();
-            };
+            }
             this.displayObject.removeEventListener(MouseEvent.CLICK, this.onMouseOut);
             this.displayObject.removeEventListener(MouseEvent.MOUSE_OVER, this.onMouseOver);
             this.displayObject.removeEventListener(MouseEvent.MOUSE_OUT, this.onMouseOut);

@@ -36,7 +36,7 @@ package com.company.assembleegameclient.engine3d{
             var _local2:Model3D_stage3d;
             for each (_local2 in models) {
                 _local2.CreatBuffer(_arg1);
-            };
+            }
         }
 
         public static function parseFromOBJ(_arg1:String, _arg2:String):void{
@@ -70,39 +70,39 @@ package com.company.assembleegameclient.engine3d{
                                 case "v":
                                     if (_local15.length != 3){
                                         return;
-                                    };
+                                    }
                                     _local4.push(_local15);
                                     break;
                                 case "vt":
                                     if (_local15.length != 2){
                                         return;
-                                    };
+                                    }
                                     _local5.push(_local15);
                                     break;
                                 case "f":
                                     if (_local15.length < 3){
                                         return;
-                                    };
+                                    }
                                     _local8.push(_local15);
                                     _local10.push(_local9);
                                     for each (_local17 in _local15) {
                                         if (!_local7.hasOwnProperty(_local17)){
                                             _local7[_local17] = _local6.length;
                                             _local6.push(_local17);
-                                        };
-                                    };
+                                        }
+                                    }
                                     break;
                                 case "usemtl":
                                     if (_local15.length != 1){
                                         return;
-                                    };
+                                    }
                                     _local9 = _local15[0];
                                     break;
-                            };
-                        };
-                    };
-                };
-            };
+                            }
+                        }
+                    }
+                }
+            }
             _local12 = new (Model3D)();
             for each (_local13 in _local6) {
                 _local18 = _local13.split("/");
@@ -113,8 +113,8 @@ package com.company.assembleegameclient.engine3d{
                 }
                 else {
                     _local12.uvts_.push(0, 0, 0);
-                };
-            };
+                }
+            }
             _local14 = 0;
             while (_local14 < _local8.length) {
                 _local19 = _local8[_local14];
@@ -124,10 +124,10 @@ package com.company.assembleegameclient.engine3d{
                 while (_local22 < _local19.length) {
                     _local21.push(_local7[_local19[_local22]]);
                     _local22++;
-                };
+                }
                 _local12.faces_.push(new ModelFace3D(_local12, _local21, (((_local20 == null)) || (!((_local20.substr(0, 5) == "Solid"))))));
                 _local14++;
-            };
+            }
             _local12.orderFaces();
             modelLib_[_arg1] = _local12;
         }
@@ -140,7 +140,7 @@ package com.company.assembleegameclient.engine3d{
             var _local2:Model3D = modelLib_[_arg1];
             if (_local2 == null){
                 return (null);
-            };
+            }
             return (new Object3D(_local2));
         }
 
@@ -148,7 +148,7 @@ package com.company.assembleegameclient.engine3d{
             var _local2:Model3D_stage3d = models[_arg1];
             if (_local2 == null){
                 return (null);
-            };
+            }
             return (new Object3DStage3D(_local2));
         }
 

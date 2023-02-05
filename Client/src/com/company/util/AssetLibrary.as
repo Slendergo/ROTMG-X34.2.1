@@ -33,7 +33,7 @@ package com.company.util{
             while (_local6 < _local5.images_.length) {
                 imageLookup_[_local5.images_[_local6]] = [_arg1, _local6];
                 _local6++;
-            };
+            }
         }
 
         public static function addToImageSet(_arg1:String, _arg2:BitmapData):void{
@@ -41,7 +41,7 @@ package com.company.util{
             if (_local3 == null){
                 _local3 = new ImageSet();
                 imageSets_[_arg1] = _local3;
-            };
+            }
             _local3.add(_arg2);
             var _local4:int = (_local3.images_.length - 1);
             imageLookup_[_local3.images_[_local4]] = [_arg1, _local4];
@@ -51,7 +51,7 @@ package com.company.util{
             var _local3:Array = sounds_[_arg1];
             if (_local3 == null){
                 sounds_[_arg1] = new Array();
-            };
+            }
             sounds_[_arg1].push(_arg2);
         }
 
@@ -85,7 +85,7 @@ package com.company.util{
             var _local6:SoundTransform;
             if (_arg2 != 1){
                 _local6 = new SoundTransform(_arg2);
-            };
+            }
             _local5.play(0, 0, _local6);
         }
 

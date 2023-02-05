@@ -99,9 +99,9 @@ package com.company.assembleegameclient.ui.tooltip{
                 if (this.isEquippable){
                     if (this.player.equipment_[_local7] != -1){
                         this.curItemXML = ObjectLibrary.xmlLibrary_[this.player.equipment_[_local7]];
-                    };
-                };
-            };
+                    }
+                }
+            }
             this.addIcon();
             this.addTitle();
             this.addDescriptionText();
@@ -132,7 +132,7 @@ package com.company.assembleegameclient.ui.tooltip{
         private function addSetInfo():void{
             if (!this.objectXML.hasOwnProperty("@setType")){
                 return;
-            };
+            }
             var _local1:int = this.objectXML.attribute("setType");
             this.setInfo.push(new Effect("{name} ", {name:(("<b>" + this.objectXML.attribute("setName")) + "</b>")}).setColor(TooltipHelper.SET_COLOR).setReplacementsColor(TooltipHelper.SET_COLOR));
             this.addSetActivateOnEquipTagsToEffectsList(_local1);
@@ -151,9 +151,9 @@ package com.company.assembleegameclient.ui.tooltip{
                 if (_local4.toString() == "Equipment"){
                     if (((!((this.player == null))) && ((this.player.equipment_[int(_local4.@slot)] == int(_local4.@itemtype))))){
                         _local3++;
-                    };
-                };
-            };
+                    }
+                }
+            }
             _local5 = TooltipHelper.SET_COLOR_INACTIVE;
             _local6 = TooltipHelper.NO_DIFF_COLOR;
             if (_local2.hasOwnProperty("ActivateOnEquip2")){
@@ -162,30 +162,30 @@ package com.company.assembleegameclient.ui.tooltip{
                 this.setInfo.push(new Effect("2 Pieces", null).setColor(_local5).setReplacementsColor(_local5));
                 for each (_local7 in _local2.ActivateOnEquip2) {
                     this.makeSetEffectLine(_local7, _local6);
-                };
-            };
+                }
+            }
             if (_local2.hasOwnProperty("ActivateOnEquip3")){
                 _local5 = (((_local3 >= 3)) ? TooltipHelper.SET_COLOR : TooltipHelper.SET_COLOR_INACTIVE);
                 _local6 = (((_local3 >= 3)) ? TooltipHelper.NO_DIFF_COLOR : TooltipHelper.NO_DIFF_COLOR_INACTIVE);
                 this.setInfo.push(new Effect("3 Pieces", null).setColor(_local5).setReplacementsColor(_local5));
                 for each (_local8 in _local2.ActivateOnEquip3) {
                     this.makeSetEffectLine(_local8, _local6);
-                };
-            };
+                }
+            }
             if (_local2.hasOwnProperty("ActivateOnEquipAll")){
                 _local5 = (((_local3 >= 4)) ? TooltipHelper.SET_COLOR : TooltipHelper.SET_COLOR_INACTIVE);
                 _local6 = (((_local3 >= 4)) ? TooltipHelper.NO_DIFF_COLOR : TooltipHelper.NO_DIFF_COLOR_INACTIVE);
                 this.setInfo.push(new Effect("Full Set", null).setColor(_local5).setReplacementsColor(_local5));
                 for each (_local9 in _local2.ActivateOnEquipAll) {
                     this.makeSetEffectLine(_local9, _local6);
-                };
-            };
+                }
+            }
         }
 
         private function makeSetEffectLine(_arg1:XML, _arg2:uint):void{
             if (_arg1.toString() == "IncrementStat"){
                 this.setInfo.push(new Effect(TextKey.INCREMENT_STAT, this.getComparedStatText(_arg1)).setColor(_arg2).setReplacementsColor(_arg2));
-            };
+            }
         }
 
         private function makeItemPowerText():void{
@@ -196,15 +196,15 @@ package com.company.assembleegameclient.ui.tooltip{
                 if (((ObjectLibrary.usePatchedData) && (this.objectPatchXML))){
                     if (this.objectPatchXML.hasOwnProperty("feedPower")){
                         _local1 = this.objectPatchXML.feedPower;
-                    };
-                };
+                    }
+                }
                 _local2 = ((((this.playerCanUse) || ((this.player == null)))) ? 0xFFFFFF : 16549442);
                 this.powerText = new TextFieldDisplayConcrete().setSize(12).setColor(_local2).setBold(true).setTextWidth((((MAX_WIDTH - this.icon.width) - 4) - 30)).setWordWrap(true);
                 this.powerText.setStringBuilder(new StaticStringBuilder().setString(("Feed Power: " + _local1)));
                 this.powerText.filters = FilterUtil.getStandardDropShadowFilter();
                 waiter.push(this.powerText.textChanged);
                 addChild(this.powerText);
-            };
+            }
         }
 
         private function makeSupporterPointsText():void{
@@ -218,8 +218,8 @@ package com.company.assembleegameclient.ui.tooltip{
                     this.supporterPointsText.filters = FilterUtil.getStandardDropShadowFilter();
                     waiter.push(this.supporterPointsText.textChanged);
                     addChild(this.supporterPointsText);
-                };
-            };
+                }
+            }
         }
 
         private function onKeyInfoResponse(_arg1:KeyInfoResponse):void{
@@ -249,14 +249,14 @@ package com.company.assembleegameclient.ui.tooltip{
                     _local6 = new AppendingLineBuilder();
                     if (_local3){
                         _local6.pushParams(_local3);
-                    };
+                    }
                     if (_local4){
                         _local6.pushParams(_local4, {}, TooltipHelper.getOpenTag(16777103), TooltipHelper.getCloseTag());
-                    };
+                    }
                     _local6.setDelimiter(_local5);
                     this.uniqueEffects.push(new Effect(TextKey.BLANK, {data:_local6}));
-                };
-            };
+                }
+            }
         }
 
         private function isEmptyEquipSlot():Boolean{
@@ -268,10 +268,10 @@ package com.company.assembleegameclient.ui.tooltip{
             var _local2:int = 5;
             if ((((this.objectType == 4874)) || ((this.objectType == 4618)))){
                 _local2 = 8;
-            };
+            }
             if (_local1.hasOwnProperty("ScaleValue")){
                 _local2 = _local1.ScaleValue;
-            };
+            }
             var _local3:BitmapData = ObjectLibrary.getRedrawnTextureFromType(this.objectType, 60, true, true, _local2);
             _local3 = BitmapUtil.cropToBitmapData(_local3, 4, 4, (_local3.width - 8), (_local3.height - 8));
             this.icon = new Bitmap(_local3);
@@ -282,7 +282,7 @@ package com.company.assembleegameclient.ui.tooltip{
             this.tierText = TierUtil.getTierTag(this.objectXML, 16);
             if (this.tierText){
                 addChild(this.tierText);
-            };
+            }
         }
 
         private function removeTitle():void{
@@ -301,7 +301,7 @@ package com.company.assembleegameclient.ui.tooltip{
             }
             else {
                 this.titleText.setStringBuilder(new LineBuilder().setParams(ObjectLibrary.typeToDisplayId_[this.objectType]));
-            };
+            }
             this.titleText.filters = FilterUtil.getStandardDropShadowFilter();
             waiter.push(this.titleText.textChanged);
             addChild(this.titleText);
@@ -316,8 +316,8 @@ package com.company.assembleegameclient.ui.tooltip{
                 _local2 = new Vector.<Effect>();
                 for each (_local3 in _local1) {
                     _local2.push(new Effect(_local3.attribute("name"), _local3.attribute("description")));
-                };
-            };
+                }
+            }
             return ("");
         }
 
@@ -333,8 +333,8 @@ package com.company.assembleegameclient.ui.tooltip{
                     addChild(this.line1);
                     addChild(this.effectsText);
                     waiter.push(this.effectsText.textChanged);
-                };
-            };
+                }
+            }
         }
 
         private function getEffectsStringBuilder():AppendingLineBuilder{
@@ -342,7 +342,7 @@ package com.company.assembleegameclient.ui.tooltip{
             this.appendEffects(this.uniqueEffects, _local1);
             if (this.comparisonResults.lineBuilder.hasLines()){
                 _local1.pushParams(TextKey.BLANK, {data:this.comparisonResults.lineBuilder});
-            };
+            }
             this.appendEffects(this.effects, _local1);
             return (_local1);
         }
@@ -357,9 +357,9 @@ package com.company.assembleegameclient.ui.tooltip{
                 if (_local3.color_){
                     _local4 = (('<font color="#' + _local3.color_.toString(16)) + '">');
                     _local5 = "</font>";
-                };
+                }
                 _arg2.pushParams(_local3.name_, _local3.getValueReplacementsWithColor(), _local4, _local5);
-            };
+            }
         }
 
         private function addFameBonusTagToEffectsList():void{
@@ -372,9 +372,9 @@ package com.company.assembleegameclient.ui.tooltip{
                 if (((!((this.curItemXML == null))) && (this.curItemXML.hasOwnProperty("FameBonus")))){
                     _local3 = int(this.curItemXML.FameBonus.text());
                     _local2 = TooltipHelper.getTextColor((_local1 - _local3));
-                };
+                }
                 this.effects.push(new Effect(TextKey.FAME_BONUS, {percent:(this.objectXML.FameBonus + "%")}).setReplacementsColor(_local2));
-            };
+            }
         }
 
         private function addMpCostTagToEffectsList():void{
@@ -385,7 +385,7 @@ package com.company.assembleegameclient.ui.tooltip{
                 _local1 = _local2;
                 if (((this.curItemXML) && (this.curItemXML.hasOwnProperty("MpEndCost")))){
                     _local2 = this.curItemXML.MpEndCost;
-                };
+                }
                 this.effects.push(new Effect(TextKey.MP_COST, {cost:TooltipHelper.compare(_local1, _local2, false)}));
             }
             else {
@@ -394,26 +394,26 @@ package com.company.assembleegameclient.ui.tooltip{
                     _local1 = _local2;
                     if (((this.curItemXML) && (this.curItemXML.hasOwnProperty("MpCost")))){
                         _local2 = this.curItemXML.MpCost;
-                    };
+                    }
                     this.effects.push(new Effect(TextKey.MP_COST, {cost:TooltipHelper.compare(_local1, _local2, false)}));
-                };
-            };
+                }
+            }
         }
 
         private function addDoseTagsToEffectsList():void{
             if (this.objectXML.hasOwnProperty("Doses")){
                 this.effects.push(new Effect(TextKey.DOSES, {dose:this.objectXML.Doses}));
-            };
+            }
             if (this.objectXML.hasOwnProperty("Quantity")){
                 this.effects.push(new Effect("Quantity: {quantity}", {quantity:this.objectXML.Quantity}));
-            };
+            }
         }
 
         private function addNumProjectiles():void{
             var _local1:ComPairTag = new ComPairTag(this.objectXML, this.curItemXML, "NumProjectiles", 1);
             if (((!((_local1.a == 1))) || (!((_local1.a == _local1.b))))){
                 this.effects.push(new Effect(TextKey.SHOTS, {numShots:TooltipHelper.compare(_local1.a, _local1.b)}));
-            };
+            }
         }
 
         private function addProjectileTagsToEffectsList():void{
@@ -421,7 +421,7 @@ package com.company.assembleegameclient.ui.tooltip{
             if (this.objectXML.hasOwnProperty("Projectile")){
                 _local1 = (((this.curItemXML == null)) ? null : this.curItemXML.Projectile[0]);
                 this.addProjectile(this.objectXML.Projectile[0], _local1);
-            };
+            }
         }
 
         private function addProjectile(_arg1:XML, _arg2:XML=null):void{
@@ -442,30 +442,30 @@ package com.company.assembleegameclient.ui.tooltip{
             this.effects.push(new Effect(TextKey.RANGE, {range:TooltipHelper.compare(_local10, _local11)}));
             if (_arg1.hasOwnProperty("MultiHit")){
                 this.effects.push(new Effect(TextKey.MULTIHIT, {}).setColor(TooltipHelper.NO_DIFF_COLOR));
-            };
+            }
             if (_arg1.hasOwnProperty("PassesCover")){
                 this.effects.push(new Effect(TextKey.PASSES_COVER, {}).setColor(TooltipHelper.NO_DIFF_COLOR));
-            };
+            }
             if (_arg1.hasOwnProperty("ArmorPiercing")){
                 this.effects.push(new Effect(TextKey.ARMOR_PIERCING, {}).setColor(TooltipHelper.NO_DIFF_COLOR));
-            };
+            }
             if (_local8.a){
                 this.effects.push(new Effect("Shots are parametric", {}).setColor(TooltipHelper.NO_DIFF_COLOR));
             }
             else {
                 if (_local7.a){
                     this.effects.push(new Effect("Shots boomerang", {}).setColor(TooltipHelper.NO_DIFF_COLOR));
-                };
-            };
+                }
+            }
             if (_arg1.hasOwnProperty("ConditionEffect")){
                 this.effects.push(new Effect(TextKey.SHOT_EFFECT, {effect:""}));
-            };
+            }
             for each (_local15 in _arg1.ConditionEffect) {
                 this.effects.push(new Effect(TextKey.EFFECT_FOR_DURATION, {
                     effect:_local15,
                     duration:_local15.@duration
                 }).setColor(TooltipHelper.NO_DIFF_COLOR));
-            };
+            }
         }
 
         private function addRateOfFire():void{
@@ -476,14 +476,14 @@ package com.company.assembleegameclient.ui.tooltip{
                 _local1.b = MathUtil.round((_local1.b * 100), 2);
                 _local2 = TooltipHelper.compare(_local1.a, _local1.b, true, "%");
                 this.effects.push(new Effect(TextKey.RATE_OF_FIRE, {data:_local2}));
-            };
+            }
         }
 
         private function addCooldown():void{
             var _local1:ComPairTag = new ComPairTag(this.objectXML, this.curItemXML, "Cooldown", 0.5);
             if (((!((_local1.a == 0.5))) || (!((_local1.a == _local1.b))))){
                 this.effects.push(new Effect("Cooldown: {cd}", {cd:TooltipHelper.compareAndGetPlural(_local1.a, _local1.b, "second", false)}));
-            };
+            }
         }
 
         private function addActivateTagsToEffectsList():void{
@@ -556,7 +556,7 @@ package com.company.assembleegameclient.ui.tooltip{
                                     damage:activateXML.@damage,
                                     range:activateXML.@range
                                 }));
-                            };
+                            }
                             this.effects.push(new Effect(TextKey.PARTY_HEAL, {effect:new AppendingLineBuilder().pushParams(TextKey.HP_WITHIN_SQRS, {
                                     amount:activateXML.@amount,
                                     range:activateXML.@range
@@ -624,22 +624,22 @@ package com.company.assembleegameclient.ui.tooltip{
                                     else {
                                         if (comparer < 0){
                                             effectColor = 0xFF0000;
-                                        };
-                                    };
-                                };
-                            };
+                                        }
+                                    }
+                                }
+                            }
                             tokens = {
                                 range:activateXML.@range,
                                 effect:activateXML.@effect,
                                 duration:activateXML.@duration
-                            };
+                            }
                             template = "Within {range} sqrs {effect} for {duration} seconds";
                             if (activateXML.@target != "enemy"){
                                 this.effects.push(new Effect(TextKey.PARTY_EFFECT, {effect:LineBuilder.returnStringReplace(template, tokens)}).setReplacementsColor(effectColor));
                             }
                             else {
                                 this.effects.push(new Effect(TextKey.ENEMY_EFFECT, {effect:LineBuilder.returnStringReplace(template, tokens)}).setReplacementsColor(effectColor));
-                            };
+                            }
                             break;
                         case ActivationType.STAT_BOOST_AURA:
                             effectColor2 = 16777103;
@@ -659,10 +659,10 @@ package com.company.assembleegameclient.ui.tooltip{
                                     else {
                                         if (comparer2 < 0){
                                             effectColor2 = 0xFF0000;
-                                        };
-                                    };
-                                };
-                            };
+                                        }
+                                    }
+                                }
+                            }
                             stat = int(activateXML.@stat);
                             statStr = LineBuilder.getLocalizedString2(StatData.statToName(stat));
                             tokens2 = {
@@ -670,7 +670,7 @@ package com.company.assembleegameclient.ui.tooltip{
                                 stat:statStr,
                                 amount:activateXML.@amount,
                                 duration:activateXML.@duration
-                            };
+                            }
                             template2 = "Within {range} sqrs increase {stat} by {amount} for {duration} seconds";
                             this.effects.push(new Effect(TextKey.PARTY_EFFECT, {effect:LineBuilder.returnStringReplace(template2, tokens2)}).setReplacementsColor(effectColor2));
                             break;
@@ -683,7 +683,7 @@ package com.company.assembleegameclient.ui.tooltip{
                                 replaceParams["statName"] = new LineBuilder().setParams(StatData.statToName(stat));
                                 this.effects.push(new Effect(val, replaceParams).setColor(16777103));
                                 break;
-                            };
+                            }
                             val = TextKey.BLANK;
                             alb = new AppendingLineBuilder().setDelimiter(" ");
                             alb.pushParams(TextKey.BLANK, {data:new StaticStringBuilder(("+" + amt))});
@@ -693,9 +693,9 @@ package com.company.assembleegameclient.ui.tooltip{
                             break;
                         case ActivationType.BOOST_RANGE:
                             break;
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         private function getSpell(_arg1:XML, _arg2:XML=null):void{
@@ -714,7 +714,7 @@ package com.company.assembleegameclient.ui.tooltip{
             _local7 = (_local7 + "{numShots} shots at {angle}\n");
             if (_local5.a){
                 _local7 = (_local7 + "Min Cast Range: {minDistance}\n");
-            };
+            }
             _local7 = (_local7 + "Max Cast Range: {maxDistance}");
             this.effects.push(new Effect(_local7, {
                 numShots:TooltipHelper.compare(_local3.a, _local3.b),
@@ -747,24 +747,24 @@ package com.company.assembleegameclient.ui.tooltip{
             _local18 = (_local18 + "within {radius} squares\n");
             if (_local14.a){
                 _local18 = (_local18 + "Steals {heal} HP");
-            };
+            }
             if (((_local14.a) && (_local15.a))){
                 _local18 = (_local18 + " and ignores {ignoreDef} defense");
             }
             else {
                 if (_local15.a){
                     _local18 = (_local18 + "Ignores {ignoreDef} defense");
-                };
-            };
+                }
+            }
             if (_local14.a){
                 _local18 = (_local18 + (("\nHeals allies within {healRange}" + this.colorWisBonus(_local10)) + " squares"));
-            };
+            }
             if (_local16 != -1){
                 _local18 = (_local18 + "\n{hitsSelf}: Removes negative conditions on self");
-            };
+            }
             if (_local16 != -1){
                 _local18 = (_local18 + "\n{hitsGroup}: Removes negative conditions on group");
-            };
+            }
             this.effects.push(new Effect(_local18, {
                 damage:TooltipHelper.compare(_local11.a, _local11.b),
                 radius:TooltipHelper.compare(_local12.a, _local12.b),
@@ -820,13 +820,13 @@ package com.company.assembleegameclient.ui.tooltip{
             if (_local4.a){
                 if (_local4.a < 0){
                     _local14 = true;
-                };
+                }
                 _local15 = "reduced";
                 if (_local14){
                     _local15 = TooltipHelper.wrapInFontTag("increased", ("#" + TooltipHelper.NO_DIFF_COLOR.toString(16)));
-                };
+                }
                 _local13 = (_local13 + ((", " + _local15) + " by \n{decrDamage} for each subsequent target"));
-            };
+            }
             this.effects.push(new Effect(_local13, {
                 targets:TooltipHelper.compare(_local11.a, _local11.b),
                 damage:TooltipHelper.compare(_local12.a, _local12.b),
@@ -847,17 +847,17 @@ package com.company.assembleegameclient.ui.tooltip{
             _local10 = (_local10 + "{duration}");
             if (_local4.a){
                 _local10 = (_local10 + " at {angleOffset}");
-            };
+            }
             _local10 = (_local10 + "\n");
             if (_local5.a == 0){
                 _local10 = (_local10 + "Decoy does not move");
             }
             else {
                 _local10 = (_local10 + "{distance} in {travelTime}");
-            };
+            }
             if (_local9.a){
                 _local10 = (_local10 + "\nShots: {numShots}");
-            };
+            }
             this.effects.push(new Effect(_local10, {
                 duration:TooltipHelper.compareAndGetPlural(_local3.a, _local3.b, "second"),
                 angleOffset:TooltipHelper.compareAndGetPlural(_local4.a, _local4.b, "degree"),
@@ -879,7 +879,7 @@ package com.company.assembleegameclient.ui.tooltip{
             _local10 = (_local10 + "{totalDamage} damage");
             if (_local7.a){
                 _local10 = (_local10 + " ({impactDamage} on impact)");
-            };
+            }
             _local10 = (_local10 + " within {radius}");
             _local10 = (_local10 + " over {duration}");
             this.effects.push(new Effect(_local10, {
@@ -902,13 +902,13 @@ package com.company.assembleegameclient.ui.tooltip{
                     _local7 = ((_arg2.hasOwnProperty("@condEffect")) ? _arg2.@condEffect : _arg3);
                     if (_local7 == "Nothing"){
                         _local6.b = 0;
-                    };
-                };
+                    }
+                }
                 this.effects.push(new Effect("Inflicts {condition} for {duration} ", {
                     condition:_local5,
                     duration:TooltipHelper.compareAndGetPlural(_local6.a, _local6.b, "second")
                 }));
-            };
+            }
         }
 
         private function GetIntArgument(_arg1:XML, _arg2:String, _arg3:int=0):int{
@@ -926,7 +926,7 @@ package com.company.assembleegameclient.ui.tooltip{
         private function colorWisBonus(_arg1:Number):String{
             if (_arg1){
                 return (TooltipHelper.wrapInFontTag(((" (+" + _arg1) + ")"), ("#" + TooltipHelper.WIS_BONUS_COLOR.toString(16))));
-            };
+            }
             return ("");
         }
 
@@ -935,10 +935,10 @@ package com.company.assembleegameclient.ui.tooltip{
             var _local3:Boolean = this.objectXML.hasOwnProperty("@setType");
             if (_local3){
                 return (TooltipHelper.wrapInFontTag(_arg1, ("#" + TooltipHelper.SET_COLOR.toString(16))));
-            };
+            }
             if (!_local2){
                 return (TooltipHelper.wrapInFontTag(_arg1, ("#" + TooltipHelper.UNTIERED_COLOR.toString(16))));
-            };
+            }
             return (_arg1);
         }
 
@@ -951,8 +951,8 @@ package com.company.assembleegameclient.ui.tooltip{
             for each (tag in matches) {
                 if (tag.@effect == effectValue){
                     return (tag);
-                };
-            };
+                }
+            }
             return (null);
         }
 
@@ -965,8 +965,8 @@ package com.company.assembleegameclient.ui.tooltip{
             for each (tag in matches) {
                 if (tag.@stat == statValue){
                     return (tag);
-                };
-            };
+                }
+            }
             return (null);
         }
 
@@ -977,11 +977,11 @@ package com.company.assembleegameclient.ui.tooltip{
                 if (_local2){
                     this.effects.push(new Effect(TextKey.ON_EQUIP, ""));
                     _local2 = false;
-                };
+                }
                 if (_local1.toString() == "IncrementStat"){
                     this.effects.push(new Effect(TextKey.INCREMENT_STAT, this.getComparedStatText(_local1)).setReplacementsColor(this.getComparedStatColor(_local1)));
-                };
-            };
+                }
+            }
         }
 
         private function getComparedStatText(_arg1:XML):Object{
@@ -1008,15 +1008,15 @@ package com.company.assembleegameclient.ui.tooltip{
             var otherMatches:XMLList;
             if (this.curItemXML != null){
                 otherMatches = this.curItemXML.ActivateOnEquip.(@stat == stat);
-            };
+            }
             if (((!((otherMatches == null))) && ((otherMatches.length() == 1)))){
                 match = XML(otherMatches[0]);
                 otherAmount = int(match.@amount);
                 textColor = TooltipHelper.getTextColor((amount - otherAmount));
-            };
+            }
             if (amount < 0){
                 textColor = 0xFF0000;
-            };
+            }
             return (textColor);
         }
 
@@ -1032,9 +1032,9 @@ package com.company.assembleegameclient.ui.tooltip{
                     }
                     else {
                         this.restrictions.push(new Restriction(TextKey.DOUBLE_CLICK_TAKE, 0xB3B3B3, false));
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         private function addAbilityItemRestrictions():void{
@@ -1048,7 +1048,7 @@ package com.company.assembleegameclient.ui.tooltip{
             }
             else {
                 this.restrictions.push(new Restriction(TextKey.DOUBLE_CLICK_TAKE_SHIFT_CLICK_USE, 0xFFFFFF, false));
-            };
+            }
         }
 
         private function addReusableItemRestrictions():void{
@@ -1064,10 +1064,10 @@ package com.company.assembleegameclient.ui.tooltip{
             this.restrictions = new Vector.<Restriction>();
             if (((((this.objectXML.hasOwnProperty("VaultItem")) && (!((this.invType == -1))))) && (!((this.invType == ObjectLibrary.idToType_["Vault Chest"]))))){
                 this.restrictions.push(new Restriction(TextKey.STORE_IN_VAULT, 16549442, true));
-            };
+            }
             if (this.objectXML.hasOwnProperty("Soulbound")){
                 this.restrictions.push(new Restriction(TextKey.ITEM_SOULBOUND, 0xB3B3B3, false));
-            };
+            }
             if (this.playerCanUse){
                 if (this.objectXML.hasOwnProperty("Usable")){
                     this.addAbilityItemRestrictions();
@@ -1077,7 +1077,7 @@ package com.company.assembleegameclient.ui.tooltip{
                     if (this.objectXML.hasOwnProperty("Consumable")){
                         if (this.objectXML.hasOwnProperty("Potion")){
                             this.restrictions.push(new Restriction("Potion", 0xB3B3B3, false));
-                        };
+                        }
                         this.addConsumableItemRestrictions();
                     }
                     else {
@@ -1086,27 +1086,27 @@ package com.company.assembleegameclient.ui.tooltip{
                         }
                         else {
                             this.addEquipmentItemRestrictions();
-                        };
-                    };
-                };
+                        }
+                    }
+                }
             }
             else {
                 if (this.player != null){
                     this.restrictions.push(new Restriction(TextKey.NOT_USABLE_BY, 16549442, true));
-                };
-            };
+                }
+            }
             var _local1:Vector.<String> = ObjectLibrary.usableBy(this.objectType);
             if (_local1 != null){
                 this.restrictions.push(new Restriction(TextKey.USABLE_BY, 0xB3B3B3, false));
-            };
+            }
             for each (_local2 in this.objectXML.EquipRequirement) {
                 _local3 = ObjectLibrary.playerMeetsRequirement(_local2, this.player);
                 if (_local2.toString() == "Stat"){
                     _local4 = int(_local2.@stat);
                     _local5 = int(_local2.@value);
                     this.restrictions.push(new Restriction(((("Requires " + StatData.statToName(_local4)) + " of ") + _local5), ((_local3) ? 0xB3B3B3 : 16549442), ((_local3) ? false : true)));
-                };
-            };
+                }
+            }
         }
 
         private function makeLineTwo():void{
@@ -1126,7 +1126,7 @@ package com.company.assembleegameclient.ui.tooltip{
                 this.restrictionsText.filters = FilterUtil.getStandardDropShadowFilter();
                 waiter.push(this.restrictionsText.textChanged);
                 addChild(this.restrictionsText);
-            };
+            }
         }
 
         private function makeSetInfoText():void{
@@ -1137,7 +1137,7 @@ package com.company.assembleegameclient.ui.tooltip{
                 waiter.push(this.setInfoText.textChanged);
                 addChild(this.setInfoText);
                 this.makeLineThree();
-            };
+            }
         }
 
         private function getSetBonusStringBuilder():AppendingLineBuilder{
@@ -1163,7 +1163,7 @@ package com.company.assembleegameclient.ui.tooltip{
                     usableClasses:this.getUsableClasses(),
                     keyCode:KeyCodes.CharCodeStrings[Parameters.data_.useSpecial]
                 }, _local3, _local4);
-            };
+            }
             return (_local1);
         }
 
@@ -1174,7 +1174,7 @@ package com.company.assembleegameclient.ui.tooltip{
             _local2.setDelimiter(", ");
             for each (_local3 in _local1) {
                 _local2.pushParams(_local3);
-            };
+            }
             return (_local2);
         }
 
@@ -1189,8 +1189,8 @@ package com.company.assembleegameclient.ui.tooltip{
                 }
                 else {
                     this.descText.setStringBuilder(new LineBuilder().setParams(String(this.objectXML.Description)));
-                };
-            };
+                }
+            }
             this.descText.filters = FilterUtil.getStandardDropShadowFilter();
             waiter.push(this.descText.textChanged);
             addChild(this.descText);
@@ -1202,7 +1202,7 @@ package com.company.assembleegameclient.ui.tooltip{
             if (this.tierText){
                 this.tierText.y = ((this.icon.height / 2) - (this.tierText.height / 2));
                 this.tierText.x = (MAX_WIDTH - 30);
-            };
+            }
             this.descText.x = 4;
             this.descText.y = (this.icon.height + 2);
             if (contains(this.line1)){
@@ -1214,7 +1214,7 @@ package com.company.assembleegameclient.ui.tooltip{
             else {
                 this.line1.y = (this.descText.y + this.descText.height);
                 this.effectsText.y = this.line1.y;
-            };
+            }
             if (this.setInfoText){
                 this.line3.x = 8;
                 this.line3.y = ((this.effectsText.y + this.effectsText.height) + 8);
@@ -1226,26 +1226,26 @@ package com.company.assembleegameclient.ui.tooltip{
             else {
                 this.line2.x = 8;
                 this.line2.y = ((this.effectsText.y + this.effectsText.height) + 8);
-            };
+            }
             var _local1:uint = (this.line2.y + 8);
             if (this.restrictionsText){
                 this.restrictionsText.x = 4;
                 this.restrictionsText.y = _local1;
                 _local1 = (_local1 + this.restrictionsText.height);
-            };
+            }
             if (this.powerText){
                 if (contains(this.powerText)){
                     this.powerText.x = 4;
                     this.powerText.y = _local1;
                     _local1 = (_local1 + this.powerText.height);
-                };
-            };
+                }
+            }
             if (this.supporterPointsText){
                 if (contains(this.supporterPointsText)){
                     this.supporterPointsText.x = 4;
                     this.supporterPointsText.y = _local1;
-                };
-            };
+                }
+            }
         }
 
         private function buildCategorySpecificText():void{
@@ -1254,7 +1254,7 @@ package com.company.assembleegameclient.ui.tooltip{
             }
             else {
                 this.comparisonResults = new SlotComparisonResult();
-            };
+            }
         }
 
         private function handleWisMod():void{
@@ -1264,20 +1264,20 @@ package com.company.assembleegameclient.ui.tooltip{
             var _local6:String;
             if (this.player == null){
                 return;
-            };
+            }
             var _local1:Number = this.player.wisdom_;
             if (_local1 < 30){
                 return;
-            };
+            }
             var _local2:Vector.<XML> = new Vector.<XML>();
             if (this.curItemXML != null){
                 this.curItemXML = this.curItemXML.copy();
                 _local2.push(this.curItemXML);
-            };
+            }
             if (this.objectXML != null){
                 this.objectXML = this.objectXML.copy();
                 _local2.push(this.objectXML);
-            };
+            }
             for each (_local4 in _local2) {
                 for each (_local3 in _local4.Activate) {
                     _local5 = _local3.toString();
@@ -1306,11 +1306,11 @@ package com.company.assembleegameclient.ui.tooltip{
                                     _local3.@duration = this.modifyWisModStat(_local3.@duration);
                                     _local3.@range = this.modifyWisModStat(_local3.@range);
                                     break;
-                            };
-                        };
-                    };
-                };
-            };
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         private function modifyWisModStat(_arg1:String, _arg2:Number=1):String{
@@ -1332,8 +1332,8 @@ package com.company.assembleegameclient.ui.tooltip{
                 }
                 else {
                     _local3 = _local7.toFixed(0);
-                };
-            };
+                }
+            }
             return (_local3);
         }
 
@@ -1353,7 +1353,7 @@ class ComPair {
         this.a = (this.b = ((_arg1.hasOwnProperty(("@" + _arg3))) ? _arg1.@[_arg3] : _arg4));
         if (_arg2){
             this.b = ((_arg2.hasOwnProperty(("@" + _arg3))) ? _arg2.@[_arg3] : _arg4);
-        };
+        }
     }
 
     public function add(_arg1:Number):void{
@@ -1372,7 +1372,7 @@ class ComPairTag {
         this.a = (this.b = ((_arg1.hasOwnProperty(_arg3)) ? _arg1[_arg3] : _arg4));
         if (_arg2){
             this.b = ((_arg2.hasOwnProperty(_arg3)) ? _arg2[_arg3] : _arg4);
-        };
+        }
     }
 
     public function add(_arg1:Number):void{
@@ -1391,7 +1391,7 @@ class ComPairTagBool {
         this.a = (this.b = ((_arg1.hasOwnProperty(_arg3)) ? true : _arg4));
         if (_arg2){
             this.b = ((_arg2.hasOwnProperty(_arg3)) ? true : _arg4);
-        };
+        }
     }
 
 }
@@ -1426,7 +1426,7 @@ class Effect {
         if (this.replacementColor_){
             _local2 = (('</font><font color="#' + this.replacementColor_.toString(16)) + '">');
             _local3 = (('</font><font color="#' + this.color_.toString(16)) + '">');
-        };
+        }
         for (_local4 in this.valueReplacements_) {
             if ((this.valueReplacements_[_local4] is AppendingLineBuilder)){
                 _local1[_local4] = this.valueReplacements_[_local4];
@@ -1439,9 +1439,9 @@ class Effect {
                 }
                 else {
                     _local1[_local4] = ((_local2 + this.valueReplacements_[_local4]) + _local3);
-                };
-            };
-        };
+                }
+            }
+        }
         return (_local1);
     }
 

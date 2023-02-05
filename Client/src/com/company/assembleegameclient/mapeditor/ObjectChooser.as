@@ -36,14 +36,14 @@ package com.company.assembleegameclient.mapeditor{
             var _local2:Vector.<String> = new Vector.<String>();
             if (_arg1 != ""){
                 _local3 = new RegExp(_arg1, "gix");
-            };
+            }
             var _local4:Dictionary = GroupDivider.GROUPS["Basic Objects"];
             for each (_local6 in _local4) {
                 _local5 = String(_local6.@id);
                 if ((((_local3 == null)) || ((_local5.search(_local3) >= 0)))){
                     _local2.push(_local5);
-                };
-            };
+                }
+            }
             _local2.sort(MoreStringUtil.cmp);
             for each (_local5 in _local2) {
                 _local7 = ObjectLibrary.idToType_[_local5];
@@ -54,9 +54,9 @@ package com.company.assembleegameclient.mapeditor{
                 }
                 else {
                     _local8 = this.cache[_local7];
-                };
+                }
                 addElement(_local8);
-            };
+            }
             hasBeenLoaded = true;
             scrollBar_.setIndicatorSize(HEIGHT, elementContainer_.height, true);
         }

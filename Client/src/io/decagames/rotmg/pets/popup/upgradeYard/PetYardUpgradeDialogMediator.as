@@ -70,11 +70,11 @@ package io.decagames.rotmg.pets.popup.upgradeYard{
             if ((((_arg1 == Currency.GOLD)) && ((this.currentGold < _arg2)))){
                 this.showDialog.dispatch(new NotEnoughResources(300, Currency.GOLD));
                 return;
-            };
+            }
             if ((((_arg1 == Currency.FAME)) && ((this.currentFame < _arg2)))){
                 this.showDialog.dispatch(new NotEnoughResources(300, Currency.FAME));
                 return;
-            };
+            }
             var _local3:int = this.model.getPetYardObjectID();
             var _local4:UpgradePetYardRequestVO = new UpgradePetYardRequestVO(_local3, _arg1);
             this.closePopupSignal.dispatch(this.view);
@@ -85,10 +85,10 @@ package io.decagames.rotmg.pets.popup.upgradeYard{
             var _local1:Player = this.gameModel.player;
             if (_local1 != null){
                 return (_local1.credits_);
-            };
+            }
             if (this.playerModel != null){
                 return (this.playerModel.getCredits());
-            };
+            }
             return (0);
         }
 
@@ -96,10 +96,10 @@ package io.decagames.rotmg.pets.popup.upgradeYard{
             var _local1:Player = this.gameModel.player;
             if (_local1 != null){
                 return (_local1.fame_);
-            };
+            }
             if (this.playerModel != null){
                 return (this.playerModel.getFame());
-            };
+            }
             return (0);
         }
 

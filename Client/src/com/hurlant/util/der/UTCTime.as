@@ -32,7 +32,7 @@ package com.hurlant.util.der{
             }
             else {
                 _local2 = (_local2 + 1900);
-            };
+            }
             var _local3:uint = parseInt(_arg1.substr(2, 2));
             var _local4:uint = parseInt(_arg1.substr(4, 2));
             var _local5:uint = parseInt(_arg1.substr(6, 2));

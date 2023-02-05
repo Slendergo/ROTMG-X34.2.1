@@ -41,8 +41,8 @@ package com.hurlant.util.der{
                 while (_local7 > 0) {
                     _local5 = ((_local5 << 8) | _arg1.readUnsignedByte());
                     _local7--;
-                };
-            };
+                }
+            }
             switch (_local3){
                 case 0:
                 case 16:
@@ -51,12 +51,12 @@ package com.hurlant.util.der{
                     _local10 = (_arg2 as Array);
                     if (_local10 != null){
                         _local10 = _local10.concat();
-                    };
+                    }
                     while (_arg1.position < (_local8 + _local5)) {
                         _local15 = null;
                         if (_local10 != null){
                             _local15 = _local10.shift();
-                        };
+                        }
                         if (_local15 != null){
                             while (((_local15) && (_local15.optional))) {
                                 _local16 = (_local15.value is Array);
@@ -68,9 +68,9 @@ package com.hurlant.util.der{
                                 }
                                 else {
                                     break;
-                                };
-                            };
-                        };
+                                }
+                            }
+                        }
                         if (_local15 != null){
                             _local18 = _local15.name;
                             _local19 = _local15.value;
@@ -79,22 +79,22 @@ package com.hurlant.util.der{
                                 _local22 = new ByteArray();
                                 _local22.writeBytes(_arg1, _arg1.position, _local21);
                                 _local9[(_local18 + "_bin")] = _local22;
-                            };
+                            }
                             _local20 = DER.parse(_arg1, _local19);
                             _local9.push(_local20);
                             _local9[_local18] = _local20;
                         }
                         else {
                             _local9.push(DER.parse(_arg1));
-                        };
-                    };
+                        }
+                    }
                     return (_local9);
                 case 17:
                     _local8 = _arg1.position;
                     _local11 = new Set(_local3, _local5);
                     while (_arg1.position < (_local8 + _local5)) {
                         _local11.push(DER.parse(_arg1));
-                    };
+                    }
                     return (_local11);
                 case 2:
                     _local6 = new ByteArray();
@@ -112,7 +112,7 @@ package com.hurlant.util.der{
                     if (_arg1[_arg1.position] == 0){
                         _arg1.position++;
                         _local5--;
-                    };
+                    }
                 case 4:
                     _local12 = new ByteString(_local3, _local5);
                     _arg1.readBytes(_local12, 0, _local5);
@@ -132,7 +132,7 @@ package com.hurlant.util.der{
                     _local14 = new UTCTime(_local3, _local5);
                     _local14.setUTCTime(_arg1.readMultiByte(_local5, "US-ASCII"));
                     return (_local14);
-            };
+            }
         }
 
         private static function getLengthOfNextElement(_arg1:ByteArray):int{
@@ -146,8 +146,8 @@ package com.hurlant.util.der{
                 while (_local4 > 0) {
                     _local3 = ((_local3 << 8) | _arg1.readUnsignedByte());
                     _local4--;
-                };
-            };
+                }
+            }
             _local3 = (_local3 + (_arg1.position - _local2));
             _arg1.position = _local2;
             return (_local3);
@@ -189,10 +189,10 @@ package com.hurlant.util.der{
                             _local3.writeByte((_local4 >> 16));
                             _local3.writeByte((_local4 >> 8));
                             _local3.writeByte(_local4);
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             _local3.writeBytes(_arg2);
             _local3.position = 0;
             return (_local3);

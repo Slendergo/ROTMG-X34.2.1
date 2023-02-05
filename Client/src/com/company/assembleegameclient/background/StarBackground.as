@@ -24,7 +24,7 @@ package com.company.assembleegameclient.background{
             while (_local1 < 100) {
                 this.tryAddStar();
                 _local1++;
-            };
+            }
         }
 
         override public function draw(_arg1:Camera, _arg2:int):void{
@@ -32,7 +32,7 @@ package com.company.assembleegameclient.background{
             this.graphicsData_.length = 0;
             for each (_local3 in this.stars_) {
                 _local3.draw(this.graphicsData_, _arg1, _arg2);
-            };
+            }
             graphics.clear();
             graphics.drawGraphicsData(this.graphicsData_);
         }
@@ -44,8 +44,8 @@ package com.company.assembleegameclient.background{
             for each (_local3 in this.stars_) {
                 if (PointUtil.distanceXY(_local2.x_, _local2.y_, _local3.x_, _local3.y_) < 3){
                     return;
-                };
-            };
+                }
+            }
             this.stars_.push(_local2);
         }
 

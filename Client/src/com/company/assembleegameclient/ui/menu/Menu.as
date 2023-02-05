@@ -69,36 +69,36 @@ package com.company.assembleegameclient.ui.menu{
         protected function onEnterFrame(_arg1:Event):void{
             if (stage == null){
                 return;
-            };
+            }
             var _local2:Rectangle = getRect(stage);
             var _local3:Number = RectangleUtil.pointDist(_local2, stage.mouseX, stage.mouseY);
             if (_local3 > 40){
                 this.remove();
-            };
+            }
         }
 
         private function position():void{
             if (stage == null){
                 return;
-            };
+            }
             if (stage.mouseX < (stage.stageWidth / 2)){
                 x = (stage.mouseX + 12);
             }
             else {
                 x = ((stage.mouseX - width) - 1);
-            };
+            }
             if (x < 12){
                 x = 12;
-            };
+            }
             if (stage.mouseY < (stage.stageHeight / 3)){
                 y = (stage.mouseY + 12);
             }
             else {
                 y = ((stage.mouseY - height) - 1);
-            };
+            }
             if (y < 12){
                 y = 12;
-            };
+            }
         }
 
         protected function onRollOut(_arg1:Event):void{
@@ -108,7 +108,7 @@ package com.company.assembleegameclient.ui.menu{
         public function remove():void{
             if (parent != null){
                 parent.removeChild(this);
-            };
+            }
         }
 
         protected function draw():void{

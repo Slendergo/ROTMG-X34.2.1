@@ -115,7 +115,7 @@ package io.decagames.rotmg.social{
             var _local3:TabButton = this._tabs.getTabButtonByLabel(_arg2);
             if (_local3){
                 _local3.showIndicator = _arg1;
-            };
+            }
         }
 
         public function clearFriendsList():void{
@@ -199,7 +199,7 @@ package io.decagames.rotmg.social{
             this._tabContent.addChild(_arg2);
             if (_arg4){
                 this.createSearchAndAdd();
-            };
+            }
             _arg2.y = ((_arg4) ? 50 : 85);
             _arg2.addChild(_arg3);
             var _local6:int = ((_arg4) ? 410 : 375);

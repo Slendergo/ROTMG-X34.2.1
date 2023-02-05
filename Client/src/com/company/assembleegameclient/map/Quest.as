@@ -22,7 +22,7 @@ package com.company.assembleegameclient.map{
             if ((((this.objectId_ == -1)) && (!((_arg1 == -1))))){
                 this.questAvailableAt_ = (getTimer() + 200);
                 this.questOldAt_ = this.questAvailableAt_;
-            };
+            }
             this.objectId_ = _arg1;
         }
 
@@ -34,7 +34,7 @@ package com.company.assembleegameclient.map{
         public function getObject(_arg1:int):GameObject{
             if (_arg1 < this.questAvailableAt_){
                 return (null);
-            };
+            }
             return (this.map_.goDict_[this.objectId_]);
         }
 

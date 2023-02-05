@@ -101,7 +101,7 @@ package kabam.rotmg.constants{
                     return ("Wakizashi");
                 case LUTE_TYPE:
                     return ("Lute");
-            };
+            }
             return ("EquipmentType.InvalidType");
         }
 
@@ -188,7 +188,7 @@ package kabam.rotmg.constants{
                 case LUTE_TYPE:
                     _local2 = AssetLibrary.getImageFromSet("lofiObj6", 208);
                     break;
-            };
+            }
             return (_local2);
         }
 

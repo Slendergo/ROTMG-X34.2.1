@@ -58,13 +58,13 @@ package kabam.rotmg.build.impl{
                     else {
                         if (_local3.domain == ROTMG_TESTING3){
                             this.environment = BuildEnvironment.TESTING3;
-                        };
-                    };
-                };
+                        }
+                    }
+                }
             }
             else {
                 this.environment = this.environments.getEnvironment(_arg1);
-            };
+            }
         }
 
         private function conditionsRequireTesting(_arg1:String):Boolean{

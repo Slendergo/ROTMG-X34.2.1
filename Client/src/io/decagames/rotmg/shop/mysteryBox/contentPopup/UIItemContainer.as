@@ -65,7 +65,7 @@ package io.decagames.rotmg.shop.mysteryBox.contentPopup{
             var _local1:UIItemContainer = new UIItemContainer(this._itemId, this.background, this.backgroundAlpha, this.size);
             if (this._quantity > 1){
                 _local1.showQuantityLabel(this._quantity);
-            };
+            }
             return (_local1);
         }
 

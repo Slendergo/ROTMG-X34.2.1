@@ -40,19 +40,19 @@ package io.decagames.rotmg.dailyQuests.command{
                     _local2.repeatable = _local1.repeatable;
                     _local2.weight = _local1.weight;
                     this._questsList.push(_local2);
-                };
+                }
                 this._questsList.sort(this.questWeightSort);
                 this.model.addQuests(this._questsList);
-            };
+            }
         }
 
         private function questWeightSort(_arg1:DailyQuest, _arg2:DailyQuest):int{
             if (_arg1.weight > _arg2.weight){
                 return (-1);
-            };
+            }
             if (_arg1.weight < _arg2.weight){
                 return (1);
-            };
+            }
             return (0);
         }
 

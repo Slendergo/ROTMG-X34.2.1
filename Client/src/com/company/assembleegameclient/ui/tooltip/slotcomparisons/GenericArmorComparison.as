@@ -27,7 +27,7 @@ package com.company.assembleegameclient.ui.tooltip.slotcomparisons{
             if ((((this.defTags.length() == 1)) && ((this.otherDefTags.length() == 1)))){
                 defense = int(this.defTags.@amount);
                 otherDefense = int(this.otherDefTags.@amount);
-            };
+            }
         }
 
         private function compareDefense(_arg1:int, _arg2:int):String{

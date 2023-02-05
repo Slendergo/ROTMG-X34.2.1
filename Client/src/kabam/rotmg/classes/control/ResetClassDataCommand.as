@@ -21,7 +21,7 @@ package kabam.rotmg.classes.control{
             while (_local2 < _local1) {
                 this.resetClass(this.classes.getClassAtIndex(_local2));
                 _local2++;
-            };
+            }
         }
 
         private function resetClass(_arg1:CharacterClass):void{
@@ -38,9 +38,9 @@ package kabam.rotmg.classes.control{
                 _local5 = _arg1.skins.getSkinAt(_local4);
                 if (_local5 != _local2){
                     this.resetSkin(_arg1.skins.getSkinAt(_local4));
-                };
+                }
                 _local4++;
-            };
+            }
         }
 
         private function resetSkin(_arg1:CharacterSkin):void{

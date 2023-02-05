@@ -70,8 +70,8 @@ package com.company.assembleegameclient.editor{
                     graphics.drawRect(0, 0, WIDTH, HEIGHT);
                     graphics.endFill();
                     graphics.lineStyle();
-                };
-            };
+                }
+            }
         }
 
         private function onMouseOver(_arg1:MouseEvent):void{

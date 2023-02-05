@@ -25,7 +25,7 @@ package com.hurlant.crypto.prng{
             super();
             if (_arg1 == null){
                 _arg1 = ARC4;
-            };
+            }
             this.state = (new (_arg1)() as IPRNG);
             this.psize = this.state.getPoolSize();
             this.pool = new ByteArray();
@@ -36,7 +36,7 @@ package com.hurlant.crypto.prng{
                 this.pool[_local3] = (_local2 >>> 8);
                 var _local4 = this.pptr++;
                 this.pool[_local4] = (_local2 & 0xFF);
-            };
+            }
             this.pptr = 0;
             this.seed();
         }
@@ -44,7 +44,7 @@ package com.hurlant.crypto.prng{
         public function seed(_arg1:int=0):void{
             if (_arg1 == 0){
                 _arg1 = new Date().getTime();
-            };
+            }
             var _local2 = this.pptr++;
             this.pool[_local2] = (this.pool[_local2] ^ (_arg1 & 0xFF));
             var _local3 = this.pptr++;
@@ -69,29 +69,29 @@ package com.hurlant.crypto.prng{
                 _local1.writeUTF(_local3.fontName);
                 _local1.writeUTF(_local3.fontStyle);
                 _local1.writeUTF(_local3.fontType);
-            };
+            }
             _local1.position = 0;
             while (_local1.bytesAvailable >= 4) {
                 this.seed(_local1.readUnsignedInt());
-            };
+            }
         }
 
         public function nextBytes(_arg1:ByteArray, _arg2:int):void{
             while (_arg2--) {
                 _arg1.writeByte(this.nextByte());
-            };
+            }
         }
 
         public function nextByte():int{
             if (!this.ready){
                 if (!this.seeded){
                     this.autoSeed();
-                };
+                }
                 this.state.init(this.pool);
                 this.pool.length = 0;
                 this.pptr = 0;
                 this.ready = true;
-            };
+            }
             return (this.state.next());
         }
 
@@ -100,7 +100,7 @@ package com.hurlant.crypto.prng{
             while (_local1 < this.pool.length) {
                 this.pool[_local1] = (Math.random() * 0x0100);
                 _local1++;
-            };
+            }
             this.pool.length = 0;
             this.pool = null;
             this.state.dispose();

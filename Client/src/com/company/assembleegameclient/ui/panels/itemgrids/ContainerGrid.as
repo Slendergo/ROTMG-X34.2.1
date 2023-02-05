@@ -24,7 +24,7 @@ package com.company.assembleegameclient.ui.panels.itemgrids{
                 addToGrid(_local4, 2, _local3);
                 this.tiles[_local3] = _local4;
                 _local3++;
-            };
+            }
         }
 
         override public function setItems(_arg1:Vector.<int>, _arg2:int=0):void{
@@ -39,19 +39,19 @@ package com.company.assembleegameclient.ui.panels.itemgrids{
                     if ((_local5 + indexOffset) < _local4){
                         if (this.tiles[_local5].setItem(_arg1[(_local5 + indexOffset)])){
                             _local3 = true;
-                        };
+                        }
                     }
                     else {
                         if (this.tiles[_local5].setItem(-1)){
                             _local3 = true;
-                        };
-                    };
+                        }
+                    }
                     _local5++;
-                };
+                }
                 if (_local3){
                     refreshTooltip();
-                };
-            };
+                }
+            }
         }
 
 

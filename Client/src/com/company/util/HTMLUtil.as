@@ -31,10 +31,10 @@ package com.company.util{
                     _local3 = _local2[0];
                     if (_local3.indexOf("www.kabam") != -1){
                         _local3 = "http://www.realmofthemadgod.com";
-                    };
+                    }
                     ExternalInterface.call("window.location.assign", _local3);
-                };
-            };
+                }
+            }
         }
 
 

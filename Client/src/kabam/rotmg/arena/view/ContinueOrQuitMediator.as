@@ -67,7 +67,7 @@ package kabam.rotmg.arena.view{
             else {
                 this.view.setProcessing(true);
                 this.openMoneyWindow.dispatch();
-            };
+            }
         }
 
         private function onQuit():void{

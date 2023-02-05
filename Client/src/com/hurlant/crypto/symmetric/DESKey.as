@@ -48,19 +48,19 @@ package com.hurlant.crypto.symmetric{
             while (_local1 < this.encKey.length) {
                 this.encKey[_local1] = 0;
                 _local1++;
-            };
+            }
             _local1 = 0;
             while (_local1 < this.decKey.length) {
                 this.decKey[_local1] = 0;
                 _local1++;
-            };
+            }
             this.encKey = null;
             this.decKey = null;
             _local1 = 0;
             while (_local1 < this.key.length) {
                 this.key[_local1] = 0;
                 _local1++;
-            };
+            }
             this.key.length = 0;
             this.key = null;
             Memory.gc();
@@ -84,7 +84,7 @@ package com.hurlant.crypto.symmetric{
                 _local7 = pc1[_local8];
                 _local5[_local8] = !(((_arg2[(_arg3 + (_local7 >>> 3))] & bytebit[(_local7 & 7)]) == 0));
                 _local8++;
-            };
+            }
             var _local9:uint;
             while (_local9 < 16) {
                 if (_arg1){
@@ -92,7 +92,7 @@ package com.hurlant.crypto.symmetric{
                 }
                 else {
                     _local10 = ((15 - _local9) << 1);
-                };
+                }
                 _local11 = (_local10 + 1);
                 _local4[_local10] = (_local4[_local11] = 0);
                 _local8 = 0;
@@ -103,9 +103,9 @@ package com.hurlant.crypto.symmetric{
                     }
                     else {
                         _local6[_local8] = _local5[(_local7 - 28)];
-                    };
+                    }
                     _local8++;
-                };
+                }
                 _local8 = 28;
                 while (_local8 < 56) {
                     _local7 = (_local8 + totrot[_local9]);
@@ -114,21 +114,21 @@ package com.hurlant.crypto.symmetric{
                     }
                     else {
                         _local6[_local8] = _local5[(_local7 - 28)];
-                    };
+                    }
                     _local8++;
-                };
+                }
                 _local8 = 0;
                 while (_local8 < 24) {
                     if (_local6[pc2[_local8]]){
                         _local4[_local10] = (_local4[_local10] | bigbyte[_local8]);
-                    };
+                    }
                     if (_local6[pc2[(_local8 + 24)]]){
                         _local4[_local11] = (_local4[_local11] | bigbyte[_local8]);
-                    };
+                    }
                     _local8++;
-                };
+                }
                 _local9++;
-            };
+            }
             _local9 = 0;
             while (_local9 != 32) {
                 _local12 = _local4[_local9];
@@ -136,7 +136,7 @@ package com.hurlant.crypto.symmetric{
                 _local4[_local9] = (((((_local12 & 0xFC0000) << 6) | ((_local12 & 4032) << 10)) | ((_local13 & 0xFC0000) >>> 10)) | ((_local13 & 4032) >>> 6));
                 _local4[(_local9 + 1)] = (((((_local12 & 258048) << 12) | ((_local12 & 63) << 16)) | ((_local13 & 258048) >>> 4)) | (_local13 & 63));
                 _local9 = (_local9 + 2);
-            };
+            }
             return (_local4);
         }
 
@@ -197,7 +197,7 @@ package com.hurlant.crypto.symmetric{
                 _local10 = (_local10 | SP2[((_local6 >>> 24) & 63)]);
                 _local7 = (_local7 ^ _local10);
                 _local9++;
-            };
+            }
             _local7 = ((_local7 << 31) | (_local7 >>> 1));
             _local6 = ((_local8 ^ _local7) & 0xAAAAAAAA);
             _local8 = (_local8 ^ _local6);

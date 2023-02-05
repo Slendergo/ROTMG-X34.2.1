@@ -267,7 +267,7 @@ package com.company.assembleegameclient.util{
                 _local3 = _local2.readUTFBytes(_local2.length);
                 Model3D.parse3DOBJ(_local1, _local2);
                 Model3D.parseFromOBJ(_local1, _local3);
-            };
+            }
         }
 
         private function parseParticleEffects():void{
@@ -279,7 +279,7 @@ package com.company.assembleegameclient.util{
             var _local1:*;
             for each (_local1 in EmbeddedData.groundFiles) {
                 GroundLibrary.parseFromXML(XML(_local1));
-            };
+            }
         }
 
         private function parseObjectFiles():void{
@@ -289,24 +289,24 @@ package com.company.assembleegameclient.util{
                 currentXmlIsTesting = this.checkIsTestingXML(EmbeddedData.objectFiles[_local1]);
                 ObjectLibrary.parseFromXML(XML(EmbeddedData.objectFiles[_local1]));
                 _local1++;
-            };
+            }
             var _local2:int;
             while (_local2 < EmbeddedData.objectFiles.length) {
                 ObjectLibrary.parseDungeonXML(getQualifiedClassName(EmbeddedData.objectFiles[_local2]), XML(EmbeddedData.objectFiles[_local2]));
                 _local2++;
-            };
+            }
             ObjectLibrary.parseFromXML(XML(EmbeddedData.objectFiles[_local1]));
             currentXmlIsTesting = false;
             for each (_local3 in EmbeddedData.objectPatchFiles) {
                 ObjectLibrary.parsePatchXML(XML(_local3));
-            };
+            }
         }
 
         private function parseRegionFiles():void{
             var _local1:*;
             for each (_local1 in EmbeddedData.regionFiles) {
                 RegionLibrary.parseFromXML(XML(_local1));
-            };
+            }
         }
 
         private function checkIsTestingXML(_arg1):Boolean{

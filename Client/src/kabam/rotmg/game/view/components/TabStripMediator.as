@@ -87,20 +87,20 @@ package kabam.rotmg.game.view.components{
         private function addTabs(_arg1:Player):void{
             if (!_arg1){
                 return;
-            };
+            }
             this.view.addTab(this.iconFactory.makeIconBitmap(TabConstants.INVENTORY_ICON_ID), new InventoryTabContent(_arg1));
             if (this.doShowStats){
                 this.view.addTab(this.iconFactory.makeIconBitmap(TabConstants.STATS_ICON_ID), new StatsTabContent(this.view.HEIGHT));
-            };
+            }
             if (_arg1.hasBackpack_){
                 this.view.addTab(this.iconFactory.makeIconBitmap(TabConstants.BACKPACK_ICON_ID), new BackpackTabContent(_arg1));
             }
             else {
                 this.updateBackpack.add(this.onUpdateBackPack);
-            };
+            }
             if (this.petModel.getActivePet()){
                 this.view.addTab(this.iconFactory.makeIconBitmap(TabConstants.PETS_ICON_ID), new PetsTabContentView());
-            };
+            }
         }
 
         private function clearTabs():void{
@@ -117,7 +117,7 @@ package kabam.rotmg.game.view.components{
                 _local2 = this.hudModel.gameSprite.map.player_;
                 this.view.addTab(this.iconFactory.makeIconBitmap(TabConstants.BACKPACK_ICON_ID), new BackpackTabContent(_local2));
                 this.updateBackpack.remove(this.onUpdateBackPack);
-            };
+            }
         }
 
         private function onNotifyActivePetUpdated():void{

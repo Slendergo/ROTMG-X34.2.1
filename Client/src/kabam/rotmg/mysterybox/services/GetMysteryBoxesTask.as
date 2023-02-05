@@ -50,7 +50,7 @@ package kabam.rotmg.mysterybox.services{
             else {
                 this.logger.warn("GetMysteryBox.onComplete: Request failed.");
                 completeTask(true);
-            };
+            }
             reset();
         }
 
@@ -60,19 +60,19 @@ package kabam.rotmg.mysterybox.services{
             var _local3:XMLList = XML(_arg1).child("SoldCounter");
             if (_local3.length() > 0){
                 this.updateSoldCounters(_local3);
-            };
+            }
             if (_local2.length() > 0){
                 this.parse(_local2);
             }
             else {
                 if (this.mysteryBoxModel.isInitialized()){
                     this.mysteryBoxModel.updateSignal.dispatch();
-                };
-            };
+                }
+            }
             var _local4:XMLList = XML(_arg1).child("FortuneGame");
             if (_local4.length() > 0){
                 this.parseFortune(_local4);
-            };
+            }
             completeTask(true);
         }
 
@@ -107,11 +107,11 @@ package kabam.rotmg.mysterybox.services{
                 _local3 = this.mysteryBoxModel.getBoxById(_local2.attribute("id").toString());
                 if (_local2.attribute("left") != "-1"){
                     _local3.unitsLeft = _local2.attribute("left");
-                };
+                }
                 if (_local2.attribute("purchaseLeft") != "-1"){
                     _local3.purchaseLeft = _local2.attribute("purchaseLeft");
-                };
-            };
+                }
+            }
         }
 
         private function parse(_arg1:XMLList):void{
@@ -131,46 +131,46 @@ package kabam.rotmg.mysterybox.services{
                 if (_local4.hasOwnProperty("Sale")){
                     _local5.saleAmount = _local4.Sale.attribute("price").toString();
                     _local5.saleCurrency = _local4.Sale.attribute("currency").toString();
-                };
+                }
                 if (_local4.hasOwnProperty("Left")){
                     _local5.unitsLeft = _local4.Left;
-                };
+                }
                 if (_local4.hasOwnProperty("Total")){
                     _local5.totalUnits = _local4.Total;
-                };
+                }
                 if (_local4.hasOwnProperty("Slot")){
                     _local5.slot = _local4.Slot;
-                };
+                }
                 if (_local4.hasOwnProperty("Jackpots")){
                     _local5.jackpots = _local4.Jackpots;
-                };
+                }
                 if (_local4.hasOwnProperty("DisplayedItems")){
                     _local5.displayedItems = _local4.DisplayedItems;
-                };
+                }
                 if (_local4.hasOwnProperty("Rolls")){
                     _local5.rolls = int(_local4.Rolls);
-                };
+                }
                 if (_local4.hasOwnProperty("Tags")){
                     _local5.tags = _local4.Tags;
-                };
+                }
                 if (_local4.hasOwnProperty("MaxPurchase")){
                     _local5.maxPurchase = _local4.MaxPurchase;
-                };
+                }
                 if (_local4.hasOwnProperty("PurchaseLeft")){
                     _local5.purchaseLeft = int(_local4.PurchaseLeft);
-                };
+                }
                 _local5.iconImageUrl = _local4.Icon.toString();
                 _local5.infoImageUrl = _local4.Image.toString();
                 _local5.startTime = TimeUtil.parseUTCDate(_local4.StartTime.toString());
                 if (_local4.EndTime.toString()){
                     _local5.endTime = TimeUtil.parseUTCDate(_local4.EndTime.toString());
-                };
+                }
                 _local5.parseContents();
                 if (((!(_local3)) && (((_local5.isNew()) || (_local5.isOnSale()))))){
                     _local3 = true;
-                };
+                }
                 _local2.push(_local5);
-            };
+            }
             this.mysteryBoxModel.setMysetryBoxes(_local2);
             this.mysteryBoxModel.isNew = _local3;
         }

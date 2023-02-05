@@ -32,7 +32,7 @@ package kabam.rotmg.messaging.impl.outgoing{
             while (_local2 < this.records_.length) {
                 this.records_[_local2].writeToOutput(_arg1);
                 _local2++;
-            };
+            }
         }
 
         override public function toString():String{

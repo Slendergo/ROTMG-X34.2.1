@@ -30,10 +30,10 @@ package io.decagames.rotmg.ui.spinner{
             _value = this._numbers.indexOf(_arg1);
             if (_value < 0){
                 _value = 0;
-            };
+            }
             if (_value != _local2){
                 valueWasChanged.dispatch(this.value);
-            };
+            }
             this.updateLabel();
         }
 

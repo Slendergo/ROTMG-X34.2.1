@@ -61,13 +61,13 @@ package io.decagames.rotmg.ui.spinner{
             this._value = (this._value + _arg1);
             if (this._value > this.maxValue){
                 this._value = this.maxValue;
-            };
+            }
             if (this._value < this.minValue){
                 this._value = this.minValue;
-            };
+            }
             if (this._value != _local2){
                 this.valueWasChanged.dispatch(this.value);
-            };
+            }
             this.updateLabel();
         }
 
@@ -76,7 +76,7 @@ package io.decagames.rotmg.ui.spinner{
             this._value = _arg1;
             if (this._value != _local2){
                 this.valueWasChanged.dispatch(this.value);
-            };
+            }
             this.updateLabel();
         }
 

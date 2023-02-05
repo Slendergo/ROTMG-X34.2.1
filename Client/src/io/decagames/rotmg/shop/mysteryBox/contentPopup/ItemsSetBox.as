@@ -19,7 +19,7 @@ package io.decagames.rotmg.shop.mysteryBox.contentPopup{
                 _local3.y = _local2;
                 addChild(_local3);
                 _local2 = (_local2 + _local3.height);
-            };
+            }
             this.drawBackground(260);
         }
 
@@ -43,7 +43,7 @@ package io.decagames.rotmg.shop.mysteryBox.contentPopup{
             var _local1:ItemBox;
             for each (_local1 in this.items) {
                 _local1.dispose();
-            };
+            }
             this.items = null;
             super.dispose();
         }

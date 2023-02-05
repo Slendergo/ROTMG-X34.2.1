@@ -43,10 +43,10 @@ package com.company.assembleegameclient.objects.particles{
                     }
                     else {
                         _arg1[_local3] = applyColorTransform(_arg1[_local3], 0xFF9A00);
-                    };
-                };
+                    }
+                }
                 _local3++;
-            };
+            }
             return (_arg1);
         }
 
@@ -69,10 +69,10 @@ package com.company.assembleegameclient.objects.particles{
                 _local8 = TextureRedrawer.redraw(_local5.images_[_local6], 120, true, 16768115, true, 5, 16768115, 1.4);
                 if (_arg3 != 0){
                     _local8 = applyColorTransform(_local8, _arg3);
-                };
+                }
                 _local4.push(_local8);
                 _local6++;
-            };
+            }
             return (_local4);
         }
 

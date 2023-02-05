@@ -78,7 +78,7 @@ package com.company.util{
                     _local10 = _local6;
                     _local11 = _local7;
                     break;
-            };
+            }
             return ((((int(Math.min(0xFF, Math.floor((_local9 * 0xFF)))) << 16) | (int(Math.min(0xFF, Math.floor((_local10 * 0xFF)))) << 8)) | int(Math.min(0xFF, Math.floor((_local11 * 0xFF))))));
         }
 
@@ -107,10 +107,10 @@ package com.company.util{
         public static function lerpColorTransform(_arg1:ColorTransform, _arg2:ColorTransform, _arg3:Number):ColorTransform{
             if (_arg1 == null){
                 _arg1 = identity;
-            };
+            }
             if (_arg2 == null){
                 _arg2 = identity;
-            };
+            }
             var _local4:Number = (1 - _arg3);
             var _local5:ColorTransform = new ColorTransform(((_arg1.redMultiplier * _local4) + (_arg2.redMultiplier * _arg3)), ((_arg1.greenMultiplier * _local4) + (_arg2.greenMultiplier * _arg3)), ((_arg1.blueMultiplier * _local4) + (_arg2.blueMultiplier * _arg3)), ((_arg1.alphaMultiplier * _local4) + (_arg2.alphaMultiplier * _arg3)), ((_arg1.redOffset * _local4) + (_arg2.redOffset * _arg3)), ((_arg1.greenOffset * _local4) + (_arg2.greenOffset * _arg3)), ((_arg1.blueOffset * _local4) + (_arg2.blueOffset * _arg3)), ((_arg1.alphaOffset * _local4) + (_arg2.alphaOffset * _arg3)));
             return (_local5);

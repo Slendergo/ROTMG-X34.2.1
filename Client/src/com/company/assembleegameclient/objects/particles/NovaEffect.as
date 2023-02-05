@@ -35,7 +35,7 @@ package com.company.assembleegameclient.objects.particles{
                 _local9 = new SparkerParticle(_local3, this.color_, _local4, this.start_, _local8);
                 map_.addObj(_local9, x_, y_);
                 _local6++;
-            };
+            }
             return false;
         }
 
@@ -55,7 +55,7 @@ package com.company.assembleegameclient.objects.particles{
                 _local9 = new SparkerParticle(_local3, this.color_, _local4, this.start_, _local8);
                 map_.addObj(_local9, x_, y_);
                 _local6++;
-            };
+            }
             return false;
         }
 

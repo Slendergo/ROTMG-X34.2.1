@@ -72,8 +72,8 @@ package com.company.assembleegameclient.map{
                 }
                 else {
                     _local3 = SLIM_SCREENSHOT_SCREEN_RECT;
-                };
-            };
+                }
+            }
             var _local4:Number = Parameters.data_.cameraAngle;
             this.configure(_arg1.x_, _arg1.y_, 12, _local4, _local3);
             this.isHallucinating_ = _arg2;
@@ -89,15 +89,15 @@ package com.company.assembleegameclient.map{
                 this.jitter_ = (this.jitter_ + ((_arg1 * this.MAX_JITTER) / this.JITTER_BUILDUP_MS));
                 if (this.jitter_ > this.MAX_JITTER){
                     this.jitter_ = this.MAX_JITTER;
-                };
-            };
+                }
+            }
         }
 
         public function configure(_arg1:Number, _arg2:Number, _arg3:Number, _arg4:Number, _arg5:Rectangle):void{
             if (this.isJittering_){
                 _arg1 = (_arg1 + RandomUtil.plusMinus(this.jitter_));
                 _arg2 = (_arg2 + RandomUtil.plusMinus(this.jitter_));
-            };
+            }
             this.x_ = _arg1;
             this.y_ = _arg2;
             this.z_ = _arg3;

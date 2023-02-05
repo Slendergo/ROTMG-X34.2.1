@@ -147,7 +147,7 @@ package com.company.assembleegameclient.game{
         public function onChatDown(_arg1:MouseEvent):void{
             if (this.chatPlayerMenu != null){
                 this.removeChatPlayerMenu();
-            };
+            }
             mui_.onMouseDown(_arg1);
         }
 
@@ -173,10 +173,10 @@ package com.company.assembleegameclient.game{
                 else {
                     if ((((_arg4.length > 0)) && ((((((_arg4.charAt(0) == "#")) || ((_arg4.charAt(0) == "*")))) || ((_arg4.charAt(0) == "@")))))){
                         return;
-                    };
+                    }
                     this.chatPlayerMenu.initDifferentServer(this, _arg4, _arg5);
-                };
-            };
+                }
+            }
             addChild(this.chatPlayerMenu);
             this.chatPlayerMenu.x = _arg2;
             this.chatPlayerMenu.y = (_arg3 - this.chatPlayerMenu.height);
@@ -186,7 +186,7 @@ package com.company.assembleegameclient.game{
             if (((!((this.chatPlayerMenu == null))) && (!((this.chatPlayerMenu.parent == null))))){
                 removeChild(this.chatPlayerMenu);
                 this.chatPlayerMenu = null;
-            };
+            }
         }
 
         override public function applyMapInfo(_arg1:MapInfo):void{
@@ -208,12 +208,12 @@ package com.company.assembleegameclient.game{
             this.mapName = map.name_;
             if (this.evalIsNotInCombatMapArea()){
                 this.showSafeAreaDisplays();
-            };
+            }
             this.showHideKeyUISignal.dispatch((this.mapName == "Davy Jones' Locker"));
             if (this.mapName == "Arena"){
                 this.showTimer();
                 this.showWaveCounter();
-            };
+            }
             var _local1:Account = StaticInjectorContext.getInjector().getInstance(Account);
             this.isNexus_ = (this.mapName == Map.NEXUS);
             if (this.isNexus_){
@@ -231,7 +231,7 @@ package com.company.assembleegameclient.game{
             }
             else {
                 this.creditDisplay_ = new CreditDisplay(this);
-            };
+            }
             this.creditDisplay_.x = 594;
             addChild(this.creditDisplay_);
             if (((!(this.evalIsNotInCombatMapArea())) && (this.canShowRealmQuestDisplay(this.mapName)))){
@@ -243,7 +243,7 @@ package com.company.assembleegameclient.game{
             }
             else {
                 this.questModel.previousRealm = "";
-            };
+            }
             var _local2:AppEngineClient = StaticInjectorContext.getInjector().getInstance(AppEngineClient);
             var _local3:Object = {};
             MoreObjectUtil.addToObject(_local3, _local1.getCredentials());
@@ -251,28 +251,28 @@ package com.company.assembleegameclient.game{
                 Parameters.data_.watchForTutorialExit = false;
                 _local3["fteStepCompleted"] = 9900;
                 _local2.sendRequest("/log/logFteStep", _local3);
-            };
+            }
             if (this.mapName == "Kitchen"){
                 _local3["fteStepCompleted"] = 200;
                 _local2.sendRequest("/log/logFteStep", _local3);
-            };
+            }
             if (this.mapName == "Tutorial"){
                 if (Parameters.data_.needsTutorial == true){
                     Parameters.data_.watchForTutorialExit = true;
                     _local3["fteStepCompleted"] = 100;
                     _local2.sendRequest("/log/logFteStep", _local3);
-                };
+                }
                 this.startTutorial();
             }
             else {
                 if (((((((((((((!((this.mapName == "Arena"))) && (!((this.mapName == "Kitchen"))))) && (!((this.mapName == "Nexus Explanation"))))) && (!((this.mapName == "Vault Explanation"))))) && (!((this.mapName == "Guild Explanation"))))) && (!(this.evalIsNotInCombatMapArea())))) && (Parameters.data_.showProtips))){
                     _local4 = StaticInjectorContext.getInjector().getInstance(ShowProTipSignal);
                     ((_local4) && (_local4.dispatch()));
-                };
-            };
+                }
+            }
             if (this.mapName == Map.DAILY_QUEST_ROOM){
                 gsc_.questFetch();
-            };
+            }
             map.setHitAreaProps(map.width, map.height);
             Parameters.save();
             hidePreloader();
@@ -287,7 +287,7 @@ package com.company.assembleegameclient.game{
                 if (this.questModel.hasOryxBeenKilled){
                     this.questModel.hasOryxBeenKilled = false;
                     this.questModel.resetRequirementsStates();
-                };
+                }
                 _local2 = true;
             }
             else {
@@ -295,8 +295,8 @@ package com.company.assembleegameclient.game{
                     this.questModel.requirementsStates[QuestModel.REMAINING_HEROES_REQUIREMENT] = true;
                     this.questModel.remainingHeroes = 0;
                     _local2 = true;
-                };
-            };
+                }
+            }
             return (_local2);
         }
 
@@ -316,7 +316,7 @@ package com.company.assembleegameclient.game{
             }
             else {
                 this.displaysPosY = 2;
-            };
+            }
         }
 
         public function positionDynamicDisplays():void{
@@ -325,17 +325,17 @@ package com.company.assembleegameclient.game{
             if (((this.giftStatusDisplay) && (this.giftStatusDisplay.isOpen))){
                 this.giftStatusDisplay.y = _local2;
                 _local2 = (_local2 + DISPLAY_AREA_Y_SPACE);
-            };
+            }
             if (((this.newsModalButton) && (((NewsModalButton.showsHasUpdate) || (_local1.hasValidModalNews()))))){
                 this.newsModalButton.y = _local2;
                 _local2 = (_local2 + DISPLAY_AREA_Y_SPACE);
-            };
+            }
             if (((this.specialOfferButton) && (this.specialOfferButton.isSpecialOfferAvailable))){
                 this.specialOfferButton.y = _local2;
-            };
+            }
             if (((this.newsTicker) && (this.newsTicker.visible))){
                 this.newsTicker.y = _local2;
-            };
+            }
         }
 
         private function showTimer():void{
@@ -382,12 +382,12 @@ package com.company.assembleegameclient.game{
                 _local4 = new NewsModalButton();
                 if (this.newsModalButton != null){
                     removeChild(this.newsModalButton);
-                };
+                }
                 _local4.x = 6;
                 this.newsModalButton = _local4;
                 addChild(this.newsModalButton);
                 this.positionDynamicDisplays();
-            };
+            }
         }
 
         public function refreshNewsUpdateButton():void{
@@ -408,12 +408,12 @@ package com.company.assembleegameclient.game{
                 this.specialOfferButton.x = 6;
                 addChild(this.specialOfferButton);
                 this.positionDynamicDisplays();
-            };
+            }
         }
 
         public function showPackageButtonIfSafe():void{
             if (this.evalIsNotInCombatMapArea()){
-            };
+            }
         }
 
         private function addAndPositionPackage(_arg1:DisplayObject):void{
@@ -453,7 +453,7 @@ package com.company.assembleegameclient.game{
             var _local8:IInteractiveObject;
             if (((!(map)) || (!(map.player_)))){
                 return;
-            };
+            }
             var _local1:Player = map.player_;
             var _local2:Number = GeneralConstants.MAXIMUM_INTERACTION_DISTANCE;
             var _local3:IInteractiveObject;
@@ -467,10 +467,10 @@ package com.company.assembleegameclient.game{
                         if ((((_local4 < GeneralConstants.MAXIMUM_INTERACTION_DISTANCE)) && ((_local4 < _local2)))){
                             _local2 = _local4;
                             _local3 = _local8;
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             this.mapModel.currentInteractiveTarget = _local3;
         }
 
@@ -484,7 +484,7 @@ package com.company.assembleegameclient.game{
                 stage.addEventListener(MoneyChangedEvent.MONEY_CHANGED, this.onMoneyChanged);
                 stage.addEventListener(Event.ENTER_FRAME, this.onEnterFrame);
                 LoopedProcess.addProcess(new LoopedCallback(100, this.updateNearestInteractive));
-            };
+            }
         }
 
         public function disconnect():void{
@@ -501,7 +501,7 @@ package com.company.assembleegameclient.game{
                 TextureRedrawer.clearCache();
                 Projectile.dispose();
                 gsc_.disconnect();
-            };
+            }
         }
 
         private function onMoneyChanged(_arg1:Event):void{
@@ -519,7 +519,7 @@ package com.company.assembleegameclient.game{
             if (this.idleWatcher_.update(_local3)){
                 closed.dispatch();
                 return;
-            };
+            }
             LoopedProcess.runProcesses(_local2);
             this.frameTimeSum_ = (this.frameTimeSum_ + _local3);
             this.frameTimeCount_ = (this.frameTimeCount_ + 1);
@@ -527,7 +527,7 @@ package com.company.assembleegameclient.game{
                 _local7 = int(Math.round(((1000 * this.frameTimeCount_) / this.frameTimeSum_)));
                 this.frameTimeCount_ = 0;
                 this.frameTimeSum_ = 0;
-            };
+            }
             var _local4:int = getTimer();
             map.update(_local2, _local3);
             this.monitor.dispatch("Map.update", (getTimer() - _local4));
@@ -536,7 +536,7 @@ package com.company.assembleegameclient.game{
             if (this.focus){
                 camera_.configureCamera(this.focus, ((_local5) ? _local5.isHallucinating() : false));
                 map.draw(camera_, _local2);
-            };
+            }
             if (_local5 != null){
                 _local5.isNotInCombatMapArea = this.evalIsNotInCombatMapArea();
                 this.creditDisplay_.draw(_local5.credits_, _local5.fame_, _local5.tokens_);
@@ -544,7 +544,7 @@ package com.company.assembleegameclient.game{
                 if (this.evalIsNotInCombatMapArea()){
                     this.rankText_.draw(_local5.numStars_);
                     this.guildText_.draw(_local5.guildName_, _local5.guildRank_);
-                };
+                }
                 if (_local5.isPaused()){
                     map.filters = [PAUSED_FILTER];
                     hudView.filters = [PAUSED_FILTER];
@@ -561,10 +561,10 @@ package com.company.assembleegameclient.game{
                         map.mouseChildren = true;
                         hudView.mouseEnabled = true;
                         hudView.mouseChildren = true;
-                    };
-                };
+                    }
+                }
                 moveRecords_.addRecord(_local2, _local5.x_, _local5.y_);
-            };
+            }
             lastUpdate_ = _local2;
             var _local6:int = (getTimer() - _local2);
             this.monitor.dispatch("GameSprite.loop", _local6);

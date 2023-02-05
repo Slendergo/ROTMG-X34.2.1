@@ -50,7 +50,7 @@ package com.company.assembleegameclient.ui.guild{
             var _local7:uint = 0xB3B3B3;
             if (_arg5){
                 _local7 = 16564761;
-            };
+            }
             this.placeText_ = new TextFieldDisplayConcrete().setSize(22).setColor(_local7);
             this.placeText_.setStringBuilder(new StaticStringBuilder((_arg1.toString() + ".")));
             this.placeText_.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];
@@ -92,7 +92,7 @@ package com.company.assembleegameclient.ui.guild{
                 this.promoteButton_.x = (670 + 6);
                 this.promoteButton_.y = (HEIGHT / 2);
                 addChild(this.promoteButton_);
-            };
+            }
             if (GuildUtil.canDemote(_arg6, _arg3)){
                 this.demoteButton_ = this.createArrow(false);
                 this.addHighlighting(this.demoteButton_);
@@ -100,7 +100,7 @@ package com.company.assembleegameclient.ui.guild{
                 this.demoteButton_.x = (700 + 6);
                 this.demoteButton_.y = (HEIGHT / 2);
                 addChild(this.demoteButton_);
-            };
+            }
             if (GuildUtil.canRemove(_arg6, _arg3)){
                 this.removeButton_ = new DeleteXGraphic();
                 this.addHighlighting(this.removeButton_);
@@ -108,7 +108,7 @@ package com.company.assembleegameclient.ui.guild{
                 this.removeButton_.x = 730;
                 this.removeButton_.y = ((HEIGHT / 2) - (this.removeButton_.height / 2));
                 addChild(this.removeButton_);
-            };
+            }
         }
 
         private function createArrow(_arg1:Boolean):Sprite{
@@ -121,7 +121,7 @@ package com.company.assembleegameclient.ui.guild{
             _local3.lineTo(-8, -6);
             if (_arg1){
                 _local2.rotation = 180;
-            };
+            }
             return (_local2);
         }
 

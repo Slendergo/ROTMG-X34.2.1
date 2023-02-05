@@ -27,7 +27,7 @@ package io.decagames.rotmg.ui.tabs{
         public function addContent(_arg1:Sprite):void{
             if (((this._content) && (this._content.parent))){
                 removeChild(this._content);
-            };
+            }
             this._content = _arg1;
             addChild(this._content);
         }
@@ -39,7 +39,7 @@ package io.decagames.rotmg.ui.tabs{
                 this.content.graphics.drawRect(0, 0, this._content.width, this._content.height);
                 this.lastSize.x = this._content.width;
                 this.lastSize.y = this._content.height;
-            };
+            }
         }
 
         public function get tabName():String{

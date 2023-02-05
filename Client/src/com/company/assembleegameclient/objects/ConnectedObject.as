@@ -54,7 +54,7 @@ package com.company.assembleegameclient.objects{
         private static function getConnectedResults(_arg1:int):ConnectedResults{
             if (dict_ == null){
                 init();
-            };
+            }
             var _local2 = (_arg1 & 252645135);
             return (dict_[_local2]);
         }
@@ -67,9 +67,9 @@ package com.company.assembleegameclient.objects{
                     dict_[_arg1] = new ConnectedResults(_arg2, _local3);
                     _local4 = (_arg1 & 0xFF);
                     _arg1 = ((_arg1 >> 8) | (_local4 << 24));
-                };
+                }
                 _local3++;
-            };
+            }
         }
 
 
@@ -81,7 +81,7 @@ package com.company.assembleegameclient.objects{
             var _local8:Square;
             if (obj3D_ == null){
                 this.rebuild3D();
-            };
+            }
             Utils3D.projectVectors(_arg2.wToS_, obj3D_.vW_, obj3D_.vS_, obj3D_.uvts_);
             for each (_local4 in obj3D_.faces_) {
                 _local5 = (((_local4.normalW_.x > 0.4)) ? 1 : (((_local4.normalW_.x < -0.4)) ? -1 : 0));
@@ -91,10 +91,10 @@ package com.company.assembleegameclient.objects{
                     _local8 = map_.lookupSquare((x_ + _local5), (y_ + _local6));
                     if ((((_local8 == null)) || ((_local8.texture_ == null)))){
                         _local7 = null;
-                    };
-                };
+                    }
+                }
                 _local4.draw(_arg1, 0, _local7);
-            };
+            }
         }
 
         public function rebuild3D():void{
@@ -103,7 +103,7 @@ package com.company.assembleegameclient.objects{
             if (_local1 == null){
                 obj3D_ = null;
                 return;
-            };
+            }
             this.rotation_ = _local1.rotation_;
             switch (_local1.type_){
                 case DOT_TYPE:
@@ -127,7 +127,7 @@ package com.company.assembleegameclient.objects{
                 default:
                     obj3D_ = null;
                     return;
-            };
+            }
             obj3D_.setPosition(x_, y_, 0, (this.rotation_ * 90));
         }
 

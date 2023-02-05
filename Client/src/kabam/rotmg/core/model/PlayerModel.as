@@ -86,7 +86,7 @@ package kabam.rotmg.core.model{
             if (this.charList.credits_ != _arg1){
                 this.charList.credits_ = _arg1;
                 this.creditsChanged.dispatch(_arg1);
-            };
+            }
         }
 
         public function getFame():int{
@@ -97,7 +97,7 @@ package kabam.rotmg.core.model{
             if (this.charList.fame_ != _arg1){
                 this.charList.fame_ = _arg1;
                 this.fameChanged.dispatch(_arg1);
-            };
+            }
         }
 
         public function getTokens():int{
@@ -108,7 +108,7 @@ package kabam.rotmg.core.model{
             if (this.charList.tokens_ != _arg1){
                 this.charList.tokens_ = _arg1;
                 this.tokensChanged.dispatch(_arg1);
-            };
+            }
         }
 
         public function getCharacterCount():int{
@@ -125,7 +125,7 @@ package kabam.rotmg.core.model{
             if (_local3 != -1){
                 this.charList.savedChars_.splice(_local3, 1);
                 this.charList.numChars_--;
-            };
+            }
         }
 
         public function getAccountId():String{
@@ -166,8 +166,8 @@ package kabam.rotmg.core.model{
             for each (_local2 in this.charList.savedChars_) {
                 if (_local2.charId() == _arg1){
                     return (_local2);
-                };
-            };
+                }
+            }
             return (null);
         }
 

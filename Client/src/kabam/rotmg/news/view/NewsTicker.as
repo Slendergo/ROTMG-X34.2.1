@@ -36,7 +36,7 @@ package kabam.rotmg.news.view{
             if (NewsTicker.pendingScrollText != ""){
                 this.activateNewScrollText(NewsTicker.pendingScrollText);
                 NewsTicker.pendingScrollText = "";
-            };
+            }
         }
 
         public static function setPendingScrollText(_arg1:String):void{
@@ -51,7 +51,7 @@ package kabam.rotmg.news.view{
             }
             else {
                 return;
-            };
+            }
             this.scrollText.text = ((this.SCROLL_PREPEND + _arg1) + this.SCROLL_APPEND);
             this.timer.addEventListener(TimerEvent.TIMER, this.scrollAnimation);
             this.currentRepeat = 1;
@@ -79,8 +79,8 @@ package kabam.rotmg.news.view{
                     this.timer.removeEventListener(TimerEvent.TIMER, this.scrollAnimation);
                     this.visible = false;
                     StaticInjectorContext.getInjector().getInstance(DisplayAreaChangedSignal).dispatch();
-                };
-            };
+                }
+            }
         }
 
         private function align():void{

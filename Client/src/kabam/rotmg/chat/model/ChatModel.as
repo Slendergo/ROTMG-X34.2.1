@@ -27,7 +27,7 @@ package kabam.rotmg.chat.model{
             this.chatMessages.push(_arg1);
             if (this.chatMessages.length > this.storedItemCount){
                 this.chatMessages.shift();
-            };
+            }
         }
 
 

@@ -22,7 +22,7 @@ package kabam.rotmg.game.view.components{
             this.initBackground(_arg2);
             if (_arg3){
                 this.initTabText(_arg3);
-            };
+            }
         }
 
         public function setBadge(_arg1:int):void{
@@ -39,7 +39,7 @@ package kabam.rotmg.game.view.components{
                 this.badgeBG.y = 3;
                 this.badgeBG.scaleX = (this.badgeBG.scaleY = 2);
                 addChild(this.badgeBG);
-            };
+            }
             this.badgeIcon.visible = (this.badgeBG.visible = (_arg1 > 0));
         }
 

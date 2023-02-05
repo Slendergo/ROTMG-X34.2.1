@@ -47,7 +47,7 @@ package com.company.assembleegameclient.account.ui{
             }
             else {
                 this.handleFailedNameChange(_arg1.m_.errorText_);
-            };
+            }
         }
 
         private function handleSuccessfulNameChange():void{

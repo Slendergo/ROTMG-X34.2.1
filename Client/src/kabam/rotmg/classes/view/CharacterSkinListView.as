@@ -40,10 +40,10 @@ package kabam.rotmg.classes.view{
             var _local2:int = CharacterSkinListItem.WIDTH;
             if (!_arg1){
                 _local2 = (_local2 + VerticalScrollingList.SCROLLBAR_GUTTER);
-            };
+            }
             for each (_local3 in this.items) {
                 _local3.setWidth(_local2);
-            };
+            }
         }
 
         public function getListHeight():Number{

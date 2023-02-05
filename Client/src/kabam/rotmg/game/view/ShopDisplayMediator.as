@@ -38,7 +38,7 @@ package kabam.rotmg.game.view{
                 this.hoverTooltipDelegate.setHideToolTipsSignal(this.hideTooltipSignal);
                 this.hoverTooltipDelegate.setDisplayObject(this.view.shopButton);
                 this.hoverTooltipDelegate.tooltip = this.toolTip;
-            };
+            }
             var _local1:Vector.<PackageInfo> = this.packageBoxModel.getTargetingBoxesForGrid().concat(this.packageBoxModel.getBoxesForGrid());
             var _local2:Date = new Date();
             _local2.setTime(Parameters.data_["packages_indicator"]);
@@ -46,9 +46,9 @@ package kabam.rotmg.game.view{
                 if (((!((_local3 == null))) && (((!(_local3.endTime)) || ((_local3.getSecondsToEnd() > 0)))))){
                     if (((_local3.isNew()) && ((((_local3.startTime.getTime() > _local2.getTime())) || (!(Parameters.data_["packages_indicator"])))))){
                         this.view.newIndicator(true);
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
 

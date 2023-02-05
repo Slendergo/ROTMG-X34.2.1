@@ -33,7 +33,7 @@ package com.company.assembleegameclient.util.offer{
             this.offerList = new <Offer>[];
             for each (_local2 in _arg1.Offer) {
                 this.offerList.push(this.makeOffer(_local2));
-            };
+            }
         }
 
         private function makeOffer(_arg1:XML):Offer{
@@ -57,7 +57,7 @@ package com.company.assembleegameclient.util.offer{
             var _local8:Number;
             if (this.offerList.length == 0){
                 return;
-            };
+            }
             var _local1:int = this.offerList[0].realmGold_;
             var _local2:int = this.offerList[0].price_;
             var _local3:Number = (_local1 / _local2);
@@ -69,7 +69,7 @@ package com.company.assembleegameclient.util.offer{
                 _local8 = (_local5 - _local7);
                 this.offerList[_local4].bonus = (_local8 / _local6);
                 _local4++;
-            };
+            }
         }
 
         private function sortOffers(_arg1:Offer, _arg2:Offer):int{
@@ -81,8 +81,8 @@ package com.company.assembleegameclient.util.offer{
             for each (_local1 in this.offerList) {
                 if (_local1.price_ == 10){
                     _local1.tagline = MOST_POPULAR;
-                };
-            };
+                }
+            }
         }
 
         private function defineBestDealTagline():void{

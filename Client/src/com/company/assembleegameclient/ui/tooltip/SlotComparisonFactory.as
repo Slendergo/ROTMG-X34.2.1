@@ -40,7 +40,7 @@ package com.company.assembleegameclient.ui.tooltip{
                 _local4.compare(_arg1, _arg2);
                 _local5.lineBuilder = _local4.comparisonStringBuilder;
                 _local5.processedTags = _local4.processedTags;
-            };
+            }
             return (_local5);
         }
 

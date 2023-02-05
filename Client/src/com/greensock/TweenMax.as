@@ -46,7 +46,7 @@ package com.greensock{
             "onStartListener":TweenEvent.START,
             "onRepeatListener":TweenEvent.REPEAT,
             "onReverseCompleteListener":TweenEvent.REVERSE_COMPLETE
-        };
+        }
         public static var ticker:Shape = Animation.ticker;
         public static var allTo:Function = staggerTo;
         public static var allFrom:Function = staggerFrom;
@@ -80,10 +80,10 @@ package com.greensock{
                         {
                             _dispatcher.dispatchEvent(new TweenEvent(TweenEvent.UPDATE));
                             _dispatcher.dispatchEvent(new TweenEvent(TweenEvent.COMPLETE));
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
         }
 
         public static function resumeAll(_arg_1:Boolean=true, _arg_2:Boolean=true, _arg_3:Boolean=true):void{
@@ -113,7 +113,7 @@ package com.greensock{
                 for (p in vars)
                 {
                     copy[p] = vars[p];
-                };
+                }
                 copy.delay = delay;
                 if (i == (l - 1))
                 {
@@ -123,15 +123,15 @@ package com.greensock{
                             if (internal::vars.onComplete)
                             {
                                 internal::vars.onComplete.apply(null, arguments);
-                            };
+                            }
                             onCompleteAll.apply(null, onCompleteAllParams);
-                        };
-                    };
-                };
+                        }
+                    }
+                }
                 a[i] = new TweenMax(targets[i], duration, copy);
                 delay = (delay + stagger);
                 i = (i + 1);
-            };
+            }
             return (a);
         }
 
@@ -192,10 +192,10 @@ package com.greensock{
                     else
                     {
                         _local_9._enabled(false, false);
-                    };
-                };
+                    }
+                }
                 _local_10++;
-            };
+            }
         }
 
         public static function killChildTweensOf(_arg_1:DisplayObjectContainer, _arg_2:Boolean=false):void{
@@ -214,10 +214,10 @@ package com.greensock{
                     else
                     {
                         _local_3[_local_5]._enabled(false, false);
-                    };
-                };
+                    }
+                }
                 _local_5++;
-            };
+            }
         }
 
         private static function _changePause(_arg_1:Boolean, _arg_2:Boolean=true, _arg_3:Boolean=false, _arg_4:Boolean=true):void{
@@ -233,8 +233,8 @@ package com.greensock{
                 if (((((_local_8) || (_local_7 is SimpleTimeline)) || ((_local_6) && (_arg_3))) || ((_arg_2) && (!(_local_6)))))
                 {
                     _local_7.paused(_arg_1);
-                };
-            };
+                }
+            }
         }
 
         public static function set(_arg_1:Object, _arg_2:Object):TweenMax{
@@ -255,12 +255,12 @@ package com.greensock{
             if (!arguments.length)
             {
                 return ((_rootTimeline == null) ? 1 : _rootTimeline._timeScale);
-            };
+            }
             _arg_1 = ((_arg_1) || (0.0001));
             if (_rootTimeline == null)
             {
                 TweenLite.to({}, 0, {});
-            };
+            }
             var _local_3:SimpleTimeline = _rootTimeline;
             var _local_4:Number = (getTimer() / 1000);
             _local_3._startTime = (_local_4 - (((_local_4 - _local_3._startTime) * _local_3._timeScale) / _arg_1));
@@ -280,7 +280,7 @@ package com.greensock{
             if (_arg_1 == null)
             {
                 return ([]);
-            };
+            }
             var _local_3:Array = [];
             var _local_4:int;
             var _local_5:Animation = _arg_1._first;
@@ -297,12 +297,12 @@ package com.greensock{
                     {
                         _local_6 = _local_4++;
                         _local_3[_local_6] = _local_5;
-                    };
+                    }
                     _local_3 = _local_3.concat(_getChildrenOf(SimpleTimeline(_local_5), _arg_2));
                     _local_4 = _local_3.length;
-                };
+                }
                 _local_5 = _local_5._next;
-            };
+            }
             return (_local_3);
         }
 
@@ -317,8 +317,8 @@ package com.greensock{
                     if (_containsChildOf(_arg_1, _arg_2[_local_3]))
                     {
                         return true;
-                    };
-                };
+                    }
+                }
             }
             else
             {
@@ -330,11 +330,11 @@ package com.greensock{
                         if (_local_4 == _arg_1)
                         {
                             return true;
-                        };
+                        }
                         _local_4 = _local_4.parent;
-                    };
-                };
-            };
+                    }
+                }
+            }
             return false;
         }
 
@@ -344,7 +344,7 @@ package com.greensock{
             if (_arg_3.immediateRender != false)
             {
                 _arg_3.immediateRender = true;
-            };
+            }
             return (staggerTo(_arg_1, _arg_2, _arg_3, _arg_4, _arg_5, _arg_6));
         }
 
@@ -371,18 +371,18 @@ package com.greensock{
             if (_dispatcher)
             {
                 _dispatcher.removeEventListener(_arg_1, _arg_2, _arg_3);
-            };
+            }
         }
 
         public function addEventListener(_arg_1:String, _arg_2:Function, _arg_3:Boolean=false, _arg_4:int=0, _arg_5:Boolean=false):void{
             if (_dispatcher == null)
             {
                 _dispatcher = new EventDispatcher(this);
-            };
+            }
             if (_arg_1 == TweenEvent.UPDATE)
             {
                 _hasUpdateListener = true;
-            };
+            }
             _dispatcher.addEventListener(_arg_1, _arg_2, _arg_3, _arg_4, _arg_5);
         }
 
@@ -394,7 +394,7 @@ package com.greensock{
             if (!arguments.length)
             {
                 return (this._duration);
-            };
+            }
             return (super.duration(_arg_1));
         }
 
@@ -402,15 +402,15 @@ package com.greensock{
             if (!arguments.length)
             {
                 return (_time);
-            };
+            }
             if (_dirty)
             {
                 totalDuration();
-            };
+            }
             if (_arg_1 > _duration)
             {
                 _arg_1 = _duration;
-            };
+            }
             if (((_yoyo) && (!((_cycle & 0x01) === 0))))
             {
                 _arg_1 = ((_duration - _arg_1) + (_cycle * (_duration + _repeatDelay)));
@@ -420,8 +420,8 @@ package com.greensock{
                 if (_repeat != 0)
                 {
                     _arg_1 = (_arg_1 + (_cycle * (_duration + _repeatDelay)));
-                };
-            };
+                }
+            }
             return (totalTime(_arg_1, _arg_2));
         }
 
@@ -439,8 +439,8 @@ package com.greensock{
                 if (((_duration === 0) && (public::vars.repeat)))
                 {
                     invalidate();
-                };
-            };
+                }
+            }
             var _local_4:Number = ((_dirty) ? totalDuration() : _totalDuration);
             var _local_5:Number = _time;
             var _local_6:Number = _totalTime;
@@ -458,19 +458,19 @@ package com.greensock{
                 {
                     _time = _duration;
                     ratio = ((_ease._calcEnd) ? _ease.getRatio(1) : 1);
-                };
+                }
                 if (!_reversed)
                 {
                     _local_8 = true;
                     _local_9 = "onComplete";
-                };
+                }
                 if (_duration == 0)
                 {
                     _local_11 = _rawPrevTime;
                     if (_startTime === _timeline._duration)
                     {
                         _arg_1 = 0;
-                    };
+                    }
                     if ((((_arg_1 === 0) || (_local_11 < 0)) || (_local_11 === _tinyNum)))
                     {
                         if (_local_11 !== _arg_1)
@@ -479,11 +479,11 @@ package com.greensock{
                             if (_local_11 > _tinyNum)
                             {
                                 _local_9 = "onReverseComplete";
-                            };
-                        };
-                    };
+                            }
+                        }
+                    }
                     _rawPrevTime = (_local_11 = ((((!(_arg_2)) || (!(_arg_1 === 0))) || (_rawPrevTime === _arg_1)) ? _arg_1 : _tinyNum));
-                };
+                }
             }
             else
             {
@@ -495,7 +495,7 @@ package com.greensock{
                     {
                         _local_9 = "onReverseComplete";
                         _local_8 = _reversed;
-                    };
+                    }
                     if (_arg_1 < 0)
                     {
                         _active = false;
@@ -504,17 +504,17 @@ package com.greensock{
                             if (_rawPrevTime >= 0)
                             {
                                 _arg_3 = true;
-                            };
+                            }
                             _rawPrevTime = (_local_11 = ((((!(_arg_2)) || (!(_arg_1 === 0))) || (_rawPrevTime === _arg_1)) ? _arg_1 : _tinyNum));
-                        };
+                        }
                     }
                     else
                     {
                         if (!_initted)
                         {
                             _arg_3 = true;
-                        };
-                    };
+                        }
+                    }
                 }
                 else
                 {
@@ -528,16 +528,16 @@ package com.greensock{
                             if (_cycle === (_totalTime / _local_12))
                             {
                                 _cycle--;
-                            };
-                        };
+                            }
+                        }
                         _time = (_totalTime - (_cycle * _local_12));
                         if (_yoyo)
                         {
                             if ((_cycle & 0x01) != 0)
                             {
                                 _time = (_duration - _time);
-                            };
-                        };
+                            }
+                        }
                         if (_time > _duration)
                         {
                             _time = _duration;
@@ -547,9 +547,9 @@ package com.greensock{
                             if (_time < 0)
                             {
                                 _time = 0;
-                            };
-                        };
-                    };
+                            }
+                        }
+                    }
                     if (_easeType)
                     {
                         _local_13 = (_time / _duration);
@@ -558,11 +558,11 @@ package com.greensock{
                         if (((_local_14 == 1) || ((_local_14 == 3) && (_local_13 >= 0.5))))
                         {
                             _local_13 = (1 - _local_13);
-                        };
+                        }
                         if (_local_14 == 3)
                         {
                             _local_13 = (_local_13 * 2);
-                        };
+                        }
                         if (_local_15 == 1)
                         {
                             _local_13 = (_local_13 * _local_13);
@@ -584,10 +584,10 @@ package com.greensock{
                                     if (_local_15 == 4)
                                     {
                                         _local_13 = (_local_13 * (((_local_13 * _local_13) * _local_13) * _local_13));
-                                    };
-                                };
-                            };
-                        };
+                                    }
+                                }
+                            }
+                        }
                         if (_local_14 == 1)
                         {
                             ratio = (1 - _local_13);
@@ -607,16 +607,16 @@ package com.greensock{
                                 else
                                 {
                                     ratio = (1 - (_local_13 / 2));
-                                };
-                            };
-                        };
+                                }
+                            }
+                        }
                     }
                     else
                     {
                         ratio = _ease.getRatio((_time / _duration));
-                    };
-                };
-            };
+                    }
+                }
+            }
             if ((((_local_5 == _time) && (!(_arg_3))) && (_cycle === _local_7)))
             {
                 if (_local_6 !== _totalTime)
@@ -626,18 +626,18 @@ package com.greensock{
                         if (!_arg_2)
                         {
                             _onUpdate.apply(((public::vars.onUpdateScope) || (this)), public::vars.onUpdateParams);
-                        };
-                    };
-                };
+                        }
+                    }
+                }
                 return;
-            };
+            }
             if (!_initted)
             {
                 _init();
                 if (((!(_initted)) || (_gc)))
                 {
                     return;
-                };
+                }
                 if (((_time) && (!(_local_8))))
                 {
                     ratio = _ease.getRatio((_time / _duration));
@@ -647,16 +647,16 @@ package com.greensock{
                     if (((_local_8) && (_ease._calcEnd)))
                     {
                         ratio = _ease.getRatio(((_time === 0) ? 0 : 1));
-                    };
-                };
-            };
+                    }
+                }
+            }
             if (!_active)
             {
                 if ((((!(_paused)) && (!(_time === _local_5))) && (_arg_1 >= 0)))
                 {
                     _active = true;
-                };
-            };
+                }
+            }
             if (_local_6 == 0)
             {
                 if (_startAt != null)
@@ -670,9 +670,9 @@ package com.greensock{
                         if (!_local_9)
                         {
                             _local_9 = "_dummyGS";
-                        };
-                    };
-                };
+                        }
+                    }
+                }
                 if (((!(_totalTime == 0)) || (_duration == 0)))
                 {
                     if (!_arg_2)
@@ -680,14 +680,14 @@ package com.greensock{
                         if (public::vars.onStart)
                         {
                             public::vars.onStart.apply(null, public::vars.onStartParams);
-                        };
+                        }
                         if (_dispatcher)
                         {
                             _dispatcher.dispatchEvent(new TweenEvent(TweenEvent.START));
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             _local_10 = _firstPT;
             while (_local_10)
             {
@@ -699,34 +699,34 @@ package com.greensock{
                 else
                 {
                     _local_10.t[_local_10.p] = ((_local_10.c * ratio) + _local_10.s);
-                };
+                }
                 _local_10 = _local_10._next;
-            };
+            }
             if (_onUpdate != null)
             {
                 if ((((_arg_1 < 0) && (!(_startAt == null))) && (!(_startTime == 0))))
                 {
                     _startAt.render(_arg_1, _arg_2, _arg_3);
-                };
+                }
                 if (!_arg_2)
                 {
                     if (((!(_totalTime === _local_6)) || (_local_8)))
                     {
                         _onUpdate.apply(null, public::vars.onUpdateParams);
-                    };
-                };
-            };
+                    }
+                }
+            }
             if (_hasUpdateListener)
             {
                 if (((((_arg_1 < 0) && (!(_startAt == null))) && (_onUpdate == null)) && (!(_startTime == 0))))
                 {
                     _startAt.render(_arg_1, _arg_2, _arg_3);
-                };
+                }
                 if (!_arg_2)
                 {
                     _dispatcher.dispatchEvent(new TweenEvent(TweenEvent.UPDATE));
-                };
-            };
+                }
+            }
             if (_cycle != _local_7)
             {
                 if (!_arg_2)
@@ -736,14 +736,14 @@ package com.greensock{
                         if (public::vars.onRepeat)
                         {
                             public::vars.onRepeat.apply(null, public::vars.onRepeatParams);
-                        };
+                        }
                         if (_dispatcher)
                         {
                             _dispatcher.dispatchEvent(new TweenEvent(TweenEvent.REPEAT));
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             if (_local_9)
             {
                 if (!_gc)
@@ -751,32 +751,32 @@ package com.greensock{
                     if ((((((_arg_1 < 0) && (!(_startAt == null))) && (_onUpdate == null)) && (!(_hasUpdateListener))) && (!(_startTime == 0))))
                     {
                         _startAt.render(_arg_1, _arg_2, true);
-                    };
+                    }
                     if (_local_8)
                     {
                         if (_timeline.autoRemoveChildren)
                         {
                             _enabled(false, false);
-                        };
+                        }
                         _active = false;
-                    };
+                    }
                     if (!_arg_2)
                     {
                         if (public::vars[_local_9])
                         {
                             public::vars[_local_9].apply(null, public::vars[(_local_9 + "Params")]);
-                        };
+                        }
                         if (_dispatcher)
                         {
                             _dispatcher.dispatchEvent(new TweenEvent(((_local_9 == "onComplete") ? TweenEvent.COMPLETE : TweenEvent.REVERSE_COMPLETE)));
-                        };
-                    };
+                        }
+                    }
                     if ((((_duration === 0) && (_rawPrevTime === _tinyNum)) && (!(_local_11 === _tinyNum))))
                     {
                         _rawPrevTime = 0;
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         override public function totalProgress(_arg_1:Number=NaN, _arg_2:Boolean=false):*{
@@ -787,7 +787,7 @@ package com.greensock{
             if (!arguments.length)
             {
                 return (_repeat);
-            };
+            }
             _repeat = _arg_1;
             return (_uncache(true));
         }
@@ -812,13 +812,13 @@ package com.greensock{
                     else
                     {
                         _timeline.insert(this, (_startTime - _delay));
-                    };
-                };
-            };
+                    }
+                }
+            }
             for (_local_4 in _arg_1)
             {
                 this.vars[_local_4] = _arg_1[_local_4];
-            };
+            }
             if (_initted)
             {
                 if (_arg_2)
@@ -830,14 +830,14 @@ package com.greensock{
                     if (_gc)
                     {
                         _enabled(true, false);
-                    };
+                    }
                     if (_notifyPluginsOfEnabled)
                     {
                         if (_firstPT != null)
                         {
                             _onPluginEvent("_onDisable", this);
-                        };
-                    };
+                        }
+                    }
                     if ((_time / _duration) > 0.998)
                     {
                         _local_5 = _time;
@@ -859,11 +859,11 @@ package com.greensock{
                                 _local_7.c = (_local_7.c * _local_6);
                                 _local_7.s = (_local_8 - _local_7.c);
                                 _local_7 = _local_7._next;
-                            };
-                        };
-                    };
-                };
-            };
+                            }
+                        }
+                    }
+                }
+            }
             return (this);
         }
 
@@ -871,7 +871,7 @@ package com.greensock{
             if (!arguments.length)
             {
                 return (_repeatDelay);
-            };
+            }
             _repeatDelay = _arg_1;
             return (_uncache(true));
         }
@@ -880,7 +880,7 @@ package com.greensock{
             if (!arguments.length)
             {
                 return (_yoyo);
-            };
+            }
             _yoyo = _arg_1;
             return (this);
         }
@@ -901,12 +901,12 @@ package com.greensock{
                         if (_dispatcher == null)
                         {
                             _dispatcher = new EventDispatcher(this);
-                        };
+                        }
                         _dispatcher.addEventListener(_listenerLookup[_local_2], public::vars[_local_2], false, 0, true);
                         _local_1 = true;
-                    };
-                };
-            };
+                    }
+                }
+            }
             return (_local_1);
         }
 
@@ -917,9 +917,9 @@ package com.greensock{
                 {
                     _totalDuration = ((_repeat == -1) ? 999999999999 : ((_duration * (_repeat + 1)) + (_repeatDelay * _repeat)));
                     _dirty = false;
-                };
+                }
                 return (_totalDuration);
-            };
+            }
             return ((_repeat == -1) ? this : duration(((_arg_1 - (_repeat * _repeatDelay)) / (_repeat + 1))));
         }
 

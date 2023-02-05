@@ -53,7 +53,7 @@ package kabam.rotmg.account.core.view{
             else {
                 this.emailInput.inputText_.setText("");
                 this.isKabam = true;
-            };
+            }
             addTextInputField(this.emailInput);
             this.closeButton = new DialogCloseButton();
             this.closeButton.y = -2;
@@ -75,7 +75,7 @@ package kabam.rotmg.account.core.view{
         private function close():void{
             if (((parent) && (parent.contains(this)))){
                 parent.removeChild(this);
-            };
+            }
         }
 
         private function onVerify(_arg1:MouseEvent):void{
@@ -88,7 +88,7 @@ package kabam.rotmg.account.core.view{
                 MoreObjectUtil.addToObject(_local3, this.account.getCredentials());
                 _local2.sendRequest("account/changeEmail", _local3);
                 rightButton_.removeEventListener(MouseEvent.CLICK, this.onVerify);
-            };
+            }
         }
 
         private function onComplete(_arg1:Boolean, _arg2):void{
@@ -97,7 +97,7 @@ package kabam.rotmg.account.core.view{
             }
             else {
                 this.onError(_arg2);
-            };
+            }
             rightButton_.addEventListener(MouseEvent.CLICK, this.onVerify);
         }
 
@@ -105,7 +105,7 @@ package kabam.rotmg.account.core.view{
             var _local1:Account = StaticInjectorContext.getInjector().getInstance(Account);
             if (!this.isKabam){
                 _local1.updateUser(this.emailInput.text(), _local1.getPassword(), _local1.getToken());
-            };
+            }
             removeChild(titleText_);
             titleText_ = new TextFieldDisplayConcrete().setSize(12).setColor(0xB3B3B3);
             titleText_.setStringBuilder(new LineBuilder().setParams("WebAccountDetailDialog.sent"));
@@ -131,7 +131,7 @@ package kabam.rotmg.account.core.view{
             var _local1:Boolean = EmailValidator.isValidEmail(this.emailInput.text());
             if (!_local1){
                 this.emailInput.setError(TextKey.INVALID_EMAIL_ADDRESS);
-            };
+            }
             return (_local1);
         }
 

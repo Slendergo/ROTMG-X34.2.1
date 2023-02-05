@@ -37,15 +37,15 @@ package kabam.rotmg.minimap.view{
         public function setZoomLevel(_arg1:int):int{
             if (this.zoomLevels == 0){
                 return (this.zoomLevel);
-            };
+            }
             if (_arg1 < 0){
                 _arg1 = 0;
             }
             else {
                 if (_arg1 >= (this.zoomLevels - 1)){
                     _arg1 = (this.zoomLevels - 1);
-                };
-            };
+                }
+            }
             this.zoomLevel = _arg1;
             this.updateButtons();
             return (this.zoomLevel);
@@ -55,7 +55,7 @@ package kabam.rotmg.minimap.view{
             this.zoomLevels = _arg1;
             if (this.zoomLevel >= this.zoomLevels){
                 this.zoomLevel = (this.zoomLevels - 1);
-            };
+            }
             this.updateButtons();
             return (this.zoomLevels);
         }
@@ -93,7 +93,7 @@ package kabam.rotmg.minimap.view{
             if (this.canZoomOut()){
                 this.zoom.dispatch(--this.zoomLevel);
                 this.zoomOut.transform.colorTransform = ((this.canZoomOut()) ? this.NORM : this.FADE);
-            };
+            }
         }
 
         private function canZoomOut():Boolean{
@@ -105,7 +105,7 @@ package kabam.rotmg.minimap.view{
             if (this.canZoomIn()){
                 this.zoom.dispatch(++this.zoomLevel);
                 this.zoomIn.transform.colorTransform = ((this.canZoomIn()) ? this.NORM : this.FADE);
-            };
+            }
         }
 
         private function canZoomIn():Boolean{

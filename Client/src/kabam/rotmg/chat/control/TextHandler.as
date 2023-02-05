@@ -71,19 +71,19 @@ package kabam.rotmg.chat.control{
             var _local4:Boolean = false;
             if (((((!(_local4)) && ((_arg1.numStars_ < Parameters.data_.chatStarRequirement)))) && (_local3))){
                 return;
-            };
+            }
             if (((((!((_arg1.recipient_ == ""))) && (Parameters.data_.chatFriend))) && (!(this.socialModel.isMyFriend(_arg1.recipient_))))){
                 return;
-            };
+            }
             if (((!(Parameters.data_.chatAll)) && (_local3))){
                 if (!(((_arg1.recipient_ == Parameters.GUILD_CHAT_NAME)) && (Parameters.data_.chatGuild))){
                     if (!((((((!(_local4)) && ((_arg1.numStars_ < Parameters.data_.chatStarRequirement)))) && (!((_arg1.recipient_ == ""))))) && (Parameters.data_.chatWhisper))){
                         if (!((((_local4) && (!((_arg1.recipient_ == ""))))) && (Parameters.data_.chatWhisper))){
                             return;
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             if (this.useCleanString(_arg1)){
                 _local5 = _arg1.cleanText_;
                 _arg1.cleanText_ = this.replaceIfSlashServerCommand(_arg1.cleanText_);
@@ -91,16 +91,16 @@ package kabam.rotmg.chat.control{
             else {
                 _local5 = _arg1.text_;
                 _arg1.text_ = this.replaceIfSlashServerCommand(_arg1.text_);
-            };
+            }
             if (((_local2) && (this.isToBeLocalized(_local5)))){
                 _local5 = this.getLocalizedString(_local5);
-            };
+            }
             if (((!(_local2)) && (this.spamFilter.isSpam(_local5)))){
                 if (_arg1.name_ == this.model.player.name_){
                     this.addTextLine.dispatch(ChatMessage.make(Parameters.ERROR_CHAT_NAME, "This message has been flagged as spam."));
-                };
+                }
                 return;
-            };
+            }
             if (_arg1.recipient_){
                 if (((!((_arg1.recipient_ == this.model.player.name_))) && (!(this.isSpecialRecipientChat(_arg1.recipient_))))){
                     this.tellModel.push(_arg1.recipient_);
@@ -110,9 +110,9 @@ package kabam.rotmg.chat.control{
                     if (_arg1.recipient_ == this.model.player.name_){
                         this.tellModel.push(_arg1.name_);
                         this.tellModel.resetRecipients();
-                    };
-                };
-            };
+                    }
+                }
+            }
             if (((_local2) && ((TextureDataConcrete.remoteTexturesUsed == true)))){
                 TextureDataConcrete.remoteTexturesUsed = false;
                 if (this.setup.isServerLocal()){
@@ -123,8 +123,8 @@ package kabam.rotmg.chat.control{
                     this.addTextAsTextLine(_arg1);
                     _arg1.name_ = _local6;
                     _arg1.text_ = _local7;
-                };
-            };
+                }
+            }
             if (_local2){
                 if ((((((((_arg1.text_ == "Please verify your email before chat")) && (!((this.hudModel == null))))) && ((this.hudModel.gameSprite.map.name_ == "Nexus")))) && (!((this.openDialogSignal == null))))){
                     this.openDialogSignal.dispatch(new ConfirmEmailModal());
@@ -136,24 +136,24 @@ package kabam.rotmg.chat.control{
                         }
                         else {
                             NewsTicker.setPendingScrollText(_arg1.text_);
-                        };
+                        }
                     }
                     else {
                         if ((((_arg1.name_ == "#{objects.ft_shopkeep}")) && (!(FortuneModel.HAS_FORTUNES)))){
                             return;
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             if (_arg1.objectId_ >= 0){
                 this.showSpeechBaloon(_arg1, _local5);
-            };
+            }
             if (((_local2) || (((this.account.isRegistered()) && (((!(Parameters.data_["hidePlayerChat"])) || (this.isSpecialRecipientChat(_arg1.name_)))))))){
                 if (((_local2) && (!((_arg1.text_.search("NexusPortal.") == -1))))){
                     this.dispatchServerName(_arg1.text_);
-                };
+                }
                 this.addTextAsTextLine(_arg1);
-            };
+            }
         }
 
         private function isSpecialRecipientChat(_arg1:String):Boolean{
@@ -184,7 +184,7 @@ package kabam.rotmg.chat.control{
             }
             catch(error:Error) {
                 message.text = ((useCleanString(text)) ? text.cleanText_ : text.text_);
-            };
+            }
         }
 
         private function dispatchServerName(_arg1:String):void{
@@ -198,8 +198,8 @@ package kabam.rotmg.chat.control{
                 _local2 = StaticInjectorContext.getInjector().getInstance(ServerModel);
                 if (((_local2) && (_local2.getServer()))){
                     return (_arg1.replace("74026S9", (_local2.getServer().name + ", ")));
-                };
-            };
+                }
+            }
             return (_arg1);
         }
 
@@ -225,19 +225,19 @@ package kabam.rotmg.chat.control{
                 _local6 = ChatListItemFactory.isGuildMessage(_arg1.name_);
                 _local7 = new AddSpeechBalloonVO(_local3, _arg2, _arg1.name_, _local5, _local6, _local4.back, 1, _local4.outline, 1, _local4.text, _arg1.bubbleTime_, false, true);
                 this.addSpeechBalloon.dispatch(_local7);
-            };
+            }
         }
 
         private function getColors(_arg1:Text, _arg2:GameObject):TextColors{
             if (_arg2.props_.isEnemy_){
                 return (this.ENEMY_SPEECH_COLORS);
-            };
+            }
             if (_arg1.recipient_ == Parameters.GUILD_CHAT_NAME){
                 return (this.GUILD_SPEECH_COLORS);
-            };
+            }
             if (_arg1.recipient_ != ""){
                 return (this.TELL_SPEECH_COLORS);
-            };
+            }
             return (this.NORMAL_SPEECH_COLORS);
         }
 

@@ -52,7 +52,7 @@ package kabam.rotmg.news.services{
             }
             else {
                 completeTask(true);
-            };
+            }
         }
 
         private function parseNews(_arg1:String):void{
@@ -73,14 +73,14 @@ package kabam.rotmg.news.services{
                     _local5.title = _local4.title;
                     _local5.weight = _local4.weight;
                     this.model.addInGameNews(_local5);
-                };
+                }
             }
             catch(e:Error) {
-            };
+            }
             var _local2:InGameNews = this.model.getFirstNews();
             if (((((_local2) && (_local2.showAtStartup))) && (this.model.hasUpdates()))){
                 this.addToQueueSignal.dispatch(PopupNamesConfig.NEWS_POPUP, this.openDialogSignal, -1, new NewsModal(true));
-            };
+            }
             completeTask(true);
         }
 

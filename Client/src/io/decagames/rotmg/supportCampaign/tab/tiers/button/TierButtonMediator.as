@@ -54,7 +54,7 @@ package io.decagames.rotmg.supportCampaign.tab.tiers.button{
             if (!this.view.selected){
                 this.view.selected = true;
                 this.selectedSignal.dispatch(this.view.tier);
-            };
+            }
         }
 
         private function onPointsUpdate():void{
@@ -70,7 +70,7 @@ package io.decagames.rotmg.supportCampaign.tab.tiers.button{
                 }
                 else {
                     this.toolTip = new TextToolTip(0x363636, 0x9B9B9B, ("Rank " + this.view.tier), (this.remainingPoints.toString() + " Bonus Points remaining "), 180);
-                };
+                }
                 this.hoverTooltipDelegate = new HoverTooltipDelegate();
                 this.hoverTooltipDelegate.setShowToolTipSignal(this.showTooltipSignal);
                 this.hoverTooltipDelegate.setHideToolTipsSignal(this.hideTooltipSignal);
@@ -80,17 +80,17 @@ package io.decagames.rotmg.supportCampaign.tab.tiers.button{
             else {
                 if (this.view.status == TierButtonStatus.CLAIMED){
                     this.clearToolTip();
-                };
-            };
+                }
+            }
         }
 
         private function onTierSelected(_arg1:int):void{
             if ((((this.view.tier == _arg1)) && (!(this.view.selected)))){
                 this.view.selected = true;
-            };
+            }
             if (((!((this.view.tier == _arg1))) && (this.view.selected))){
                 this.view.selected = false;
-            };
+            }
         }
 
         private function clearToolTip():void{
@@ -98,7 +98,7 @@ package io.decagames.rotmg.supportCampaign.tab.tiers.button{
                 this.toolTip = null;
                 this.hoverTooltipDelegate.removeDisplayObject();
                 this.hoverTooltipDelegate = null;
-            };
+            }
         }
 
 

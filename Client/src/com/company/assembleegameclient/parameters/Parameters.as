@@ -67,7 +67,7 @@ package com.company.assembleegameclient.parameters{
             }
             catch(error:Error) {
                 data_ = {};
-            };
+            }
             setDefaults();
             save();
         }
@@ -76,16 +76,16 @@ package com.company.assembleegameclient.parameters{
             try {
                 if (savedOptions_ != null){
                     savedOptions_.flush();
-                };
+                }
             }
             catch(error:Error) {
-            };
+            }
         }
 
         private static function setDefaultKey(_arg1:String, _arg2:uint):void{
             if (!data_.hasOwnProperty(_arg1)){
                 data_[_arg1] = _arg2;
-            };
+            }
             keyNames_[_arg1] = true;
         }
 
@@ -94,15 +94,15 @@ package com.company.assembleegameclient.parameters{
             for (_local3 in keyNames_) {
                 if (data_[_local3] == _arg2){
                     data_[_local3] = KeyCodes.UNSET;
-                };
-            };
+                }
+            }
             data_[_arg1] = _arg2;
         }
 
         private static function setDefault(_arg1:String, _arg2):void{
             if (!data_.hasOwnProperty(_arg1)){
                 data_[_arg1] = _arg2;
-            };
+            }
         }
 
         public static function isGpuRender():Boolean{
@@ -205,7 +205,7 @@ package com.company.assembleegameclient.parameters{
             }
             else {
                 setDefault("GPURender", false);
-            };
+            }
             setDefault("forceChatQuality", false);
             setDefault("hidePlayerChat", false);
             setDefault("chatStarRequirement", 2);
@@ -221,13 +221,13 @@ package com.company.assembleegameclient.parameters{
             }
             else {
                 setDefault("musicVolume", 0);
-            };
+            }
             if (((data_.hasOwnProperty("playSFX")) && ((data_.playMusic == true)))){
                 setDefault("SFXVolume", 1);
             }
             else {
                 setDefault("SFXVolume", 0);
-            };
+            }
             setDefault("friendList", KeyCodes.UNSET);
             setDefault("tradeWithFriends", false);
             setDefault("chatFriend", false);
@@ -274,8 +274,8 @@ package com.company.assembleegameclient.parameters{
                         data_.playTimeLeftTillSurvey = (2 * 60);
                         data_.surveyGroup = "2WeekRealtime";
                         return;
-                };
-            };
+                }
+            }
         }
 
 

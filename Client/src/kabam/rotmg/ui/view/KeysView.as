@@ -32,21 +32,21 @@ package kabam.rotmg.ui.view{
                 this.keys[_local1].x = (12 + (40 * _local1));
                 this.keys[_local1].y = 12;
                 _local1++;
-            };
+            }
         }
 
         public function showKey(_arg1:Key):void{
             var _local2:BitmapAsset = this.keys[_arg1.position];
             if (!contains(_local2)){
                 addChild(_local2);
-            };
+            }
         }
 
         public function hideKey(_arg1:Key):void{
             var _local2:BitmapAsset = this.keys[_arg1.position];
             if (contains(_local2)){
                 removeChild(_local2);
-            };
+            }
         }
 
 

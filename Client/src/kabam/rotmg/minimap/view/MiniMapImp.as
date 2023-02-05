@@ -75,7 +75,7 @@ package kabam.rotmg.minimap.view{
             var _local2:* = _arg1.objectType_;
             if (!objectTypeColorDict_.hasOwnProperty(_local2)){
                 objectTypeColorDict_[_local2] = _arg1.getColor();
-            };
+            }
             return (objectTypeColorDict_[_local2]);
         }
 
@@ -98,7 +98,7 @@ package kabam.rotmg.minimap.view{
             while (_local2 > _local1) {
                 this.zoomLevels.push(_local2);
                 _local2 = (_local2 / 2);
-            };
+            }
             this.zoomLevels.push(_local1);
             ((this.zoomButtons) && (this.zoomButtons.setZoomLevels(this.zoomLevels.length)));
         }
@@ -167,7 +167,7 @@ package kabam.rotmg.minimap.view{
         private function onMapClick(_arg1:MouseEvent):void{
             if ((((((((this.tooltip == null)) || ((this.tooltip.parent == null)))) || ((this.tooltip.players_ == null)))) || ((this.tooltip.players_.length == 0)))){
                 return;
-            };
+            }
             this.removeMenu();
             this.addMenu();
             this.removeTooltip();
@@ -199,18 +199,18 @@ package kabam.rotmg.minimap.view{
             if (this.tooltip != null){
                 if (this.tooltip.parent != null){
                     this.tooltip.parent.removeChild(this.tooltip);
-                };
+                }
                 this.tooltip = null;
-            };
+            }
         }
 
         private function removeMenu():void{
             if (this.menu != null){
                 if (this.menu.parent != null){
                     this.menu.parent.removeChild(this.menu);
-                };
+                }
                 this.menu = null;
-            };
+            }
         }
 
         override public function draw():void{
@@ -230,10 +230,10 @@ package kabam.rotmg.minimap.view{
             this.enemyLayer_.graphics.clear();
             if (!this.focus){
                 return;
-            };
+            }
             if (!this.active){
                 return;
-            };
+            }
             var _local1:Number = this.zoomLevels[this.zoomIndex];
             this.mapMatrix_.identity();
             this.mapMatrix_.translate(-(this.focus.x_), -(this.focus.y_));
@@ -247,8 +247,8 @@ package kabam.rotmg.minimap.view{
             else {
                 if (_local3.x < this.windowRect_.right){
                     _local4 = (this.windowRect_.right - _local3.x);
-                };
-            };
+                }
+            }
             var _local5:Number = 0;
             if (_local2.y > this.windowRect_.top){
                 _local5 = (this.windowRect_.top - _local2.y);
@@ -256,13 +256,13 @@ package kabam.rotmg.minimap.view{
             else {
                 if (_local3.y < this.windowRect_.bottom){
                     _local5 = (this.windowRect_.bottom - _local3.y);
-                };
-            };
+                }
+            }
             this.mapMatrix_.translate(_local4, _local5);
             _local2 = this.mapMatrix_.transformPoint(PointUtil.ORIGIN);
             if ((((_local1 >= 1)) && (this._rotateEnableFlag))){
                 this.mapMatrix_.rotate(-(Parameters.data_.cameraAngle));
-            };
+            }
             var _local6:Rectangle = new Rectangle();
             _local6.x = Math.max(this.windowRect_.x, _local2.x);
             _local6.y = Math.max(this.windowRect_.y, _local2.y);
@@ -306,12 +306,12 @@ package kabam.rotmg.minimap.view{
                                             }
                                             else {
                                                 _local16 = 0xFFFF00;
-                                            };
-                                        };
-                                    };
-                                };
-                            };
-                        };
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                     else {
                         if ((_local11 is Character)){
@@ -321,11 +321,11 @@ package kabam.rotmg.minimap.view{
                                 }
                                 else {
                                     _local16 = 0xFF0000;
-                                };
+                                }
                             }
                             else {
                                 _local16 = gameObjectToColor(_local11);
-                            };
+                            }
                         }
                         else {
                             if ((((_local11 is Portal)) || ((_local11 is GuildHallPortal)))){
@@ -333,24 +333,24 @@ package kabam.rotmg.minimap.view{
                             }
                             else {
                                 continue;
-                            };
-                        };
-                    };
+                            }
+                        }
+                    }
                     _local18 = (((this.mapMatrix_.a * _local11.x_) + (this.mapMatrix_.c * _local11.y_)) + this.mapMatrix_.tx);
                     _local19 = (((this.mapMatrix_.b * _local11.x_) + (this.mapMatrix_.d * _local11.y_)) + this.mapMatrix_.ty);
                     if ((((((((_local18 <= (-(this._width) / 2))) || ((_local18 >= (this._width / 2))))) || ((_local19 <= (-(this._height) / 2))))) || ((_local19 >= (this._height / 2))))){
                         RectangleUtil.lineSegmentIntersectXY(this.windowRect_, 0, 0, _local18, _local19, this.tempPoint);
                         _local18 = this.tempPoint.x;
                         _local19 = this.tempPoint.y;
-                    };
+                    }
                     if (((((!((_local17 == null))) && (this.isMouseOver))) && ((((this.menu == null)) || ((this.menu.parent == null)))))){
                         _local20 = (_local9 - _local18);
                         _local21 = (_local10 - _local19);
                         _local22 = ((_local20 * _local20) + (_local21 * _local21));
                         if (_local22 < MOUSE_DIST_SQ){
                             this.players_.push(_local17);
-                        };
-                    };
+                        }
+                    }
                     if ((((_local11 is Character)) && (_local11.props_.isEnemy_))){
                         _local8.beginFill(_local16);
                         _local8.drawRect((_local18 - 2), (_local19 - 2), 4, 4);
@@ -360,9 +360,9 @@ package kabam.rotmg.minimap.view{
                         _local7.beginFill(_local16);
                         _local7.drawRect((_local18 - 2), (_local19 - 2), 4, 4);
                         _local7.endFill();
-                    };
-                };
-            };
+                    }
+                }
+            }
             if (this.players_.length != 0){
                 if (this.tooltip == null){
                     this.tooltip = new PlayerGroupToolTip(this.players_);
@@ -371,17 +371,17 @@ package kabam.rotmg.minimap.view{
                 else {
                     if (!this.areSamePlayers(this.tooltip.players_, this.players_)){
                         this.tooltip.setPlayers(this.players_);
-                    };
-                };
+                    }
+                }
             }
             else {
                 if (this.tooltip != null){
                     if (this.tooltip.parent != null){
                         this.tooltip.parent.removeChild(this.tooltip);
-                    };
+                    }
                     this.tooltip = null;
-                };
-            };
+                }
+            }
             var _local12:Number = this.focus.x_;
             var _local13:Number = this.focus.y_;
             var _local14:Number = (((this.mapMatrix_.a * _local12) + (this.mapMatrix_.c * _local13)) + this.mapMatrix_.tx);
@@ -391,7 +391,7 @@ package kabam.rotmg.minimap.view{
             this.arrowMatrix_.scale((8 / this.blueArrow_.width), (32 / this.blueArrow_.height));
             if (!(((_local1 >= 1)) && (this._rotateEnableFlag))){
                 this.arrowMatrix_.rotate(Parameters.data_.cameraAngle);
-            };
+            }
             this.arrowMatrix_.translate(_local14, _local15);
             _local7.beginBitmapFill(this.blueArrow_, this.arrowMatrix_, false);
             _local7.drawRect((_local14 - 16), (_local15 - 16), 32, 32);
@@ -402,14 +402,14 @@ package kabam.rotmg.minimap.view{
             var _local3:int = _arg1.length;
             if (_local3 != _arg2.length){
                 return false;
-            };
+            }
             var _local4:int;
             while (_local4 < _local3) {
                 if (_arg1[_local4] != _arg2[_local4]){
                     return false;
-                };
+                }
                 _local4++;
-            };
+            }
             return true;
         }
 

@@ -31,13 +31,13 @@ package com.greensock{
                     if (_local_2.join("").indexOf("{self}") !== -1)
                     {
                         this.vars[_local_3] = _swapSelfInParams((_local_2 as Array));
-                    };
-                };
-            };
+                    }
+                }
+            }
             if ((this.vars.tweens is Array))
             {
                 this.add(this.vars.tweens, 0, ((this.vars.align) || ("normal")), ((this.vars.stagger) || (0)));
-            };
+            }
         }
 
         protected static function _copy(_arg_1:Object):Object{
@@ -46,7 +46,7 @@ package com.greensock{
             for (_local_3 in _arg_1)
             {
                 _local_2[_local_3] = _arg_1[_local_3];
-            };
+            }
             return (_local_2);
         }
 
@@ -60,7 +60,7 @@ package com.greensock{
             if (!("smoothChildTiming" in _arg_1))
             {
                 _arg_1.smoothChildTiming = true;
-            };
+            }
             var _local_3:TimelineLite = new TimelineLite(_arg_1);
             var _local_4:SimpleTimeline = _local_3._timeline;
             _local_4._remove(_local_3, true);
@@ -73,9 +73,9 @@ package com.greensock{
                 if (((!(_arg_2)) || (!((_local_5 is TweenLite) && (TweenLite(_local_5).target == _local_5.vars.onComplete)))))
                 {
                     _local_3.add(_local_5, (_local_5._startTime - _local_5._delay));
-                };
+                }
                 _local_5 = _local_6;
-            };
+            }
             _local_4.add(_local_3, 0);
             return (_local_3);
         }
@@ -90,20 +90,20 @@ package com.greensock{
             if ((_arg_1 is Animation))
             {
                 return (_remove(_arg_1, false));
-            };
+            }
             if ((_arg_1 is Array))
             {
                 _local_2 = _arg_1.length;
                 while (--_local_2 > -1)
                 {
                     remove(_arg_1[_local_2]);
-                };
+                }
                 return (this);
-            };
+            }
             if (typeof(_arg_1) == "string")
             {
                 return (removeLabel(String(_arg_1)));
-            };
+            }
             return (kill(null, _arg_1));
         }
 
@@ -123,10 +123,10 @@ package com.greensock{
                 if (_arg_3.startAt != null)
                 {
                     _arg_3.startAt = _copy(_arg_3.startAt);
-                };
+                }
                 _local_8.to(_arg_1[_local_9], _arg_2, _copy(_arg_3), (_local_9 * _arg_4));
                 _local_9++;
-            };
+            }
             return (add(_local_8, _arg_5));
         }
 
@@ -139,8 +139,8 @@ package com.greensock{
                 {
                     _local_3._enabled(_arg_1, true);
                     _local_3 = _local_3._next;
-                };
-            };
+                }
+            }
             return (super._enabled(_arg_1, _arg_2));
         }
 
@@ -155,9 +155,9 @@ package com.greensock{
                 if (((_local_1._paused) || ((_local_1 is TimelineLite) && (TimelineLite(_local_1)._hasPausedChild()))))
                 {
                     return true;;
-                };
+                }
                 _local_1 = _local_1._next;
-            };
+            }
             return (false);
         }
 
@@ -170,11 +170,11 @@ package com.greensock{
             while (--_local_3 > -1)
             {
                 _local_2[_local_3]._enabled(false, false);
-            };
+            }
             if (_arg_1)
             {
                 _labels = {};
-            };
+            }
             return (_uncache(true));
         }
 
@@ -206,16 +206,16 @@ package com.greensock{
                 if (_dirty)
                 {
                     totalDuration();
-                };
+                }
                 return (_duration);
-            };
+            }
             if (duration() !== 0)
             {
                 if (_arg_1 !== 0)
                 {
                     timeScale((_duration / _arg_1));
-                };
-            };
+                }
+            }
             return (this);
         }
 
@@ -232,7 +232,7 @@ package com.greensock{
             while (_local_1._timeline)
             {
                 _local_1 = _local_1._timeline;
-            };
+            }
             return (_local_1 == _rootFramesTimeline);
         }
 
@@ -248,12 +248,12 @@ package com.greensock{
                 if ((_arg_2 is Function))
                 {
                     _arg_2.apply(null, _arg_3);
-                };
+                }
                 if (_forcingPlayhead)
                 {
                     _arg_1._timeline.seek(_local_4);
-                };
-            };
+                }
+            }
         }
 
         override public function add(_arg_1:*, _arg_2:*="+=0", _arg_3:String="normal", _arg_4:Number=0):*{
@@ -266,7 +266,7 @@ package com.greensock{
             if (typeof(_arg_2) !== "number")
             {
                 _arg_2 = _parseTimeOrLabel(_arg_2, 0, true, _arg_1);
-            };
+            }
             if (!(_arg_1 is Animation))
             {
                 if ((_arg_1 is Array))
@@ -280,7 +280,7 @@ package com.greensock{
                         if ((_local_8 is Array))
                         {
                             _local_8 = new TimelineLite({"tweens":_local_8});
-                        };
+                        }
                         add(_local_8, _local_6);
                         if (!((typeof(_local_8) === "string") || (typeof(_local_8) === "function")))
                         {
@@ -293,18 +293,18 @@ package com.greensock{
                                 if (_arg_3 === "start")
                                 {
                                     _local_8._startTime = (_local_8._startTime - _local_8.delay());
-                                };
-                            };
-                        };
+                                }
+                            }
+                        }
                         _local_6 = (_local_6 + _arg_4);
                         _local_5++;
-                    };
+                    }
                     return (_uncache(true));
-                };
+                }
                 if (typeof(_arg_1) === "string")
                 {
                     return (addLabel(String(_arg_1), _arg_2));
-                };
+                }
                 if (typeof(_arg_1) === "function")
                 {
                     _arg_1 = TweenLite.delayedCall(0, _arg_1);
@@ -313,8 +313,8 @@ package com.greensock{
                 {
                     trace((("Cannot add " + _arg_1) + " into the TimelineLite/Max: it is not a tween, timeline, function, or string."));
                     return (this);
-                };
-            };
+                }
+            }
             super.add(_arg_1, _arg_2);
             if (((_gc) || (_time === _duration)))
             {
@@ -335,13 +335,13 @@ package com.greensock{
                                 if (_local_9._gc)
                                 {
                                     _local_9._enabled(true, false);
-                                };
-                            };
+                                }
+                            }
                             _local_9 = _local_9._timeline;
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             return (this);
         }
 
@@ -351,7 +351,7 @@ package com.greensock{
             if (_arg_2.immediateRender == null)
             {
                 _arg_2.immediateRender = ((_arg_3 === _time) && (!(_paused)));
-            };
+            }
             return (add(new TweenLite(_arg_1, 0, _arg_2), _arg_3));
         }
 
@@ -367,8 +367,8 @@ package com.greensock{
                 {
                     _time = duration();
                     _totalTime = _totalDuration;
-                };
-            };
+                }
+            }
             return (this);
         }
 
@@ -381,7 +381,7 @@ package com.greensock{
             if (_local_3)
             {
                 _enabled(true, true);
-            };
+            }
             _local_6 = TweenLite.getTweensOf(_arg_1);
             _local_7 = _local_6.length;
             while (--_local_7 > -1)
@@ -390,12 +390,12 @@ package com.greensock{
                 {
                     var _local_8:* = _local_5++;
                     _local_4[_local_8] = _local_6[_local_7];
-                };
-            };
+                }
+            }
             if (_local_3)
             {
                 _enabled(false, true);
-            };
+            }
             return (_local_4);
         }
 
@@ -411,9 +411,9 @@ package com.greensock{
                 if (_local_4._startTime >= _arg_3)
                 {
                     _local_4._startTime = (_local_4._startTime + _arg_1);
-                };
+                }
                 _local_4 = _local_4._next;
-            };
+            }
             if (_arg_2)
             {
                 for (_local_5 in _labels)
@@ -421,9 +421,9 @@ package com.greensock{
                     if (_labels[_local_5] >= _arg_3)
                     {
                         _labels[_local_5] = (_labels[_local_5] + _arg_1);
-                    };
-                };
-            };
+                    }
+                }
+            }
             _uncache(true);
             return (this);
         }
@@ -453,7 +453,7 @@ package com.greensock{
             if (_gc)
             {
                 _enabled(true, false);
-            };
+            }
             var _local_4:Number = ((_dirty) ? totalDuration() : _totalDuration);
             var _local_5:Number = _time;
             var _local_6:Number = _startTime;
@@ -478,12 +478,12 @@ package com.greensock{
                                     if (_rawPrevTime > _tinyNum)
                                     {
                                         _local_12 = "onReverseComplete";
-                                    };
-                                };
-                            };
-                        };
-                    };
-                };
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
                 _rawPrevTime = (((((!(_duration === 0)) || (!(_arg_2))) || (!(_arg_1 === 0))) || (_rawPrevTime === _arg_1)) ? _arg_1 : _tinyNum);
                 _arg_1 = (_local_4 + 0.0001);
             }
@@ -496,14 +496,14 @@ package com.greensock{
                     {
                         _local_12 = "onReverseComplete";
                         _local_10 = _reversed;
-                    };
+                    }
                     if (_arg_1 < 0)
                     {
                         _active = false;
                         if (((_rawPrevTime >= 0) && (!(_first == null))))
                         {
                             _local_13 = true;
-                        };
+                        }
                         _rawPrevTime = _arg_1;
                     }
                     else
@@ -513,29 +513,29 @@ package com.greensock{
                         if (!_initted)
                         {
                             _local_13 = true;
-                        };
-                    };
+                        }
+                    }
                 }
                 else
                 {
                     _totalTime = (_time = (_rawPrevTime = _arg_1));
-                };
-            };
+                }
+            }
             if (((((_time == _local_5) || (!(_first))) && (!(_arg_3))) && (!(_local_13))))
             {
                 return;
-            };
+            }
             if (!_initted)
             {
                 _initted = true;
-            };
+            }
             if (!_active)
             {
                 if ((((!(_paused)) && (!(_time === _local_5))) && (_arg_1 > 0)))
                 {
                     _active = true;
-                };
-            };
+                }
+            }
             if (_local_5 == 0)
             {
                 if (vars.onStart)
@@ -545,10 +545,10 @@ package com.greensock{
                         if (!_arg_2)
                         {
                             vars.onStart.apply(null, vars.onStartParams);
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             if (_time >= _local_5)
             {
                 _local_9 = _first;
@@ -565,10 +565,10 @@ package com.greensock{
                         else
                         {
                             _local_9.render((((_local_9._dirty) ? _local_9.totalDuration() : _local_9._totalDuration) - ((_arg_1 - _local_9._startTime) * _local_9._timeScale)), _arg_2, _arg_3);
-                        };
-                    };
+                        }
+                    }
                     _local_9 = _local_11;
-                };
+                }
             }
             else
             {
@@ -586,18 +586,18 @@ package com.greensock{
                         else
                         {
                             _local_9.render((((_local_9._dirty) ? _local_9.totalDuration() : _local_9._totalDuration) - ((_arg_1 - _local_9._startTime) * _local_9._timeScale)), _arg_2, _arg_3);
-                        };
-                    };
+                        }
+                    }
                     _local_9 = _local_11;
-                };
-            };
+                }
+            }
             if (_onUpdate != null)
             {
                 if (!_arg_2)
                 {
                     _onUpdate.apply(null, vars.onUpdateParams);
-                };
-            };
+                }
+            }
             if (_local_12)
             {
                 if (!_gc)
@@ -611,20 +611,20 @@ package com.greensock{
                                 if (_timeline.autoRemoveChildren)
                                 {
                                     _enabled(false, false);
-                                };
+                                }
                                 _active = false;
-                            };
+                            }
                             if (!_arg_2)
                             {
                                 if (vars[_local_12])
                                 {
                                     vars[_local_12].apply(null, vars[(_local_12 + "Params")]);
-                                };
-                            };
-                        };
-                    };
-                };
-            };
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         protected function _parseTimeOrLabel(_arg_1:*, _arg_2:*=0, _arg_3:Boolean=false, _arg_4:Object=null):Number{
@@ -643,14 +643,14 @@ package com.greensock{
                         if (((_arg_4[_local_5] is Animation) && (_arg_4[_local_5].timeline === this)))
                         {
                             remove(_arg_4[_local_5]);
-                        };
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
             if (typeof(_arg_2) === "string")
             {
                 return (_parseTimeOrLabel(_arg_2, ((((_arg_3) && (typeof(_arg_1) === "number")) && (!(_arg_2 in _labels))) ? (_arg_1 - duration()) : 0), _arg_3));
-            };
+            }
             _arg_2 = ((_arg_2) || (0));
             if (((typeof(_arg_1) === "string") && ((isNaN(_arg_1)) || (_arg_1 in _labels))))
             {
@@ -660,9 +660,9 @@ package com.greensock{
                     if (!(_arg_1 in _labels))
                     {
                         return ((_arg_3) ? _labels[_arg_1] = (duration() + _arg_2) : _arg_2);
-                    };
+                    }
                     return (_labels[_arg_1] + _arg_2);
-                };
+                }
                 _arg_2 = (parseInt((_arg_1.charAt((_local_5 - 1)) + "1"), 10) * Number(_arg_1.substr((_local_5 + 1))));
                 _arg_1 = ((_local_5 > 1) ? _parseTimeOrLabel(_arg_1.substr(0, (_local_5 - 1)), 0, _arg_3) : duration());
             }
@@ -671,8 +671,8 @@ package com.greensock{
                 if (_arg_1 == null)
                 {
                     _arg_1 = duration();
-                };
-            };
+                }
+            }
             return (Number(_arg_1) + _arg_2);
         }
 
@@ -689,7 +689,7 @@ package com.greensock{
             {
                 _local_1.invalidate();
                 _local_1 = _local_1._next;
-            };
+            }
             return (this);
         }
 
@@ -707,7 +707,7 @@ package com.greensock{
                         {
                             var _local_8:* = _local_7++;
                             _local_5[_local_8] = _local_6;
-                        };
+                        }
                     }
                     else
                     {
@@ -715,16 +715,16 @@ package com.greensock{
                         {
                             _local_8 = _local_7++;
                             _local_5[_local_8] = _local_6;
-                        };
+                        }
                         if (_arg_1)
                         {
                             _local_5 = _local_5.concat(TimelineLite(_local_6).getChildren(true, _arg_2, _arg_3));
                             _local_7 = _local_5.length;
-                        };
-                    };
-                };
+                        }
+                    }
+                }
                 _local_6 = _local_6._next;
-            };
+            }
             return (_local_5);
         }
 
@@ -733,7 +733,7 @@ package com.greensock{
             if (!("immediateRender" in _arg_3))
             {
                 _arg_3.immediateRender = true;
-            };
+            }
             _arg_3.runBackwards = true;
             return (staggerTo(_arg_1, _arg_2, _arg_3, _arg_4, _arg_5, _arg_6, _arg_7));
         }
@@ -756,8 +756,8 @@ package com.greensock{
                 if (_arg_2 == null)
                 {
                     return (_enabled(false, false));
-                };
-            };
+                }
+            }
             var _local_3:Array = ((_arg_2 == null) ? getChildren(true, true, false) : getTweensOf(_arg_2));
             var _local_4:int = _local_3.length;
             var _local_5:Boolean;
@@ -766,8 +766,8 @@ package com.greensock{
                 if (_local_3[_local_4]._kill(_arg_1, _arg_2))
                 {
                     _local_5 = true;
-                };
-            };
+                }
+            }
             return (_local_5);
         }
 
@@ -778,9 +778,9 @@ package com.greensock{
                 if (_local_2 == this)
                 {
                     return true;;
-                };
+                }
                 _local_2 = _local_2.timeline;
-            };
+            }
             return (false);
         }
 
@@ -803,7 +803,7 @@ package com.greensock{
                         if (_local_4._dirty)
                         {
                             _local_4.totalDuration();
-                        };
+                        }
                         if ((((_local_4._startTime > _local_5) && (_sortChildren)) && (!(_local_4._paused))))
                         {
                             add(_local_4, (_local_4._startTime - _local_4._delay));
@@ -811,36 +811,36 @@ package com.greensock{
                         else
                         {
                             _local_5 = _local_4._startTime;
-                        };
+                        }
                         if (((_local_4._startTime < 0) && (!(_local_4._paused))))
                         {
                             _local_3 = (_local_3 - _local_4._startTime);
                             if (_timeline.smoothChildTiming)
                             {
                                 _startTime = (_startTime + (_local_4._startTime / _timeScale));
-                            };
+                            }
                             shiftChildren(-(_local_4._startTime), false, -9999999999);
                             _local_5 = 0;
-                        };
+                        }
                         _local_7 = (_local_4._startTime + (_local_4._totalDuration / _local_4._timeScale));
                         if (_local_7 > _local_3)
                         {
                             _local_3 = _local_7;
-                        };
+                        }
                         _local_4 = _local_6;
-                    };
+                    }
                     _duration = (_totalDuration = _local_3);
                     _dirty = false;
-                };
+                }
                 return (_totalDuration);
-            };
+            }
             if (totalDuration() != 0)
             {
                 if (_arg_1 != 0)
                 {
                     timeScale((_totalDuration / _arg_1));
-                };
-            };
+                }
+            }
             return (this);
         }
 

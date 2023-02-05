@@ -61,7 +61,7 @@ package com.company.assembleegameclient.ui{
             this.drawItemIfAvailable();
             if (!_arg2){
                 transform.colorTransform = MoreColorUtil.veryDarkCT;
-            };
+            }
             this.overlay_ = this.getOverlay();
             addChild(this.overlay_);
             this.setIncluded(_arg3);
@@ -78,7 +78,7 @@ package com.company.assembleegameclient.ui{
         private function drawItemIfAvailable():void{
             if (!this.isEmpty()){
                 this.drawItem();
-            };
+            }
         }
 
         private function drawItem():void{
@@ -92,12 +92,12 @@ package com.company.assembleegameclient.ui{
                 _local1 = _local1.clone();
                 _local5 = this.bitmapFactory.make(new StaticStringBuilder(String(_local2.Doses)), 12, 0xFFFFFF, false, IDENTITY_MATRIX, false);
                 _local1.draw(_local5, DOSE_MATRIX);
-            };
+            }
             if (((_local2.hasOwnProperty("Quantity")) && (this.bitmapFactory))){
                 _local1 = _local1.clone();
                 _local6 = this.bitmapFactory.make(new StaticStringBuilder(String(_local2.Quantity)), 12, 0xFFFFFF, false, IDENTITY_MATRIX, false);
                 _local1.draw(_local6, DOSE_MATRIX);
-            };
+            }
             var _local3:Point = offsets(this.item_, type_, false);
             _local4 = new Bitmap(_local1);
             _local4.x = (((WIDTH / 2) - (_local4.width / 2)) + _local3.x);
@@ -113,7 +113,7 @@ package com.company.assembleegameclient.ui{
             }
             else {
                 fill_.color = 0x545454;
-            };
+            }
             drawBackground();
         }
 
@@ -149,7 +149,7 @@ package com.company.assembleegameclient.ui{
         public function setPlayer(_arg1:Player):void{
             if (!this.isEmpty()){
                 this.hoverTooltipDelegate.tooltip = this.equipmentToolTipFactory.make(this.item_, _arg1, -1, InventoryOwnerTypes.OTHER_PLAYER, this.id);
-            };
+            }
         }
 
         public function isEmpty():Boolean{

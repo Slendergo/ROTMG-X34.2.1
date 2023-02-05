@@ -57,7 +57,7 @@ package com.company.assembleegameclient.screens{
             }
             else {
                 this.graphic_ = new FullCharBoxGraphic();
-            };
+            }
             this.graphicContainer_ = new Sprite();
             addChild(this.graphicContainer_);
             this.graphicContainer_.addChild(this.graphic_);
@@ -87,7 +87,7 @@ package com.company.assembleegameclient.screens{
                 addChild(this.lock_);
                 addChild(this.statusText_);
                 this.classNameText_.y = 78;
-            };
+            }
         }
 
         public function objectType():int{
@@ -107,10 +107,10 @@ package com.company.assembleegameclient.screens{
                 this.graphic_.addChild(this.classNameText_);
                 if (contains(this.statusText_)){
                     removeChild(this.statusText_);
-                };
+                }
                 if (((this.lock_) && (contains(this.lock_)))){
                     removeChild(this.lock_);
-                };
+                }
                 _local1 = this.getStars(FameUtil.numStars(this.model.getBestFame(this.objectType())), FameUtil.STARS.length);
                 _local1.y = 60;
                 _local1.x = ((this.graphic_.width / 2) - (_local1.width / 2));
@@ -119,14 +119,14 @@ package com.company.assembleegameclient.screens{
                 this.classNameText_.y = 74;
                 if (!this.unlockedText_){
                     this.getCharacterUnlockText();
-                };
+                }
                 addChild(this.unlockedText_);
                 _local2 = new GTween(this.unlockedText_, 2.5, {
                     alpha:0,
                     y:-30
                 });
                 _local2.onComplete = this.removeUnlockText;
-            };
+            }
         }
 
         public function getTooltip():ToolTip{
@@ -167,7 +167,7 @@ package com.company.assembleegameclient.screens{
                 _local3.addChild(_local5);
                 _local6 = (_local6 + _local5.width);
                 _local4++;
-            };
+            }
             while (_local4 < _arg2) {
                 _local5 = new StarGraphic();
                 _local5.x = _local6;
@@ -175,7 +175,7 @@ package com.company.assembleegameclient.screens{
                 _local3.addChild(_local5);
                 _local6 = (_local6 + _local5.width);
                 _local4++;
-            };
+            }
             return (_local3);
         }
 

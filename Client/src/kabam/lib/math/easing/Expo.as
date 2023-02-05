@@ -18,11 +18,11 @@ package kabam.lib.math.easing{
         public static function easeInOut(_arg1:Number):Number{
             if ((((_arg1 == 0)) || ((_arg1 == 1)))){
                 return (_arg1);
-            };
+            }
             _arg1 = (_arg1 * 2);
             if (_arg1 < 1){
                 return ((0.5 * Math.pow(2, (10 * (_arg1 - 1)))));
-            };
+            }
             return ((0.5 * (-(Math.pow(2, (-10 * (_arg1 - 1)))) + 2)));
         }
 

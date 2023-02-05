@@ -46,8 +46,8 @@ package kabam.rotmg.util.components{
             else {
                 if (WebMain.STAGE){
                     WebMain.STAGE.addEventListener(MouseEvent.MOUSE_WHEEL, this.onMouseWheel);
-                };
-            };
+                }
+            }
         }
 
         protected function onMouseWheel(_arg1:MouseEvent):void{
@@ -57,8 +57,8 @@ package kabam.rotmg.util.components{
             else {
                 if (_arg1.delta < 0){
                     this.scrolling.dispatch(0.25);
-                };
-            };
+                }
+            }
         }
 
         public function removeMouseListeners():void{
@@ -71,8 +71,8 @@ package kabam.rotmg.util.components{
             else {
                 if (WebMain.STAGE){
                     WebMain.STAGE.removeEventListener(MouseEvent.MOUSE_WHEEL, this.onMouseWheel);
-                };
-            };
+                }
+            }
             this.onMouseUp();
         }
 
@@ -81,7 +81,7 @@ package kabam.rotmg.util.components{
             this.downOffset = (parent.mouseY - y);
             if (stage != null){
                 stage.addEventListener(MouseEvent.MOUSE_UP, this.onMouseUp);
-            };
+            }
             addEventListener(Event.ENTER_FRAME, this.iterate);
             this.redraw();
         }
@@ -90,7 +90,7 @@ package kabam.rotmg.util.components{
             this.isDown = false;
             if (stage != null){
                 stage.removeEventListener(MouseEvent.MOUSE_UP, this.onMouseUp);
-            };
+            }
             removeEventListener(Event.ENTER_FRAME, this.iterate);
             this.redraw();
         }

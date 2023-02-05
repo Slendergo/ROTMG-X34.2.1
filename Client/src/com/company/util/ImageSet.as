@@ -32,9 +32,9 @@ package com.company.util{
                 while (_local7 < _local4) {
                     this.images_.push(BitmapUtil.cropToBitmapData(_arg1, (_local7 * _arg2), (_local6 * _arg3), _arg2, _arg3));
                     _local7++;
-                };
+                }
                 _local6++;
-            };
+            }
         }
 
 

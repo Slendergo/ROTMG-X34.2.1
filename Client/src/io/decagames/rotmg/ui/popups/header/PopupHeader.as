@@ -34,7 +34,7 @@ package io.decagames.rotmg.ui.popups.header{
             if (_arg2 == TYPE_FULL){
                 this.backgroundBitmap = TextureParser.instance.getSliceScalingBitmap("UI", "popup_header", _arg1);
                 addChild(this.backgroundBitmap);
-            };
+            }
             this.buttonsContainers = new Vector.<Sprite>();
             this.buttons = new Vector.<SliceScalingButton>();
         }
@@ -51,11 +51,11 @@ package io.decagames.rotmg.ui.popups.header{
                     this.titleBackgroundBitmap = TextureParser.instance.getSliceScalingBitmap("UI", "modal_header_title", _arg2);
                     addChild(this.titleBackgroundBitmap);
                     this.titleBackgroundBitmap.x = Math.round(((this.headerWidth - _arg2) / 2));
-                };
+                }
                 this._titleLabel = new UILabel();
                 if (_arg3 != null){
                     (_arg3(this._titleLabel));
-                };
+                }
                 this._titleLabel.text = _arg1;
                 addChild(this._titleLabel);
                 this._titleLabel.x = (this.titleBackgroundBitmap.x + ((this.titleBackgroundBitmap.width - this._titleLabel.textWidth) / 2));
@@ -64,8 +64,8 @@ package io.decagames.rotmg.ui.popups.header{
                 }
                 else {
                     this._titleLabel.y = (this.titleBackgroundBitmap.y + ((this.titleBackgroundBitmap.height - this._titleLabel.height) / 2));
-                };
-            };
+                }
+            }
         }
 
         public function addButton(_arg1:SliceScalingButton, _arg2:String):void{
@@ -74,7 +74,7 @@ package io.decagames.rotmg.ui.popups.header{
             if (this.headerType == TYPE_FULL){
                 _local4 = TextureParser.instance.getSliceScalingBitmap("UI", "popup_header_button_decor");
                 _local3.addChild(_local4);
-            };
+            }
             _local3.addChild(_arg1);
             addChild(_local3);
             this.buttonsContainers.push(_local3);
@@ -85,7 +85,7 @@ package io.decagames.rotmg.ui.popups.header{
             }
             else {
                 _arg1.y = 5;
-            };
+            }
             if (_arg2 == RIGHT_BUTTON){
                 if (this.headerType == TYPE_FULL){
                     _local4.x = (this.headerWidth - _local4.width);
@@ -93,7 +93,7 @@ package io.decagames.rotmg.ui.popups.header{
                 }
                 else {
                     _arg1.x = (((this.titleBackgroundBitmap.x + this.titleBackgroundBitmap.width) - _arg1.width) - 3);
-                };
+                }
             }
             else {
                 if (this.headerType == TYPE_FULL){
@@ -103,8 +103,8 @@ package io.decagames.rotmg.ui.popups.header{
                 }
                 else {
                     _arg1.x = (this.titleBackgroundBitmap.x + 3);
-                };
-            };
+                }
+            }
         }
 
         public function showCoins(_arg1:int):CoinsField{
@@ -115,7 +115,7 @@ package io.decagames.rotmg.ui.popups.header{
             this.alignCurrency();
             for each (_local2 in this.buttonsContainers) {
                 addChild(_local2);
-            };
+            }
             return (this._coinsField);
         }
 
@@ -139,26 +139,26 @@ package io.decagames.rotmg.ui.popups.header{
                 else {
                     if (this._fameField){
                         this._fameField.y = 51;
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         public function dispose():void{
             var _local1:SliceScalingButton;
             if (this.backgroundBitmap){
                 this.backgroundBitmap.dispose();
-            };
+            }
             this.titleBackgroundBitmap.dispose();
             if (this._coinsField){
                 this._coinsField.dispose();
-            };
+            }
             if (this._fameField){
                 this._fameField.dispose();
-            };
+            }
             for each (_local1 in this.buttons) {
                 _local1.dispose();
-            };
+            }
             this.buttonsContainers = null;
             this.buttons = null;
         }

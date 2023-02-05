@@ -26,7 +26,7 @@ package kabam.rotmg.stage3D.graphic3D{
             var _local2:BitmapData;
             if ((_arg1 in flippedTextures)){
                 return (flippedTextures[_arg1]);
-            };
+            }
             _local2 = flipBitmapData(_arg1, "y");
             flippedTextures[_arg1] = _local2;
             return (_local2);
@@ -40,7 +40,7 @@ package kabam.rotmg.stage3D.graphic3D{
             }
             else {
                 _local4 = new Matrix(1, 0, 0, -1, 0, _arg1.height);
-            };
+            }
             _local3.draw(_arg1, _local4, null, null, null, true);
             return (_local3);
         }
@@ -61,11 +61,11 @@ package kabam.rotmg.stage3D.graphic3D{
             var _local2:BitmapData;
             for each (_local1 in textures) {
                 _local1.dispose();
-            };
+            }
             textures = new Dictionary();
             for each (_local2 in flippedTextures) {
                 _local2.dispose();
-            };
+            }
             flippedTextures = new Dictionary();
             count = 0;
         }
@@ -74,7 +74,7 @@ package kabam.rotmg.stage3D.graphic3D{
             var _local1:TextureProxy;
             for each (_local1 in textures) {
                 _local1.dispose();
-            };
+            }
             textures = new Dictionary();
         }
 
@@ -86,10 +86,10 @@ package kabam.rotmg.stage3D.graphic3D{
             var _local5:BitmapData;
             if (_arg1 == null){
                 return (null);
-            };
+            }
             if ((_arg1 in textures)){
                 return (textures[_arg1]);
-            };
+            }
             _local2 = getNextPowerOf2(_arg1.width);
             _local3 = getNextPowerOf2(_arg1.height);
             _local4 = this.context3D.createTexture(_local2, _local3, Context3DTextureFormat.BGRA, false);
@@ -99,7 +99,7 @@ package kabam.rotmg.stage3D.graphic3D{
             if (count > 1000){
                 disposeNormalTextures();
                 count = 0;
-            };
+            }
             textures[_arg1] = _local4;
             count++;
             return (_local4);

@@ -72,15 +72,15 @@ package io.decagames.rotmg.social{
             if (_arg1 == SocialPopupView.FRIEND_TAB_LABEL){
                 if (!this._isFriendsListLoaded){
                     this.socialModel.loadFriendsData();
-                };
+                }
             }
             else {
                 if (_arg1 == SocialPopupView.GUILD_TAB_LABEL){
                     if (!this._isGuildListLoaded){
                         this.socialModel.loadGuildData();
-                    };
-                };
-            };
+                    }
+                }
+            }
         }
 
         private function onDataLoaded(_arg1:String, _arg2:Boolean, _arg3:String):void{
@@ -94,14 +94,14 @@ package io.decagames.rotmg.social{
                     else {
                         this._isFriendsListLoaded = false;
                         this.showError(_arg1, _arg3);
-                    };
+                    }
                     return;
                 case SocialDataSignal.GUILD_DATA_LOADED:
                     this.view.clearGuildList();
                     this.showGuild();
                     this._isGuildListLoaded = true;
                     return;
-            };
+            }
         }
 
         private function createAddButtonTooltip():void{
@@ -127,8 +127,8 @@ package io.decagames.rotmg.social{
                 if (_arg1 == RefreshListSignal.CONTEXT_GUILD_LIST){
                     this.view.clearGuildList();
                     this.showGuild();
-                };
-            };
+                }
+            }
         }
 
         private function onSearchHandler(_arg1:KeyboardEvent):void{
@@ -166,18 +166,18 @@ package io.decagames.rotmg.social{
                 while (_local7 < _local6) {
                     this.view.addInvites(new FriendListItem(_local5[_local7], SocialItemState.INVITE));
                     _local7++;
-                };
+                }
                 this.view.showInviteIndicator(true, SocialPopupView.FRIEND_TAB_LABEL);
             }
             else {
                 this.view.showInviteIndicator(false, SocialPopupView.FRIEND_TAB_LABEL);
-            };
+            }
             _local3 = ((_local2) ? this.socialModel.getFilterFriends(_arg1) : this.socialModel.friendsList);
             this.view.addFriendCategory((((("Friends (" + this.socialModel.numberOfFriends) + "/") + SocialConfig.MAX_FRIENDS) + ")"));
             for each (_local4 in _local3) {
                 _local8 = ((_local4.isOnline) ? SocialItemState.ONLINE : SocialItemState.OFFLINE);
                 this.view.addFriend(new FriendListItem(_local4, _local8));
-            };
+            }
             this.view.addFriendCategory("");
         }
 
@@ -189,7 +189,7 @@ package io.decagames.rotmg.social{
                 case SocialDataSignal.FRIEND_INVITATIONS_LOADED:
                     this.view.addFriendCategory(("Invitation Error: " + _arg2));
                     return;
-            };
+            }
         }
 
         private function showGuild():void{
@@ -212,12 +212,12 @@ package io.decagames.rotmg.social{
                     _local8 = ((_local7.isOnline) ? SocialItemState.ONLINE : SocialItemState.OFFLINE);
                     this.view.addGuildMember(new GuildListItem(_local7, _local8, _local1.myRank));
                     _local6++;
-                };
+                }
                 this.view.addGuildCategory("");
             }
             else {
                 this.view.addGuildDefaultMessage(SocialPopupView.DEFAULT_NO_GUILD_MESSAGE);
-            };
+            }
         }
 
 
