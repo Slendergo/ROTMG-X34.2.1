@@ -9,9 +9,17 @@
 
   <ItemGroup>
     <Folder Include="Resources\Properties\" />
-    <Folder Include="Resources\" />
     <Folder Include="Core\World\Parser\" />
     <Folder Include="Core\State\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Portable.BouncyCastle" Version="1.9.0" />
+    <PackageReference Include="StackExchange.Redis" Version="2.6.90" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SGB.Shared\SGB.Shared.csproj" />
   </ItemGroup>
 
 </Project>

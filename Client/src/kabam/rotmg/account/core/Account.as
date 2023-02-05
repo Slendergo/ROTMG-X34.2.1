@@ -11,7 +11,6 @@ package kabam.rotmg.account.core{
         function getUserId():String;
         function getPassword():String;
         function getToken():String;
-        function getSecret():String;
         function getCredentials():Object;
         function isRegistered():Boolean;
         function clear():void;

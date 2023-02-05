@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System.Reflection.Metadata;
 using System.Text;
 
 namespace SGB.GameServer.Core.IO
@@ -17,7 +18,16 @@ namespace SGB.GameServer.Core.IO
         }
 
         public byte ReadByte() => PayloadBuffer[Position++];
-        public bool ReadBoolean() => PayloadBuffer[Position++] == 1;
+
+        public byte[] ReadBytes(int size)
+        {
+            var bytes = new byte[size];
+            Buffer.BlockCopy(PayloadBuffer, Position, bytes, 0, size);
+            Position += size;
+            return bytes;
+        }
+
+        public bool ReadBoolean() => PayloadBuffer[Position++] != 0;
 
         public float ReadFloat()
         {
@@ -37,14 +47,16 @@ namespace SGB.GameServer.Core.IO
 
         public short ReadInt16()
         {
-            var value = IPAddress.NetworkToHostOrder(BitConverter.ToInt16(PayloadBuffer, Position));
+            var value = BitConverter.ToInt16(PayloadBuffer, Position);
+            value = IPAddress.NetworkToHostOrder(value);
             Position += sizeof(short);
             return value;
         }
 
         public int ReadInt32()
         {
-            var value = IPAddress.NetworkToHostOrder(BitConverter.ToInt32(PayloadBuffer, Position));
+            var value = BitConverter.ToInt32(PayloadBuffer, Position);
+            value = IPAddress.NetworkToHostOrder(value);
             Position += sizeof(int);
             return value;
         }
@@ -53,7 +65,7 @@ namespace SGB.GameServer.Core.IO
         {
             var size = ReadInt16();
             if (size == 0)
-                return "";
+                return string.Empty;
             var value = Encoding.UTF8.GetString(PayloadBuffer, Position, size);
             Position += size;
             return value;
@@ -63,7 +75,7 @@ namespace SGB.GameServer.Core.IO
         {
             var size = ReadInt32();
             if (size == 0)
-                return "";
+                return string.Empty;
             var value = Encoding.UTF8.GetString(PayloadBuffer, Position, size);
             Position += size;
             return value;

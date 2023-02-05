@@ -1064,7 +1064,6 @@ package kabam.rotmg.messaging.impl{
             _local2.gameId_ = gameId_;
             _local2.guid_ = this.rsaEncrypt(_local1.getUserId());
             _local2.password_ = this.rsaEncrypt(_local1.getPassword());
-            _local2.secret_ = this.rsaEncrypt(_local1.getSecret());
             _local2.keyTime_ = keyTime_;
             _local2.key_.length = 0;
             ((!((key_ == null))) && (_local2.key_.writeBytes(key_)));
@@ -2260,24 +2259,24 @@ package kabam.rotmg.messaging.impl{
                             if (this.delayBeforeReconnect == 6){
                                 _local2 = StaticInjectorContext.getInjector().getInstance(HideMapLoadingSignal);
                                 _local2.dispatch();
-                            };
+                            }
                             this.retry(this.delayBeforeReconnect++);
                             if (!this.serverFull_){
                                 this.addTextLine.dispatch(ChatMessage.make(Parameters.ERROR_CHAT_NAME, "Connection failed!  Retrying..."));
-                            };
+                            }
                         }
                         else {
                             gs_.closed.dispatch();
-                        };
-                    };
-                };
+                        }
+                    }
+                }
             }
             else {
                 this.isNexusing = false;
                 _local3 = this.serverModel.getServer();
                 _local4 = new ReconnectEvent(_local3, Parameters.NEXUS_GAMEID, false, charId_, 1, new ByteArray(), isFromArena_);
                 gs_.dispatchEvent(_local4);
-            };
+            }
         }
 
         private function retry(_arg1:int):void{

@@ -1,4 +1,6 @@
-﻿namespace SGB.GameServer.Utils
+﻿using System.Diagnostics;
+
+namespace SGB.GameServer.Utils
 {
     public static class DebugUtils
     {

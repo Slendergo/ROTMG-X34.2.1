@@ -4,18 +4,19 @@ namespace SGB.GameServer.Core.IO
 {
     public sealed class SessionManager : IDisposable
     {
-        public Dictionary<Guid, Session> Sessions = new Dictionary<Guid, Session>();
+        public Dictionary<Guid, Session> Sessions { get; private set; }
 
         private readonly Application Application;
 
         public SessionManager(Application application)
         {
             Application = application;
+            Sessions = new Dictionary<Guid, Session>();
         }
 
         public void New(Socket socket)
         {
-            var session = new Session(socket);
+            var session = new Session(Application, socket);
             Sessions.Add(session.Id, session);
             session.Start();
         }
@@ -24,7 +25,7 @@ namespace SGB.GameServer.Core.IO
         {
             if (!Sessions.TryGetValue(id, out var session))
                 return;
-            session.Send(buffer);
+            session.IOManager.Send(buffer);
         }
 
         public void Remove(Session session)

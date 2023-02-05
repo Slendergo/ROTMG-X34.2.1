@@ -1,6 +1,5 @@
 ﻿using SGB.GameServer.Core;
-using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
+using SGB.Shared;
 
 namespace SGB.GameServer
 {

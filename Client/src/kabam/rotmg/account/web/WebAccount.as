@@ -15,21 +15,12 @@ package kabam.rotmg.account.web{
         private var userId:String = "";
         private var password:String;
         private var token:String = "";
-        private var entryTag:String = "";
         private var isVerifiedEmail:Boolean;
         private var _userDisplayName:String = "";
         private var _rememberMe:Boolean = true;
         private var _creationDate:Date;
         public var signedRequest:String;
         public var kabamId:String;
-
-        public function WebAccount(){
-            try {
-                this.entryTag = ExternalInterface.call("rotmg.UrlLib.getParam", "entrypt");
-            }
-            catch(error:Error) {
-            };
-        }
 
         public function getUserName():String{
             return (this.userId);
@@ -89,14 +80,6 @@ package kabam.rotmg.account.web{
 
         public function getRequestPrefix():String{
             return ("/credits");
-        }
-
-        public function getEntryTag():String{
-            return (((this.entryTag) || ("")));
-        }
-
-        public function getSecret():String{
-            return ("");
         }
 
         public function verify(_arg1:Boolean):void{

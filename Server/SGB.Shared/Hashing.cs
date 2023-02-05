@@ -1,29 +1,8 @@
-﻿using System.Diagnostics;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
 
 namespace SGB.Shared
 {
-    public sealed class TimedProfiler : IDisposable
-    {
-        private string Message { get; }
-        private Stopwatch Stopwatch { get; }
-
-        public TimedProfiler(string message)
-        {
-            Message = message;
-            Stopwatch = Stopwatch.StartNew();
-        }
-
-        public void Dispose()
-        {
-            Stopwatch.Stop();
-            var time = Stopwatch.Elapsed;
-            var ms = Stopwatch.ElapsedMilliseconds;
-            Console.WriteLine($"{Message} - Elapsed: {time} ({ms}ms)");
-        }
-    }
-
     public static class Hashing
     {
         public static string GetHashedPassword(string password)
