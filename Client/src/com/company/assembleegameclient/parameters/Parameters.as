@@ -196,7 +196,6 @@ package com.company.assembleegameclient.parameters{
             setDefault("inventorySwap", true);
             setDefault("particleEffect", false);
             setDefault("uiQuality", true);
-            setDefault("unitySignUp", true);
             setDefault("disableEnemyParticles", false);
             setDefault("disableAllyShoot", 0);
             setDefault("disablePlayersHitParticles", false);

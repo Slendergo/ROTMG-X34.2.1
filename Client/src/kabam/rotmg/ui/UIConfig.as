@@ -154,8 +154,6 @@ package kabam.rotmg.ui{
     import io.decagames.rotmg.shop.mysteryBox.rollModal.MysteryBoxRollModalMediator;
     import io.decagames.rotmg.shop.packages.startupPackage.StartupPackage;
     import io.decagames.rotmg.shop.packages.startupPackage.StartupPackageMediator;
-    import io.decagames.rotmg.unity.popup.UnitySignUpPopup;
-    import io.decagames.rotmg.unity.popup.UnitySignUpPopupMediator;
     import io.decagames.rotmg.ui.texture.TextureParser;
     import kabam.rotmg.account.core.services.LoadAccountTask;
     import kabam.rotmg.account.core.services.GetCharListTask;
@@ -282,7 +280,6 @@ package kabam.rotmg.ui{
             this.mediatorMap.map(ConfirmationModal).toMediator(ConfirmationModalMediator);
             this.mediatorMap.map(MysteryBoxRollModal).toMediator(MysteryBoxRollModalMediator);
             this.mediatorMap.map(StartupPackage).toMediator(StartupPackageMediator);
-            this.mediatorMap.map(UnitySignUpPopup).toMediator(UnitySignUpPopupMediator);
             TextureParser.instance;
             this.setupKeyUI();
             this.mapNoServersDialogFactory();

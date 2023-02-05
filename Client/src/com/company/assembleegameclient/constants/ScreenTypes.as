@@ -16,8 +16,6 @@ package com.company.assembleegameclient.constants{
         public static const BACK:String = "Screens.back";
         public static const LANGUAGES:String = "Screens.languages";
         public static const SUPPORT:String = "Screens.support";
-        public static const TRANSFER_ACCOUNT:String = "Screens.migrate";
-
 
     }
 }//package com.company.assembleegameclient.constants

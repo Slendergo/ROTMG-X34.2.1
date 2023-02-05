@@ -26,7 +26,6 @@ package kabam.rotmg.core.model{
         private var isAgeVerified:Boolean;
         private var _isNameChosen:Boolean;
         private var _isLogOutLogIn:Boolean;
-        private var _hasShownUnitySignUp:Boolean;
         [Inject]
         public var account:Account;
 
@@ -276,16 +275,6 @@ package kabam.rotmg.core.model{
         public function set isLogOutLogIn(_arg1:Boolean):void{
             this._isLogOutLogIn = _arg1;
         }
-
-        public function get hasShownUnitySignUp():Boolean{
-            return (this._hasShownUnitySignUp);
-        }
-
-        public function set hasShownUnitySignUp(_arg1:Boolean):void{
-            this._hasShownUnitySignUp = _arg1;
-        }
-
-
     }
 }//package kabam.rotmg.core.model
 

@@ -20,10 +20,6 @@ package kabam.rotmg.text.model{
         public static const GUEST_ACCOUNT:String = "AccountInfo.guest";
         public static const REGISTER:String = "AccountInfo.register";
         public static const CHECK_BOX_TEXT:String = "WebRegister.check_box_text";
-        public static const TRANSFER_ACCOUNT_K_EMAIL:String = "TransferAccountView.kabamemail";
-        public static const TRANSFER_ACCOUNT_K_PWD:String = "TransferAccountView.kabampwd";
-        public static const TRANSFER_ACCOUNT_NEW_EMAIL:String = "TransferAccountView.newemail";
-        public static const TRANSFER_ACCOUNT_NEW_PWD:String = "TransferAccountView.newpwd";
         public static const TOS_TEXT:String = "WebRegister.tos_text";
         public static const SIGN_IN_TEXT:String = "WebRegister.sign_in_text";
         public static const REGISTER_IMPERATIVE:String = "WebRegister.register_imperative";
@@ -187,8 +183,6 @@ package kabam.rotmg.text.model{
         public static const MONEY_FRAME_GOLD:String = "MoneyFrame.gold";
         public static const MONEY_FRAME_BUY:String = "MoneyFrame.buy";
         public static const PAYMENTS_WEB_COST:String = "Payments.WebCost";
-        public static const PAYMENTS_KONGREGATE_COST:String = "Payments.KongregateCost";
-        public static const PAYMENTS_STEAM_COST:String = "Payments.SteamCost";
         public static const PAYMENTS_GOLD_AMOUNT:String = "Payments.GoldAmount";
         public static const PAYMENTS_GOLD_BONUS:String = "Payments.GoldBonus";
         public static const GUILD_TITLE:String = "CreateGuildFrame.title";
@@ -353,12 +347,6 @@ package kabam.rotmg.text.model{
         public static const NAME_CHANGER_CHANGE:String = "NameChangerPanel.change";
         public static const NAME_CHANGER_REQUIRE_RANK:String = "NameChangerPanel.requireRank";
         public static const NAME_CHANGER_CHOOSE:String = "NameChangerPanel.choose";
-        public static const DETAIL_DIALOG_TITLE:String = "KabamAccountDetailDialog.title";
-        public static const STEAM_ACCOUNT_DETAIL_DIALOG_RIGHTBUTTON:String = "SteamAccountDetailDialog.rightButton";
-        public static const STEAM_ACCOUNT_DETAIL_DIALOG_STEAMWORKS_USER:String = "SteamAccountDetailDialog.user";
-        public static const STEAM_ACCOUNT_DETAIL_DIALOG_LINKWEB:String = "SteamAccountDetailDialog.linkWeb";
-        public static const STEAM_ACCOUNT_DETAIL_DIALOG_REPLACEWEB:String = "SteamAccountDetailDialog.replaceWeb";
-        public static const STEAM_ACCOUNT_DETAIL_DIALOG_REGISTER:String = "SteamAccountDetailDialog.register";
         public static const SCREENS_LEGENDS:String = "Screens.legends";
         public static const DONE_TEXT:String = "Done.text";
         public static const TIMESPAN_ALL:String = "Timespan.all";
@@ -408,20 +396,8 @@ package kabam.rotmg.text.model{
         public static const BUY_BEGINNERS_PACKAGE_COMMAND_REGISTER_DIALOG:String = "BuyBeginnersPackageCommand.registerDialog";
         public static const BUYPACKAGETASK_NEWGIFTS:String = "BuyPackageTask.newGifts";
         public static const GIFTSTATUSDISPLAY_TEXT:String = "GiftStatusDisplay.text";
-        public static const KABAMACCOUNTDETAILDIALOG_RIGHTBUTTON:String = "KabamAccountDetailDialog.rightButton";
-        public static const KABAMACCOUNTDETAILDIALOG_TITLE:String = "KabamAccountDetailDialog.title";
-        public static const KONGREGATEACCOUNTDETAILDIALOG_TITLE:String = "KongregateAccountDetailDialog.title";
-        public static const KONGREGATEACCOUNTDETAILDIALOG_LINKWEB:String = "KongregateAccountDetailDialog.linkWeb";
-        public static const KONGREGATEACCOUNTDETAILDIALOG_REGISTER:String = "KongregateAccountDetailDialog.register";
-        public static const KONGREGATEACCOUNTDETAILDIALOG_REPLACEWEB:String = "KongregateAccountDetailDialog.replaceWeb";
         public static const TEXTPANEL_GIFTCHESTISEMPTY:String = "TextPanel.giftChestIsEmpty";
         public static const CLOSEDGIFTCHEST_TITLE:String = "ClosedGiftChest.title";
-        public static const KONGREGATEACCOUNTDETAILDIALOG_RIGHTBUTTON:String = "KongregateAccountDetailDialog.rightButton";
-        public static const KABAMACCOUNTDETAILDIALOG_LOGINTEXT:String = "KabamAccountDetailDialog.loginText";
-        public static const KABAMACCOUNTINFOVIEW_ACCOUNTINFO:String = "KabamAccountInfoView.accountInfo";
-        public static const KONGREGATEACCOUNTINFOVIEW_REGISTER:String = "KongregateAccountInfoView.register";
-        public static const KONGREGATEACCOUNTINFOVIEW_LOGGEDIN:String = "KongregateAccountInfoView.loggedIn";
-        public static const KONGREGATEACCOUNTINFOVIEW_GUEST:String = "KongregateAccountInfoView.guest";
         public static const JITTERWATCHER_DESC:String = "JitterWatcher.desc";
         public static const RESKINCHARACTERVIEW_TITLE:String = "ReskinCharacterView.title";
         public static const RESKINCHARACTERVIEW_CANCEL:String = "ReskinCharacterView.cancel";
@@ -701,20 +677,6 @@ package kabam.rotmg.text.model{
         public static const BUY_CONFIRMATION_AMOUNT:String = "ConfirmBuyModal.amount";
         public static const VERIFY_WEB_ACCOUNT_DIALOG_TITLE:String = "VerifyWebAccountDialog.title";
         public static const VERIFY_WEB_ACCOUNT_DIALOG_BUTTON:String = "VerifyWebAccountDialog.button";
-        public static const SECURITY_QUESTIONS_DIALOG_TITLE:String = "SecurityQuestionsDialog.title";
-        public static const SECURITY_QUESTIONS_INFO_DIALOG_TITLE:String = "SecurityQuestionsInfoDialog.title";
-        public static const SECURITY_QUESTIONS_INFO_DIALOG_TEXT:String = "SecurityQuestionsInfoDialog.text";
-        public static const SECURITY_QUESTIONS_INFO_DIALOG_RIGHT_BUTTON:String = "SecurityQuestionsInfoDialog.rightButton";
-        public static const SECURITY_QUESTIONS_DIALOG_SAVE:String = "SecurityQuestionsDialog.save";
-        public static const SECURITY_QUESTIONS_TOO_SHORT:String = "SecurityQuestionsDialog.tooShort";
-        public static const SECURITY_QUESTIONS_TOO_LONG:String = "SecurityQuestionsDialog.tooLong";
-        public static const SECURITY_QUESTIONS_WRONG_INPUT_FORMAT:String = "SecurityQuestionsDialog.wrongInputFormat";
-        public static const SECURITY_QUESTIONS_SAVING_IN_PROGRESS:String = "SecurityQuestionsDialog.savingInProgress";
-        public static const SECURITY_QUESTIONS_CONFIRM_TITLE:String = "SecurityQuestionsConfirmDialog.title";
-        public static const SECURITY_QUESTIONS_CONFIRM_TEXT:String = "SecurityQuestionsConfirmDialog.text";
-        public static const SECURITY_QUESTIONS_CONFIRM_LEFT_BUTTON:String = "SecurityQuestionsConfirmDialog.leftButton";
-        public static const SECURITY_QUESTIONS_CONFIRM_RIGHT_BUTTON:String = "SecurityQuestionsConfirmDialog.rightButton";
-
 
         public static function wrapForTokenResolution(_arg1:String):String{
             return ((("{" + _arg1) + "}"));

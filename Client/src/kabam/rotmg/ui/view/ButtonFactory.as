@@ -67,10 +67,6 @@ package kabam.rotmg.ui.view{
             return (this.makeButton(ScreenTypes.BACK, BUTTON_SIZE_LARGE, CENTER));
         }
 
-        public function getTransferButton():TitleMenuOption{
-            return (this.makeButton(ScreenTypes.TRANSFER_ACCOUNT, BUTTON_SIZE_SMALL, RIGHT));
-        }
-
         private function makeButton(_arg1:String, _arg2:int, _arg3:String, _arg4:Boolean=false):TitleMenuOption{
             var _local5:TitleMenuOption = new TitleMenuOption(_arg1, _arg2, _arg4);
             _local5.setAutoSize(_arg3);

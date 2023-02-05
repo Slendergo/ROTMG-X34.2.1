@@ -603,8 +603,6 @@ package com.company.assembleegameclient.ui.options{
             this.addOptionAndPosition(new ChoiceOption("showProtips", new <StringBuilder>[makeLineBuilder(TextKey.OPTIONS_LEGAL_VIEW), makeLineBuilder(TextKey.OPTIONS_LEGAL_VIEW)], [Parameters.data_.showProtips, Parameters.data_.showProtips], TextKey.OPTIONS_LEGAL_PRIVACY, TextKey.OPTIONS_LEGAL_PRIVACY_DESC, this.onLegalPrivacyClick));
             this.addOptionAndPosition(new NullOption());
             this.addOptionAndPosition(new ChoiceOption("showProtips", new <StringBuilder>[makeLineBuilder(TextKey.OPTIONS_LEGAL_VIEW), makeLineBuilder(TextKey.OPTIONS_LEGAL_VIEW)], [Parameters.data_.showProtips, Parameters.data_.showProtips], TextKey.OPTIONS_LEGAL_TOS, TextKey.OPTIONS_LEGAL_TOS_DESC, this.onLegalTOSClick));
-            this.addOptionAndPosition(new NullOption());
-            this.addOptionAndPosition(new ChoiceOption("unitySignUp", makeOnOffLabels(), [true, false], "Show Unity Beta sign up", "Choose if you wanna see the Unity Beta sign up pop up on log in or not.", null));
         }
 
         private function addFriendOptions():void{

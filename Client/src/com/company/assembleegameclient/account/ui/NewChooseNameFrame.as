@@ -16,7 +16,7 @@ package com.company.assembleegameclient.account.ui{
         private var name_:TextInputField;
 
         public function NewChooseNameFrame(){
-            super("Choose a unique player name", "", TextKey.CHOOSE_NAME_CHOOSE, "/newChooseName");
+            super("Choose a unique player name", "", TextKey.CHOOSE_NAME_CHOOSE);
             this.name_ = new TextInputField("Player Name", false);
             this.name_.inputText_.restrict = "A-Za-z";
             var _local1:int = 10;

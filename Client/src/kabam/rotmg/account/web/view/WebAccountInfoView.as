@@ -114,7 +114,7 @@ package kabam.rotmg.account.web.view{
             }
             else {
                 this.showUIForGuestAccount();
-            };
+            }
         }
 
         private function removeUIElements():void{

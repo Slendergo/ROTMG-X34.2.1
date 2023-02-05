@@ -70,7 +70,6 @@ package kabam.rotmg.news.services{
             _local2.startDate = Number(_arg1.startTime);
             _local2.endDate = Number(_arg1.endTime);
             _local2.linkType = NewsCellLinkType.parse(_arg1.linkType);
-            _local2.networks = String(_arg1.platform).split(",");
             _local2.priority = uint(_arg1.priority);
             _local2.slot = uint(_arg1.slot);
             return (_local2);

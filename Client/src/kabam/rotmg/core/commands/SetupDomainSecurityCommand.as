@@ -14,14 +14,11 @@ package kabam.rotmg.core.commands{
         [Inject]
         public var domains:DomainModel;
 
-
         public function execute():void{
             if (this.client.isWeb()){
                 this.domains.applyDomainSecurity();
-            };
+            }
         }
-
-
     }
 }//package kabam.rotmg.core.commands
 

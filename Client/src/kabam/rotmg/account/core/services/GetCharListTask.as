@@ -20,18 +20,10 @@ package kabam.rotmg.account.core.services{
     import flash.utils.Timer;
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.util.MoreObjectUtil;
-    import kabam.rotmg.account.web.view.MigrationDialog;
     import kabam.rotmg.account.web.WebAccount;
-    import io.decagames.rotmg.unity.popup.UnitySignUpPopup;
     import kabam.rotmg.account.web.view.WebLoginDialog;
-    import kabam.rotmg.text.model.TextKey;
-    import kabam.rotmg.core.StaticInjectorContext;
     import kabam.rotmg.fortune.components.TimerCallback;
-    import flash.events.MouseEvent;
-    import com.company.assembleegameclient.objects.ObjectLibrary;
-    import com.company.assembleegameclient.screens.CharacterSelectionAndNewsScreen;
     import flash.events.TimerEvent;
-    import kabam.rotmg.account.core.*;
 
     public class GetCharListTask extends BaseTask {
 
@@ -65,7 +57,6 @@ package kabam.rotmg.account.core.services{
         private var requestData:Object;
         private var retryTimer:Timer;
         private var numRetries:int = 0;
-        private var fromMigration:Boolean = false;
 
         override protected function startTask():void{
             this.logger.info("GetUserDataTask start");
@@ -96,39 +87,19 @@ package kabam.rotmg.account.core.services{
         }
 
         private function onListComplete(_arg1:String):void{
-            var _local3:Number;
-            var _local4:MigrationDialog;
-            var _local5:XML;
             var _local2:XML = new XML(_arg1);
-            if (_local2.hasOwnProperty("MigrateStatus")){
-                _local3 = _local2.MigrateStatus;
-                if (_local3 == 5){
-                    this.sendRequest();
+            if (_local2.hasOwnProperty("Account")){
+                if ((this.account is WebAccount)){
+                    WebAccount(this.account).userDisplayName = _local2.Account[0].Name;
                 }
-                _local4 = new MigrationDialog(this.account, _local3);
-                this.fromMigration = true;
-                _local4.done.addOnce(this.sendRequest);
-                _local4.cancel.addOnce(this.clearAccountAndReloadCharacters);
-                this.openDialog.dispatch(_local4);
+                this.account.creationDate = new Date((_local2.Account[0].CreationTimestamp * 1000));
             }
-            else {
-                if (_local2.hasOwnProperty("Account")){
-                    if ((this.account is WebAccount)){
-                        WebAccount(this.account).userDisplayName = _local2.Account[0].Name;
-                    }
-                    this.account.creationDate = new Date((_local2.Account[0].CreationTimestamp * 1000));
-                }
-                this.charListData.dispatch(_local2);
-                if (!this.model.isLogOutLogIn){
-                    this.charListLoadedSignal.dispatch();
-                }
-                this.model.isLogOutLogIn = false;
-                completeTask(true);
-                if (((((!(this.model.hasShownUnitySignUp)) && (Parameters.data_.unitySignUp))) && (_local2.hasOwnProperty("DecaSignupPopup")))){
-                    this.model.hasShownUnitySignUp = true;
-                    this.showPopupSignal.dispatch(new UnitySignUpPopup());
-                }
+            this.charListData.dispatch(_local2);
+            if (!this.model.isLogOutLogIn){
+                this.charListLoadedSignal.dispatch();
             }
+            this.model.isLogOutLogIn = false;
+            completeTask(true);
             if (this.retryTimer != null){
                 this.stopRetryTimer();
             }
@@ -143,23 +114,12 @@ package kabam.rotmg.account.core.services{
                 this.setLoadingMessage.dispatch("error.loadError");
             }
 
-            if (_arg1 == "Account credentials not valid"){
-                if (this.fromMigration){
-                    _local2 = new WebLoginDialog();
-                    _local2.setError(TextKey.WEB_LOGIN_DIALOG_PASSWORD_INVALID);
-                    _local2.setEmail(this.account.getUserId());
-                    StaticInjectorContext.getInjector().getInstance(OpenDialogSignal).dispatch(_local2);
-                };
-                this.clearAccountAndReloadCharacters();
+            if (_arg1 == "Account is under maintenance"){
+                this.setLoadingMessage.dispatch("This account has been banned");
+                new TimerCallback(5, this.clearAccountAndReloadCharacters);
             }
             else {
-                if (_arg1 == "Account is under maintenance"){
-                    this.setLoadingMessage.dispatch("This account has been banned");
-                    new TimerCallback(5, this.clearAccountAndReloadCharacters);
-                }
-                else {
-                    this.waitForASecondThenRetryRequest();
-                }
+                this.waitForASecondThenRetryRequest();
             }
         }
 

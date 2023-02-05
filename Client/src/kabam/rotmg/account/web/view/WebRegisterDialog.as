@@ -131,7 +131,7 @@ package kabam.rotmg.account.web.view{
             this.ageVerificationInput.setErrorHighlight(!(_local2));
             if (!_local2){
                 this.errors.push(TextKey.INELIGIBLE_AGE);
-            };
+            }
             return (_local2);
         }
 

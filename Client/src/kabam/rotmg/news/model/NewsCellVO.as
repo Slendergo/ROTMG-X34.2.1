@@ -11,7 +11,6 @@ package kabam.rotmg.news.model{
         public var headline:String;
         public var startDate:Number;
         public var endDate:Number;
-        public var networks:Array;
         public var linkType:NewsCellLinkType;
         public var priority:uint;
         public var slot:uint;

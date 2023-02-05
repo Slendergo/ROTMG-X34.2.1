@@ -76,7 +76,7 @@ package kabam.rotmg.build.impl{
         }
 
         private function isDesktopPlayer():Boolean{
-            return ((Capabilities.playerType == DESKTOP));
+            return Capabilities.playerType == DESKTOP;
         }
 
         private function isSteamProductionDeployment():Boolean{
@@ -88,8 +88,6 @@ package kabam.rotmg.build.impl{
             var _local1:LocalConnection = new LocalConnection();
             return ((((_local1.domain == ROTMG)) || ((_local1.domain == ROTMG_APPSPOT))));
         }
-
-
     }
 }//package kabam.rotmg.build.impl
 

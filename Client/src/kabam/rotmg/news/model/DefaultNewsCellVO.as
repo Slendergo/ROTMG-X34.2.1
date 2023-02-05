@@ -12,7 +12,6 @@ package kabam.rotmg.news.model{
             headline = (((_arg1 == 0)) ? "Official Deca Posts on Reddit" : "Join us on Facebook!");
             startDate = (new Date().getTime() - 0x3B9ACA00);
             endDate = (new Date().getTime() + 0x3B9ACA00);
-            networks = ["kabam.com", "kongregate", "steam", "rotmg"];
             linkType = NewsCellLinkType.OPENS_LINK;
             priority = 999999;
             slot = _arg1;

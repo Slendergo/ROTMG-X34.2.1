@@ -26,7 +26,7 @@ package kabam.rotmg.application.model{
             var _local1:String;
             for each (_local1 in this.WHITELIST) {
                 Security.allowDomain(_local1);
-            };
+            }
         }
 
         public function isLocalDomainValid():Boolean{
@@ -44,15 +44,13 @@ package kabam.rotmg.application.model{
             var _local2 = (_local1 == this.LOCALHOST);
             for each (_local3 in this.WHITELIST) {
                 _local2 = ((_local2) || ((_local1 == _local3)));
-            };
+            }
             return (_local2);
         }
 
         private function getLocalDomain():String{
             return ((this.localDomain = ((this.localDomain) || (new LocalConnection().domain))));
         }
-
-
     }
 }//package kabam.rotmg.application.model
 
