@@ -5,7 +5,11 @@
 
 package com.company.assembleegameclient.ui{
     import flash.display.Sprite;
-    import kabam.rotmg.text.view.TextFieldDisplayConcrete;
+import flash.text.engine.FontMetrics;
+
+import kabam.rotmg.text.model.FontModel;
+
+import kabam.rotmg.text.view.TextFieldDisplayConcrete;
     import kabam.rotmg.ui.view.SignalWaiter;
     import kabam.rotmg.text.view.stringBuilder.LineBuilder;
     import kabam.rotmg.text.model.TextKey;
@@ -51,16 +55,30 @@ package com.company.assembleegameclient.ui{
             var onTextChanged:Function;
             var numStars:int = _arg1;
             onTextChanged = function ():void{
-                text.y = text.height;
-                icon.x = (text.width + 2);
-                icon.y = (text.y - icon.height);
-                var _local1:int = (icon.x + icon.width);
-                background.graphics.clear();
-                background.graphics.beginFill(0, 0.4);
-                var _local2:Number = (icon.height + 8);
-                background.graphics.drawRoundRect(-2, (icon.y - 3), (_local1 + 6), _local2, 12, 12);
-                background.graphics.endFill();
-                position();
+                if(FontModel.USE_ALT_FONT) {
+                    text.y = text.height - 2;
+                    icon.x = (text.width + 2);
+                    icon.y = int(text.height / 2 - icon.height / 2) + 1;
+                    var width:int = icon.x + icon.width + 6;
+                    background.graphics.clear();
+                    background.graphics.beginFill(0, 0.4);
+                    var height:Number = (icon.height + 8);
+                    background.graphics.drawRoundRect(-2, (icon.y - 3), width, height, 12, 12);
+                    background.graphics.endFill();
+                    position();
+                }
+                else{
+                    text.y = text.height;
+                    icon.x = (text.width + 2);
+                    icon.y = (text.y - icon.height);
+                    var width:int = (icon.x + icon.width);
+                    background.graphics.clear();
+                    background.graphics.beginFill(0, 0.4);
+                    var height:Number = (icon.height + 8);
+                    background.graphics.drawRoundRect(-2, (icon.y - 3), (width + 6), height, 12, 12);
+                    background.graphics.endFill();
+                    position();
+                }
             }
 
             if (numStars == this.numStars_) {
