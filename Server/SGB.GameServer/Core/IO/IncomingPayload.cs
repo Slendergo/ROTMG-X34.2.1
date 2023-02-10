@@ -4,7 +4,8 @@ using System.Text;
 
 namespace SGB.GameServer.Core.IO
 {
-    public sealed class IncomingPayload
+    // todo rewrite
+    public struct IncomingPayload
     {
         public readonly byte Id;
         private byte[] PayloadBuffer;
@@ -48,7 +49,7 @@ namespace SGB.GameServer.Core.IO
         public short ReadInt16()
         {
             var value = BitConverter.ToInt16(PayloadBuffer, Position);
-            value = IPAddress.NetworkToHostOrder(value);
+            value = (value);
             Position += sizeof(short);
             return value;
         }
@@ -56,7 +57,7 @@ namespace SGB.GameServer.Core.IO
         public int ReadInt32()
         {
             var value = BitConverter.ToInt32(PayloadBuffer, Position);
-            value = IPAddress.NetworkToHostOrder(value);
+            value = (value);
             Position += sizeof(int);
             return value;
         }

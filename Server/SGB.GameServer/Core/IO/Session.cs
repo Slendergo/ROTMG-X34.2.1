@@ -1,6 +1,7 @@
 ﻿using Org.BouncyCastle.Asn1.Crmf;
 using SGB.GameServer.Utils;
 using SGB.Shared;
+using System;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
@@ -185,20 +186,20 @@ namespace SGB.GameServer.Core.IO
             UpdateState = new UpdateState(this);
         }
 
-        public void HandleIncoming(IncomingPayload payload)
+        public void HandleIncoming(ref IncomingPayload payload)
         {
             switch (payload.Id)
             {
                 case IOHelper.HELLO:
-                    HandleHello(payload);
+                    HandleHello(ref payload);
                     break;
 
                 case IOHelper.LOAD:
-                    HandleLoad(payload);
+                    HandleLoad(ref payload);
                     break;
 
                 case IOHelper.CREATE:
-                    HandleCreate(payload);
+                    HandleCreate(ref payload);
                     break;
 
                 default:
@@ -213,7 +214,7 @@ namespace SGB.GameServer.Core.IO
 
         static RedisDatabase RedisDatabase = new RedisDatabase("127.0.0.1:6379");
 
-        private void HandleHello(IncomingPayload payload)
+        private void HandleHello(ref IncomingPayload payload)
         {
             var buildVersion = payload.ReadUTF16();
             var gameId = payload.ReadInt32();
@@ -241,18 +242,19 @@ namespace SGB.GameServer.Core.IO
 
             World = new World(64, 64, "Nexus");
 
-            //IOHelper.MapInfo(Session, World);
+            IOHelper.MapInfo(Session, World);
+
             Session.Stop();
         }
 
-        private void HandleLoad(IncomingPayload payload)
+        private void HandleLoad(ref IncomingPayload payload)
         {
             var characterId = payload.ReadInt32();
             var isFromArena = payload.ReadBoolean();
 
         }
 
-        private void HandleCreate(IncomingPayload payload)
+        private void HandleCreate(ref IncomingPayload payload)
         {
             var classType = payload.ReadInt16();
             var skinType = payload.ReadInt16();
@@ -394,7 +396,7 @@ namespace SGB.GameServer.Core.IO
                     return;
                 }
 
-                var payloadSize = IPAddress.HostToNetworkOrder(BitConverter.ToInt32(receiveBuffer, 0)) - 4;
+                var payloadSize = BitConverter.ToInt32(receiveBuffer, 0) - 4;
 
                 // this time we offset by payload length size and start receiving the payload
                 if (!Disconnected)
@@ -432,7 +434,8 @@ namespace SGB.GameServer.Core.IO
                 //    Payloads.Enqueue(new IncomingPayload(receiveBuffer, 4, receivedBytes));
                 //}
 
-                Session.StateManager.HandleIncoming(new IncomingPayload(receiveBuffer, 4, receivedBytes));
+                var payload = new IncomingPayload(receiveBuffer, 4, receivedBytes);
+                Session.StateManager.HandleIncoming(ref payload);
 
                 // reset receive buffer to prevent leakage
                 Array.Clear(receiveBuffer, 0, receiveBuffer.Length);
@@ -449,14 +452,21 @@ namespace SGB.GameServer.Core.IO
             }
         }
 
-        public void Send(byte[] buffer)
+        public void Send(Memory<byte> buffer) => _ = SendImpl(buffer);
+
+        private async Task SendImpl(Memory<byte> buffer)
         {
             if (Disconnected)
                 return;
 
             try
             {
-                Socket.BeginSend(buffer, 0, buffer.Length, SocketFlags.None, OnSend, buffer.Length);
+                var result = await Socket.SendAsync(buffer);
+                if (result != buffer.Length)
+                {
+                    // uh oh stinky poopy.
+                    Stop();
+                }
             }
             catch (SocketException e)
             {
@@ -466,25 +476,42 @@ namespace SGB.GameServer.Core.IO
             }
         }
 
-        private void OnSend(IAsyncResult asyncResult)
-        {
-            try
-            {
-                var expectedLength = (int)asyncResult.AsyncState!;
-                var result = Socket.EndSend(asyncResult);
-                if (result != expectedLength)
-                {
-                    // uh oh stinky poopy.
-                    Stop();
-                }
-            }
-            catch (SocketException e)
-            {
-                Console.WriteLine($"[OnPayloadHeader] Exception -> {e.Message} {e.StackTrace}");
-                // uh oh stinky poopy
-                Stop();
-            }
-        }
+        //public void Send(byte[] buffer)
+        //{
+        //    if (Disconnected)
+        //        return;
+
+        //    try
+        //    {
+        //        Socket.BeginSend(buffer, 0, buffer.Length, SocketFlags.None, OnSend, buffer.Length);
+        //    }
+        //    catch (SocketException e)
+        //    {
+        //        Console.WriteLine($"[Send] Exception -> {e.Message} {e.StackTrace}");
+        //        // uh oh stinky poopy
+        //        Stop();
+        //    }
+        //}
+
+        //private void OnSend(IAsyncResult asyncResult)
+        //{
+        //    try
+        //    {
+        //        var expectedLength = (int)asyncResult.AsyncState!;
+        //        var result = Socket.EndSend(asyncResult);
+        //        if (result != expectedLength)
+        //        {
+        //            // uh oh stinky poopy.
+        //            Stop();
+        //        }
+        //    }
+        //    catch (SocketException e)
+        //    {
+        //        Console.WriteLine($"[OnPayloadHeader] Exception -> {e.Message} {e.StackTrace}");
+        //        // uh oh stinky poopy
+        //        Stop();
+        //    }
+        //}
 
         public void Stop()
         {

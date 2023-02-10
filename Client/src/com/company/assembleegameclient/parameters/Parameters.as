@@ -15,6 +15,7 @@ package com.company.assembleegameclient.parameters{
 
     public class Parameters {
 
+        public static const LITTLE_ENDIAN:Boolean = true;
         public static const BUILD_VERSION:String = "X34.2";
         public static const MINOR_VERSION:String = "1";
         public static const CLIENT_VERSION:String = "1.0.3.0";

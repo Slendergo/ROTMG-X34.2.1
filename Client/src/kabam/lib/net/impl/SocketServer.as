@@ -4,7 +4,11 @@
 //kabam.lib.net.impl.SocketServer
 
 package kabam.lib.net.impl{
-    import org.osflash.signals.Signal;
+import avmplus.parameterXml;
+
+import flash.utils.Endian;
+
+import org.osflash.signals.Signal;
     import flash.utils.ByteArray;
     import kabam.lib.net.api.MessageProvider;
     import flash.net.Socket;
@@ -68,6 +72,12 @@ package kabam.lib.net.impl{
             }
             else {
                 this.socket.connect(_arg1, _arg2);
+            }
+
+            if(Parameters.LITTLE_ENDIAN) {
+                this.socket.endian = Endian.LITTLE_ENDIAN;
+                this.data.endian = Endian.LITTLE_ENDIAN;
+                this.data.endian = Endian.LITTLE_ENDIAN;
             }
         }
 
@@ -180,6 +190,9 @@ package kabam.lib.net.impl{
                 messageId = this.socket.readUnsignedByte();
                 message = this.messages.require(messageId);
                 data = new ByteArray();
+                if(Parameters.LITTLE_ENDIAN){
+                    data.endian =  Endian.LITTLE_ENDIAN;
+                }
                 if ((this.messageLen - 5) > 0){
                     this.socket.readBytes(data, 0, (this.messageLen - 5));
                 }
