@@ -39,7 +39,7 @@ public class MenuOptionsBar extends Sprite {
                 case CENTER:
                     this.leftObjects[0] = (this.rightObjects[0] = _arg1);
                     _arg1.x = (this.screenGraphic.width / 2);
-                    _arg1.y = FontModel.USE_ALT_FONT ? Y_POSITION + 8 : Y_POSITION;
+                    _arg1.y = Y_POSITION;
                     return;
                 case LEFT:
                     this.layoutToLeftOf(this.leftObjects[(this.leftObjects.length - 1)], _arg1);
@@ -66,7 +66,7 @@ public class MenuOptionsBar extends Sprite {
             var _local3:Rectangle = _arg1.getBounds(_arg1);
             var _local4:Rectangle = _arg2.getBounds(_arg2);
             _arg2.x = (((_arg1.x + _local3.left) - _local4.right) - SPACING);
-            _arg2.y = FontModel.USE_ALT_FONT ? Y_POSITION + 8 : Y_POSITION;
+            _arg2.y = Y_POSITION;
         }
 
         private function layoutRightButtons():void{
@@ -81,10 +81,8 @@ public class MenuOptionsBar extends Sprite {
             var _local3:Rectangle = _arg1.getBounds(_arg1);
             var _local4:Rectangle = _arg2.getBounds(_arg2);
             _arg2.x = (((_arg1.x + _local3.right) - _local4.left) + SPACING);
-            _arg2.y = FontModel.USE_ALT_FONT ? Y_POSITION + 8 : Y_POSITION;
+            _arg2.y = Y_POSITION;
         }
-
-
     }
 }//package kabam.rotmg.ui.view.components
 
