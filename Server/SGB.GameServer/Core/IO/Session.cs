@@ -1,6 +1,9 @@
-﻿using SGB.GameServer.Core.Game;
+﻿using SGB.GameServer.Core.Database;
+using SGB.GameServer.Core.Game;
 using SGB.GameServer.Utils;
 using SGB.Shared;
+using System;
+using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -324,7 +327,7 @@ namespace SGB.GameServer.Core.IO
         {
         }
 
-        static RedisDatabase RedisDatabase = new RedisDatabase("127.0.0.1:6379");
+        static RedisDB RedisDatabase = new RedisDB("127.0.0.1:6379");
 
         private void HandleHello(ref IncomingPayload payload)
         {

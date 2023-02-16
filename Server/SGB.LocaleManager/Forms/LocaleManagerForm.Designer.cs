@@ -1,4 +1,6 @@
-﻿namespace LocaleManager.Forms
+﻿using System.Windows.Forms;
+
+namespace LocaleManager.Forms
 {
     partial class LocaleManagerForm
     {

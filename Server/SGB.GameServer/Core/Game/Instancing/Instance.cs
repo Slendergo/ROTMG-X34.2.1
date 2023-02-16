@@ -1,6 +1,10 @@
 ﻿using SGB.GameServer.Core.IO;
 using SGB.GameServer.Utils;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace SGB.GameServer.Core.Game.Instancing
 {
@@ -51,7 +55,7 @@ namespace SGB.GameServer.Core.Game.Instancing
                     spinWait.SpinOnce();
                 }
 
-                Console.WriteLine($"Instance has stopped: {TopLevelGameWorld.Name}");
+                DebugUtils.WriteLine($"Instance has stopped: {TopLevelGameWorld.Name}");
             }, TaskCreationOptions.LongRunning);
         }
 

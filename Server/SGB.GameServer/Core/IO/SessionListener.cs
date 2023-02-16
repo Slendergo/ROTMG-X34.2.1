@@ -10,14 +10,14 @@ namespace SGB.GameServer.Core.IO
         private readonly Socket Socket;
         private bool AcceptConnections;
 
-        public SessionListener(Application application, int port)
+        public SessionListener(Application application, ConfigurationData configurationData)
         {
             Application = application;
 
             Socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             Socket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-            Socket.Bind(new IPEndPoint(IPAddress.Any, port));
-            Socket.Listen(0xFF);
+            Socket.Bind(new IPEndPoint(IPAddress.Any, configurationData.IOConfiguration.Port));
+            Socket.Listen(configurationData.IOConfiguration.Backlog);
 
             AcceptConnections = true;
         }

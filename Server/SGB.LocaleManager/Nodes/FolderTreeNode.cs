@@ -1,4 +1,7 @@
-﻿namespace LocaleManager.Nodes
+﻿using System.IO;
+using System.Windows.Forms;
+
+namespace LocaleManager.Nodes
 {
     public sealed class FolderTreeNode : TreeNode
     {

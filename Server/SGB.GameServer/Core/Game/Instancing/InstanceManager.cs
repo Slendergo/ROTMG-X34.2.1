@@ -1,4 +1,7 @@
-﻿namespace SGB.GameServer.Core.Game.Instancing
+﻿using System;
+using System.Collections.Generic;
+
+namespace SGB.GameServer.Core.Game.Instancing
 {
     public static class InstanceManager
     {
@@ -14,7 +17,7 @@
                 Instances.Add(instance);
             }
 
-            if (Environment.ProcessorCount <= 4)
+            if (Environment.ProcessorCount <= 8)
                 instance.RunLowHardware();
             else
                 instance.Run();

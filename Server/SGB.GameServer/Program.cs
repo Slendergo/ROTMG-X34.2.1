@@ -6,7 +6,10 @@ namespace SGB.GameServer
     {
         public static void Main(string[] args)
         {
-            using var application = new Application(2050);
+            var configPath = args.Length == 0 ? "GameServerConfig.Json" : args[0];
+            var configuration = Configuration.Initialize(configPath);
+
+            using var application = new Application(configuration);
             application.Run();
         }
     }

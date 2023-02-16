@@ -13,8 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SGB.LocaleManager", "SGB.Lo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SGB.GameServer", "SGB.GameServer\SGB.GameServer.csproj", "{84ACC625-74CD-4906-BDA6-D287DC97D7B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGB.Benchmark", "SGB.Benchmark\SGB.Benchmark.csproj", "{D9A9FF66-73F2-40CE-8C71-C9A00167283D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -37,10 +35,6 @@ Global
 		{84ACC625-74CD-4906-BDA6-D287DC97D7B8}.Debug|x64.Build.0 = Debug|x64
 		{84ACC625-74CD-4906-BDA6-D287DC97D7B8}.Release|x64.ActiveCfg = Release|x64
 		{84ACC625-74CD-4906-BDA6-D287DC97D7B8}.Release|x64.Build.0 = Release|x64
-		{D9A9FF66-73F2-40CE-8C71-C9A00167283D}.Debug|x64.ActiveCfg = Debug|x64
-		{D9A9FF66-73F2-40CE-8C71-C9A00167283D}.Debug|x64.Build.0 = Debug|x64
-		{D9A9FF66-73F2-40CE-8C71-C9A00167283D}.Release|x64.ActiveCfg = Release|x64
-		{D9A9FF66-73F2-40CE-8C71-C9A00167283D}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

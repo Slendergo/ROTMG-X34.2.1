@@ -1,4 +1,6 @@
 using LocaleManager.Forms;
+using System;
+using System.Windows.Forms;
 
 namespace LocaleManager
 {

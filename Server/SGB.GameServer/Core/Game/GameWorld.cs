@@ -1,5 +1,5 @@
 ﻿using SGB.GameServer.Core.Game.Instancing;
-using SGB.GameServer.Utils;
+using System.Collections.Generic;
 
 namespace SGB.GameServer.Core.Game
 {

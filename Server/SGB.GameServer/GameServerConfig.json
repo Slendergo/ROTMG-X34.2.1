@@ -1,0 +1,41 @@
+﻿{
+  "IOConfiguration": {
+    "StartingSessionCacheCount": 64,
+    "Backlog": 255,
+    "Port": 2050
+  },
+  "SessionConfiguration": {
+    "MaxSessions": 128
+  },
+  "LoggingConfiguration": {
+    "EnableLogging": true
+  },
+  "RealmConfiguration": {
+    "MaxPlayers": 85,
+    "MaxRealms": 2,
+    "Startingrealms": 1
+  },
+  "TestingConfiguration": {
+    "StartingLevel": 20,
+    "StartingHealthPotions": 6,
+    "StartingMagicPotions": 6,
+    "PermanentFameAmount": 5000,
+    "PermanentCreditsAmount": 5000,
+    "StartingItems": [
+      {
+        "IdName": "Wizard",
+        "Weapon": "Staff of the Cosmic Whole",
+        "Ability": "Elemental Detonation Spell",
+        "Armor": "Robe of the Grand Sorcerer",
+        "Ring": "Ring of Exalted Health"
+      },
+      {
+        "IdName": "Knight",
+        "Weapon": "Sword of Acclaim",
+        "Ability": "Shield of Colossus",
+        "Armor": "Annihilation Armor",
+        "Ring": "Ring of Exalted Health"
+      }
+    ]
+  }
+}

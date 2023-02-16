@@ -1,6 +1,8 @@
 ﻿using SGB.GameServer.Core.Game.Instancing;
 using SGB.GameServer.Core.IO;
 using SGB.GameServer.Utils;
+using System;
+using System.Threading;
 
 namespace SGB.GameServer.Core
 {
@@ -9,12 +11,13 @@ namespace SGB.GameServer.Core
     {
         public readonly SessionListener SessionListener;
 
-        public Application(int port)
+        public Application(ConfigurationData? configurationData)
         {
-            SessionListener = new SessionListener(this, port);
+            SessionListener = new SessionListener(this, configurationData);
 
             InstanceManager.SpinNewInstance(InstanceType.Nexus, 5, -2);
-            InstanceManager.SpinNewInstance(InstanceType.Realm, 2);
+            for(var i = 0; i < configurationData.RealmConfiguration.StartingRealms; i++)
+                InstanceManager.SpinNewInstance(InstanceType.Realm, 5);
         }
 
         public void Run()
@@ -27,7 +30,7 @@ namespace SGB.GameServer.Core
             var mre = new ManualResetEvent(false);
             while (true)
             {
-                mre.WaitOne();
+                _ = mre.WaitOne();
             }
 
             DebugUtils.WriteLine("Application has stopped running");
@@ -35,6 +38,7 @@ namespace SGB.GameServer.Core
 
         public void Dispose()
         {
+            InstanceManager.Dispose();
             SessionManager.Dispose();
         }
     }

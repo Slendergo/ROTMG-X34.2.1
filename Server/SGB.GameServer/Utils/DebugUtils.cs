@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+﻿using System;
 
 namespace SGB.GameServer.Utils
 {
@@ -11,7 +11,7 @@ namespace SGB.GameServer.Utils
 #if DEBUG
             lock (LogLock)
             {
-                Console.WriteLine($"[DEBUG | Thread #{Thread.CurrentThread.ManagedThreadId}] {value}");
+                Console.WriteLine($"[DEBUG | Thread #{Environment.CurrentManagedThreadId}] {value}");
             }
 #endif
         }

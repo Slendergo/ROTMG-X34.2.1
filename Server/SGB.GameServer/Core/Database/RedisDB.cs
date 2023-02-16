@@ -2,7 +2,7 @@
 using StackExchange.Redis;
 using System.Text.Json;
 
-namespace SGB.GameServer.Core
+namespace SGB.GameServer.Core.Database
 {
     public struct LoginModel
     {
@@ -10,12 +10,12 @@ namespace SGB.GameServer.Core
         public string Hash { get; set; }
     }
 
-    public sealed class RedisDatabase
+    public sealed class RedisDB
     {
         private readonly ConnectionMultiplexer ConnectionMultiplexer;
         private readonly IDatabase Database;
 
-        public RedisDatabase(string connectionString)
+        public RedisDB(string connectionString)
         {
             ConnectionMultiplexer = ConnectionMultiplexer.Connect(connectionString);
             Database = ConnectionMultiplexer.GetDatabase();
