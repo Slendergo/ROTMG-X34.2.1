@@ -4,7 +4,8 @@
 //kabam.rotmg.messaging.impl.incoming.File
 
 package kabam.rotmg.messaging.impl.incoming{
-    import flash.utils.IDataInput;
+import flash.net.Socket;
+import flash.utils.ByteArray;
 
     public class File extends IncomingMessage {
 
@@ -15,7 +16,7 @@ package kabam.rotmg.messaging.impl.incoming{
             super(_arg1, _arg2);
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             this.filename_ = _arg1.readUTF();
             var _local2:int = _arg1.readInt();
             this.file_ = _arg1.readUTFBytes(_local2);

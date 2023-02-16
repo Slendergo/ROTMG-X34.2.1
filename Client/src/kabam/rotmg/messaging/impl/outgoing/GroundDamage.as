@@ -5,7 +5,7 @@
 
 package kabam.rotmg.messaging.impl.outgoing{
     import kabam.rotmg.messaging.impl.data.WorldPosData;
-    import flash.utils.IDataOutput;
+    import flash.utils.ByteArray;
 
     public class GroundDamage extends OutgoingMessage {
 
@@ -17,7 +17,7 @@ package kabam.rotmg.messaging.impl.outgoing{
             super(_arg1, _arg2);
         }
 
-        override public function writeToOutput(_arg1:IDataOutput):void{
+        override public function writeToOutput(_arg1:ByteArray):void{
             _arg1.writeInt(this.time_);
             this.position_.writeToOutput(_arg1);
         }

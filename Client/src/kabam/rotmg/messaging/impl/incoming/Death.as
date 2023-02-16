@@ -5,7 +5,8 @@
 
 package kabam.rotmg.messaging.impl.incoming{
     import flash.display.BitmapData;
-    import flash.utils.IDataInput;
+import flash.net.Socket;
+import flash.utils.ByteArray;
 
     public class Death extends IncomingMessage {
 
@@ -26,7 +27,7 @@ package kabam.rotmg.messaging.impl.incoming{
             this.background = null;
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             this.accountId_ = _arg1.readUTF();
             this.charId_ = _arg1.readInt();
             this.killedBy_ = _arg1.readUTF();

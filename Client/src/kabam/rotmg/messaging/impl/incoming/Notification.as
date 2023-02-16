@@ -4,7 +4,8 @@
 //kabam.rotmg.messaging.impl.incoming.Notification
 
 package kabam.rotmg.messaging.impl.incoming{
-    import flash.utils.IDataInput;
+import flash.net.Socket;
+import flash.utils.ByteArray;
 
     public class Notification extends IncomingMessage {
 
@@ -16,7 +17,7 @@ package kabam.rotmg.messaging.impl.incoming{
             super(_arg1, _arg2);
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             this.objectId_ = _arg1.readInt();
             this.message = _arg1.readUTF();
             this.color_ = _arg1.readInt();

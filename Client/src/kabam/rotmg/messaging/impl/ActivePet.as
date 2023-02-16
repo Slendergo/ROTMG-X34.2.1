@@ -4,8 +4,10 @@
 //kabam.rotmg.messaging.impl.ActivePet
 
 package kabam.rotmg.messaging.impl{
-    import kabam.rotmg.messaging.impl.incoming.IncomingMessage;
-    import flash.utils.IDataInput;
+import flash.net.Socket;
+
+import kabam.rotmg.messaging.impl.incoming.IncomingMessage;
+    import flash.utils.ByteArray;
 
     public class ActivePet extends IncomingMessage {
 
@@ -15,7 +17,7 @@ package kabam.rotmg.messaging.impl{
             super(_arg1, _arg2);
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             this.instanceID = _arg1.readInt();
         }
 

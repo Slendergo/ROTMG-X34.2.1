@@ -4,8 +4,10 @@
 //kabam.rotmg.messaging.impl.outgoing.OutgoingMessage
 
 package kabam.rotmg.messaging.impl.outgoing{
-    import kabam.lib.net.impl.Message;
-    import flash.utils.IDataInput;
+import flash.net.Socket;
+
+import kabam.lib.net.impl.Message;
+    import flash.utils.ByteArray;
 
     public class OutgoingMessage extends Message {
 
@@ -13,7 +15,7 @@ package kabam.rotmg.messaging.impl.outgoing{
             super(_arg1, _arg2);
         }
 
-        final override public function parseFromInput(_arg1:IDataInput):void{
+        final override public function parseFromInput(_arg1:Socket):void{
             throw (new Error((("Client should not receive " + id) + " messages")));
         }
 

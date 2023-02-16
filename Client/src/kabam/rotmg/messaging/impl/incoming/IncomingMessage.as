@@ -5,7 +5,7 @@
 
 package kabam.rotmg.messaging.impl.incoming{
     import kabam.lib.net.impl.Message;
-    import flash.utils.IDataOutput;
+    import flash.utils.ByteArray;
 
     public class IncomingMessage extends Message {
 
@@ -13,7 +13,7 @@ package kabam.rotmg.messaging.impl.incoming{
             super(_arg1, _arg2);
         }
 
-        final override public function writeToOutput(_arg1:IDataOutput):void{
+        final override public function writeToOutput(_arg1:ByteArray):void{
             throw (new Error((("Client should not send " + id) + " messages")));
         }
 

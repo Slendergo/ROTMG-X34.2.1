@@ -5,8 +5,10 @@
 
 package kabam.rotmg.messaging.impl.data{
     import com.company.assembleegameclient.util.FreeList;
-    import flash.utils.IDataInput;
-    import flash.utils.IDataOutput;
+
+import flash.net.Socket;
+import flash.utils.ByteArray;
+    import flash.utils.ByteArray;
 
     public class ObjectStatusData {
 
@@ -20,11 +22,11 @@ package kabam.rotmg.messaging.impl.data{
             super();
         }
 
-        public function parseFromInput(_arg1:IDataInput):void{
+        public function parseFromInput(_arg1:Socket):void{
             var _local3:int;
-            this.objectId_ = CompressedInt.Read(_arg1);
+            this.objectId_ = _arg1.readInt();
             this.pos_.parseFromInput(_arg1);
-            var _local2:int = CompressedInt.Read(_arg1);
+            var _local2:int = _arg1.readShort();
             _local3 = _local2;
             while (_local3 < this.stats_.length) {
                 FreeList.deleteObject(this.stats_[_local3]);
@@ -41,7 +43,7 @@ package kabam.rotmg.messaging.impl.data{
             }
         }
 
-        public function writeToOutput(_arg1:IDataOutput):void{
+        public function writeToOutput(_arg1:ByteArray):void{
             _arg1.writeInt(this.objectId_);
             this.pos_.writeToOutput(_arg1);
             _arg1.writeShort(this.stats_.length);

@@ -4,7 +4,8 @@
 //kabam.rotmg.messaging.impl.data.TradeItem
 
 package kabam.rotmg.messaging.impl.data{
-    import flash.utils.IDataInput;
+import flash.net.Socket;
+import flash.utils.ByteArray;
 
     public class TradeItem {
 
@@ -14,7 +15,7 @@ package kabam.rotmg.messaging.impl.data{
         public var included_:Boolean;
 
 
-        public function parseFromInput(_arg1:IDataInput):void{
+        public function parseFromInput(_arg1:Socket):void{
             this.item_ = _arg1.readInt();
             this.slotType_ = _arg1.readInt();
             this.tradeable_ = _arg1.readBoolean();

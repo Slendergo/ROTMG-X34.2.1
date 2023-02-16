@@ -4,9 +4,11 @@
 //kabam.rotmg.messaging.impl.incoming.NewTick
 
 package kabam.rotmg.messaging.impl.incoming{
-    import kabam.rotmg.messaging.impl.data.ObjectStatusData;
+import flash.net.Socket;
+
+import kabam.rotmg.messaging.impl.data.ObjectStatusData;
     import com.company.assembleegameclient.util.FreeList;
-    import flash.utils.IDataInput;
+    import flash.utils.ByteArray;
 
     public class NewTick extends IncomingMessage {
 
@@ -21,7 +23,7 @@ package kabam.rotmg.messaging.impl.incoming{
             super(_arg1, _arg2);
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             var _local3:int;
             this.tickId_ = _arg1.readInt();
             this.tickTime_ = _arg1.readInt();

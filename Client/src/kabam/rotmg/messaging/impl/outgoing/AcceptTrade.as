@@ -4,7 +4,7 @@
 //kabam.rotmg.messaging.impl.outgoing.AcceptTrade
 
 package kabam.rotmg.messaging.impl.outgoing{
-    import flash.utils.IDataOutput;
+    import flash.utils.ByteArray;
 
     public class AcceptTrade extends OutgoingMessage {
 
@@ -17,7 +17,7 @@ package kabam.rotmg.messaging.impl.outgoing{
             super(_arg1, _arg2);
         }
 
-        override public function writeToOutput(_arg1:IDataOutput):void{
+        override public function writeToOutput(_arg1:ByteArray):void{
             var _local2:int;
             _arg1.writeShort(this.myOffer_.length);
             _local2 = 0;

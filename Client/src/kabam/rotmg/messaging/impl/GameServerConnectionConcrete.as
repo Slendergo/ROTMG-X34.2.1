@@ -4,7 +4,10 @@
 //kabam.rotmg.messaging.impl.GameServerConnectionConcrete
 
 package kabam.rotmg.messaging.impl{
-    import kabam.lib.net.api.MessageProvider;
+import flash.net.Socket;
+import flash.utils.Endian;
+
+import kabam.lib.net.api.MessageProvider;
     import com.company.assembleegameclient.objects.Player;
     import com.company.util.Random;
     import kabam.rotmg.game.signals.GiftStatusUpdateSignal;
@@ -388,13 +391,67 @@ package kabam.rotmg.messaging.impl{
             _local2 = LineBuilder.getLocalizedStringFromKey(_local2);
             _local1.tokens = {serverName:_local2};
             this.addTextLine.dispatch(_local1);
-            serverConnection.connect(server_.address, server_.port);
+            serverConnection.connect(server_.address, server_.port, this);
         }
 
         public function addServerConnectionListeners():void{
             serverConnection.connected.add(this.onConnected);
             serverConnection.closed.add(this.onClosed);
             serverConnection.error.add(this.onError);
+        }
+
+        public override function handleMessage(id:int, socket:Socket):Boolean{
+            switch(id){
+                case CREATE_SUCCESS: onCreateSuccess(socket); return true;
+                case SERVERPLAYERSHOOT: onServerPlayerShoot(socket); return true;
+                case DAMAGE: onDamage(socket); return true;
+                case UPDATE: onUpdate(socket); return true;
+                case NOTIFICATION: onNotification(socket); return true;
+                case GLOBAL_NOTIFICATION: onGlobalNotification(socket); return true;
+                case NEWTICK: onNewTick(socket); return true;
+                case SHOWEFFECT: onShowEffect(socket); return true;
+                case GOTO: onGoto(socket); return true;
+                case INVRESULT: onInvResult(socket); return true;
+                case RECONNECT: onReconnect(socket); return true;
+                case PING: onPing(socket); return true;
+                case MAPINFO: onMapInfo(socket); return true;
+//                case PIC: onPic(socket); break;
+//                case DEATH: onDeath(socket); break;
+//                case BUYRESULT: onBuyResult(socket); break;
+//                case AOE: onAoe(socket); break;
+//                case ACCOUNTLIST: onAccountList(socket); break;
+//                case QUESTOBJID: onQuestObjId(socket); break;
+//                case NAMERESULT: onNameResult(socket); break;
+//                case GUILDRESULT: onGuildResult(socket); break;
+//                case ALLYSHOOT: onAllyShoot(socket); break;
+//                case ENEMYSHOOT: onEnemyShoot(socket); break;
+//                case TRADEREQUESTED: onTradeRequested(socket); break;
+//                case TRADESTART: onTradeStart(socket); break;
+//                case TRADECHANGED: onTradeChanged(socket); break;
+//                case TRADEDONE: onTradeDone(socket); break;
+//                case TRADEACCEPTED: onTradeAccepted(socket); break;
+//                case CLIENTSTAT: onClientStat(socket); break;
+//                case FILE: onFile(socket); break;
+//                case INVITEDTOGUILD: onInvitedToGuild(socket); break;
+//                case PLAYSOUND: onPlaySound(socket); break;
+//                case ACTIVEPETUPDATE: onActivePetUpdate(socket); break;
+//                case NEW_ABILITY: onNewAbility(socket); break;
+//                case PETYARDUPDATE: onPetYardUpdate(socket); break;
+//                case EVOLVE_PET: onEvolvedPet(socket); break;
+//                case DELETE_PET: onDeletePet(socket); break;
+//                case HATCH_PET: onHatchPet(socket); break;
+//                case IMMINENT_ARENA_WAVE: onImminentArenaWave(socket); break;
+//                case ARENA_DEATH: onArenaDeath(socket); break;
+//                case VERIFY_EMAIL: onVerifyEmail(socket); break;
+//                case RESKIN_UNLOCK: onReskinUnlock(socket); break;
+//                case PASSWORD_PROMPT: onPasswordPrompt(socket); break;
+//                case QUEST_FETCH_RESPONSE: onQuestFetchResponse(socket); break;
+//                case QUEST_REDEEM_RESPONSE: onQuestRedeemResponse(socket); break;
+//                case KEY_INFO_RESPONSE: onKeyInfoResponse(socket); break;
+//                case LOGIN_REWARD_MSG: onLoginRewardResponse(socket); break;
+//                case REALM_HERO_LEFT_MSG: onRealmHeroesResponse(socket); break;
+            }
+            return false;
         }
 
         public function mapMessages():void{
@@ -448,19 +505,19 @@ package kabam.rotmg.messaging.impl{
             _local1.map(CLAIM_LOGIN_REWARD_MSG).toMessage(ClaimDailyRewardMessage);
             _local1.map(PET_CHANGE_SKIN_MSG).toMessage(ChangePetSkin);
             _local1.map(FAILURE).toMessage(Failure).toMethod(this.onFailure);
-            _local1.map(CREATE_SUCCESS).toMessage(CreateSuccess).toMethod(this.onCreateSuccess);
-            _local1.map(SERVERPLAYERSHOOT).toMessage(ServerPlayerShoot).toMethod(this.onServerPlayerShoot);
-            _local1.map(DAMAGE).toMessage(Damage).toMethod(this.onDamage);
-            _local1.map(UPDATE).toMessage(Update).toMethod(this.onUpdate);
-            _local1.map(NOTIFICATION).toMessage(Notification).toMethod(this.onNotification);
-            _local1.map(GLOBAL_NOTIFICATION).toMessage(GlobalNotification).toMethod(this.onGlobalNotification);
-            _local1.map(NEWTICK).toMessage(NewTick).toMethod(this.onNewTick);
-            _local1.map(SHOWEFFECT).toMessage(ShowEffect).toMethod(this.onShowEffect);
-            _local1.map(GOTO).toMessage(Goto).toMethod(this.onGoto);
-            _local1.map(INVRESULT).toMessage(InvResult).toMethod(this.onInvResult);
-            _local1.map(RECONNECT).toMessage(Reconnect).toMethod(this.onReconnect);
-            _local1.map(PING).toMessage(Ping).toMethod(this.onPing);
-            _local1.map(MAPINFO).toMessage(MapInfo).toMethod(this.onMapInfo);
+//            _local1.map(CREATE_SUCCESS).toMessage(CreateSuccess).toMethod(this.onCreateSuccess);
+//            _local1.map(SERVERPLAYERSHOOT).toMessage(ServerPlayerShoot).toMethod(this.onServerPlayerShoot);
+//            _local1.map(DAMAGE).toMessage(Damage).toMethod(this.onDamage);
+//            _local1.map(UPDATE).toMessage(Update).toMethod(this.onUpdate);
+//            _local1.map(NOTIFICATION).toMessage(Notification).toMethod(this.onNotification);
+//            _local1.map(GLOBAL_NOTIFICATION).toMessage(GlobalNotification).toMethod(this.onGlobalNotification);
+//            _local1.map(NEWTICK).toMessage(NewTick).toMethod(this.onNewTick);
+//            _local1.map(SHOWEFFECT).toMessage(ShowEffect).toMethod(this.onShowEffect);
+//            _local1.map(GOTO).toMessage(Goto).toMethod(this.onGoto);
+//            _local1.map(INVRESULT).toMessage(InvResult).toMethod(this.onInvResult);
+//            _local1.map(RECONNECT).toMessage(Reconnect).toMethod(this.onReconnect);
+//            _local1.map(PING).toMessage(Ping).toMethod(this.onPing);
+//            _local1.map(MAPINFO).toMessage(MapInfo).toMethod(this.onMapInfo);
             _local1.map(PIC).toMessage(Pic).toMethod(this.onPic);
             _local1.map(DEATH).toMessage(Death).toMethod(this.onDeath);
             _local1.map(BUYRESULT).toMessage(BuyResult).toMethod(this.onBuyResult);
@@ -608,17 +665,6 @@ package kabam.rotmg.messaging.impl{
             _local1.unmap(INVITEDTOGUILD);
             _local1.unmap(PLAYSOUND);
             _local1.unmap(REALM_HERO_LEFT_MSG);
-        }
-
-        private function encryptConnection():void{
-            var _local1:ICipher;
-            var _local2:ICipher;
-            if (Parameters.ENABLE_ENCRYPTION){
-                _local1 = Crypto.getCipher("rc4", MoreStringUtil.hexStringToByteArray("6a39570cc9de4ec71d64821894c79332b197f92ba85ed281a023".substring(0, 26)));
-                _local2 = Crypto.getCipher("rc4", MoreStringUtil.hexStringToByteArray("6a39570cc9de4ec71d64821894c79332b197f92ba85ed281a023".substring(26)));
-                serverConnection.setOutgoingCipher(_local1);
-                serverConnection.setIncomingCipher(_local2);
-            }
         }
 
         override public function getNextDamage(_arg1:uint, _arg2:uint):uint{
@@ -1055,15 +1101,16 @@ package kabam.rotmg.messaging.impl{
         }
 
         private function onConnected():void{
-            this.isNexusing = false;
+            isNexusing = false;
+
             var _local1:Account = StaticInjectorContext.getInjector().getInstance(Account);
-            this.addTextLine.dispatch(ChatMessage.make(Parameters.CLIENT_CHAT_NAME, TextKey.CHAT_CONNECTED));
-            this.encryptConnection();
-            var _local2:Hello = (this.messages.require(HELLO) as Hello);
+            addTextLine.dispatch(ChatMessage.make(Parameters.CLIENT_CHAT_NAME, TextKey.CHAT_CONNECTED));
+
+            var _local2:Hello = (messages.require(HELLO) as Hello);
             _local2.buildVersion_ = Parameters.CLIENT_VERSION;
             _local2.gameId_ = gameId_;
-            _local2.guid_ = this.rsaEncrypt(_local1.getUserId());
-            _local2.password_ = this.rsaEncrypt(_local1.getPassword());
+            _local2.guid_ = rsaEncrypt(_local1.getUserId());
+            _local2.password_ = rsaEncrypt(_local1.getPassword());
             _local2.keyTime_ = keyTime_;
             _local2.key_.length = 0;
             ((!((key_ == null))) && (_local2.key_.writeBytes(key_)));
@@ -1073,54 +1120,86 @@ package kabam.rotmg.messaging.impl{
             serverConnection.sendMessage(_local2);
         }
 
-        private function onCreateSuccess(_arg1:CreateSuccess):void{
-            this.playerId_ = _arg1.objectId_;
-            charId_ = _arg1.charId_;
+        private function onCreateSuccess(_arg1:Socket):void {
+            var objectId = _arg1.readInt();
+            var charId = _arg1.readInt();
+
+            this.playerId_ = objectId;
+            charId_ = charId;
             gs_.initialize();
             createCharacter_ = false;
         }
 
-        private function onDamage(_arg1:Damage):void{
+        private function onDamage(_arg1:Socket):void{
+
+            var targetId_ = _arg1.readInt();
+            var len:int = _arg1.readUnsignedByte();
+            var i:uint = 0;
+
+            var effects_ = new Vector.<uint>();
+            while (i < len) {
+                effects_.push(_arg1.readUnsignedByte());
+                i++;
+            }
+
+            var damageAmount_ = _arg1.readUnsignedShort();
+            var kill_ = _arg1.readBoolean();
+            var armorPierce_ = _arg1.readBoolean();
+            var bulletId_ = _arg1.readUnsignedByte();
+            var objectId_ = _arg1.readInt();
+
             var _local5:int;
             var _local6:Boolean;
             var _local2:AbstractMap = gs_.map;
             var _local3:Projectile;
-            if ((((_arg1.objectId_ >= 0)) && ((_arg1.bulletId_ > 0)))){
-                _local5 = Projectile.findObjId(_arg1.objectId_, _arg1.bulletId_);
+            if ((((objectId_ >= 0)) && ((bulletId_ > 0)))){
+                _local5 = Projectile.findObjId(objectId_, bulletId_);
                 _local3 = (_local2.boDict_[_local5] as Projectile);
                 if (((!((_local3 == null))) && (!(_local3.projProps_.multiHit_)))){
                     _local2.removeObj(_local5);
                 }
             }
-            var _local4:GameObject = _local2.goDict_[_arg1.targetId_];
+            var _local4:GameObject = _local2.goDict_[targetId_];
             if (_local4 != null){
-                _local6 = (_arg1.objectId_ == this.player.objectId_);
-                _local4.damage(_local6, _arg1.damageAmount_, _arg1.effects_, _arg1.kill_, _local3, _arg1.armorPierce_);
+                _local6 = (objectId_ == this.player.objectId_);
+                _local4.damage(_local6, damageAmount_, effects_, kill_, _local3, armorPierce_);
             }
         }
 
-        private function onServerPlayerShoot(_arg1:ServerPlayerShoot):void{
-            var _local2 = (_arg1.ownerId_ == this.playerId_);
-            var _local3:GameObject = gs_.map.goDict_[_arg1.ownerId_];
+        private function onServerPlayerShoot(_arg1:Socket):void{
+
+            var bulletId = _arg1.readUnsignedByte();
+            var ownerId = _arg1.readInt();
+            var containerType = _arg1.readInt();
+            var x = _arg1.readFloat();
+            var y = _arg1.readFloat();
+            var angle = _arg1.readFloat();
+            var damage = _arg1.readShort();
+
+            var _local2 = (ownerId == this.playerId_);
+            var _local3:GameObject = gs_.map.goDict_[ownerId];
             if ((((_local3 == null)) || (_local3.dead_))){
                 if (_local2){
                     this.shootAck(-1);
                 }
                 return;
             }
+
             if (((!((_local3.objectId_ == this.playerId_))) && (Parameters.data_.disableAllyShoot))){
                 return;
             }
+
             var _local4:Projectile = (FreeList.newObject(Projectile) as Projectile);
             var _local5:Player = (_local3 as Player);
             if (_local5 != null){
-                _local4.reset(_arg1.containerType_, 0, _arg1.ownerId_, _arg1.bulletId_, _arg1.angle_, gs_.lastUpdate_, _local5.projectileIdSetOverrideNew, _local5.projectileIdSetOverrideOld);
+                _local4.reset(containerType, 0, ownerId, bulletId, angle, gs_.lastUpdate_, _local5.projectileIdSetOverrideNew, _local5.projectileIdSetOverrideOld);
             }
             else {
-                _local4.reset(_arg1.containerType_, 0, _arg1.ownerId_, _arg1.bulletId_, _arg1.angle_, gs_.lastUpdate_);
+                _local4.reset(containerType, 0, ownerId, bulletId, angle, gs_.lastUpdate_);
             }
-            _local4.setDamage(_arg1.damage_);
-            gs_.map.addObj(_local4, _arg1.startingPos_.x_, _arg1.startingPos_.y_);
+
+            _local4.setDamage(damage);
+            gs_.map.addObj(_local4, x, y);
             if (_local2){
                 this.shootAck(gs_.lastUpdate_);
             }
@@ -1240,9 +1319,10 @@ package kabam.rotmg.messaging.impl{
         private function addObject(_arg1:ObjectData):void{
             var _local2:AbstractMap = gs_.map;
             var _local3:GameObject = ObjectLibrary.getObjectFromType(_arg1.objectType_);
-            if (_local3 == null){
+            if (_local3 == null || (_arg1.status_.objectId_ == this.playerId_ && player)){
                 return;
             }
+
             var _local4:ObjectStatusData = _arg1.status_;
             _local3.setObjectId(_local4.objectId_);
             _local2.addObj(_local3, _local4.pos_.x_, _local4.pos_.y_);
@@ -1266,44 +1346,61 @@ package kabam.rotmg.messaging.impl{
             }
         }
 
-        private function onUpdate(_arg1:Update):void{
-            var _local3:int;
-            var _local4:GroundTileData;
+        private function onUpdate(_arg1:Socket):void{
+
             var _local2:Message = this.messages.require(UPDATEACK);
             serverConnection.sendMessage(_local2);
-            _local3 = 0;
-            while (_local3 < _arg1.tiles_.length) {
-                _local4 = _arg1.tiles_[_local3];
-                gs_.map.setGroundTile(_local4.x_, _local4.y_, _local4.type_);
-                this.updateGroundTileSignal.dispatch(new UpdateGroundTileVO(_local4.x_, _local4.y_, _local4.type_));
-                _local3++;
+
+            var i:int = 0;
+            var len:int = _arg1.readShort();
+            while (i < len) {
+
+                var x:int = _arg1.readShort();
+                var y:int = _arg1.readShort();
+                var type:uint = _arg1.readUnsignedShort();
+
+                gs_.map.setGroundTile(x, y, type);
+                this.updateGroundTileSignal.dispatch(new UpdateGroundTileVO(x, y, type));
+                i++;
             }
-            _local3 = 0;
-            while (_local3 < _arg1.newObjs_.length) {
-                this.addObject(_arg1.newObjs_[_local3]);
-                _local3++;
+
+            i = 0;
+            len = _arg1.readShort();
+            while (i < len) {
+                var objectData:ObjectData = new ObjectData();
+                objectData.parseFromInput(_arg1);
+                addObject(objectData);
+                i++;
             }
-            _local3 = 0;
-            while (_local3 < _arg1.drops_.length) {
-                gs_.map.removeObj(_arg1.drops_[_local3]);
-                _local3++;
+
+            i = 0;
+            len = _arg1.readShort();
+            while (i < len) {
+                var objectId:int = _arg1.readInt();
+                gs_.map.removeObj(objectId);
+                i++;
             }
         }
 
-        private function onNotification(_arg1:Notification):void{
+        private function onNotification(_arg1:Socket):void{
+
+            var objectId_ = _arg1.readInt();
+            var message = _arg1.readUTF();
+            var color_ = _arg1.readInt();
+
             var _local3:LineBuilder;
-            var _local2:GameObject = gs_.map.goDict_[_arg1.objectId_];
+            var _local2:GameObject = gs_.map.goDict_[objectId_];
             if (_local2 != null){
-                _local3 = LineBuilder.fromJSON(_arg1.message);
+                _local3 = LineBuilder.fromJSON(message);
                 if (_local2 == this.player){
                     if (_local3.key == "server.quest_complete"){
                         gs_.map.quest_.completed();
                     }
-                    this.makeNotification(_local3, _local2, _arg1.color_, 1000);
+                    this.makeNotification(_local3, _local2, color_, 1000);
                 }
                 else {
                     if (((_local2.props_.isEnemy_) || (!(Parameters.data_.noAllyNotifications)))){
-                        this.makeNotification(_local3, _local2, _arg1.color_, 1000);
+                        this.makeNotification(_local3, _local2, color_, 1000);
                     }
                 }
             }
@@ -1315,8 +1412,11 @@ package kabam.rotmg.messaging.impl{
             gs_.map.mapOverlay_.addStatusText(_local5);
         }
 
-        private function onGlobalNotification(_arg1:GlobalNotification):void{
-            switch (_arg1.text){
+        private function onGlobalNotification(_arg1:Socket):void {
+            var type = _arg1.readInt();
+            var text = _arg1.readUTF();
+
+            switch (text){
                 case "yellow":
                     ShowKeySignal.instance.dispatch(Key.YELLOW);
                     return;
@@ -1343,17 +1443,32 @@ package kabam.rotmg.messaging.impl{
             }
         }
 
-        private function onNewTick(_arg1:NewTick):void{
+        private function onNewTick(_arg1:Socket):void{
+
+            var tickId_ = _arg1.readInt();
+            var tickTime_ = _arg1.readInt();
+            var serverRealTimeMS_ = _arg1.readUnsignedInt();
+            var serverLastRTTMS_ = _arg1.readUnsignedShort();
+            var statuses_ = new Vector.<ObjectStatusData>();
+
+            var i:int = 0;
+            var len:int = CompressedInt.Read(_arg1);
+            while (i < len) {
+                statuses_[i] = new ObjectStatusData();
+                statuses_[i].parseFromInput(_arg1);
+                i++;
+            }
+
             var _local2:ObjectStatusData;
             if (jitterWatcher_ != null){
                 jitterWatcher_.record();
             }
-            lastServerRealTimeMS_ = _arg1.serverRealTimeMS_;
-            this.move(_arg1.tickId_, lastServerRealTimeMS_, this.player);
-            for each (_local2 in _arg1.statuses_) {
-                this.processObjectStatus(_local2, _arg1.tickTime_, _arg1.tickId_);
+            lastServerRealTimeMS_ = serverRealTimeMS_;
+            this.move(tickId_, lastServerRealTimeMS_, this.player);
+            for each (_local2 in statuses_) {
+                this.processObjectStatus(_local2, tickTime_, tickId_);
             }
-            lastTickId_ = _arg1.tickId_;
+            lastTickId_ = tickId_;
         }
 
         private function canShowEffect(_arg1:GameObject):Boolean{
@@ -1367,7 +1482,88 @@ package kabam.rotmg.messaging.impl{
             return true;;
         }
 
-        private function onShowEffect(_arg1:ShowEffect):void{
+
+        private static const EFFECT_BIT_COLOR:int = (1 << 0);
+        private static const EFFECT_BIT_POS1_X:int = (1 << 1);
+        private static const EFFECT_BIT_POS1_Y:int = (1 << 2);
+        private static const EFFECT_BIT_POS2_X:int = (1 << 3);
+        private static const EFFECT_BIT_POS2_Y:int = (1 << 4);
+        private static const EFFECT_BIT_POS1:int = (EFFECT_BIT_POS1_X | EFFECT_BIT_POS1_Y);
+        private static const EFFECT_BIT_POS2:int = (EFFECT_BIT_POS2_X | EFFECT_BIT_POS2_Y);
+        private static const EFFECT_BIT_DURATION:int = (1 << 5);
+        private static const EFFECT_BIT_ID:int = (1 << 6);
+        public static const UNKNOWN_EFFECT_TYPE:int = 0;
+        public static const HEAL_EFFECT_TYPE:int = 1;
+        public static const TELEPORT_EFFECT_TYPE:int = 2;
+        public static const STREAM_EFFECT_TYPE:int = 3;
+        public static const THROW_EFFECT_TYPE:int = 4;
+        public static const NOVA_EFFECT_TYPE:int = 5;
+        public static const POISON_EFFECT_TYPE:int = 6;
+        public static const LINE_EFFECT_TYPE:int = 7;
+        public static const BURST_EFFECT_TYPE:int = 8;
+        public static const FLOW_EFFECT_TYPE:int = 9;
+        public static const RING_EFFECT_TYPE:int = 10;
+        public static const LIGHTNING_EFFECT_TYPE:int = 11;
+        public static const COLLAPSE_EFFECT_TYPE:int = 12;
+        public static const CONEBLAST_EFFECT_TYPE:int = 13;
+        public static const JITTER_EFFECT_TYPE:int = 14;
+        public static const FLASH_EFFECT_TYPE:int = 15;
+        public static const THROW_PROJECTILE_EFFECT_TYPE:int = 16;
+        public static const SHOCKER_EFFECT_TYPE:int = 17;
+        public static const SHOCKEE_EFFECT_TYPE:int = 18;
+        public static const RISING_FURY_EFFECT_TYPE:int = 19;
+        public static const NOVA_NO_AOE_EFFECT_TYPE:int = 20;
+        public static const INSPIRED_EFFECT_TYPE:int = 21;
+        public static const HOLY_BEAM_EFFECT_TYPE:int = 22;
+        public static const CIRCLE_TELEGRAPH_EFFECT_TYPE:int = 23;
+        public static const CHAOS_BEAM_EFFECT_TYPE:int = 24;
+        public static const TELEPORT_MONSTER_EFFECT_TYPE:int = 25;
+        public static const METEOR_EFFECT_TYPE:int = 26;
+        public static const GILDED_BUFF_EFFECT_TYPE:int = 27;
+        public static const JADE_BUFF_EFFECT_TYPE:int = 28;
+        public static const CHAOS_BUFF_EFFECT_TYPE:int = 29;
+        public static const THUNDER_BUFF_EFFECT_TYPE:int = 30;
+        public static const STATUS_FLASH_EFFECT_TYPE:int = 31;
+        public static const FIRE_ORB_BUFF_EFFECT_TYPE:int = 32;
+
+        private function onShowEffect(_arg1:Socket):void{
+
+            var effectType_ = _arg1.readUnsignedByte();
+            var bits:uint = _arg1.readUnsignedByte();
+            var pos1_ = new WorldPosData();
+            var pos2_ = new WorldPosData();
+            var targetObjectId_:int = 0;
+            var color_:uint = 0xFFFFFFFF;
+            var duration_:Number = 1;
+
+            if ((bits & EFFECT_BIT_ID)){
+                targetObjectId_ = CompressedInt.Read(_arg1);
+            }
+
+            if ((bits & EFFECT_BIT_POS1_X)){
+                pos1_.x_ = _arg1.readFloat();
+            }
+
+            if ((bits & EFFECT_BIT_POS1_Y)){
+                pos1_.y_ = _arg1.readFloat();
+            }
+
+            if ((bits & EFFECT_BIT_POS2_X)){
+                pos2_.x_ = _arg1.readFloat();
+            }
+
+            if ((bits & EFFECT_BIT_POS2_Y)){
+                pos2_.y_ = _arg1.readFloat();
+            }
+
+            if ((bits & EFFECT_BIT_COLOR)){
+                color_ = _arg1.readInt();
+            }
+
+            if ((bits & EFFECT_BIT_DURATION)){
+                duration_ = _arg1.readFloat();
+            }
+
             var _local3:GameObject;
             var _local4:ParticleEffect;
             var _local5:Point;
@@ -1385,113 +1581,113 @@ package kabam.rotmg.messaging.impl{
             var _local17:uint;
             var _local18:uint;
             var _local19:uint;
-            if (((Parameters.data_.noParticlesMaster) && ((((((((((((((((((_arg1.effectType_ == ShowEffect.HEAL_EFFECT_TYPE)) || ((_arg1.effectType_ == ShowEffect.TELEPORT_EFFECT_TYPE)))) || ((_arg1.effectType_ == ShowEffect.STREAM_EFFECT_TYPE)))) || ((_arg1.effectType_ == ShowEffect.POISON_EFFECT_TYPE)))) || ((_arg1.effectType_ == ShowEffect.LINE_EFFECT_TYPE)))) || ((_arg1.effectType_ == ShowEffect.FLOW_EFFECT_TYPE)))) || ((_arg1.effectType_ == ShowEffect.COLLAPSE_EFFECT_TYPE)))) || ((_arg1.effectType_ == ShowEffect.CONEBLAST_EFFECT_TYPE)))) || ((_arg1.effectType_ == ShowEffect.NOVA_NO_AOE_EFFECT_TYPE)))))){
+            if (((Parameters.data_.noParticlesMaster) && ((((((((((((((((((effectType_ == ShowEffect.HEAL_EFFECT_TYPE)) || ((effectType_ == ShowEffect.TELEPORT_EFFECT_TYPE)))) || ((effectType_ == ShowEffect.STREAM_EFFECT_TYPE)))) || ((effectType_ == ShowEffect.POISON_EFFECT_TYPE)))) || ((effectType_ == ShowEffect.LINE_EFFECT_TYPE)))) || ((effectType_ == ShowEffect.FLOW_EFFECT_TYPE)))) || ((effectType_ == ShowEffect.COLLAPSE_EFFECT_TYPE)))) || ((effectType_ == ShowEffect.CONEBLAST_EFFECT_TYPE)))) || ((effectType_ == ShowEffect.NOVA_NO_AOE_EFFECT_TYPE)))))){
                 return;
             }
             var _local2:AbstractMap = gs_.map;
-            switch (_arg1.effectType_){
+            switch (effectType_){
                 case ShowEffect.HEAL_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
+                    _local3 = _local2.goDict_[targetObjectId_];
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
-                    _local2.addObj(new HealEffect(_local3, _arg1.color_), _local3.x_, _local3.y_);
+                    _local2.addObj(new HealEffect(_local3, color_), _local3.x_, _local3.y_);
                     return;
                 case ShowEffect.TELEPORT_EFFECT_TYPE:
-                    _local2.addObj(new TeleportEffect(), _arg1.pos1_.x_, _arg1.pos1_.y_);
+                    _local2.addObj(new TeleportEffect(), pos1_.x_, pos1_.y_);
                     return;
                 case ShowEffect.STREAM_EFFECT_TYPE:
-                    _local4 = new StreamEffect(_arg1.pos1_, _arg1.pos2_, _arg1.color_);
-                    _local2.addObj(_local4, _arg1.pos1_.x_, _arg1.pos1_.y_);
+                    _local4 = new StreamEffect(pos1_, pos2_, color_);
+                    _local2.addObj(_local4, pos1_.x_, pos1_.y_);
                     return;
                 case ShowEffect.THROW_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
-                    _local5 = (((_local3)!=null) ? new Point(_local3.x_, _local3.y_) : _arg1.pos2_.toPoint());
+                    _local3 = _local2.goDict_[targetObjectId_];
+                    _local5 = (((_local3)!=null) ? new Point(_local3.x_, _local3.y_) : pos2_.toPoint());
                     if (((!((_local3 == null))) && (!(this.canShowEffect(_local3))))) break;
-                    _local4 = new ThrowEffect(_local5, _arg1.pos1_.toPoint(), _arg1.color_, (_arg1.duration_ * 1000));
+                    _local4 = new ThrowEffect(_local5, pos1_.toPoint(), color_, (duration_ * 1000));
                     _local2.addObj(_local4, _local5.x, _local5.y);
                     return;
                 case ShowEffect.NOVA_EFFECT_TYPE:
                 case ShowEffect.NOVA_NO_AOE_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
+                    _local3 = _local2.goDict_[targetObjectId_];
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
-                    _local4 = new NovaEffect(_local3, _arg1.pos1_.x_, _arg1.color_);
+                    _local4 = new NovaEffect(_local3, pos1_.x_, color_);
                     _local2.addObj(_local4, _local3.x_, _local3.y_);
                     return;
                 case ShowEffect.POISON_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
+                    _local3 = _local2.goDict_[targetObjectId_];
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
-                    _local4 = new PoisonEffect(_local3, _arg1.color_);
+                    _local4 = new PoisonEffect(_local3, color_);
                     _local2.addObj(_local4, _local3.x_, _local3.y_);
                     return;
                 case ShowEffect.LINE_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
+                    _local3 = _local2.goDict_[targetObjectId_];
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
-                    _local4 = new LineEffect(_local3, _arg1.pos1_, _arg1.color_);
-                    _local2.addObj(_local4, _arg1.pos1_.x_, _arg1.pos1_.y_);
+                    _local4 = new LineEffect(_local3, pos1_, color_);
+                    _local2.addObj(_local4, pos1_.x_, pos1_.y_);
                     return;
                 case ShowEffect.BURST_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
+                    _local3 = _local2.goDict_[targetObjectId_];
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
-                    _local4 = new BurstEffect(_local3, _arg1.pos1_, _arg1.pos2_, _arg1.color_);
-                    _local2.addObj(_local4, _arg1.pos1_.x_, _arg1.pos1_.y_);
+                    _local4 = new BurstEffect(_local3, pos1_, pos2_, color_);
+                    _local2.addObj(_local4, pos1_.x_, pos1_.y_);
                     return;
                 case ShowEffect.FLOW_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
+                    _local3 = _local2.goDict_[targetObjectId_];
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
-                    _local4 = new FlowEffect(_arg1.pos1_, _local3, _arg1.color_);
-                    _local2.addObj(_local4, _arg1.pos1_.x_, _arg1.pos1_.y_);
+                    _local4 = new FlowEffect(pos1_, _local3, color_);
+                    _local2.addObj(_local4, pos1_.x_, pos1_.y_);
                     return;
                 case ShowEffect.RING_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
+                    _local3 = _local2.goDict_[targetObjectId_];
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
-                    _local4 = new RingEffect(_local3, _arg1.pos1_.x_, _arg1.color_);
+                    _local4 = new RingEffect(_local3, pos1_.x_, color_);
                     _local2.addObj(_local4, _local3.x_, _local3.y_);
                     return;
                 case ShowEffect.LIGHTNING_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
+                    _local3 = _local2.goDict_[targetObjectId_];
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
-                    _local4 = new LightningEffect(_local3, _arg1.pos1_, _arg1.color_, _arg1.pos2_.x_);
+                    _local4 = new LightningEffect(_local3, pos1_, color_, pos2_.x_);
                     _local2.addObj(_local4, _local3.x_, _local3.y_);
                     return;
                 case ShowEffect.COLLAPSE_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
+                    _local3 = _local2.goDict_[targetObjectId_];
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
-                    _local4 = new CollapseEffect(_local3, _arg1.pos1_, _arg1.pos2_, _arg1.color_);
-                    _local2.addObj(_local4, _arg1.pos1_.x_, _arg1.pos1_.y_);
+                    _local4 = new CollapseEffect(_local3, pos1_, pos2_, color_);
+                    _local2.addObj(_local4, pos1_.x_, pos1_.y_);
                     return;
                 case ShowEffect.CONEBLAST_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
+                    _local3 = _local2.goDict_[targetObjectId_];
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
-                    _local4 = new ConeBlastEffect(_local3, _arg1.pos1_, _arg1.pos2_.x_, _arg1.color_);
+                    _local4 = new ConeBlastEffect(_local3, pos1_, pos2_.x_, color_);
                     _local2.addObj(_local4, _local3.x_, _local3.y_);
                     return;
                 case ShowEffect.JITTER_EFFECT_TYPE:
                     gs_.camera_.startJitter();
                     return;
                 case ShowEffect.FLASH_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
+                    _local3 = _local2.goDict_[targetObjectId_];
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
-                    _local3.flash_ = new FlashDescription(getTimer(), _arg1.color_, _arg1.pos1_.x_, _arg1.pos1_.y_);
+                    _local3.flash_ = new FlashDescription(getTimer(), color_, pos1_.x_, pos1_.y_);
                     return;
                 case ShowEffect.THROW_PROJECTILE_EFFECT_TYPE:
-                    _local5 = _arg1.pos1_.toPoint();
+                    _local5 = pos1_.toPoint();
                     if (((!((_local3 == null))) && (!(this.canShowEffect(_local3))))) break;
-                    _local4 = new ThrowProjectileEffect(_arg1.color_, _arg1.pos2_.toPoint(), _arg1.pos1_.toPoint(), (_arg1.duration_ * 1000));
+                    _local4 = new ThrowProjectileEffect(color_, pos2_.toPoint(), pos1_.toPoint(), (duration_ * 1000));
                     _local2.addObj(_local4, _local5.x, _local5.y);
                     return;
                 case ShowEffect.INSPIRED_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
+                    _local3 = _local2.goDict_[targetObjectId_];
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
                     if (((_local3) && (_local3.spritesProjectEffect))){
                         _local3.spritesProjectEffect.destroy();
                     }
                     _local2.addObj(new InspireEffect(_local3, 0xFFBA00, 5), _local3.x_, _local3.y_);
-                    _local3.flash_ = new FlashDescription(getTimer(), _arg1.color_, _arg1.pos2_.x_, _arg1.pos2_.y_);
-                    _local4 = new SpritesProjectEffect(_local3, _arg1.pos1_.x_);
+                    _local3.flash_ = new FlashDescription(getTimer(), color_, pos2_.x_, pos2_.y_);
+                    _local4 = new SpritesProjectEffect(_local3, pos1_.x_);
                     _local3.spritesProjectEffect = SpritesProjectEffect(_local4);
                     gs_.map.addObj(_local4, _local3.x_, _local3.y_);
                     return;
                 case ShowEffect.SHOCKER_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
+                    _local3 = _local2.goDict_[targetObjectId_];
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
                     if (((_local3) && (_local3.shockEffect))){
                         _local3.shockEffect.destroy();
@@ -1501,15 +1697,15 @@ package kabam.rotmg.messaging.impl{
                     gs_.map.addObj(_local4, _local3.x_, _local3.y_);
                     return;
                 case ShowEffect.SHOCKEE_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
+                    _local3 = _local2.goDict_[targetObjectId_];
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
                     _local4 = new ShockeeEffect(_local3);
                     gs_.map.addObj(_local4, _local3.x_, _local3.y_);
                     return;
                 case ShowEffect.RISING_FURY_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
+                    _local3 = _local2.goDict_[targetObjectId_];
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
-                    _local6 = (_arg1.pos1_.x_ * 1000);
+                    _local6 = (pos1_.x_ * 1000);
                     _local4 = new RisingFuryEffect(_local3, _local6);
                     gs_.map.addObj(_local4, _local3.x_, _local3.y_);
                     return;
@@ -1520,7 +1716,7 @@ package kabam.rotmg.messaging.impl{
                 case ShowEffect.METEOR_EFFECT_TYPE:
                     return;
                 case ShowEffect.GILDED_BUFF_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
+                    _local3 = _local2.goDict_[targetObjectId_];
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
                     _local7 = 16768115;
                     _local8 = 0xFF9A00;
@@ -1529,7 +1725,7 @@ package kabam.rotmg.messaging.impl{
                     _local2.addObj(new GildedEffect(_local3, _local7, _local8, _local9, 2, 4500), _local3.x_, _local3.y_);
                     return;
                 case ShowEffect.JADE_BUFF_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
+                    _local3 = _local2.goDict_[targetObjectId_];
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
                     _local10 = 4736621;
                     _local11 = 4031656;
@@ -1538,7 +1734,7 @@ package kabam.rotmg.messaging.impl{
                     _local2.addObj(new GildedEffect(_local3, _local10, _local11, _local12, 2, 4500), _local3.x_, _local3.y_);
                     return;
                 case ShowEffect.CHAOS_BUFF_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
+                    _local3 = _local2.goDict_[targetObjectId_];
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
                     _local13 = 3675232;
                     _local14 = 11673446;
@@ -1547,36 +1743,40 @@ package kabam.rotmg.messaging.impl{
                     _local2.addObj(new GildedEffect(_local3, _local13, _local14, _local15, 2, 4500), _local3.x_, _local3.y_);
                     return;
                 case ShowEffect.THUNDER_BUFF_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
+                    _local3 = _local2.goDict_[targetObjectId_];
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
                     _local16 = 16768115;
                     _local3.flash_ = new FlashDescription(getTimer(), _local16, 0.25, 1);
                     _local2.addObj(new ThunderEffect(_local3), _local3.x_, _local3.y_);
                     return;
                 case ShowEffect.STATUS_FLASH_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
+                    _local3 = _local2.goDict_[targetObjectId_];
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
-                    _local3.statusFlash_ = new StatusFlashDescription(getTimer(), _arg1.color_, _arg1.pos1_.x_);
+                    _local3.statusFlash_ = new StatusFlashDescription(getTimer(), color_, pos1_.x_);
                     return;
                 case ShowEffect.FIRE_ORB_BUFF_EFFECT_TYPE:
-                    _local3 = _local2.goDict_[_arg1.targetObjectId_];
+                    _local3 = _local2.goDict_[targetObjectId_];
                     if ((((_local3 == null)) || (!(this.canShowEffect(_local3))))) break;
                     _local17 = 11673446;
                     _local18 = 3675232;
                     _local19 = 16659566;
                     _local3.flash_ = new FlashDescription(getTimer(), _local17, 0.25, 1);
-                    _local2.addObj(new OrbEffect(_local3, _local17, _local18, _local19, 1.5, 2500, _arg1.pos1_.toPoint()), _arg1.pos1_.x_, _arg1.pos1_.y_);
+                    _local2.addObj(new OrbEffect(_local3, _local17, _local18, _local19, 1.5, 2500, pos1_.toPoint()), pos1_.x_, pos1_.y_);
                     return;
             }
         }
 
-        private function onGoto(_arg1:Goto):void{
-            this.gotoAck(gs_.lastUpdate_);
-            var _local2:GameObject = gs_.map.goDict_[_arg1.objectId_];
+        private function onGoto(_arg1:Socket):void{
+            var objectId:int = _arg1.readInt();
+            var x:Number = _arg1.readFloat();
+            var y:Number = _arg1.readFloat();
+
+            gotoAck(gs_.lastUpdate_);
+            var _local2:GameObject = gs_.map.goDict_[objectId];
             if (_local2 == null){
                 return;
             }
-            _local2.onGoto(_arg1.pos_.x_, _arg1.pos_.y_, gs_.lastUpdate_);
+            _local2.onGoto(x, y, gs_.lastUpdate_);
         }
 
         private function updateGameObject(_arg1:GameObject, _arg2:Vector.<StatData>, _arg3:Boolean):void{
@@ -1955,8 +2155,8 @@ package kabam.rotmg.messaging.impl{
             }
         }
 
-        private function onInvResult(_arg1:InvResult):void{
-            if (_arg1.result_ != 0){
+        private function onInvResult(_arg1:Socket):void{
+            if (_arg1.readInt() != 0){
                 this.handleInvFailure();
             }
         }
@@ -1966,55 +2166,66 @@ package kabam.rotmg.messaging.impl{
             gs_.hudView.interactPanel.redraw();
         }
 
-        private function onReconnect(_arg1:Reconnect):void{
-            var _local2:Server = new Server().setName(_arg1.name_).setAddress((((_arg1.host_)!="") ? _arg1.host_ : server_.address)).setPort((((_arg1.host_)!="") ? _arg1.port_ : server_.port));
-            var _local3:int = _arg1.gameId_;
-            var _local4:Boolean = createCharacter_;
-            var _local5:int = charId_;
-            var _local6:int = _arg1.keyTime_;
-            var _local7:ByteArray = _arg1.key_;
-            isFromArena_ = _arg1.isFromArena_;
-            if (_arg1.stats_){
-                this.statsTracker.setBinaryStringData(_local5, _arg1.stats_);
+        private function onReconnect(_arg1:Socket):void{
+
+            var name_:String = _arg1.readUTF();
+            var host_:String = _arg1.readUTF();
+            var stats_:String = _arg1.readUTF();
+            var port_:int = _arg1.readInt();
+            var gameId_:int = _arg1.readInt();
+            var keyTime_:int = _arg1.readInt();
+            isFromArena_ = _arg1.readBoolean();
+
+            var key_:ByteArray = new ByteArray();
+            key_.endian = Endian.LITTLE_ENDIAN;
+            key_.length = 0;
+            _arg1.readBytes(key_, 0, _arg1.readShort());
+
+            var _local2:Server = new Server().setName(name_).setAddress((((host_)!="") ? host_ : server_.address)).setPort((((host_)!="") ? port_ : server_.port));
+            if (stats_) {
+                statsTracker.setBinaryStringData(charId_, stats_);
             }
-            this.isNexusing = false;
-            var _local8:ReconnectEvent = new ReconnectEvent(_local2, _local3, _local4, _local5, _local6, _local7, isFromArena_);
+            isNexusing = false;
+            var _local8:ReconnectEvent = new ReconnectEvent(_local2, gameId_, createCharacter_, charId_, keyTime_, key_, isFromArena_);
             gs_.dispatchEvent(_local8);
         }
 
-        private function onPing(_arg1:Ping):void{
+        private function onPing(_arg1:Socket):void{
+
+            var serial:int = _arg1.readInt();
+
             var _local2:Pong = (this.messages.require(PONG) as Pong);
-            _local2.serial_ = _arg1.serial_;
+            _local2.serial_ = serial;
             _local2.time_ = getTimer();
             serverConnection.sendMessage(_local2);
         }
 
-        private function parseXML(_arg1:String):void{
-            var _local2:XML = XML(_arg1);
-            GroundLibrary.parseFromXML(_local2);
-            ObjectLibrary.parseFromXML(_local2);
-        }
+        private function onMapInfo(_arg1:Socket):void{
 
-        private function onMapInfo(_arg1:MapInfo):void{
-            var _local2:String;
-            var _local3:String;
-            for each (_local2 in _arg1.clientXML_) {
-                this.parseXML(_local2);
-            }
-            for each (_local3 in _arg1.extraXML_) {
-                this.parseXML(_local3);
-            }
+            var width = _arg1.readInt();
+            var height = _arg1.readInt();
+            var name = _arg1.readUTF();
+            var displayName = _arg1.readUTF();
+            var realmName = _arg1.readUTF();
+            var fp = _arg1.readUnsignedInt();
+            var background = _arg1.readInt();
+            var difficulty = _arg1.readInt();
+            var allowPlayerTeleport = _arg1.readBoolean();
+            var showDisplays = _arg1.readBoolean();
+            var maxPlayers = _arg1.readShort();
+            connectionGuid = _arg1.readUTF();
+            var gameOpenedTime = _arg1.readUnsignedInt();
+
             changeMapSignal.dispatch();
             this.closeDialogs.dispatch();
-            gs_.applyMapInfo(_arg1);
-            this.rand_ = new Random(_arg1.fp_);
+            gs_.applyMapInfo(width, height, name, displayName, realmName, background, difficulty, allowPlayerTeleport, showDisplays);
+            this.rand_ = new Random(fp);
             if (createCharacter_){
                 this.create();
             }
             else {
                 this.load();
             }
-            connectionGuid = _arg1.connectionGuid_;
         }
 
         private function onPic(_arg1:Pic):void{
@@ -2286,7 +2497,7 @@ package kabam.rotmg.messaging.impl{
         }
 
         private function onRetryTimer(_arg1:TimerEvent):void{
-            serverConnection.connect(server_.address, server_.port);
+            serverConnection.connect(server_.address, server_.port, this);
         }
 
         private function onError(_arg1:String):void{

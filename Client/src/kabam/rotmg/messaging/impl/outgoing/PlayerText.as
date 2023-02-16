@@ -4,7 +4,7 @@
 //kabam.rotmg.messaging.impl.outgoing.PlayerText
 
 package kabam.rotmg.messaging.impl.outgoing{
-    import flash.utils.IDataOutput;
+    import flash.utils.ByteArray;
 
     public class PlayerText extends OutgoingMessage {
 
@@ -15,7 +15,7 @@ package kabam.rotmg.messaging.impl.outgoing{
             super(_arg1, _arg2);
         }
 
-        override public function writeToOutput(_arg1:IDataOutput):void{
+        override public function writeToOutput(_arg1:ByteArray):void{
             _arg1.writeUTF(this.text_);
         }
 

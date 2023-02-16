@@ -51,6 +51,9 @@ package kabam.rotmg.game.view.components{
         }
 
         public function setSelectedTab(_arg1:uint):void{
+            if(this.tabs.length == 0)  {
+                return;
+            }
             this.selectTab(this.tabs[_arg1]);
         }
 

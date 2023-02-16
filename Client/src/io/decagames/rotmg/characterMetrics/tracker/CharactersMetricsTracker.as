@@ -7,7 +7,7 @@ package io.decagames.rotmg.characterMetrics.tracker{
     import flash.utils.Dictionary;
     import com.hurlant.util.Base64;
     import io.decagames.rotmg.characterMetrics.data.CharacterMetricsData;
-    import flash.utils.IDataInput;
+    import flash.utils.ByteArray;
 
     public class CharactersMetricsTracker {
 
@@ -27,7 +27,7 @@ package io.decagames.rotmg.characterMetrics.tracker{
             this.setBinaryData(_arg1, Base64.decodeToByteArray(_arg2));
         }
 
-        public function setBinaryData(_arg1:int, _arg2:IDataInput):void{
+        public function setBinaryData(_arg1:int, _arg2:ByteArray):void{
             var _local3:int;
             var _local4:int;
             if (!this.charactersStats){

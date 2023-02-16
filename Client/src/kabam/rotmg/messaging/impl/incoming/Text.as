@@ -4,7 +4,8 @@
 //kabam.rotmg.messaging.impl.incoming.Text
 
 package kabam.rotmg.messaging.impl.incoming{
-    import flash.utils.IDataInput;
+import flash.net.Socket;
+import flash.utils.ByteArray;
 
     public class Text extends IncomingMessage {
 
@@ -24,7 +25,7 @@ package kabam.rotmg.messaging.impl.incoming{
             super(_arg1, _arg2);
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             this.name_ = _arg1.readUTF();
             this.objectId_ = _arg1.readInt();
             this.numStars_ = _arg1.readInt();

@@ -4,7 +4,8 @@
 //kabam.rotmg.messaging.impl.incoming.GuildResult
 
 package kabam.rotmg.messaging.impl.incoming{
-    import flash.utils.IDataInput;
+import flash.net.Socket;
+import flash.utils.ByteArray;
 
     public class GuildResult extends IncomingMessage {
 
@@ -15,7 +16,7 @@ package kabam.rotmg.messaging.impl.incoming{
             super(_arg1, _arg2);
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             this.success_ = _arg1.readBoolean();
             this.lineBuilderJSON = _arg1.readUTF();
         }

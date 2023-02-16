@@ -4,8 +4,10 @@
 //kabam.rotmg.messaging.impl.incoming.pets.HatchPetMessage
 
 package kabam.rotmg.messaging.impl.incoming.pets{
-    import kabam.rotmg.messaging.impl.incoming.IncomingMessage;
-    import flash.utils.IDataInput;
+import flash.net.Socket;
+
+import kabam.rotmg.messaging.impl.incoming.IncomingMessage;
+    import flash.utils.ByteArray;
 
     public class HatchPetMessage extends IncomingMessage {
 
@@ -17,7 +19,7 @@ package kabam.rotmg.messaging.impl.incoming.pets{
             super(_arg1, _arg2);
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             this.petName = _arg1.readUTF();
             this.petSkin = _arg1.readInt();
             this.itemType = _arg1.readInt();

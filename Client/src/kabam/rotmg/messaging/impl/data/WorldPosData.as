@@ -5,8 +5,9 @@
 
 package kabam.rotmg.messaging.impl.data{
     import flash.geom.Point;
-    import flash.utils.IDataInput;
-    import flash.utils.IDataOutput;
+import flash.net.Socket;
+import flash.utils.ByteArray;
+    import flash.utils.ByteArray;
 
     public class WorldPosData {
 
@@ -18,12 +19,12 @@ package kabam.rotmg.messaging.impl.data{
             return (new Point(this.x_, this.y_));
         }
 
-        public function parseFromInput(_arg1:IDataInput):void{
+        public function parseFromInput(_arg1:Socket):void{
             this.x_ = _arg1.readFloat();
             this.y_ = _arg1.readFloat();
         }
 
-        public function writeToOutput(_arg1:IDataOutput):void{
+        public function writeToOutput(_arg1:ByteArray):void{
             _arg1.writeFloat(this.x_);
             _arg1.writeFloat(this.y_);
         }

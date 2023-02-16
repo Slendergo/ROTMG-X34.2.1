@@ -4,9 +4,11 @@
 //io.decagames.rotmg.dailyQuests.messages.incoming.QuestFetchResponse
 
 package io.decagames.rotmg.dailyQuests.messages.incoming{
-    import kabam.rotmg.messaging.impl.incoming.IncomingMessage;
+import flash.net.Socket;
+
+import kabam.rotmg.messaging.impl.incoming.IncomingMessage;
     import io.decagames.rotmg.dailyQuests.messages.data.QuestData;
-    import flash.utils.IDataInput;
+    import flash.utils.ByteArray;
 
     public class QuestFetchResponse extends IncomingMessage {
 
@@ -18,7 +20,7 @@ package io.decagames.rotmg.dailyQuests.messages.incoming{
             this.nextRefreshPrice = -1;
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             this.quests = new Vector.<QuestData>();
             var _local2:int = _arg1.readShort();
             var _local3:int;

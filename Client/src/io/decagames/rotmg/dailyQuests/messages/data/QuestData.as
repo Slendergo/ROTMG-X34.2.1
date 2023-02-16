@@ -4,7 +4,8 @@
 //io.decagames.rotmg.dailyQuests.messages.data.QuestData
 
 package io.decagames.rotmg.dailyQuests.messages.data{
-    import flash.utils.IDataInput;
+import flash.net.Socket;
+import flash.utils.ByteArray;
 
     public class QuestData {
 
@@ -26,7 +27,7 @@ package io.decagames.rotmg.dailyQuests.messages.data{
             super();
         }
 
-        public function parseFromInput(_arg1:IDataInput):void{
+        public function parseFromInput(_arg1:Socket):void{
             this.id = _arg1.readUTF();
             this.name = _arg1.readUTF();
             this.description = _arg1.readUTF();

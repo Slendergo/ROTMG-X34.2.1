@@ -1,5 +1,4 @@
 ﻿using SGB.GameServer.Core;
-using SGB.Shared;
 
 namespace SGB.GameServer
 {
@@ -7,8 +6,8 @@ namespace SGB.GameServer
     {
         public static void Main(string[] args)
         {
-            using var entryPoint = new Application();
-            entryPoint.Run();
+            using var application = new Application(2050);
+            application.Run();
         }
     }
 }

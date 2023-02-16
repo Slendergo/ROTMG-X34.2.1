@@ -2,44 +2,49 @@
 
 namespace SGB.GameServer.Core.IO
 {
-    public sealed class SessionManager : IDisposable
+    public static class SessionManager
     {
-        public Dictionary<Guid, Session> Sessions { get; private set; }
+        private static readonly Dictionary<Guid, Session> Sessions = new Dictionary<Guid, Session>();
 
-        private readonly Application Application;
-
-        public SessionManager(Application application)
+        public static void Add(Application application, Socket socket)
         {
-            Application = application;
-            Sessions = new Dictionary<Guid, Session>();
-        }
-
-        public void New(Socket socket)
-        {
-            var session = new Session(Application, socket);
-            Sessions.Add(session.Id, session);
+            var session = new Session(application, socket);
+            lock (Sessions)
+            {
+                Sessions.Add(session.Id, session);
+            }
             session.Start();
         }
 
-        public void TrySendTo(ref Guid id, byte[] buffer)
+        public static void Foreach(Action<Session> action)
         {
-            if (!Sessions.TryGetValue(id, out var session))
-                return;
-            session.IOManager.Send(buffer);
+            if (action == null)
+                throw new ArgumentNullException(nameof(action));
+
+            lock (Sessions)
+            {
+                foreach (var session in Sessions.Values)
+                    action.Invoke(session);
+            }
         }
 
-        public void Remove(Session session)
+        public static void Remove(Session session)
         {
-            if (Sessions.Remove(session.Id))
-                session.Stop();
+            lock (Sessions)
+            {
+                if (Sessions.Remove(session.Id))
+                    session.Stop();
+            }
         }
 
-        public void Dispose()
+        public static void Dispose()
         {
-            // stop incase
-            foreach (var session in Sessions.Values)
-                session.Stop();
-            Sessions.Clear();
+            lock (Sessions)
+            {
+                foreach (var session in Sessions.Values)
+                    session.Stop();
+                Sessions.Clear();
+            }
         }
     }
 }

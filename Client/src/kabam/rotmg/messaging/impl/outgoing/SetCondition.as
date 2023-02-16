@@ -4,7 +4,7 @@
 //kabam.rotmg.messaging.impl.outgoing.SetCondition
 
 package kabam.rotmg.messaging.impl.outgoing{
-    import flash.utils.IDataOutput;
+    import flash.utils.ByteArray;
 
     public class SetCondition extends OutgoingMessage {
 
@@ -15,7 +15,7 @@ package kabam.rotmg.messaging.impl.outgoing{
             super(_arg1, _arg2);
         }
 
-        override public function writeToOutput(_arg1:IDataOutput):void{
+        override public function writeToOutput(_arg1:ByteArray):void{
             _arg1.writeByte(this.conditionEffect_);
             _arg1.writeFloat(this.conditionDuration_);
         }

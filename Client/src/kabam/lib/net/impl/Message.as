@@ -4,10 +4,10 @@
 //kabam.lib.net.impl.Message
 
 package kabam.lib.net.impl{
-    import flash.utils.IDataInput;
-    import flash.utils.IDataOutput;
+import flash.net.Socket;
+import flash.utils.ByteArray;
 
-    public class Message {
+public class Message {
 
         public var pool:MessagePool;
         public var prev:Message;
@@ -22,10 +22,10 @@ package kabam.lib.net.impl{
             this.callback = _arg2;
         }
 
-        public function parseFromInput(_arg1:IDataInput):void{
+        public function parseFromInput(_arg1:Socket):void{
         }
 
-        public function writeToOutput(_arg1:IDataOutput):void{
+        public function writeToOutput(_arg1:ByteArray):void{
         }
 
         public function toString():String{

@@ -4,8 +4,9 @@
 //kabam.rotmg.messaging.impl.data.SlotObjectData
 
 package kabam.rotmg.messaging.impl.data{
-    import flash.utils.IDataInput;
-    import flash.utils.IDataOutput;
+import flash.net.Socket;
+import flash.utils.ByteArray;
+    import flash.utils.ByteArray;
 
     public class SlotObjectData {
 
@@ -14,13 +15,13 @@ package kabam.rotmg.messaging.impl.data{
         public var objectType_:int;
 
 
-        public function parseFromInput(_arg1:IDataInput):void{
+        public function parseFromInput(_arg1:Socket):void{
             this.objectId_ = _arg1.readInt();
             this.slotId_ = _arg1.readUnsignedByte();
             this.objectType_ = _arg1.readInt();
         }
 
-        public function writeToOutput(_arg1:IDataOutput):void{
+        public function writeToOutput(_arg1:ByteArray):void{
             _arg1.writeInt(this.objectId_);
             _arg1.writeByte(this.slotId_);
             _arg1.writeInt(this.objectType_);

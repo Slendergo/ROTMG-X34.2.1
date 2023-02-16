@@ -4,7 +4,8 @@
 //kabam.rotmg.messaging.impl.incoming.Damage
 
 package kabam.rotmg.messaging.impl.incoming{
-    import flash.utils.IDataInput;
+import flash.net.Socket;
+import flash.utils.ByteArray;
 
     public class Damage extends IncomingMessage {
 
@@ -21,7 +22,7 @@ package kabam.rotmg.messaging.impl.incoming{
             super(_arg1, _arg2);
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             this.targetId_ = _arg1.readInt();
             this.effects_.length = 0;
             var _local2:int = _arg1.readUnsignedByte();

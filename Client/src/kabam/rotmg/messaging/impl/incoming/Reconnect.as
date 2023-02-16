@@ -4,8 +4,9 @@
 //kabam.rotmg.messaging.impl.incoming.Reconnect
 
 package kabam.rotmg.messaging.impl.incoming{
+import flash.net.Socket;
+import flash.utils.ByteArray;
     import flash.utils.ByteArray;
-    import flash.utils.IDataInput;
 
     public class Reconnect extends IncomingMessage {
 
@@ -23,7 +24,7 @@ package kabam.rotmg.messaging.impl.incoming{
             super(_arg1, _arg2);
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             this.name_ = _arg1.readUTF();
             this.host_ = _arg1.readUTF();
             this.stats_ = _arg1.readUTF();

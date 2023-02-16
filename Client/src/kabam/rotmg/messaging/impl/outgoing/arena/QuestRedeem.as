@@ -6,7 +6,7 @@
 package kabam.rotmg.messaging.impl.outgoing.arena{
     import kabam.rotmg.messaging.impl.outgoing.OutgoingMessage;
     import kabam.rotmg.messaging.impl.data.SlotObjectData;
-    import flash.utils.IDataOutput;
+    import flash.utils.ByteArray;
 
     public class QuestRedeem extends OutgoingMessage {
 
@@ -18,7 +18,7 @@ package kabam.rotmg.messaging.impl.outgoing.arena{
             super(_arg1, _arg2);
         }
 
-        override public function writeToOutput(_arg1:IDataOutput):void{
+        override public function writeToOutput(_arg1:ByteArray):void{
             var _local2:SlotObjectData;
             _arg1.writeUTF(this.questID);
             _arg1.writeInt(this.item);

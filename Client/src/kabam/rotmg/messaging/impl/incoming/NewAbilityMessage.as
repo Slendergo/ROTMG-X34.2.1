@@ -4,8 +4,10 @@
 //kabam.rotmg.messaging.impl.incoming.NewAbilityMessage
 
 package kabam.rotmg.messaging.impl.incoming{
-    import kabam.lib.net.impl.Message;
-    import flash.utils.IDataInput;
+import flash.net.Socket;
+
+import kabam.lib.net.impl.Message;
+    import flash.utils.ByteArray;
 
     public class NewAbilityMessage extends Message {
 
@@ -15,7 +17,7 @@ package kabam.rotmg.messaging.impl.incoming{
             super(_arg1, _arg2);
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             this.type = _arg1.readInt();
         }
 

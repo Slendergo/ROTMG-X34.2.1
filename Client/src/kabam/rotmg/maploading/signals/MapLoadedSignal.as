@@ -10,7 +10,7 @@ package kabam.rotmg.maploading.signals{
     public class MapLoadedSignal extends Signal {
 
         public function MapLoadedSignal(){
-            super(MapInfo);
+            super(String, int);
         }
 
     }

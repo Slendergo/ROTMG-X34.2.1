@@ -5,7 +5,7 @@
 
 package kabam.rotmg.dailyLogin.message{
     import kabam.rotmg.messaging.impl.outgoing.OutgoingMessage;
-    import flash.utils.IDataOutput;
+    import flash.utils.ByteArray;
 
     public class ClaimDailyRewardMessage extends OutgoingMessage {
 
@@ -16,7 +16,7 @@ package kabam.rotmg.dailyLogin.message{
             super(_arg1, _arg2);
         }
 
-        override public function writeToOutput(_arg1:IDataOutput):void{
+        override public function writeToOutput(_arg1:ByteArray):void{
             _arg1.writeUTF(this.claimKey);
             _arg1.writeUTF(this.type);
         }

@@ -1,10 +1,10 @@
-﻿using System.Net;
+﻿using SGB.GameServer.Utils;
+using System.Net;
 using System.Net.Sockets;
-using SGB.GameServer.Utils;
 
-namespace SGB.GameServer.Core
+namespace SGB.GameServer.Core.IO
 {
-    public sealed class SessionListener : IDisposable
+    public sealed class SessionListener
     {
         private readonly Application Application;
         private readonly Socket Socket;
@@ -22,34 +22,27 @@ namespace SGB.GameServer.Core
             AcceptConnections = true;
         }
 
-        public void Start() => BeginAccept();
-
-        private void BeginAccept()
+        public async void Run()
         {
-            if (!AcceptConnections)
-                return;
-            _ = Socket.BeginAccept(OnAccept, null);
-        }
+            while (AcceptConnections)
+            {
+                var socket = await Socket.AcceptAsync();
 
-        private void OnAccept(IAsyncResult ar)
-        {
-            var socket = Socket.EndAccept(ar);
+                // is this worth generating a statemachine??? or should i just stay with begin accept?
+                DebugUtils.WriteLine($"SocketListener started a new session");
 
-            DebugUtils.Log($"New Session started: {socket.RemoteEndPoint}");
+                SessionManager.Add(Application, socket);
+            }
 
-            Application.SessionManager.New(socket);
-
-            BeginAccept();
+            DebugUtils.WriteLine($"SocketListener has stopped running");
+            Socket.Close();
         }
 
         public void DisableConnections()
         {
+            if (!AcceptConnections)
+                return;
             AcceptConnections = false;
-        }
-
-        public void Dispose()
-        {
-            Socket.Close();
         }
     }
 }

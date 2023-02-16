@@ -4,7 +4,8 @@
 //kabam.rotmg.messaging.impl.incoming.AccountList
 
 package kabam.rotmg.messaging.impl.incoming{
-    import flash.utils.IDataInput;
+import flash.net.Socket;
+import flash.utils.ByteArray;
 
     public class AccountList extends IncomingMessage {
 
@@ -17,7 +18,7 @@ package kabam.rotmg.messaging.impl.incoming{
             super(_arg1, _arg2);
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             var _local2:int;
             this.accountListId_ = _arg1.readInt();
             this.accountIds_.length = 0;

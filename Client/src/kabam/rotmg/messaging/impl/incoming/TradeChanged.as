@@ -4,7 +4,8 @@
 //kabam.rotmg.messaging.impl.incoming.TradeChanged
 
 package kabam.rotmg.messaging.impl.incoming{
-    import flash.utils.IDataInput;
+import flash.net.Socket;
+import flash.utils.ByteArray;
 
     public class TradeChanged extends IncomingMessage {
 
@@ -15,7 +16,7 @@ package kabam.rotmg.messaging.impl.incoming{
             super(_arg1, _arg2);
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             this.offer_.length = 0;
             var _local2:int = _arg1.readShort();
             var _local3:int;

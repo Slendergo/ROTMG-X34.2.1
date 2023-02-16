@@ -4,7 +4,9 @@
 //kabam.rotmg.messaging.impl.GameServerConnection
 
 package kabam.rotmg.messaging.impl{
-    import org.osflash.signals.Signal;
+import flash.net.Socket;
+
+import org.osflash.signals.Signal;
     import com.company.assembleegameclient.game.AGameSprite;
     import kabam.rotmg.servers.api.Server;
     import flash.utils.ByteArray;
@@ -134,6 +136,9 @@ package kabam.rotmg.messaging.impl{
         public var serverConnection:SocketServer;
         public var outstandingBuy_:OutstandingBuy = null;
 
+        public function handleMessage(id:int, socket:Socket):Boolean {
+            return false;
+        }
 
         public function chooseName(_arg1:String):void{
         }

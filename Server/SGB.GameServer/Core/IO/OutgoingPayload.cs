@@ -1,13 +1,13 @@
-﻿using System;
-using System.Buffers.Binary;
+﻿using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SGB.GameServer.Core.IO
 {
-    public struct OutgoingPayload
+    // im keeping this incase i wanna change back to a safer send method
+
+    public ref struct OutgoingPayload
     {
         public readonly byte Id;
         private byte[] Buffer;
@@ -17,14 +17,16 @@ namespace SGB.GameServer.Core.IO
         {
             Id = id;
             Buffer = new byte[8];
-            Position = 5;
+            Buffer[0] = id;
+            Position = 1;
         }
 
         public OutgoingPayload(byte id, int capacity)
         {
             Id = id;
             Buffer = new byte[capacity];
-            Position = 5;
+            Buffer[0] = id;
+            Position = 1;
         }
 
         private void EnsureCapacity(int amount)
@@ -150,18 +152,6 @@ namespace SGB.GameServer.Core.IO
             WriteByte((byte)v);
         }
 
-        public Memory<byte> GetBuffer()
-        {
-            // 4 byte
-            // 1 bytes
-            // N bytes
-            
-            if (BitConverter.IsLittleEndian)
-                Unsafe.WriteUnaligned(ref MemoryMarshal.GetArrayDataReference(Buffer), Buffer.Length);
-            else
-                Unsafe.WriteUnaligned(ref MemoryMarshal.GetArrayDataReference(Buffer), BinaryPrimitives.ReverseEndianness(Buffer.Length));
-            Buffer[4] = Id;
-            return Buffer;
-        }
+        public Memory<byte> GetBuffer() => Buffer;
     }
 }

@@ -4,8 +4,11 @@
 //kabam.rotmg.dailyLogin.message.ClaimDailyRewardResponse
 
 package kabam.rotmg.dailyLogin.message{
-    import kabam.rotmg.messaging.impl.incoming.IncomingMessage;
-    import flash.utils.IDataInput;
+import flash.net.Socket;
+import flash.utils.ByteArray;
+
+import kabam.rotmg.messaging.impl.incoming.IncomingMessage;
+    import flash.utils.ByteArray;
 
     public class ClaimDailyRewardResponse extends IncomingMessage {
 
@@ -17,7 +20,7 @@ package kabam.rotmg.dailyLogin.message{
             super(_arg1, _arg2);
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             this.itemId = _arg1.readInt();
             this.quantity = _arg1.readInt();
             this.gold = _arg1.readInt();

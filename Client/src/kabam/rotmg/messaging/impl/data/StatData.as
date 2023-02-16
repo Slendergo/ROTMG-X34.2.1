@@ -4,9 +4,11 @@
 //kabam.rotmg.messaging.impl.data.StatData
 
 package kabam.rotmg.messaging.impl.data{
-    import kabam.rotmg.text.model.TextKey;
-    import flash.utils.IDataInput;
-    import flash.utils.IDataOutput;
+import flash.net.Socket;
+
+import kabam.rotmg.text.model.TextKey;
+    import flash.utils.ByteArray;
+    import flash.utils.ByteArray;
 
     public class StatData {
 
@@ -160,19 +162,17 @@ package kabam.rotmg.messaging.impl.data{
             return false;
         }
 
-        public function parseFromInput(_arg1:IDataInput):void{
+        public function parseFromInput(_arg1:Socket):void{
             this.statType_ = _arg1.readUnsignedByte();
             if (!this.isStringStat()){
-                this.statValue_ = CompressedInt.Read(_arg1);
-                if (this.statType_ == SUPPORTER_STAT){
-                }
+                this.statValue_ = _arg1.readInt();
             }
             else {
                 this.strStatValue_ = _arg1.readUTF();
             }
         }
 
-        public function writeToOutput(_arg1:IDataOutput):void{
+        public function writeToOutput(_arg1:ByteArray):void{
             _arg1.writeByte(this.statType_);
             if (!this.isStringStat()){
                 _arg1.writeInt(this.statValue_);

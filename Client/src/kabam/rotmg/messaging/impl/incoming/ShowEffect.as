@@ -4,9 +4,11 @@
 //kabam.rotmg.messaging.impl.incoming.ShowEffect
 
 package kabam.rotmg.messaging.impl.incoming{
-    import kabam.rotmg.messaging.impl.data.WorldPosData;
+import flash.net.Socket;
+
+import kabam.rotmg.messaging.impl.data.WorldPosData;
     import kabam.rotmg.messaging.impl.data.CompressedInt;
-    import flash.utils.IDataInput;
+    import flash.utils.ByteArray;
 
     public class ShowEffect extends IncomingMessage {
 
@@ -66,7 +68,7 @@ package kabam.rotmg.messaging.impl.incoming{
             super(_arg1, _arg2);
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             this.effectType_ = _arg1.readUnsignedByte();
             var _local2:uint = _arg1.readUnsignedByte();
             if ((_local2 & EFFECT_BIT_ID)){

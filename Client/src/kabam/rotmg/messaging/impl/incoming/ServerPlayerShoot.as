@@ -4,8 +4,10 @@
 //kabam.rotmg.messaging.impl.incoming.ServerPlayerShoot
 
 package kabam.rotmg.messaging.impl.incoming{
-    import kabam.rotmg.messaging.impl.data.WorldPosData;
-    import flash.utils.IDataInput;
+import flash.net.Socket;
+
+import kabam.rotmg.messaging.impl.data.WorldPosData;
+    import flash.utils.ByteArray;
 
     public class ServerPlayerShoot extends IncomingMessage {
 
@@ -21,7 +23,7 @@ package kabam.rotmg.messaging.impl.incoming{
             super(_arg1, _arg2);
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             this.bulletId_ = _arg1.readUnsignedByte();
             this.ownerId_ = _arg1.readInt();
             this.containerType_ = _arg1.readInt();

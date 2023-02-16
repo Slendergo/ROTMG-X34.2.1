@@ -4,11 +4,13 @@
 //kabam.rotmg.messaging.impl.incoming.Update
 
 package kabam.rotmg.messaging.impl.incoming{
-    import kabam.rotmg.messaging.impl.data.GroundTileData;
+import flash.net.Socket;
+
+import kabam.rotmg.messaging.impl.data.GroundTileData;
     import kabam.rotmg.messaging.impl.data.ObjectData;
     import kabam.rotmg.messaging.impl.data.CompressedInt;
     import com.company.assembleegameclient.util.FreeList;
-    import flash.utils.IDataInput;
+    import flash.utils.ByteArray;
 
     public class Update extends IncomingMessage {
 
@@ -23,7 +25,7 @@ package kabam.rotmg.messaging.impl.incoming{
             super(_arg1, _arg2);
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             var _local2:int;
             var _local3:int = CompressedInt.Read(_arg1);
             _local2 = _local3;

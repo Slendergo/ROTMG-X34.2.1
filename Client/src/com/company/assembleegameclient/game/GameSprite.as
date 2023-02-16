@@ -133,11 +133,6 @@ package com.company.assembleegameclient.game{
             this.idleWatcher_ = new IdleWatcher();
         }
 
-        public static function dispatchMapLoaded(_arg1:MapInfo):void{
-            var _local2:MapLoadedSignal = StaticInjectorContext.getInjector().getInstance(MapLoadedSignal);
-            ((_local2) && (_local2.dispatch(_arg1)));
-        }
-
         private static function hidePreloader():void{
             var _local1:HideMapLoadingSignal = StaticInjectorContext.getInjector().getInstance(HideMapLoadingSignal);
             ((_local1) && (_local1.dispatch()));
@@ -189,9 +184,11 @@ package com.company.assembleegameclient.game{
             }
         }
 
-        override public function applyMapInfo(_arg1:MapInfo):void{
-            map.setProps(_arg1.width_, _arg1.height_, _arg1.name_, _arg1.background_, _arg1.allowPlayerTeleport_, _arg1.showDisplays_);
-            dispatchMapLoaded(_arg1);
+
+        override public function applyMapInfo(width:int, height:int, name:String, displayName:String, realmName:String, background:int, difficulty:int, allowPlayerTeleport:Boolean, showDisplays:Boolean):void{
+            map.setProps(width, height, name, background, allowPlayerTeleport, showDisplays);
+            var _local2:MapLoadedSignal = StaticInjectorContext.getInjector().getInstance(MapLoadedSignal);
+            ((_local2) && (_local2.dispatch(displayName, difficulty)));
         }
 
         public function hudModelInitialized():void{

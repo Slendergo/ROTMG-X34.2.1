@@ -4,11 +4,12 @@
 //kabam.rotmg.messaging.impl.data.CompressedInt
 
 package kabam.rotmg.messaging.impl.data{
-    import flash.utils.IDataInput;
+import flash.net.Socket;
+import flash.utils.ByteArray;
 
     public class CompressedInt {
 
-        public static function Read(_arg1:IDataInput):int{
+        public static function Read(_arg1:Socket):int{
             var _local2:int;
             var _local3:int = _arg1.readUnsignedByte();
             var _local4 = !(((_local3 & 64) == 0));

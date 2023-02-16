@@ -4,8 +4,10 @@
 //kabam.rotmg.messaging.impl.incoming.Goto
 
 package kabam.rotmg.messaging.impl.incoming{
-    import kabam.rotmg.messaging.impl.data.WorldPosData;
-    import flash.utils.IDataInput;
+import flash.net.Socket;
+
+import kabam.rotmg.messaging.impl.data.WorldPosData;
+    import flash.utils.ByteArray;
 
     public class Goto extends IncomingMessage {
 
@@ -17,7 +19,7 @@ package kabam.rotmg.messaging.impl.incoming{
             super(_arg1, _arg2);
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             this.objectId_ = _arg1.readInt();
             this.pos_.parseFromInput(_arg1);
         }

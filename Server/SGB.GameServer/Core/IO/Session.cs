@@ -1,11 +1,10 @@
-﻿using Org.BouncyCastle.Asn1.Crmf;
+﻿using SGB.GameServer.Core.Game;
 using SGB.GameServer.Utils;
 using SGB.Shared;
-using System;
-using System.Diagnostics;
-using System.Net;
 using System.Net.Sockets;
-using System.Security.Cryptography;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Text;
 
 namespace SGB.GameServer.Core.IO
 {
@@ -111,54 +110,161 @@ namespace SGB.GameServer.Core.IO
         public const int REALM_HERO_LEFT_MSG = 84;
         public const int RESET_DAILY_QUESTS = 52;
 
-        public static void MapInfo(Session session, World world)
+        public static void MapInfo(Session session, GameWorld gameWorld)
         {
-            var outgoingPayload = new OutgoingPayload(MAPINFO);
-            outgoingPayload.WriteInt32(world.Width);
-            outgoingPayload.WriteInt32(world.Height);
-            outgoingPayload.WriteUTF16(world.Name);
-            outgoingPayload.WriteUTF16(world.Name);
-            outgoingPayload.WriteUTF16(world.Name);
-            outgoingPayload.WriteInt32(0);
-            outgoingPayload.WriteInt32(0);
-            outgoingPayload.WriteInt32(0);
-            outgoingPayload.WriteBoolean(true);
-            outgoingPayload.WriteBoolean(true);
-            outgoingPayload.WriteInt16(85);
-            outgoingPayload.WriteUTF16("");
-            outgoingPayload.WriteInt32(0);
-            outgoingPayload.WriteInt16(0);
-            outgoingPayload.WriteInt16(0);
-            session.IOManager.Send(outgoingPayload.GetBuffer());
+            var offset = 0;
+            ref var spanReference = ref MemoryMarshal.GetReference(session.SendMemory.Span);
+            WriteInt8(ref offset, ref spanReference, MAPINFO);
+            WriteInt32(ref offset, ref spanReference, gameWorld.Width);
+            WriteInt32(ref offset, ref spanReference, gameWorld.Height);
+            WriteUTF16(ref offset, ref spanReference, gameWorld.Name);
+            WriteUTF16(ref offset, ref spanReference, gameWorld.Name);
+            WriteUTF16(ref offset, ref spanReference, gameWorld.Name);
+            WriteInt32(ref offset, ref spanReference, 0);
+            WriteInt32(ref offset, ref spanReference, 0);
+            WriteInt32(ref offset, ref spanReference, 0);
+            WriteBoolean(ref offset, ref spanReference, false);
+            WriteBoolean(ref offset, ref spanReference, false);
+            WriteInt16(ref offset, ref spanReference, 0);
+            WriteUTF16(ref offset, ref spanReference, "");
+            WriteInt32(ref offset, ref spanReference, 0);
+            session.Send(offset);
         }
 
         public static void CreateSuccess(Session session, int characterId, int objectId)
         {
-            var outgoingPayload = new OutgoingPayload(CREATE_SUCCESS);
-            outgoingPayload.WriteInt32(characterId);
-            outgoingPayload.WriteInt32(objectId);
-            session.IOManager.Send(outgoingPayload.GetBuffer());
+            var offset = 0;
+            ref var spanReference = ref MemoryMarshal.GetReference(session.SendMemory.Span);
+            WriteInt8(ref offset, ref spanReference, CREATE_SUCCESS);
+            WriteInt32(ref offset, ref spanReference, characterId);
+            WriteInt32(ref offset, ref spanReference, objectId);
+            session.Send(offset);
         }
 
-        public static void Update(Session session, List<Tile> tiles, List<int> update, List<int> drops)
+        public static void Update(Session session, List<Tile> tiles, List<GameObject> newObjs, List<int> drops)
         {
-            var outgoingPayload = new OutgoingPayload(UPDATE);
-            outgoingPayload.WriteInt16(tiles.Count);
+            var offset = 0;
+            ref var spanReference = ref MemoryMarshal.GetReference(session.SendMemory.Span);
+            WriteInt8(ref offset, ref spanReference, UPDATE);
+
+            WriteInt16(ref offset, ref spanReference, tiles.Count);
             foreach (var tile in tiles)
             {
-                outgoingPayload.WriteInt16(tile.X);
-                outgoingPayload.WriteInt16(tile.Y);
-                outgoingPayload.WriteInt32(tile.Type);
+                WriteInt16(ref offset, ref spanReference, tile.X);
+                WriteInt16(ref offset, ref spanReference, tile.Y);
+                WriteInt16(ref offset, ref spanReference, tile.Type);
             }
-            outgoingPayload.WriteInt16(update.Count);
-            outgoingPayload.WriteInt16(drops.Count);
-            session.IOManager.Send(outgoingPayload.GetBuffer());
+
+            WriteInt16(ref offset, ref spanReference, newObjs.Count);
+            foreach (var newObj in newObjs)
+            {
+                WriteInt16(ref offset, ref spanReference, newObj.ObjectType);
+                WriteInt32(ref offset, ref spanReference, newObj.Id);
+                WriteFloat(ref offset, ref spanReference, newObj.X);
+                WriteFloat(ref offset, ref spanReference, newObj.Y);
+                WriteInt16(ref offset, ref spanReference, 0);
+            }
+
+            WriteInt16(ref offset, ref spanReference, drops.Count);
+            foreach (var drop in drops)
+                WriteInt32(ref offset, ref spanReference, drop);
+            session.Send(offset);
         }
 
         public static void NewTick(Session session)
         {
-            var outgoingPayload = new OutgoingPayload(NEWTICK);
-            session.IOManager.Send(outgoingPayload.GetBuffer());
+            //var outgoingPayload = new OutgoingPayload(NEWTICK);
+            //session.IOManager.Send(outgoingPayload.GetBuffer());
+        }
+
+        public static readonly int RECEIVE_BUFFER_SIZE = 0x1000; // 4096
+        public static readonly int SEND_BUFFER_SIZE = 0xFFFF; // 65535
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void WriteBoolean(ref int offset, ref byte spanReference, bool value)
+        {
+            Unsafe.WriteUnaligned(ref Unsafe.Add(ref spanReference, offset), (byte)(value ? 1 : 0));
+            offset += sizeof(bool);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void WriteInt8(ref int offset, ref byte spanReference, byte value)
+        {
+            Unsafe.WriteUnaligned(ref Unsafe.Add(ref spanReference, offset), value);
+            offset += sizeof(byte);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void WriteInt16(ref int offset, ref byte spanReference, short value)
+        {
+            Unsafe.WriteUnaligned(ref Unsafe.Add(ref spanReference, offset), value);
+            offset += sizeof(short);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void WriteInt16(ref int offset, ref byte spanReference, int value)
+        {
+            Unsafe.WriteUnaligned(ref Unsafe.Add(ref spanReference, offset), (short)value);
+            offset += sizeof(short);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void WriteInt32(ref int offset, ref byte spanReference, int value)
+        {
+            Unsafe.WriteUnaligned(ref Unsafe.Add(ref spanReference, offset), value);
+            offset += sizeof(int);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void WriteInt64(ref int offset, ref byte spanReference, long value)
+        {
+            Unsafe.WriteUnaligned(ref Unsafe.Add(ref spanReference, offset), value);
+            offset += sizeof(long);
+        }
+
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void WriteFloat(ref int offset, ref byte spanReference, float value) => WriteInt32(ref offset, ref spanReference, Unsafe.As<float, int>(ref value));
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void WriteFloat(ref int offset, ref byte spanReference, double value)
+        {
+            var val = (float)value;
+            WriteInt32(ref offset, ref spanReference, Unsafe.As<float, int>(ref val));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void WriteDouble(ref int offset, ref byte spanReference, float value)
+        {
+            var val = (double)value;
+            WriteInt64(ref offset, ref spanReference, Unsafe.As<double, int>(ref val));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void WriteDouble(ref int offset, ref byte spanReference, double value)
+        {
+            var val = (double)value;
+            WriteInt64(ref offset, ref spanReference, Unsafe.As<double, int>(ref val));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void WriteUTF16(ref int offset, ref byte spanReference, string value)
+        {
+            WriteInt16(ref offset, ref spanReference, (short)value.Length);
+
+            var bytes = Encoding.UTF8.GetBytes(value).AsSpan(); // can probably be done better
+            Unsafe.CopyBlockUnaligned(ref Unsafe.Add(ref spanReference, offset), ref MemoryMarshal.GetReference(bytes), (uint)value.Length);
+            offset += value.Length;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void WriteUTF32(ref int offset, ref byte spanReference, string value)
+        {
+            WriteInt32(ref offset, ref spanReference, value.Length);
+
+            var bytes = Encoding.UTF8.GetBytes(value).AsSpan(); // can probably be done better
+            Unsafe.CopyBlockUnaligned(ref Unsafe.Add(ref spanReference, offset), ref MemoryMarshal.GetReference(bytes), (uint)value.Length);
+            offset += value.Length;
         }
     }
 
@@ -170,7 +276,7 @@ namespace SGB.GameServer.Core.IO
         public int CharacterId { get; set; }
 
         public GameObject GameObject { get; set; }
-        public World World { get; set; }
+        public GameWorld GameWorld { get; set; }
 
         #region States
 
@@ -188,7 +294,9 @@ namespace SGB.GameServer.Core.IO
 
         public void HandleIncoming(ref IncomingPayload payload)
         {
-            switch (payload.Id)
+            var id = payload.ReadByte();
+            Console.WriteLine("Handle: " + id);
+            switch (id)
             {
                 case IOHelper.HELLO:
                     HandleHello(ref payload);
@@ -202,8 +310,12 @@ namespace SGB.GameServer.Core.IO
                     HandleCreate(ref payload);
                     break;
 
+                case IOHelper.UPDATEACK:
+                    UpdateState.UpdateAck();
+                    break;
+
                 default:
-                    DebugUtils.Log($"Unknown Payload Id: {payload.Id}");
+                    DebugUtils.WriteLine($"Unknown Payload Id: {id}");
                     break;
             }
         }
@@ -224,7 +336,6 @@ namespace SGB.GameServer.Core.IO
 
             var len = payload.ReadInt16();
             var key = payload.ReadBytes(len);
-
             var mapJson = payload.ReadUTF32();
             var userToken = payload.ReadUTF16();
             var something = payload.ReadUTF16();
@@ -240,11 +351,9 @@ namespace SGB.GameServer.Core.IO
             Console.WriteLine($"Found accountId: {accountId}");
             // todo
 
-            World = new World(64, 64, "Nexus");
+            GameWorld = GameWorldManager.FindWorld(gameId);
 
-            IOHelper.MapInfo(Session, World);
-
-            Session.Stop();
+            IOHelper.MapInfo(Session, GameWorld);
         }
 
         private void HandleLoad(ref IncomingPayload payload)
@@ -261,35 +370,23 @@ namespace SGB.GameServer.Core.IO
 
             var go = new GameObject()
             {
-                X = 32,
-                Y = 32,
+                X = 32.5f,
+                Y = 32.5f,
                 ObjectType = 0x030e
             };
 
-            //World.CreateNewObject(go);
+            GameWorld.AddObject(go);
 
             GameObject = go;
             CharacterId = 0;
 
-            EnterGame();
-
             IOHelper.CreateSuccess(Session, 0, go.Id);
+
+            IsReady = true;
         }
 
         private void EnterGame() 
         {
-            var go = new GameObject()
-            {
-                X = 32,
-                Y = 32,
-                ObjectType = 0x030e
-            };
-
-            IOHelper.CreateSuccess(Session, CharacterId, GameObject.Id);
-
-            World.AddObject(go);
-
-            IsReady = true;
         }
 
         private void LeaveGame()
@@ -340,170 +437,160 @@ namespace SGB.GameServer.Core.IO
         public void HandleUpdate()
         {
             // update packet for player
+            if (!DoUpdate)
+                return;
 
             var go = StateManager.GameObject;
-            var world = StateManager.World;
+            var world = StateManager.GameWorld;
 
             var tiles = new List<Tile>();
             for (var x = -15; x <= 15; x++)
                 for (var y = -15; y <= 15; y++)
                     if (x * x + y * y <= 15 * 15)
                         tiles.Add(world.Tiles[x + (int)go.X, y + (int)go.Y]);
-            IOHelper.Update(StateManager.Session, tiles, null, null);
+
+            var newObjs = new List<GameObject>();
+            if (!VisibleObjects.ContainsKey(StateManager.GameObject.Id))
+                newObjs.Add(StateManager.GameObject);
+
+            IOHelper.Update(StateManager.Session, tiles, newObjs, new List<int>());
+            //DoUpdate = false;
         }
+
+        private bool DoUpdate =true;
 
         public void NewState(double dt)
         {
+            HandleUpdate();
             IOHelper.NewTick(StateManager.Session);
         }
     }
 
-    public sealed class IOManager
+    public sealed class Session
     {
-        private readonly Session Session;
+        public Application Application { get; }
+
+        public Guid Id { get; private set; }
+        public StateManager StateManager { get; private set; }
 
         public Socket Socket { get; private set; }
+        public Memory<byte> SendMemory { get; private set; }
+        public Memory<byte> ReceiveMemory { get; private set; }
+
+        public Session(Application application, Socket socket)
+        {
+            Application = application;
+            Socket = socket;
+
+            Id = Guid.NewGuid();
+
+            SendMemory = GC.AllocateArray<byte>(IOHelper.SEND_BUFFER_SIZE, true).AsMemory();
+            ReceiveMemory = GC.AllocateArray<byte>(IOHelper.RECEIVE_BUFFER_SIZE, true).AsMemory();
+
+            StateManager = new StateManager(this);
+        }
+
         public bool Disconnected { get; private set; }
 
-        public Queue<IncomingPayload> Payloads { get; private set; }
-
-        public IOManager(Session session, Socket socket)
+        public async void Start()
         {
-            Session = session;
-            Socket = socket;
-            Payloads = new Queue<IncomingPayload>();
-        }
-
-        public void Start()
-        {
-            var receiveBuffer = new byte[4096]; // 4096 should be enough for a packet
-            _ = Socket.BeginReceive(receiveBuffer, 0, 4, SocketFlags.None, OnReceiveHeader, receiveBuffer);
-        }
-
-        private void OnReceiveHeader(IAsyncResult asyncResult)
-        {
-            if (Disconnected)
-                return;
-
             try
             {
-                var receiveBuffer = (byte[])asyncResult.AsyncState!;
-                var receviedBytes = Socket.EndReceive(asyncResult);
-                if (receviedBytes > receiveBuffer.Length || receviedBytes != 4)
+                while (Socket.Connected)
                 {
-                    // uh oh stinky poopy
-                    Stop();
-                    return;
+                    // might overshoot if we dont have
+                    var length = await Socket.ReceiveAsync(ReceiveMemory);
+                    if (length == 0 || length >= ReceiveMemory.Length)
+                    {
+                        Stop();
+                        break;
+                    }
+
+                    TimedProfiler.Time("Handle", () =>
+                    {
+                        var position = 0;
+                        while (position < length)
+                        {
+                            var payload = new IncomingPayload(ReceiveMemory, position);
+                            StateManager.HandleIncoming(ref payload);
+                            position += payload.Position;
+                        }
+                    });
                 }
-
-                var payloadSize = BitConverter.ToInt32(receiveBuffer, 0) - 4;
-
-                // this time we offset by payload length size and start receiving the payload
-                if (!Disconnected)
-                    _ = Socket.BeginReceive(receiveBuffer, 4, payloadSize, SocketFlags.None, OnReceivePayload, receiveBuffer);
             }
             catch (SocketException e)
             {
                 Console.WriteLine($"[OnReceiveHeader] Exception -> {e.Message} {e.StackTrace}");
-
-                // uh oh stinky poopy
                 Stop();
             }
+
+            //var receiveBuffer = new byte[4096]; // 4096 should be enough for a packet
+            //_ = Socket.BeginReceive(receiveBuffer, 0, 4, SocketFlags.None, OnReceiveHeader, receiveBuffer);
         }
 
-        private void OnReceivePayload(IAsyncResult asyncResult)
-        {
-            if (Disconnected)
-                return;
-
-            try
-            {
-                var receiveBuffer = (byte[])asyncResult.AsyncState!;
-                var receivedBytes = Socket.EndReceive(asyncResult);
-
-                if (receivedBytes > receiveBuffer.Length)
-                {
-                    // uh oh stinky poopy
-                    // invalid packet payload size will stop overflow of buffer resizing
-                    Stop();
-                    return;
-                }
-
-                //lock (Payloads)
-                //{
-                //    Payloads.Enqueue(new IncomingPayload(receiveBuffer, 4, receivedBytes));
-                //}
-
-                var payload = new IncomingPayload(receiveBuffer, 4, receivedBytes);
-                Session.StateManager.HandleIncoming(ref payload);
-
-                // reset receive buffer to prevent leakage
-                Array.Clear(receiveBuffer, 0, receiveBuffer.Length);
-
-                // lets start it back up
-                if(!Disconnected)
-                    _ = Socket.BeginReceive(receiveBuffer, 0, 4, SocketFlags.None, OnReceiveHeader, receiveBuffer);
-            }
-            catch (SocketException e)
-            {
-                Console.WriteLine($"[OnPayloadHeader] Exception -> {e.Message} {e.StackTrace}");
-                // uh oh stinky poopy
-                Stop();
-            }
-        }
-
-        public void Send(Memory<byte> buffer) => _ = SendImpl(buffer);
-
-        private async Task SendImpl(Memory<byte> buffer)
-        {
-            if (Disconnected)
-                return;
-
-            try
-            {
-                var result = await Socket.SendAsync(buffer);
-                if (result != buffer.Length)
-                {
-                    // uh oh stinky poopy.
-                    Stop();
-                }
-            }
-            catch (SocketException e)
-            {
-                Console.WriteLine($"[Send] Exception -> {e.Message} {e.StackTrace}");
-                // uh oh stinky poopy
-                Stop();
-            }
-        }
-
-        //public void Send(byte[] buffer)
+        //pri}vate void OnReceiveHeader(IAsyncResult asyncResult)
         //{
         //    if (Disconnected)
         //        return;
 
         //    try
         //    {
-        //        Socket.BeginSend(buffer, 0, buffer.Length, SocketFlags.None, OnSend, buffer.Length);
+        //        var receiveBuffer = (byte[])asyncResult.AsyncState!;
+        //        var receviedBytes = Socket.EndReceive(asyncResult);
+        //        if (receviedBytes > receiveBuffer.Length || receviedBytes != 4)
+        //        {
+        //            // uh oh stinky poopy
+        //            Stop();
+        //            return;
+        //        }
+
+        //        var payloadSize = BitConverter.ToInt32(receiveBuffer, 0) - 4;
+
+        //        // this time we offset by payload length size and start receiving the payload
+        //        if (!Disconnected)
+        //            _ = Socket.BeginReceive(receiveBuffer, 4, payloadSize, SocketFlags.None, OnReceivePayload, receiveBuffer);
         //    }
         //    catch (SocketException e)
         //    {
-        //        Console.WriteLine($"[Send] Exception -> {e.Message} {e.StackTrace}");
+        //        Console.WriteLine($"[OnReceiveHeader] Exception -> {e.Message} {e.StackTrace}");
+
         //        // uh oh stinky poopy
         //        Stop();
         //    }
         //}
 
-        //private void OnSend(IAsyncResult asyncResult)
+        //private void OnReceivePayload(IAsyncResult asyncResult)
         //{
+        //    if (Disconnected)
+        //        return;
+
         //    try
         //    {
-        //        var expectedLength = (int)asyncResult.AsyncState!;
-        //        var result = Socket.EndSend(asyncResult);
-        //        if (result != expectedLength)
+        //        var receiveBuffer = (byte[])asyncResult.AsyncState!;
+        //        var receivedBytes = Socket.EndReceive(asyncResult);
+
+        //        if (receivedBytes > receiveBuffer.Length)
         //        {
-        //            // uh oh stinky poopy.
+        //            // uh oh stinky poopy
+        //            // invalid packet payload size will stop overflow of buffer resizing
         //            Stop();
+        //            return;
         //        }
+
+        //        //lock (Payloads)
+        //        //{
+        //        //    Payloads.Enqueue(new IncomingPayload(receiveBuffer, 4, receivedBytes));
+        //        //}
+
+        //        var payload = new IncomingPayload(receiveBuffer, 4);
+        //        StateManager.HandleIncoming(ref payload);
+
+        //        // reset receive buffer to prevent leakage
+        //        Array.Clear(receiveBuffer, 0, receiveBuffer.Length);
+
+        //        // lets start it back up
+        //        if (!Disconnected)
+        //            _ = Socket.BeginReceive(receiveBuffer, 0, 4, SocketFlags.None, OnReceiveHeader, receiveBuffer);
         //    }
         //    catch (SocketException e)
         //    {
@@ -513,41 +600,29 @@ namespace SGB.GameServer.Core.IO
         //    }
         //}
 
+        public async void Send(int offset)
+        {
+            if (!Socket.Connected)
+                return;
+
+            try
+            {
+                _ = await Socket.SendAsync(SendMemory[..offset]);
+            }
+            catch (SocketException e)
+            {
+                Console.WriteLine($"[Send] Exception -> {e.Message} {e.StackTrace}");
+                // uh oh stinky poopy
+                Stop();
+            }
+        } 
+
         public void Stop()
         {
             if (Disconnected)
                 return;
             Disconnected = true;
             Socket.Close();
-        }
-    }
-
-    public sealed class Session
-    {
-        public Application Application { get; }
-
-        public Guid Id { get; private set; }
-        public IOManager IOManager { get; set; }
-        public StateManager StateManager { get; private set; }
-
-        public Session(Application application, Socket socket)
-        {
-            Application = application;
-
-            Id = Guid.NewGuid();
-
-            IOManager = new IOManager(this, socket);
-            StateManager = new StateManager(this);
-        }
-
-        public void Start()
-        {
-            IOManager.Start();
-        }
-
-        public void Stop()
-        {
-            IOManager.Stop();
         }
     }
 }

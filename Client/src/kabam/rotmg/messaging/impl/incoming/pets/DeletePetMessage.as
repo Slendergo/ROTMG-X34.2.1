@@ -4,8 +4,10 @@
 //kabam.rotmg.messaging.impl.incoming.pets.DeletePetMessage
 
 package kabam.rotmg.messaging.impl.incoming.pets{
-    import kabam.rotmg.messaging.impl.incoming.IncomingMessage;
-    import flash.utils.IDataInput;
+import flash.net.Socket;
+
+import kabam.rotmg.messaging.impl.incoming.IncomingMessage;
+    import flash.utils.ByteArray;
 
     public class DeletePetMessage extends IncomingMessage {
 
@@ -15,7 +17,7 @@ package kabam.rotmg.messaging.impl.incoming.pets{
             super(_arg1, _arg2);
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             this.petID = _arg1.readInt();
         }
 

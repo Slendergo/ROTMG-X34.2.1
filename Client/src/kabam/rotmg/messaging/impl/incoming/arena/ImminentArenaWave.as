@@ -4,8 +4,10 @@
 //kabam.rotmg.messaging.impl.incoming.arena.ImminentArenaWave
 
 package kabam.rotmg.messaging.impl.incoming.arena{
-    import kabam.rotmg.messaging.impl.incoming.IncomingMessage;
-    import flash.utils.IDataInput;
+import flash.net.Socket;
+
+import kabam.rotmg.messaging.impl.incoming.IncomingMessage;
+    import flash.utils.ByteArray;
 
     public class ImminentArenaWave extends IncomingMessage {
 
@@ -15,7 +17,7 @@ package kabam.rotmg.messaging.impl.incoming.arena{
             super(_arg1, _arg2);
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             this.currentRuntime = _arg1.readInt();
         }
 

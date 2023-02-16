@@ -6,7 +6,7 @@
 package kabam.rotmg.messaging.impl{
     import kabam.rotmg.messaging.impl.outgoing.OutgoingMessage;
     import kabam.rotmg.messaging.impl.data.SlotObjectData;
-    import flash.utils.IDataOutput;
+    import flash.utils.ByteArray;
 
     public class ReskinPet extends OutgoingMessage {
 
@@ -19,7 +19,7 @@ package kabam.rotmg.messaging.impl{
             super(_arg1, _arg2);
         }
 
-        override public function writeToOutput(_arg1:IDataOutput):void{
+        override public function writeToOutput(_arg1:ByteArray):void{
             _arg1.writeInt(this.petInstanceId);
             _arg1.writeInt(this.pickedNewPetType);
             this.item.writeToOutput(_arg1);

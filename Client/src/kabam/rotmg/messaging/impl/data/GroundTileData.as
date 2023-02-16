@@ -4,7 +4,8 @@
 //kabam.rotmg.messaging.impl.data.GroundTileData
 
 package kabam.rotmg.messaging.impl.data{
-    import flash.utils.IDataInput;
+import flash.net.Socket;
+import flash.utils.ByteArray;
 
     public class GroundTileData {
 
@@ -12,8 +13,7 @@ package kabam.rotmg.messaging.impl.data{
         public var y_:int;
         public var type_:uint;
 
-
-        public function parseFromInput(_arg1:IDataInput):void{
+        public function parseFromInput(_arg1:Socket):void{
             this.x_ = _arg1.readShort();
             this.y_ = _arg1.readShort();
             this.type_ = _arg1.readUnsignedShort();

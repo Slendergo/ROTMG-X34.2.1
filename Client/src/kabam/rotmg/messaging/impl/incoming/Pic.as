@@ -5,8 +5,9 @@
 
 package kabam.rotmg.messaging.impl.incoming{
     import flash.display.BitmapData;
+import flash.net.Socket;
+import flash.utils.ByteArray;
     import flash.utils.ByteArray;
-    import flash.utils.IDataInput;
 
     public class Pic extends IncomingMessage {
 
@@ -16,7 +17,7 @@ package kabam.rotmg.messaging.impl.incoming{
             super(_arg1, _arg2);
         }
 
-        override public function parseFromInput(_arg1:IDataInput):void{
+        override public function parseFromInput(_arg1:Socket):void{
             var _local2:int = _arg1.readInt();
             var _local3:int = _arg1.readInt();
             var _local4:ByteArray = new ByteArray();

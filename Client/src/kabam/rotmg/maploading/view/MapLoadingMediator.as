@@ -32,8 +32,8 @@ package kabam.rotmg.maploading.view{
             this.hideMapLoadingNoFade.add(this.onHideNoFade);
         }
 
-        private function onMapLoaded(_arg1:MapInfo):void{
-            this.view.showMap(_arg1.displayName_, _arg1.difficulty_);
+        private function onMapLoaded(displayName:String, difficulty:int):void{
+            this.view.showMap(displayName, difficulty);
         }
 
         override public function destroy():void{

@@ -8,6 +8,8 @@ import avmplus.parameterXml;
 
 import flash.utils.Endian;
 
+import kabam.rotmg.messaging.impl.GameServerConnection;
+
 import org.osflash.signals.Signal;
     import flash.utils.ByteArray;
     import kabam.lib.net.api.MessageProvider;
@@ -40,11 +42,9 @@ import org.osflash.signals.Signal;
         public var delayTimer:Timer;
         private var head:Message;
         private var tail:Message;
-        private var messageLen:int = -1;
-        private var outgoingCipher:ICipher;
-        private var incomingCipher:ICipher;
         private var server:String;
         private var port:int;
+        private var gsc_:GameServerConnection;
 
         public function SocketServer(){
             this.head = this.unsentPlaceholder;
@@ -52,36 +52,29 @@ import org.osflash.signals.Signal;
             super();
         }
 
-        public function setOutgoingCipher(_arg1:ICipher):SocketServer{
-            this.outgoingCipher = _arg1;
-            return (this);
-        }
+        public function connect(_arg1:String, _arg2:int, gsc:GameServerConnection):void{
+            server = _arg1;
+            port = _arg2;
+            gsc_ = gsc;
 
-        public function setIncomingCipher(_arg1:ICipher):SocketServer{
-            this.incomingCipher = _arg1;
-            return (this);
-        }
+            addListeners();
 
-        public function connect(_arg1:String, _arg2:int):void{
-            this.server = _arg1;
-            this.port = _arg2;
-            this.addListeners();
-            this.messageLen = -1;
-            if (this.socketServerModel.connectDelayMS){
-                this.connectWithDelay();
+            data.length = 0;
+
+            if (socketServerModel.connectDelayMS){
+                connectWithDelay();
             }
             else {
-                this.socket.connect(_arg1, _arg2);
+                socket.connect(_arg1, _arg2);
             }
 
             if(Parameters.LITTLE_ENDIAN) {
-                this.socket.endian = Endian.LITTLE_ENDIAN;
-                this.data.endian = Endian.LITTLE_ENDIAN;
-                this.data.endian = Endian.LITTLE_ENDIAN;
+                socket.endian = Endian.LITTLE_ENDIAN;
+                data.endian = Endian.LITTLE_ENDIAN;
             }
         }
 
-        private function addListeners():void{
+        private function addListeners(): void {
             this.socket.addEventListener(Event.CONNECT, this.onConnect);
             this.socket.addEventListener(Event.CLOSE, this.onClose);
             this.socket.addEventListener(ProgressEvent.SOCKET_DATA, this.onSocketData);
@@ -126,23 +119,19 @@ import org.osflash.signals.Signal;
             var _local1:Message = this.head.next;
             var _local2:Message = _local1;
             while (_local2) {
-                this.data.clear();
-                _local2.writeToOutput(this.data);
-                this.data.position = 0;
-                if (this.outgoingCipher != null){
-                    this.outgoingCipher.encrypt(this.data);
-                    this.data.position = 0;
-                }
-                this.socket.writeInt((this.data.bytesAvailable + 5));
-                this.socket.writeByte(_local2.id);
-                this.socket.writeBytes(this.data);
+                data.clear();
+                _local2.writeToOutput(data);
+                data.position = 0;
+//                socket.writeInt((data.bytesAvailable + 5));
+                socket.writeByte(_local2.id);
+                socket.writeBytes(data);
                 _local2.consume();
                 _local2 = _local2.next;
             }
-            this.socket.flush();
-            this.unsentPlaceholder.next = null;
-            this.unsentPlaceholder.prev = null;
-            this.head = (this.tail = this.unsentPlaceholder);
+            socket.flush();
+            unsentPlaceholder.next = null;
+            unsentPlaceholder.prev = null;
+            head = (this.tail = this.unsentPlaceholder);
         }
 
         private function onConnect(_arg1:Event):void{
@@ -166,59 +155,34 @@ import org.osflash.signals.Signal;
             this.closed.dispatch();
         }
 
-        private function onSocketData(_arg1:ProgressEvent=null):void{
-            var messageId:uint;
-            var message:Message;
-            var data:ByteArray;
-            var errorMessage:String;
-            var _ = _arg1;
+        private function onSocketData(_arg1:ProgressEvent=null):void {
+
+            // todo remove the message pool system
             while (true) {
-                if ((((this.socket == null)) || (!(this.socket.connected)))) break;
-                if (this.messageLen == -1){
-                    if (this.socket.bytesAvailable < 4) break;
-                    try {
-                        this.messageLen = this.socket.readInt();
-                    }
-                    catch(e:Error) {
-                        errorMessage = parseString("Socket-Server Data Error: {0}: {1}", [e.name, e.message]);
-                        error.dispatch(errorMessage);
-                        messageLen = -1;
+                if (socket == null || !socket.connected || socket.bytesAvailable == 0) {
+                    break;
+                }
+
+                try {
+                    var messageId:uint = socket.readUnsignedByte();
+                    if (gsc_.handleMessage(messageId, socket)) {
                         return;
                     }
+
+                    var message:Message = messages.require(messageId);
+                    message.parseFromInput(socket);
+                    message.consume();
                 }
-                if (this.socket.bytesAvailable < (this.messageLen - MESSAGE_LENGTH_SIZE_IN_BYTES)) break;
-                messageId = this.socket.readUnsignedByte();
-                message = this.messages.require(messageId);
-                data = new ByteArray();
-                if(Parameters.LITTLE_ENDIAN){
-                    data.endian =  Endian.LITTLE_ENDIAN;
+                catch(e:Error) {
+                    logErrorAndClose("Socket-Server Error: ID: {0} | {1}: {2}", [messageId, e.name, e.message]);
                 }
-                if ((this.messageLen - 5) > 0){
-                    this.socket.readBytes(data, 0, (this.messageLen - 5));
-                }
-                data.position = 0;
-                if (this.incomingCipher != null){
-                    this.incomingCipher.decrypt(data);
-                    data.position = 0;
-                }
-                this.messageLen = -1;
-                if (message == null){
-                    this.logErrorAndClose("Socket-Server Protocol Error: Unknown message");
-                    return;
-                }
-                try {
-                    message.parseFromInput(data);
-                }
-                catch(error:Error) {
-                    logErrorAndClose("Socket-Server Protocol Error: {0}", [error.toString()]);
-                    return;
-                }
-                message.consume();
             }
         }
 
         private function logErrorAndClose(_arg1:String, _arg2:Array=null):void{
-            this.error.dispatch(this.parseString(_arg1, _arg2));
+            var string:String = parseString(_arg1, _arg2);
+            trace(string);
+            error.dispatch(string);
             this.disconnect();
         }
 
