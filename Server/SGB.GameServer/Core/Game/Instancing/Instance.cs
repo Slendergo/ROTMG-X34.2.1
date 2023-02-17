@@ -43,12 +43,8 @@ namespace SGB.GameServer.Core.Game.Instancing
                     if (dt >= MillisecondsPerTick)
                     {
                         var ddt = dt * 0.001;
-
-                        DebugUtils.WriteLine($"[{TopLevelGameWorld.Name} ({InstanceType})] -> {MillisecondsPerTick} | {ddt}");
-
                         if (!TopLevelGameWorld.Update(dt))
                             break;
-
                         last = now;
                     }
 
@@ -72,9 +68,6 @@ namespace SGB.GameServer.Core.Game.Instancing
                     if (dt >= MillisecondsPerTick)
                     {
                         var ddt = dt * 0.001;
-
-                        DebugUtils.WriteLine($"[{TopLevelGameWorld.Name} ({InstanceType})] -> {MillisecondsPerTick} | {ddt}");
-
                         if (!TopLevelGameWorld.Update(dt))
                             break;
 

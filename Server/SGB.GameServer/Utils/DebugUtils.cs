@@ -6,7 +6,7 @@ namespace SGB.GameServer.Utils
     {
         private static readonly object LogLock = new object();
 
-        public static void WriteLine(object? value)
+        public static void WriteLine(object value)
         {
 #if DEBUG
             lock (LogLock)

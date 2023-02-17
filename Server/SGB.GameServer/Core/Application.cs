@@ -11,7 +11,7 @@ namespace SGB.GameServer.Core
     {
         public readonly SessionListener SessionListener;
 
-        public Application(ConfigurationData? configurationData)
+        public Application(ConfigurationData configurationData)
         {
             SessionListener = new SessionListener(this, configurationData);
 
