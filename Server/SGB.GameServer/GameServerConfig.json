@@ -2,6 +2,9 @@
   "ServerConfiguration": {
     "BuildVersion": "X34.2.1"
   },
+  "ResourceConfiguration": {
+    "DirectoryPath": "./Resources/Files"
+  },
   "IOConfiguration": {
     "StartingSessionCacheCount": 64,
     "Backlog": 255,

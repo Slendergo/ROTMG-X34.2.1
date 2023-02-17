@@ -1,4 +1,5 @@
-﻿using SGB.GameServer.Utils;
+﻿using Org.BouncyCastle.Asn1.Mozilla;
+using SGB.GameServer.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -64,6 +65,7 @@ namespace SGB.GameServer.Core
     public sealed class ConfigurationData
     {
         public ServerConfiguration ServerConfiguration { get; set; }
+        public ResourceConfiguration ResourceConfiguration { get; set; }
         public IOConfiguration IOConfiguration { get; set; }
         public AnnouncerConfiguration AnnouncerConfiguration { get; set; }
         public AutomatedRestartConfiguration AutomatedRestartConfiguration { get; set; }
@@ -77,6 +79,11 @@ namespace SGB.GameServer.Core
     public sealed class ServerConfiguration
     {
         public string BuildVersion { get; set; }
+    }
+
+    public sealed class ResourceConfiguration
+    {
+        public string DirectoryPath { get; set; }
     }
 
     public sealed class IOConfiguration
