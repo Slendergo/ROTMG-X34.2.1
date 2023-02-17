@@ -1,8 +1,40 @@
 ﻿{
+  "ServerConfiguration": {
+    "BuildVersion": "X34.2.1"
+  },
   "IOConfiguration": {
     "StartingSessionCacheCount": 64,
     "Backlog": 255,
     "Port": 2050
+  },
+  "AnnouncerConfiguration": {
+    "CyclicAnnouncements": true,
+    "RarelyPeriodMinutes": 30,
+    "Rarely": [
+      "Something idk im out of ideas xd"
+    ],
+    "OftenPeriodMinutes": 15,
+    "Periodically": [
+      "If you are enjoying your time here then dont forget to join our discord: @discord@!",
+      "If you aren't enjoying your time here then dont forget to join our discord: @discord@!"
+    ],
+    "FrequentPeriodMinutes": 5,
+    "Frequent": [
+      "Dont forget to take breaks!",
+      "Dont forget to nexus!"
+    ]
+  },
+  "AutomatedRestartConfiguration": {
+    "HoursBeforeRestart": 12,
+    "RestartMessage15Minutes": "Server will be restarting in 15 minutes!",
+    "RestartMessage30Seconds": "Server will be restarting in 30 seconds!",
+    "RestartMessage15Seconds": "Server will be restarting in 15 seconds!",
+    "RestartMessage5Seconds": "Server will be restarting in 5 seconds!"
+  },
+  "ChatConfiguration": {
+    "SpamTimeoutMS": 30000,
+    "SpamThreshold": 5,
+    "StarRequirement": -1
   },
   "SessionConfiguration": {
     "MaxSessions": 128
@@ -13,7 +45,7 @@
   "RealmConfiguration": {
     "MaxPlayers": 85,
     "MaxRealms": 2,
-    "Startingrealms": 1
+    "StartingRealms": 1
   },
   "TestingConfiguration": {
     "StartingLevel": 20,
