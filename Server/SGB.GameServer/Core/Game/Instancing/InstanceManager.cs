@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SGB.GameServer.Utils;
+using System;
 using System.Collections.Generic;
 
 namespace SGB.GameServer.Core.Game.Instancing
@@ -21,6 +22,8 @@ namespace SGB.GameServer.Core.Game.Instancing
                 instance.RunLowHardware();
             else
                 instance.Run();
+
+            DebugUtils.WriteLine($"A New {instanceType} Instance is Running.");
         }
 
         public static void Dispose()

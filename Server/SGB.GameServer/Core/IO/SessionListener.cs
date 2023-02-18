@@ -1,4 +1,5 @@
-﻿using SGB.GameServer.Utils;
+﻿using SGB.GameServer.Core.Game.Instancing;
+using SGB.GameServer.Utils;
 using System.Net;
 using System.Net.Sockets;
 
@@ -24,6 +25,8 @@ namespace SGB.GameServer.Core.IO
 
         public async void Run()
         {
+            DebugUtils.WriteLine($"SessionListener is listening.");
+
             while (AcceptConnections)
             {
                 var socket = await Socket.AcceptAsync();
