@@ -109,40 +109,9 @@ namespace SGB.API.Database
         {
             var aliveCharacters = GetAliveCharacters(accountId);
             foreach (var characterId in aliveCharacters)
-            {
-                var characterKey = $"account.{accountId}.character.{characterId}";
-                yield return new CharacterModel()
-                {
-                    CharacterId = characterId,
-                    ObjectType = Database.HashGetInt(characterKey, "objectType"),
-                    Level = Database.HashGetInt(characterKey, "level"),
-                    Exp = Database.HashGetInt(characterKey, "exp"),
-                    Equipment = Database.HashGet(characterKey, "equipment"),
-                    MaxHitPoints = Database.HashGetInt(characterKey, "maxHitPoints"),
-                    HitPoints = Database.HashGetInt(characterKey, "hitPoints"),
-                    MaxMagicPoints = Database.HashGetInt(characterKey, "maxMagicPoints"),
-                    MagicPoints = Database.HashGetInt(characterKey, "magicPoints"),
-                    Attack = Database.HashGetInt(characterKey, "attack"),
-                    Defense = Database.HashGetInt(characterKey, "defense"),
-                    Speed = Database.HashGetInt(characterKey, "speed"),
-                    Dexterity = Database.HashGetInt(characterKey, "dexterity"),
-                    HpRegen = Database.HashGetInt(characterKey, "vitality"),
-                    MpRegen = Database.HashGetInt(characterKey, "wisdom"),
-                    Texture = Database.HashGetInt(characterKey, "texture"),
-                    Tex1 = Database.HashGetInt(characterKey, "tex1"),
-                    Tex2 = Database.HashGetInt(characterKey, "tex2"),
-                    CurrentFame = Database.HashGetInt(characterKey, "nextCharId"),
-                    HasBackpack = Database.HashGetBool(characterKey, "hasBackPack"),
-                    CreationDate = Database.HashGetDate(characterKey, "creationDate"),
-                    PetId = Database.HashGetInt(characterKey, "petId"),
-                };
-            }
+                yield return new CharacterModel(accountId, characterId, Database);
         }
 
         private static int GetNextAccountId() => (int)Database.StringIncrement("nextAccountId");
-
-        private static int HashGetInt(this IDatabase db, string key, string value) => Convert.ToInt32(db.HashGet(key, value));
-        private static bool HashGetBool(this IDatabase db, string key, string value) => db.HashGet(key, value) == "1";
-        private static DateTime HashGetDate(this IDatabase db, string key, string value) => Convert.ToDateTime(db.HashGet(key, value));
     }
 }

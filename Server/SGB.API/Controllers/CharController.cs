@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using SGB.API.Database;
-using SGB.API.Database.Models;
 using SGB.Shared.Database;
 using System.Xml.Linq;
 
@@ -60,7 +59,7 @@ namespace SGB.API.Controllers
             var characters = RedisService.LoadCharacters(accountId);
             foreach(var character in characters)
             {
-                var chr = character.AsXML();
+                var chr = XMLModelParser.CharacterModelToXML(character);
                 //var pet = // todo load from db
                 xml.Add(chr);
             }

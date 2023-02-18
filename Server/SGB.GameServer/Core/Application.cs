@@ -6,7 +6,6 @@ using System.Threading;
 
 namespace SGB.GameServer.Core
 {
-
     public sealed class Application : IDisposable
     {
         public readonly SessionListener SessionListener;
