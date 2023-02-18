@@ -1,5 +1,6 @@
 ﻿using SGB.API.Database.Models;
 using SGB.Shared;
+using SGB.Shared.Database;
 using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
@@ -21,19 +22,18 @@ namespace SGB.API.Database
             Database = ConnectionMultiplexer.GetDatabase(dbIndex);
         }
 
+        public static IDatabase GetDatabase() => Database;
+
         public static int IsValidLogin(string guid, string password)
         {
             using var t = new TimedProfiler("IsValidLogin");
-            
+
             var guidLow = guid.ToLower();
             if (!Database.HashExists("logins", guidLow))
                 return -1;
-
             var json = Database.HashGet("logins", guidLow);
             var login = JsonSerializer.Deserialize<LoginModel>(json);
-            if(login.Hash != Hashing.GetHashedPassword(password))
-                return -1;
-            return login.AccountId;
+            return login.Hash == Hashing.GetHashedPassword(password) ? login.AccountId : -1;
         }
 
         public static string Register(string guid, string password, string name)
@@ -62,7 +62,8 @@ namespace SGB.API.Database
             var login = new LoginModel()
             {
                 AccountId = accountId,
-                Hash = Hashing.GetHashedPassword(password)
+                Hash = Hashing.GetHashedPassword(password),
+                IsBanned = false
             };
 
             var hashSet = new HashEntry[1] 
@@ -95,26 +96,7 @@ namespace SGB.API.Database
         public static AccountModel LoadAccount(int accountId)
         {
             using var t = new TimedProfiler("LoadAccount");
-
-            var accountKey = $"account.{accountId}";
-            if (!Database.KeyExists(accountKey))
-                return null;
-
-            var account = new AccountModel()
-            {
-                AccountId = accountId,
-                NextCharId = Database.HashGetInt(accountKey, "nextCharId"),
-                MaxCharacterSlots = Database.HashGetInt(accountKey, "maxCharacterSlots"),
-                Name = Database.HashGet(accountKey, "name"),
-                NameChosen = Database.HashGetBool(accountKey, "nameChosen"),
-                Converted = Database.HashGetBool(accountKey, "converted"),
-                Admin = Database.HashGetBool(accountKey, "admin"),
-                Mod = Database.HashGetBool(accountKey, "mod"),
-                MapEditor = Database.HashGetBool(accountKey, "mapEditor"),
-                IsAgeVerified = Database.HashGetBool(accountKey, "isAgeVerified"),
-                VerifiedEmail = Database.HashGetBool(accountKey, "verifiedEmail")
-            };
-            return account;
+            return new AccountModel(accountId, Database);
         }
 
         public static IEnumerable<int> GetAliveCharacters(int accountId)

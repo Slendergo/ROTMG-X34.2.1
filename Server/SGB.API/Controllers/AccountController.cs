@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using SGB.API.Database;
-using System;
-using System.Collections.Generic;
+using SGB.Shared.Database;
 using System.Xml.Linq;
 
 namespace SGB.API.Controllers
@@ -21,7 +20,7 @@ namespace SGB.API.Controllers
         public void GetOwnedPetSkins([FromForm] string guid, [FromForm] string password, [FromForm] string isChallenger)
         {
             var accountId = RedisService.IsValidLogin(guid, password);
-            if (accountId == -1)
+            if (accountId == LoginModel.LOGIN_MODEL_FAILURE)
             {
                 Response.CreateSuccess();
                 return;
@@ -32,10 +31,10 @@ namespace SGB.API.Controllers
         }
 
         [HttpPost("verify")]
-        public void Register([FromForm] string guid, [FromForm] string password)
+        public void Verify([FromForm] string guid, [FromForm] string password)
         {
             var accountId = RedisService.IsValidLogin(guid, password);
-            if (accountId == -1)
+            if (accountId == LoginModel.LOGIN_MODEL_FAILURE)
             {
                 Response.CreateError("Error.accountNotFound");
                 return;

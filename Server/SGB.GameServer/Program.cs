@@ -2,8 +2,8 @@
 using SGB.GameServer.Debug;
 using SGB.GameServer.Resources;
 using SGB.GameServer.Utils;
+using SGB.Shared.Database;
 using System;
-using System.Threading;
 
 namespace SGB.GameServer
 {
@@ -24,6 +24,12 @@ namespace SGB.GameServer
                 Environment.Exit(-1);
 
             Logger.LogDebug("GameLibrary Loaded");
+
+            success = RedisDB.Configure(configuration.DatabaseConfiguration.GetConnectionString(), configuration.DatabaseConfiguration.DatabaseIndex);
+            if (!success)
+                Environment.Exit(-1);
+
+            Logger.LogDebug("RedisDB Configured");
 
             RunTests.Run();
 

@@ -72,5 +72,11 @@
         "Ring": "Ring of Exalted Health"
       }
     ]
+  },
+  "DatabaseConfiguration": {
+    "Host": "127.0.0.1",
+    "Port": "6379",
+    "Password": "",
+    "DatabaseIndex": 0
   }
 }

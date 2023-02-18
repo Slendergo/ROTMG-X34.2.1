@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SGB.API.Database;
+using SGB.API.Database.Models;
+using SGB.Shared.Database;
 using System.Xml.Linq;
 
 namespace SGB.API.Controllers
@@ -23,16 +25,15 @@ namespace SGB.API.Controllers
             var accountModel = RedisService.LoadAccount(accountId);
             if(accountModel == null)
             {
-                accountModel = new Database.Models.AccountModel()
+                accountModel = new AccountModel(accountId, RedisService.GetDatabase())
                 {
-                    AccountId = accountId,
                     NextCharId = -1,
                     MaxCharacterSlots = -1,
                     Name = "Guest",
                 };
             }
-            
-            var account = accountModel.AsXML();
+
+            var accountElem = XMLModelParser.AccountModelToXML(accountModel);
 
             var xml = new XElement("Chars");
             xml.Add(new XAttribute("nextCharId", accountModel.NextCharId));
@@ -50,11 +51,11 @@ namespace SGB.API.Controllers
             //    new XElement("BestLevel", 0),
             //    new XElement("BestFame", 0));
 
-            account.Add(new XElement("Credits", 0));
-            account.Add(new XElement("FortuneToken", 0));
-            account.Add(stats);
+            accountElem.Add(new XElement("Credits", 0));
+            accountElem.Add(new XElement("FortuneToken", 0));
+            accountElem.Add(stats);
 
-            xml.Add(account);
+            xml.Add(accountElem);
 
             var characters = RedisService.LoadCharacters(accountId);
             foreach(var character in characters)

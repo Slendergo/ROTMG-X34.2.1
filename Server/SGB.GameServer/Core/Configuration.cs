@@ -72,6 +72,7 @@ namespace SGB.GameServer.Core
         public LoggingConfiguration LoggingConfiguration { get; set; }
         public RealmConfiguration RealmConfiguration { get; set; }
         public TestingConfiguration TestingConfiguration { get; set; }
+        public DatabaseConfiguration DatabaseConfiguration { get; set; }
     }
 
     public sealed class ServerConfiguration
@@ -153,4 +154,15 @@ namespace SGB.GameServer.Core
         public string Armor { get; set; }
         public string Ring { get; set; }
     }
+
+    public sealed class DatabaseConfiguration
+    {
+        public string Host { get; set; }
+        public string Port { get; set; }
+        public string Password { get; set; }
+        public int DatabaseIndex { get; set; }
+
+        public string GetConnectionString() => $"{Host}:{Port}{(string.IsNullOrWhiteSpace(Password) ? string.Empty : $",password={Password}")}";
+    }
+
 }

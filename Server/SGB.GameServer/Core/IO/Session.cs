@@ -1,7 +1,7 @@
-﻿using SGB.GameServer.Core.Database;
-using SGB.GameServer.Core.Game;
+﻿using SGB.GameServer.Core.Game;
 using SGB.GameServer.Utils;
 using SGB.Shared;
+using SGB.Shared.Database;
 using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
@@ -327,8 +327,6 @@ namespace SGB.GameServer.Core.IO
         {
         }
 
-        static RedisDB RedisDatabase = new RedisDB("127.0.0.1:6379");
-
         private void HandleHello(ref IncomingPayload payload)
         {
             var buildVersion = payload.ReadUTF16();
@@ -344,8 +342,8 @@ namespace SGB.GameServer.Core.IO
             var something = payload.ReadUTF16();
             var previousConnectionGuid = payload.ReadUTF16();
 
-            var accountId = RedisDatabase.IsValidLogin(guid, password);
-            if (accountId == -1)
+            var accountId = RedisDB.IsValidLogin(guid, password);
+            if (accountId == LoginModel.LOGIN_MODEL_FAILURE)
             {
                 Console.WriteLine("Unable to locate account");
                 return;
