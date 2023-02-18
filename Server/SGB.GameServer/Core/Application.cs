@@ -27,7 +27,7 @@ namespace SGB.GameServer.Core
             // main thread will be used to handle restarting the server automatically
             // it will also be responsible for everything else in the server thats not world logic
 
-            DebugUtils.WriteLine("Application Running");
+            Logger.LogDebug("Application Running");
 
             var mre = new ManualResetEvent(false);
             while (true)
@@ -35,7 +35,7 @@ namespace SGB.GameServer.Core
                 _ = mre.WaitOne();
             }
 
-            DebugUtils.WriteLine("Application has stopped running");
+            Logger.LogDebug("Application has stopped running");
         }
 
         public void Dispose()

@@ -25,19 +25,19 @@ namespace SGB.GameServer.Core.IO
 
         public async void Run()
         {
-            DebugUtils.WriteLine($"SessionListener is listening.");
+            Logger.LogDebug($"SessionListener is listening.");
 
             while (AcceptConnections)
             {
                 var socket = await Socket.AcceptAsync();
 
                 // is this worth generating a statemachine??? or should i just stay with begin accept?
-                DebugUtils.WriteLine($"SocketListener started a new session");
+                Logger.LogDebug($"SocketListener started a new session");
 
                 SessionManager.Add(Application, socket);
             }
 
-            DebugUtils.WriteLine($"SocketListener has stopped running");
+            Logger.LogDebug($"SocketListener has stopped running");
             Socket.Close();
         }
 

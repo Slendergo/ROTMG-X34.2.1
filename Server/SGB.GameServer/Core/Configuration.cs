@@ -37,7 +37,7 @@ namespace SGB.GameServer.Core
             }
             catch (Exception ex)
             {
-                DebugUtils.WriteLine($"[Configuration::ParseConfiguration()] {ex}");
+                Logger.LogDebug($"[Configuration::ParseConfiguration()] {ex}");
             }
             return null;
         }

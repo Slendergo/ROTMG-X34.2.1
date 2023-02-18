@@ -23,7 +23,7 @@ namespace SGB.GameServer.Core.Game.Instancing
             else
                 instance.Run();
 
-            DebugUtils.WriteLine($"A New {instanceType} Instance is Running.");
+            Logger.LogDebug($"A New {instanceType} Instance is Running.");
         }
 
         public static void Dispose()

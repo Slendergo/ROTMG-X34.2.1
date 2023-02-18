@@ -51,7 +51,7 @@ namespace SGB.GameServer.Core.Game.Instancing
                     spinWait.SpinOnce();
                 }
 
-                DebugUtils.WriteLine($"Instance has stopped: {TopLevelGameWorld.Name}");
+                Logger.LogDebug($"Instance has stopped: {TopLevelGameWorld.Name}");
             }, TaskCreationOptions.LongRunning);
         }
 

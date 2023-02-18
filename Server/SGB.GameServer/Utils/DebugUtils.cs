@@ -1,18 +1,7 @@
 ﻿using System;
-using System.Threading;
 
 namespace SGB.GameServer.Utils
 {
-    public static class DebugUtils
-    {
-        public static void WriteLine(object value)
-        {
-#if DEBUG
-            Logger.LogDebug(value);
-#endif
-        }
-    }
-
     public static class Logger
     {
         private static readonly object AccessLock = new object();
@@ -49,12 +38,14 @@ namespace SGB.GameServer.Utils
 
         public static void LogDebug(object text, params object[] args)
         {
+#if DEBUG
             lock (AccessLock)
             {
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.BackgroundColor = ConsoleColor.Magenta;
                 Log("Debug", text, args);
             }
+#endif
         }
 
         private static void Log(string prefix, object text, params object[] args)

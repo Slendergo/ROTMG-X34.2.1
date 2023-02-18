@@ -318,7 +318,7 @@ namespace SGB.GameServer.Core.IO
                     break;
 
                 default:
-                    DebugUtils.WriteLine($"Unknown Payload Id: {id}");
+                    Logger.LogDebug($"Unknown Payload Id: {id}");
                     break;
             }
         }

@@ -1,4 +1,5 @@
 ﻿using SGB.GameServer.Core;
+using SGB.GameServer.Debug;
 using SGB.GameServer.Resources;
 using SGB.GameServer.Utils;
 using System;
@@ -10,15 +11,7 @@ namespace SGB.GameServer
     {
         public static void Main(string[] args)
         {
-#if DEBUG
-            Thread.CurrentThread.Name = "Main Thread";
-#endif
-
-            Logger.LogInfo("Info Test");
-            Logger.LogWarning("Warning Test");
-            Logger.LogError("Error Test");
-            Logger.LogDebug("Debug Test");
-
+            RunTests.Run();
 
             var configPath = args.Length == 0 ? "GameServerConfig.Json" : args[0];
             var configuration = Configuration.Initialize(configPath);
@@ -26,13 +19,13 @@ namespace SGB.GameServer
             if (configuration == null)
                 Environment.Exit(-1);
 
-            DebugUtils.WriteLine("Configuration Initialized");
+            Logger.LogDebug("Configuration Initialized");
 
             var success = GameLibrary.LoadFromFile(configuration.ResourceConfiguration.DirectoryPath);
             if (!success)
                 Environment.Exit(-1);
 
-            DebugUtils.WriteLine("GameLibrary Loaded");
+            Logger.LogDebug("GameLibrary Loaded");
 
             using var application = new Application(configuration);
             application.Run();

@@ -65,7 +65,7 @@ namespace SGB.GameServer.Resources
             }
             catch (Exception ex)
             {
-                DebugUtils.WriteLine($"GameLibrary::LoadFromFile(): {ex}");
+                Logger.LogDebug($"GameLibrary::LoadFromFile(): {ex}");
                 return false;
             }
             return true;
