@@ -1,5 +1,4 @@
-﻿using SGB.API.Database.Models;
-using SGB.Shared.Database;
+﻿using SGB.Shared.Database.Models;
 using System.Reflection.Emit;
 using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;

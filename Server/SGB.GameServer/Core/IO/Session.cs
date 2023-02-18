@@ -2,6 +2,7 @@
 using SGB.GameServer.Utils;
 using SGB.Shared;
 using SGB.Shared.Database;
+using SGB.Shared.Database.Models;
 using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
@@ -349,10 +350,20 @@ namespace SGB.GameServer.Core.IO
                 return;
             }
 
+            var accountModel = RedisDB.GetAccountModel(accountId);
+            if(accountModel == null)
+            {
+                Console.WriteLine("Unable to locate account");
+                return;
+            }
+
+            AccountModel = accountModel;
+
             Console.WriteLine($"Found accountId: {accountId}");
             // todo
 
             GameWorld = GameWorldManager.FindWorld(gameId);
+            GameWorld = GameWorldManager.FindWorld(-2);
 
             IOHelper.MapInfo(Session, GameWorld);
         }
@@ -362,12 +373,13 @@ namespace SGB.GameServer.Core.IO
             var characterId = payload.ReadInt32();
             var isFromArena = payload.ReadBoolean();
 
-        }
+            var characterModel = RedisDB.LoadCharacter(AccountModel.AccountId, characterId);
+            if(characterModel == null)
+            {
+                return;
+            }
 
-        private void HandleCreate(ref IncomingPayload payload)
-        {
-            var classType = payload.ReadInt16();
-            var skinType = payload.ReadInt16();
+            CharacterModel = characterModel;
 
             var go = new GameObject()
             {
@@ -383,6 +395,41 @@ namespace SGB.GameServer.Core.IO
 
             IOHelper.CreateSuccess(Session, 0, go.Id);
 
+            Session.Stop();
+            IsReady = true;
+        }
+
+        public AccountModel AccountModel;
+        public CharacterModel CharacterModel;
+
+        private void HandleCreate(ref IncomingPayload payload)
+        {
+            var classType = payload.ReadInt16();
+            var skinType = payload.ReadInt16();
+
+            var characterModel = RedisDB.CreateNewCharacter(AccountModel);
+            if (characterModel == null)
+            {
+                return;
+            }
+
+            CharacterModel = characterModel;
+
+            var go = new GameObject()
+            {
+                X = 32.5f,
+                Y = 32.5f,
+                ObjectType = 0x030e
+            };
+
+            GameWorld.AddObject(go);
+
+            GameObject = go;
+            CharacterId = 0;
+
+            IOHelper.CreateSuccess(Session, 0, go.Id);
+
+            Session.Stop();
             IsReady = true;
         }
 

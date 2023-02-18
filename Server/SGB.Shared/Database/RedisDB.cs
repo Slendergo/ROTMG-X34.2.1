@@ -1,129 +1,11 @@
-﻿using StackExchange.Redis;
+﻿using SGB.Shared.Database.Models;
+using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
 
 namespace SGB.Shared.Database
 {
-    public abstract class RedisObject
-    {
-        private readonly string Key;
-        private Dictionary<RedisValue, KeyValuePair<byte[], bool>> Hashes;
-
-        public RedisObject(string key, IDatabase database)
-        {
-            Key = key;
-            Hashes = database.HashGetAll(Key).ToDictionary(_ => _.Name, _ => new KeyValuePair<byte[], bool>(_.Value, false));
-        }
-
-        protected T GetValue<T>(string key, T def = default)
-        {
-            if (!Hashes.TryGetValue(key, out var val) || val.Key == null)
-                return def;
-
-            switch (Type.GetTypeCode(typeof(T)))
-            {
-                case TypeCode.Int32:
-                    return (T)(object)int.Parse(Encoding.UTF8.GetString(val.Key));
-                case TypeCode.UInt32:
-                    return (T)(object)uint.Parse(Encoding.UTF8.GetString(val.Key));
-                case TypeCode.UInt16:
-                    return (T)(object)ushort.Parse(Encoding.UTF8.GetString(val.Key));
-                case TypeCode.Boolean:
-                    return (T)(object)(val.Key[0] != 0);
-                case TypeCode.DateTime:
-                    return (T)(object)DateTime.FromBinary(BitConverter.ToInt64(val.Key, 0));
-                case TypeCode.Object:
-                    {
-                        if (typeof(T) == typeof(byte[]))
-                            return (T)(object)val.Key;
-
-                        if (typeof(T) == typeof(ushort[]))
-                        {
-                            var ret = new ushort[val.Key.Length / 2];
-                            Buffer.BlockCopy(val.Key, 0, ret, 0, val.Key.Length);
-                            return (T)(object)ret;
-                        }
-
-                        if (typeof(T) == typeof(int[]) || typeof(T) == typeof(uint[]))
-                        {
-                            var ret = new int[val.Key.Length / 4];
-                            Buffer.BlockCopy(val.Key, 0, ret, 0, val.Key.Length);
-                            return (T)(object)ret;
-                        }
-                        throw new NotSupportedException();
-                    }
-                case TypeCode.String:
-                    return (T)(object)Encoding.UTF8.GetString(val.Key);
-                default:
-                    throw new NotSupportedException();
-            }
-        }
-
-        protected void SetValue<T>(string key, T val)
-        {
-            byte[] buff;
-            switch (Type.GetTypeCode(typeof(T)))
-            {
-                case TypeCode.Int32:
-                case TypeCode.UInt32:
-                case TypeCode.UInt16:
-                case TypeCode.String:
-                    buff = Encoding.UTF8.GetBytes(val.ToString());
-                    break;
-                case TypeCode.Boolean:
-                    buff = BitConverter.GetBytes((bool)(object)val);
-                    break;
-                case TypeCode.DateTime:
-                    buff = BitConverter.GetBytes(((DateTime)(object)val).ToBinary());
-                    break;
-                case TypeCode.Byte:
-                    buff = new byte[1] { (byte)(object)val };
-                    break;
-                case TypeCode.Int16:
-                    buff = BitConverter.GetBytes((short)(object)val);
-                    break;
-                case TypeCode.Int64:
-                    buff = BitConverter.GetBytes((long)(object)val);
-                    break;
-                case TypeCode.UInt64:
-                    buff = BitConverter.GetBytes((ulong)(object)val);
-                    break;
-                case TypeCode.Single:
-                    buff = BitConverter.GetBytes((float)(object)val);
-                    break;
-                case TypeCode.Double:
-                    buff = BitConverter.GetBytes((double)(object)val);
-                    break;
-                case TypeCode.Object:
-                    if (typeof(T) == typeof(byte[]))
-                        buff = (byte[])(object)val;
-                    else if (typeof(T) == typeof(ushort[]))
-                    {
-                        var v = (ushort[])(object)val;
-                        buff = new byte[v.Length * sizeof(short)];
-                        Buffer.BlockCopy(v, 0, buff, 0, buff.Length);
-                    }
-                    else if (typeof(T) == typeof(int[]) || typeof(T) == typeof(uint[]))
-                    {
-                        var v = (int[])(object)val;
-                        buff = new byte[v.Length * sizeof(int)];
-                        Buffer.BlockCopy(v, 0, buff, 0, buff.Length);
-                    }
-                    else
-                        throw new NotSupportedException();
-                    break;
-                default:
-                    throw new NotSupportedException();
-            }
-
-            if (!Hashes.ContainsKey(Key) || Hashes[Key].Key == null || !buff.SequenceEqual(Hashes[Key].Key))
-                Hashes[key] = new KeyValuePair<byte[], bool>(buff, true);
-        }
-    }
-
     public static class RedisDB
     {
         public static ConnectionMultiplexer ConnectionMultiplexer { get; private set; }
@@ -164,5 +46,84 @@ namespace SGB.Shared.Database
                 return new AccountModel(accountId, Database);
             return null;
         }
+
+        public static IEnumerable<int> GetAliveCharacters(int accountId)
+        {
+            foreach (var i in Database.SetMembers($"account.{accountId}.alive_characters"))
+                yield return Convert.ToInt32(i);
+        }
+
+        public static CharacterModel LoadCharacter(int accountId, int characterId)
+        {
+            if (Database.KeyExists($"account.{accountId}.character.{characterId}"))
+                return new CharacterModel(accountId, characterId, Database);
+            return null;
+        }
+
+        public static IEnumerable<CharacterModel> LoadCharacters(int accountId)
+        {
+            var aliveCharacters = GetAliveCharacters(accountId);
+            foreach (var characterId in aliveCharacters)
+                yield return new CharacterModel(accountId, characterId, Database);
+        }
+
+        public static CharacterModel CreateNewCharacter(AccountModel accountModel)
+        {
+            var aliveKey = $"account.{accountModel.AccountId}.alive_characters";
+
+            var nextCharacterId = (int)Database.HashIncrement(accountModel.Key, "nextCharacterId");
+            if (Database.SetLength(aliveKey) >= accountModel.MaxCharacterSlots)
+                return null;
+
+            var characterModel = new CharacterModel(accountModel.AccountId, nextCharacterId, Database);
+
+            var classType = 0x030e;
+            var classXMLObject = new ClassXMLObject();
+
+            characterModel.ObjectType = classType;
+            characterModel.MaxHitPoints = classXMLObject.MaxHitPoints;
+            characterModel.HitPoints = classXMLObject.HitPoints;
+            characterModel.MaxMagicPoints = classXMLObject.MaxMagicPoints;
+            characterModel.MagicPoints = classXMLObject.MagicPoints;
+            characterModel.Attack = classXMLObject.Attack;
+            characterModel.Defense = classXMLObject.Defense;
+            characterModel.Speed = classXMLObject.Speed;
+            characterModel.Dexterity = classXMLObject.Dexterity;
+            characterModel.HpRegen = classXMLObject.Vitality;
+            characterModel.MpRegen = classXMLObject.Wisdom;
+            characterModel.Experience = 0;
+            characterModel.Level = 1;
+            characterModel.Texture = 0;
+            characterModel.Tex1 = 0;
+            characterModel.Tex2 = 0;
+            characterModel.Equipment = ArrayUtils.FromCommaSepString32(classXMLObject.Equipment);
+            characterModel.HasBackpack = false;
+            characterModel.PetId = 0;
+            characterModel.HealthPotionStack = 0;
+            characterModel.MagicPotionStack = 0;
+            characterModel.PetId = -1;
+
+            _ = characterModel.UpdateAsync();
+
+            _ = Database.SetAdd(aliveKey, nextCharacterId);
+
+            return characterModel;
+        }
+    }
+    class ClassXMLObject
+    {
+        public int MaxHitPoints;
+        public int HitPoints;
+        public int MaxMagicPoints;
+        public int MagicPoints;
+        public int Attack;
+        public int Defense;
+        public int Speed;
+        public int Wisdom;
+        public int Dexterity;
+        public int Vitality;
+        public string Equipment;
+        public int HealthPotionStack;
+        public int MagicPotionStack;
     }
 }

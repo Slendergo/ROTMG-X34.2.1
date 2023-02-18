@@ -2,7 +2,7 @@
 using StackExchange.Redis;
 using System;
 
-namespace SGB.API.Database.Models
+namespace SGB.Shared.Database.Models
 {
     public sealed class CharacterModel : RedisObject
     {
@@ -29,7 +29,7 @@ namespace SGB.API.Database.Models
         private const string CHARACTER_PET_ID = "petId";
 
         public int CharacterId { get; }
-        public int ObjectType 
+        public int ObjectType
         {
             get => GetValue<int>(CHARACTER_OBJECT_TYPE);
             set => SetValue(CHARACTER_OBJECT_TYPE, value);
@@ -49,7 +49,7 @@ namespace SGB.API.Database.Models
             get => GetValue<int[]>(CHARACTER_EQUIPMENT);
             set => SetValue(CHARACTER_EQUIPMENT, value);
         }
-        public int MaxHitPoints 
+        public int MaxHitPoints
         {
             get => GetValue<int>(CHARACTER_MAX_HITPOINTS);
             set => SetValue(CHARACTER_MAX_HITPOINTS, value);
@@ -69,62 +69,62 @@ namespace SGB.API.Database.Models
             get => GetValue<int>(CHARACTER_MAGIC_POINTS);
             set => SetValue(CHARACTER_MAGIC_POINTS, value);
         }
-        public int Attack 
+        public int Attack
         {
             get => GetValue<int>(CHARACTER_ATTACK);
             set => SetValue(CHARACTER_ATTACK, value);
         }
-        public int Defense 
+        public int Defense
         {
             get => GetValue<int>(CHARACTER_DEFENSE);
             set => SetValue(CHARACTER_DEFENSE, value);
         }
-        public int Speed 
+        public int Speed
         {
             get => GetValue<int>(CHARACTER_SPEED);
             set => SetValue(CHARACTER_SPEED, value);
         }
-        public int Dexterity 
+        public int Dexterity
         {
             get => GetValue<int>(CHARACTER_DEXTERITY);
             set => SetValue(CHARACTER_DEXTERITY, value);
         }
-        public int HpRegen 
+        public int HpRegen
         {
             get => GetValue<int>(CHARACTER_VITALITY);
             set => SetValue(CHARACTER_VITALITY, value);
         }
-        public int MpRegen 
+        public int MpRegen
         {
             get => GetValue<int>(CHARACTER_WISDOM);
             set => SetValue(CHARACTER_WISDOM, value);
         }
-        public int Texture 
+        public int Texture
         {
             get => GetValue<int>(CHARACTER_TEXTURE);
             set => SetValue(CHARACTER_TEXTURE, value);
         }
-        public int Tex1 
+        public int Tex1
         {
             get => GetValue<int>(CHARACTER_TEXTURE1);
             set => SetValue(CHARACTER_TEXTURE1, value);
         }
-        public int Tex2 
+        public int Tex2
         {
             get => GetValue<int>(CHARACTER_TEXTURE2);
             set => SetValue(CHARACTER_TEXTURE2, value);
         }
-        public int CurrentFame 
+        public int CurrentFame
         {
             get => GetValue<int>(CHARACTER_CURRENT_FAME);
             set => SetValue(CHARACTER_CURRENT_FAME, value);
         }
-        public bool HasBackpack 
+        public bool HasBackpack
         {
             get => GetValue<bool>(CHARACTER_HAS_BACKPACK);
             set => SetValue(CHARACTER_HAS_BACKPACK, value);
         }
-        public DateTime CreationDate 
+        public DateTime CreationDate
         {
             get => GetValue<DateTime>(CHARACTER_CREATION_DATE);
             set => SetValue(CHARACTER_CREATION_DATE, value);
@@ -134,6 +134,9 @@ namespace SGB.API.Database.Models
             get => GetValue<int>(CHARACTER_PET_ID);
             set => SetValue(CHARACTER_PET_ID, value);
         }
+
+        public int HealthPotionStack { get; set; }
+        public int MagicPotionStack { get; set; }
 
         public CharacterModel(int accountId, int characterId, IDatabase database)
             : base($"account.{accountId}.character.{characterId}", database)

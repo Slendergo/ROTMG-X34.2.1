@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using SGB.API.Database;
-using SGB.Shared.Database;
+using SGB.Shared.Database.Models;
 using System.Xml.Linq;
 
 namespace SGB.API.Controllers

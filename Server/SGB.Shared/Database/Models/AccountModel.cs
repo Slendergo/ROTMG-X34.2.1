@@ -1,20 +1,20 @@
 ﻿using StackExchange.Redis;
 using System.Text;
 
-namespace SGB.Shared.Database
+namespace SGB.Shared.Database.Models
 {
     public sealed class AccountModel : RedisObject
     {
-        private static string ACCOUNT_NEXT_CHARACTER_ID = "nextCharId";
-        private static string ACCOUNT_MAX_CHARACTER_SLOTS = "maxCharacterSlots";
-        private static string ACCOUNT_NAME = "name";
-        private static string ACCOUNT_NAME_CHOSEN = "nameChosen";
-        private static string ACCOUNT_CONVERTED = "converted";
-        private static string ACCOUNT_ADMIN = "admin";
-        private static string ACCOUNT_MOD = "mod";
-        private static string ACCOUNT_MAP_EDITOR = "mapEditor";
-        private static string ACCOUNT_IS_AGE_VERIFIED = "isAgeVerified";
-        private static string ACCOUNT_IS_EMAIL_VERIFIED = "isEmailVerified";
+        private const string ACCOUNT_NEXT_CHARACTER_ID = "nextCharId";
+        private const string ACCOUNT_MAX_CHARACTER_SLOTS = "maxCharacterSlots";
+        private const string ACCOUNT_NAME = "name";
+        private const string ACCOUNT_NAME_CHOSEN = "nameChosen";
+        private const string ACCOUNT_CONVERTED = "converted";
+        private const string ACCOUNT_ADMIN = "admin";
+        private const string ACCOUNT_MOD = "mod";
+        private const string ACCOUNT_MAP_EDITOR = "mapEditor";
+        private const string ACCOUNT_IS_AGE_VERIFIED = "isAgeVerified";
+        private const string ACCOUNT_IS_EMAIL_VERIFIED = "isEmailVerified";
 
         public int AccountId { get; }
         public int NextCharId
@@ -68,7 +68,7 @@ namespace SGB.Shared.Database
             set => SetValue(ACCOUNT_IS_EMAIL_VERIFIED, value);
         }
 
-        public AccountModel(int accountId, IDatabase database) 
+        public AccountModel(int accountId, IDatabase database)
             : base($"account.{accountId}", database)
         {
             AccountId = accountId;

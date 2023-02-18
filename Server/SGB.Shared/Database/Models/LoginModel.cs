@@ -1,4 +1,4 @@
-﻿namespace SGB.Shared.Database
+﻿namespace SGB.Shared.Database.Models
 {
     public sealed class LoginModel
     {

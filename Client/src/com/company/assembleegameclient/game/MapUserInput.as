@@ -389,7 +389,9 @@ package com.company.assembleegameclient.game{
                     }
                     break;
                 case Parameters.data_.autofireToggle:
-                    this.gs_.map.player_.isShooting = (this.autofire_ = !(this.autofire_));
+                    if(this.gs_.map.player_ != null){
+                        this.gs_.map.player_.isShooting = (this.autofire_ = !(this.autofire_));
+                    }
                     break;
                 case Parameters.data_.toggleHPBar:
                     Parameters.data_.HPBar = (((Parameters.data_.HPBar)!=0) ? 0 : 1);

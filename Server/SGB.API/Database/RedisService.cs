@@ -1,6 +1,5 @@
-﻿using SGB.API.Database.Models;
-using SGB.Shared;
-using SGB.Shared.Database;
+﻿using SGB.Shared;
+using SGB.Shared.Database.Models;
 using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
@@ -101,8 +100,8 @@ namespace SGB.API.Database
 
         public static IEnumerable<int> GetAliveCharacters(int accountId)
         {
-            foreach (var i in Database.SetMembers($"aliveCharacters.{accountId}"))
-                yield return Convert.ToInt32(i, 0); // BitConverter.ToInt32(i, 0); might be important?
+            foreach (var i in Database.SetMembers($"account.{accountId}.alive_characters"))
+                yield return Convert.ToInt32(i);
         }
 
         public static IEnumerable<CharacterModel> LoadCharacters(int accountId)
