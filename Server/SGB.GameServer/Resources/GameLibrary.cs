@@ -3,7 +3,9 @@ using SGB.GameServer.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SGB.GameServer.Resources
 {
@@ -26,42 +28,40 @@ namespace SGB.GameServer.Resources
 
             try
             {
-
-            var files = Directory.EnumerateFiles(path, "*.xml", SearchOption.AllDirectories);
-            foreach (var file in files)
-            {
-                var rootElem = XElement.Load(file);
-
-                foreach (var elem in rootElem.Elements("Ground"))
+                var files = Directory.EnumerateFiles(path, "*.xml", SearchOption.AllDirectories);
+                foreach (var file in files)
                 {
-                    var xmlGround = new XMLGround(elem);
-                    Grounds[xmlGround.Type] = xmlGround;
-                    IdToGroundType[xmlGround.IdName] = xmlGround.Type;
-                    GroundTypeToId[xmlGround.Type] = xmlGround.IdName;
-                }
+                    var rootElem = XElement.Load(file);
 
-                foreach (var elem in rootElem.Elements("Object"))
-                {
-                    var xmlObject = new XMLObject(elem);
-                    Objects[xmlObject.Type] = xmlObject;
-                    IdToObjectType[xmlObject.IdName] = xmlObject.Type;
-                    ObjectTypeToId[xmlObject.Type] = xmlObject.IdName;
-
-                    if (xmlObject.Group != string.Empty)
+                    foreach (var elem in rootElem.Elements("Ground"))
                     {
-                        if (!Groups.ContainsKey(xmlObject.Group))
-                            Groups[xmlObject.Group] = new List<int>();
-                        Groups[xmlObject.Group].Add(xmlObject.Type);
+                        var xmlGround = new XMLGround(elem);
+                        Grounds[xmlGround.Type] = xmlGround;
+                        IdToGroundType[xmlGround.IdName] = xmlGround.Type;
+                        GroundTypeToId[xmlGround.Type] = xmlGround.IdName;
                     }
+
+                    foreach (var elem in rootElem.Elements("Object"))
+                    {
+                        var xmlObject = new XMLObject(elem);
+                        Objects[xmlObject.Type] = xmlObject;
+                        IdToObjectType[xmlObject.IdName] = xmlObject.Type;
+                        ObjectTypeToId[xmlObject.Type] = xmlObject.IdName;
+
+                        if (xmlObject.Group != string.Empty)
+                        {
+                            if (!Groups.ContainsKey(xmlObject.Group))
+                                Groups[xmlObject.Group] = new List<int>();
+                            Groups[xmlObject.Group].Add(xmlObject.Type);
+                        }
+                    }
+
+                    // todo dungeons
+                    // todo regions
+                    // todo stringlists
+                    // todo languages
+                    // other stuff
                 }
-
-                // todo dungeons
-                // todo regions
-                // todo stringlists
-                // todo languages
-                // other stuff
-            }
-
             }
             catch (Exception ex)
             {
@@ -69,6 +69,42 @@ namespace SGB.GameServer.Resources
                 return false;
             }
             return true;
+        }
+
+        public static List<string> GetNextAvailableObjectHexes(int amount = 1)
+        {
+            var lastAddedValue = 0;
+
+            var list = new Dictionary<int, string>();
+            for (var i = 0; i < amount; i++)
+                for (var j = lastAddedValue + 1; j < int.MaxValue; j++)
+                {
+                    var hex = $"0x{j:X}";
+                    if (Objects.ContainsKey(j))
+                        continue;
+                    list.Add(j, hex);
+                    lastAddedValue = j;
+                    break;
+                }
+            return list.Values.ToList();
+        }
+
+        public static List<string> GetNextAvailableGroundHexes(int amount = 1)
+        {
+            var lastAddedValue = 0;
+
+            var list = new Dictionary<int, string>();
+            for (var i = 0; i < amount; i++)
+                for (var j = lastAddedValue + 1; j < int.MaxValue; j++)
+                {
+                    var hex = $"0x{j:X}";
+                    if (Grounds.ContainsKey(j))
+                        continue;
+                    list.Add(j, hex);
+                    lastAddedValue = j;
+                    break;
+                }
+            return list.Values.ToList();
         }
 
         public static XMLObject XMLObjectFromType(int type) => Objects.TryGetValue(type, out var obj) ? obj : null;

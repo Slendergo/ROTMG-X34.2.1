@@ -11,8 +11,6 @@ namespace SGB.GameServer
     {
         public static void Main(string[] args)
         {
-            RunTests.Run();
-
             var configPath = args.Length == 0 ? "GameServerConfig.Json" : args[0];
             var configuration = Configuration.Initialize(configPath);
 
@@ -26,6 +24,8 @@ namespace SGB.GameServer
                 Environment.Exit(-1);
 
             Logger.LogDebug("GameLibrary Loaded");
+
+            RunTests.Run();
 
             using var application = new Application(configuration);
             application.Run();

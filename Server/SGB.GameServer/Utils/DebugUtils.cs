@@ -1,10 +1,31 @@
 ﻿using System;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SGB.GameServer.Utils
 {
     public static class Logger
     {
         private static readonly object AccessLock = new object();
+
+        public static void BlankSpace()
+        {
+            lock (AccessLock)
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.WriteLine();
+            }
+        }
+
+        public static void NoPrefix(string text)
+        {
+            lock (AccessLock)
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.WriteLine(text);
+            }
+        }
 
         public static void LogInfo(object text, params object[] args)
         {

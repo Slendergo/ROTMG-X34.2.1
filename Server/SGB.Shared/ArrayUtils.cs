@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
@@ -17,5 +18,6 @@ namespace SGB.Shared
         public static ulong[] FromCommaSepStringU64(string value) => string.IsNullOrEmpty(value) ? Array.Empty<ulong>() : value?.Split(',').Select(_ => _.Contains("0x") ? ulong.Parse(_.Trim().Substring(2), NumberStyles.HexNumber) : ulong.Parse(_.Trim())).ToArray();
 
         public static string ToCommaSepString<T>(T[] arr) => string.Join(",", arr.Select(_ => _.ToString()));
+        public static string ToCommaSepString<T>(IList<T> arr) => string.Join(",", arr.Select(_ => _.ToString()));
     }
 }
