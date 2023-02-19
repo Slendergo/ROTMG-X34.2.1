@@ -8,6 +8,8 @@ This repository is a fresh base for people to start with, i have only made a few
 # Changes
 - Changed the assets to include xml, images and model folders
 - Changed the way embedding assets works, no longer using many .as files and embedding in EmbeddedData.as and AssetLoader.as
+- Changed GameServerConnection.as from its original
+- Changed SocketServer.as from its original
 
 # Frontend TODO
 
