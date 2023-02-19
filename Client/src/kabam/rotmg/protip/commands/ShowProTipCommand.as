@@ -19,8 +19,8 @@ package kabam.rotmg.protip.commands{
 
 
         public function execute():void{
-            this.view.setTip(this.model.getTip());
-            this.layers.overlay.addChild(this.view);
+//            this.view.setTip(this.model.getTip());
+//            this.layers.overlay.addChild(this.view);
         }
 
 

@@ -97,6 +97,9 @@
     <None Update="Resources\Files\cursedLibraryObjects.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Resources\Files\dungeons.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Resources\Files\dyes.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -427,6 +430,13 @@
     <None Update="GameServerConfig.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\Files\Maps\Nexus\Guild\" />
+    <Folder Include="Resources\Files\Maps\MadLab\" />
+    <Folder Include="Resources\Files\Maps\Abyss\" />
+    <Folder Include="Resources\Files\Maps\Nexus\" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>

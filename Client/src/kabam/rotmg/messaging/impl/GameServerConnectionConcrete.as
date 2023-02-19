@@ -1121,8 +1121,8 @@ import kabam.lib.net.api.MessageProvider;
         }
 
         private function onCreateSuccess(_arg1:Socket):void {
-            var objectId = _arg1.readInt();
-            var charId = _arg1.readInt();
+            var objectId:int = _arg1.readInt();
+            var charId:int = _arg1.readInt();
 
             this.playerId_ = objectId;
             charId_ = charId;

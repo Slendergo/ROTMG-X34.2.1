@@ -10,7 +10,7 @@ namespace SGB.GameServer.Core.Game.Instancing
 
         static InstanceManager() { }
 
-        public static void SpinNewInstance(InstanceType instanceType, int ticksPerSecond, int? instanceId = null)
+        public static void SpinNewInstance(InstanceType instanceType, int ticksPerSecond)
         {
             var instance = new Instance(instanceType, ticksPerSecond);
             lock (Instances)

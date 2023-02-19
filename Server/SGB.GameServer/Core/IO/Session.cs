@@ -365,6 +365,8 @@ namespace SGB.GameServer.Core.IO
             GameWorld = GameWorldManager.FindWorld(gameId);
             GameWorld = GameWorldManager.FindWorld(-2);
 
+            GameWorld.AddSession(Session);
+
             IOHelper.MapInfo(Session, GameWorld);
         }
 
@@ -383,8 +385,8 @@ namespace SGB.GameServer.Core.IO
 
             var go = new GameObject()
             {
-                X = 32.5f,
-                Y = 32.5f,
+                X = GameWorld.Width / 2,
+                Y = GameWorld.Height / 2,
                 ObjectType = 0x030e
             };
 
@@ -395,7 +397,6 @@ namespace SGB.GameServer.Core.IO
 
             IOHelper.CreateSuccess(Session, 0, go.Id);
 
-            Session.Stop();
             IsReady = true;
         }
 
@@ -417,8 +418,8 @@ namespace SGB.GameServer.Core.IO
 
             var go = new GameObject()
             {
-                X = 32.5f,
-                Y = 32.5f,
+                X = GameWorld.Width / 2,
+                Y = GameWorld.Height / 2,
                 ObjectType = 0x030e
             };
 
@@ -429,7 +430,6 @@ namespace SGB.GameServer.Core.IO
 
             IOHelper.CreateSuccess(Session, 0, go.Id);
 
-            Session.Stop();
             IsReady = true;
         }
 
@@ -505,7 +505,7 @@ namespace SGB.GameServer.Core.IO
             //DoUpdate = false;
         }
 
-        private bool DoUpdate =true;
+        private bool DoUpdate = true;
 
         public void NewState(double dt)
         {

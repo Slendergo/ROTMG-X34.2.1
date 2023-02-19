@@ -1,4 +1,6 @@
 ﻿using SGB.GameServer.Core.Game.Instancing;
+using SGB.GameServer.Resources;
+using SGB.Shared;
 using System.Collections.Generic;
 using System.Threading;
 
@@ -25,11 +27,16 @@ namespace SGB.GameServer.Core.Game
 
         public static GameWorld CreateNewWorld(Instance instance, string dungeonName, int? gameId = null)
         {
+            using var t = new TimedProfiler($"CreateNewWorld: {dungeonName}");
+
             // todo load map n shit
+            var xmlDungeon = GameLibrary.XMLDungeonFromId(dungeonName);
+            if (xmlDungeon == null)
+                return null;
 
             var gameWorld = new GameWorld(instance, gameId ?? GetNextWorldId());
-            gameWorld.Initialize(64, 64, dungeonName);
-            lock (GameWorlds)
+            gameWorld.Initialize(xmlDungeon);
+            lock(GameWorlds)
             {
                 GameWorlds.Add(gameWorld.GameId, gameWorld);
             }

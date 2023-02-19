@@ -1,4 +1,7 @@
 ﻿using SGB.GameServer.Core.Game.Instancing;
+using SGB.GameServer.Core.IO;
+using SGB.GameServer.Resources;
+using SGB.GameServer.Resources.Properties;
 using System.Collections.Generic;
 
 namespace SGB.GameServer.Core.Game
@@ -24,22 +27,28 @@ namespace SGB.GameServer.Core.Game
             GameId = gameId;
         }
 
-        public void Initialize(int width, int height, string name)
+        public void Initialize(XMLDungeon xmlDungeon)
         {
-            Width = width;
-            Height = height;
-            Name = name;
+            Width = xmlDungeon.Width;
+            Height = xmlDungeon.Height;
+            Name = xmlDungeon.DisplayId;
+            Tiles = new Tile[Width, Height];
 
-            Tiles = new Tile[width, height];
-
-            for (var x = 0; x < width; x++)
-                for (var y = 0; y < height; y++)
+            var defaultType = GameLibrary.GroundTypeFromId(xmlDungeon.DefaultTile);
+            for (var x = 0; x < Width; x++)
+                for (var y = 0; y < Height; y++)
                     Tiles[x, y] = new Tile()
                     {
-                        Type = 0x36,
+                        Type = defaultType,
                         X = x,
                         Y = y
                     };
+        }
+
+        private List<Session> Sessions = new List<Session>();
+        public void AddSession(Session session)
+        {
+            Sessions.Add(session);
         }
 
         public void AddObject(GameObject gameObject)
@@ -50,6 +59,15 @@ namespace SGB.GameServer.Core.Game
 
         public bool Update(double dt)
         {
+            foreach(var s in Sessions)
+            {
+                if (!s.StateManager.IsReady)
+                    continue;
+
+                s.StateManager.UpdateState.HandleUpdate();
+                s.StateManager.UpdateState.NewState(dt);
+            }
+
             UpdateGameWorldsInternal(dt);
             return UpdateInternal(dt);
         }

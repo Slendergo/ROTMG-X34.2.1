@@ -14,9 +14,9 @@ namespace SGB.GameServer.Core
         {
             SessionListener = new SessionListener(this, configurationData);
 
-            InstanceManager.SpinNewInstance(InstanceType.Nexus, 5, -2);
-            for(var i = 0; i < configurationData.RealmConfiguration.StartingRealms; i++)
-                InstanceManager.SpinNewInstance(InstanceType.Realm, 5);
+            InstanceManager.SpinNewInstance(InstanceType.Nexus, 5);
+            //for(var i = 0; i < configurationData.RealmConfiguration.StartingRealms; i++)
+            //    InstanceManager.SpinNewInstance(InstanceType.Realm, 5);
         }
 
         public void Run()

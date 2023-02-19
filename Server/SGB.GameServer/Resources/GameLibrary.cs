@@ -5,21 +5,21 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SGB.GameServer.Resources
 {
     public static class GameLibrary
     {
-        private static readonly Dictionary<int, XMLGround> Grounds = new Dictionary<int, XMLGround>();
+        private static readonly Dictionary<int, XMLGround> XMLGrounds = new Dictionary<int, XMLGround>();
         private static readonly Dictionary<string, int> IdToGroundType = new Dictionary<string, int>(StringComparer.InvariantCultureIgnoreCase);
         private static readonly Dictionary<int, string> GroundTypeToId = new Dictionary<int, string>();
                         
-        private static readonly Dictionary<int, XMLObject> Objects = new Dictionary<int, XMLObject>();
+        private static readonly Dictionary<int, XMLObject> XMLObjects = new Dictionary<int, XMLObject>();
         private static readonly Dictionary<string, int> IdToObjectType = new Dictionary<string, int>(StringComparer.InvariantCultureIgnoreCase);
         private static readonly Dictionary<int, string> ObjectTypeToId = new Dictionary<int, string>();
-
         private static readonly Dictionary<string, List<int>> Groups = new Dictionary<string, List<int>>();
+
+        private static readonly Dictionary<string, XMLDungeon> XMLDungeons = new Dictionary<string, XMLDungeon>();
 
         public static bool LoadFromFile(string path)
         {
@@ -36,7 +36,7 @@ namespace SGB.GameServer.Resources
                     foreach (var elem in rootElem.Elements("Ground"))
                     {
                         var xmlGround = new XMLGround(elem);
-                        Grounds[xmlGround.Type] = xmlGround;
+                        XMLGrounds[xmlGround.Type] = xmlGround;
                         IdToGroundType[xmlGround.IdName] = xmlGround.Type;
                         GroundTypeToId[xmlGround.Type] = xmlGround.IdName;
                     }
@@ -44,7 +44,7 @@ namespace SGB.GameServer.Resources
                     foreach (var elem in rootElem.Elements("Object"))
                     {
                         var xmlObject = new XMLObject(elem);
-                        Objects[xmlObject.Type] = xmlObject;
+                        XMLObjects[xmlObject.Type] = xmlObject;
                         IdToObjectType[xmlObject.IdName] = xmlObject.Type;
                         ObjectTypeToId[xmlObject.Type] = xmlObject.IdName;
 
@@ -56,7 +56,12 @@ namespace SGB.GameServer.Resources
                         }
                     }
 
-                    // todo dungeons
+                    foreach (var elem in rootElem.Elements("Dungeon"))
+                    {
+                        var xmlDungeon = new XMLDungeon(elem);
+                        XMLDungeons[xmlDungeon.IdName] = xmlDungeon;
+                    }
+
                     // todo regions
                     // todo stringlists
                     // todo languages
@@ -80,7 +85,7 @@ namespace SGB.GameServer.Resources
                 for (var j = lastAddedValue + 1; j < int.MaxValue; j++)
                 {
                     var hex = $"0x{j:X}";
-                    if (Objects.ContainsKey(j))
+                    if (XMLObjects.ContainsKey(j))
                         continue;
                     list.Add(j, hex);
                     lastAddedValue = j;
@@ -98,7 +103,7 @@ namespace SGB.GameServer.Resources
                 for (var j = lastAddedValue + 1; j < int.MaxValue; j++)
                 {
                     var hex = $"0x{j:X}";
-                    if (Grounds.ContainsKey(j))
+                    if (XMLGrounds.ContainsKey(j))
                         continue;
                     list.Add(j, hex);
                     lastAddedValue = j;
@@ -107,11 +112,13 @@ namespace SGB.GameServer.Resources
             return list.Values.ToList();
         }
 
-        public static XMLObject XMLObjectFromType(int type) => Objects.TryGetValue(type, out var obj) ? obj : null;
-        public static XMLObject XMLObjectFromId(string id) => Objects.TryGetValue(ObjectTypeFromId(id), out var obj) ? obj : null;
+        public static XMLDungeon XMLDungeonFromId(string id) => XMLDungeons.TryGetValue(id, out var ret) ? ret : null;
 
-        public static XMLGround XMLGroundFromType(int type) => Grounds.TryGetValue(type, out var obj) ? obj : null;
-        public static XMLGround XMLGroundFromId(string id) => Grounds.TryGetValue(GroundTypeFromId(id), out var obj) ? obj : null;
+        public static XMLObject XMLObjectFromType(int type) => XMLObjects.TryGetValue(type, out var ret) ? ret : null;
+        public static XMLObject XMLObjectFromId(string id) => XMLObjects.TryGetValue(ObjectTypeFromId(id), out var ret) ? ret : null;
+
+        public static XMLGround XMLGroundFromType(int type) => XMLGrounds.TryGetValue(type, out var ret) ? ret : null;
+        public static XMLGround XMLGroundFromId(string id) => XMLGrounds.TryGetValue(GroundTypeFromId(id), out var ret) ? ret : null;
 
         public static int ObjectTypeFromId(string id) => IdToObjectType.TryGetValue(id, out var ret) ? ret : -1;
         public static string IdFromObjectType(int type) => ObjectTypeToId.TryGetValue(type, out var ret) ? ret : string.Empty;

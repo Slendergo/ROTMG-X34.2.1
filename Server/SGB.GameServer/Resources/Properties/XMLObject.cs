@@ -1,15 +1,19 @@
-﻿using SGB.Shared;
+﻿using Org.BouncyCastle.Asn1.Pkcs;
+using Org.BouncyCastle.Ocsp;
+using SGB.Shared;
 using StackExchange.Redis;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Xml.Linq;
 
 namespace SGB.GameServer.Resources.Properties
 {
-    public class XMLObject
+    public sealed class XMLObject
     {
-        public int Type;
-        public string IdName;
+        public readonly int Type;
+        public readonly string IdName;
         public readonly int SetType;
         public readonly string SetName;
         public readonly string DisplayId;
