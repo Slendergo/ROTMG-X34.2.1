@@ -1452,7 +1452,7 @@ import kabam.lib.net.api.MessageProvider;
             var statuses_ = new Vector.<ObjectStatusData>();
 
             var i:int = 0;
-            var len:int = CompressedInt.Read(_arg1);
+            var len:int = _arg1.readShort();
             while (i < len) {
                 statuses_[i] = new ObjectStatusData();
                 statuses_[i].parseFromInput(_arg1);
@@ -2206,9 +2206,7 @@ import kabam.lib.net.api.MessageProvider;
             var height = _arg1.readInt();
             var name = _arg1.readUTF();
             var displayName = _arg1.readUTF();
-            var realmName = _arg1.readUTF();
             var fp = _arg1.readUnsignedInt();
-            var background = _arg1.readInt();
             var difficulty = _arg1.readInt();
             var allowPlayerTeleport = _arg1.readBoolean();
             var showDisplays = _arg1.readBoolean();
@@ -2218,7 +2216,7 @@ import kabam.lib.net.api.MessageProvider;
 
             changeMapSignal.dispatch();
             this.closeDialogs.dispatch();
-            gs_.applyMapInfo(width, height, name, displayName, realmName, background, difficulty, allowPlayerTeleport, showDisplays);
+            gs_.applyMapInfo(width, height, name, displayName, difficulty, allowPlayerTeleport, showDisplays);
             this.rand_ = new Random(fp);
             if (createCharacter_){
                 this.create();

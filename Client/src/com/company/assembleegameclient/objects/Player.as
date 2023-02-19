@@ -108,7 +108,7 @@ package com.company.assembleegameclient.objects{
         public var nextLevelExp_:int = 1000;
         public var exp_:int = 0;
         public var attack_:int = 0;
-        public var speed_:int = 0;
+        public var speed_:int = 100;
         public var dexterity_:int = 0;
         public var vitality_:int = 0;
         public var wisdom_:int = 0;

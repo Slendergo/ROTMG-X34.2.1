@@ -166,7 +166,7 @@ import org.osflash.signals.Signal;
                 try {
                     var messageId:uint = socket.readUnsignedByte();
                     if (gsc_.handleMessage(messageId, socket)) {
-                        return;
+                        continue;
                     }
 
                     var message:Message = messages.require(messageId);

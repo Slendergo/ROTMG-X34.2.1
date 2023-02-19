@@ -42,7 +42,7 @@ package com.company.assembleegameclient.game{
         public function setFocus(_arg1:GameObject):void{
         }
 
-        public function applyMapInfo(width:int, height:int, name:String, displayName:String, realmName:String, background:int, difficulty:int, allowPlayerTeleport:Boolean, showDisplays:Boolean):void{
+        public function applyMapInfo(width:int, height:int, name:String, displayName:String, difficulty:int, allowPlayerTeleport:Boolean, showDisplays:Boolean):void{
         }
 
         public function evalIsNotInCombatMapArea():Boolean{

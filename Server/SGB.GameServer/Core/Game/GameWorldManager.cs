@@ -11,8 +11,6 @@ namespace SGB.GameServer.Core.Game
         private static int NextWorldId = -1;
         private static readonly Dictionary<int, GameWorld> GameWorlds = new Dictionary<int, GameWorld>();
 
-        static GameWorldManager() { }
-
         public static int GetNextWorldId() => Interlocked.Increment(ref NextWorldId);
 
         public static GameWorld FindWorld(int gameId)

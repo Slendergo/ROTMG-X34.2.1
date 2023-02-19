@@ -44,14 +44,17 @@ namespace SGB.GameServer.Core.Game.Instancing
                     {
                         var ddt = dt * 0.001;
                         if (!TopLevelGameWorld.Update(dt))
+                        {
+                            GameWorldManager.RemoveWorld(TopLevelGameWorld);
                             break;
+                        }
                         last = now;
                     }
 
                     spinWait.SpinOnce();
                 }
 
-                Logger.LogDebug($"Instance has stopped: {TopLevelGameWorld.Name}");
+                Logger.LogDebug($"Instance has stopped: {InstanceType}");
             }, TaskCreationOptions.LongRunning);
         }
 
@@ -69,15 +72,17 @@ namespace SGB.GameServer.Core.Game.Instancing
                     {
                         var ddt = dt * 0.001;
                         if (!TopLevelGameWorld.Update(dt))
+                        {
+                            GameWorldManager.RemoveWorld(TopLevelGameWorld);
                             break;
-
+                        }
                         last = now;
                     }
 
                     _ = Thread.Yield();
                 }
 
-                Console.WriteLine($"Instance has stopped: {TopLevelGameWorld.Name}");
+                Console.WriteLine($"Instance has stopped: {InstanceType}");
             }, TaskCreationOptions.LongRunning);
         }
 

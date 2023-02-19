@@ -1,7 +1,7 @@
 ﻿using SGB.Shared;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
 using System.Xml.Linq;
 
 namespace SGB.GameServer.Resources.Properties
@@ -15,6 +15,12 @@ namespace SGB.GameServer.Resources.Properties
 
     public sealed class XMLDungeon
     {
+        public const string ROOM_TYPE_START = "start";
+        public const string ROOM_TYPE_DEFAULT = "default";
+        public const string ROOM_TYPE_BRANCH = "branch";
+        public const string ROOM_TYPE_BRANCH_END = "branchEnd";
+        public const string ROOM_TYPE_END = "end";
+
         public readonly string IdName;
         public readonly string DisplayId;
         public readonly int Width;
@@ -29,7 +35,7 @@ namespace SGB.GameServer.Resources.Properties
         public readonly int Difficulty;
         public readonly List<XMLGlobalReplaceTile> GlobalReplaceTiles;
         public readonly List<XMLGlobalPlaceObject> GlobalPlaceObjects;
-        public readonly int PlayerLimit;
+        public readonly short PlayerLimit;
         public readonly Dictionary<string, List<XMLRoom>> Rooms;
         public readonly List<XMLWallObject> WallObjs;
         public readonly string WallTile;
@@ -72,7 +78,7 @@ namespace SGB.GameServer.Resources.Properties
         public XMLDungeon(XElement elem)
         {
             IdName = elem.StringAttribute("id");
-            DisplayId = elem.StringElement("DisplayId");
+            DisplayId = elem.StringElement("DisplayId", IdName);
             Width = elem.IntElement("Width");
             Height = elem.IntElement("Height");
             DefaultTile = elem.StringElement("DefaultTile", "Empty");
@@ -85,7 +91,7 @@ namespace SGB.GameServer.Resources.Properties
             Difficulty = elem.IntElement("Difficulty");
             GlobalReplaceTiles = elem.Elements("GlobalReplaceTile").Select(_ => new XMLGlobalReplaceTile(_)).ToList();
             GlobalPlaceObjects = elem.Elements("GlobalPlaceObjects").Select(_ => new XMLGlobalPlaceObject(_)).ToList();
-            PlayerLimit = elem.IntElement("PlayerLimit", 65);
+            PlayerLimit = elem.ShortElement("PlayerLimit", 65);
 
             Rooms = new Dictionary<string, List<XMLRoom>>();
             foreach (var roomElem in elem.Elements("Room"))
@@ -181,13 +187,24 @@ namespace SGB.GameServer.Resources.Properties
                 Max = elem.IntAttribute("maxNum", 1);
                 Enemy = elem.Value;
                 GroundRestriction = elem.StringAttribute("ground");
-                RoomEnemyPosition = (RoomEnemyPosition)Enum.Parse(typeof(RoomEnemyPosition), elem.StringAttribute("position", "none"), true);
+                RoomEnemyPosition = (RoomEnemyPosition)Enum.Parse(typeof(RoomEnemyPosition), elem.StringAttribute("position", "None"), true);
             }
+        }
+
+        public enum GlobalFuncEnum
+        {
+            None,
+            RandomLinesX,
+            RandomLinesY,
+            PerlinProb,
+            AroundSpawn,
+            PerlinMod,
+            CGNoise
         }
 
         public class XMLGlobalReplaceTile
         {
-            public readonly string Func;
+            public readonly GlobalFuncEnum Func;
             public readonly double Dx;
             public readonly double Dy;
             public readonly double Mult;
@@ -196,7 +213,7 @@ namespace SGB.GameServer.Resources.Properties
 
             public XMLGlobalReplaceTile(XElement elem)
             {
-                Func = elem.StringAttribute("func");
+                Func = (GlobalFuncEnum)Enum.Parse(typeof(GlobalFuncEnum), elem.StringAttribute("func", "None"), true);
                 Dx = elem.DoubleAttribute("dx");
                 Dy = elem.DoubleAttribute("dy");
                 Mult = elem.DoubleAttribute("mult");
@@ -204,9 +221,10 @@ namespace SGB.GameServer.Resources.Properties
                 GroundReplacement = elem.Value;
             }
         }
+
         public class XMLGlobalPlaceObject
         {
-            public readonly string Func;
+            public readonly GlobalFuncEnum Func;
             public readonly double Dx;
             public readonly double Dy;
             public readonly double Mult;
@@ -215,7 +233,7 @@ namespace SGB.GameServer.Resources.Properties
 
             public XMLGlobalPlaceObject(XElement elem)
             {
-                Func = elem.StringAttribute("func");
+                Func = (GlobalFuncEnum)Enum.Parse(typeof(GlobalFuncEnum), elem.StringAttribute("func", "None"), true);
                 Dx = elem.DoubleAttribute("dx");
                 Dy = elem.DoubleAttribute("dy");
                 Mult = elem.DoubleAttribute("mult");

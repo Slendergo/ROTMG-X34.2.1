@@ -44,6 +44,8 @@ namespace SGB.GameServer.Utils
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.BackgroundColor = ConsoleColor.DarkYellow;
                 Log("Warning", text, args);
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.Black;
             }
         }
 
@@ -54,6 +56,8 @@ namespace SGB.GameServer.Utils
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.BackgroundColor = ConsoleColor.DarkRed;
                 Log("Error", text, args);
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.Black;
             }
         }
 
@@ -65,6 +69,8 @@ namespace SGB.GameServer.Utils
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.BackgroundColor = ConsoleColor.Magenta;
                 Log("Debug", text, args);
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.Black;
             }
 #endif
         }
@@ -78,8 +84,6 @@ namespace SGB.GameServer.Utils
 #else
                 Console.WriteLine($"[{prefix}] @{DateTime.Now:HH:mm:ss} {text}", args);
 #endif
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.BackgroundColor = ConsoleColor.Black;
             }
         }
     }

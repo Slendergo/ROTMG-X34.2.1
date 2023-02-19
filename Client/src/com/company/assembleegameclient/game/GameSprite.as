@@ -185,8 +185,8 @@ package com.company.assembleegameclient.game{
         }
 
 
-        override public function applyMapInfo(width:int, height:int, name:String, displayName:String, realmName:String, background:int, difficulty:int, allowPlayerTeleport:Boolean, showDisplays:Boolean):void{
-            map.setProps(width, height, name, background, allowPlayerTeleport, showDisplays);
+        override public function applyMapInfo(width:int, height:int, name:String, displayName:String, difficulty:int, allowPlayerTeleport:Boolean, showDisplays:Boolean):void{
+            map.setProps(width, height, name, 0, allowPlayerTeleport, showDisplays);
             var _local2:MapLoadedSignal = StaticInjectorContext.getInjector().getInstance(MapLoadedSignal);
             ((_local2) && (_local2.dispatch(displayName, difficulty)));
         }

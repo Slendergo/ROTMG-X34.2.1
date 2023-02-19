@@ -1,10 +1,13 @@
-﻿using SGB.GameServer.Core.Game;
+﻿using Microsoft.VisualBasic;
+using SGB.GameServer.Core.Game;
 using SGB.GameServer.Utils;
 using SGB.Shared;
 using SGB.Shared.Database;
 using SGB.Shared.Database.Models;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Net.Sockets;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -114,6 +117,7 @@ namespace SGB.GameServer.Core.IO
         public const int REALM_HERO_LEFT_MSG = 84;
         public const int RESET_DAILY_QUESTS = 52;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void MapInfo(Session session, GameWorld gameWorld)
         {
             var offset = 0;
@@ -121,20 +125,19 @@ namespace SGB.GameServer.Core.IO
             WriteInt8(ref offset, ref spanReference, MAPINFO);
             WriteInt32(ref offset, ref spanReference, gameWorld.Width);
             WriteInt32(ref offset, ref spanReference, gameWorld.Height);
-            WriteUTF16(ref offset, ref spanReference, gameWorld.Name);
-            WriteUTF16(ref offset, ref spanReference, gameWorld.Name);
-            WriteUTF16(ref offset, ref spanReference, gameWorld.Name);
-            WriteInt32(ref offset, ref spanReference, 0);
-            WriteInt32(ref offset, ref spanReference, 0);
-            WriteInt32(ref offset, ref spanReference, 0);
-            WriteBoolean(ref offset, ref spanReference, false);
-            WriteBoolean(ref offset, ref spanReference, false);
-            WriteInt16(ref offset, ref spanReference, 0);
+            WriteUTF16(ref offset, ref spanReference, gameWorld.IdName);
+            WriteUTF16(ref offset, ref spanReference, gameWorld.DisplayName);
+            WriteInt32(ref offset, ref spanReference, gameWorld.Seed); // seed
+            WriteInt32(ref offset, ref spanReference, gameWorld.Difficulty);
+            WriteBoolean(ref offset, ref spanReference, gameWorld.AllowPlayerTeleport);
+            WriteBoolean(ref offset, ref spanReference, gameWorld.ShowDisplays);
+            WriteInt16(ref offset, ref spanReference, gameWorld.MaxPlayers);
             WriteUTF16(ref offset, ref spanReference, "");
             WriteInt32(ref offset, ref spanReference, 0);
             session.Send(offset);
         }
-
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void CreateSuccess(Session session, int characterId, int objectId)
         {
             var offset = 0;
@@ -145,6 +148,7 @@ namespace SGB.GameServer.Core.IO
             session.Send(offset);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Update(Session session, List<Tile> tiles, List<GameObject> newObjs, List<int> drops)
         {
             var offset = 0;
@@ -175,10 +179,30 @@ namespace SGB.GameServer.Core.IO
             session.Send(offset);
         }
 
-        public static void NewTick(Session session)
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void NewTick(Session session, int tickId, int tickTime, List<GameObject> statuses)
         {
-            //var outgoingPayload = new OutgoingPayload(NEWTICK);
-            //session.IOManager.Send(outgoingPayload.GetBuffer());
+            var offset = 0;
+            ref var spanReference = ref MemoryMarshal.GetReference(session.SendMemory.Span);
+            WriteInt8(ref offset, ref spanReference, NEWTICK);
+
+            WriteInt32(ref offset, ref spanReference, tickId);
+            WriteInt32(ref offset, ref spanReference, tickTime);
+
+            WriteInt32(ref offset, ref spanReference, 0);
+            WriteInt16(ref offset, ref spanReference, 0);
+
+            WriteInt16(ref offset, ref spanReference, statuses.Count);
+            foreach(var status in statuses)
+            {
+                WriteInt32(ref offset, ref spanReference, status.Id);
+                WriteFloat(ref offset, ref spanReference, status.X);
+                WriteFloat(ref offset, ref spanReference, status.Y);
+                
+                // stats
+                WriteInt16(ref offset, ref spanReference, 0);
+            }
+            session.Send(offset);
         }
 
         public static readonly int RECEIVE_BUFFER_SIZE = 0x1000; // 4096
@@ -298,9 +322,8 @@ namespace SGB.GameServer.Core.IO
 
         public void HandleIncoming(ref IncomingPayload payload)
         {
-            var id = payload.ReadByte();
-            Console.WriteLine("Handle: " + id);
-            switch (id)
+            var messageId = payload.ReadByte();
+            switch (messageId)
             {
                 case IOHelper.HELLO:
                     HandleHello(ref payload);
@@ -318,8 +341,12 @@ namespace SGB.GameServer.Core.IO
                     UpdateState.UpdateAck();
                     break;
 
+                case IOHelper.MOVE:
+                    HandleMove(ref payload);
+                    break;
+
                 default:
-                    Logger.LogDebug($"Unknown Payload Id: {id}");
+                    Logger.LogDebug($"Unknown MessageId: {messageId}");
                     break;
             }
         }
@@ -383,19 +410,10 @@ namespace SGB.GameServer.Core.IO
 
             CharacterModel = characterModel;
 
-            var go = new GameObject()
-            {
-                X = GameWorld.Width / 2,
-                Y = GameWorld.Height / 2,
-                ObjectType = 0x030e
-            };
-
-            GameWorld.AddObject(go);
-
-            GameObject = go;
+            GameObject = GameWorld.CreateNewObject("Wizard", GameWorld.Width / 2, GameWorld.Height / 2);
             CharacterId = 0;
 
-            IOHelper.CreateSuccess(Session, 0, go.Id);
+            IOHelper.CreateSuccess(Session, 0, GameObject.Id);
 
             IsReady = true;
         }
@@ -416,21 +434,32 @@ namespace SGB.GameServer.Core.IO
 
             CharacterModel = characterModel;
 
-            var go = new GameObject()
-            {
-                X = GameWorld.Width / 2,
-                Y = GameWorld.Height / 2,
-                ObjectType = 0x030e
-            };
-
-            GameWorld.AddObject(go);
-
-            GameObject = go;
+            GameObject = GameWorld.CreateNewObject("Wizard", GameWorld.Width / 2, GameWorld.Height / 2);
             CharacterId = 0;
 
-            IOHelper.CreateSuccess(Session, 0, go.Id);
+            IOHelper.CreateSuccess(Session, 0, GameObject.Id);
 
             IsReady = true;
+        }
+
+        private void HandleMove(ref IncomingPayload incomingPayload)
+        {
+            var tickId = incomingPayload.ReadInt32();
+            var tickTime = incomingPayload.ReadInt32();
+            var serverRealTimeMSofLastNewTick = incomingPayload.ReadInt32();
+            var newPositionX = incomingPayload.ReadFloat();
+            var newPositionY = incomingPayload.ReadFloat();
+            var len = incomingPayload.ReadInt16();
+            //var _local2:int;
+            //while (_local2 < this.records_.length)
+            //{
+            //    this.records_[_local2].writeToOutput(_arg1);
+            //    _local2++;
+            //}
+
+            GameObject.X = newPositionX;
+            GameObject.Y = newPositionY;
+            UpdateState.DoUpdate = true;
         }
 
         private void EnterGame() 
@@ -467,6 +496,18 @@ namespace SGB.GameServer.Core.IO
             PendingVisibleObjects.Add(gameObject.Id, gameObject);
         }
 
+        public int TickId { get; private set; }
+
+        public bool DoUpdate { get; set; } = true;
+
+        public void NewState(double dt)
+        {
+            TickId++;
+
+            HandleUpdate();
+            IOHelper.NewTick(StateManager.Session, TickId, (int)(dt * 1000.0), new List<GameObject>() { StateManager.GameObject });
+        }
+
         public void UpdateAck()
         {
             foreach (var obj in PendingVisibleObjects.Values)
@@ -482,7 +523,7 @@ namespace SGB.GameServer.Core.IO
             PendingDroppedObjects.Clear();
         }
 
-        public void HandleUpdate()
+        private void HandleUpdate()
         {
             // update packet for player
             if (!DoUpdate)
@@ -502,15 +543,7 @@ namespace SGB.GameServer.Core.IO
                 newObjs.Add(StateManager.GameObject);
 
             IOHelper.Update(StateManager.Session, tiles, newObjs, new List<int>());
-            //DoUpdate = false;
-        }
-
-        private bool DoUpdate = true;
-
-        public void NewState(double dt)
-        {
-            HandleUpdate();
-            IOHelper.NewTick(StateManager.Session);
+            DoUpdate = false;
         }
     }
 
@@ -540,6 +573,7 @@ namespace SGB.GameServer.Core.IO
 
         public bool Disconnected { get; private set; }
 
+
         public async void Start()
         {
             try
@@ -554,16 +588,24 @@ namespace SGB.GameServer.Core.IO
                         break;
                     }
 
-                    TimedProfiler.Time("Handle", () =>
+                    var position = 0;
+                    while (position < length)
                     {
-                        var position = 0;
-                        while (position < length)
-                        {
-                            var payload = new IncomingPayload(ReceiveMemory, position);
-                            StateManager.HandleIncoming(ref payload);
-                            position += payload.Position;
-                        }
-                    });
+                        var payload = new IncomingPayload(ReceiveMemory, position);
+                        StateManager.HandleIncoming(ref payload);
+                        position += length; // payload.Position
+                    }
+
+                    //TimedProfiler.Time("Handle", () =>
+                    //{
+                    //    var position = 0;
+                    //    while (position < length)
+                    //    {
+                    //        var payload = new IncomingPayload(ReceiveMemory, position);
+                    //        StateManager.HandleIncoming(ref payload);
+                    //        position += length; // payload.Position
+                    //    }
+                    //});
                 }
             }
             catch (SocketException e)

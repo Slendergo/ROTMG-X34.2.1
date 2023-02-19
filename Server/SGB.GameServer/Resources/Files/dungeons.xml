@@ -1,7 +1,7 @@
 ﻿<Dungeons>
 	<Dungeon id="Nexus">
-		<Width>128</Width>
-		<Height>128</Height>
+		<Width>256</Width>
+		<Height>256</Height>
 		<Background>2</Background>
 		<DefaultTile>Red Quad</DefaultTile>
 		<CenterStartRoom/>
