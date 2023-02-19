@@ -9,7 +9,8 @@ This repository is a fresh base for people to start with, i have only made a few
 - Changed the assets to include xml, images and model folders
 - Changed the way embedding assets works, no longer using many .as files and embedding in EmbeddedData.as and AssetLoader.as
 
-# Client TODO
+# Frontend TODO
+
 - [x] Fix graphics data
 - [ ] Fix missing assets
 - [ ] Remove Steam, Kongregate and Kabam account support
@@ -34,10 +35,34 @@ This repository is a fresh base for people to start with, i have only made a few
 - [ ] XML Behavior management tool???
 
 ## API
-- [ ] Create a bare minimum Server Side API using ASP.NET
+- [x] Create a bare minimum Server Side API using ASP.NET
 
 ## GameServer
-- [ ] Create a bare minimum GameServer
+- [x] Resource Loading
+- [x] Configuration File
+- [x] Logging
+- [ ] Streamable File Logging
+- [ ] Instances
+- [ ] Worlds
+- [ ] Map Loading
+- [ ] XML Behaviors
+- [ ] XML Activate Effects
+- [ ] Sessions
+- [ ] Session State Manager
+- [ ] Game Objects
+- [ ] Merchants
+- [ ] Skins
+- [ ] Pets
+- [ ] Vaults
+- [ ] Guilds
+- [ ] Arena
+- [ ] Realm
+- [ ] Realm Heros
+- [ ] Realm Encounters
+- [ ] Interop/IPC
+- [ ] Fame/Gold Transactions
+- [ ] Automatic restarting
+- [ ] Automatic Announcements
 
 # Requirements
 - Visual Studio 2021
