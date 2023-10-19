@@ -9,18 +9,18 @@ namespace SGB.API
 {
     public sealed class CoreService 
     {
-        private readonly IWebHostEnvironment WebHostingEnvronment;
+        private readonly IWebHostEnvironment WebHostingEnvironment;
 
         public string ResourcePath { get; private set; }
 
-        public CoreService(IConfiguration configuration, IWebHostEnvironment webHostingEnvronment)
+        public CoreService(IConfiguration configuration, IWebHostEnvironment webHostingEnvironment)
         {
-            WebHostingEnvronment = webHostingEnvronment;
+            WebHostingEnvironment = webHostingEnvironment;
 
-            var applicationName = WebHostingEnvronment.ApplicationName;
-            var fileProvider = WebHostingEnvronment.ContentRootFileProvider;
-            var wwwPath = WebHostingEnvronment.WebRootPath;
-            var contentPath = WebHostingEnvronment.ContentRootPath;
+            var applicationName = WebHostingEnvironment.ApplicationName;
+            var fileProvider = WebHostingEnvironment.ContentRootFileProvider;
+            var wwwPath = WebHostingEnvironment.WebRootPath;
+            var contentPath = WebHostingEnvironment.ContentRootPath;
 
             var databaseIndex = Convert.ToInt32(configuration.GetConnectionString("index"));
             var host = configuration.GetConnectionString("host");
