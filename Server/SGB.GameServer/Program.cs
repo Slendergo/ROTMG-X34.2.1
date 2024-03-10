@@ -1,5 +1,4 @@
 ﻿using SGB.GameServer.Core;
-using SGB.GameServer.Debug;
 using SGB.GameServer.Resources;
 using SGB.GameServer.Utils;
 using SGB.Shared.Database;
